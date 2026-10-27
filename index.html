@@ -354,6 +354,8 @@ mark.vocab { background: var(--mark); color: inherit; padding: 0 2px; border-rad
 .novel-text { font-size: 1.12rem; line-height: 1.8; max-width: 68ch; padding: var(--space-4); background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); font-family: Georgia, "Times New Roman", serif; overflow-wrap: anywhere; }
 .novel-text p { margin: 0 0 var(--space-3); text-indent: 1.4em; }
 .novel-text p.cont { text-indent: 0; }
+.novel-text .novel-chapter { margin: var(--space-3) 0 var(--space-4); font-size: 1.35em; text-align: center; letter-spacing: .02em; }
+.novel-text .novel-chapter.is-reading { background: var(--primary-soft); border-radius: 4px; }
 .novel-text .nw { cursor: pointer; border-radius: 3px; -webkit-tap-highlight-color: transparent; }
 .novel-text .nw:hover { background: var(--primary-soft); }
 .novel-text .nw.is-on { background: var(--focus); color: #111; }
@@ -4151,7 +4153,7 @@ const Novel = {
     const book = await BookStore.get();
     if (book && Array.isArray(book.pages) && !this.book) {
       const saved = this.readState();
-      this.setBook(book, saved && saved.name === book.name ? saved.page : this.firstPage(book.pages));
+      this.setBook(book, saved && saved.v === 2 && saved.name === book.name ? saved.page : 0);
       return;
     }
     const first = $('#novel-shelf [data-novel]');
@@ -4161,9 +4163,36 @@ const Novel = {
     if (Speech.hasTTS) Speech.speakNow(text);
     else Speech.speak(text);
   },
-  firstPage(pages) {
-    /* Start at chapter 1 when the book has one, otherwise at the first page. */
-    return Math.max(0, pages.findIndex(paragraphs => /^(chapter\s+)?(1|one)\.?$/i.test(paragraphs[0] || '')));
+  /* Keep only the story: from the chapter 1 heading to the end of the last
+     chapter. Praise, contents, copyright, excerpts of other books and "about
+     the author" pages are left out. A heading printed as a bare number
+     ("1") is shown as "Chapter 1". Returns the pages unchanged when the book
+     has no numbered chapters. */
+  storyPages(pages) {
+    const number = text => {
+      const match = text.replace(/^[\u2060\u2061]/, '').match(/^(?:chapter\s+)?(\d{1,3})\.?$/i);
+      return match ? Number(match[1]) : 0;
+    };
+    const starts = [];
+    pages.forEach((paragraphs, page) => {
+      /* A page listing several chapter numbers is the table of contents. */
+      if (paragraphs.filter(text => number(text)).length > 2) return;
+      paragraphs.forEach((text, index) => {
+        if (number(text) === starts.length + 1) starts.push({ page, index });
+      });
+    });
+    if (!starts.length) return pages;
+    const backMatter = /^\W*(you[’']?ll want to read more|turn the page|read an excerpt|an excerpt|excerpt from|about the author|acknowledg|also by|praise for|copyright|reader[’']?s guide|discussion questions|coming soon|look for)/i;
+    const first = starts[0], last = starts[starts.length - 1];
+    let end = pages.length;
+    for (let page = last.page + 1; page < pages.length; page++) {
+      if (backMatter.test(pages[page][0] || '')) { end = page; break; }
+    }
+    const story = pages.slice(first.page, end).map(paragraphs => paragraphs.slice());
+    story[0] = story[0].slice(first.index);
+    const headings = new Set(starts.map(start => start.page - first.page + ':' + (start.page === first.page ? start.index - first.index : start.index)));
+    return story.map((paragraphs, page) => paragraphs.map((text, index) =>
+      headings.has(page + ':' + index) ? '\u2061Chapter ' + number(text) : text));
   },
   async openUrl(url) {
     if (location.protocol === 'file:') { this.status(t('novel.fileHint')); return; }
@@ -4177,7 +4206,7 @@ const Novel = {
     }
   },
   readState() { try { return JSON.parse(Store.read(this.KEY) || 'null'); } catch (_) { return null; } },
-  saveState() { if (this.book) Store.write(this.KEY, JSON.stringify({ name: this.book.name, page: this.page, size: this.size, auto: $('#novel-auto').checked })); },
+  saveState() { if (this.book) Store.write(this.KEY, JSON.stringify({ v: 2, name: this.book.name, page: this.page, size: this.size, auto: $('#novel-auto').checked })); },
   status(text) { $('#novel-status').textContent = text; },
   async loadPdfjs() {
     if (window.pdfjsLib) return window.pdfjsLib;
@@ -4212,8 +4241,8 @@ const Novel = {
     const book = { name, pages };
     const stored = await BookStore.put(book);
     const saved = this.readState();
-    this.setBook(book, saved && saved.name === name ? saved.page : this.firstPage(pages));
-    this.status(t(stored ? 'novel.ready' : 'novel.readyNoStore', { n: pages.length }));
+    this.setBook(book, saved && saved.v === 2 && saved.name === name ? saved.page : 0);
+    this.status(t(stored ? 'novel.ready' : 'novel.readyNoStore', { n: this.book.pages.length }));
   },
   /* Some PDFs give no character for a ligature glyph (pdf.js returns \u0000).
      Pick the ligature that makes a dictionary word: "\u0000rst" -> "first". */
@@ -4264,7 +4293,8 @@ const Novel = {
   },
   setBook(book, page) {
     this.stopReading();
-    this.book = book;
+    this.book = { name: book.name, pages: this.storyPages(book.pages) };
+    book = this.book;
     for (const button of $$('#novel-shelf [data-novel]')) button.setAttribute('aria-pressed', String(button.dataset.novel === book.name));
     $('#novel-reader').hidden = false;
     $('#novel-total').textContent = book.pages.length;
@@ -4299,7 +4329,7 @@ const Novel = {
   },
   startReading() {
     if (!Speech.hasTTS) { Toast.show(t('novel.noVoice')); return; }
-    const paragraphs = $$('#novel-text p:not(.novel-empty)');
+    const paragraphs = $$('#novel-text p:not(.novel-empty), #novel-text .novel-chapter');
     const queue = paragraphs.flatMap((node, index) => this.sentences(node.textContent).map(text => ({ index, text })));
     if (!queue.length) {
       if ($('#novel-auto').checked && this.page < this.book.pages.length - 1) { this.go(this.page + 1, true, true); this.startReading(); }
@@ -4321,7 +4351,7 @@ const Novel = {
       return;
     }
     const item = reading.queue[reading.at];
-    const paragraphs = $$('#novel-text p:not(.novel-empty)');
+    const paragraphs = $$('#novel-text p:not(.novel-empty), #novel-text .novel-chapter');
     for (const node of paragraphs) node.classList.toggle('is-reading', node === paragraphs[item.index]);
     const node = paragraphs[item.index];
     if (node) {
@@ -4360,8 +4390,8 @@ const Novel = {
   },
   paragraph(text) {
     const cont = text.startsWith('\u2060');
-    const node = h('p', { class: cont ? 'cont' : null });
-    for (const part of text.replace('\u2060', '').split(/([A-Za-z]+(?:['’][A-Za-z]+)*)/)) {
+    const node = text.startsWith('\u2061') ? h('h2', { class: 'novel-chapter' }) : h('p', { class: cont ? 'cont' : null });
+    for (const part of text.replace(/^[\u2060\u2061]/, '').split(/([A-Za-z]+(?:['’][A-Za-z]+)*)/)) {
       if (!part) continue;
       node.append(/^[A-Za-z]/.test(part) ? h('span', { class: 'nw', text: part }) : part);
     }
