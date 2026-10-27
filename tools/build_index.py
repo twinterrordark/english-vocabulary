@@ -26,7 +26,7 @@ SENTENCE_DIR = Path(__file__).resolve().parent / "sentences"
 HERE = Path(__file__).resolve().parent
 IMAGE_DIR = HERE / "images"
 OUTPUT = ROOT / "index.html"
-APP_VERSION = "2.3.0"
+APP_VERSION = "2.4.0"
 
 
 def plain_text(fragment: str) -> str:

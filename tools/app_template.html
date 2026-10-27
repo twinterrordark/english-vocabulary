@@ -1179,33 +1179,109 @@ function confirmDialog({ title, message, confirmLabel }) {
   });
 }
 
-/* ---------- 7f. Speech (optional, device-generated) ---------- */
+/* ---------- 7f. Speech (Real Human Voice + Online Natural + Device Fallback) ---------- */
 const Speech = (() => {
-  const supported = 'speechSynthesis' in window && typeof window.SpeechSynthesisUtterance === 'function';
+  const hasTTS = 'speechSynthesis' in window && typeof window.SpeechSynthesisUtterance === 'function';
+  const hasAudio = typeof window.Audio === 'function';
+  const supported = hasTTS || hasAudio;
   let voices = [];
   let stopCurrent = null;
+  let currentAudio = null;
+  const audioCache = new Map();
+
   function loadVoices() {
-    if (!supported) return;
+    if (!hasTTS) return;
     voices = window.speechSynthesis.getVoices().filter(v => /^en([-_]|$)/i.test(v.lang));
     Settings.renderVoices();
   }
-  /* The owner's onStop runs before cancel(), so a synchronous "end" event from
-     cancel() cannot continue a paragraph chain that is being stopped. */
+
+  function getBestVoice() {
+    if (!voices.length) return null;
+    const preferred = progress.settings.voice;
+    if (preferred) {
+      const v = voices.find(x => x.voiceURI === preferred);
+      if (v) return v;
+    }
+    const natural = voices.find(v => /(natural|neural|google|samantha|siri|premium|online)/i.test(v.name));
+    if (natural) return natural;
+    const us = voices.find(v => /^en[-_]us$/i.test(v.lang));
+    if (us) return us;
+    return voices[0];
+  }
+
   function stop() {
-    if (!supported) return;
+    if (currentAudio) {
+      try {
+        currentAudio.pause();
+        currentAudio.currentTime = 0;
+      } catch (_) {}
+      currentAudio = null;
+    }
     const callback = stopCurrent;
     stopCurrent = null;
     if (callback) callback();
-    window.speechSynthesis.cancel();
-    window.speechSynthesis.resume();
+    if (hasTTS) {
+      window.speechSynthesis.cancel();
+      window.speechSynthesis.resume();
+    }
   }
-  /* onStop is called when another playback or navigation interrupts this one. */
-  function speak(text, { onEnd, onStop } = {}) {
-    if (!supported) return false;
-    stop();
+
+  function playAudioUrl(url, onEnd) {
+    if (!hasAudio) return Promise.resolve(false);
+    return new Promise(resolve => {
+      stop();
+      const audio = new Audio(url);
+      currentAudio = audio;
+      let settled = false;
+      const done = (success) => {
+        if (settled) return;
+        settled = true;
+        if (currentAudio === audio) currentAudio = null;
+        if (success && onEnd) onEnd();
+        resolve(success);
+      };
+      audio.onended = () => done(true);
+      audio.onerror = () => done(false);
+      const playPromise = audio.play();
+      if (playPromise && playPromise.catch) {
+        playPromise.catch(() => done(false));
+      }
+    });
+  }
+
+  async function fetchHumanAudio(word) {
+    const clean = word.trim().toLowerCase().replace(/[^a-z'-]/g, '');
+    if (!clean) return null;
+    if (audioCache.has(clean)) return audioCache.get(clean);
+
+    try {
+      const res = await fetch('https://api.dictionaryapi.dev/api/v2/entries/en/' + encodeURIComponent(clean));
+      if (!res.ok) {
+        audioCache.set(clean, null);
+        return null;
+      }
+      const data = await res.json();
+      let audioUrl = null;
+      if (Array.isArray(data) && data[0] && Array.isArray(data[0].phonetics)) {
+        const us = data[0].phonetics.find(p => p.audio && (p.audio.includes('-us.mp3') || p.audio.includes('/en/us/')));
+        const any = data[0].phonetics.find(p => p.audio && p.audio.trim().length > 0);
+        audioUrl = (us || any)?.audio;
+      }
+      if (audioUrl) {
+        if (audioUrl.startsWith('//')) audioUrl = 'https:' + audioUrl;
+        audioCache.set(clean, audioUrl);
+        return audioUrl;
+      }
+    } catch (_) {}
+    audioCache.set(clean, null);
+    return null;
+  }
+
+  function speakDevice(text, onEnd, onStop) {
+    if (!hasTTS) return false;
     try {
       const utterance = new SpeechSynthesisUtterance(text);
-      const voice = voices.find(v => v.voiceURI === progress.settings.voice);
+      const voice = getBestVoice();
       const owner = onStop || null;
       if (voice) utterance.voice = voice;
       utterance.lang = voice ? voice.lang : 'en-US';
@@ -1214,17 +1290,50 @@ const Speech = (() => {
         if (stopCurrent === owner) stopCurrent = null;
         if (onEnd) onEnd();
       };
-      utterance.onerror = event => { if (event.error !== 'interrupted' && event.error !== 'canceled') Toast.show(t('toast.speechFail')); };
+      utterance.onerror = event => {
+        if (stopCurrent === owner) stopCurrent = null;
+        if (event.error !== 'interrupted' && event.error !== 'canceled') Toast.show(t('toast.speechFail'));
+      };
       stopCurrent = owner;
       window.speechSynthesis.speak(utterance);
       return true;
     } catch (_) {
-      Toast.show(t('toast.speechFail'));
       return false;
     }
   }
-  return { supported, speak, stop, loadVoices, get voices() { return voices; },
-    pause() { if (supported) window.speechSynthesis.pause(); }, resume() { if (supported) window.speechSynthesis.resume(); } };
+
+  async function speak(text, { onEnd, onStop } = {}) {
+    if (!supported) return false;
+    stop();
+    const trimmed = text.trim();
+    if (!trimmed) return false;
+
+    // 1. Tek kelime için: Free Dictionary API (Gerçek İnsan Stüdyo Kaydı)
+    const isSingleWord = !/\s/.test(trimmed) && trimmed.length < 35;
+    if (isSingleWord && navigator.onLine !== false) {
+      const url = await fetchHumanAudio(trimmed);
+      if (url) {
+        const played = await playAudioUrl(url, onEnd);
+        if (played) return true;
+      }
+    }
+
+    // 2. Google TTS (Doğal Konuşma Sentezi)
+    if (navigator.onLine !== false && trimmed.length < 200) {
+      const gUrl = 'https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=en&q=' + encodeURIComponent(trimmed);
+      const played = await playAudioUrl(gUrl, onEnd);
+      if (played) return true;
+    }
+
+    // 3. Fallback: Cihazın yerleşik TTS motoru (En doğal ses seçilerek)
+    return speakDevice(trimmed, onEnd, onStop);
+  }
+
+  return {
+    supported, speak, stop, loadVoices, get voices() { return voices; },
+    pause() { if (currentAudio) currentAudio.pause(); else if (hasTTS) window.speechSynthesis.pause(); },
+    resume() { if (currentAudio) currentAudio.play(); else if (hasTTS) window.speechSynthesis.resume(); }
+  };
 })();
 
 /* ---------- 7g. Word actions shared by cards and reading ---------- */
