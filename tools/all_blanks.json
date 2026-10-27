@@ -1,0 +1,627 @@
+[
+  {
+    "topic": "Selamlaşma",
+    "en": "Hello _________! (Insert name of person)",
+    "tr": "Merhaba _________! (Kişinin adını girin)"
+  },
+  {
+    "topic": "Tanışma ve tanıştırma",
+    "en": "Hello, I’m ___________.",
+    "tr": "Merhaba, ben ___________."
+  },
+  {
+    "topic": "Tanışma ve tanıştırma",
+    "en": "I am ____________.",
+    "tr": "Ben ____________."
+  },
+  {
+    "topic": "Tanışma ve tanıştırma",
+    "en": "Hey, I’m _____.",
+    "tr": "Merhaba, ben _____."
+  },
+  {
+    "topic": "Tanışma ve tanıştırma",
+    "en": "This is ______. He/She is my co-worker.",
+    "tr": "Bu ______. O benim iş arkadaşımdır."
+  },
+  {
+    "topic": "Tanışma ve tanıştırma",
+    "en": "This is ___________. He/She is _______________.",
+    "tr": "Bu ___________. O _______________."
+  },
+  {
+    "topic": "Tanışma ve tanıştırma",
+    "en": "I’d like to introduce you to _______, the _______at ________.",
+    "tr": "Sizi _______ ile, _______ adresindeki _______ ile tanıştırmak istiyorum."
+  },
+  {
+    "topic": "Tanışma ve tanıştırma",
+    "en": "I would like you to meet ________.",
+    "tr": "___________ ile tanışmanızı isterim."
+  },
+  {
+    "topic": "Tanışma ve tanıştırma",
+    "en": "This is ___________.",
+    "tr": "Bu ___________."
+  },
+  {
+    "topic": "Tanışma ve tanıştırma",
+    "en": "This is my friend _______.",
+    "tr": "Bu benim arkadaşım _______."
+  },
+  {
+    "topic": "Sevilen şeylerden bahsetme",
+    "en": "My favorite _________ is…",
+    "tr": "Benim favorim _________…"
+  },
+  {
+    "topic": "Sevilmeyen şeylerden bahsetme",
+    "en": "My least favorite ________ is…",
+    "tr": "En az sevdiğim _________…"
+  },
+  {
+    "topic": "Günlük rutinler",
+    "en": "I ____________ every day.",
+    "tr": "Ben her gün ____________."
+  },
+  {
+    "topic": "Günlük rutinler",
+    "en": "On _________ and ___________, I _____________.",
+    "tr": "_________ ve ________ tarihlerinde, ben _____________."
+  },
+  {
+    "topic": "Günlük rutinler",
+    "en": "Every _________, I ___________.",
+    "tr": "Her _________, ben ___________."
+  },
+  {
+    "topic": "Günlük rutinler",
+    "en": "I ___________ three times a week.",
+    "tr": "Haftada üç kez ___________."
+  },
+  {
+    "topic": "Hobiler ve boş zaman",
+    "en": "I like ___________ in my free time.",
+    "tr": "Boş zamanlarımda ___________ severim."
+  },
+  {
+    "topic": "Hobiler ve boş zaman",
+    "en": "I ___________ every week.",
+    "tr": "Ben her hafta ___________."
+  },
+  {
+    "topic": "Aile",
+    "en": "There are ____ people in my family.",
+    "tr": "Ailemde ____ kişi var."
+  },
+  {
+    "topic": "Aile",
+    "en": "I live with my ___________ and ____________.",
+    "tr": "___________ ve ____________ ile yaşıyorum."
+  },
+  {
+    "topic": "Aile",
+    "en": "I have _______ brothers and sisters.",
+    "tr": "_______ erkek ve kız kardeşlerim var."
+  },
+  {
+    "topic": "Aile",
+    "en": "I have ______ children.",
+    "tr": "______ çocuğum var."
+  },
+  {
+    "topic": "Yemek",
+    "en": "My favorite food is________________.",
+    "tr": "En sevdiğim yemek________________."
+  },
+  {
+    "topic": "Yemek",
+    "en": "My least favorite food is ____________.",
+    "tr": "En az sevdiğim yemek ____________."
+  },
+  {
+    "topic": "Yemek",
+    "en": "I like to eat ___________________.",
+    "tr": "___________________ yemeyi severim."
+  },
+  {
+    "topic": "Yemek",
+    "en": "I don’t like to eat _________.",
+    "tr": "____________ yemeyi sevmiyorum."
+  },
+  {
+    "topic": "Yemek",
+    "en": "I have never tried ______________.",
+    "tr": "______________ hiç denemedim."
+  },
+  {
+    "topic": "Yemek",
+    "en": "I like to cook _______________.",
+    "tr": "_______________ yemek yapmayı seviyorum."
+  },
+  {
+    "topic": "Yemek",
+    "en": "My _______ cooks the best ______________.",
+    "tr": "Benim _______ en iyi ______________ yemek yapıyor."
+  },
+  {
+    "topic": "Yemek",
+    "en": "I don’t know how to cook _____________.",
+    "tr": "________________ nasıl pişireceğimi bilmiyorum."
+  },
+  {
+    "topic": "Yemek",
+    "en": "I would like to learn to cook ________.",
+    "tr": "___________ yemek yapmayı öğrenmek istiyorum."
+  },
+  {
+    "topic": "Yemek",
+    "en": "I only know how to cook __________ and ___________.",
+    "tr": "Sadece __________ ve ___________ yemek yapmayı biliyorum."
+  },
+  {
+    "topic": "Yemek",
+    "en": "3- Do you like _______ food?",
+    "tr": "3- _______ yemeği sever misiniz?"
+  },
+  {
+    "topic": "Yemek",
+    "en": "6- Have you ever tried __________?",
+    "tr": "6- Hiç __________ denediniz mi?"
+  },
+  {
+    "topic": "Hava durumu",
+    "en": "I hate ____ weather. (cold, hot, rainy, etc.)",
+    "tr": "____ havadan nefret ediyorum. (soğuk, sıcak, yağmurlu vb.)"
+  },
+  {
+    "topic": "Hava durumu",
+    "en": "Is it going to ______? (rain, snow, be hot, be cold, storm, etc.)",
+    "tr": "______&#x27;ye mi gidiyor? (yağmur, kar, sıcak olma, soğuk olma, fırtına vb.)"
+  },
+  {
+    "topic": "Hava durumu",
+    "en": "Is it supposed to _______ tomorrow? (rain, snow, be hot, etc.)",
+    "tr": "Yarın _______ olması mı gerekiyor? (yağmur, kar, sıcak hava vb.)"
+  },
+  {
+    "topic": "Ulaşım",
+    "en": "I take the bus to _____ every day.",
+    "tr": "Her gün _____ adresine otobüse biniyorum."
+  },
+  {
+    "topic": "Ulaşım",
+    "en": "I drive to ________ every day.",
+    "tr": "Her gün ____________&#x27;ye gidiyorum."
+  },
+  {
+    "topic": "Ulaşım",
+    "en": "I rarely ________ to work. It is too far away.",
+    "tr": "Çalışmaya nadiren ________ giderim. Çok uzakta."
+  },
+  {
+    "topic": "Ulaşım",
+    "en": "I don’t take the ______. It does not have a reliable schedule.",
+    "tr": "______ almıyorum. Güvenilir bir takvimi yok."
+  },
+  {
+    "topic": "Ulaşım",
+    "en": "Does this bus/train go to ___________?",
+    "tr": "Bu otobüs/tren ___________ adresine gidiyor mu?"
+  },
+  {
+    "topic": "Ulaşım",
+    "en": "What time does the next _____ come? (bus, train, etc.)",
+    "tr": "Bir sonraki _____ saat kaçta gelecek? (otobüs, tren vb.)"
+  },
+  {
+    "topic": "Saati söyleme",
+    "en": "It’s almost _____.",
+    "tr": "Neredeyse _____."
+  },
+  {
+    "topic": "Yol tarifi",
+    "en": "I need to get to _______.",
+    "tr": "A gitmem gerekiyor _______."
+  },
+  {
+    "topic": "Yol tarifi",
+    "en": "Where is ___________?",
+    "tr": "___________ nerede?"
+  },
+  {
+    "topic": "Yol tarifi",
+    "en": "How do you get to _______?",
+    "tr": "_______&#x27;ye nasıl gidilir?"
+  },
+  {
+    "topic": "Yol tarifi",
+    "en": "Where is the nearest _______?",
+    "tr": "En yakın _______ nerede?"
+  },
+  {
+    "topic": "Yol tarifi",
+    "en": "Can you tell me how to get to _____?",
+    "tr": "Bana _____&#x27;e nasıl gideceğimi söyleyebilir misin?"
+  },
+  {
+    "topic": "Yol tarifi",
+    "en": "Could you tell me where the _______ is?",
+    "tr": "Bana _______&#x27;nin nerede olduğunu söyleyebilir misiniz?"
+  },
+  {
+    "topic": "Yol tarifi",
+    "en": "Is there a ________ close by?",
+    "tr": "Yakında ________ var mı?"
+  },
+  {
+    "topic": "Takvim",
+    "en": "Today is _____.",
+    "tr": "Bugün _____."
+  },
+  {
+    "topic": "Takvim",
+    "en": "Yesterday was _______.",
+    "tr": "Dün _______ idi."
+  },
+  {
+    "topic": "Takvim",
+    "en": "Tomorrow will be ________.",
+    "tr": "Yarın ________ olacak."
+  },
+  {
+    "topic": "Takvim",
+    "en": "What day do you ___________?",
+    "tr": "Hangi gün ___________?"
+  },
+  {
+    "topic": "Takvim",
+    "en": "How many days do you _____ a week? (work, go to school, study, etc.)",
+    "tr": "Haftanın kaç günü _____ yapıyorsunuz? (çalışmak, okula gitmek, ders çalışmak vb.)"
+  },
+  {
+    "topic": "Takvim",
+    "en": "What year did you _______? (go to Brazil, move to New York, etc.)",
+    "tr": "Hangi yıl _______ yaptın? (Brezilya&#x27;ya gitmek, New York&#x27;a taşınmak vb.)"
+  },
+  {
+    "topic": "Sayılar",
+    "en": "34,999= thirty-four thousand nine-hundred ninety-nine 58,301= fifty eight thousand, three-hundred one 245,279= two hundred forty five thousand two hundred seventy nine When talking about numbers or the amount of something you will say… ‘How many __________?’ For example:",
+    "tr": "34,999= otuz dört bin dokuz yüz doksan dokuz 58,301= elli sekiz bin, üç yüz bir 245,279= iki yüz kırk beş bin iki yüz yetmiş dokuz Sayılardan veya bir şeyin miktarından bahsederken… &#x27;Kaç __________?&#x27; diyeceksiniz. Örneğin:"
+  },
+  {
+    "topic": "Nerelisin? / Milliyetler",
+    "en": "I am___________.",
+    "tr": "Ben___________."
+  },
+  {
+    "topic": "Nerelisin? / Milliyetler",
+    "en": "I am from ___________.",
+    "tr": "Ben ___________ doğumluyum."
+  },
+  {
+    "topic": "Nerelisin? / Milliyetler",
+    "en": "I live in ___________.",
+    "tr": "___________&#x27;da yaşıyorum."
+  },
+  {
+    "topic": "TV ve filmler",
+    "en": "Soap Opera- fictional show that goes on for a long time and is often very dramatic I like to watch ____________shows.",
+    "tr": "Pembe Dizi - uzun süre devam eden ve genellikle çok dramatik olan kurgusal bir gösteri. ____________ gösterileri izlemeyi severim."
+  },
+  {
+    "topic": "TV ve filmler",
+    "en": "My favorite TV program is _______________.",
+    "tr": "En sevdiğim TV programı _______________."
+  },
+  {
+    "topic": "TV ve filmler",
+    "en": "Did you see the last episode of _____________?",
+    "tr": "________________&#x27;ın son bölümünü gördünüz mü?"
+  },
+  {
+    "topic": "TV ve filmler",
+    "en": "What happened last night on ____________?",
+    "tr": "Dün gece ____________&#x27;da ne oldu?"
+  },
+  {
+    "topic": "TV ve filmler",
+    "en": "I heard ______ is a good/bad movie.",
+    "tr": "______&#x27;nin iyi/kötü bir film olduğunu duydum."
+  },
+  {
+    "topic": "TV ve filmler",
+    "en": "__________ was a great movie.",
+    "tr": "__________ harika bir filmdi."
+  },
+  {
+    "topic": "TV ve filmler",
+    "en": "I really want to see ____________.",
+    "tr": "Gerçekten ____________ görmek istiyorum."
+  },
+  {
+    "topic": "TV ve filmler",
+    "en": "What time is ________ movie showing?",
+    "tr": "_________ filmi saat kaçta gösteriliyor?"
+  },
+  {
+    "topic": "TV ve filmler",
+    "en": "How much does it cost to see ______?",
+    "tr": "______ görmenin maliyeti ne kadar?"
+  },
+  {
+    "topic": "TV ve filmler",
+    "en": "Do you want to go to _______ with me?",
+    "tr": "Benimle _______&#x27;ye gitmek ister misin?"
+  },
+  {
+    "topic": "TV ve filmler",
+    "en": "Did you like the ending of _____________?",
+    "tr": "_____________&#x27;nin sonunu beğendiniz mi?"
+  },
+  {
+    "topic": "Mahalleler ve evler",
+    "en": "I rent ____________.",
+    "tr": "____________ kiralıyorum."
+  },
+  {
+    "topic": "Mahalleler ve evler",
+    "en": "I live in ____________ .",
+    "tr": "____________&#x27;da yaşıyorum."
+  },
+  {
+    "topic": "Mahalleler ve evler",
+    "en": "I pay $______ per month for rent.",
+    "tr": "Kira için ayda ______$ ödüyorum."
+  },
+  {
+    "topic": "Mahalleler ve evler",
+    "en": "I live with ________________ in a ________________.",
+    "tr": "________________ ile ________________&#x27;da yaşıyorum."
+  },
+  {
+    "topic": "Market alışverişi",
+    "en": "Do you have ____________?",
+    "tr": "____________ var mı?"
+  },
+  {
+    "topic": "Market alışverişi",
+    "en": "Where can I find ___________?",
+    "tr": "___________ nerede bulabilirim?"
+  },
+  {
+    "topic": "Market alışverişi",
+    "en": "have sliced cheese and meats and salads available for purchase Out of Stock : there are no more left When will you get more ____________?",
+    "tr": "dilimlenmiş peynir, et ve salatalar satın alınabilir Stokta Tükendi : başka kalmadı Ne zaman daha fazla ____________ alacaksınız?"
+  },
+  {
+    "topic": "Restoran veya kafe",
+    "en": "I would like a table for _____.",
+    "tr": "_____ için bir masa istiyorum."
+  },
+  {
+    "topic": "Restoran veya kafe",
+    "en": "I have a reservation for ____________.",
+    "tr": "____________ için rezervasyonum var."
+  },
+  {
+    "topic": "Restoran veya kafe",
+    "en": "I would like to have _________.",
+    "tr": "____________ sahibi olmak isterim."
+  },
+  {
+    "topic": "Restoran veya kafe",
+    "en": "Can I get ____________?",
+    "tr": "____________ alabilir miyim?"
+  },
+  {
+    "topic": "Restoran veya kafe",
+    "en": "You forgot to add the _________.",
+    "tr": "_________ eklemeyi unuttunuz."
+  },
+  {
+    "topic": "Restoran veya kafe",
+    "en": "Could you bring me more ___________?",
+    "tr": "Bana daha fazla ___________ getirebilir misin?"
+  },
+  {
+    "topic": "Kıyafetler ve ayakkabılar",
+    "en": "I am looking for _____________. Can you tell me where to find it?",
+    "tr": "_____________ arıyorum. Bana onu nerede bulacağımı söyleyebilir misin?"
+  },
+  {
+    "topic": "Kıyafetler ve ayakkabılar",
+    "en": "Where can I find _______________?",
+    "tr": "_______________ nerede bulabilirim?"
+  },
+  {
+    "topic": "Kıyafetler ve ayakkabılar",
+    "en": "Do you have this in size ____?",
+    "tr": "Bunun ____ bedeni var mı?"
+  },
+  {
+    "topic": "Kıyafetler ve ayakkabılar",
+    "en": "Do you have a _____________ one? (bigger, smaller, shorter, longer, etc.)",
+    "tr": "_____________ bir tane var mı? (daha büyük, daha küçük, daha kısa, daha uzun vb.)"
+  },
+  {
+    "topic": "Suç, güvenlik ve polis",
+    "en": "There is a fire at __________________. (state location or address)",
+    "tr": "__________________ adresinde yangın var. (konumunu veya adresini belirtin)"
+  },
+  {
+    "topic": "Suç, güvenlik ve polis",
+    "en": "Someone has been hurt at _____________. (state location or address)",
+    "tr": "Birisi ________________&#x27;da yaralandı. (konumunu veya adresini belirtin)"
+  },
+  {
+    "topic": "Suç, güvenlik ve polis",
+    "en": "Charged with _____",
+    "tr": "_____ ile ücretlendirildi"
+  },
+  {
+    "topic": "Sorunlar ve tavsiye",
+    "en": "I am __________.",
+    "tr": "Ben __________."
+  },
+  {
+    "topic": "Sorunlar ve tavsiye",
+    "en": "You should ____________.",
+    "tr": "____________ yapmalısınız."
+  },
+  {
+    "topic": "Sorunlar ve tavsiye",
+    "en": "If I were you, I would __________.",
+    "tr": "Senin yerinde olsaydım __________ yapardım."
+  },
+  {
+    "topic": "Sorunlar ve tavsiye",
+    "en": "Maybe you should ____________.",
+    "tr": "Belki de ____________ yapmalısın."
+  },
+  {
+    "topic": "Plan yapma ve mazeretler",
+    "en": "Do you want to ___________?",
+    "tr": "___________ istiyor musun?"
+  },
+  {
+    "topic": "Plan yapma ve mazeretler",
+    "en": "Would you like to __________?",
+    "tr": "Arzu eder misiniz __________?"
+  },
+  {
+    "topic": "Plan yapma ve mazeretler",
+    "en": "Can you please ___________?",
+    "tr": "Lütfen ___________ yapabilir misiniz?"
+  },
+  {
+    "topic": "Plan yapma ve mazeretler",
+    "en": "I’d like to but __________.",
+    "tr": "İsterdim ama __________."
+  },
+  {
+    "topic": "Plan yapma ve mazeretler",
+    "en": "I can’t because ___________.",
+    "tr": "Yapamam çünkü ___________."
+  },
+  {
+    "topic": "Plan yapma ve mazeretler",
+    "en": "Sorry, that won’t work because ____________.",
+    "tr": "Üzgünüm, bu işe yaramayacak çünkü ____________."
+  },
+  {
+    "topic": "Davetler",
+    "en": "Would you like to ________ with me?",
+    "tr": "Benimle _________ yapmak ister misin?"
+  },
+  {
+    "topic": "Davetler",
+    "en": "Would you like to go ____________ on Saturday?",
+    "tr": "Cumartesi günü ____________ gitmek ister misiniz?"
+  },
+  {
+    "topic": "Davetler",
+    "en": "I’m going to ________. Do you want to come with?",
+    "tr": "_________ gidiyorum. Sen de gelmek ister misin?"
+  },
+  {
+    "topic": "Davetler",
+    "en": "Are you free on _______________?",
+    "tr": "_______________&#x27;da boş musunuz?"
+  },
+  {
+    "topic": "Davetler",
+    "en": "I’m sorry I can’t _______________.",
+    "tr": "_______________ yapamadığım için üzgünüm."
+  },
+  {
+    "topic": "Duygularından bahsetme",
+    "en": "I don’t like when you ____________.",
+    "tr": "____________ olmandan hoşlanmıyorum."
+  },
+  {
+    "topic": "Duygularından bahsetme",
+    "en": "I feel ____________ when _____________.",
+    "tr": "____________ olduğunda ____________ hissediyorum."
+  },
+  {
+    "topic": "Duygularından bahsetme",
+    "en": "I don’t like it when it _____________. It makes me feel __________.",
+    "tr": "________________ olmasından hoşlanmıyorum. Bu beni __________ hissettiriyor."
+  },
+  {
+    "topic": "Benzerlikler ve farklılıklar",
+    "en": "___________ is like _________.",
+    "tr": "___________ ____________ gibidir."
+  },
+  {
+    "topic": "Benzerlikler ve farklılıklar",
+    "en": "__________ is similar to ___________.",
+    "tr": "__________, ___________&#x27;ye benzer."
+  },
+  {
+    "topic": "Benzerlikler ve farklılıklar",
+    "en": "They both ____________.",
+    "tr": "Her ikisi de ____________."
+  },
+  {
+    "topic": "Benzerlikler ve farklılıklar",
+    "en": "They don’t ____________.",
+    "tr": "____________ yapmazlar."
+  },
+  {
+    "topic": "Benzerlikler ve farklılıklar",
+    "en": "They can’t _____________.",
+    "tr": "______________ yapamazlar."
+  },
+  {
+    "topic": "Benzerlikler ve farklılıklar",
+    "en": "__________ is bigger than __________.",
+    "tr": "__________, __________&#x27;den büyüktür."
+  },
+  {
+    "topic": "Benzerlikler ve farklılıklar",
+    "en": "__________ is smaller than __________.",
+    "tr": "__________, __________&#x27;den küçüktür."
+  },
+  {
+    "topic": "Benzerlikler ve farklılıklar",
+    "en": "__________ is better than ___________.",
+    "tr": "__________ ___________&#x27;dan daha iyidir."
+  },
+  {
+    "topic": "Benzerlikler ve farklılıklar",
+    "en": "__________ is more expensive than ____________.",
+    "tr": "__________, ____________&#x27;den daha pahalıdır."
+  },
+  {
+    "topic": "Benzerlikler ve farklılıklar",
+    "en": "__________ is nicer than ___________.",
+    "tr": "__________ ___________&#x27;dan daha güzeldir."
+  },
+  {
+    "topic": "Benzerlikler ve farklılıklar",
+    "en": "__________ is more helpful than _________.",
+    "tr": "__________, _________&#x27;dan daha faydalıdır."
+  },
+  {
+    "topic": "Soru sorma",
+    "en": "Is _____?",
+    "tr": "_____ mi?"
+  },
+  {
+    "topic": "Soru sorma",
+    "en": "Are_____?",
+    "tr": "_____ mı?"
+  },
+  {
+    "topic": "Soru sorma",
+    "en": "Do_____?",
+    "tr": "Yapmak_____?"
+  },
+  {
+    "topic": "Soru sorma",
+    "en": "Did_____?",
+    "tr": "_____ yaptın mı?"
+  }
+]
