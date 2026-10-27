@@ -1,0 +1,2017 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<!-- ======================================================================
+  1. DOCUMENT METADATA AND THEME
+  English Study · version @APP_VERSION@
+  Generated from b1-b2-kelimeler-responsive.html by tools/build_index.py.
+  Runs directly from this one file: no server, build step or network needed.
+====================================================================== -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#1c2b4a">
+<title>English Study · A2–C1 Kelime Çalışması</title>
+<script>
+/* Mark that scripts run (CSS shows the interactive app only then) and apply a saved
+   light/dark choice before first paint. If the app script later fails to start
+   (very old browser, blocked script), the static word list is shown instead. */
+(function () {
+  var root = document.documentElement;
+  root.className += ' js';
+  window.addEventListener('error', function (event) {
+    if (window.__appReady) return;
+    root.className = root.className.replace(/(^|\s)js(\s|$)/, ' ');
+    var box = document.getElementById('boot-error');
+    if (box) { box.hidden = false; box.textContent += ' (' + (event.message || 'error') + ')'; }
+  });
+  try {
+    var saved = JSON.parse(localStorage.getItem('english-study-app.v1') || 'null');
+    var theme = saved && saved.settings && saved.settings.theme;
+    if (theme === 'light' || theme === 'dark') document.documentElement.setAttribute('data-theme', theme);
+  } catch (e) { /* storage unavailable: system theme */ }
+})();
+</script>
+<style>
+/* ======================================================================
+   2. DESIGN TOKENS AND GLOBAL STYLES
+====================================================================== */
+:root {
+  color-scheme: light;
+  --bg: #f4f6fa;
+  --surface: #ffffff;
+  --surface-2: #eef2f8;
+  --surface-3: #e3e9f3;
+  --text: #172036;
+  --muted: #4f5b72;
+  --line: #d9e0ec;
+  --primary: #2350a8;
+  --primary-hover: #1b4190;
+  --on-primary: #ffffff;
+  --primary-soft: #e4ecfb;
+  --accent-text: #1d4796;
+  --success: #17673f;
+  --success-soft: #dff3e8;
+  --error: #a3261b;
+  --error-soft: #fbe5e2;
+  --warn: #7a4a00;
+  --warn-soft: #fdf1d8;
+  --mark: #fff0b8;
+  --header: #1c2b4a;
+  --on-header: #f3f6fc;
+  --on-header-muted: #c3cde0;
+  --focus: #f0a400;
+  --shadow: 0 1px 2px rgba(18, 31, 58, .06), 0 4px 14px rgba(18, 31, 58, .06);
+  --radius-s: 8px;
+  --radius: 12px;
+  --radius-l: 18px;
+  --space-1: 4px; --space-2: 8px; --space-3: 12px; --space-4: 16px; --space-5: 24px; --space-6: 32px; --space-7: 48px;
+  --font: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --gutter: max(16px, env(safe-area-inset-left), env(safe-area-inset-right));
+  --tap: 44px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #0e1524; --surface: #161f33; --surface-2: #1d283f; --surface-3: #26324b;
+    --text: #e8edf6; --muted: #aab5c9; --line: #2e3a55;
+    --primary: #8db0ff; --primary-hover: #a9c3ff; --on-primary: #0b1530; --primary-soft: #22304d; --accent-text: #a9c3ff;
+    --success: #7fd6a4; --success-soft: #15362a; --error: #ffaaa0; --error-soft: #3d1d1a; --warn: #f5c76b; --warn-soft: #3a2d12;
+    --mark: #4a3f12; --header: #0a101d; --on-header: #e8edf6; --on-header-muted: #9fabc2;
+    --shadow: 0 1px 2px rgba(0, 0, 0, .3), 0 4px 14px rgba(0, 0, 0, .25);
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #0e1524; --surface: #161f33; --surface-2: #1d283f; --surface-3: #26324b;
+  --text: #e8edf6; --muted: #aab5c9; --line: #2e3a55;
+  --primary: #8db0ff; --primary-hover: #a9c3ff; --on-primary: #0b1530; --primary-soft: #22304d; --accent-text: #a9c3ff;
+  --success: #7fd6a4; --success-soft: #15362a; --error: #ffaaa0; --error-soft: #3d1d1a; --warn: #f5c76b; --warn-soft: #3a2d12;
+  --mark: #4a3f12; --header: #0a101d; --on-header: #e8edf6; --on-header-muted: #9fabc2;
+  --shadow: 0 1px 2px rgba(0, 0, 0, .3), 0 4px 14px rgba(0, 0, 0, .25);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.55 var(--font); overflow-wrap: break-word; }
+[hidden] { display: none !important; }
+h1, h2, h3, h4 { line-height: 1.25; margin: 0 0 var(--space-3); letter-spacing: -.01em; }
+h1 { font-size: clamp(1.55rem, 4.5vw, 2.15rem); }
+h2 { font-size: 1.25rem; }
+h3 { font-size: 1.08rem; }
+p { margin: 0 0 var(--space-3); }
+a { color: var(--accent-text); }
+img, svg { max-width: 100%; }
+button, input, select, textarea { font: inherit; color: inherit; }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+[tabindex="-1"]:focus { outline: none; }
+.visually-hidden { position: absolute !important; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.icon { width: 20px; height: 20px; flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.skip-link { position: absolute; left: var(--gutter); top: -60px; z-index: 20; padding: 10px 14px; border-radius: var(--radius-s); background: var(--surface); color: var(--text); }
+.skip-link:focus { top: 8px; }
+body.hide-tr .tr-support { display: none !important; }
+
+/* ---------- Buttons and form controls ---------- */
+.button {
+  display: inline-flex; align-items: center; justify-content: center; gap: var(--space-2);
+  min-height: var(--tap); padding: 10px 16px; border: 1px solid var(--line); border-radius: var(--radius-s);
+  background: var(--surface); color: var(--text); font-weight: 600; text-decoration: none; text-align: center;
+  cursor: pointer; touch-action: manipulation; -webkit-tap-highlight-color: transparent; user-select: none;
+}
+.button:hover { background: var(--surface-2); }
+.button:active { transform: translateY(1px); }
+.button.primary { background: var(--primary); border-color: var(--primary); color: var(--on-primary); }
+.button.primary:hover { background: var(--primary-hover); border-color: var(--primary-hover); }
+.button.ghost { background: transparent; }
+.button.ghost:hover { background: var(--surface-2); }
+.button.danger { background: var(--error); border-color: var(--error); color: var(--surface); }
+.button.small { min-height: var(--tap); padding: 8px 12px; font-size: .92rem; }
+.button[aria-pressed="true"] { background: var(--primary-soft); border-color: var(--primary); color: var(--accent-text); }
+.button:disabled { opacity: .55; cursor: not-allowed; transform: none; }
+.icon-button { display: inline-grid; place-items: center; width: var(--tap); height: var(--tap); border: 1px solid transparent; border-radius: var(--radius-s); background: transparent; color: inherit; cursor: pointer; touch-action: manipulation; }
+.icon-button:hover { background: rgba(255, 255, 255, .12); }
+.row { display: flex; flex-wrap: wrap; gap: var(--space-2); align-items: center; }
+.row.end { justify-content: flex-end; }
+.field { display: grid; gap: var(--space-1); min-width: 0; }
+.field > label, .legend, legend { font-weight: 600; font-size: .92rem; }
+input[type="search"], input[type="text"], select, textarea {
+  width: 100%; min-height: var(--tap); padding: 10px 12px; border: 1px solid var(--line); border-radius: var(--radius-s);
+  background: var(--surface); color: var(--text); font-size: 1rem;
+}
+textarea { resize: vertical; line-height: 1.6; }
+input[type="checkbox"], input[type="radio"] { width: 22px; height: 22px; margin: 0; accent-color: var(--primary); flex: none; }
+input[type="range"] { width: 100%; min-height: var(--tap); accent-color: var(--primary); }
+fieldset { margin: 0; padding: 0; border: 0; min-width: 0; }
+legend { padding: 0; margin-bottom: var(--space-2); }
+.choice-list { display: grid; gap: var(--space-2); }
+.choice { display: flex; align-items: center; gap: var(--space-3); min-height: var(--tap); padding: 8px 12px; border: 1px solid var(--line); border-radius: var(--radius-s); background: var(--surface); cursor: pointer; }
+.choice:has(input:checked) { border-color: var(--primary); background: var(--primary-soft); }
+.segmented { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-1); padding: var(--space-1); border-radius: var(--radius); background: var(--surface-2); }
+.segmented .button { border-color: transparent; background: transparent; min-width: 0; padding: 8px 6px; }
+.segmented .button[aria-pressed="true"] { background: var(--surface); border-color: var(--primary); box-shadow: var(--shadow); }
+.hint { color: var(--muted); font-size: .9rem; }
+.error-text { color: var(--error); font-weight: 600; }
+.chip { display: inline-flex; align-items: center; gap: 6px; padding: 3px 10px; border-radius: 999px; background: var(--surface-2); color: var(--muted); font-size: .82rem; font-weight: 600; }
+.chip.level { background: var(--primary-soft); color: var(--accent-text); }
+.chip.ok { background: var(--success-soft); color: var(--success); }
+
+/* ======================================================================
+   3. PAGE STRUCTURE AND NAVIGATION
+====================================================================== */
+.app-header { background: var(--header); color: var(--on-header); padding-top: env(safe-area-inset-top); }
+.header-inner, .tabs, main, .site-footer { width: min(1180px, 100%); margin: 0 auto; padding-left: var(--gutter); padding-right: var(--gutter); }
+.header-inner { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); padding-top: var(--space-3); padding-bottom: var(--space-2); }
+.brand { display: flex; align-items: center; gap: var(--space-3); color: inherit; text-decoration: none; min-height: var(--tap); }
+.brand-mark { width: 36px; height: 36px; border-radius: 10px; background: var(--primary); color: var(--on-primary); display: grid; place-items: center; font-weight: 800; letter-spacing: -.04em; }
+.brand strong { display: block; font-size: 1.05rem; }
+.brand small { display: block; color: var(--on-header-muted); font-size: .8rem; }
+.tabs { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--space-1); padding-bottom: var(--space-3); }
+.tabs a {
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; min-height: 54px; padding: 6px 4px;
+  border-radius: var(--radius-s); color: var(--on-header-muted); text-decoration: none; font-size: .74rem; font-weight: 600; text-align: center; min-width: 0;
+  touch-action: manipulation; -webkit-tap-highlight-color: transparent;
+}
+.tabs a:hover { color: var(--on-header); background: rgba(255, 255, 255, .08); }
+.tabs a[aria-current="page"] { color: var(--on-header); background: rgba(255, 255, 255, .14); box-shadow: inset 0 -3px 0 var(--focus); }
+.banner { display: flex; gap: var(--space-3); align-items: flex-start; justify-content: space-between; width: min(1180px, 100%); margin: var(--space-3) auto 0; padding: var(--space-3) var(--gutter); background: var(--warn-soft); color: var(--warn); border-radius: var(--radius-s); }
+.banner p { margin: 0; }
+main { padding-top: var(--space-5); padding-bottom: var(--space-7); min-height: 60vh; }
+main:focus { outline: none; }
+.boot { padding: var(--space-7) 0; text-align: center; color: var(--muted); }
+.view-head { margin-bottom: var(--space-5); max-width: 760px; }
+.lead { color: var(--muted); font-size: 1.02rem; }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: var(--space-4); box-shadow: var(--shadow); margin-bottom: var(--space-4); min-width: 0; }
+.panel > :last-child { margin-bottom: 0; }
+.section-title { margin-top: var(--space-6); }
+.site-footer { padding-top: var(--space-5); padding-bottom: calc(var(--space-6) + env(safe-area-inset-bottom)); color: var(--muted); font-size: .85rem; border-top: 1px solid var(--line); }
+.toast {
+  position: fixed; left: 50%; bottom: calc(16px + env(safe-area-inset-bottom)); transform: translate(-50%, 20px); z-index: 30;
+  max-width: min(520px, calc(100% - 32px)); padding: 12px 16px; border-radius: var(--radius-s); background: var(--text); color: var(--bg);
+  box-shadow: var(--shadow); opacity: 0; pointer-events: none; transition: opacity .2s, transform .2s;
+}
+.toast.show { opacity: 1; transform: translate(-50%, 0); }
+dialog { width: min(460px, calc(100% - 32px)); padding: var(--space-5); border: 1px solid var(--line); border-radius: var(--radius-l); background: var(--surface); color: var(--text); box-shadow: 0 20px 50px rgba(0, 0, 0, .3); }
+dialog::backdrop { background: rgba(8, 14, 28, .55); }
+
+/* ======================================================================
+   4. LEARNING VIEWS
+====================================================================== */
+/* ---------- Dashboard ---------- */
+.continue-panel { display: grid; gap: var(--space-3); align-items: center; background: var(--primary-soft); border-color: transparent; }
+.continue-panel h2 { margin-bottom: var(--space-1); }
+.continue-panel p { margin: 0; }
+.stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-3); margin: 0 0 var(--space-4); }
+.stat { margin: 0; padding: var(--space-4); background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); min-width: 0; }
+.stat dt { color: var(--muted); font-size: .85rem; font-weight: 600; }
+.stat dd { margin: var(--space-1) 0 0; font-size: 1.5rem; font-weight: 700; line-height: 1.2; }
+.stat .stat-note { display: block; margin-top: var(--space-1); color: var(--muted); font-size: .8rem; font-weight: 400; }
+.stat progress { width: 100%; height: 8px; margin-top: var(--space-2); accent-color: var(--primary); }
+.mode-grid { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-3); }
+.mode-card { display: flex; gap: var(--space-3); align-items: flex-start; min-height: var(--tap); padding: var(--space-4); border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); color: var(--text); text-decoration: none; }
+.mode-card:hover { border-color: var(--primary); }
+.mode-card .icon { width: 24px; height: 24px; color: var(--accent-text); margin-top: 2px; }
+.mode-card strong { display: block; }
+.mode-card span { color: var(--muted); font-size: .9rem; }
+
+/* ---------- Vocabulary ---------- */
+.toolbar { display: grid; gap: var(--space-3); }
+.result-count { color: var(--muted); font-weight: 600; margin: var(--space-4) 0 var(--space-3); }
+.word-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-4); }
+.group-title { grid-column: 1 / -1; margin: var(--space-4) 0 0; padding-bottom: var(--space-2); border-bottom: 2px solid var(--line); font-size: 1.1rem; }
+.word-card { display: flex; flex-direction: column; min-width: 0; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
+.js .word-card { cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.word-card.is-learned { border: 2px solid var(--success); background: var(--success-soft); }
+.word-card.is-learned .word-media { background: var(--success-soft); }
+.media-toggle { display: block; width: 100%; padding: 0; margin: 0; border: 0; background: none; color: inherit; font: inherit; cursor: pointer; touch-action: manipulation; }
+.word-media { position: relative; height: 220px; background: var(--surface-2); display: flex; align-items: center; justify-content: center; overflow: hidden; }
+@supports (aspect-ratio: 1 / 1) { .word-media { height: auto; aspect-ratio: 4 / 3; } }
+.word-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.word-media .word-art { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: var(--space-1); width: 100%; height: 100%; padding: var(--space-4); text-align: center; background: linear-gradient(135deg, var(--primary-soft), var(--surface-2)); }
+.word-art strong { font-size: clamp(1.4rem, 6vw, 2rem); color: var(--accent-text); letter-spacing: -.01em; overflow-wrap: anywhere; }
+.word-art span { color: var(--muted); font-size: .95rem; }
+.learned-badge { position: absolute; top: 8px; right: 8px; display: none; align-items: center; gap: 4px; padding: 4px 10px; border-radius: 999px; background: var(--success); color: var(--surface); font-size: .8rem; font-weight: 700; }
+.word-card.is-learned .learned-badge { display: inline-flex; }
+.credit { font-size: .72rem; color: var(--muted); }
+.credit a { color: inherit; }
+.tap-hint { display: flex; gap: var(--space-2); align-items: center; padding: var(--space-3); border-radius: var(--radius-s); background: var(--primary-soft); color: var(--accent-text); font-weight: 600; margin: 0 0 var(--space-3); }
+.nojs-note { padding: var(--space-3) var(--space-4); margin: 0 0 var(--space-4); border-radius: var(--radius-s); background: var(--warn-soft); color: var(--text); border-left: 4px solid var(--warn); }
+html.js .view:not(.is-active) { display: none; }
+html:not(.js) .view:not([data-view="words"]), html:not(.js) .tabs, html:not(.js) .js-only, html:not(.js) #theme-quick, html:not(.js) #boot-status { display: none !important; }
+html.js .nojs-only { display: none !important; }
+.word-body { display: flex; flex-direction: column; gap: var(--space-2); padding: var(--space-4); flex: 1; }
+.word-title { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--space-2); }
+.word-title h2, .word-title h3 { margin: 0; font-size: 1.2rem; }
+.word-body p { margin: 0; }
+.pron { color: var(--muted); font-size: .92rem; }
+.label { font-weight: 700; font-size: .78rem; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); margin-right: 4px; }
+.meaning { font-weight: 700; color: var(--text); font-size: 1.02rem; }
+.example-block { padding-top: var(--space-2); border-top: 1px solid var(--line); display: grid; gap: 2px; }
+.example { font-weight: 500; }
+.tr-line { color: var(--muted); }
+.definition { font-size: .94rem; }
+details.sentences { border-top: 1px solid var(--line); padding-top: var(--space-1); }
+details.sentences > summary, details.disclosure > summary { min-height: var(--tap); display: flex; align-items: center; cursor: pointer; font-weight: 600; color: var(--accent-text); }
+.pos-group { display: grid; gap: var(--space-2); padding: var(--space-2) 0; }
+.pos-group h4 { margin: var(--space-2) 0 0; font-size: .82rem; text-transform: uppercase; letter-spacing: .05em; color: var(--accent-text); }
+.sentence { padding: var(--space-2) var(--space-3); border-radius: var(--radius-s); background: var(--surface-2); display: grid; gap: 2px; }
+.pos-chips { display: flex; flex-wrap: wrap; gap: var(--space-1); }
+.card-actions { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: auto; padding-top: var(--space-2); }
+.card-actions .button, .card-actions .chip { flex: 1 1 auto; }
+.card-actions .chip { justify-content: center; min-height: var(--tap); border-radius: var(--radius-s); }
+.empty { text-align: center; padding: var(--space-6) var(--space-4); }
+.more-row { display: flex; justify-content: center; margin-top: var(--space-5); }
+
+/* ---------- Quiz and shared choice questions ---------- */
+.quiz-meta { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-2); color: var(--muted); font-weight: 600; }
+.quiz-prompt { font-size: 1.3rem; margin: var(--space-2) 0; }
+.quiz-options, .choice-options { display: grid; gap: var(--space-2); margin: var(--space-3) 0; }
+.option {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); width: 100%; min-height: 52px; padding: 10px 14px;
+  border: 2px solid var(--line); border-radius: var(--radius-s); background: var(--surface); color: var(--text); text-align: left; font-weight: 500;
+  cursor: pointer; touch-action: manipulation; -webkit-tap-highlight-color: transparent;
+}
+.option:hover:not(:disabled) { border-color: var(--primary); background: var(--primary-soft); }
+.option:disabled { cursor: default; opacity: 1; }
+.option.is-correct { border-color: var(--success); background: var(--success-soft); }
+.option.is-wrong { border-color: var(--error); background: var(--error-soft); }
+.option .verdict { font-size: .82rem; font-weight: 700; white-space: nowrap; }
+.option.is-correct .verdict { color: var(--success); }
+.option.is-wrong .verdict { color: var(--error); }
+.feedback { min-height: 1.5em; font-weight: 600; }
+.feedback.good { color: var(--success); }
+.feedback.bad { color: var(--error); }
+.choice-q { padding: var(--space-3) 0; border-top: 1px solid var(--line); }
+.choice-q:first-of-type { border-top: 0; }
+.choice-prompt { font-weight: 600; }
+.missed-list { padding-left: 1.2em; }
+.missed-list li { margin-bottom: var(--space-1); }
+
+/* ---------- Reading ---------- */
+.reading { max-width: 820px; }
+.reading-meta { display: flex; flex-wrap: wrap; gap: var(--space-2); align-items: center; margin-bottom: var(--space-3); }
+.reading-tools { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-bottom: var(--space-3); }
+.reading-text { font-size: 1.08rem; line-height: 1.75; max-width: 68ch; }
+.reading-text p { margin-bottom: var(--space-1); }
+.reading-text .tr-line { margin-bottom: var(--space-4); font-size: .98rem; line-height: 1.6; }
+.reading.listening .reading-text { display: none; }
+.listening-note { padding: var(--space-3); background: var(--surface-2); border-radius: var(--radius-s); }
+mark.vocab { background: var(--mark); color: inherit; padding: 0 2px; border-radius: 3px; }
+.glossary { list-style: none; padding: 0; margin: var(--space-2) 0 0; display: grid; gap: var(--space-2); }
+.glossary li { display: flex; flex-wrap: wrap; gap: var(--space-2); align-items: center; justify-content: space-between; padding: var(--space-2) var(--space-3); background: var(--surface-2); border-radius: var(--radius-s); }
+.glossary .gloss-text { min-width: 0; flex: 1 1 180px; }
+.glossary li { cursor: pointer; }
+.glossary li.is-learned { background: var(--success-soft); outline: 2px solid var(--success); }
+.glossary li.is-learned .gloss-text::after { content: " ✓"; color: var(--success); font-weight: 700; }
+.player-status { color: var(--muted); font-size: .9rem; margin: 0; align-self: center; }
+
+/* ---------- Settings ---------- */
+.settings-grid { display: grid; gap: var(--space-4); }
+.settings-grid .panel { margin: 0; display: grid; gap: var(--space-3); align-content: start; }
+.settings-grid h2 { margin: 0; }
+.status-box { padding: var(--space-3); border-radius: var(--radius-s); background: var(--surface-2); }
+
+/* ======================================================================
+   RESPONSIVE ENHANCEMENTS (mobile-first; three breakpoints only)
+====================================================================== */
+@media (min-width: 600px) {
+  .word-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .stats { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .mode-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .toolbar { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .toolbar .search-field, .toolbar .status-field { grid-column: 1 / -1; }
+  .continue-panel { grid-template-columns: 1fr auto; }
+  .choice-list.inline { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 900px) {
+  .tabs a { flex-direction: row; gap: 8px; min-height: var(--tap); font-size: .9rem; }
+  .word-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .stats { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+  .mode-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .toolbar { grid-template-columns: 2fr 1fr 1fr 1fr; align-items: end; }
+  .toolbar .search-field { grid-column: 1 / 2; }
+  .toolbar .status-field { grid-column: 2 / -1; }
+  .settings-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
+  .button:active { transform: none; }
+}
+</style>
+</head>
+<body>
+<!-- ======================================================================
+  3. SEMANTIC PAGE STRUCTURE AND NAVIGATION
+====================================================================== -->
+<a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></symbol>
+  <symbol id="i-words" viewBox="0 0 24 24"><path d="M2 5h7a3 3 0 0 1 3 3v12a2.5 2.5 0 0 0-2.5-2.5H2zM22 5h-7a3 3 0 0 0-3 3v12a2.5 2.5 0 0 1 2.5-2.5H22z"/></symbol>
+  <symbol id="i-quiz" viewBox="0 0 24 24"><path d="M9 11l3 3 8-8M20 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></symbol>
+  <symbol id="i-reading" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zM14 2v6h6M8 13h8M8 17h8M8 9h2"/></symbol>
+  <symbol id="i-settings" viewBox="0 0 24 24"><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6"/></symbol>
+  <symbol id="i-sound" viewBox="0 0 24 24"><path d="M11 5 6 9H2v6h4l5 4zM15.5 8.5a5 5 0 0 1 0 7M19 5a10 10 0 0 1 0 14"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="i-circle" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18z"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><path d="M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8zM12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path d="M7 4l13 8-13 8z"/></symbol>
+  <symbol id="i-pause" viewBox="0 0 24 24"><path d="M8 4v16M16 4v16"/></symbol>
+  <symbol id="i-stop" viewBox="0 0 24 24"><path d="M6 6h12v12H6z"/></symbol>
+  <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></symbol>
+  <symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 21V9M7 14l5-5 5 5M5 3h14"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+</svg>
+
+<header class="app-header">
+  <div class="header-inner">
+    <a class="brand" href="#home">
+      <span class="brand-mark" aria-hidden="true">En</span>
+      <span><strong>English Study</strong><small data-i18n="brand.sub">B1–B2 vocabulary and practice</small></span>
+    </a>
+    <button type="button" class="icon-button" id="theme-quick" aria-label="Switch to dark theme" data-i18n-aria="theme.toDark"><svg class="icon"><use href="#i-moon"/></svg></button>
+  </div>
+  <nav class="tabs" aria-label="Main" data-i18n-aria="nav.label">
+    <a href="#home" data-route="home"><svg class="icon" aria-hidden="true"><use href="#i-home"/></svg><span data-i18n="nav.home">Home</span></a>
+    <a href="#words" data-route="words"><svg class="icon" aria-hidden="true"><use href="#i-words"/></svg><span data-i18n="nav.words">Words</span></a>
+    <a href="#quiz" data-route="quiz"><svg class="icon" aria-hidden="true"><use href="#i-quiz"/></svg><span data-i18n="nav.quiz">Quiz</span></a>
+    <a href="#reading" data-route="reading"><svg class="icon" aria-hidden="true"><use href="#i-reading"/></svg><span data-i18n="nav.reading">Reading</span></a>
+    <a href="#settings" data-route="settings"><svg class="icon" aria-hidden="true"><use href="#i-settings"/></svg><span data-i18n="nav.settings">Settings</span></a>
+  </nav>
+</header>
+
+<div id="storage-banner" class="banner" role="status" hidden>
+  <p id="storage-banner-text"></p>
+  <button type="button" class="icon-button" id="storage-banner-close" aria-label="Dismiss message" data-i18n-aria="common.dismiss"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
+</div>
+
+<main id="main" tabindex="-1">
+  <p id="boot-status" class="boot">Yükleniyor…</p>
+
+  <!-- ====================================================================
+    4. LEARNING VIEWS
+  ==================================================================== -->
+  <!-- Home / dashboard -->
+  <section class="view" data-view="home" aria-labelledby="home-title">
+    <div class="view-head">
+      <h1 id="home-title" tabindex="-1" data-i18n="home.title">Your study space</h1>
+      <p class="lead" data-i18n="home.lead">Learn vocabulary with example sentences for every word type, test yourself and read short texts — all offline in one page.</p>
+    </div>
+    <div class="panel continue-panel">
+      <div>
+        <h2 data-i18n="home.next">Next step</h2>
+        <p id="continue-text"></p>
+      </div>
+      <a class="button primary" id="continue-link" href="#words"><span id="continue-label">Continue learning</span><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    </div>
+    <div class="panel">
+      <div class="field">
+        <label for="path-select" data-i18n="home.path">Study path</label>
+        <select id="path-select">
+          <option value="all" data-i18n="path.all">Tüm seviyeler</option>
+          <option value="A2" data-i18n="path.A2">A2</option>
+          <option value="B1" data-i18n="path.B1">B1</option>
+          <option value="B2" data-i18n="path.B2">B2</option>
+          <option value="C1" data-i18n="path.C1">C1</option>
+          <option value="C1+" data-i18n="path.C1+">C1+</option>
+        </select>
+      </div>
+      <p class="hint" data-i18n="home.pathHint">Your path decides which words the Quiz uses. Levels come from the section titles of the original word list; they are not an official CEFR assessment.</p>
+    </div>
+    <h2 class="section-title" data-i18n="home.progress">Your progress</h2>
+    <dl class="stats" id="stats"></dl>
+    <h2 class="section-title" data-i18n="home.modes">Study modes</h2>
+    <ul class="mode-grid">
+      <li><a class="mode-card" href="#words"><svg class="icon" aria-hidden="true"><use href="#i-words"/></svg><div><strong data-i18n="nav.words">Words</strong><span data-i18n="mode.words">Search the list, open example sentences for each word type and mark words you know.</span></div></a></li>
+      <li><a class="mode-card" href="#quiz"><svg class="icon" aria-hidden="true"><use href="#i-quiz"/></svg><div><strong data-i18n="nav.quiz">Quiz</strong><span data-i18n="mode.quiz">Multiple-choice and fill-in-the-blank questions.</span></div></a></li>
+      <li><a class="mode-card" href="#reading"><svg class="icon" aria-hidden="true"><use href="#i-reading"/></svg><div><strong data-i18n="nav.reading">Reading</strong><span data-i18n="mode.reading">Short texts with questions and optional listening.</span></div></a></li>
+    </ul>
+    <p class="hint" id="home-storage-note"></p>
+  </section>
+
+  <!-- Vocabulary -->
+  <section class="view" data-view="words" aria-labelledby="words-title">
+    <div class="view-head">
+      <h1 id="words-title" tabindex="-1" data-i18n="words.title">Vocabulary</h1>
+      <p class="lead" data-i18n="words.lead">x</p>
+    </div>
+    <p class="tap-hint js-only"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="words.tapHint">x</span></p>
+    <div class="panel toolbar js-only" role="search">
+      <div class="field search-field">
+        <label for="word-search" data-i18n="words.search">Search English or Turkish</label>
+        <input id="word-search" type="search" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="search" placeholder="e.g. achieve, başarmak" data-i18n-placeholder="words.searchPh">
+      </div>
+      <div class="field status-field">
+        <span class="legend" id="status-label" data-i18n="words.status">Show</span>
+        <div class="segmented" role="group" aria-labelledby="status-label">
+          <button type="button" class="button" data-status="all" aria-pressed="true" data-i18n="words.all">All</button>
+          <button type="button" class="button" data-status="unlearned" aria-pressed="false" data-i18n="words.unlearned">Not learned</button>
+          <button type="button" class="button" data-status="learned" aria-pressed="false" data-i18n="words.learned">Learned</button>
+        </div>
+      </div>
+      <div class="field">
+        <label for="level-filter" data-i18n="words.level">Level label</label>
+        <select id="level-filter">
+          <option value="all">Tüm seviyeler</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="sort-select" data-i18n="words.sort">Order</label>
+        <select id="sort-select">
+          <option value="level" data-i18n="sort.level">By level</option>
+          <option value="alpha" data-i18n="sort.alpha">Alphabetical (A–Z)</option>
+          <option value="related" data-i18n="sort.related">Related meanings</option>
+        </select>
+      </div>
+    </div>
+    <div class="row js-only">
+      <p id="word-count" class="result-count" aria-live="polite"></p>
+      <button type="button" class="button ghost small" id="reset-filters" data-i18n="words.reset">Reset filters</button>
+    </div>
+    <div id="word-list" class="word-grid"><!--@WORD_CARDS@--></div>
+    <div id="word-empty" class="panel empty" hidden>
+      <p><strong data-i18n="words.emptyTitle">No words match.</strong></p>
+      <p class="hint" data-i18n="words.emptyText">Try a shorter search, check the spelling, or reset the filters.</p>
+      <button type="button" class="button primary" id="empty-reset" data-i18n="words.reset">Reset filters</button>
+    </div>
+    <div class="more-row js-only"><button type="button" class="button" id="word-more" hidden></button></div>
+  </section>
+
+  <!-- Quiz -->
+  <section class="view" data-view="quiz" aria-labelledby="quiz-title">
+    <div class="view-head">
+      <h1 id="quiz-title" tabindex="-1" data-i18n="quiz.title">Vocabulary quiz</h1>
+      <p class="lead" data-i18n="quiz.lead">Each question has exactly one correct answer. You get feedback straight away.</p>
+    </div>
+    <form id="quiz-setup" class="panel" novalidate>
+      <fieldset>
+        <legend data-i18n="quiz.type">Question type</legend>
+        <div class="choice-list inline">
+          <label class="choice"><input type="radio" name="quiz-mode" value="en-tr" checked><span data-i18n="quiz.mode.entr">English → Turkish</span></label>
+          <label class="choice"><input type="radio" name="quiz-mode" value="tr-en"><span data-i18n="quiz.mode.tren">Turkish → English</span></label>
+          <label class="choice"><input type="radio" name="quiz-mode" value="blank"><span data-i18n="quiz.mode.blank">Fill in the blank</span></label>
+          <label class="choice"><input type="radio" name="quiz-mode" value="mixed"><span data-i18n="quiz.mode.mixed">Mixed</span></label>
+        </div>
+      </fieldset>
+      <div class="row" style="margin-top:16px; align-items:end">
+        <div class="field" style="flex:2 1 220px">
+          <label for="quiz-pool" data-i18n="quiz.pool">Words to practise</label>
+          <select id="quiz-pool">
+            <option value="learned" data-i18n="quiz.pool.learned">Words I have learned</option>
+            <option value="unlearned" data-i18n="quiz.pool.unlearned">Not learned yet</option>
+            <option value="path" data-i18n="quiz.pool.path">All words in my study path</option>
+          </select>
+        </div>
+        <div class="field" style="flex:1 1 120px">
+          <label for="quiz-length" data-i18n="quiz.length">Questions</label>
+          <select id="quiz-length"><option value="5">5</option><option value="10" selected>10</option><option value="20">20</option></select>
+        </div>
+        <button type="submit" class="button primary" style="flex:1 1 160px" data-i18n="quiz.start">Start quiz</button>
+      </div>
+      <p id="quiz-setup-error" class="error-text" role="alert"></p>
+      <p class="hint" id="quiz-overall"></p>
+    </form>
+    <div id="quiz-run" class="panel" hidden>
+      <div class="quiz-meta"><span id="quiz-progress"></span><span id="quiz-score"></span></div>
+      <p class="hint" id="quiz-kind"></p>
+      <h2 id="quiz-prompt" class="quiz-prompt" tabindex="-1"></h2>
+      <p id="quiz-hint" class="tr-line tr-support" lang="tr"></p>
+      <div id="quiz-options" class="quiz-options" role="group" aria-labelledby="quiz-prompt"></div>
+      <p id="quiz-feedback" class="feedback" aria-live="polite"></p>
+      <div class="row">
+        <button type="button" class="button primary" id="quiz-next" hidden></button>
+        <button type="button" class="button ghost" id="quiz-end" data-i18n="quiz.end">End quiz</button>
+      </div>
+    </div>
+    <div id="quiz-result" class="panel" hidden>
+      <h2 id="quiz-result-title" tabindex="-1" data-i18n="quiz.resultTitle">Quiz result</h2>
+      <p id="quiz-result-text"></p>
+      <div id="quiz-missed"></div>
+      <div class="row">
+        <button type="button" class="button primary" id="quiz-practice-missed" data-i18n="quiz.practiceMissed">Practise missed words</button>
+        <button type="button" class="button ghost" id="quiz-new" data-i18n="quiz.new">New quiz</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reading and listening -->
+  <section class="view" data-view="reading" aria-labelledby="reading-title">
+    <div class="view-head">
+      <h1 id="reading-title" tabindex="-1" data-i18n="reading.title">Reading and listening</h1>
+      <p class="lead" data-i18n="reading.lead">Short texts written for this app. Highlighted words are in your vocabulary list. Level labels are the author's estimate, not a professional assessment.</p>
+      <p class="hint" id="speech-note"></p>
+    </div>
+    <div id="reading-list"></div>
+  </section>
+
+  <!-- Settings and data -->
+  <section class="view" data-view="settings" aria-labelledby="settings-title">
+    <div class="view-head">
+      <h1 id="settings-title" tabindex="-1" data-i18n="settings.title">Settings and data</h1>
+    </div>
+    <div class="settings-grid">
+      <div class="panel">
+        <h2 data-i18n="settings.display">Display</h2>
+        <fieldset>
+          <legend data-i18n="settings.theme">Theme</legend>
+          <div class="choice-list">
+            <label class="choice"><input type="radio" name="theme" value="system"><span data-i18n="theme.system">Match my device</span></label>
+            <label class="choice"><input type="radio" name="theme" value="light"><span data-i18n="theme.light">Light</span></label>
+            <label class="choice"><input type="radio" name="theme" value="dark"><span data-i18n="theme.dark">Dark</span></label>
+          </div>
+        </fieldset>
+        <div class="field">
+          <label for="ui-lang" data-i18n="settings.lang">Interface language</label>
+          <select id="ui-lang"><option value="en">English</option><option value="tr">Türkçe</option></select>
+        </div>
+        <label class="choice"><input type="checkbox" id="show-turkish"><span data-i18n="settings.showTr">Show Turkish translations of sentences</span></label>
+      </div>
+      <div class="panel">
+        <h2 data-i18n="settings.speech">Pronunciation audio</h2>
+        <div id="speech-settings">
+          <div class="field">
+            <label for="voice-select" data-i18n="settings.voice">Voice</label>
+            <select id="voice-select"></select>
+          </div>
+          <div class="field" style="margin-top:12px">
+            <label for="speech-rate"><span data-i18n="settings.rate">Speed</span>: <output id="speech-rate-out" for="speech-rate"></output></label>
+            <input type="range" id="speech-rate" min="0.6" max="1.2" step="0.1">
+          </div>
+          <button type="button" class="button" id="voice-test" style="margin-top:12px"><svg class="icon" aria-hidden="true"><use href="#i-sound"/></svg><span data-i18n="settings.test">Test voice</span></button>
+        </div>
+        <p class="hint" id="speech-settings-note"></p>
+      </div>
+      <div class="panel">
+        <h2 data-i18n="settings.data">Your progress data</h2>
+        <p class="status-box" id="storage-status"></p>
+        <div class="row">
+          <button type="button" class="button" id="export-progress"><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg><span data-i18n="settings.export">Export progress (JSON)</span></button>
+          <button type="button" class="button" id="import-progress"><svg class="icon" aria-hidden="true"><use href="#i-upload"/></svg><span data-i18n="settings.import">Import progress</span></button>
+          <input type="file" id="import-file" accept="application/json,.json" hidden>
+        </div>
+        <p id="import-status" role="status"></p>
+        <button type="button" class="button danger" id="reset-progress" data-i18n="settings.reset">Reset all progress</button>
+        <p class="hint" data-i18n="settings.resetHint">Reset removes learned marks, quiz statistics and study days. Display settings are kept.</p>
+      </div>
+      <div class="panel">
+        <h2 data-i18n="settings.about">About this app</h2>
+        <p id="about-text"></p>
+        <p class="hint" data-i18n="settings.aboutContent">Vocabulary entries, translations, pronunciation notes, examples and images come unchanged from the original page. Some entries share a generic illustration; those cards are labelled “Shared image”. The example sentences grouped by word type were written for this app; they are not taken from a published source.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <p data-i18n="footer.text">Works offline. Progress is stored only in this browser on this device.</p>
+  <p>English Study · v@APP_VERSION@</p>
+</footer>
+
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+<dialog id="confirm-dialog" aria-labelledby="confirm-title" aria-describedby="confirm-message">
+  <form method="dialog">
+    <h2 id="confirm-title"></h2>
+    <p id="confirm-message"></p>
+    <div class="row end">
+      <button type="button" class="button ghost" id="confirm-cancel"></button>
+      <button type="button" class="button danger" id="confirm-ok"></button>
+    </div>
+  </form>
+</dialog>
+
+<noscript><p style="padding:16px">This study app needs JavaScript. Please enable it and reload the page.</p></noscript>
+
+<!-- ======================================================================
+  5. EMBEDDED CONTENT DATA
+  Vocabulary entries (extracted from the original page). Learner progress is
+  stored separately in localStorage, keyed by these stable ids ("w" + number).
+====================================================================== -->
+<script type="application/json" id="vocab-data"><!--@VOCAB_DATA@--></script>
+<!-- Example sentences by word type, written for this app (source: tools/sentences/*.json). -->
+<script type="application/json" id="sentence-data"><!--@SENTENCE_DATA@--></script>
+
+<script>
+(() => {
+'use strict';
+const APP_VERSION = '@APP_VERSION@';
+/* Small polyfill so the app also starts on browsers from before 2020. */
+if (!Element.prototype.replaceChildren) {
+  Element.prototype.replaceChildren = function () {
+    while (this.firstChild) this.removeChild(this.firstChild);
+    this.append.apply(this, arguments);
+  };
+}
+
+/* ======================================================================
+   5b. AUTHORED CONTENT: reading passages
+====================================================================== */
+const READINGS = [
+  {
+    id: 'new-start', title: 'A New Start in the City', level: 'B1',
+    paragraphs: [
+      ['Last spring, Elif moved from a small town to Istanbul to start her first job at a design company. At first, everything felt difficult. The city was crowded, the traffic was terrible, and she did not know anyone.',
+       'Geçen bahar Elif, bir tasarım şirketindeki ilk işine başlamak için küçük bir kasabadan İstanbul’a taşındı. İlk başta her şey zor geldi. Şehir kalabalıktı, trafik korkunçtu ve kimseyi tanımıyordu.'],
+      ['Her manager noticed that she was nervous, so he introduced her to a colleague called Deniz. Deniz showed her the best way to travel to work by ferry. The journey took longer than the metro, but it was much more relaxing.',
+       'Müdürü onun gergin olduğunu fark etti ve onu Deniz adında bir iş arkadaşıyla tanıştırdı. Deniz ona işe vapurla gitmenin en iyi yolunu gösterdi. Yolculuk metrodan daha uzun sürdü ama çok daha rahatlatıcıydı.'],
+      ['After a few months, Elif began to enjoy her new life. She joined a running group, explored different neighbourhoods at the weekends and improved her cooking skills. She still misses her family, but she calls them every evening.',
+       'Birkaç ay sonra Elif yeni hayatından keyif almaya başladı. Bir koşu grubuna katıldı, hafta sonları farklı mahalleleri keşfetti ve yemek yapma becerilerini geliştirdi. Ailesini hâlâ özlüyor ama onları her akşam arıyor.']
+    ],
+    questions: [
+      { q: 'Why did Elif move to Istanbul?', options: ['To study at a university', 'To start a new job', 'To live near her family'], answer: 1, explain: 'Paragraph 1: she moved “to start her first job”.' },
+      { q: 'How did Deniz help Elif?', options: ['She found Elif a flat.', 'She showed Elif a way to travel to work.', 'She taught Elif to cook.'], answer: 1, explain: 'Paragraph 2: Deniz showed her how to travel to work by ferry.' },
+      { q: 'Which sentence is true?', options: ['The ferry was faster than the metro.', 'Elif stopped calling her family.', 'Elif joined a running group.'], answer: 2, explain: 'Paragraph 3: “She joined a running group.”' }
+    ]
+  },
+  {
+    id: 'food-waste', title: 'Why Do We Waste So Much Food?', level: 'B1',
+    paragraphs: [
+      ['Around the world, a large amount of food is thrown away every year. Some of it is lost on farms or during transport, but a lot of it is wasted at home. People often buy more than they need, especially when supermarkets offer special deals.',
+       'Dünya genelinde her yıl büyük miktarda yiyecek çöpe atılıyor. Bunun bir kısmı tarlalarda ya da taşıma sırasında kayboluyor, ancak önemli bir kısmı evlerde israf ediliyor. İnsanlar, özellikle süpermarketler özel indirimler sunduğunda, çoğu zaman ihtiyaçlarından fazlasını alıyor.'],
+      ['Another reason is confusion about the dates on packages. A “best before” date tells you when food is at its best quality, but the food is often still safe to eat after that date. A “use by” date is different: it is about safety, so you should not eat the food after it.',
+       'Bir başka neden de ambalajlardaki tarihler konusundaki kafa karışıklığıdır. “Tavsiye edilen tüketim tarihi”, yiyeceğin en kaliteli olduğu zamanı gösterir; ancak yiyecek bu tarihten sonra da çoğu zaman güvenle yenebilir. “Son tüketim tarihi” ise farklıdır: güvenlikle ilgilidir, bu yüzden yiyeceği bu tarihten sonra yememelisiniz.'],
+      ['There are simple ways to reduce waste. You can plan your meals for the week, make a shopping list and check your fridge before you go out. Leftovers can become a new meal the next day. Small changes like these save money and help the environment.',
+       'İsrafı azaltmanın basit yolları var. Haftalık yemeklerinizi planlayabilir, bir alışveriş listesi hazırlayabilir ve dışarı çıkmadan önce buzdolabınızı kontrol edebilirsiniz. Artan yemekler ertesi gün yeni bir öğüne dönüşebilir. Bunun gibi küçük değişiklikler hem para tasarrufu sağlar hem de çevreye yardımcı olur.']
+    ],
+    questions: [
+      { q: 'According to the text, where is a lot of food wasted?', options: ['Only on farms', 'At home', 'In restaurants'], answer: 1, explain: 'Paragraph 1: “a lot of it is wasted at home”.' },
+      { q: 'What does a “use by” date tell you?', options: ['When food is at its best quality', 'When the food is no longer safe to eat', 'When the shop will offer a discount'], answer: 1, explain: 'Paragraph 2: a “use by” date is about safety.' },
+      { q: 'Which idea is NOT mentioned as a way to reduce waste?', options: ['Making a shopping list', 'Using leftovers', 'Growing your own vegetables'], answer: 2, explain: 'Paragraph 3 mentions planning, shopping lists, checking the fridge and leftovers only.' }
+    ]
+  },
+  {
+    id: 'online-learning', title: 'Learning a Language Online', level: 'B1–B2',
+    paragraphs: [
+      ['Millions of people now use apps and websites to learn a new language. The main advantage is flexibility: learners can practise for ten minutes on the bus or during a lunch break, instead of travelling to a classroom at a fixed time.',
+       'Artık milyonlarca insan yeni bir dil öğrenmek için uygulamaları ve web sitelerini kullanıyor. Başlıca avantajı esnekliktir: öğrenciler belirli bir saatte bir sınıfa gitmek yerine otobüste ya da öğle arasında on dakika pratik yapabilir.'],
+      ['However, online learning also has limitations. Many apps focus on recognising words rather than producing them, so learners may understand a lot but still find it difficult to speak. Without a teacher, it is also easy to repeat the same mistakes without noticing them.',
+       'Ancak çevrim içi öğrenmenin sınırlılıkları da var. Pek çok uygulama kelimeleri üretmekten çok tanımaya odaklanır; bu nedenle öğrenciler çok şey anlayabilir ama yine de konuşmakta zorlanabilir. Öğretmen olmadan aynı hataları fark etmeden tekrarlamak da kolaydır.'],
+      ['Many teachers recommend a balanced approach. Short daily practice is useful for building vocabulary, but learners also need regular opportunities to speak and write, ideally with someone who can give them feedback. Studying a little every day matters more than studying for many hours once a week.',
+       'Pek çok öğretmen dengeli bir yaklaşım önerir. Kısa günlük pratik kelime dağarcığı oluşturmak için faydalıdır; ancak öğrencilerin düzenli olarak konuşma ve yazma fırsatlarına da ihtiyacı vardır, ideal olarak da kendilerine geri bildirim verebilecek biriyle. Her gün biraz çalışmak, haftada bir kez saatlerce çalışmaktan daha önemlidir.']
+    ],
+    questions: [
+      { q: 'What is the main advantage of learning online, according to the text?', options: ['It is always free.', 'It is flexible.', 'It replaces speaking practice.'], answer: 1, explain: 'Paragraph 1: “The main advantage is flexibility”.' },
+      { q: 'Why might app users find speaking difficult?', options: ['Apps often focus on recognising words.', 'Apps are too expensive.', 'Apps do not teach vocabulary.'], answer: 0, explain: 'Paragraph 2: apps focus on recognising rather than producing words.' },
+      { q: 'What does the last paragraph say matters most?', options: ['Studying for many hours in one day', 'Studying regularly', 'Using only one app'], answer: 1, explain: 'Paragraph 3: a little every day matters more.' }
+    ]
+  }
+];
+
+/* Labels for the related-meaning groups that come from the original page. */
+const GROUP_LABELS_EN = {
+  'Başarı ve yetenek': 'Achievement and ability', 'Bırakmak ve vazgeçmek': 'Leaving and giving up', 'Yardım ve destek': 'Help and support',
+  'İzin ve kabul': 'Permission and acceptance', 'Öneri ve tavsiye': 'Suggestions and advice', 'Seçim ve tercih': 'Choice and preference',
+  'Sorun ve zorluk': 'Problems and difficulty', 'Çözüm, neden ve sonuç': 'Solutions, causes and results', 'İletişim ve açıklama': 'Communication and explanation',
+  'Tartışma ve fikir': 'Argument and opinion', 'Endişe ve korku': 'Worry and fear', 'İş ve kariyer': 'Work and career',
+  'Etkinlik ve katılım': 'Events and participation', 'Değişim ve gelişim': 'Change and development', 'Miktar ve değer': 'Amount and value',
+  'Zaman ve program': 'Time and schedule', 'Seyahat ve yön': 'Travel and direction', 'Bilgi ve araştırma': 'Knowledge and research',
+  'Sağlık ve bakım': 'Health and care', 'Doğa ve çevre': 'Nature and environment', 'Güven ve doğruluk': 'Trust and accuracy',
+  'Duygular ve davranış': 'Feelings and behaviour', 'Tamamlama ve bütünlük': 'Completing and wholeness', 'Üretim ve tasarım': 'Production and design',
+  'Azaltma ve önleme': 'Reducing and preventing', 'Dikkat ve fark etme': 'Attention and noticing', 'Tamlık ve yeterlilik': 'Essentials and sufficiency',
+  'Kültür ve toplum': 'Culture and society', 'Neden ve açıklama': 'Reasons and linking words', 'Hareket ve eylem': 'Movement and action'
+};
+/*@MEANING_GROUPS@*/
+
+/* ======================================================================
+   6. APPLICATION STATE AND STORAGE ADAPTER
+====================================================================== */
+const STRINGS = {
+  en: {
+    'card.photo': 'Photo',
+    'card.learnedBadge': 'Learned',
+    'card.toggleLabel': 'Mark “{w}” as learned',
+    'path.C1+': 'C1+ advanced ({n})',
+    'path.C1': 'C1 ({n})',
+    'path.A2': 'A2 ({n})',
+    'sort.level': 'By level (A2 → C1+)',
+    'level.heading': 'Level {l}',
+    'level.C1+': 'C1+ advanced ({n})',
+    'level.C1': 'C1 ({n})',
+    'level.B2': 'B2 ({n})',
+    'level.B1': 'B1 ({n})',
+    'level.A2': 'A2 ({n})',
+    'words.tapHint': 'Tap a card when you have learned the word — it turns green. Tap it again to undo.',
+    'pos.num': 'Number',
+    'pos.int': 'Interjection',
+    'pos.phr': 'Phrase',
+    'pos.det': 'Determiner',
+    'pos.pron': 'Pronoun',
+    'pos.conj': 'Conjunction',
+    'pos.prep': 'Preposition',
+    'pos.adv': 'Adverb',
+    'pos.adj': 'Adjective',
+    'pos.v': 'Verb',
+    'pos.n': 'Noun',
+    'card.sentencesNone': 'Example sentences are not available for this word yet.',
+    'card.sentences': 'Example sentences ({types})',
+    'quiz.noLearned': 'You have not marked any words as learned yet. Mark words with the “Learned” button in Words, or choose another word set.',
+    'continue.learnBtn': 'Study words',
+    'continue.learn': 'Open the word list, read the sentences and tap the cards of the words you know.',
+    skip: 'Skip to content', 'brand.sub': 'A2–C1 vocabulary and practice', 'nav.label': 'Main',
+    'nav.home': 'Home', 'nav.words': 'Words', 'nav.quiz': 'Quiz', 'nav.reading': 'Reading', 'nav.settings': 'Settings',
+    'theme.toDark': 'Switch to dark theme', 'theme.toLight': 'Switch to light theme', 'common.dismiss': 'Dismiss message', 'common.cancel': 'Cancel', 'common.tryAgain': 'Try again',
+    'home.title': 'Your study space', 'home.lead': 'Learn vocabulary with example sentences for every word type, test yourself and read short texts — all offline in one page.',
+    'home.next': 'Next step', 'home.path': 'Study path', 'home.progress': 'Your progress', 'home.modes': 'Study modes',
+    'home.pathHint': 'Your path decides which words the Quiz uses. Levels come from the Oxford 3000 and Oxford 5000 word lists (A1 words are shown as A2). C1+ means the word is beyond the Oxford 5000 (advanced, often C2).',
+    'path.all': 'All levels ({n})', 'path.B1': 'B1 ({n})', 'path.B2': 'B2 ({n})', 
+    'mode.words': 'Search the list, read example sentences for each word type and tap a card to mark it learned.', 'mode.quiz': 'Multiple-choice and fill-in-the-blank questions.',
+    'mode.reading': 'Short texts with questions and optional listening.',
+    'continue.quiz': 'You have learned {n} words. Test yourself on them.', 'continue.quizBtn': 'Quiz my learned words',
+    'stat.learned': 'Words learned', 'stat.learnedNote': 'Marked by you',
+    'stat.accuracy': 'Quiz accuracy', 'stat.accuracyNote': '{c} of {a} answers correct', 'stat.noQuiz': 'No quiz answers yet',
+    'stat.streak': 'Study streak', 'stat.streakVal': '{n} d', 'stat.streakNote': 'Days in a row with activity on this device',
+    'storage.ok': 'Progress is saved in this browser on this device only. It is not synced to other devices, and clearing your browser data will erase it. Use Export in Settings to keep a backup.',
+    'storage.off': 'This browser is not allowing local storage (for example in private mode or some file viewers). Everything works, but progress will be lost when you close this page. Use Export in Settings to keep a copy.',
+    'storage.simulated': 'Storage is switched off for testing (?storage=off). Progress will not be saved.',
+    'storage.writeFailed': 'Your latest change could not be saved (the browser refused or storage is full). It is kept until you close this page. Export a backup to be safe.',
+    'storage.corrupt': 'Saved progress could not be read, so the app started fresh. The unreadable data was kept under a backup key and was not deleted.',
+    'storage.migrated': 'Imported {n} learned words from the previous version of this page.',
+    'words.title': 'Vocabulary', 'words.lead': 'Words from A2 to C1+, with Turkish meanings, pronunciation and example sentences for every word type.',
+    'words.search': 'Search English or Turkish', 'words.searchPh': 'e.g. achieve, başarmak', 'words.status': 'Show',
+    'words.all': 'All', 'words.unlearned': 'Not learned', 'words.learned': 'Learned', 'words.level': 'Level label', 'words.anyLevel': 'All levels ({n})', 
+    'words.sort': 'Order', 'sort.alpha': 'Alphabetical (A–Z)', 'sort.related': 'Related meanings',
+    'words.reset': 'Reset filters', 'words.count': '{n} words match · showing {s}', 'words.countOne': '1 word matches', 'words.countNone': 'No words match',
+    'words.more': 'Show {n} more', 'words.emptyTitle': 'No words match.', 'words.emptyText': 'Try a shorter search, check the spelling, or reset the filters.',
+    'group.other': 'Other words — sorted by Turkish meaning',
+    'card.pron': 'Pronunciation', 'card.ipa': 'IPA', 'card.respelling': 'Say it', 'card.definition': 'English definition', 'card.example': 'Example',
+    'card.listen': 'Listen', 'card.listenTo': 'Listen to “{w}”', 
+    
+    'toast.learned': '“{w}” marked as learned.', 'toast.unlearned': '“{w}” marked as not learned.',
+    'toast.speechFail': 'Speech could not start on this device.',
+    
+    'quiz.title': 'Vocabulary quiz', 'quiz.lead': 'Each question has exactly one correct answer. You get feedback straight away.',
+    'quiz.type': 'Question type', 'quiz.mode.entr': 'English → Turkish', 'quiz.mode.tren': 'Turkish → English', 'quiz.mode.blank': 'Fill in the blank', 'quiz.mode.mixed': 'Mixed',
+    'quiz.pool': 'Words to practise', 'quiz.pool.path': 'All words in my study path ({n})', 'quiz.pool.unlearned': 'Not learned yet ({n})', 'quiz.pool.learned': 'Words I have learned ({n})',
+    'quiz.length': 'Questions', 'quiz.start': 'Start quiz', 'quiz.end': 'End quiz', 'quiz.next': 'Next question', 'quiz.finish': 'See result',
+    'quiz.notEnough': 'There are not enough suitable words for this choice ({n} found). Choose a different word set or question type.',
+    'quiz.overall': 'All-time quiz accuracy on this device: {p}% ({c} of {a}).', 'quiz.overallNone': 'Your quiz answers will be counted here.',
+    'quiz.progress': 'Question {i} of {n}', 'quiz.score': 'Score: {c} / {a}',
+    'quiz.kind.entr': 'English → Turkish', 'quiz.kind.tren': 'Turkish → English', 'quiz.kind.blank': 'Fill in the blank',
+    'quiz.q.entr': 'What does “{w}” mean?', 'quiz.q.tren': 'Which English word means “{m}”?',
+    'quiz.correct': 'Correct!', 'quiz.wrong': 'Not quite. The answer is “{a}”.', 'quiz.verdictCorrect': '✓ Correct', 'quiz.verdictWrong': '✗ Your answer',
+    'quiz.explainBlank': '“{w}” ({m}). In the sentence: “{f}”.', 'quiz.explainWord': '“{w}” = {m}.',
+    'quiz.resultTitle': 'Quiz result', 'quiz.result': 'You answered {c} of {n} questions correctly ({p}%).', 'quiz.resultNone': 'You ended the quiz before answering any question.',
+    'quiz.missedTitle': 'Words to practise again', 'quiz.allCorrect': 'No mistakes — well done.',
+    'quiz.practiceMissed': 'Practise missed words', 'quiz.new': 'New quiz',
+    'choice.correct': 'Correct.', 'choice.wrong': 'Not quite. Correct answer: “{a}”.',
+    'reading.title': 'Reading and listening', 'reading.lead': 'Short texts written for this app. Highlighted words are in your vocabulary list. Level labels are the author’s estimate, not a professional assessment.',
+    'reading.level': 'Estimated level {l}', 'reading.words': '{n} words', 'reading.listen': 'Listen', 'reading.pause': 'Pause', 'reading.resume': 'Resume', 'reading.stop': 'Stop',
+    'reading.hide': 'Hide text (listening practice)', 'reading.translation': 'Show Turkish translation',
+    'reading.hiddenNote': 'The text is hidden. Press Listen, answer the questions, then turn off “Hide text” to read the transcript.',
+    'reading.playing': 'Playing paragraph {i} of {n}', 'reading.paused': 'Paused', 'reading.finished': 'Finished',
+    'reading.glossary': 'Highlighted vocabulary ({n})', 'reading.questions': 'Comprehension questions',
+    'speech.ok': 'Listening uses your device’s built-in speech synthesis (computer-generated voice). Voices and quality differ between devices, and some devices have no English voice offline.',
+    'speech.none': 'This browser does not offer speech synthesis, so listening buttons are hidden. Reading and questions still work. Recorded audio is not included in this version.',
+    
+    'settings.title': 'Settings and data', 'settings.display': 'Display', 'settings.theme': 'Theme', 'theme.system': 'Match my device', 'theme.light': 'Light', 'theme.dark': 'Dark',
+    'settings.lang': 'Interface language', 'settings.showTr': 'Show Turkish translations of sentences',
+    'settings.speech': 'Pronunciation audio', 'settings.voice': 'Voice', 'settings.rate': 'Speed', 'settings.test': 'Test voice', 'settings.defaultVoice': 'Device default (English)',
+    'settings.testPhrase': 'This is how words will sound on this device.',
+    'settings.data': 'Your progress data', 'settings.export': 'Export progress (JSON)', 'settings.import': 'Import progress', 'settings.reset': 'Reset all progress',
+    'settings.resetHint': 'Reset removes learned marks, quiz statistics and study days. Display settings are kept.',
+    'settings.about': 'About this app', 'settings.aboutText': 'Version {v}. {n} vocabulary entries ({s} with sentences by word type), {i} embedded images, {r} reading texts.',
+    'settings.aboutContent': 'Meanings, pronunciation notes and original examples come from the original page. Photos come from Wikimedia Commons (free licences; the author and licence are shown on each card). Illustrations that the original page made for a specific word are kept. Words without a fitting picture show the word itself instead of an unrelated image. The example sentences grouped by word type were written for this app.',
+    'reset.title': 'Reset all progress?', 'reset.msg': 'Learned marks, quiz statistics and study days will be deleted. Consider exporting a backup first.', 'reset.ok': 'Reset progress', 'reset.done': 'Progress has been reset.',
+    'import.title': 'Replace your current progress?', 'import.msg': 'The file contains {l} learned words and {a} quiz answers. Your current progress will be replaced.', 'import.ok': 'Replace progress',
+    'import.done': 'Progress imported.', 'import.cancelled': 'Import cancelled. Nothing was changed.', 'import.tooBig': 'This file is too large to be a progress export.',
+    'import.badJson': 'This file is not valid JSON.', 'import.badSchema': 'This file is not a progress export from this app, or it was made by a newer version.',
+    'export.done': 'Progress file downloaded.', 'export.fail': 'The download could not start in this browser.',
+    'footer.text': 'Works offline. Progress is stored only in this browser on this device.',
+    'boot.error': 'Something went wrong while starting the app: {e}. Your saved progress has not been changed.'
+  },
+  tr: {
+    'card.photo': 'Görsel',
+    'card.learnedBadge': 'Öğrenildi',
+    'card.toggleLabel': '“{w}” kelimesini öğrendim olarak işaretle',
+    'path.C1+': 'C1+ ileri ({n})',
+    'path.C1': 'C1 ({n})',
+    'path.A2': 'A2 ({n})',
+    'sort.level': 'Seviyeye göre (A2 → C1+)',
+    'level.heading': '{l} seviyesi',
+    'level.C1+': 'C1+ ileri ({n})',
+    'level.C1': 'C1 ({n})',
+    'level.B2': 'B2 ({n})',
+    'level.B1': 'B1 ({n})',
+    'level.A2': 'A2 ({n})',
+    'words.tapHint': 'Öğrendiğin kelimenin kartına dokun, kart yeşile döner. Geri almak için yeniden dokun.',
+    'pos.num': 'Sayı',
+    'pos.int': 'Ünlem',
+    'pos.phr': 'Kalıp ifade',
+    'pos.det': 'Belirleyici',
+    'pos.pron': 'Zamir',
+    'pos.conj': 'Bağlaç',
+    'pos.prep': 'Edat',
+    'pos.adv': 'Zarf',
+    'pos.adj': 'Sıfat',
+    'pos.v': 'Fiil',
+    'pos.n': 'İsim',
+    'card.sentencesNone': 'Bu kelime için henüz örnek cümle yok.',
+    'card.sentences': 'Örnek cümleler ({types})',
+    'quiz.noLearned': 'Henüz öğrenildi olarak işaretlediğin kelime yok. Kelimeler bölümünde “Öğrendim” düğmesiyle işaretle ya da başka bir kelime grubu seç.',
+    'continue.learnBtn': 'Kelime çalış',
+    'continue.learn': 'Kelime listesini aç, cümleleri oku ve bildiğin kelimelerin kartlarına dokun.',
+    skip: 'İçeriğe geç', 'brand.sub': 'A2–C1 kelime ve alıştırma', 'nav.label': 'Ana menü',
+    'nav.home': 'Ana sayfa', 'nav.words': 'Kelimeler', 'nav.quiz': 'Test', 'nav.reading': 'Okuma', 'nav.settings': 'Ayarlar',
+    'theme.toDark': 'Koyu temaya geç', 'theme.toLight': 'Açık temaya geç', 'common.dismiss': 'Mesajı kapat', 'common.cancel': 'Vazgeç', 'common.tryAgain': 'Tekrar dene',
+    'home.title': 'Çalışma alanın', 'home.lead': 'Her kelime türü için örnek cümlelerle kelime öğren, kendini test et ve kısa metinler oku — hepsi tek sayfada, çevrim dışı.',
+    'home.next': 'Sıradaki adım', 'home.path': 'Çalışma yolu', 'home.progress': 'İlerlemen', 'home.modes': 'Çalışma bölümleri',
+    'home.pathHint': 'Çalışma yolun, Testin hangi kelimeleri kullanacağını belirler. Seviyeler Oxford 3000 ve Oxford 5000 kelime listelerinden alınmıştır (A1 kelimeler A2 olarak gösterilir). C1+, kelimenin Oxford 5000 dışında kalan ileri düzey (çoğunlukla C2) bir kelime olduğunu gösterir.',
+    'path.all': 'Tüm seviyeler ({n})', 'path.B1': 'B1 ({n})', 'path.B2': 'B2 ({n})', 
+    'mode.words': 'Listede ara, her kelime türü için örnek cümleleri oku ve öğrendiğin kartlara dokun.', 'mode.quiz': 'Çoktan seçmeli ve boşluk doldurma soruları.',
+    'mode.reading': 'Sorulu kısa metinler ve isteğe bağlı dinleme.',
+    'continue.quiz': '{n} kelime öğrendin. Kendini bunlarla test et.', 'continue.quizBtn': 'Öğrendiklerimle test',
+    'stat.learned': 'Öğrenilen kelime', 'stat.learnedNote': 'Senin işaretlediğin',
+    'stat.accuracy': 'Test başarısı', 'stat.accuracyNote': '{a} cevabın {c} tanesi doğru', 'stat.noQuiz': 'Henüz test cevabı yok',
+    'stat.streak': 'Çalışma serisi', 'stat.streakVal': '{n} gün', 'stat.streakNote': 'Bu cihazda art arda çalışılan gün',
+    'storage.ok': 'İlerleme yalnızca bu cihazdaki bu tarayıcıda saklanır. Başka cihazlarla eşitlenmez; tarayıcı verilerini silersen kaybolur. Yedek için Ayarlar’daki Dışa aktar’ı kullan.',
+    'storage.off': 'Bu tarayıcı yerel depolamaya izin vermiyor (ör. gizli mod ya da bazı dosya görüntüleyicileri). Her şey çalışır ama sayfayı kapatınca ilerleme kaybolur. Kopya için Ayarlar’daki Dışa aktar’ı kullan.',
+    'storage.simulated': 'Depolama test için kapalı (?storage=off). İlerleme kaydedilmeyecek.',
+    'storage.writeFailed': 'Son değişikliğin kaydedilemedi (tarayıcı reddetti ya da alan dolu). Sayfayı kapatana kadar korunur. Güvenli olması için yedek al.',
+    'storage.corrupt': 'Kayıtlı ilerleme okunamadı, uygulama sıfırdan başladı. Okunamayan veri silinmedi, yedek anahtarda saklandı.',
+    'storage.migrated': 'Sayfanın önceki sürümünden {n} öğrenilmiş kelime aktarıldı.',
+    'words.title': 'Kelimeler', 'words.lead': 'A2’den C1+’ya kelimeler; Türkçe anlamları, okunuşları ve her kelime türü için örnek cümleleriyle.',
+    'words.search': 'İngilizce ya da Türkçe ara', 'words.searchPh': 'ör. achieve, başarmak', 'words.status': 'Göster',
+    'words.all': 'Tümü', 'words.unlearned': 'Öğrenilmeyen', 'words.learned': 'Öğrenilen', 'words.level': 'Seviye etiketi', 'words.anyLevel': 'Tüm seviyeler ({n})', 
+    'words.sort': 'Sıralama', 'sort.alpha': 'Alfabetik (A–Z)', 'sort.related': 'Anlamca yakın',
+    'words.reset': 'Filtreleri sıfırla', 'words.count': '{n} kelime eşleşti · {s} gösteriliyor', 'words.countOne': '1 kelime eşleşti', 'words.countNone': 'Eşleşen kelime yok',
+    'words.more': '{n} kelime daha göster', 'words.emptyTitle': 'Eşleşen kelime yok.', 'words.emptyText': 'Daha kısa bir arama dene, yazımı kontrol et ya da filtreleri sıfırla.',
+    'group.other': 'Diğer kelimeler — Türkçe anlamına göre',
+    'card.pron': 'Okunuş', 'card.ipa': 'IPA', 'card.respelling': 'Okunuş', 'card.definition': 'İngilizce tanım', 'card.example': 'Örnek',
+    'card.listen': 'Dinle', 'card.listenTo': '“{w}” kelimesini dinle', 
+    
+    'toast.learned': '“{w}” öğrenildi olarak işaretlendi.', 'toast.unlearned': '“{w}” öğrenilmedi olarak işaretlendi.',
+    'toast.speechFail': 'Bu cihazda konuşma başlatılamadı.',
+    
+    'quiz.title': 'Kelime testi', 'quiz.lead': 'Her sorunun tek bir doğru cevabı var. Geri bildirimi hemen alırsın.',
+    'quiz.type': 'Soru türü', 'quiz.mode.entr': 'İngilizce → Türkçe', 'quiz.mode.tren': 'Türkçe → İngilizce', 'quiz.mode.blank': 'Boşluk doldurma', 'quiz.mode.mixed': 'Karışık',
+    'quiz.pool': 'Çalışılacak kelimeler', 'quiz.pool.path': 'Çalışma yolumdaki tüm kelimeler ({n})', 'quiz.pool.unlearned': 'Henüz öğrenilmeyenler ({n})', 'quiz.pool.learned': 'Öğrendiğim kelimeler ({n})',
+    'quiz.length': 'Soru sayısı', 'quiz.start': 'Teste başla', 'quiz.end': 'Testi bitir', 'quiz.next': 'Sonraki soru', 'quiz.finish': 'Sonucu gör',
+    'quiz.notEnough': 'Bu seçim için yeterli uygun kelime yok ({n} bulundu). Başka bir kelime grubu ya da soru türü seç.',
+    'quiz.overall': 'Bu cihazdaki genel test başarın: %{p} ({a} cevabın {c} tanesi).', 'quiz.overallNone': 'Test cevapların burada sayılacak.',
+    'quiz.progress': 'Soru {i} / {n}', 'quiz.score': 'Puan: {c} / {a}',
+    'quiz.kind.entr': 'İngilizce → Türkçe', 'quiz.kind.tren': 'Türkçe → İngilizce', 'quiz.kind.blank': 'Boşluk doldurma',
+    'quiz.q.entr': '“{w}” ne demek?', 'quiz.q.tren': '“{m}” anlamına gelen İngilizce kelime hangisi?',
+    'quiz.correct': 'Doğru!', 'quiz.wrong': 'Olmadı. Doğru cevap: “{a}”.', 'quiz.verdictCorrect': '✓ Doğru', 'quiz.verdictWrong': '✗ Senin cevabın',
+    'quiz.explainBlank': '“{w}” ({m}). Cümledeki hâli: “{f}”.', 'quiz.explainWord': '“{w}” = {m}.',
+    'quiz.resultTitle': 'Test sonucu', 'quiz.result': '{n} sorunun {c} tanesini doğru cevapladın (%{p}).', 'quiz.resultNone': 'Hiç soru cevaplamadan testi bitirdin.',
+    'quiz.missedTitle': 'Yeniden çalışılacak kelimeler', 'quiz.allCorrect': 'Hiç hata yok — tebrikler.',
+    'quiz.practiceMissed': 'Yanlışları yeniden çalış', 'quiz.new': 'Yeni test',
+    'choice.correct': 'Doğru.', 'choice.wrong': 'Olmadı. Doğru cevap: “{a}”.',
+    'reading.title': 'Okuma ve dinleme', 'reading.lead': 'Bu uygulama için yazılmış kısa metinler. Vurgulu kelimeler kelime listende var. Seviye etiketleri yazarın tahminidir, profesyonel bir değerlendirme değildir.',
+    'reading.level': 'Tahmini seviye {l}', 'reading.words': '{n} kelime', 'reading.listen': 'Dinle', 'reading.pause': 'Duraklat', 'reading.resume': 'Devam et', 'reading.stop': 'Durdur',
+    'reading.hide': 'Metni gizle (dinleme alıştırması)', 'reading.translation': 'Türkçe çeviriyi göster',
+    'reading.hiddenNote': 'Metin gizli. Dinle’ye bas, soruları cevapla, sonra metni okumak için “Metni gizle”yi kapat.',
+    'reading.playing': 'Paragraf {i} / {n} okunuyor', 'reading.paused': 'Duraklatıldı', 'reading.finished': 'Bitti',
+    'reading.glossary': 'Vurgulu kelimeler ({n})', 'reading.questions': 'Anlama soruları',
+    'speech.ok': 'Dinleme, cihazının yerleşik konuşma sentezini (bilgisayar sesi) kullanır. Ses ve kalite cihazdan cihaza değişir; bazı cihazlarda çevrim dışı İngilizce ses bulunmayabilir.',
+    'speech.none': 'Bu tarayıcı konuşma sentezi sunmuyor, bu yüzden dinleme düğmeleri gizlendi. Okuma ve sorular çalışmaya devam eder. Bu sürümde kayıtlı ses yok.',
+    
+    'settings.title': 'Ayarlar ve veriler', 'settings.display': 'Görünüm', 'settings.theme': 'Tema', 'theme.system': 'Cihazıma uy', 'theme.light': 'Açık', 'theme.dark': 'Koyu',
+    'settings.lang': 'Arayüz dili', 'settings.showTr': 'Cümlelerin Türkçe çevirilerini göster',
+    'settings.speech': 'Telaffuz sesi', 'settings.voice': 'Ses', 'settings.rate': 'Hız', 'settings.test': 'Sesi dene', 'settings.defaultVoice': 'Cihaz varsayılanı (İngilizce)',
+    'settings.testPhrase': 'This is how words will sound on this device.',
+    'settings.data': 'İlerleme verilerin', 'settings.export': 'İlerlemeyi dışa aktar (JSON)', 'settings.import': 'İlerlemeyi içe aktar', 'settings.reset': 'Tüm ilerlemeyi sıfırla',
+    'settings.resetHint': 'Sıfırlama; öğrenildi işaretlerini, test istatistiklerini ve çalışma günlerini siler. Görünüm ayarları korunur.',
+    'settings.about': 'Uygulama hakkında', 'settings.aboutText': 'Sürüm {v}. {n} kelime ({s} tanesinde türlere göre cümle var), {i} gömülü görsel, {r} okuma metni.',
+    'settings.aboutContent': 'Anlamlar, okunuşlar ve özgün örnekler özgün sayfadan alınmıştır. Fotoğraflar Wikimedia Commons’tan gelir (özgür lisanslı; her kartta yazar ve lisans gösterilir). Özgün sayfanın belirli bir kelime için hazırladığı çizimler korunmuştur. Uygun görseli olmayan kelimelerde alakasız bir resim yerine kelimenin kendisi gösterilir. Kelime türlerine göre gruplanan örnek cümleler bu uygulama için yazılmıştır.',
+    'reset.title': 'Tüm ilerleme sıfırlansın mı?', 'reset.msg': 'Öğrenildi işaretleri, test istatistikleri ve çalışma günleri silinecek. Önce yedek almayı düşün.', 'reset.ok': 'İlerlemeyi sıfırla', 'reset.done': 'İlerleme sıfırlandı.',
+    'import.title': 'Mevcut ilerleme değiştirilsin mi?', 'import.msg': 'Dosyada {l} öğrenilmiş kelime ve {a} test cevabı var. Mevcut ilerlemenin yerine geçecek.', 'import.ok': 'İlerlemeyi değiştir',
+    'import.done': 'İlerleme içe aktarıldı.', 'import.cancelled': 'İçe aktarma iptal edildi. Hiçbir şey değişmedi.', 'import.tooBig': 'Bu dosya bir ilerleme dosyası olamayacak kadar büyük.',
+    'import.badJson': 'Bu dosya geçerli bir JSON değil.', 'import.badSchema': 'Bu dosya bu uygulamanın ilerleme dosyası değil ya da daha yeni bir sürümle oluşturulmuş.',
+    'export.done': 'İlerleme dosyası indirildi.', 'export.fail': 'Bu tarayıcıda indirme başlatılamadı.',
+    'footer.text': 'Çevrim dışı çalışır. İlerleme yalnızca bu cihazdaki bu tarayıcıda saklanır.',
+    'boot.error': 'Uygulama başlatılırken bir sorun oluştu: {e}. Kayıtlı ilerlemen değiştirilmedi.'
+  }
+};
+
+const STORAGE_KEY = 'english-study-app.v1';
+const LEGACY_LEARNED_KEY = 'b1-b2-learned-words-v1';
+const SCHEMA_VERSION = 1;
+const DEFAULT_SETTINGS = Object.freeze({ uiLang: 'tr', theme: 'system', showTurkish: true, path: 'all', speechRate: 0.9, voice: '' });
+const SETTING_RULES = {
+  uiLang: v => v === 'en' || v === 'tr',
+  theme: v => ['system', 'light', 'dark'].includes(v),
+  showTurkish: v => typeof v === 'boolean',
+  path: v => ['all', 'A2', 'B1', 'B2', 'C1', 'C1+'].indexOf(v) >= 0,
+  speechRate: v => typeof v === 'number' && v >= 0.6 && v <= 1.2,
+  voice: v => typeof v === 'string' && v.length < 300
+};
+
+/* Storage adapter: the only place that touches localStorage. Never throws. */
+const Store = (() => {
+  const simulated = new URLSearchParams(location.search).get('storage') === 'off';
+  let usable = false;
+  if (!simulated) {
+    try { localStorage.setItem('__esa_probe__', '1'); localStorage.removeItem('__esa_probe__'); usable = true; } catch (_) { usable = false; }
+  }
+  return {
+    simulated,
+    get usable() { return usable; },
+    read(key) { if (!usable) return null; try { return localStorage.getItem(key); } catch (_) { return null; } },
+    write(key, value) { if (!usable) return false; try { localStorage.setItem(key, value); return true; } catch (_) { return false; } }
+  };
+})();
+
+/* ======================================================================
+   7. FEATURE MODULES
+====================================================================== */
+/* ---------- 7a. Small utilities ---------- */
+const $ = (sel, root = document) => root.querySelector(sel);
+const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
+
+function h(tag, attrs, ...children) {
+  const node = document.createElement(tag);
+  for (const [key, value] of Object.entries(attrs || {})) {
+    if (value == null || value === false) continue;
+    if (key === 'class') node.className = value;
+    else if (key === 'text') node.textContent = value;
+    else node.setAttribute(key, value === true ? '' : String(value));
+  }
+  for (const child of children.flat()) {
+    if (child == null || child === false) continue;
+    node.append(child instanceof Node ? child : String(child));
+  }
+  return node;
+}
+function icon(name) {
+  const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  svg.setAttribute('class', 'icon');
+  svg.setAttribute('aria-hidden', 'true');
+  const use = document.createElementNS('http://www.w3.org/2000/svg', 'use');
+  use.setAttribute('href', '#i-' + name);
+  svg.append(use);
+  return svg;
+}
+/* Case- and accent-insensitive search key. Turkish dotted/dotless I both become "i". */
+function normalize(value) {
+  return String(value || '').toLocaleLowerCase('tr').replace(/ı/g, 'i').normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[’‘]/g, "'");
+}
+function shuffle(list) {
+  const copy = list.slice();
+  for (let i = copy.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [copy[i], copy[j]] = [copy[j], copy[i]];
+  }
+  return copy;
+}
+function dateKey(date) {
+  return date.getFullYear() + '-' + String(date.getMonth() + 1).padStart(2, '0') + '-' + String(date.getDate()).padStart(2, '0');
+}
+function escapeRegExp(text) { return text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+
+/* ---------- 7b. Language ---------- */
+let lang = 'en';
+function t(key, vars) {
+  let text = STRINGS[lang] && STRINGS[lang][key] != null ? STRINGS[lang][key] : (STRINGS.en[key] != null ? STRINGS.en[key] : key);
+  if (vars) text = text.replace(/\{(\w+)\}/g, (match, name) => (name in vars ? vars[name] : match));
+  return text;
+}
+function applyStaticText() {
+  document.documentElement.lang = lang;
+  for (const node of $$('[data-i18n]')) {
+    const key = node.dataset.i18n;
+    const option = node.closest('option');
+    const vars = key.indexOf('path.') === 0 ? { n: pathSize(option ? option.value : 'all') } : undefined;
+    node.textContent = t(key, vars);
+  }
+  for (const node of $$('[data-i18n-placeholder]')) node.placeholder = t(node.dataset.i18nPlaceholder);
+  for (const node of $$('[data-i18n-aria]')) node.setAttribute('aria-label', t(node.dataset.i18nAria));
+}
+
+/* ---------- 7c. Content: vocabulary and images ---------- */
+function readJsonScript(id) {
+  const node = document.getElementById(id);
+  if (!node) throw new Error('missing data block #' + id);
+  return JSON.parse(node.textContent);
+}
+const VOCAB = readJsonScript('vocab-data').filter(e => e && typeof e.id === 'string' && e.word && e.meaning);
+const BY_ID = new Map();
+VOCAB.forEach((entry, index) => {
+  entry.order = index;
+  entry.key = normalize(entry.word);
+  entry.meaningKey = normalize(entry.meaning);
+  entry.searchText = normalize([entry.word, entry.meaning, entry.example, entry.exampleTr, entry.definition].filter(Boolean).join(' '));
+  BY_ID.set(entry.id, entry);
+});
+/* Example sentences written for this app, keyed by lower-case word:
+   { word: { pos: [[english, turkish], ...] } }. Kept apart from the original entries. */
+const SENTENCES = readJsonScript('sentence-data');
+const POS_ORDER = ['v', 'n', 'adj', 'adv', 'prep', 'conj', 'pron', 'det', 'num', 'int', 'phr'];
+function sentencesFor(entry) {
+  const data = SENTENCES[entry.word.trim().toLowerCase()];
+  if (!data || typeof data !== 'object') return [];
+  return POS_ORDER.filter(pos => Array.isArray(data[pos]) && data[pos].length).map(pos => [pos, data[pos]]);
+}
+function pathSize(path) { return path === 'all' ? VOCAB.length : VOCAB.filter(e => e.level === path).length; }
+
+/* ---------- 7d. Progress model ---------- */
+function createEmptyProgress(settings) {
+  return {
+    schemaVersion: SCHEMA_VERSION, learned: [], quiz: { attempts: 0, correct: 0 }, activity: {},
+    settings: { ...DEFAULT_SETTINGS, ...(settings || {}) }, updatedAt: null
+  };
+}
+const ID_PATTERN = /^w\d{1,6}$/;
+const toCount = v => (Number.isInteger(v) && v >= 0 ? v : 0);
+
+/* Validates untrusted data (localStorage or an imported file). Throws on a wrong shape. */
+function sanitizeProgress(raw) {
+  if (!raw || typeof raw !== 'object' || Array.isArray(raw) || raw.schemaVersion !== SCHEMA_VERSION) throw new Error('schema');
+  const out = createEmptyProgress();
+  if (Array.isArray(raw.learned)) out.learned = [...new Set(raw.learned.filter(id => typeof id === 'string' && ID_PATTERN.test(id)))];
+  if (raw.quiz && typeof raw.quiz === 'object') {
+    out.quiz.attempts = toCount(raw.quiz.attempts);
+    out.quiz.correct = Math.min(toCount(raw.quiz.correct), out.quiz.attempts);
+  }
+  if (raw.activity && typeof raw.activity === 'object') {
+    for (const [day, count] of Object.entries(raw.activity)) if (/^\d{4}-\d{2}-\d{2}$/.test(day) && toCount(count) > 0) out.activity[day] = count;
+  }
+  if (raw.settings && typeof raw.settings === 'object') {
+    for (const [key, valid] of Object.entries(SETTING_RULES)) if (valid(raw.settings[key])) out.settings[key] = raw.settings[key];
+  }
+  if (typeof raw.updatedAt === 'string') out.updatedAt = raw.updatedAt;
+  return out;
+}
+
+function loadProgress() {
+  const raw = Store.read(STORAGE_KEY);
+  if (raw) {
+    try { return { progress: sanitizeProgress(JSON.parse(raw)), notice: null }; } catch (_) {
+      Store.write(STORAGE_KEY + '.unreadable-backup', raw);
+      return { progress: createEmptyProgress(), notice: 'storage.corrupt' };
+    }
+  }
+  const progress = createEmptyProgress();
+  try {
+    const legacy = JSON.parse(Store.read(LEGACY_LEARNED_KEY) || 'null');
+    if (Array.isArray(legacy)) {
+      progress.learned = [...new Set(legacy.map(n => 'w' + String(n).trim()).filter(id => BY_ID.has(id)))];
+      if (progress.learned.length) return { progress, notice: 'storage.migrated', count: progress.learned.length, migrated: true };
+    }
+  } catch (_) { /* the old key was unreadable; start fresh */ }
+  return { progress, notice: null };
+}
+
+const loaded = loadProgress();
+let progress = loaded.progress;
+let learnedSet = new Set(progress.learned);
+
+/* Saves only after meaningful changes. A failed write keeps the in-memory state. */
+function persist() {
+  progress.learned = [...learnedSet];
+  progress.updatedAt = new Date().toISOString();
+  const ok = Store.write(STORAGE_KEY, JSON.stringify(progress));
+  if (!ok && Store.usable) Banner.show(t('storage.writeFailed'));
+  return ok;
+}
+function recordActivity() {
+  const key = dateKey(new Date());
+  progress.activity[key] = (progress.activity[key] || 0) + 1;
+  const days = Object.keys(progress.activity).sort();
+  for (const old of days.slice(0, Math.max(0, days.length - 400))) delete progress.activity[old];
+}
+function studyStreak() {
+  const day = new Date();
+  if (!progress.activity[dateKey(day)]) day.setDate(day.getDate() - 1);
+  let streak = 0;
+  while (progress.activity[dateKey(day)]) { streak++; day.setDate(day.getDate() - 1); }
+  return streak;
+}
+const inPath = entry => progress.settings.path === 'all' || entry.level === progress.settings.path;
+
+/* ---------- 7e. Shared UI: banner, toast, confirm dialog ---------- */
+const Banner = {
+  show(message) { $('#storage-banner-text').textContent = message; $('#storage-banner').hidden = false; },
+  hide() { $('#storage-banner').hidden = true; }
+};
+const Toast = (() => {
+  let timer = 0;
+  return {
+    show(message) {
+      const node = $('#toast');
+      node.textContent = message;
+      node.classList.add('show');
+      clearTimeout(timer);
+      timer = setTimeout(() => node.classList.remove('show'), 3200);
+    }
+  };
+})();
+function confirmDialog({ title, message, confirmLabel }) {
+  const dialog = $('#confirm-dialog');
+  if (typeof dialog.showModal !== 'function') return Promise.resolve(window.confirm(title + '\n\n' + message));
+  const opener = document.activeElement;
+  $('#confirm-title').textContent = title;
+  $('#confirm-message').textContent = message;
+  $('#confirm-ok').textContent = confirmLabel;
+  $('#confirm-cancel').textContent = t('common.cancel');
+  const form = dialog.querySelector('form');
+  dialog.returnValue = '';
+  /* Settle from submit/cancel directly: Chromium dispatches "close" on the next
+     animation frame, which never comes while the page is not being rendered. */
+  return new Promise(resolve => {
+    let settled = false;
+    const finish = result => {
+      if (settled) return;
+      settled = true;
+      form.removeEventListener('submit', onSubmit);
+      $('#confirm-ok').removeEventListener('click', onOk);
+      $('#confirm-cancel').removeEventListener('click', onNo);
+      dialog.removeEventListener('cancel', onCancel);
+      dialog.removeEventListener('close', onClose);
+      if (dialog.open) dialog.close();
+      if (opener && typeof opener.focus === 'function' && opener.isConnected) opener.focus();
+      resolve(result);
+    };
+    const onSubmit = event => { event.preventDefault(); finish(false); };
+    const onOk = () => finish(true);
+    const onNo = () => finish(false);
+    const onCancel = event => { event.preventDefault(); finish(false); };
+    const onClose = () => finish(dialog.returnValue === 'confirm');
+    form.addEventListener('submit', onSubmit);
+    $('#confirm-ok').addEventListener('click', onOk);
+    $('#confirm-cancel').addEventListener('click', onNo);
+    dialog.addEventListener('cancel', onCancel);
+    dialog.addEventListener('close', onClose);
+    dialog.showModal();
+    $('#confirm-cancel').focus();
+  });
+}
+
+/* ---------- 7f. Speech (optional, device-generated) ---------- */
+const Speech = (() => {
+  const supported = 'speechSynthesis' in window && typeof window.SpeechSynthesisUtterance === 'function';
+  let voices = [];
+  let stopCurrent = null;
+  function loadVoices() {
+    if (!supported) return;
+    voices = window.speechSynthesis.getVoices().filter(v => /^en([-_]|$)/i.test(v.lang));
+    Settings.renderVoices();
+  }
+  /* The owner's onStop runs before cancel(), so a synchronous "end" event from
+     cancel() cannot continue a paragraph chain that is being stopped. */
+  function stop() {
+    if (!supported) return;
+    const callback = stopCurrent;
+    stopCurrent = null;
+    if (callback) callback();
+    window.speechSynthesis.cancel();
+    window.speechSynthesis.resume();
+  }
+  /* onStop is called when another playback or navigation interrupts this one. */
+  function speak(text, { onEnd, onStop } = {}) {
+    if (!supported) return false;
+    stop();
+    try {
+      const utterance = new SpeechSynthesisUtterance(text);
+      const voice = voices.find(v => v.voiceURI === progress.settings.voice);
+      const owner = onStop || null;
+      if (voice) utterance.voice = voice;
+      utterance.lang = voice ? voice.lang : 'en-US';
+      utterance.rate = progress.settings.speechRate;
+      utterance.onend = () => {
+        if (stopCurrent === owner) stopCurrent = null;
+        if (onEnd) onEnd();
+      };
+      utterance.onerror = event => { if (event.error !== 'interrupted' && event.error !== 'canceled') Toast.show(t('toast.speechFail')); };
+      stopCurrent = owner;
+      window.speechSynthesis.speak(utterance);
+      return true;
+    } catch (_) {
+      Toast.show(t('toast.speechFail'));
+      return false;
+    }
+  }
+  return { supported, speak, stop, loadVoices, get voices() { return voices; },
+    pause() { if (supported) window.speechSynthesis.pause(); }, resume() { if (supported) window.speechSynthesis.resume(); } };
+})();
+
+/* ---------- 7g. Word actions shared by cards and reading ---------- */
+function setLearned(entry, learned) {
+  if (learned === learnedSet.has(entry.id)) return;
+  if (learned) learnedSet.add(entry.id); else learnedSet.delete(entry.id);
+  recordActivity();
+  persist();
+  syncWordControls(entry.id);
+  if (Router.current !== 'words') Words.dirty = true;
+  Toast.show(t(learned ? 'toast.learned' : 'toast.unlearned', { w: entry.word }));
+}
+function listenButton(entry) {
+  if (!Speech.supported) return null;
+  return h('button', { type: 'button', class: 'button small ghost', 'data-action': 'speak', 'aria-label': t('card.listenTo', { w: entry.word }) },
+    icon('sound'), h('span', { text: t('card.listen'), 'aria-hidden': 'true' }));
+}
+/* Update every rendered element for one word in place (no list re-render). */
+function syncWordControls(id) {
+  const learned = learnedSet.has(id);
+  for (const holder of $$('[data-id="' + id + '"]')) {
+    holder.classList.toggle('is-learned', learned);
+    for (const toggle of $$('[data-action="toggle-learned"]', holder)) toggle.setAttribute('aria-pressed', String(learned));
+  }
+}
+/* Clicks on links, form controls, other buttons and the opened sentence list never toggle. */
+const NO_TOGGLE = 'a, input, select, textarea, details, button:not([data-action="toggle-learned"])';
+/* One delegated click listener per container. A tap on a word card (image, title,
+   meaning, example) toggles "learned"; the image is also a real button so the
+   same action works with the keyboard and screen readers. */
+function bindWordActions(container) {
+  container.addEventListener('click', event => {
+    const holder = event.target.closest('[data-id]');
+    if (!holder || !container.contains(holder)) return;
+    const entry = BY_ID.get(holder.dataset.id);
+    if (!entry) return;
+    const speak = event.target.closest('[data-action="speak"]');
+    if (speak) { Speech.speak(entry.word); return; }
+    if (event.target.closest(NO_TOGGLE)) return;
+    if (window.getSelection && String(window.getSelection()).length > 0) return;
+    setLearned(entry, !learnedSet.has(entry.id));
+  });
+}
+
+/* ---------- 7h. Word cards ----------
+   Cards are written into the page at build time, so they are readable even when
+   a file viewer does not run JavaScript. Here they are only connected and labelled. */
+const CARD_NODES = new Map();
+function prepareCards() {
+  for (const card of $$('#word-list .word-card')) {
+    CARD_NODES.set(card.dataset.id, card);
+    const entry = BY_ID.get(card.dataset.id);
+    const actions = card.querySelector('.card-actions');
+    if (entry && actions && Speech.supported) actions.append(listenButton(entry));
+  }
+  syncAllCards();
+}
+function syncAllCards() {
+  for (const [id, card] of CARD_NODES) {
+    const learned = learnedSet.has(id);
+    card.classList.toggle('is-learned', learned);
+    const toggle = card.querySelector('[data-action="toggle-learned"]');
+    if (toggle) toggle.setAttribute('aria-pressed', String(learned));
+  }
+}
+/* Re-label the static card texts after a language change. */
+function relabelCards() {
+  for (const node of $$('#word-list [data-pos]')) node.textContent = t('pos.' + node.dataset.pos);
+  for (const node of $$('#word-list summary[data-types]')) {
+    node.textContent = t('card.sentences', { types: node.dataset.types.split(',').map(p => t('pos.' + p).toLocaleLowerCase(lang)).join(', ') });
+  }
+  for (const node of $$('#word-list [data-label]')) node.textContent = t(node.dataset.label);
+  for (const node of $$('#word-list .media-toggle')) {
+    const card = node.closest('[data-id]');
+    const entry = card && BY_ID.get(card.dataset.id);
+    if (entry) node.setAttribute('aria-label', t('card.toggleLabel', { w: entry.word }));
+  }
+  for (const node of $$('#word-list [data-action="speak"]')) {
+    const entry = BY_ID.get(node.closest('[data-id]').dataset.id);
+    node.setAttribute('aria-label', t('card.listenTo', { w: entry.word }));
+    node.querySelector('span').textContent = t('card.listen');
+  }
+}
+
+/* ---------- 7i. Navigation ---------- */
+const ROUTES = ['home', 'words', 'quiz', 'reading', 'settings'];
+const Router = {
+  current: null,
+  /* Non-route hashes (e.g. the skip link's #main) keep the current view. */
+  route() { const name = location.hash.replace(/^#\/?/, ''); return ROUTES.includes(name) ? name : (this.current || 'home'); },
+  show(moveFocus) {
+    const name = this.route();
+    const changed = name !== this.current;
+    this.current = name;
+    for (const view of $$('.view')) view.classList.toggle('is-active', view.dataset.view === name);
+    for (const link of $$('.tabs a')) {
+      if (link.dataset.route === name) link.setAttribute('aria-current', 'page'); else link.removeAttribute('aria-current');
+    }
+    document.title = t('nav.' + name) + ' · English Study';
+    if (changed) Speech.stop();
+    const module = MODULES[name];
+    if (module && module.onShow) module.onShow();
+    if (moveFocus && changed) {
+      window.scrollTo(0, 0);
+      const heading = $('.view[data-view="' + name + '"] h1');
+      if (heading) heading.focus({ preventScroll: true });
+    }
+  }
+};
+
+/* ---------- 7j. Dashboard ---------- */
+const Home = {
+  init() {
+    $('#path-select').addEventListener('change', event => {
+      progress.settings.path = event.target.value;
+      persist();
+      this.render();
+    });
+  },
+  onShow() { this.render(); },
+  render() {
+    $('#path-select').value = progress.settings.path;
+    const learned = [...learnedSet].filter(id => BY_ID.has(id)).length;
+    const link = $('#continue-link');
+    if (learned > 0) {
+      $('#continue-text').textContent = t('continue.quiz', { n: learned });
+      $('#continue-label').textContent = t('continue.quizBtn');
+      link.href = '#quiz';
+    } else {
+      $('#continue-text').textContent = t('continue.learn');
+      $('#continue-label').textContent = t('continue.learnBtn');
+      link.href = '#words';
+    }
+    const quiz = progress.quiz;
+    const tiles = [
+      [t('stat.learned'), learned + ' / ' + VOCAB.length, t('stat.learnedNote'), learned],
+      [t('stat.accuracy'), quiz.attempts ? Math.round(quiz.correct / quiz.attempts * 100) + '%' : '—',
+        quiz.attempts ? t('stat.accuracyNote', { c: quiz.correct, a: quiz.attempts }) : t('stat.noQuiz')],
+      [t('stat.streak'), t('stat.streakVal', { n: studyStreak() }), t('stat.streakNote')]
+    ];
+    $('#stats').replaceChildren(...tiles.map(([label, value, note, bar]) => h('div', { class: 'stat' },
+      h('dt', { text: label }),
+      h('dd', null, value, h('span', { class: 'stat-note', text: note }),
+        bar !== undefined ? h('progress', { max: VOCAB.length, value: bar, 'aria-label': label }) : null))));
+    $('#home-storage-note').textContent = Store.usable ? t('storage.ok') : t(Store.simulated ? 'storage.simulated' : 'storage.off');
+  }
+};
+
+/* ---------- 7k. Vocabulary list ---------- */
+const PAGE_SIZE = 24;
+const LEVELS = ['A2', 'B1', 'B2', 'C1', 'C1+'];
+const Words = {
+  filters: { query: '', status: 'all', level: 'all', sort: 'level' },
+  results: [],
+  shown: 0,
+  lastGroup: null,
+  searchTimer: 0,
+  relatedReady: false,
+  dirty: true,
+  init() {
+    const search = $('#word-search');
+    search.addEventListener('input', () => {
+      clearTimeout(this.searchTimer);
+      this.searchTimer = setTimeout(() => { this.filters.query = search.value; this.render(); }, 150);
+    });
+    search.addEventListener('keydown', event => { if (event.key === 'Enter') search.blur(); });
+    for (const button of $$('[data-status]')) {
+      button.addEventListener('click', () => {
+        if (this.filters.status === button.dataset.status) return;
+        this.filters.status = button.dataset.status;
+        this.syncControls();
+        this.render();
+      });
+    }
+    $('#level-filter').addEventListener('change', e => { this.filters.level = e.target.value; this.render(); });
+    $('#sort-select').addEventListener('change', e => { this.filters.sort = e.target.value; this.render(); });
+    $('#reset-filters').addEventListener('click', () => this.reset());
+    $('#empty-reset').addEventListener('click', () => { this.reset(); $('#word-search').focus(); });
+    $('#word-more').addEventListener('click', () => this.appendPage());
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(items => {
+        if (items.some(i => i.isIntersecting) && Router.current === 'words' && !$('#word-more').hidden) this.appendPage();
+      }, { rootMargin: '400px 0px' }).observe($('#word-more'));
+    }
+    bindWordActions($('#word-list'));
+    this.renderLevelOptions();
+  },
+  renderLevelOptions() {
+    const select = $('#level-filter');
+    select.replaceChildren(h('option', { value: 'all', text: t('words.anyLevel', { n: VOCAB.length }) }),
+      ...LEVELS.map(level => h('option', { value: level, text: t('level.' + level, { n: VOCAB.filter(e => e.level === level).length }) })));
+    select.value = this.filters.level;
+  },
+  reset() {
+    this.filters = { query: '', status: 'all', level: 'all', sort: this.filters.sort };
+    $('#word-search').value = '';
+    this.syncControls();
+    this.render();
+  },
+  syncControls() {
+    for (const button of $$('[data-status]')) button.setAttribute('aria-pressed', String(button.dataset.status === this.filters.status));
+    $('#level-filter').value = this.filters.level;
+    $('#sort-select').value = this.filters.sort;
+  },
+  /* Original page's related-meaning ordering, computed once. */
+  prepareRelated() {
+    if (this.relatedReady) return;
+    const groupWords = MEANING_GROUPS.map(group => group.words.map(normalize));
+    const counts = new Map();
+    for (const entry of VOCAB) {
+      entry.group = groupWords.findIndex(words => words.indexOf(entry.key) >= 0);
+      if (entry.group >= 0) counts.set(entry.group, (counts.get(entry.group) || 0) + 1);
+    }
+    for (const entry of VOCAB) if (entry.group >= 0 && counts.get(entry.group) < 2) entry.group = -1;
+    const other = MEANING_GROUPS.length;
+    VOCAB.slice().sort((a, b) => {
+      const ag = a.group >= 0 ? a.group : other, bg = b.group >= 0 ? b.group : other;
+      if (ag !== bg) return ag - bg;
+      if (ag === other && a.meaningKey !== b.meaningKey) return a.meaningKey.localeCompare(b.meaningKey, 'tr');
+      return a.key.localeCompare(b.key, 'tr');
+    }).forEach((entry, rank) => { entry.relatedRank = rank; });
+    this.relatedReady = true;
+  },
+  compute() {
+    const f = this.filters;
+    const query = normalize(f.query.trim());
+    let list = VOCAB.filter(e =>
+      (!query || e.searchText.indexOf(query) >= 0) &&
+      (f.status === 'all' || (f.status === 'learned') === learnedSet.has(e.id)) &&
+      (f.level === 'all' || e.level === f.level));
+    if (f.sort === 'alpha') list.sort((a, b) => a.word.localeCompare(b.word, 'en', { sensitivity: 'base' }) || a.order - b.order);
+    if (f.sort === 'related') { this.prepareRelated(); list.sort((a, b) => a.relatedRank - b.relatedRank); }
+    else if (query) {
+      const rank = e => (e.key === query ? 0 : e.key.indexOf(query) === 0 ? 1 : 2);
+      list = list.map((e, i) => [e, i]).sort((a, b) => rank(a[0]) - rank(b[0]) || a[1] - b[1]).map(pair => pair[0]);
+    }
+    this.results = list;
+  },
+  /* Cards already exist in the page; rendering only hides, shows and re-orders them. */
+  render() {
+    this.compute();
+    this.shown = 0;
+    this.lastGroup = null;
+    for (const heading of $$('#word-list .group-title')) heading.remove();
+    for (const card of CARD_NODES.values()) card.hidden = true;
+    this.appendPage();
+    $('#word-empty').hidden = this.results.length > 0;
+    this.dirty = false;
+  },
+  groupLabel(entry) {
+    if (this.filters.sort === 'level') return t('level.heading', { l: entry.level });
+    if (this.filters.sort !== 'related') return null;
+    if (entry.group < 0) return t('group.other');
+    const label = MEANING_GROUPS[entry.group].label;
+    return lang === 'tr' ? label : (GROUP_LABELS_EN[label] || label);
+  },
+  appendPage() {
+    const end = Math.min(this.results.length, this.shown + PAGE_SIZE);
+    if (end <= this.shown && this.shown > 0) return;
+    const fragment = document.createDocumentFragment();
+    for (let i = this.shown; i < end; i++) {
+      const entry = this.results[i];
+      const label = this.groupLabel(entry);
+      if (label && label !== this.lastGroup) { fragment.append(h('h2', { class: 'group-title', text: label })); this.lastGroup = label; }
+      const card = CARD_NODES.get(entry.id);
+      if (!card) continue;
+      card.hidden = false;
+      fragment.append(card);
+    }
+    $('#word-list').append(fragment);
+    this.shown = end;
+    const total = this.results.length;
+    $('#word-count').textContent = total === 0 ? t('words.countNone') : total === 1 ? t('words.countOne') : t('words.count', { n: total, s: this.shown });
+    const more = $('#word-more');
+    more.hidden = this.shown >= total;
+    more.textContent = t('words.more', { n: Math.min(PAGE_SIZE, total - this.shown) });
+  },
+  onShow() { if (this.dirty) this.render(); }
+};
+
+/* ---------- 7m. Quiz ---------- */
+/* Finds the word (or a regular inflection of it) in one of the word's sentences:
+   the original example or the sentences written for each word type. */
+function blankFor(entry) {
+  if (/\s/.test(entry.word.trim())) return null;
+  const word = entry.word.trim().toLowerCase();
+  if (word.length < 3) return null;
+  const w = escapeRegExp(word);
+  const last = escapeRegExp(word.slice(-1));
+  const variants = [w + '(?:s|es|d|ed|ing|ly|' + last + 'ed|' + last + 'ing)?'];
+  if (word.endsWith('e')) variants.push(escapeRegExp(word.slice(0, -1)) + 'ing');
+  if (word.endsWith('y')) variants.push(escapeRegExp(word.slice(0, -1)) + 'i(?:es|ed|ly)');
+  const pattern = new RegExp('\\b(' + variants.join('|') + ')\\b', 'i');
+  const candidates = [];
+  if (entry.example) candidates.push([entry.example, entry.exampleTr || '']);
+  for (const [, list] of sentencesFor(entry)) candidates.push(...list);
+  for (const [english, turkish] of shuffle(candidates)) {
+    const match = english.match(pattern);
+    if (match) return { sentence: english.slice(0, match.index) + '_____' + english.slice(match.index + match[0].length), form: match[0], hint: turkish };
+  }
+  return null;
+}
+const Quiz = {
+  questions: [], index: 0, correct: 0, answered: 0, locked: false, missed: [], config: null,
+  init() {
+    $('#quiz-setup').addEventListener('submit', event => { event.preventDefault(); this.startFromForm(); });
+    $('#quiz-pool').addEventListener('change', () => { this.poolTouched = true; $('#quiz-setup-error').textContent = ''; });
+    $('#quiz-options').addEventListener('click', event => {
+      const button = event.target.closest('button.option');
+      if (button) this.answer(Number(button.dataset.index));
+    });
+    $('#quiz-next').addEventListener('click', () => this.next());
+    $('#quiz-end').addEventListener('click', () => this.finish());
+    $('#quiz-new').addEventListener('click', () => { this.showPanel('setup'); this.renderOverall(); $('#quiz-setup button[type="submit"]').focus(); });
+    $('#quiz-practice-missed').addEventListener('click', () => {
+      const ids = new Set(this.missed.map(q => q.entry.id));
+      this.start({ ...this.config, pool: VOCAB.filter(e => ids.has(e.id)), length: ids.size });
+    });
+  },
+  onShow() {
+    this.renderPoolCounts();
+    if (!$('#quiz-setup').hidden) this.renderOverall();
+  },
+  /* The learned-word set is the default whenever the learner has marked any word. */
+  renderPoolCounts() {
+    const select = $('#quiz-pool');
+    const learned = VOCAB.filter(e => learnedSet.has(e.id)).length;
+    const counts = { learned, unlearned: VOCAB.filter(e => !learnedSet.has(e.id) && inPath(e)).length, path: VOCAB.filter(inPath).length };
+    for (const option of select.options) option.textContent = t('quiz.pool.' + option.value, { n: counts[option.value] });
+    if (!this.poolTouched) select.value = learned ? 'learned' : 'path';
+  },
+  showPanel(name) {
+    $('#quiz-setup').hidden = name !== 'setup';
+    $('#quiz-run').hidden = name !== 'run';
+    $('#quiz-result').hidden = name !== 'result';
+  },
+  renderOverall() {
+    const q = progress.quiz;
+    $('#quiz-overall').textContent = q.attempts ? t('quiz.overall', { p: Math.round(q.correct / q.attempts * 100), c: q.correct, a: q.attempts }) : t('quiz.overallNone');
+  },
+  startFromForm() {
+    const mode = ($('input[name="quiz-mode"]:checked') || {}).value || 'en-tr';
+    const poolName = $('#quiz-pool').value;
+    const length = Number($('#quiz-length').value) || 10;
+    const pool = VOCAB.filter(e => {
+      if (poolName === 'path') return inPath(e);
+      if (poolName === 'learned') return learnedSet.has(e.id);
+      return !learnedSet.has(e.id) && inPath(e);
+    });
+    if (poolName === 'learned' && !pool.length) { $('#quiz-setup-error').textContent = t('quiz.noLearned'); return; }
+    this.start({ mode, pool, length });
+  },
+  /* Distractors: same answer field, never equal to the correct answer or a synonym of it, unique on screen. */
+  distractors(entry, field, count) {
+    const keyField = field === 'meaning' ? 'meaningKey' : 'key';
+    const used = new Set([entry[keyField], entry.meaningKey, entry.key]);
+    const out = [];
+    const sameLevel = shuffle(VOCAB.filter(e => e.level === entry.level));
+    const anyLevel = shuffle(VOCAB);
+    for (const candidate of [...sameLevel, ...anyLevel]) {
+      if (out.length >= count) break;
+      if (used.has(candidate[keyField]) || used.has(candidate.meaningKey) || used.has(candidate.key)) continue;
+      used.add(candidate[keyField]); used.add(candidate.meaningKey); used.add(candidate.key);
+      out.push(candidate);
+    }
+    return out.length === count ? out : null;
+  },
+  makeQuestion(entry, type) {
+    if (type === 'blank') {
+      const blank = blankFor(entry);
+      if (!blank) return null;
+      const others = this.distractors(entry, 'word', 3);
+      if (!others) return null;
+      return { type, entry, prompt: blank.sentence, hint: blank.hint, form: blank.form,
+        options: shuffle([{ text: entry.word, correct: true }, ...others.map(o => ({ text: o.word, correct: false }))]) };
+    }
+    const field = type === 'en-tr' ? 'meaning' : 'word';
+    const others = this.distractors(entry, field, 3);
+    if (!others) return null;
+    return { type, entry, prompt: type === 'en-tr' ? t('quiz.q.entr', { w: entry.word }) : t('quiz.q.tren', { m: entry.meaning }), hint: '',
+      options: shuffle([{ text: entry[field], correct: true }, ...others.map(o => ({ text: o[field], correct: false }))]) };
+  },
+  start({ mode, pool, length }) {
+    this.config = { mode, pool, length };
+    const questions = [];
+    for (const entry of shuffle(pool)) {
+      if (questions.length >= length) break;
+      const types = mode === 'mixed' ? shuffle(['en-tr', 'tr-en', 'blank']) : [mode];
+      for (const type of types) {
+        const question = this.makeQuestion(entry, type);
+        if (question) { questions.push(question); break; }
+      }
+    }
+    if (!questions.length) {
+      this.showPanel('setup');
+      $('#quiz-setup-error').textContent = t('quiz.notEnough', { n: questions.length });
+      return;
+    }
+    $('#quiz-setup-error').textContent = '';
+    this.questions = questions;
+    this.index = 0; this.correct = 0; this.answered = 0; this.missed = [];
+    this.showPanel('run');
+    this.renderQuestion();
+  },
+  renderQuestion() {
+    const q = this.questions[this.index];
+    this.locked = false;
+    $('#quiz-progress').textContent = t('quiz.progress', { i: this.index + 1, n: this.questions.length });
+    $('#quiz-score').textContent = t('quiz.score', { c: this.correct, a: this.answered });
+    $('#quiz-kind').textContent = t('quiz.kind.' + q.type.replace('-', ''));
+    const prompt = $('#quiz-prompt');
+    prompt.textContent = q.prompt;
+    prompt.lang = q.type === 'blank' ? 'en' : '';
+    $('#quiz-hint').textContent = q.hint;
+    $('#quiz-hint').hidden = !q.hint;
+    const optionLang = q.type === 'en-tr' ? 'tr' : 'en';
+    $('#quiz-options').replaceChildren(...q.options.map((option, i) =>
+      h('button', { type: 'button', class: 'option', 'data-index': i, lang: optionLang }, h('span', { text: option.text }))));
+    const feedback = $('#quiz-feedback');
+    feedback.textContent = '';
+    feedback.className = 'feedback';
+    $('#quiz-next').hidden = true;
+    prompt.focus();
+  },
+  answer(index) {
+    if (this.locked) return;
+    const q = this.questions[this.index];
+    if (!q || !q.options[index]) return;
+    this.locked = true;
+    const isCorrect = q.options[index].correct;
+    this.answered += 1;
+    if (isCorrect) this.correct += 1; else this.missed.push(q);
+    progress.quiz.attempts += 1;
+    if (isCorrect) progress.quiz.correct += 1;
+    recordActivity();
+    persist();
+    $$('#quiz-options .option').forEach((button, i) => {
+      button.disabled = true;
+      if (q.options[i].correct) { button.classList.add('is-correct'); button.append(h('span', { class: 'verdict', text: t('quiz.verdictCorrect') })); }
+      else if (i === index) { button.classList.add('is-wrong'); button.append(h('span', { class: 'verdict', text: t('quiz.verdictWrong') })); }
+    });
+    const answerText = q.options.find(o => o.correct).text;
+    const explanation = q.type === 'blank' ? t('quiz.explainBlank', { w: q.entry.word, m: q.entry.meaning, f: q.form }) : t('quiz.explainWord', { w: q.entry.word, m: q.entry.meaning });
+    const feedback = $('#quiz-feedback');
+    feedback.textContent = (isCorrect ? t('quiz.correct') : t('quiz.wrong', { a: answerText })) + ' ' + explanation;
+    feedback.className = 'feedback ' + (isCorrect ? 'good' : 'bad');
+    $('#quiz-score').textContent = t('quiz.score', { c: this.correct, a: this.answered });
+    const next = $('#quiz-next');
+    next.textContent = this.index + 1 < this.questions.length ? t('quiz.next') : t('quiz.finish');
+    next.hidden = false;
+    next.focus();
+  },
+  next() {
+    if (!this.locked) return;
+    this.index += 1;
+    if (this.index >= this.questions.length) this.finish(); else this.renderQuestion();
+  },
+  finish() {
+    this.showPanel('result');
+    const answeredCount = this.answered;
+    $('#quiz-result-text').textContent = answeredCount
+      ? t('quiz.result', { c: this.correct, n: answeredCount, p: Math.round(this.correct / answeredCount * 100) })
+      : t('quiz.resultNone');
+    const missedBox = $('#quiz-missed');
+    if (this.missed.length) {
+      missedBox.replaceChildren(h('h3', { text: t('quiz.missedTitle') }),
+        h('ul', { class: 'missed-list' }, this.missed.map(q => h('li', null, h('strong', { lang: 'en', text: q.entry.word }), ' — ', h('span', { lang: 'tr', text: q.entry.meaning })))));
+    } else {
+      missedBox.replaceChildren(answeredCount ? h('p', { text: t('quiz.allCorrect') }) : '');
+    }
+    $('#quiz-practice-missed').hidden = !this.missed.length;
+    $('#quiz-result-title').focus();
+  }
+};
+
+/* ---------- 7n. Shared multiple-choice question (grammar and reading) ---------- */
+let choiceCounter = 0;
+function createChoiceQuestion({ q, options, answer, explain }) {
+  const id = 'choice-' + (++choiceCounter);
+  const feedback = h('p', { class: 'feedback', 'aria-live': 'polite' });
+  const retry = h('button', { type: 'button', class: 'button ghost small', hidden: true, text: t('common.tryAgain') });
+  const group = h('div', { class: 'choice-options', role: 'group', 'aria-labelledby': id });
+  const wrap = h('div', { class: 'choice-q' }, h('p', { class: 'choice-prompt', id, lang: 'en', text: q }), group, feedback, retry);
+  const renderOptions = () => {
+    group.replaceChildren(...options.map((text, i) => h('button', { type: 'button', class: 'option', 'data-index': i, lang: 'en' }, h('span', { text }))));
+    feedback.textContent = '';
+    feedback.className = 'feedback';
+    retry.hidden = true;
+    delete wrap.dataset.answered;
+  };
+  group.addEventListener('click', event => {
+    const button = event.target.closest('button.option');
+    if (!button || wrap.dataset.answered) return;
+    wrap.dataset.answered = 'true';
+    const chosen = Number(button.dataset.index);
+    const ok = chosen === answer;
+    $$('.option', group).forEach((b, i) => {
+      b.disabled = true;
+      if (i === answer) { b.classList.add('is-correct'); b.append(h('span', { class: 'verdict', text: t('quiz.verdictCorrect') })); }
+      else if (i === chosen) { b.classList.add('is-wrong'); b.append(h('span', { class: 'verdict', text: t('quiz.verdictWrong') })); }
+    });
+    feedback.textContent = (ok ? t('choice.correct') : t('choice.wrong', { a: options[answer] })) + ' ' + explain;
+    feedback.className = 'feedback ' + (ok ? 'good' : 'bad');
+    retry.hidden = false;
+    retry.focus();
+    recordActivity();
+    persist();
+  });
+  retry.addEventListener('click', () => { renderOptions(); group.querySelector('button').focus(); });
+  renderOptions();
+  return wrap;
+}
+
+/* ---------- 7p. Reading and listening ---------- */
+const Reading = {
+  rendered: null,
+  vocabMap: null,
+  onShow() { if (this.rendered !== lang) this.render(); },
+  lookup(token) {
+    if (!this.vocabMap) {
+      this.vocabMap = new Map();
+      for (const entry of VOCAB) if (!/\s/.test(entry.word) && entry.key.length >= 4 && !this.vocabMap.has(entry.key)) this.vocabMap.set(entry.key, entry);
+    }
+    const word = token.toLowerCase().replace(/[’']s$/, '');
+    const candidates = [word, word.replace(/s$/, ''), word.replace(/es$/, ''), word.replace(/ed$/, ''), word.replace(/d$/, ''),
+      word.replace(/ing$/, ''), word.replace(/ing$/, 'e'), word.replace(/ies$/, 'y'), word.replace(/ied$/, 'y'), word.replace(/(.)\1ed$/, '$1'), word.replace(/(.)\1ing$/, '$1')];
+    for (const candidate of candidates) if (candidate.length >= 4 && this.vocabMap.has(candidate)) return this.vocabMap.get(candidate);
+    return null;
+  },
+  highlight(text, found) {
+    const paragraph = h('p', { lang: 'en' });
+    for (const part of text.split(/([A-Za-z’']+)/)) {
+      const entry = /^[A-Za-z’']+$/.test(part) ? this.lookup(part) : null;
+      if (entry) { paragraph.append(h('mark', { class: 'vocab', text: part })); found.set(entry.id, entry); }
+      else if (part) paragraph.append(part);
+    }
+    return paragraph;
+  },
+  render() {
+    Speech.stop();
+    $('#speech-note').textContent = Speech.supported ? t('speech.ok') : t('speech.none');
+    $('#reading-list').replaceChildren(...READINGS.map(passage => this.renderPassage(passage)));
+    this.rendered = lang;
+  },
+  renderPassage(passage) {
+    const found = new Map();
+    const text = h('div', { class: 'reading-text' });
+    let wordCount = 0;
+    for (const [en, tr] of passage.paragraphs) {
+      wordCount += en.split(/\s+/).length;
+      text.append(this.highlight(en, found), h('p', { class: 'tr-line reading-tr', lang: 'tr', hidden: true, text: tr }));
+    }
+    const article = h('article', { class: 'panel reading' });
+    const translationBtn = h('button', { type: 'button', class: 'button small', 'aria-pressed': 'false', text: t('reading.translation') });
+    translationBtn.addEventListener('click', () => {
+      const on = translationBtn.getAttribute('aria-pressed') !== 'true';
+      translationBtn.setAttribute('aria-pressed', String(on));
+      for (const p of $$('.reading-tr', text)) p.hidden = !on;
+    });
+    const tools = h('div', { class: 'reading-tools' });
+    const listeningNote = h('p', { class: 'listening-note', hidden: true, text: t('reading.hiddenNote') });
+    if (Speech.supported) {
+      const player = this.createPlayer(passage);
+      const hideBtn = h('button', { type: 'button', class: 'button small', 'aria-pressed': 'false', text: t('reading.hide') });
+      hideBtn.addEventListener('click', () => {
+        const on = hideBtn.getAttribute('aria-pressed') !== 'true';
+        hideBtn.setAttribute('aria-pressed', String(on));
+        article.classList.toggle('listening', on);
+        listeningNote.hidden = !on;
+      });
+      tools.append(...player, hideBtn);
+    }
+    tools.append(translationBtn);
+    const glossary = h('ul', { class: 'glossary' }, [...found.values()].map(entry => h('li', { 'data-id': entry.id, class: learnedSet.has(entry.id) ? 'is-learned' : null },
+      h('span', { class: 'gloss-text' }, h('strong', { lang: 'en', text: entry.word }), ' — ', h('span', { lang: 'tr', text: entry.meaning })),
+      h('span', { class: 'row' }, listenButton(entry)))));
+    bindWordActions(glossary);
+    article.append(
+      h('h2', { lang: 'en', text: passage.title }),
+      h('div', { class: 'reading-meta' }, h('span', { class: 'chip level', text: t('reading.level', { l: passage.level }) }), h('span', { class: 'chip', text: t('reading.words', { n: wordCount }) })),
+      tools, listeningNote, text,
+      h('details', { class: 'disclosure' }, h('summary', { text: t('reading.glossary', { n: found.size }) }), glossary),
+      h('h3', { text: t('reading.questions') }),
+      ...passage.questions.map(createChoiceQuestion));
+    return article;
+  },
+  /* Play / pause and stop controls that read one paragraph at a time with the device voice. */
+  createPlayer(passage) {
+    const playBtn = h('button', { type: 'button', class: 'button small primary' });
+    const stopBtn = h('button', { type: 'button', class: 'button small', hidden: true }, icon('stop'), h('span', { text: t('reading.stop') }));
+    const status = h('p', { class: 'player-status', 'aria-live': 'polite' });
+    let state = 'idle';
+    let index = 0;
+    let run = 0;
+    const setState = next => {
+      state = next;
+      const label = state === 'playing' ? 'reading.pause' : state === 'paused' ? 'reading.resume' : 'reading.listen';
+      playBtn.replaceChildren(icon(state === 'playing' ? 'pause' : 'play'), h('span', { text: t(label) }));
+      stopBtn.hidden = state === 'idle';
+    };
+    const speakFrom = (i, token) => {
+      if (token !== run) return;
+      if (i >= passage.paragraphs.length) { setState('idle'); status.textContent = t('reading.finished'); return; }
+      index = i;
+      status.textContent = t('reading.playing', { i: i + 1, n: passage.paragraphs.length });
+      Speech.speak(passage.paragraphs[i][0], {
+        onEnd: () => speakFrom(i + 1, token),
+        onStop: () => { if (token === run) { run++; setState('idle'); status.textContent = ''; } }
+      });
+    };
+    playBtn.addEventListener('click', () => {
+      if (state === 'playing') { Speech.pause(); setState('paused'); status.textContent = t('reading.paused'); }
+      else if (state === 'paused') { Speech.resume(); setState('playing'); status.textContent = t('reading.playing', { i: index + 1, n: passage.paragraphs.length }); }
+      else { run++; setState('playing'); speakFrom(0, run); }
+    });
+    stopBtn.addEventListener('click', () => { Speech.stop(); playBtn.focus(); });
+    setState('idle');
+    return [playBtn, stopBtn, status];
+  }
+};
+
+/* ---------- 7r. Settings and data portability ---------- */
+const Settings = {
+  init() {
+    for (const radio of $$('input[name="theme"]')) radio.addEventListener('change', () => { progress.settings.theme = radio.value; applyTheme(); persist(); });
+    $('#theme-quick').addEventListener('click', () => {
+      progress.settings.theme = effectiveTheme() === 'dark' ? 'light' : 'dark';
+      applyTheme();
+      persist();
+      this.render();
+    });
+    $('#ui-lang').addEventListener('change', event => { progress.settings.uiLang = event.target.value; persist(); setLanguage(event.target.value); });
+    $('#show-turkish').addEventListener('change', event => { progress.settings.showTurkish = event.target.checked; applyTurkishVisibility(); persist(); });
+    $('#voice-select').addEventListener('change', event => { progress.settings.voice = event.target.value; persist(); });
+    const rate = $('#speech-rate');
+    rate.addEventListener('input', () => { $('#speech-rate-out').textContent = Number(rate.value).toFixed(1) + '×'; });
+    rate.addEventListener('change', () => { progress.settings.speechRate = Math.round(Number(rate.value) * 10) / 10; persist(); });
+    $('#voice-test').addEventListener('click', () => Speech.speak(t('settings.testPhrase')));
+    $('#export-progress').addEventListener('click', () => this.exportProgress());
+    $('#import-progress').addEventListener('click', () => $('#import-file').click());
+    $('#import-file').addEventListener('change', event => this.importProgress(event.target));
+    $('#reset-progress').addEventListener('click', () => this.resetProgress());
+    $('#storage-banner-close').addEventListener('click', () => Banner.hide());
+  },
+  onShow() { this.render(); },
+  render() {
+    for (const radio of $$('input[name="theme"]')) radio.checked = radio.value === progress.settings.theme;
+    $('#ui-lang').value = progress.settings.uiLang;
+    $('#show-turkish').checked = progress.settings.showTurkish;
+    $('#speech-rate').value = String(progress.settings.speechRate);
+    $('#speech-rate-out').textContent = progress.settings.speechRate.toFixed(1) + '×';
+    $('#speech-settings').hidden = !Speech.supported;
+    $('#speech-settings-note').textContent = Speech.supported ? t('speech.ok') : t('speech.none');
+    this.renderVoices();
+    $('#storage-status').textContent = Store.usable ? t('storage.ok') : t(Store.simulated ? 'storage.simulated' : 'storage.off');
+    $('#about-text').textContent = t('settings.aboutText', { v: APP_VERSION, n: VOCAB.length, i: $$('#word-list .word-media img').length,
+      s: VOCAB.filter(e => sentencesFor(e).length).length, r: READINGS.length });
+  },
+  renderVoices() {
+    const select = $('#voice-select');
+    if (!select) return;
+    select.replaceChildren(h('option', { value: '', text: t('settings.defaultVoice') }),
+      ...Speech.voices.map(v => h('option', { value: v.voiceURI, text: v.name + ' (' + v.lang + ')' })));
+    select.value = Speech.voices.some(v => v.voiceURI === progress.settings.voice) ? progress.settings.voice : '';
+  },
+  exportProgress() {
+    try {
+      const data = JSON.stringify({ app: 'english-study', exportedAt: new Date().toISOString(), ...progress, learned: [...learnedSet] }, null, 2);
+      const url = URL.createObjectURL(new Blob([data], { type: 'application/json' }));
+      const link = h('a', { href: url, download: 'english-study-progress-' + dateKey(new Date()) + '.json' });
+      document.body.append(link);
+      link.click();
+      link.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 2000);
+      Toast.show(t('export.done'));
+    } catch (_) {
+      Toast.show(t('export.fail'));
+    }
+  },
+  async importProgress(input) {
+    const status = $('#import-status');
+    const file = input.files && input.files[0];
+    input.value = '';
+    if (!file) return;
+    status.className = 'error-text';
+    if (file.size > 5 * 1024 * 1024) { status.textContent = t('import.tooBig'); return; }
+    let parsed;
+    try { parsed = JSON.parse(await file.text()); } catch (_) { status.textContent = t('import.badJson'); return; }
+    let imported;
+    try { imported = sanitizeProgress(parsed); } catch (_) { status.textContent = t('import.badSchema'); return; }
+    status.textContent = '';
+    status.className = '';
+    const ok = await confirmDialog({
+      title: t('import.title'),
+      message: t('import.msg', { l: imported.learned.length, a: imported.quiz.attempts }),
+      confirmLabel: t('import.ok')
+    });
+    if (!ok) { status.textContent = t('import.cancelled'); return; }
+    replaceProgress(imported);
+    status.textContent = t('import.done');
+  },
+  async resetProgress() {
+    const ok = await confirmDialog({ title: t('reset.title'), message: t('reset.msg'), confirmLabel: t('reset.ok') });
+    if (!ok) return;
+    replaceProgress(createEmptyProgress(progress.settings));
+    Toast.show(t('reset.done'));
+  }
+};
+
+function replaceProgress(next) {
+  progress = next;
+  learnedSet = new Set(progress.learned);
+  persist();
+  syncAllCards();
+  Words.dirty = true;
+  applyTheme();
+  applyTurkishVisibility();
+  setLanguage(progress.settings.uiLang);
+}
+function effectiveTheme() {
+  if (progress.settings.theme !== 'system') return progress.settings.theme;
+  return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+}
+function applyTheme() {
+  if (progress.settings.theme === 'system') document.documentElement.removeAttribute('data-theme');
+  else document.documentElement.setAttribute('data-theme', progress.settings.theme);
+  const dark = effectiveTheme() === 'dark';
+  const button = $('#theme-quick');
+  button.dataset.i18nAria = dark ? 'theme.toLight' : 'theme.toDark';
+  button.setAttribute('aria-label', t(button.dataset.i18nAria));
+  button.querySelector('use').setAttribute('href', dark ? '#i-sun' : '#i-moon');
+}
+function applyTurkishVisibility() { document.body.classList.toggle('hide-tr', !progress.settings.showTurkish); }
+function setLanguage(next) {
+  lang = next === 'tr' ? 'tr' : 'en';
+  applyStaticText();
+  Words.renderLevelOptions();
+  relabelCards();
+  Words.dirty = true;
+  Reading.rendered = null;
+  Router.show(false);
+}
+
+const MODULES = { home: Home, words: Words, quiz: Quiz, reading: Reading, settings: Settings };
+
+/* ======================================================================
+   8. INITIALIZATION (single entry point)
+====================================================================== */
+function init() {
+  lang = progress.settings.uiLang;
+  applyStaticText();
+  applyTheme();
+  applyTurkishVisibility();
+  prepareCards();
+  Home.init(); Words.init(); Quiz.init(); Settings.init();
+  if (!Store.usable) Banner.show(t(Store.simulated ? 'storage.simulated' : 'storage.off'));
+  else if (loaded.notice) Banner.show(t(loaded.notice, { n: loaded.count || 0 }));
+  if (loaded.migrated) persist();
+  if (Speech.supported) {
+    Speech.loadVoices();
+    if (window.speechSynthesis.addEventListener) window.speechSynthesis.addEventListener('voiceschanged', Speech.loadVoices);
+  }
+  const scheme = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : null;
+  if (scheme && scheme.addEventListener) scheme.addEventListener('change', applyTheme);
+  window.addEventListener('hashchange', () => Router.show(true));
+  $('#boot-status').hidden = true;
+  Router.show(false);
+  window.__appReady = true;
+  /* 9. Diagnostics: a read-only summary for manual testing in the console. */
+  window.EnglishStudyDiagnostics = Object.freeze({
+    version: APP_VERSION, words: VOCAB.length, storageUsable: Store.usable,
+    progressSummary: () => ({ learned: learnedSet.size, quiz: { ...progress.quiz } })
+  });
+}
+
+try {
+  init();
+} catch (error) {
+  /* Fall back to the static word list that is already in the page. */
+  console.error(error);
+  document.documentElement.classList.remove('js');
+  const box = $('#boot-error');
+  box.hidden = false;
+  box.textContent += ' (' + (error && error.message ? error.message : String(error)) + ')';
+}
+})();
+</script>
+
+</body>
+</html>
