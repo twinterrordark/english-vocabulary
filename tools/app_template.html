@@ -165,7 +165,7 @@ legend { padding: 0; margin-bottom: var(--space-2); }
 .brand-mark { width: 36px; height: 36px; border-radius: 10px; background: var(--primary); color: var(--on-primary); display: grid; place-items: center; font-weight: 800; letter-spacing: -.04em; }
 .brand strong { display: block; font-size: 1.05rem; }
 .brand small { display: block; color: var(--on-header-muted); font-size: .8rem; }
-.tabs { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--space-1); padding-bottom: var(--space-3); }
+.tabs { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); gap: var(--space-1); padding-bottom: var(--space-3); }
 .tabs a {
   display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; min-height: 54px; padding: 6px 4px;
   border-radius: var(--radius-s); color: var(--on-header-muted); text-decoration: none; font-size: .74rem; font-weight: 600; text-align: center; min-width: 0;
@@ -229,6 +229,9 @@ dialog::backdrop { background: rgba(8, 14, 28, .55); }
 .word-media .word-art { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: var(--space-1); width: 100%; height: 100%; padding: var(--space-4); text-align: center; background: linear-gradient(135deg, var(--primary-soft), var(--surface-2)); }
 .word-art strong { font-size: clamp(1.4rem, 6vw, 2rem); color: var(--accent-text); letter-spacing: -.01em; overflow-wrap: anywhere; }
 .word-art span { color: var(--muted); font-size: .95rem; }
+.word-media .media-toggle { height: 100%; }
+.word-media .emoji-art { display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; background: radial-gradient(circle at 50% 45%, var(--surface) 0, var(--primary-soft) 75%); }
+.word-media .emoji-art img { width: 46%; height: auto; max-height: 72%; object-fit: contain; filter: drop-shadow(0 4px 6px rgba(18, 31, 58, .15)); }
 .learned-badge { position: absolute; top: 8px; right: 8px; display: none; align-items: center; gap: 4px; padding: 4px 10px; border-radius: 999px; background: var(--success); color: var(--surface); font-size: .8rem; font-weight: 700; }
 .word-card.is-learned .learned-badge { display: inline-flex; }
 .credit { font-size: .72rem; color: var(--muted); }
@@ -336,6 +339,83 @@ mark.vocab { background: var(--mark); color: inherit; padding: 0 2px; border-rad
   *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
   .button:active { transform: none; }
 }
+
+/* ---------- Novel reader ---------- */
+.novel-open { display: grid; gap: var(--space-2); justify-items: start; }
+.novel-open .hint { margin: 0; }
+.novel-reader { display: grid; gap: var(--space-3); margin-top: var(--space-4); }
+.novel-bar { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2); }
+.novel-page { display: inline-flex; align-items: center; gap: 6px; font-weight: 600; }
+.novel-page input { width: 4.5em; min-height: var(--tap); padding: 4px 8px; }
+.novel-size { margin-left: auto; display: inline-flex; gap: 4px; }
+.novel-bar-bottom { justify-content: space-between; }
+.novel-lookup { display: flex; gap: var(--space-2); }
+.novel-lookup input { flex: 1; min-width: 0; min-height: var(--tap); }
+.novel-text { font-size: 1.12rem; line-height: 1.8; max-width: 68ch; padding: var(--space-4); background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); font-family: Georgia, "Times New Roman", serif; overflow-wrap: anywhere; }
+.novel-text p { margin: 0 0 var(--space-3); text-indent: 1.4em; }
+.novel-text p.cont { text-indent: 0; }
+.novel-text .nw { cursor: pointer; border-radius: 3px; -webkit-tap-highlight-color: transparent; }
+.novel-text .nw:hover { background: var(--primary-soft); }
+.novel-text .nw.is-on { background: var(--focus); color: #111; }
+.novel-empty { color: var(--muted); font-style: italic; }
+.novel-pop { position: fixed; left: 50%; bottom: 12px; transform: translateX(-50%); width: min(560px, calc(100% - 24px)); z-index: 50; padding: var(--space-3) var(--space-4); background: var(--surface); color: var(--text); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: 0 10px 30px rgba(0, 0, 0, .25); }
+.novel-pop[hidden] { display: none; }
+.novel-pop-head { display: flex; align-items: center; gap: var(--space-2); }
+.novel-pop-head strong { font-size: 1.25rem; flex: 1; overflow-wrap: anywhere; }
+.novel-pop p { margin: var(--space-1) 0 0; }
+.novel-pop-base { color: var(--muted); font-size: .9rem; }
+.novel-pop-base:empty { display: none; }
+.novel-pop-tr { font-size: 1.08rem; font-weight: 600; }
+.novel-pop-sentence { font-size: .88rem; color: var(--muted); }
+.link-button { background: none; border: 0; padding: 0; color: var(--primary); font: inherit; text-decoration: underline; cursor: pointer; }
+.view[data-view="novel"] { padding-bottom: 200px; }
+
+/* ---------- Phrases (Everyday Conversation) ---------- */
+.phrases-container { display: flex; flex-direction: column; gap: var(--space-5); margin-top: var(--space-3); }
+.phrase-topic-section { display: flex; flex-direction: column; gap: var(--space-3); scroll-margin-top: 80px; }
+.phrase-topic-header { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: var(--space-2); padding-bottom: var(--space-2); border-bottom: 2px solid var(--primary); }
+.phrase-topic-header h2 { font-size: 1.25rem; margin: 0; color: var(--primary); }
+.phrase-topic-header .topic-sub { color: var(--muted); font-size: .9rem; font-weight: 500; }
+.phrase-topic-header .topic-badge { font-size: .75rem; font-weight: 700; padding: 2px 8px; border-radius: 999px; background: var(--primary-soft); color: var(--primary); }
+.phrases-grid { display: grid; grid-template-columns: 1fr; gap: var(--space-3); }
+@media (min-width: 768px) { .phrases-grid { grid-template-columns: 1fr 1fr; } }
+.phrase-item { display: flex; flex-direction: column; gap: var(--space-2); padding: var(--space-4); background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); transition: transform .15s ease, border-color .15s ease; }
+.phrase-item:hover { border-color: var(--primary); }
+.phrase-item-top { display: flex; justify-content: space-between; align-items: flex-start; gap: var(--space-2); }
+.phrase-en { font-size: 1.05rem; font-weight: 600; color: var(--text); line-height: 1.4; flex: 1; }
+.phrase-speak-btn { flex-shrink: 0; color: var(--primary); background: var(--primary-soft); border: none; border-radius: 50%; width: 34px; height: 34px; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; transition: background .15s ease, transform .1s ease; }
+.phrase-speak-btn:hover { background: var(--primary); color: #fff; transform: scale(1.08); }
+.phrase-speak-btn svg { width: 18px; height: 18px; }
+.phrase-example { display: grid; gap: 2px; padding: var(--space-2) var(--space-3); border-radius: var(--radius-s); background: var(--success-soft); border-left: 3px solid var(--success); }
+.phrase-example-label { font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: var(--success); }
+.phrase-example-en { margin: 0; font-weight: 600; color: var(--text); }
+.phrase-example-tr { margin: 0; color: var(--muted); font-size: .92rem; }
+.phrase-subheading { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px var(--space-2); margin: var(--space-2) 0 0; font-size: 1rem; color: var(--text); }
+.phrase-subheading-tr { color: var(--muted); font-size: .88rem; font-weight: 500; }
+.phrase-resources { padding: var(--space-3) var(--space-4); background: var(--surface-2); border: 1px solid var(--line); border-radius: var(--radius); }
+.phrase-resources-title { margin: 0 0 var(--space-2); font-size: .95rem; }
+.phrase-resources ul { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-2); }
+.phrase-resources a { display: grid; gap: 2px; padding: var(--space-2) var(--space-3); min-height: 44px; border-radius: var(--radius-s); background: var(--surface); border: 1px solid var(--line); color: var(--text); text-decoration: none; }
+.phrase-resources a:hover, .phrase-resources a:focus-visible { border-color: var(--primary); }
+.phrase-res-kind { font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: var(--primary); }
+.phrase-res-en { font-weight: 600; overflow-wrap: anywhere; }
+.phrase-res-tr { color: var(--muted); font-size: .88rem; }
+.phrase-tr { font-size: .95rem; color: #b71c1c; font-weight: 500; margin: 0; line-height: 1.4; }
+[data-theme="dark"] .phrase-tr { color: #ef9a9a; }
+.phrase-recip { font-size: .88rem; color: var(--accent-text); background: var(--primary-soft); padding: var(--space-2) var(--space-3); border-radius: var(--radius-s); font-weight: 500; }
+.phrase-answers { display: flex; flex-direction: column; gap: 6px; margin-top: var(--space-1); padding-top: var(--space-2); border-top: 1px dashed var(--line); }
+.phrase-answer-item { display: grid; grid-template-columns: 24px 1fr; gap: 6px; padding: 6px 10px; border-radius: var(--radius-s); font-size: .88rem; }
+.phrase-answer-item.positive { background: var(--success-soft); border-left: 3px solid var(--success); }
+.phrase-answer-item.negative { background: var(--error-soft); border-left: 3px solid var(--error); }
+.phrase-answer-item.neutral { background: var(--surface-2); border-left: 3px solid var(--muted); }
+.phrase-ans-sign { font-weight: 900; font-size: 1.05rem; text-align: center; }
+.phrase-answer-item.positive .phrase-ans-sign { color: var(--success); }
+.phrase-answer-item.negative .phrase-ans-sign { color: var(--error); }
+.phrase-answer-item.neutral .phrase-ans-sign { color: var(--muted); }
+.phrase-ans-content { display: flex; flex-direction: column; gap: 2px; }
+.phrase-ans-en { font-weight: 600; color: var(--text); }
+.phrase-ans-tr { color: var(--muted); font-size: .82rem; }
+
 </style>
 </head>
 <body>
@@ -348,6 +428,7 @@ mark.vocab { background: var(--mark); color: inherit; padding: 0 2px; border-rad
   <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></symbol>
   <symbol id="i-words" viewBox="0 0 24 24"><path d="M2 5h7a3 3 0 0 1 3 3v12a2.5 2.5 0 0 0-2.5-2.5H2zM22 5h-7a3 3 0 0 0-3 3v12a2.5 2.5 0 0 1 2.5-2.5H22z"/></symbol>
   <symbol id="i-quiz" viewBox="0 0 24 24"><path d="M9 11l3 3 8-8M20 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M2 4h7a3 3 0 0 1 3 3v13a2 2 0 0 0-2-2H2zM22 4h-7a3 3 0 0 0-3 3v13a2 2 0 0 1 2-2h8z"/></symbol>
   <symbol id="i-reading" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zM14 2v6h6M8 13h8M8 17h8M8 9h2"/></symbol>
   <symbol id="i-settings" viewBox="0 0 24 24"><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6"/></symbol>
   <symbol id="i-sound" viewBox="0 0 24 24"><path d="M11 5 6 9H2v6h4l5 4zM15.5 8.5a5 5 0 0 1 0 7M19 5a10 10 0 0 1 0 14"/></symbol>
@@ -363,6 +444,7 @@ mark.vocab { background: var(--mark); color: inherit; padding: 0 2px; border-rad
   <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></symbol>
   <symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 21V9M7 14l5-5 5 5M5 3h14"/></symbol>
   <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+<symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></symbol>
 </svg>
 
 <header class="app-header">
@@ -376,7 +458,9 @@ mark.vocab { background: var(--mark); color: inherit; padding: 0 2px; border-rad
   <nav class="tabs" aria-label="Main" data-i18n-aria="nav.label">
     <a href="#home" data-route="home"><svg class="icon" aria-hidden="true"><use href="#i-home"/></svg><span data-i18n="nav.home">Home</span></a>
     <a href="#words" data-route="words"><svg class="icon" aria-hidden="true"><use href="#i-words"/></svg><span data-i18n="nav.words">Words</span></a>
+    <a href="#phrases" data-route="phrases"><svg class="icon" aria-hidden="true"><use href="#i-chat"/></svg><span data-i18n="nav.phrases">Phrases</span></a>
     <a href="#quiz" data-route="quiz"><svg class="icon" aria-hidden="true"><use href="#i-quiz"/></svg><span data-i18n="nav.quiz">Quiz</span></a>
+    <a href="#novel" data-route="novel"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg><span data-i18n="nav.novel">Novel</span></a>
     <a href="#reading" data-route="reading"><svg class="icon" aria-hidden="true"><use href="#i-reading"/></svg><span data-i18n="nav.reading">Reading</span></a>
     <a href="#settings" data-route="settings"><svg class="icon" aria-hidden="true"><use href="#i-settings"/></svg><span data-i18n="nav.settings">Settings</span></a>
   </nav>
@@ -425,7 +509,9 @@ mark.vocab { background: var(--mark); color: inherit; padding: 0 2px; border-rad
     <h2 class="section-title" data-i18n="home.modes">Study modes</h2>
     <ul class="mode-grid">
       <li><a class="mode-card" href="#words"><svg class="icon" aria-hidden="true"><use href="#i-words"/></svg><div><strong data-i18n="nav.words">Words</strong><span data-i18n="mode.words">Search the list, open example sentences for each word type and mark words you know.</span></div></a></li>
+      <li><a class="mode-card" href="#phrases"><svg class="icon" aria-hidden="true"><use href="#i-chat"/></svg><div><strong data-i18n="nav.phrases">Phrases</strong><span data-i18n="mode.phrases">40 everyday topics and 719 practical conversation patterns.</span></div></a></li>
       <li><a class="mode-card" href="#quiz"><svg class="icon" aria-hidden="true"><use href="#i-quiz"/></svg><div><strong data-i18n="nav.quiz">Quiz</strong><span data-i18n="mode.quiz">Multiple-choice and fill-in-the-blank questions.</span></div></a></li>
+      <li><a class="mode-card" href="#novel"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg><div><strong data-i18n="nav.novel">Novel</strong><span data-i18n="mode.novel">Read an English novel and tap any word for its Turkish meaning.</span></div></a></li>
       <li><a class="mode-card" href="#reading"><svg class="icon" aria-hidden="true"><use href="#i-reading"/></svg><div><strong data-i18n="nav.reading">Reading</strong><span data-i18n="mode.reading">Short texts with questions and optional listening.</span></div></a></li>
     </ul>
     <p class="hint" id="home-storage-note"></p>
@@ -478,6 +564,34 @@ mark.vocab { background: var(--mark); color: inherit; padding: 0 2px; border-rad
     </div>
     <div class="more-row js-only"><button type="button" class="button" id="word-more" hidden></button></div>
   </section>
+
+  <!-- Phrases / Daily Conversation -->
+  <section class="view" data-view="phrases" aria-labelledby="phrases-title">
+    <div class="view-head">
+      <h1 id="phrases-title" tabindex="-1" data-i18n="phrases.title">Daily Phrases</h1>
+      <p class="lead" data-i18n="phrases.lead">40 günlük yaşam konusu, 719 pratik İngilizce ifade ve B1 cevap örnekleri.</p>
+    </div>
+    <div class="panel toolbar js-only" role="search">
+      <div class="field search-field">
+        <label for="phrase-search" data-i18n="phrases.search">Search Phrases</label>
+        <input id="phrase-search" type="search" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="search" placeholder="İfade veya Türkçe anlam ara…" data-i18n-placeholder="phrases.searchPh">
+      </div>
+      <div class="field status-field">
+        <label for="phrase-topic-select" data-i18n="phrases.topicLabel">Topic</label>
+        <select id="phrase-topic-select">
+          <option value="all" data-i18n="phrases.allTopics">Tüm Konular (40 Konu)</option>
+          <!--@PHRASE_TOPIC_OPTIONS@-->
+        </select>
+      </div>
+    </div>
+    <div class="row js-only">
+      <p id="phrase-count" class="result-count" aria-live="polite"><!--@PHRASE_COUNT@--> ifade gösteriliyor</p>
+    </div>
+    <div id="phrases-list" class="phrases-container">
+      <!--@PHRASES_HTML@-->
+    </div>
+  </section>
+
 
   <!-- Quiz -->
   <section class="view" data-view="quiz" aria-labelledby="quiz-title">
@@ -533,6 +647,50 @@ mark.vocab { background: var(--mark); color: inherit; padding: 0 2px; border-rad
         <button type="button" class="button primary" id="quiz-practice-missed" data-i18n="quiz.practiceMissed">Practise missed words</button>
         <button type="button" class="button ghost" id="quiz-new" data-i18n="quiz.new">New quiz</button>
       </div>
+    </div>
+  </section>
+
+  <!-- Novel reader: the learner opens their own PDF; the book text stays in their browser. -->
+  <section class="view" data-view="novel" aria-labelledby="novel-title">
+    <div class="view-head">
+      <h1 id="novel-title" tabindex="-1" data-i18n="novel.title">Read a novel</h1>
+      <p class="lead" data-i18n="novel.lead">Open an English novel as a PDF file and tap any word to see its Turkish meaning.</p>
+    </div>
+    <div class="panel novel-open js-only">
+      <label class="button primary" for="novel-file"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg><span data-i18n="novel.choose">Choose a PDF</span></label>
+      <input id="novel-file" class="visually-hidden" type="file" accept="application/pdf,.pdf">
+      <p class="hint" id="novel-status" aria-live="polite" data-i18n="novel.hint">The book is read on this device only; it is not uploaded anywhere. After the first time it opens straight from this browser.</p>
+    </div>
+    <div class="novel-reader js-only" id="novel-reader" hidden>
+      <div class="novel-bar">
+        <button type="button" class="button small" id="novel-prev" aria-label="Previous page" data-i18n-aria="novel.prev">‹</button>
+        <label class="novel-page"><span data-i18n="novel.page">Page</span> <input id="novel-page" type="number" inputmode="numeric" min="1" value="1"> / <span id="novel-total">1</span></label>
+        <button type="button" class="button small" id="novel-next" aria-label="Next page" data-i18n-aria="novel.next">›</button>
+        <span class="novel-size">
+          <button type="button" class="button small ghost" id="novel-smaller" aria-label="Smaller text" data-i18n-aria="novel.smaller">A−</button>
+          <button type="button" class="button small ghost" id="novel-bigger" aria-label="Larger text" data-i18n-aria="novel.bigger">A+</button>
+        </span>
+      </div>
+      <form class="novel-lookup" id="novel-lookup">
+        <label for="novel-word" class="visually-hidden" data-i18n="novel.lookup">Look up a word</label>
+        <input id="novel-word" type="search" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="search" placeholder="Look up a word…" data-i18n-placeholder="novel.lookupPh">
+        <button type="submit" class="button small" data-i18n="novel.find">Translate</button>
+      </form>
+      <article class="novel-text" id="novel-text" lang="en"></article>
+      <div class="novel-bar novel-bar-bottom">
+        <button type="button" class="button small" id="novel-prev2" data-i18n="novel.prevText">‹ Previous</button>
+        <button type="button" class="button small primary" id="novel-next2" data-i18n="novel.nextText">Next ›</button>
+      </div>
+    </div>
+    <div class="novel-pop" id="novel-pop" role="dialog" aria-labelledby="novel-pop-word" hidden>
+      <div class="novel-pop-head">
+        <strong id="novel-pop-word" lang="en"></strong>
+        <button type="button" class="icon-button" id="novel-pop-speak" aria-label="Listen" data-i18n-aria="novel.listen"><svg class="icon" aria-hidden="true"><use href="#i-sound"/></svg></button>
+        <button type="button" class="icon-button" id="novel-pop-close" aria-label="Close" data-i18n-aria="novel.close"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
+      </div>
+      <p class="novel-pop-base" id="novel-pop-base"></p>
+      <p class="novel-pop-tr" id="novel-pop-tr" lang="tr"></p>
+      <p class="novel-pop-sentence" id="novel-pop-sentence"><button type="button" class="link-button" id="novel-pop-say" data-i18n="novel.sayLine">Listen to the sentence</button> · <a id="novel-pop-gt" href="#" target="_blank" rel="noopener noreferrer" data-i18n="novel.translateLine">Translate the sentence (online)</a></p>
     </div>
   </section>
 
@@ -606,6 +764,7 @@ mark.vocab { background: var(--mark); color: inherit; padding: 0 2px; border-rad
 
 <footer class="site-footer">
   <p data-i18n="footer.text">Works offline. Progress is stored only in this browser on this device.</p>
+  <p>Fotoğraflar: Wikimedia Commons (yazar ve lisans kartlarda). Simgeler: <a href="https://github.com/jdecked/twemoji" target="_blank" rel="noopener">Twemoji</a>, CC BY 4.0. PDF okuma: <a href="https://mozilla.github.io/pdf.js/" target="_blank" rel="noopener">pdf.js</a> (Mozilla, Apache-2.0).</p>
   <p>English Study · v@APP_VERSION@</p>
 </footer>
 
@@ -632,6 +791,11 @@ mark.vocab { background: var(--mark); color: inherit; padding: 0 2px; border-rad
 <script type="application/json" id="vocab-data"><!--@VOCAB_DATA@--></script>
 <!-- Example sentences by word type, written for this app (source: tools/sentences/*.json). -->
 <script type="application/json" id="sentence-data"><!--@SENTENCE_DATA@--></script>
+<!-- English -> Turkish dictionary for the novel reader (source: tools/novel/*.json). -->
+<script type="application/json" id="novel-dict"><!--@NOVEL_DICT@--></script>
+<!-- pdf.js 3.11.174 (Mozilla, Apache-2.0), loaded only when a PDF is opened in the novel reader. -->
+<script type="text/plain" id="pdfjs-src"><!--@PDFJS_LIB@--></script>
+<script type="text/plain" id="pdfjs-worker-src"><!--@PDFJS_WORKER@--></script>
 
 <script>
 (() => {
@@ -750,6 +914,24 @@ const STRINGS = {
     'continue.learnBtn': 'Study words',
     'continue.learn': 'Open the word list, read the sentences and tap the cards of the words you know.',
     skip: 'Skip to content', 'brand.sub': 'A2–C1 vocabulary and practice', 'nav.label': 'Main',
+        'nav.phrases': 'Phrases',
+    'nav.novel': 'Novel', 'mode.novel': 'Read an English novel and tap any word for its Turkish meaning.',
+    'novel.title': 'Read a novel', 'novel.lead': 'Open an English novel as a PDF file and tap any word to see its Turkish meaning.',
+    'novel.choose': 'Choose a PDF', 'novel.hint': 'The book is read on this device only; it is not uploaded anywhere. After the first time it opens straight from this browser.',
+    'novel.loading': 'Reading the PDF…', 'novel.progress': 'Reading page {i} of {n}…', 'novel.ready': 'Ready: {n} pages. The book is saved in this browser.',
+    'novel.readyNoStore': 'Ready: {n} pages. This browser could not save the book, so choose the file again next time.', 'novel.error': 'This file could not be read as a PDF.',
+    'novel.prev': 'Previous page', 'novel.next': 'Next page', 'novel.prevText': '‹ Previous', 'novel.nextText': 'Next ›', 'novel.page': 'Page',
+    'novel.smaller': 'Smaller text', 'novel.bigger': 'Larger text', 'novel.lookup': 'Look up a word', 'novel.lookupPh': 'Look up a word…', 'novel.find': 'Translate',
+    'novel.listen': 'Listen', 'novel.close': 'Close', 'novel.sayLine': 'Listen to the sentence', 'novel.translateLine': 'Translate the sentence (online)',
+    'novel.base': 'from “{w}”', 'novel.name': 'Proper name (person or place)', 'novel.unknown': 'Not in the offline dictionary. Use “Translate the sentence” when online.',
+    'novel.emptyPage': 'This page has no text (picture or blank page).',
+    'phrases.title': 'Everyday Conversation Phrases',
+    'phrases.lead': '40 daily life topics, 719 practical English expressions with B1 answers.',
+    'phrases.search': 'Search English or Turkish',
+    'phrases.searchPh': 'Search phrase or Turkish meaning…',
+    'phrases.topicLabel': 'Topic',
+    'phrases.allTopics': 'All Topics (40 Topics)',
+    'mode.phrases': '40 everyday topics and 719 practical conversation patterns.',
     'nav.home': 'Home', 'nav.words': 'Words', 'nav.quiz': 'Quiz', 'nav.reading': 'Reading', 'nav.settings': 'Settings',
     'theme.toDark': 'Switch to dark theme', 'theme.toLight': 'Switch to light theme', 'common.dismiss': 'Dismiss message', 'common.cancel': 'Cancel', 'common.tryAgain': 'Try again',
     'home.title': 'Your study space', 'home.lead': 'Learn vocabulary with example sentences for every word type, test yourself and read short texts — all offline in one page.',
@@ -812,7 +994,7 @@ const STRINGS = {
     'settings.data': 'Your progress data', 'settings.export': 'Export progress (JSON)', 'settings.import': 'Import progress', 'settings.reset': 'Reset all progress',
     'settings.resetHint': 'Reset removes learned marks, quiz statistics and study days. Display settings are kept.',
     'settings.about': 'About this app', 'settings.aboutText': 'Version {v}. {n} vocabulary entries ({s} with sentences by word type), {i} embedded images, {r} reading texts.',
-    'settings.aboutContent': 'Meanings, pronunciation notes and original examples come from the original page. Photos come from Wikimedia Commons (free licences; the author and licence are shown on each card). Illustrations that the original page made for a specific word are kept. Words without a fitting picture show the word itself instead of an unrelated image. The example sentences grouped by word type were written for this app.',
+    'settings.aboutContent': 'Meanings, pronunciation notes and original examples come from the original page. Photos come from Wikimedia Commons (free licences; the author and licence are shown on each card). Illustrations that the original page made for a specific word are kept. Words without a fitting photo show a Twemoji illustration chosen for that word (Twemoji by Twitter and contributors, CC BY 4.0). The example sentences grouped by word type were written for this app.',
     'reset.title': 'Reset all progress?', 'reset.msg': 'Learned marks, quiz statistics and study days will be deleted. Consider exporting a backup first.', 'reset.ok': 'Reset progress', 'reset.done': 'Progress has been reset.',
     'import.title': 'Replace your current progress?', 'import.msg': 'The file contains {l} learned words and {a} quiz answers. Your current progress will be replaced.', 'import.ok': 'Replace progress',
     'import.done': 'Progress imported.', 'import.cancelled': 'Import cancelled. Nothing was changed.', 'import.tooBig': 'This file is too large to be a progress export.',
@@ -822,6 +1004,24 @@ const STRINGS = {
     'boot.error': 'Something went wrong while starting the app: {e}. Your saved progress has not been changed.'
   },
   tr: {
+        'nav.phrases': 'İfadeler',
+    'nav.novel': 'Roman', 'mode.novel': 'İngilizce roman oku, istediğin kelimeye dokun, Türkçesini gör.',
+    'novel.title': 'Roman oku', 'novel.lead': 'İngilizce bir romanı PDF olarak aç ve herhangi bir kelimeye dokunarak Türkçe anlamını gör.',
+    'novel.choose': 'PDF seç', 'novel.hint': 'Kitap yalnızca bu cihazda okunur, hiçbir yere yüklenmez. İlk açılıştan sonra doğrudan bu tarayıcıdan açılır.',
+    'novel.loading': 'PDF okunuyor…', 'novel.progress': 'Sayfa {i} / {n} okunuyor…', 'novel.ready': 'Hazır: {n} sayfa. Kitap bu tarayıcıya kaydedildi.',
+    'novel.readyNoStore': 'Hazır: {n} sayfa. Bu tarayıcı kitabı kaydedemedi; bir dahaki sefere dosyayı yeniden seç.', 'novel.error': 'Bu dosya PDF olarak okunamadı.',
+    'novel.prev': 'Önceki sayfa', 'novel.next': 'Sonraki sayfa', 'novel.prevText': '‹ Önceki', 'novel.nextText': 'Sonraki ›', 'novel.page': 'Sayfa',
+    'novel.smaller': 'Yazıyı küçült', 'novel.bigger': 'Yazıyı büyüt', 'novel.lookup': 'Kelime ara', 'novel.lookupPh': 'Kelime yaz, çevir…', 'novel.find': 'Çevir',
+    'novel.listen': 'Dinle', 'novel.close': 'Kapat', 'novel.sayLine': 'Cümleyi dinle', 'novel.translateLine': 'Cümleyi çevir (internet)',
+    'novel.base': '“{w}” kelimesinden', 'novel.name': 'Özel isim (kişi veya yer adı)', 'novel.unknown': 'Çevrimdışı sözlükte yok. İnternet varken “Cümleyi çevir”i kullan.',
+    'novel.emptyPage': 'Bu sayfada yazı yok (resim veya boş sayfa).',
+    'phrases.title': 'Günlük Konuşma İfadeleri',
+    'phrases.lead': '40 günlük yaşam konusu, 719 pratik İngilizce ifade ve B1 cevap örnekleri.',
+    'phrases.search': 'İfade veya Türkçe ara',
+    'phrases.searchPh': 'İfade veya Türkçe anlam ara…',
+    'phrases.topicLabel': 'Konu',
+    'phrases.allTopics': 'Tüm Konular (40 Konu)',
+    'mode.phrases': '40 günlük yaşam konusu ve 719 pratik konuşma kalıbı.',
     'card.photo': 'Görsel',
     'card.learnedBadge': 'Öğrenildi',
     'card.toggleLabel': '“{w}” kelimesini öğrendim olarak işaretle',
@@ -915,7 +1115,7 @@ const STRINGS = {
     'settings.data': 'İlerleme verilerin', 'settings.export': 'İlerlemeyi dışa aktar (JSON)', 'settings.import': 'İlerlemeyi içe aktar', 'settings.reset': 'Tüm ilerlemeyi sıfırla',
     'settings.resetHint': 'Sıfırlama; öğrenildi işaretlerini, test istatistiklerini ve çalışma günlerini siler. Görünüm ayarları korunur.',
     'settings.about': 'Uygulama hakkında', 'settings.aboutText': 'Sürüm {v}. {n} kelime ({s} tanesinde türlere göre cümle var), {i} gömülü görsel, {r} okuma metni.',
-    'settings.aboutContent': 'Anlamlar, okunuşlar ve özgün örnekler özgün sayfadan alınmıştır. Fotoğraflar Wikimedia Commons’tan gelir (özgür lisanslı; her kartta yazar ve lisans gösterilir). Özgün sayfanın belirli bir kelime için hazırladığı çizimler korunmuştur. Uygun görseli olmayan kelimelerde alakasız bir resim yerine kelimenin kendisi gösterilir. Kelime türlerine göre gruplanan örnek cümleler bu uygulama için yazılmıştır.',
+    'settings.aboutContent': 'Anlamlar, okunuşlar ve özgün örnekler özgün sayfadan alınmıştır. Fotoğraflar Wikimedia Commons’tan gelir (özgür lisanslı; her kartta yazar ve lisans gösterilir). Özgün sayfanın belirli bir kelime için hazırladığı çizimler korunmuştur. Uygun fotoğrafı olmayan kelimelerde o kelime için seçilmiş bir Twemoji çizimi gösterilir (Twemoji: Twitter ve katkıda bulunanlar, CC BY 4.0). Kelime türlerine göre gruplanan örnek cümleler bu uygulama için yazılmıştır.',
     'reset.title': 'Tüm ilerleme sıfırlansın mı?', 'reset.msg': 'Öğrenildi işaretleri, test istatistikleri ve çalışma günleri silinecek. Önce yedek almayı düşün.', 'reset.ok': 'İlerlemeyi sıfırla', 'reset.done': 'İlerleme sıfırlandı.',
     'import.title': 'Mevcut ilerleme değiştirilsin mi?', 'import.msg': 'Dosyada {l} öğrenilmiş kelime ve {a} test cevabı var. Mevcut ilerlemenin yerine geçecek.', 'import.ok': 'İlerlemeyi değiştir',
     'import.done': 'İlerleme içe aktarıldı.', 'import.cancelled': 'İçe aktarma iptal edildi. Hiçbir şey değişmedi.', 'import.tooBig': 'Bu dosya bir ilerleme dosyası olamayacak kadar büyük.',
@@ -1419,7 +1619,7 @@ function relabelCards() {
 }
 
 /* ---------- 7i. Navigation ---------- */
-const ROUTES = ['home', 'words', 'quiz', 'reading', 'settings'];
+const ROUTES = ['home', 'words', 'phrases', 'novel', 'quiz', 'reading', 'settings'];
 const Router = {
   current: null,
   /* Non-route hashes (e.g. the skip link's #main) keep the current view. */
@@ -1612,6 +1812,323 @@ const Words = {
     more.textContent = t('words.more', { n: Math.min(PAGE_SIZE, total - this.shown) });
   },
   onShow() { if (this.dirty) this.render(); }
+};
+
+
+/* ---------- 7l. Phrases (Everyday Conversation) ---------- */
+const Phrases = {
+  activeTopic: 'all',
+  query: '',
+  timer: 0,
+  init() {
+    const search = $('#phrase-search');
+    if (search) {
+      search.addEventListener('input', () => {
+        clearTimeout(this.timer);
+        this.timer = setTimeout(() => {
+          this.query = normalize(search.value.trim());
+          this.filter();
+        }, 150);
+      });
+      search.addEventListener('keydown', event => { if (event.key === 'Enter') search.blur(); });
+    }
+    const topicSelect = $('#phrase-topic-select');
+    if (topicSelect) {
+      topicSelect.addEventListener('change', e => {
+        this.activeTopic = e.target.value;
+        this.filter();
+      });
+    }
+    const list = $('#phrases-list');
+    if (list) {
+      list.addEventListener('click', event => {
+        const btn = event.target.closest('[data-action="speak-phrase"]');
+        if (btn) {
+          const text = btn.dataset.text;
+          if (text) Speech.speak(text);
+        }
+      });
+    }
+  },
+  onShow() {},
+  filter() {
+    const q = this.query;
+    const topic = this.activeTopic;
+    let visibleCount = 0;
+    const items = $$('#phrases-list .phrase-item');
+    for (const card of items) {
+      const cardTopic = card.dataset.topic;
+      const cardSearch = card.dataset.search || '';
+      const matchTopic = topic === 'all' || cardTopic === topic;
+      const matchQuery = !q || cardSearch.indexOf(q) >= 0;
+      const show = matchTopic && matchQuery;
+      card.hidden = !show;
+      if (show) visibleCount++;
+    }
+    // Sub-headings and the video/resource links only make sense while a whole topic is shown.
+    for (const el of $$('#phrases-list .phrase-subheading, #phrases-list .phrase-resources')) el.hidden = !!q;
+    for (const sec of $$('#phrases-list .phrase-topic-section')) {
+      const visibleChildren = $$('.phrase-item:not([hidden])', sec);
+      sec.hidden = visibleChildren.length === 0;
+    }
+    const countEl = $('#phrase-count');
+    if (countEl) {
+      countEl.textContent = (lang === 'tr' ? (visibleCount + ' ifade gösteriliyor') : (visibleCount + ' phrases shown'));
+    }
+  }
+};
+
+/* ---------- 7l2. Novel reader ---------- */
+/* The learner opens their own PDF. pdf.js (embedded as text) extracts the
+   text in the browser; the pages are kept in IndexedDB on this device so the
+   book opens again without the file. Nothing is uploaded. */
+const BookStore = {
+  open() {
+    return new Promise((resolve, reject) => {
+      if (!window.indexedDB) { reject(new Error('no indexedDB')); return; }
+      const request = indexedDB.open('english-study-books', 1);
+      request.onupgradeneeded = () => request.result.createObjectStore('books');
+      request.onsuccess = () => resolve(request.result);
+      request.onerror = () => reject(request.error);
+    });
+  },
+  async get() {
+    try {
+      const db = await this.open();
+      return await new Promise(resolve => {
+        const request = db.transaction('books').objectStore('books').get('current');
+        request.onsuccess = () => resolve(request.result || null);
+        request.onerror = () => resolve(null);
+      });
+    } catch (_) { return null; }
+  },
+  async put(book) {
+    try {
+      const db = await this.open();
+      return await new Promise(resolve => {
+        const tx = db.transaction('books', 'readwrite');
+        tx.objectStore('books').put(book, 'current');
+        tx.oncomplete = () => resolve(true);
+        tx.onerror = () => resolve(false);
+      });
+    } catch (_) { return false; }
+  }
+};
+
+const Novel = {
+  KEY: 'english-study-novel.v1',
+  dict: null,
+  book: null,
+  page: 0,
+  size: 1.12,
+  restored: false,
+  current: null,
+  /* Calibre PDFs draw ligatures with these glyphs. */
+  LIGATURES: { 'ɹ': 'fi', 'ʃ': 'ff', 'ɻ': 'fl', 'ɽ': 'ffi', 'ʀ': 'ffl', 'ﬁ': 'fi', 'ﬂ': 'fl', 'ﬀ': 'ff', 'ﬃ': 'ffi', 'ﬄ': 'ffl', '\u00a0': ' ' },
+  init() {
+    $('#novel-file').addEventListener('change', event => {
+      const file = event.target.files && event.target.files[0];
+      event.target.value = '';
+      if (file) this.openFile(file);
+    });
+    for (const [id, step] of [['#novel-prev', -1], ['#novel-prev2', -1], ['#novel-next', 1], ['#novel-next2', 1]]) {
+      $(id).addEventListener('click', () => this.go(this.page + step, id.endsWith('2')));
+    }
+    $('#novel-page').addEventListener('change', event => this.go((parseInt(event.target.value, 10) || 1) - 1));
+    $('#novel-smaller').addEventListener('click', () => this.setSize(this.size - 0.08));
+    $('#novel-bigger').addEventListener('click', () => this.setSize(this.size + 0.08));
+    $('#novel-text').addEventListener('click', event => {
+      const word = event.target.closest('.nw');
+      if (word) this.showWord(word.textContent, word);
+    });
+    $('#novel-lookup').addEventListener('submit', event => {
+      event.preventDefault();
+      const value = $('#novel-word').value.trim();
+      if (value) this.showWord(value, null);
+    });
+    $('#novel-pop-close').addEventListener('click', () => this.closePop());
+    $('#novel-pop-speak').addEventListener('click', () => { if (this.current) Speech.speak(this.current.word); });
+    $('#novel-pop-say').addEventListener('click', () => { if (this.current && this.current.sentence) Speech.speak(this.current.sentence); });
+    document.addEventListener('keydown', event => { if (event.key === 'Escape' && !$('#novel-pop').hidden) this.closePop(); });
+    const saved = this.readState();
+    if (saved && saved.size) this.size = saved.size;
+  },
+  async onShow() {
+    if (this.restored) return;
+    this.restored = true;
+    const book = await BookStore.get();
+    if (book && Array.isArray(book.pages) && !this.book) {
+      const saved = this.readState();
+      this.setBook(book, saved && saved.name === book.name ? saved.page : 0);
+    }
+  },
+  readState() { try { return JSON.parse(Store.read(this.KEY) || 'null'); } catch (_) { return null; } },
+  saveState() { if (this.book) Store.write(this.KEY, JSON.stringify({ name: this.book.name, page: this.page, size: this.size })); },
+  status(text) { $('#novel-status').textContent = text; },
+  async loadPdfjs() {
+    if (window.pdfjsLib) return window.pdfjsLib;
+    const blobUrl = id => URL.createObjectURL(new Blob([$(id).textContent], { type: 'text/javascript' }));
+    await new Promise((resolve, reject) => {
+      const script = document.createElement('script');
+      script.src = blobUrl('#pdfjs-src');
+      script.onload = resolve;
+      script.onerror = reject;
+      document.head.append(script);
+    });
+    window.pdfjsLib.GlobalWorkerOptions.workerSrc = blobUrl('#pdfjs-worker-src');
+    return window.pdfjsLib;
+  },
+  async openFile(file) {
+    this.status(t('novel.loading'));
+    try {
+      const lib = await this.loadPdfjs();
+      const pdf = await lib.getDocument({ data: new Uint8Array(await file.arrayBuffer()), isEvalSupported: false, disableFontFace: true }).promise;
+      const pages = [];
+      for (let number = 1; number <= pdf.numPages; number++) {
+        const page = await pdf.getPage(number);
+        pages.push(this.pageParagraphs(await page.getTextContent()));
+        if (number % 10 === 0) this.status(t('novel.progress', { i: number, n: pdf.numPages }));
+      }
+      const book = { name: file.name, pages };
+      const stored = await BookStore.put(book);
+      /* Start at chapter 1 when the book has one, otherwise at the first page. */
+      const first = pages.findIndex(paragraphs => /^(chapter\s+)?(1|one)\.?$/i.test(paragraphs[0] || ''));
+      this.setBook(book, Math.max(0, first));
+      this.status(t(stored ? 'novel.ready' : 'novel.readyNoStore', { n: pages.length }));
+    } catch (error) {
+      this.status(t('novel.error'));
+    }
+  },
+  /* Some PDFs give no character for a ligature glyph (pdf.js returns \u0000).
+     Pick the ligature that makes a dictionary word: "\u0000rst" -> "first". */
+  clean(text) {
+    return text.replace(/[ɹʃɻɽʀﬁﬂﬀﬃﬄ\u00a0]/g, ch => this.LIGATURES[ch])
+      .replace(/[A-Za-z]*\u0000[A-Za-z\u0000]*/g, word => {
+        /* Each missing glyph may be a different ligature ("flu\u0000ing" -> "fluffing"). */
+        let candidates = [word];
+        while (candidates[0].includes('\u0000') && candidates.length < 200) {
+          candidates = candidates.flatMap(c => ['fi', 'ff', 'fl', 'ffi', 'ffl'].map(l => c.replace('\u0000', l)));
+        }
+        return candidates.find(c => !c.includes('\u0000') && this.lookup(c)) || word.replace(/\u0000/g, 'fi');
+      });
+  },
+  dictionary() {
+    if (!this.dict) this.dict = readJsonScript('novel-dict');
+    return this.dict;
+  },
+  /* Rebuild lines from positioned text items, then paragraphs from indented lines. */
+  pageParagraphs(content) {
+    const lines = [];
+    for (const item of content.items) {
+      if (!('str' in item)) continue;
+      const x = item.transform[4], y = item.transform[5];
+      const last = lines[lines.length - 1];
+      if (last && Math.abs(last.y - y) < 2) last.text += item.str;
+      else if (item.str.trim()) lines.push({ x, y, text: item.str });
+    }
+    if (!lines.length) return [];
+    const counts = new Map();
+    for (const line of lines) { const key = Math.round(line.x); counts.set(key, (counts.get(key) || 0) + 1); }
+    const left = Math.min(...[...counts.keys()].filter(x => counts.get(x) >= Math.max(2, lines.length * 0.15)), Infinity);
+    const base = Number.isFinite(left) ? left : Math.min(...lines.map(line => line.x));
+    const paragraphs = [];
+    let lastY = null;
+    for (const line of lines) {
+      const text = this.clean(line.text).replace(/\s+/g, ' ').trim();
+      if (!text) continue;
+      const indented = line.x > base + 6;
+      const gap = lastY != null && Math.abs(lastY - line.y) > 40;
+      if (!paragraphs.length || indented || gap) paragraphs.push(text);
+      else paragraphs[paragraphs.length - 1] += (/-$/.test(paragraphs[paragraphs.length - 1]) ? '' : ' ') + text;
+      lastY = line.y;
+    }
+    /* Mark a first paragraph that continues from the previous page. */
+    if (lines[0].x <= base + 6 && /^[a-z]/.test(paragraphs[0] || '')) paragraphs[0] = '\u2060' + paragraphs[0];
+    return paragraphs;
+  },
+  setBook(book, page) {
+    this.book = book;
+    $('#novel-reader').hidden = false;
+    $('#novel-total').textContent = book.pages.length;
+    $('#novel-page').max = book.pages.length;
+    this.setSize(this.size);
+    this.go(page);
+  },
+  setSize(size) {
+    this.size = Math.min(1.6, Math.max(0.9, Math.round(size * 100) / 100));
+    $('#novel-text').style.fontSize = this.size + 'rem';
+    this.saveState();
+  },
+  go(page, toTop) {
+    if (!this.book) return;
+    this.page = Math.min(this.book.pages.length - 1, Math.max(0, page));
+    $('#novel-page').value = this.page + 1;
+    $('#novel-prev').disabled = $('#novel-prev2').disabled = this.page === 0;
+    $('#novel-next').disabled = $('#novel-next2').disabled = this.page === this.book.pages.length - 1;
+    const paragraphs = this.book.pages[this.page];
+    const article = $('#novel-text');
+    article.replaceChildren(...(paragraphs.length ? paragraphs.map(text => this.paragraph(text)) : [h('p', { class: 'novel-empty', lang: lang, text: t('novel.emptyPage') })]));
+    this.closePop();
+    this.saveState();
+    if (toTop) article.scrollIntoView({ block: 'start' });
+  },
+  paragraph(text) {
+    const cont = text.startsWith('\u2060');
+    const node = h('p', { class: cont ? 'cont' : null });
+    for (const part of text.replace('\u2060', '').split(/([A-Za-z]+(?:['’][A-Za-z]+)*)/)) {
+      if (!part) continue;
+      node.append(/^[A-Za-z]/.test(part) ? h('span', { class: 'nw', text: part }) : part);
+    }
+    return node;
+  },
+  /* Dictionary lookup: the exact form, a known inflection, then common English endings. */
+  lookup(raw) {
+    const { words, forms } = this.dictionary();
+    const word = raw.toLowerCase().replace(/’/g, "'");
+    const base = word.replace(/'s$/, '').replace(/s'$/, 's');
+    for (const form of [word, base]) {
+      if (words[form]) return { base: form, tr: words[form] };
+      if (forms[form]) return { base: forms[form], tr: words[forms[form]] };
+    }
+    const tries = [base.replace(/ies$/, 'y'), base.replace(/ied$/, 'y'), base.replace(/ier$/, 'y'), base.replace(/iest$/, 'y'), base.replace(/ily$/, 'y'),
+      base.replace(/es$/, ''), base.replace(/s$/, ''), base.replace(/ed$/, ''), base.replace(/ed$/, 'e'), base.replace(/(.)\1ed$/, '$1'),
+      base.replace(/ing$/, ''), base.replace(/ing$/, 'e'), base.replace(/(.)\1ing$/, '$1'), base.replace(/er$/, ''), base.replace(/est$/, ''),
+      base.replace(/ly$/, ''), base.replace(/ness$/, ''), base.replace(/ful$/, '')];
+    for (const form of tries) if (form !== base && form.length > 1 && words[form]) return { base: form, tr: words[form] };
+    const entry = Reading.lookup(raw);
+    if (entry) return { base: entry.word, tr: entry.meaning };
+    return null;
+  },
+  sentenceAround(node) {
+    if (!node) return '';
+    const text = node.parentNode.textContent;
+    let offset = 0;
+    for (const child of node.parentNode.childNodes) { if (child === node) break; offset += child.textContent.length; }
+    const start = Math.max(text.lastIndexOf('. ', offset), text.lastIndexOf('? ', offset), text.lastIndexOf('! ', offset), text.lastIndexOf('” ', offset));
+    const ends = ['. ', '? ', '! '].map(mark => text.indexOf(mark, offset)).filter(i => i >= 0);
+    const end = ends.length ? Math.min(...ends) + 1 : text.length;
+    return text.slice(start < 0 ? 0 : start + 2, end).trim();
+  },
+  showWord(raw, node) {
+    for (const on of $$('#novel-text .nw.is-on')) on.classList.remove('is-on');
+    if (node) node.classList.add('is-on');
+    const found = this.lookup(raw);
+    const capital = /^[A-Z]/.test(raw);
+    const sentence = this.sentenceAround(node);
+    this.current = { word: raw, sentence };
+    $('#novel-pop-word').textContent = raw;
+    $('#novel-pop-base').textContent = found && found.base !== raw.toLowerCase().replace(/’/g, "'") ? t('novel.base', { w: found.base }) : '';
+    $('#novel-pop-tr').textContent = found ? found.tr : (capital ? t('novel.name') : t('novel.unknown'));
+    $('#novel-pop-sentence').hidden = !sentence;
+    $('#novel-pop-gt').href = 'https://translate.google.com/?sl=en&tl=tr&op=translate&text=' + encodeURIComponent(sentence);
+    $('#novel-pop-speak').hidden = !Speech.supported;
+    $('#novel-pop-say').hidden = !Speech.supported;
+    $('#novel-pop').hidden = false;
+  },
+  closePop() {
+    $('#novel-pop').hidden = true;
+    for (const on of $$('#novel-text .nw.is-on')) on.classList.remove('is-on');
+  }
 };
 
 /* ---------- 7m. Quiz ---------- */
@@ -2077,7 +2594,7 @@ function setLanguage(next) {
   Router.show(false);
 }
 
-const MODULES = { home: Home, words: Words, quiz: Quiz, reading: Reading, settings: Settings };
+const MODULES = { home: Home, words: Words, phrases: Phrases, novel: Novel, quiz: Quiz, reading: Reading, settings: Settings };
 
 /* ======================================================================
    8. INITIALIZATION (single entry point)
@@ -2088,7 +2605,7 @@ function init() {
   applyTheme();
   applyTurkishVisibility();
   prepareCards();
-  Home.init(); Words.init(); Quiz.init(); Settings.init();
+  Home.init(); Words.init(); Phrases.init(); Novel.init(); Quiz.init(); Settings.init();
   if (!Store.usable) Banner.show(t(Store.simulated ? 'storage.simulated' : 'storage.off'));
   else if (loaded.notice) Banner.show(t(loaded.notice, { n: loaded.count || 0 }));
   if (loaded.migrated) persist();

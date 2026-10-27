@@ -18,6 +18,7 @@ import sys
 from pathlib import Path
 
 from PIL import Image
+from build_phrases_component import build_phrases
 
 ROOT = Path(__file__).resolve().parent.parent
 SOURCE = ROOT / "b1-b2-kelimeler-responsive.html"
@@ -26,7 +27,7 @@ SENTENCE_DIR = Path(__file__).resolve().parent / "sentences"
 HERE = Path(__file__).resolve().parent
 IMAGE_DIR = HERE / "images"
 OUTPUT = ROOT / "index.html"
-APP_VERSION = "2.4.0"
+APP_VERSION = "2.5.0"
 
 
 def plain_text(fragment: str) -> str:
@@ -116,6 +117,28 @@ def shrink_image(data: bytes, q: int = 50) -> str:
     return "data:image/webp;base64," + base64.b64encode(buffer.getvalue()).decode()
 
 
+def load_emoji_mapping() -> dict:
+    """word -> Twemoji SVG data URI, from tools/emoji/*.json and tools/emoji/svg/."""
+    from fetch_emoji import load_mapping, twemoji_name
+    out = {}
+    for word, char in load_mapping().items():
+        svg = HERE / "emoji" / "svg" / f"{twemoji_name(char)}.svg"
+        if svg.exists():
+            out[word] = "data:image/svg+xml;base64," + base64.b64encode(svg.read_bytes()).decode()
+    return out
+
+
+def load_novel_dictionary() -> dict:
+    """English -> Turkish dictionary for the novel reader (tools/novel/)."""
+    words = {}
+    for path in sorted((HERE / "novel").glob("dict_*.json")):
+        words.update(json.loads(path.read_text(encoding="utf-8")))
+    words.pop("_comment", None)
+    forms_path = HERE / "novel" / "forms.json"
+    forms = json.loads(forms_path.read_text(encoding="utf-8")) if forms_path.exists() else {}
+    return {"words": words, "forms": {f: w for f, w in forms.items() if w in words}}
+
+
 def esc(text: str) -> str:
     return html.escape(text or "", quote=True)
 
@@ -124,7 +147,9 @@ def card_html(entry: dict, sentences: dict, image: dict | None) -> str:
     """Static markup for one word card; the app script only connects and filters it."""
     word = entry["word"]
     groups = [(pos, sentences[pos]) for pos in POS_ORDER if pos in sentences]
-    if image:
+    if image and image.get("emoji"):
+        media_inner = f'<span class="emoji-art"><img src="{image["src"]}" alt="" loading="lazy" decoding="async" width="120" height="120"></span>'
+    elif image:
         media_inner = f'<img src="{image["src"]}" alt="" loading="lazy" decoding="async" width="320" height="240">'
     else:
         media_inner = f'<span class="word-art"><strong lang="en">{esc(word)}</strong><span lang="tr">{esc(entry["meaning"])}</span></span>'
@@ -204,22 +229,12 @@ def main() -> None:
     levels = json.loads((HERE / "levels.json").read_text(encoding="utf-8"))
     credits = json.loads((IMAGE_DIR / "credits.json").read_text(encoding="utf-8")) if (IMAGE_DIR / "credits.json").exists() else {}
 
-    # Load 90 categorical vocabulary image assets from legacy source
-    idx_assets = source.find('addedVocabularyImageAssets = {')
-    added_assets = {}
-    if idx_assets != -1:
-        end_assets = source.find(';\n', idx_assets)
-        added_assets = json.loads(source[idx_assets + len('addedVocabularyImageAssets = '):end_assets])
-
-    print(f"Loaded {len(added_assets)} categorical image assets. Optimizing...")
-    shrunk_vocab_photos = {}
-    for k, v in added_assets.items():
-        raw = base64.b64decode(v.split(",")[1])
-        shrunk_vocab_photos[k] = shrink_image(raw, q=50)
+    emoji = load_emoji_mapping()
 
     parts = re.split(r'<section class="word-section"[^>]*><h2>([^<]+)</h2>', source)
     entries = []
     original_images: dict[str, str] = {}
+    words_by_image: dict[str, set] = {}
     for i in range(1, len(parts), 2):
         for card in re.finditer(r'<article class="card"[^>]*>(.*?)</article>', parts[i + 1], re.S):
             body = card.group(1)
@@ -243,11 +258,9 @@ def main() -> None:
                 entry["exampleTr"] = plain_text(translation)
 
             inline = first(r'<img [^>]*src="data:image/webp;base64,([^"]+)"', body)
-            vp = first(r'data-vocab-photo="([^"]+)"', body)
             if inline:
                 original_images[entry["id"]] = inline
-            if vp:
-                entry["_vocab_photo"] = vp
+                words_by_image.setdefault(hashlib.sha1(inline.encode()).hexdigest(), set()).add(key)
 
             entries.append(entry)
 
@@ -285,51 +298,61 @@ def main() -> None:
             shrunk_original_cache[digest] = shrink_image(base64.b64decode(raw_b64), q=50)
         return shrunk_original_cache[digest]
 
-    # ---- Image coverage: 100% of all entries have an image! -------------------
-    # Priority:
-    # 1. Real Wikimedia Commons photo (tools/images/<word>.webp)
-    # 2. Original card image from legacy file
-    # 3. Categorical vocabulary photo from addedVocabularyImageAssets
-    # 4. Fallback photo if any word had none
-    stats = {"wikimedia": 0, "original": 0, "vocab_photo": 0, "fallback": 0, "none": 0}
+    # ---- Every word gets a picture that shows its meaning ------------------------
+    # 1. A reviewed Wikimedia Commons photo (tools/images/<word>.webp).
+    # 2. The illustration the original page made for this word only. Images the
+    #    original page reused for several different words, and its 90 generic
+    #    "shared" photos, are not used: they do not show the word.
+    # 3. A Twemoji illustration chosen by hand for the word (tools/emoji/*.json).
+    stats = {"wikimedia": 0, "original": 0, "emoji": 0, "none": 0}
     cards = []
     entries.sort(key=lambda e: LEVEL_ORDER.index(e["level"]))  # stable: original order inside each level
     current_level = None
-    fallback_photo = shrunk_vocab_photos.get("Explain") or (next(iter(shrunk_vocab_photos.values())) if shrunk_vocab_photos else None)
 
     for entry in entries:
         key = entry["word"].strip().lower()
         image = None
         photo = IMAGE_DIR / f"{key}.webp"
-        if photo.exists() and key in credits:
+        own = entry["id"] in original_images and len(words_by_image[hashlib.sha1(original_images[entry["id"]].encode()).hexdigest()]) == 1
+        if photo.exists() and photo.stat().st_size > 1000 and key in credits:
             image = {"src": "data:image/webp;base64," + base64.b64encode(photo.read_bytes()).decode(), "credit": credits[key]}
             stats["wikimedia"] += 1
-        elif entry["id"] in original_images:
+        elif own:
             image = {"src": get_shrunk_original(original_images[entry["id"]])}
             stats["original"] += 1
-        elif entry.get("_vocab_photo") and entry["_vocab_photo"] in shrunk_vocab_photos:
-            image = {"src": shrunk_vocab_photos[entry["_vocab_photo"]]}
-            stats["vocab_photo"] += 1
-        elif fallback_photo:
-            image = {"src": fallback_photo}
-            stats["fallback"] += 1
+        elif key in emoji:
+            image = {"src": emoji[key], "emoji": True}
+            stats["emoji"] += 1
         else:
             stats["none"] += 1
-
-        entry.pop("_vocab_photo", None)
 
         if entry["level"] != current_level:
             current_level = entry["level"]
             cards.append(f'<h2 class="group-title">{current_level} seviyesi</h2>')
         cards.append(card_html(entry, sentences.get(key, {}), image))
 
-    print(f"images          wikimedia={stats['wikimedia']}  original={stats['original']}  vocab_photo={stats['vocab_photo']}  fallback={stats['fallback']}  none={stats['none']}")
-    assert stats["none"] == 0, f"HATA: {stats['none']} kelimenin resmi eksik!"
+    print(f"images          wikimedia={stats['wikimedia']}  original={stats['original']}  emoji={stats['emoji']}  none={stats['none']}")
+    if stats["none"]:
+        sys.exit(f"{stats['none']} words have no picture; add them to tools/emoji/*.json and run tools/fetch_emoji.py.")
 
     counts = {"all": len(entries)}
     for level in LEVEL_ORDER:
         counts[level] = sum(e["level"] == level for e in entries)
     print("levels         ", {level: counts[level] for level in LEVEL_ORDER})
+
+    # ---- Phrases (Everyday Conversation from 650-english file) -----------------
+    print("building phrases component…")
+    phrase_topic_options, phrases_html, phrase_total, phrase_filled, phrase_links, phrase_topics = build_phrases()
+    print(f"phrases         {phrase_total} phrase cards in {phrase_topics} topics, {phrase_filled} completed, {phrase_links} video/resource links")
+
+    novel_dict = load_novel_dictionary()
+    print(f"novel reader    {len(novel_dict['words'])} dictionary words, {len(novel_dict['forms'])} inflected forms")
+    # pdf.js (Apache-2.0) reads the PDF the learner opens; kept as text and loaded only when needed.
+    pdfjs_lib = (HERE / "vendor" / "pdf.min.js").read_text(encoding="utf-8")
+    pdfjs_worker = (HERE / "vendor" / "pdf.worker.min.js").read_text(encoding="utf-8")
+    for code in (pdfjs_lib, pdfjs_worker):
+        if "</script" in code.lower() or "<!--" in code:
+            sys.exit("pdf.js source cannot be inlined safely")
 
     template = turkish_static_text(TEMPLATE.read_text(encoding="utf-8"), counts)
     output = (template
@@ -337,9 +360,18 @@ def main() -> None:
               .replace("/*@MEANING_GROUPS@*/", extract_meaning_groups(source))
               .replace("<!--@SENTENCE_DATA@-->", json_for_script(sentences))
               .replace("<!--@WORD_CARDS@-->", "\n".join(cards))
-              .replace("@APP_VERSION@", APP_VERSION))
-    if "@" + "VOCAB_DATA@" in output or "/*@" in output or "<!--@" in output:
-        sys.exit("Unreplaced template placeholder found.")
+              .replace("<!--@PHRASE_TOPIC_OPTIONS@-->", phrase_topic_options)
+              .replace("<!--@PHRASES_HTML@-->", phrases_html)
+              .replace("<!--@PHRASE_COUNT@-->", str(phrase_total))
+              .replace("<!--@NOVEL_DICT@-->", json_for_script(novel_dict))
+              .replace("@APP_VERSION@", APP_VERSION)
+              .replace("<!--@PDFJS_LIB@-->", pdfjs_lib)
+              .replace("<!--@PDFJS_WORKER@-->", pdfjs_worker))
+    if "@" + "VOCAB_DATA@" in output or "/*@" in output or ("<!--@" in output and "<!--@WORD" not in output):
+        # check only real unreplaced placeholders
+        placeholders = re.findall(r'<!--@[A-Z_]+@-->', output)
+        if placeholders:
+            sys.exit(f"Unreplaced template placeholder found: {placeholders}")
     OUTPUT.write_text(output, encoding="utf-8", newline="\n")
     print(f"wrote {OUTPUT.name}: {OUTPUT.stat().st_size / 1_048_576:.1f} MB, {len(entries)} words")
 
