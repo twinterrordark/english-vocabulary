@@ -139,6 +139,23 @@ def load_novel_dictionary() -> dict:
     return {"words": words, "forms": {f: w for f, w in forms.items() if w in words}}
 
 
+def novel_shelf() -> str:
+    """One button per PDF in novels/; the reader downloads it from the site when tapped."""
+    buttons = []
+    for pdf in sorted((HERE.parent / "novels").glob("*.pdf")):
+        title, author = pdf.stem, ""
+        try:
+            import fitz
+            meta = fitz.open(pdf).metadata or {}
+            title, author = meta.get("title") or title, meta.get("author") or ""
+        except Exception:
+            pass
+        label = title + (" — " + author if author else "")
+        buttons.append(f'<button type="button" class="button primary" data-novel="novels/{esc(pdf.name)}" aria-pressed="false">'
+                       f'<svg class="icon" aria-hidden="true"><use href="#i-book"/></svg><span lang="en">{esc(label)}</span></button>')
+    return "".join(buttons)
+
+
 def esc(text: str) -> str:
     return html.escape(text or "", quote=True)
 
@@ -364,6 +381,7 @@ def main() -> None:
               .replace("<!--@PHRASES_HTML@-->", phrases_html)
               .replace("<!--@PHRASE_COUNT@-->", str(phrase_total))
               .replace("<!--@NOVEL_DICT@-->", json_for_script(novel_dict))
+              .replace("<!--@NOVEL_SHELF@-->", novel_shelf())
               .replace("@APP_VERSION@", APP_VERSION)
               .replace("<!--@PDFJS_LIB@-->", pdfjs_lib)
               .replace("<!--@PDFJS_WORKER@-->", pdfjs_worker))

@@ -358,6 +358,13 @@ mark.vocab { background: var(--mark); color: inherit; padding: 0 2px; border-rad
 .novel-text .nw:hover { background: var(--primary-soft); }
 .novel-text .nw.is-on { background: var(--focus); color: #111; }
 .novel-empty { color: var(--muted); font-style: italic; }
+.novel-shelf { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+.novel-shelf:empty { display: none; }
+.novel-shelf .button[aria-pressed="true"] { background: var(--primary); border-color: var(--primary); color: var(--on-primary); }
+.novel-listen { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2); }
+.novel-auto { display: inline-flex; align-items: center; gap: 6px; font-size: .92rem; min-height: var(--tap); }
+.novel-auto input { width: 20px; height: 20px; }
+.novel-text p.is-reading { background: var(--primary-soft); box-shadow: -8px 0 0 var(--primary-soft), 8px 0 0 var(--primary-soft); border-radius: 4px; }
 .novel-pop { position: fixed; left: 50%; bottom: 12px; transform: translateX(-50%); width: min(560px, calc(100% - 24px)); z-index: 50; padding: var(--space-3) var(--space-4); background: var(--surface); color: var(--text); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: 0 10px 30px rgba(0, 0, 0, .25); }
 .novel-pop[hidden] { display: none; }
 .novel-pop-head { display: flex; align-items: center; gap: var(--space-2); }
@@ -657,7 +664,8 @@ mark.vocab { background: var(--mark); color: inherit; padding: 0 2px; border-rad
       <p class="lead" data-i18n="novel.lead">Open an English novel as a PDF file and tap any word to see its Turkish meaning.</p>
     </div>
     <div class="panel novel-open js-only">
-      <label class="button primary" for="novel-file"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg><span data-i18n="novel.choose">Choose a PDF</span></label>
+      <div class="novel-shelf" id="novel-shelf"><!--@NOVEL_SHELF@--></div>
+      <label class="button" for="novel-file"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg><span data-i18n="novel.choose">Choose a PDF</span></label>
       <input id="novel-file" class="visually-hidden" type="file" accept="application/pdf,.pdf">
       <p class="hint" id="novel-status" aria-live="polite" data-i18n="novel.hint">The book is read on this device only; it is not uploaded anywhere. After the first time it opens straight from this browser.</p>
     </div>
@@ -676,6 +684,11 @@ mark.vocab { background: var(--mark); color: inherit; padding: 0 2px; border-rad
         <input id="novel-word" type="search" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="search" placeholder="Look up a word…" data-i18n-placeholder="novel.lookupPh">
         <button type="submit" class="button small" data-i18n="novel.find">Translate</button>
       </form>
+      <div class="novel-listen" id="novel-listen">
+        <button type="button" class="button small primary" id="novel-read"><svg class="icon" aria-hidden="true"><use href="#i-sound"/></svg><span id="novel-read-label" data-i18n="novel.readPage">Read this page aloud</span></button>
+        <button type="button" class="button small" id="novel-read-stop" data-i18n="novel.stopRead" hidden>Stop</button>
+        <label class="novel-auto"><input type="checkbox" id="novel-auto" checked> <span data-i18n="novel.auto">Continue to the next page</span></label>
+      </div>
       <article class="novel-text" id="novel-text" lang="en"></article>
       <div class="novel-bar novel-bar-bottom">
         <button type="button" class="button small" id="novel-prev2" data-i18n="novel.prevText">‹ Previous</button>
@@ -917,7 +930,7 @@ const STRINGS = {
         'nav.phrases': 'Phrases',
     'nav.novel': 'Novel', 'mode.novel': 'Read an English novel and tap any word for its Turkish meaning.',
     'novel.title': 'Read a novel', 'novel.lead': 'Open an English novel as a PDF file and tap any word to see its Turkish meaning.',
-    'novel.choose': 'Choose a PDF', 'novel.hint': 'The book is read on this device only; it is not uploaded anywhere. After the first time it opens straight from this browser.',
+    'novel.choose': 'Choose another PDF', 'novel.hint': 'The book is read on this device only; it is not uploaded anywhere. After the first time it opens straight from this browser.',
     'novel.loading': 'Reading the PDF…', 'novel.progress': 'Reading page {i} of {n}…', 'novel.ready': 'Ready: {n} pages. The book is saved in this browser.',
     'novel.readyNoStore': 'Ready: {n} pages. This browser could not save the book, so choose the file again next time.', 'novel.error': 'This file could not be read as a PDF.',
     'novel.prev': 'Previous page', 'novel.next': 'Next page', 'novel.prevText': '‹ Previous', 'novel.nextText': 'Next ›', 'novel.page': 'Page',
@@ -925,6 +938,10 @@ const STRINGS = {
     'novel.listen': 'Listen', 'novel.close': 'Close', 'novel.sayLine': 'Listen to the sentence', 'novel.translateLine': 'Translate the sentence (online)',
     'novel.base': 'from “{w}”', 'novel.name': 'Proper name (person or place)', 'novel.unknown': 'Not in the offline dictionary. Use “Translate the sentence” when online.',
     'novel.emptyPage': 'This page has no text (picture or blank page).',
+    'novel.readPage': 'Read this page aloud', 'novel.pauseRead': 'Pause', 'novel.resumeRead': 'Continue', 'novel.stopRead': 'Stop',
+    'novel.auto': 'Continue to the next page', 'novel.noVoice': 'This browser has no English voice for reading aloud.',
+    'novel.fetchError': 'The book could not be downloaded. Check the connection or choose the PDF yourself.',
+    'novel.fileHint': 'The books in novels/ open automatically when the page is opened from its web address. Opened as a file, choose the PDF yourself.',
     'phrases.title': 'Everyday Conversation Phrases',
     'phrases.lead': '40 daily life topics, 719 practical English expressions with B1 answers.',
     'phrases.search': 'Search English or Turkish',
@@ -1007,7 +1024,7 @@ const STRINGS = {
         'nav.phrases': 'İfadeler',
     'nav.novel': 'Roman', 'mode.novel': 'İngilizce roman oku, istediğin kelimeye dokun, Türkçesini gör.',
     'novel.title': 'Roman oku', 'novel.lead': 'İngilizce bir romanı PDF olarak aç ve herhangi bir kelimeye dokunarak Türkçe anlamını gör.',
-    'novel.choose': 'PDF seç', 'novel.hint': 'Kitap yalnızca bu cihazda okunur, hiçbir yere yüklenmez. İlk açılıştan sonra doğrudan bu tarayıcıdan açılır.',
+    'novel.choose': 'Başka PDF seç', 'novel.hint': 'Kitap yalnızca bu cihazda okunur, hiçbir yere yüklenmez. İlk açılıştan sonra doğrudan bu tarayıcıdan açılır.',
     'novel.loading': 'PDF okunuyor…', 'novel.progress': 'Sayfa {i} / {n} okunuyor…', 'novel.ready': 'Hazır: {n} sayfa. Kitap bu tarayıcıya kaydedildi.',
     'novel.readyNoStore': 'Hazır: {n} sayfa. Bu tarayıcı kitabı kaydedemedi; bir dahaki sefere dosyayı yeniden seç.', 'novel.error': 'Bu dosya PDF olarak okunamadı.',
     'novel.prev': 'Önceki sayfa', 'novel.next': 'Sonraki sayfa', 'novel.prevText': '‹ Önceki', 'novel.nextText': 'Sonraki ›', 'novel.page': 'Sayfa',
@@ -1015,6 +1032,10 @@ const STRINGS = {
     'novel.listen': 'Dinle', 'novel.close': 'Kapat', 'novel.sayLine': 'Cümleyi dinle', 'novel.translateLine': 'Cümleyi çevir (internet)',
     'novel.base': '“{w}” kelimesinden', 'novel.name': 'Özel isim (kişi veya yer adı)', 'novel.unknown': 'Çevrimdışı sözlükte yok. İnternet varken “Cümleyi çevir”i kullan.',
     'novel.emptyPage': 'Bu sayfada yazı yok (resim veya boş sayfa).',
+    'novel.readPage': 'Sayfayı sesli oku', 'novel.pauseRead': 'Duraklat', 'novel.resumeRead': 'Devam et', 'novel.stopRead': 'Durdur',
+    'novel.auto': 'Sayfa bitince sonrakine geç', 'novel.noVoice': 'Bu tarayıcıda sesli okuma için İngilizce ses yok.',
+    'novel.fetchError': 'Kitap indirilemedi. Bağlantını kontrol et ya da PDF’i kendin seç.',
+    'novel.fileHint': 'novels/ klasöründeki kitaplar sayfa internet adresinden açılınca kendiliğinden yüklenir. Sayfayı dosya olarak açtıysan PDF’i kendin seç.',
     'phrases.title': 'Günlük Konuşma İfadeleri',
     'phrases.lead': '40 günlük yaşam konusu, 719 pratik İngilizce ifade ve B1 cevap örnekleri.',
     'phrases.search': 'İfade veya Türkçe ara',
@@ -1530,7 +1551,10 @@ const Speech = (() => {
   }
 
   return {
-    supported, speak, stop, loadVoices, get voices() { return voices; },
+    supported, hasTTS, speak, stop, loadVoices, get voices() { return voices; },
+    /* Device voice only, started synchronously: phones allow speech only inside the tap
+       that asked for it, so waiting for a network lookup first can silence it. */
+    speakNow(text, { onEnd, onStop } = {}) { stop(); return speakDevice(text.trim(), onEnd, onStop); },
     pause() { if (currentAudio) currentAudio.pause(); else if (hasTTS) window.speechSynthesis.pause(); },
     resume() { if (currentAudio) currentAudio.play(); else if (hasTTS) window.speechSynthesis.resume(); }
   };
@@ -1947,23 +1971,58 @@ const Novel = {
       if (value) this.showWord(value, null);
     });
     $('#novel-pop-close').addEventListener('click', () => this.closePop());
-    $('#novel-pop-speak').addEventListener('click', () => { if (this.current) Speech.speak(this.current.word); });
-    $('#novel-pop-say').addEventListener('click', () => { if (this.current && this.current.sentence) Speech.speak(this.current.sentence); });
+    $('#novel-pop-speak').addEventListener('click', () => { if (this.current) this.say(this.current.word); });
+    $('#novel-pop-say').addEventListener('click', () => { if (this.current && this.current.sentence) this.say(this.current.sentence); });
+    $('#novel-shelf').addEventListener('click', event => {
+      const button = event.target.closest('[data-novel]');
+      if (button) this.openUrl(button.dataset.novel);
+    });
+    $('#novel-read').addEventListener('click', () => {
+      if (!this.reading) this.startReading();
+      else if (this.reading.paused) this.resumeReading();
+      else this.pauseReading();
+    });
+    $('#novel-read-stop').addEventListener('click', () => this.stopReading());
+    $('#novel-auto').addEventListener('change', () => this.saveState());
     document.addEventListener('keydown', event => { if (event.key === 'Escape' && !$('#novel-pop').hidden) this.closePop(); });
     const saved = this.readState();
     if (saved && saved.size) this.size = saved.size;
+    if (saved && saved.auto === false) $('#novel-auto').checked = false;
   },
+  /* Opens the last book read on this device, otherwise the first book in novels/. */
   async onShow() {
     if (this.restored) return;
     this.restored = true;
     const book = await BookStore.get();
     if (book && Array.isArray(book.pages) && !this.book) {
       const saved = this.readState();
-      this.setBook(book, saved && saved.name === book.name ? saved.page : 0);
+      this.setBook(book, saved && saved.name === book.name ? saved.page : this.firstPage(book.pages));
+      return;
+    }
+    const first = $('#novel-shelf [data-novel]');
+    if (first && !this.book) this.openUrl(first.dataset.novel);
+  },
+  say(text) {
+    if (Speech.hasTTS) Speech.speakNow(text);
+    else Speech.speak(text);
+  },
+  firstPage(pages) {
+    /* Start at chapter 1 when the book has one, otherwise at the first page. */
+    return Math.max(0, pages.findIndex(paragraphs => /^(chapter\s+)?(1|one)\.?$/i.test(paragraphs[0] || '')));
+  },
+  async openUrl(url) {
+    if (location.protocol === 'file:') { this.status(t('novel.fileHint')); return; }
+    this.status(t('novel.loading'));
+    try {
+      const response = await fetch(url);
+      if (!response.ok) throw new Error(response.status);
+      await this.openData(url, await response.arrayBuffer());
+    } catch (_) {
+      this.status(t('novel.fetchError'));
     }
   },
   readState() { try { return JSON.parse(Store.read(this.KEY) || 'null'); } catch (_) { return null; } },
-  saveState() { if (this.book) Store.write(this.KEY, JSON.stringify({ name: this.book.name, page: this.page, size: this.size })); },
+  saveState() { if (this.book) Store.write(this.KEY, JSON.stringify({ name: this.book.name, page: this.page, size: this.size, auto: $('#novel-auto').checked })); },
   status(text) { $('#novel-status').textContent = text; },
   async loadPdfjs() {
     if (window.pdfjsLib) return window.pdfjsLib;
@@ -1981,23 +2040,25 @@ const Novel = {
   async openFile(file) {
     this.status(t('novel.loading'));
     try {
-      const lib = await this.loadPdfjs();
-      const pdf = await lib.getDocument({ data: new Uint8Array(await file.arrayBuffer()), isEvalSupported: false, disableFontFace: true }).promise;
-      const pages = [];
-      for (let number = 1; number <= pdf.numPages; number++) {
-        const page = await pdf.getPage(number);
-        pages.push(this.pageParagraphs(await page.getTextContent()));
-        if (number % 10 === 0) this.status(t('novel.progress', { i: number, n: pdf.numPages }));
-      }
-      const book = { name: file.name, pages };
-      const stored = await BookStore.put(book);
-      /* Start at chapter 1 when the book has one, otherwise at the first page. */
-      const first = pages.findIndex(paragraphs => /^(chapter\s+)?(1|one)\.?$/i.test(paragraphs[0] || ''));
-      this.setBook(book, Math.max(0, first));
-      this.status(t(stored ? 'novel.ready' : 'novel.readyNoStore', { n: pages.length }));
-    } catch (error) {
+      await this.openData(file.name, await file.arrayBuffer());
+    } catch (_) {
       this.status(t('novel.error'));
     }
+  },
+  async openData(name, buffer) {
+    const lib = await this.loadPdfjs();
+    const pdf = await lib.getDocument({ data: new Uint8Array(buffer), isEvalSupported: false, disableFontFace: true }).promise;
+    const pages = [];
+    for (let number = 1; number <= pdf.numPages; number++) {
+      const page = await pdf.getPage(number);
+      pages.push(this.pageParagraphs(await page.getTextContent()));
+      if (number % 10 === 0) this.status(t('novel.progress', { i: number, n: pdf.numPages }));
+    }
+    const book = { name, pages };
+    const stored = await BookStore.put(book);
+    const saved = this.readState();
+    this.setBook(book, saved && saved.name === name ? saved.page : this.firstPage(pages));
+    this.status(t(stored ? 'novel.ready' : 'novel.readyNoStore', { n: pages.length }));
   },
   /* Some PDFs give no character for a ligature glyph (pdf.js returns \u0000).
      Pick the ligature that makes a dictionary word: "\u0000rst" -> "first". */
@@ -2047,7 +2108,9 @@ const Novel = {
     return paragraphs;
   },
   setBook(book, page) {
+    this.stopReading();
     this.book = book;
+    for (const button of $$('#novel-shelf [data-novel]')) button.setAttribute('aria-pressed', String(button.dataset.novel === book.name));
     $('#novel-reader').hidden = false;
     $('#novel-total').textContent = book.pages.length;
     $('#novel-page').max = book.pages.length;
@@ -2059,8 +2122,9 @@ const Novel = {
     $('#novel-text').style.fontSize = this.size + 'rem';
     this.saveState();
   },
-  go(page, toTop) {
+  go(page, toTop, keepReading) {
     if (!this.book) return;
+    if (this.reading && !keepReading) this.stopReading();
     this.page = Math.min(this.book.pages.length - 1, Math.max(0, page));
     $('#novel-page').value = this.page + 1;
     $('#novel-prev').disabled = $('#novel-prev2').disabled = this.page === 0;
@@ -2071,6 +2135,73 @@ const Novel = {
     this.closePop();
     this.saveState();
     if (toTop) article.scrollIntoView({ block: 'start' });
+  },
+  /* ---- Reading the page aloud, sentence by sentence (short utterances keep
+     phone voices from stopping halfway). */
+  sentences(text) {
+    return (text.replace(/\s+/g, ' ').match(/[^.!?…]+(?:[.!?…]+["”’)]*|$)/g) || [])
+      .map(sentence => sentence.trim()).filter(sentence => /[A-Za-z0-9]/.test(sentence));
+  },
+  startReading() {
+    if (!Speech.hasTTS) { Toast.show(t('novel.noVoice')); return; }
+    const paragraphs = $$('#novel-text p:not(.novel-empty)');
+    const queue = paragraphs.flatMap((node, index) => this.sentences(node.textContent).map(text => ({ index, text })));
+    if (!queue.length) {
+      if ($('#novel-auto').checked && this.page < this.book.pages.length - 1) { this.go(this.page + 1, true, true); this.startReading(); }
+      return;
+    }
+    this.closePop();
+    this.reading = { queue, at: 0, paused: false };
+    this.readingUi();
+    this.speakNext();
+  },
+  speakNext() {
+    const reading = this.reading;
+    if (!reading || reading.paused) return;
+    if (reading.at >= reading.queue.length) {
+      if ($('#novel-auto').checked && this.page < this.book.pages.length - 1) {
+        this.go(this.page + 1, true, true);
+        this.startReading();
+      } else this.stopReading();
+      return;
+    }
+    const item = reading.queue[reading.at];
+    const paragraphs = $$('#novel-text p:not(.novel-empty)');
+    for (const node of paragraphs) node.classList.toggle('is-reading', node === paragraphs[item.index]);
+    const node = paragraphs[item.index];
+    if (node) {
+      const box = node.getBoundingClientRect();
+      if (box.top < 80 || box.bottom > innerHeight - 40) node.scrollIntoView({ block: 'center', behavior: 'smooth' });
+    }
+    const started = Speech.speakNow(item.text, {
+      onEnd: () => { if (this.reading === reading && !reading.paused) { reading.at++; this.speakNext(); } },
+      onStop: () => { if (this.reading === reading && !reading.paused) this.stopReading(true); }
+    });
+    if (!started) this.stopReading();
+  },
+  pauseReading() {
+    if (!this.reading) return;
+    this.reading.paused = true;
+    Speech.stop();
+    this.readingUi();
+  },
+  resumeReading() {
+    if (!this.reading) return;
+    this.reading.paused = false;
+    this.readingUi();
+    this.speakNext();
+  },
+  stopReading(fromSpeech) {
+    if (!this.reading) return;
+    this.reading = null;
+    if (!fromSpeech) Speech.stop();
+    for (const node of $$('#novel-text p.is-reading')) node.classList.remove('is-reading');
+    this.readingUi();
+  },
+  readingUi() {
+    const reading = this.reading;
+    $('#novel-read-label').textContent = t(!reading ? 'novel.readPage' : (reading.paused ? 'novel.resumeRead' : 'novel.pauseRead'));
+    $('#novel-read-stop').hidden = !reading;
   },
   paragraph(text) {
     const cont = text.startsWith('\u2060');
@@ -2110,6 +2241,7 @@ const Novel = {
     return text.slice(start < 0 ? 0 : start + 2, end).trim();
   },
   showWord(raw, node) {
+    if (this.reading && !this.reading.paused) this.pauseReading();
     for (const on of $$('#novel-text .nw.is-on')) on.classList.remove('is-on');
     if (node) node.classList.add('is-on');
     const found = this.lookup(raw);
