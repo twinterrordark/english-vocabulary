@@ -404,6 +404,15 @@ body.novel-focus .site-footer { display: none; }
 /* The word being read aloud */
 .novel-text .nw.is-word { background: var(--paper-word); box-shadow: 0 0 0 2px var(--paper-word); border-radius: 3px; }
 .novel-empty { color: var(--paper-muted); font-style: italic; text-align: center; }
+/* Sentence by sentence with Turkish under each one */
+.novel-para { margin: 0 0 1.4em; }
+.novel-text .novel-para .novel-sent { margin: 0; text-indent: 0; }
+.novel-tr { margin: .2em 0 .8em; padding-left: .7em; border-left: 3px solid var(--paper-line); font-family: var(--font); font-size: .8em; line-height: 1.5; color: var(--paper-muted); }
+.novel-tr:last-child { margin-bottom: 0; }
+.novel-tr[hidden] { display: none; }
+.novel-tr-toggle { font: 700 .82rem/1 var(--font); letter-spacing: .03em; }
+.novel-tr-toggle[aria-pressed="true"] { background: var(--primary); color: var(--on-primary); }
+.novel-tr-toggle[aria-pressed="true"]:hover { background: var(--primary-hover); }
 .novel-image { display: block; width: 100%; height: auto; margin: 0 auto; border-radius: 4px; background: #fff; }
 .novel-turn { display: flex; align-items: center; justify-content: center; gap: 6px; width: min(100%, 36em); margin: 0 auto var(--space-4); min-height: 52px; border: 1px solid var(--paper-line); border-radius: var(--radius); background: transparent; color: inherit; font: inherit; font-weight: 600; cursor: pointer; }
 .novel-turn[hidden] { display: none; }
@@ -432,6 +441,8 @@ body.novel-focus .site-footer { display: none; }
 .novel-pop-verb { justify-self: start; font-size: .95rem; padding: 4px 10px; border-radius: 8px; background: var(--primary-soft); color: var(--accent-text); }
 .novel-pop-verb[hidden] { display: none; }
 .novel-pop-sentence { font-size: .88rem; color: var(--muted); }
+.novel-pop-line { font-size: .95rem; padding: 6px 10px; border-radius: 8px; background: var(--primary-soft); color: var(--accent-text); }
+.novel-pop-line[hidden] { display: none; }
 body.novel-focus .novel-pop { background: var(--paper-card); color: var(--paper-text); border-color: var(--paper-line); }
 body.novel-focus .novel-pop-base, body.novel-focus .novel-pop-sentence { color: var(--paper-muted); }
 .link-button { background: none; border: 0; padding: 0; color: var(--primary); font: inherit; text-decoration: underline; cursor: pointer; }
@@ -2820,6 +2831,7 @@ body.novel-focus .novel-pop-base, body.novel-focus .novel-pop-sentence { color: 
       <div class="novel-top">
         <button type="button" class="novel-icon" id="novel-library" aria-label="Kitaplar" data-i18n-aria="novel.library"><svg class="icon" aria-hidden="true"><use href="#i-prev"/></svg></button>
         <div class="novel-top-title"><strong id="novel-book-title" lang="en"></strong><span id="novel-book-place"></span></div>
+        <button type="button" class="novel-icon novel-tr-toggle" id="novel-tr" aria-pressed="false" aria-label="Cümle cümle Türkçe" data-i18n-aria="novel.trPage">TR</button>
         <button type="button" class="novel-icon novel-aa" id="novel-aa" aria-expanded="false" aria-controls="novel-panel" aria-label="Okuma ayarları" data-i18n-aria="novel.settings">Aa</button>
       </div>
       <div class="novel-panel" id="novel-panel" hidden>
@@ -2868,6 +2880,7 @@ body.novel-focus .novel-pop-base, body.novel-focus .novel-pop-sentence { color: 
       <p class="novel-pop-tr" id="novel-pop-tr" lang="tr"></p>
       <p class="novel-pop-verb" id="novel-pop-verb" hidden></p>
       <p class="novel-pop-sentence" id="novel-pop-sentence"><button type="button" class="link-button" id="novel-pop-say" data-i18n="novel.sayLine">Cümleyi dinle</button> · <a id="novel-pop-gt" href="#" target="_blank" rel="noopener noreferrer" data-i18n="novel.translateLine">Cümleyi çevir (internet)</a></p>
+      <p class="novel-pop-line" id="novel-pop-line" lang="tr" hidden></p>
     </div>
   </section>
 
@@ -3170,7 +3183,9 @@ const STRINGS = {
     'novel.choose': 'Choose another PDF', 'novel.hint': 'The book is read on this device only; it is not uploaded anywhere. After the first time it opens straight from this browser.',
     'novel.loading': 'Reading the PDF…', 'novel.progress': 'Reading page {i} of {n}…', 'novel.ready': 'Ready: {n} pages. The book is saved in this browser.',
     'novel.readyNoStore': 'Ready: {n} pages. This browser could not save the book, so choose the file again next time.', 'novel.error': 'This file could not be read as a PDF.',
-    'novel.prev': 'Previous page', 'novel.next': 'Next page', 'novel.prevText': '‹ Previous', 'novel.nextText': 'Next page', 'novel.page': 'Page', 'novel.library': 'Books', 'novel.settings': 'Reading settings',
+    'novel.prev': 'Previous page', 'novel.next': 'Next page', 'novel.prevText': '‹ Previous', 'novel.nextText': 'Next page', 'novel.page': 'Page', 'novel.library': 'Books', 'novel.settings': 'Reading settings', 'novel.trPage': 'Turkish sentence by sentence',
+    'novel.trOn': 'Each sentence gets its Turkish under it (Google Translate, needs internet). Translated pages also open offline.',
+    'novel.trOffline': 'No internet: sentences not translated yet are hidden.', 'novel.trLoading': 'Translating…',
     'novel.textSize': 'Text size', 'novel.paper': 'Page colour', 'novel.paperLight': 'Light', 'novel.paperSepia': 'Sepia', 'novel.paperDark': 'Dark',
     'novel.markOf': 'p. {n} / {total}', 'novel.scanned': 'Scanned book: pages shown as pictures', 'novel.pageImage': 'Picture of the printed page', 'novel.loadingPage': 'Loading the page…',
     'novel.noText': 'This book is scanned (page photos), so it has no text to read aloud or translate.',
@@ -3267,7 +3282,9 @@ const STRINGS = {
     'novel.choose': 'Başka PDF seç', 'novel.hint': 'Kitap yalnızca bu cihazda okunur, hiçbir yere yüklenmez. İlk açılıştan sonra doğrudan bu tarayıcıdan açılır.',
     'novel.loading': 'PDF okunuyor…', 'novel.progress': 'Sayfa {i} / {n} okunuyor…', 'novel.ready': 'Hazır: {n} sayfa. Kitap bu tarayıcıya kaydedildi.',
     'novel.readyNoStore': 'Hazır: {n} sayfa. Bu tarayıcı kitabı kaydedemedi; bir dahaki sefere dosyayı yeniden seç.', 'novel.error': 'Bu dosya PDF olarak okunamadı.',
-    'novel.prev': 'Önceki sayfa', 'novel.next': 'Sonraki sayfa', 'novel.prevText': '‹ Önceki', 'novel.nextText': 'Sonraki sayfa', 'novel.page': 'Sayfa', 'novel.library': 'Kitaplar', 'novel.settings': 'Okuma ayarları',
+    'novel.prev': 'Önceki sayfa', 'novel.next': 'Sonraki sayfa', 'novel.prevText': '‹ Önceki', 'novel.nextText': 'Sonraki sayfa', 'novel.page': 'Sayfa', 'novel.library': 'Kitaplar', 'novel.settings': 'Okuma ayarları', 'novel.trPage': 'Cümle cümle Türkçe',
+    'novel.trOn': 'Her cümlenin altında Türkçesi görünür (Google Çeviri, internet gerekir). Çevrilen sayfalar internetsiz de açılır.',
+    'novel.trOffline': 'İnternet yok: henüz çevrilmemiş cümlelerin Türkçesi gösterilemiyor.', 'novel.trLoading': 'Çevriliyor…',
     'novel.textSize': 'Yazı boyutu', 'novel.paper': 'Sayfa rengi', 'novel.paperLight': 'Açık', 'novel.paperSepia': 'Sepya', 'novel.paperDark': 'Koyu',
     'novel.markOf': 's. {n} / {total}', 'novel.scanned': 'Taranmış kitap: sayfalar resim olarak', 'novel.pageImage': 'Basılı sayfanın resmi', 'novel.loadingPage': 'Sayfa yükleniyor…',
     'novel.noText': 'Bu kitap taranmış (sayfa fotoğrafı); sesli okunacak ya da çevrilecek yazısı yok.',
@@ -4209,6 +4226,17 @@ const Novel = {
     }
     $('#novel-page').addEventListener('change', event => this.go((parseInt(event.target.value, 10) || 1) - 1, true));
     $('#novel-library').addEventListener('click', () => this.showLibrary(true));
+    $('#novel-tr').addEventListener('click', () => this.setTranslated(!this.translated));
+    /* The word card translates its sentence in place; without internet it opens Google Translate. */
+    $('#novel-pop-gt').addEventListener('click', async event => {
+      if (!this.current || !this.current.sentence) return;
+      event.preventDefault();
+      const line = $('#novel-pop-line');
+      line.hidden = false;
+      line.textContent = t('novel.trLoading');
+      try { line.textContent = await this.translate(this.current.sentence); }
+      catch (_) { line.hidden = true; window.open($('#novel-pop-gt').href, '_blank', 'noopener'); }
+    });
     $('#novel-aa').addEventListener('click', () => {
       const open = $('#novel-panel').hidden;
       $('#novel-panel').hidden = !open;
@@ -4261,6 +4289,7 @@ const Novel = {
     if (saved && saved.size) this.size = saved.size;
     if (saved && saved.auto === false) $('#novel-auto').checked = false;
     if (saved && saved.paper) this.paper = saved.paper;
+    if (saved && saved.translated) { this.translated = true; $('#novel-tr').setAttribute('aria-pressed', 'true'); }
     for (const card of $$('#novel-shelf [data-novel]')) this.colorCard(card);
     this.showMarks();
   },
@@ -4438,14 +4467,15 @@ const Novel = {
     const saved = this.readState();
     return (saved && saved.marks[name]) || 0;
   },
-  saveState() {
+  saveState(trSeen) {
     if (!this.book) return;
     const saved = this.readState();
     const name = this.book.name;
     const marks = Object.assign({}, saved && saved.marks, { [name]: this.page });
     const totals = Object.assign({}, saved && saved.totals, { [name]: this.book.pages.length });
     const titles = Object.assign({}, saved && saved.titles, this.book.title ? { [name]: this.book.title } : {});
-    Store.write(this.KEY, JSON.stringify({ v: 3, name, marks, totals, titles, size: this.size, auto: $('#novel-auto').checked, paper: this.paper }));
+    Store.write(this.KEY, JSON.stringify({ v: 3, name, marks, totals, titles, size: this.size, auto: $('#novel-auto').checked, paper: this.paper,
+      translated: this.translated, trSeen: Boolean(trSeen || (saved && saved.trSeen)) }));
     this.showMarks();
   },
   /* The bookmark on each book card: "s. 42 / 181" and a progress bar. */
@@ -4614,7 +4644,10 @@ const Novel = {
     $('#novel-book-place').textContent = this.textless ? t('novel.scanned') : this.chapters[this.page];
     const paragraphs = this.book.pages[this.page];
     const article = $('#novel-text');
-    if (paragraphs.length) article.replaceChildren(...paragraphs.map(text => this.paragraph(text)));
+    if (paragraphs.length) {
+      article.replaceChildren(...(this.translated ? this.sentenceBlocks(paragraphs) : paragraphs.map(text => this.paragraph(text))));
+      if (this.translated) this.fillTranslations();
+    }
     else {
       article.replaceChildren(h('p', { class: 'novel-empty', lang: lang, text: t('novel.loadingPage') }));
       this.showPicture(this.page);
@@ -4725,6 +4758,69 @@ const Novel = {
     });
     if (!started) this.stopReading();
   },
+  /* ---- Sentence-by-sentence Turkish (online, Google Translate). A sentence
+     translated once is kept on the device, so the page opens offline later. */
+  TR_KEY: 'english-study-tr.v1',
+  translated: false,
+  trCache: null,
+  trCacheMap() {
+    if (!this.trCache) {
+      try { this.trCache = new Map(Object.entries(JSON.parse(Store.read(this.TR_KEY) || '{}'))); } catch (_) { this.trCache = new Map(); }
+    }
+    return this.trCache;
+  },
+  async translate(text) {
+    const cache = this.trCacheMap();
+    if (cache.has(text)) return cache.get(text);
+    const response = await fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=tr&dt=t&q=' + encodeURIComponent(text));
+    if (!response.ok) throw new Error(response.status);
+    const data = await response.json();
+    const turkish = (data[0] || []).map(part => part[0]).join('').trim();
+    cache.set(text, turkish);
+    clearTimeout(this.trSave);
+    this.trSave = setTimeout(() => {
+      /* The oldest sentences go first when the store gets big. */
+      while (cache.size > 4000) cache.delete(cache.keys().next().value);
+      Store.write(this.TR_KEY, JSON.stringify(Object.fromEntries(cache)));
+    }, 800);
+    return turkish;
+  },
+  setTranslated(on) {
+    this.translated = on;
+    $('#novel-tr').setAttribute('aria-pressed', String(on));
+    if (on && !(this.readState() || {}).trSeen) Toast.show(t('novel.trOn'));
+    this.saveState(true);
+    this.go(this.page);
+  },
+  /* Each paragraph as its sentences, every one followed by its Turkish line. */
+  sentenceBlocks(paragraphs) {
+    return paragraphs.map(text => {
+      if (text.startsWith('⁡')) return this.paragraph(text);
+      const block = h('div', { class: 'novel-para' + (text.startsWith('⁠') ? ' cont' : '') });
+      for (const sentence of this.sentences(text.replace(/^⁠/, ''))) {
+        const line = this.paragraph(sentence);
+        line.classList.add('novel-sent');
+        block.append(line, h('div', { class: 'novel-tr', lang: 'tr', 'data-en': sentence, text: '…' }));
+      }
+      return block;
+    });
+  },
+  async fillTranslations() {
+    const page = this.page;
+    const lines = $$('#novel-text .novel-tr');
+    let next = 0, warned = false;
+    const worker = async () => {
+      while (next < lines.length && this.page === page && this.translated) {
+        const line = lines[next++];
+        try { line.textContent = await this.translate(line.dataset.en); }
+        catch (_) {
+          line.hidden = true;
+          if (!warned) { warned = true; Toast.show(t('novel.trOffline')); }
+        }
+      }
+    };
+    await Promise.all([worker(), worker(), worker()]);
+  },
   /* The word being spoken; the page follows it. */
   markWord(span) {
     for (const on of $$('#novel-text .nw.is-word')) on.classList.remove('is-word');
@@ -4823,6 +4919,7 @@ const Novel = {
     $('#novel-pop-verb').textContent = verb ? t('novel.verb', { forms: verb }) : '';
     $('#novel-pop-sentence').hidden = !sentence;
     $('#novel-pop-gt').href = 'https://translate.google.com/?sl=en&tl=tr&op=translate&text=' + encodeURIComponent(sentence);
+    $('#novel-pop-line').hidden = true;
     $('#novel-pop-speak').hidden = !Speech.supported;
     $('#novel-pop-say').hidden = !Speech.supported;
     $('#novel-pop').hidden = false;
