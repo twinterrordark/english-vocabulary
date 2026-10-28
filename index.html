@@ -359,10 +359,10 @@ mark.vocab { background: var(--mark); color: inherit; padding: 0 2px; border-rad
 .novel-lib[hidden] { display: none; }
 
 /* Reader page colours ("paper"), chosen on <body data-paper> */
-body { --paper-bg: var(--surface); --paper-card: var(--surface); --paper-text: var(--text); --paper-muted: var(--muted); --paper-line: var(--line); --paper-hi: var(--mark); --paper-soft: rgba(127, 127, 127, .12); }
-body[data-paper="light"] { --paper-bg: #fbfaf7; --paper-card: #ffffff; --paper-text: #1f1d1a; --paper-muted: #6b665d; --paper-line: #e6e1d7; --paper-hi: #fde9a8; --paper-soft: rgba(31, 29, 26, .07); }
-body[data-paper="sepia"] { --paper-bg: #f4ecd8; --paper-card: #fcf6e8; --paper-text: #3b2f20; --paper-muted: #7a6a52; --paper-line: #e0d2b4; --paper-hi: #ebd290; --paper-soft: rgba(59, 47, 32, .08); }
-body[data-paper="dark"] { --paper-bg: #15171c; --paper-card: #23262e; --paper-text: #d9d4c7; --paper-muted: #8d877b; --paper-line: #2c3038; --paper-hi: #4f4313; --paper-soft: rgba(217, 212, 199, .09); }
+body { --paper-bg: var(--surface); --paper-card: var(--surface); --paper-text: var(--text); --paper-muted: var(--muted); --paper-line: var(--line); --paper-hi: var(--mark); --paper-word: #ffd95e; --paper-soft: rgba(127, 127, 127, .12); }
+body[data-paper="light"] { --paper-bg: #fbfaf7; --paper-card: #ffffff; --paper-text: #1f1d1a; --paper-muted: #6b665d; --paper-line: #e6e1d7; --paper-hi: #fde9a8; --paper-word: #ffd95e; --paper-soft: rgba(31, 29, 26, .07); }
+body[data-paper="sepia"] { --paper-bg: #f4ecd8; --paper-card: #fcf6e8; --paper-text: #3b2f20; --paper-muted: #7a6a52; --paper-line: #e0d2b4; --paper-hi: #ebd290; --paper-word: #e9bf4f; --paper-soft: rgba(59, 47, 32, .08); }
+body[data-paper="dark"] { --paper-bg: #15171c; --paper-card: #23262e; --paper-text: #d9d4c7; --paper-muted: #8d877b; --paper-line: #2c3038; --paper-hi: #4f4313; --paper-word: #8a6a0c; --paper-soft: rgba(217, 212, 199, .09); }
 body.novel-focus { background: var(--paper-bg); }
 body.novel-focus main { padding-top: 0; padding-bottom: 0; }
 body.novel-focus .site-footer { display: none; }
@@ -400,7 +400,9 @@ body.novel-focus .site-footer { display: none; }
 .novel-text .novel-chapter + .novel-chapter { margin-top: -.6em; font-size: 1.05em; font-weight: 400; font-style: italic; }
 .novel-text .nw { cursor: pointer; border-radius: 3px; -webkit-tap-highlight-color: transparent; }
 .novel-text .nw.is-on { background: var(--focus); color: #111; }
-.novel-text p.is-reading, .novel-text .novel-chapter.is-reading { background: var(--paper-hi); box-shadow: -6px 0 0 var(--paper-hi), 6px 0 0 var(--paper-hi); border-radius: 4px; }
+.novel-text .is-reading-whole { background: var(--paper-hi); box-shadow: -6px 0 0 var(--paper-hi), 6px 0 0 var(--paper-hi); border-radius: 4px; }
+/* The word being read aloud */
+.novel-text .nw.is-word { background: var(--paper-word); box-shadow: 0 0 0 2px var(--paper-word); border-radius: 3px; }
 .novel-empty { color: var(--paper-muted); font-style: italic; text-align: center; }
 .novel-image { display: block; width: 100%; height: auto; margin: 0 auto; border-radius: 4px; background: #fff; }
 .novel-turn { display: flex; align-items: center; justify-content: center; gap: 6px; width: min(100%, 36em); margin: 0 auto var(--space-4); min-height: 52px; border: 1px solid var(--paper-line); border-radius: var(--radius); background: transparent; color: inherit; font: inherit; font-weight: 600; cursor: pointer; }
@@ -3739,7 +3741,8 @@ const Speech = (() => {
     return null;
   }
 
-  function speakDevice(text, onEnd, onStop) {
+  /* onWord(charIndex): the voice reached the word starting there (not every voice reports it). */
+  function speakDevice(text, onEnd, onStop, onStart, onWord) {
     if (!hasTTS) return false;
     try {
       const utterance = new SpeechSynthesisUtterance(text);
@@ -3748,6 +3751,8 @@ const Speech = (() => {
       if (voice) utterance.voice = voice;
       utterance.lang = voice ? voice.lang : 'en-US';
       utterance.rate = progress.settings.speechRate;
+      if (onStart) utterance.onstart = () => onStart();
+      if (onWord) utterance.onboundary = event => { if (event.name !== 'sentence') onWord(event.charIndex); };
       utterance.onend = () => {
         if (stopCurrent === owner) stopCurrent = null;
         if (onEnd) onEnd();
@@ -3795,7 +3800,7 @@ const Speech = (() => {
     supported, hasTTS, speak, stop, loadVoices, get voices() { return voices; },
     /* Device voice only, started synchronously: phones allow speech only inside the tap
        that asked for it, so waiting for a network lookup first can silence it. */
-    speakNow(text, { onEnd, onStop } = {}) { stop(); return speakDevice(text.trim(), onEnd, onStop); },
+    speakNow(text, { onEnd, onStop, onStart, onWord } = {}) { stop(); return speakDevice(text.trim(), onEnd, onStop, onStart, onWord); },
     pause() { if (currentAudio) currentAudio.pause(); else if (hasTTS) window.speechSynthesis.pause(); },
     resume() { if (currentAudio) currentAudio.play(); else if (hasTTS) window.speechSynthesis.resume(); }
   };
@@ -4646,7 +4651,16 @@ const Novel = {
   startReading() {
     if (!Speech.hasTTS) { Toast.show(t('novel.noVoice')); return; }
     const paragraphs = $$('#novel-text p:not(.novel-empty), #novel-text .novel-chapter');
-    const queue = paragraphs.flatMap((node, index) => this.sentences(node.textContent).map(text => ({ index, text })));
+    /* Each sentence with where it starts in its paragraph, to find the words being spoken. */
+    const queue = paragraphs.flatMap((node, index) => {
+      const whole = node.textContent;
+      let from = 0;
+      return this.sentences(whole).map(text => {
+        const at = whole.indexOf(text, from);
+        if (at >= 0) from = at + text.length;
+        return { index, text, at };
+      });
+    });
     if (!queue.length) {
       if (this.textless) { Toast.show(t('novel.noText')); return; }
       if ($('#novel-auto').checked && this.page < this.book.pages.length - 1) { this.go(this.page + 1, true, true); this.startReading(); }
@@ -4669,21 +4683,60 @@ const Novel = {
     }
     const item = reading.queue[reading.at];
     const paragraphs = $$('#novel-text p:not(.novel-empty), #novel-text .novel-chapter');
-    for (const node of paragraphs) node.classList.toggle('is-reading', node === paragraphs[item.index]);
     const node = paragraphs[item.index];
-    if (node) {
-      const box = node.getBoundingClientRect();
-      if (box.top < 80 || box.bottom > innerHeight - 40) node.scrollIntoView({ block: 'center', behavior: 'smooth' });
+    for (const other of paragraphs) other.classList.toggle('is-reading', other === node);
+    /* The words of this sentence, with their place in the paragraph's text. */
+    const words = [];
+    if (node && item.at >= 0) {
+      let pos = 0;
+      for (const child of node.childNodes) {
+        const length = child.textContent.length;
+        if (child.classList && child.classList.contains('nw') && pos + length > item.at && pos < item.at + item.text.length) words.push({ start: pos - item.at, end: pos + length - item.at, span: child });
+        pos += length;
+      }
     }
+    /* No words to follow: the whole paragraph is marked instead. */
+    if (node) node.classList.toggle('is-reading-whole', !words.length);
+    if (node && !words.length) {
+      const box = node.getBoundingClientRect();
+      if (box.top < 80 || box.bottom > innerHeight - 100) node.scrollIntoView({ block: 'center', behavior: 'smooth' });
+    }
+    /* Most voices say which word they are on; for those that do not, the mark
+       moves on at speaking pace (longer words take longer). */
+    let heard = false, step = 0;
+    const guess = () => {
+      if (heard || this.reading !== reading || reading.paused || step >= words.length) return;
+      this.markWord(words[step].span);
+      const ms = (words[step].end - words[step].start + 1) * 72 / (progress.settings.speechRate || 1);
+      step++;
+      reading.timer = setTimeout(guess, ms);
+    };
     const started = Speech.speakNow(item.text, {
-      onEnd: () => { if (this.reading === reading && !reading.paused) { reading.at++; this.speakNext(); } },
-      onStop: () => { if (this.reading === reading && !reading.paused) this.stopReading(true); }
+      onStart: () => { if (!heard) guess(); },
+      onWord: charIndex => {
+        if (this.reading !== reading) return;
+        heard = true;
+        clearTimeout(reading.timer);
+        const word = words.find(w => w.end > charIndex);
+        if (word) this.markWord(word.span);
+      },
+      onEnd: () => { clearTimeout(reading.timer); if (this.reading === reading && !reading.paused) { reading.at++; this.speakNext(); } },
+      onStop: () => { clearTimeout(reading.timer); if (this.reading === reading && !reading.paused) this.stopReading(true); }
     });
     if (!started) this.stopReading();
+  },
+  /* The word being spoken; the page follows it. */
+  markWord(span) {
+    for (const on of $$('#novel-text .nw.is-word')) on.classList.remove('is-word');
+    if (!span) return;
+    span.classList.add('is-word');
+    const box = span.getBoundingClientRect();
+    if (box.top < 70 || box.bottom > innerHeight - 110) span.scrollIntoView({ block: 'center', behavior: 'smooth' });
   },
   pauseReading() {
     if (!this.reading) return;
     this.reading.paused = true;
+    clearTimeout(this.reading.timer);
     Speech.stop();
     this.readingUi();
   },
@@ -4695,9 +4748,11 @@ const Novel = {
   },
   stopReading(fromSpeech) {
     if (!this.reading) return;
+    clearTimeout(this.reading.timer);
     this.reading = null;
     if (!fromSpeech) Speech.stop();
-    for (const node of $$('#novel-text p.is-reading')) node.classList.remove('is-reading');
+    for (const node of $$('#novel-text .is-reading')) node.classList.remove('is-reading', 'is-reading-whole');
+    this.markWord(null);
     this.readingUi();
   },
   readingUi() {
