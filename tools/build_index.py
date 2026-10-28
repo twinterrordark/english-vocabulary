@@ -146,25 +146,45 @@ def load_novel_dictionary() -> dict:
     return {"words": words, "forms": {f: w for f, w in forms.items() if w in words}, "irregular": irregular}
 
 
+def novel_card(path: str, title: str, author: str) -> str:
+    """A book card on the shelf; the reader script builds the same card for books it finds itself."""
+    return (f'<button type="button" class="novel-book" data-novel="{esc(path)}" aria-pressed="false">'
+            f'<span class="novel-cover" aria-hidden="true">{esc((title or "?")[:1].upper())}</span>'
+            f'<span class="novel-book-title" lang="en">{esc(title)}</span><span class="novel-book-author">{esc(author)}</span>'
+            f'<span class="novel-book-meta" hidden><span class="novel-mark"></span><span class="novel-meter"><span></span></span></span></button>')
+
+
 def novel_shelf() -> str:
-    """One button per PDF in novels/; the reader downloads it from the site when tapped."""
-    buttons = []
+    """One card per PDF in novels/; the reader downloads it from the site when tapped.
+
+    Books added to novels/ on GitHub later show up without a rebuild (the page
+    lists the folder itself), but only a rebuild adds their words' forms and
+    this check: a scanned PDF (page photos) has no text to tap, so it needs
+    tools/novel/ocr_scanned.py first."""
+    cards = []
+    names = HERE / "novel" / "titles.json"
+    known = json.loads(names.read_text(encoding="utf-8")) if names.exists() else {}
     for pdf in sorted((HERE.parent / "novels").glob("*.pdf")):
         title, author = pdf.stem, ""
-        names = HERE / "novel" / "titles.json"
-        known = json.loads(names.read_text(encoding="utf-8")) if names.exists() else {}
         try:
             import fitz
-            meta = fitz.open(pdf).metadata or {}
+            doc = fitz.open(pdf)
+            meta = doc.metadata or {}
             title, author = meta.get("title") or title, meta.get("author") or ""
+            texts = [page.get_text().strip() for page in doc]
+            if sum(len(text) > 200 for text in texts) < len(texts) * 0.5:
+                print(f"WARNING   novels/{pdf.name} looks scanned (little text): words cannot be tapped.\n"
+                      f"          Run: python tools/novel/ocr_scanned.py novels/{pdf.name} [--last <last story page>]")
+            if not meta.get("title") and pdf.name not in known:
+                # No title anywhere: use the first line printed on the first page with text.
+                first = next((text.splitlines()[0].strip() for text in texts if text), "")
+                title = first if 2 < len(first) < 80 else title
         except Exception:
             pass
         if pdf.name in known:  # PDFs without a title in their metadata
             title, author = known[pdf.name].get("title", title), known[pdf.name].get("author", author)
-        label = title + (" — " + author if author else "")
-        buttons.append(f'<button type="button" class="button primary" data-novel="novels/{esc(pdf.name)}" aria-pressed="false">'
-                       f'<svg class="icon" aria-hidden="true"><use href="#i-book"/></svg><span lang="en">{esc(label)}</span><span class="novel-mark" hidden></span></button>')
-    return "".join(buttons)
+        cards.append(novel_card(f"novels/{pdf.name}", title, author))
+    return "".join(cards)
 
 
 def esc(text: str) -> str:

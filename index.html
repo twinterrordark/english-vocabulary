@@ -341,47 +341,98 @@ mark.vocab { background: var(--mark); color: inherit; padding: 0 2px; border-rad
 }
 
 /* ---------- Novel reader ---------- */
-.novel-open { display: grid; gap: var(--space-2); justify-items: start; }
-.novel-open .hint { margin: 0; }
-.novel-reader { display: grid; gap: var(--space-3); margin-top: var(--space-4); }
-.novel-bar { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2); }
-.novel-page { display: inline-flex; align-items: center; gap: 6px; font-weight: 600; }
-.novel-page input { width: 4.5em; min-height: var(--tap); padding: 4px 8px; }
-.novel-size { margin-left: auto; display: inline-flex; gap: 4px; }
-.novel-bar-bottom { justify-content: space-between; }
+/* Library */
+.novel-shelf { display: grid; gap: var(--space-3); grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr)); }
+.novel-shelf:empty { display: none; }
+.novel-book { display: grid; grid-template-columns: 52px 1fr; grid-template-rows: auto auto 1fr; column-gap: var(--space-3); align-items: start; width: 100%; padding: var(--space-3); text-align: left; font: inherit; color: var(--text); background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.novel-book:hover { border-color: var(--primary); }
+.novel-book[aria-pressed="true"] { border-color: var(--primary); box-shadow: 0 0 0 2px var(--primary-soft), var(--shadow); }
+.novel-cover { grid-row: 1 / 4; width: 52px; height: 72px; border-radius: 4px 8px 8px 4px; display: grid; place-items: center; color: #fff; font: 700 1.3rem/1 Georgia, serif; background: var(--cover, #2350a8); box-shadow: inset 5px 0 0 rgba(0, 0, 0, .2), inset 0 -24px 30px rgba(0, 0, 0, .18); }
+.novel-book-title { font-weight: 700; line-height: 1.3; }
+.novel-book-author { color: var(--muted); font-size: .88rem; }
+.novel-book-meta { align-self: end; display: grid; gap: 4px; margin-top: var(--space-2); font-size: .8rem; color: var(--muted); }
+.novel-book-meta[hidden] { display: none; }
+.novel-meter { height: 4px; border-radius: 4px; background: var(--line); overflow: hidden; }
+.novel-meter span { display: block; height: 100%; width: 0; background: var(--primary); }
+.novel-lib-foot { display: grid; gap: var(--space-2); justify-items: start; margin-top: var(--space-4); }
+.novel-lib-foot .hint { margin: 0; }
+.novel-lib[hidden] { display: none; }
+
+/* Reader page colours ("paper"), chosen on <body data-paper> */
+body { --paper-bg: var(--surface); --paper-card: var(--surface); --paper-text: var(--text); --paper-muted: var(--muted); --paper-line: var(--line); --paper-hi: var(--mark); --paper-soft: rgba(127, 127, 127, .12); }
+body[data-paper="light"] { --paper-bg: #fbfaf7; --paper-card: #ffffff; --paper-text: #1f1d1a; --paper-muted: #6b665d; --paper-line: #e6e1d7; --paper-hi: #fde9a8; --paper-soft: rgba(31, 29, 26, .07); }
+body[data-paper="sepia"] { --paper-bg: #f4ecd8; --paper-card: #fcf6e8; --paper-text: #3b2f20; --paper-muted: #7a6a52; --paper-line: #e0d2b4; --paper-hi: #ebd290; --paper-soft: rgba(59, 47, 32, .08); }
+body[data-paper="dark"] { --paper-bg: #15171c; --paper-card: #23262e; --paper-text: #d9d4c7; --paper-muted: #8d877b; --paper-line: #2c3038; --paper-hi: #4f4313; --paper-soft: rgba(217, 212, 199, .09); }
+body.novel-focus { background: var(--paper-bg); }
+body.novel-focus main { padding-top: 0; padding-bottom: 0; }
+body.novel-focus .site-footer { display: none; }
+@media (max-width: 760px) { body.novel-focus .app-header, body.novel-focus .banner { display: none; } }
+.novel-reader { color: var(--paper-text); padding-bottom: calc(90px + env(safe-area-inset-bottom)); }
+.novel-top { position: sticky; top: 0; z-index: 20; display: flex; align-items: center; gap: var(--space-2); padding: 6px 0; background: var(--paper-bg); border-bottom: 1px solid var(--paper-line); }
+.novel-top-title { flex: 1; min-width: 0; display: grid; text-align: center; line-height: 1.25; }
+.novel-top-title strong { font-size: .95rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.novel-top-title span { font-size: .78rem; color: var(--paper-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.novel-icon { flex: none; display: grid; place-items: center; width: var(--tap); height: var(--tap); padding: 0; border: 0; border-radius: 50%; background: transparent; color: inherit; font: inherit; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.novel-icon:hover { background: var(--paper-soft); }
+.novel-icon:disabled { opacity: .3; cursor: default; background: transparent; }
+.novel-icon[hidden] { display: none; }
+.novel-icon .icon { width: 24px; height: 24px; }
+.novel-aa { font: 600 1.05rem/1 Georgia, serif; }
+.novel-aa[aria-expanded="true"] { background: var(--paper-soft); }
+.novel-panel { display: grid; gap: var(--space-2); max-width: 36em; margin: var(--space-2) auto 0; padding: var(--space-3) var(--space-4); border: 1px solid var(--paper-line); border-radius: var(--radius); background: var(--paper-soft); font-size: .95rem; }
+.novel-panel[hidden] { display: none; }
+.novel-row { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); min-height: var(--tap); }
+.novel-seg { display: inline-flex; padding: 3px; gap: 4px; border-radius: 999px; background: var(--paper-soft); }
+.novel-seg button { min-width: 48px; min-height: 38px; padding: 0 12px; border: 0; border-radius: 999px; background: transparent; color: inherit; font: inherit; font-weight: 600; cursor: pointer; }
+.novel-seg button[aria-pressed="true"] { outline: 2px solid var(--primary); outline-offset: -2px; }
+.novel-seg .paper-light { background: #fbfaf7; color: #1f1d1a; }
+.novel-seg .paper-sepia { background: #f4ecd8; color: #3b2f20; }
+.novel-seg .paper-dark { background: #15171c; color: #d9d4c7; }
+.novel-auto { cursor: pointer; }
 .novel-lookup { display: flex; gap: var(--space-2); }
 .novel-lookup input { flex: 1; min-width: 0; min-height: var(--tap); }
-.novel-text { font-size: 1.12rem; line-height: 1.8; max-width: 68ch; padding: var(--space-4); background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); font-family: Georgia, "Times New Roman", serif; overflow-wrap: anywhere; }
-.novel-text p { margin: 0 0 var(--space-3); text-indent: 1.4em; }
-.novel-text p.cont { text-indent: 0; }
-.novel-text .novel-chapter { margin: var(--space-3) 0 var(--space-4); font-size: 1.35em; text-align: center; letter-spacing: .02em; }
-.novel-text .novel-chapter.is-reading { background: var(--primary-soft); border-radius: 4px; }
+
+/* The page */
+.novel-text { max-width: 36em; margin: 0 auto; padding: var(--space-4) 2px var(--space-3); font-family: Georgia, "Iowan Old Style", "Palatino Linotype", "Times New Roman", serif; font-size: 1.15rem; line-height: 1.75; color: var(--paper-text); overflow-wrap: break-word; touch-action: pan-y; }
+.novel-text p { margin: 0 0 .9em; text-indent: 1.4em; }
+.novel-text p.cont, .novel-text .novel-chapter + p { text-indent: 0; }
+.novel-text .novel-chapter { margin: 1.4em 0 1.1em; font-size: 1.3em; font-weight: 600; text-align: center; letter-spacing: .02em; }
+.novel-text .novel-chapter + .novel-chapter { margin-top: -.6em; font-size: 1.05em; font-weight: 400; font-style: italic; }
 .novel-text .nw { cursor: pointer; border-radius: 3px; -webkit-tap-highlight-color: transparent; }
-.novel-text .nw:hover { background: var(--primary-soft); }
 .novel-text .nw.is-on { background: var(--focus); color: #111; }
-.novel-empty { color: var(--muted); font-style: italic; }
-.novel-shelf { display: flex; flex-wrap: wrap; gap: var(--space-2); }
-.novel-shelf:empty { display: none; }
-.novel-shelf .button[aria-pressed="true"] { background: var(--primary); border-color: var(--primary); color: var(--on-primary); }
-.novel-mark { font-size: .8rem; font-weight: 600; padding: 1px 8px; border-radius: 999px; background: rgba(0, 0, 0, .14); white-space: nowrap; }
-.novel-mark[hidden] { display: none; }
-.novel-listen { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2); }
-.novel-auto { display: inline-flex; align-items: center; gap: 6px; font-size: .92rem; min-height: var(--tap); }
-.novel-auto input { width: 20px; height: 20px; }
-.novel-text p.is-reading { background: var(--primary-soft); box-shadow: -8px 0 0 var(--primary-soft), 8px 0 0 var(--primary-soft); border-radius: 4px; }
-.novel-pop { position: fixed; left: 50%; bottom: 12px; transform: translateX(-50%); width: min(560px, calc(100% - 24px)); z-index: 50; padding: var(--space-3) var(--space-4); background: var(--surface); color: var(--text); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: 0 10px 30px rgba(0, 0, 0, .25); }
+.novel-text p.is-reading, .novel-text .novel-chapter.is-reading { background: var(--paper-hi); box-shadow: -6px 0 0 var(--paper-hi), 6px 0 0 var(--paper-hi); border-radius: 4px; }
+.novel-empty { color: var(--paper-muted); font-style: italic; text-align: center; }
+.novel-image { display: block; width: 100%; height: auto; margin: 0 auto; border-radius: 4px; background: #fff; }
+.novel-turn { display: flex; align-items: center; justify-content: center; gap: 6px; width: min(100%, 36em); margin: 0 auto var(--space-4); min-height: 52px; border: 1px solid var(--paper-line); border-radius: var(--radius); background: transparent; color: inherit; font: inherit; font-weight: 600; cursor: pointer; }
+.novel-turn[hidden] { display: none; }
+.novel-turn .icon { width: 20px; height: 20px; }
+
+/* Bottom bar */
+.novel-dock { position: fixed; left: 0; right: 0; bottom: 0; z-index: 40; background: var(--paper-bg); border-top: 1px solid var(--paper-line); padding-bottom: env(safe-area-inset-bottom); color: var(--paper-text); }
+.novel-progress { height: 3px; background: var(--paper-line); }
+.novel-progress span { display: block; height: 100%; width: 0; background: var(--primary); transition: width .2s; }
+.novel-dock-row { display: flex; align-items: center; justify-content: space-between; gap: var(--space-2); width: min(560px, 100%); margin: 0 auto; padding: 8px var(--gutter); }
+.novel-page { display: inline-flex; align-items: center; gap: 4px; font-size: .9rem; color: var(--paper-muted); font-variant-numeric: tabular-nums; }
+.novel-page input { width: 3.6em; min-height: 38px; padding: 2px 6px; text-align: center; border: 1px solid var(--paper-line); border-radius: 8px; background: transparent; color: var(--paper-text); font: inherit; font-weight: 600; -moz-appearance: textfield; appearance: textfield; }
+.novel-page input::-webkit-inner-spin-button, .novel-page input::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+.novel-play { display: inline-flex; align-items: center; gap: 8px; min-height: 48px; padding: 0 20px; border: 0; border-radius: 999px; background: var(--primary); color: var(--on-primary); font: inherit; font-weight: 700; cursor: pointer; }
+.novel-play .icon { width: 18px; height: 18px; fill: currentColor; }
+
+/* Word card, above the bottom bar */
+.novel-pop { position: fixed; left: 50%; bottom: calc(76px + env(safe-area-inset-bottom)); transform: translateX(-50%); width: min(560px, calc(100% - 20px)); z-index: 50; display: grid; padding: var(--space-3) var(--space-4); background: var(--surface); color: var(--text); border: 1px solid var(--line); border-radius: var(--radius-l); box-shadow: 0 12px 36px rgba(0, 0, 0, .28); }
 .novel-pop[hidden] { display: none; }
 .novel-pop-head { display: flex; align-items: center; gap: var(--space-2); }
-.novel-pop-head strong { font-size: 1.25rem; flex: 1; overflow-wrap: anywhere; }
+.novel-pop-head strong { font-size: 1.3rem; flex: 1; overflow-wrap: anywhere; font-family: Georgia, serif; }
 .novel-pop p { margin: var(--space-1) 0 0; }
 .novel-pop-base { color: var(--muted); font-size: .9rem; }
 .novel-pop-base:empty { display: none; }
-.novel-pop-tr { font-size: 1.08rem; font-weight: 600; }
-.novel-pop-verb { font-size: .95rem; }
+.novel-pop-tr { font-size: 1.1rem; font-weight: 600; }
+.novel-pop-verb { justify-self: start; font-size: .95rem; padding: 4px 10px; border-radius: 8px; background: var(--primary-soft); color: var(--accent-text); }
 .novel-pop-verb[hidden] { display: none; }
 .novel-pop-sentence { font-size: .88rem; color: var(--muted); }
+body.novel-focus .novel-pop { background: var(--paper-card); color: var(--paper-text); border-color: var(--paper-line); }
+body.novel-focus .novel-pop-base, body.novel-focus .novel-pop-sentence { color: var(--paper-muted); }
 .link-button { background: none; border: 0; padding: 0; color: var(--primary); font: inherit; text-decoration: underline; cursor: pointer; }
-.view[data-view="novel"] { padding-bottom: 200px; }
 
 /* ---------- Phrases (Everyday Conversation) ---------- */
 .phrases-container { display: flex; flex-direction: column; gap: var(--space-5); margin-top: var(--space-3); }
@@ -457,6 +508,8 @@ mark.vocab { background: var(--mark); color: inherit; padding: 0 2px; border-rad
   <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></symbol>
   <symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 21V9M7 14l5-5 5 5M5 3h14"/></symbol>
   <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-prev" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></symbol>
+  <symbol id="i-next" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></symbol>
 <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></symbol>
 </svg>
 
@@ -2747,40 +2800,60 @@ mark.vocab { background: var(--mark); color: inherit; padding: 0 2px; border-rad
 
   <!-- Novel reader: the learner opens their own PDF; the book text stays in their browser. -->
   <section class="view" data-view="novel" aria-labelledby="novel-title">
-    <div class="view-head">
-      <h1 id="novel-title" tabindex="-1" data-i18n="novel.title">Roman oku</h1>
-      <p class="lead" data-i18n="novel.lead">İngilizce bir romanı PDF olarak aç ve herhangi bir kelimeye dokunarak Türkçe anlamını gör.</p>
-    </div>
-    <div class="panel novel-open js-only">
-      <div class="novel-shelf" id="novel-shelf"><button type="button" class="button primary" data-novel="novels/novel_1.pdf" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg><span lang="en">Holes — Louis Sachar</span><span class="novel-mark" hidden></span></button><button type="button" class="button primary" data-novel="novels/novel_2.pdf" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg><span lang="en">Nineteen Eighty-Four — George Orwell</span><span class="novel-mark" hidden></span></button><button type="button" class="button primary" data-novel="novels/novel_3.pdf" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg><span lang="en">Don Quixote — Miguel de Cervantes</span><span class="novel-mark" hidden></span></button></div>
-      <label class="button" for="novel-file"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg><span data-i18n="novel.choose">Başka PDF seç</span></label>
-      <input id="novel-file" class="visually-hidden" type="file" accept="application/pdf,.pdf">
-      <p class="hint" id="novel-status" aria-live="polite" data-i18n="novel.hint">Kitap yalnızca bu cihazda okunur, hiçbir yere yüklenmez. İlk açılıştan sonra doğrudan bu tarayıcıdan açılır.</p>
-    </div>
-    <div class="novel-reader js-only" id="novel-reader" hidden>
-      <div class="novel-bar">
-        <button type="button" class="button small" id="novel-prev" aria-label="Önceki sayfa" data-i18n-aria="novel.prev">‹</button>
-        <label class="novel-page"><span data-i18n="novel.page">Sayfa</span> <input id="novel-page" type="number" inputmode="numeric" min="1" value="1"> / <span id="novel-total">1</span></label>
-        <button type="button" class="button small" id="novel-next" aria-label="Sonraki sayfa" data-i18n-aria="novel.next">›</button>
-        <span class="novel-size">
-          <button type="button" class="button small ghost" id="novel-smaller" aria-label="Yazıyı küçült" data-i18n-aria="novel.smaller">A−</button>
-          <button type="button" class="button small ghost" id="novel-bigger" aria-label="Yazıyı büyüt" data-i18n-aria="novel.bigger">A+</button>
-        </span>
+    <!-- Library: one card per book; hidden while a book is open. -->
+    <div class="novel-lib" id="novel-lib">
+      <div class="view-head">
+        <h1 id="novel-title" tabindex="-1" data-i18n="novel.title">Roman oku</h1>
+        <p class="lead" data-i18n="novel.lead">İngilizce bir romanı PDF olarak aç ve herhangi bir kelimeye dokunarak Türkçe anlamını gör.</p>
       </div>
-      <form class="novel-lookup" id="novel-lookup">
-        <label for="novel-word" class="visually-hidden" data-i18n="novel.lookup">Kelime ara</label>
-        <input id="novel-word" type="search" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="search" placeholder="Kelime yaz, çevir…" data-i18n-placeholder="novel.lookupPh">
-        <button type="submit" class="button small" data-i18n="novel.find">Çevir</button>
-      </form>
-      <div class="novel-listen" id="novel-listen">
-        <button type="button" class="button small primary" id="novel-read"><svg class="icon" aria-hidden="true"><use href="#i-sound"/></svg><span id="novel-read-label" data-i18n="novel.readPage">Sayfayı sesli oku</span></button>
-        <button type="button" class="button small" id="novel-read-stop" data-i18n="novel.stopRead" hidden>Durdur</button>
-        <label class="novel-auto"><input type="checkbox" id="novel-auto" checked> <span data-i18n="novel.auto">Sayfa bitince sonrakine geç</span></label>
+      <div class="novel-shelf js-only" id="novel-shelf"><button type="button" class="novel-book" data-novel="novels/novel_1.pdf" aria-pressed="false"><span class="novel-cover" aria-hidden="true">H</span><span class="novel-book-title" lang="en">Holes</span><span class="novel-book-author">Louis Sachar</span><span class="novel-book-meta" hidden><span class="novel-mark"></span><span class="novel-meter"><span></span></span></span></button><button type="button" class="novel-book" data-novel="novels/novel_2.pdf" aria-pressed="false"><span class="novel-cover" aria-hidden="true">N</span><span class="novel-book-title" lang="en">Nineteen Eighty-Four</span><span class="novel-book-author">George Orwell</span><span class="novel-book-meta" hidden><span class="novel-mark"></span><span class="novel-meter"><span></span></span></span></button><button type="button" class="novel-book" data-novel="novels/novel_3.pdf" aria-pressed="false"><span class="novel-cover" aria-hidden="true">D</span><span class="novel-book-title" lang="en">Don Quixote</span><span class="novel-book-author">Miguel de Cervantes</span><span class="novel-book-meta" hidden><span class="novel-mark"></span><span class="novel-meter"><span></span></span></span></button></div>
+      <div class="novel-lib-foot js-only">
+        <label class="button small ghost" for="novel-file"><svg class="icon" aria-hidden="true"><use href="#i-upload"/></svg><span data-i18n="novel.choose">Başka PDF seç</span></label>
+        <input id="novel-file" class="visually-hidden" type="file" accept="application/pdf,.pdf">
+        <p class="hint" id="novel-status" aria-live="polite" data-i18n="novel.hint">Kitap yalnızca bu cihazda okunur, hiçbir yere yüklenmez. İlk açılıştan sonra doğrudan bu tarayıcıdan açılır.</p>
+      </div>
+    </div>
+    <!-- Reader: a plain page of text, settings behind "Aa", page controls in a bar at the bottom. -->
+    <div class="novel-reader js-only" id="novel-reader" hidden>
+      <div class="novel-top">
+        <button type="button" class="novel-icon" id="novel-library" aria-label="Kitaplar" data-i18n-aria="novel.library"><svg class="icon" aria-hidden="true"><use href="#i-prev"/></svg></button>
+        <div class="novel-top-title"><strong id="novel-book-title" lang="en"></strong><span id="novel-book-place"></span></div>
+        <button type="button" class="novel-icon novel-aa" id="novel-aa" aria-expanded="false" aria-controls="novel-panel" aria-label="Okuma ayarları" data-i18n-aria="novel.settings">Aa</button>
+      </div>
+      <div class="novel-panel" id="novel-panel" hidden>
+        <div class="novel-row">
+          <span data-i18n="novel.textSize">Yazı boyutu</span>
+          <span class="novel-seg">
+            <button type="button" id="novel-smaller" aria-label="Yazıyı küçült" data-i18n-aria="novel.smaller">A−</button>
+            <button type="button" id="novel-bigger" aria-label="Yazıyı büyüt" data-i18n-aria="novel.bigger">A+</button>
+          </span>
+        </div>
+        <div class="novel-row">
+          <span data-i18n="novel.paper">Sayfa rengi</span>
+          <span class="novel-seg" id="novel-papers">
+            <button type="button" class="paper-light" data-paper="light" aria-pressed="false" data-i18n="novel.paperLight">Açık</button>
+            <button type="button" class="paper-sepia" data-paper="sepia" aria-pressed="false" data-i18n="novel.paperSepia">Sepya</button>
+            <button type="button" class="paper-dark" data-paper="dark" aria-pressed="false" data-i18n="novel.paperDark">Koyu</button>
+          </span>
+        </div>
+        <label class="novel-row novel-auto"><span data-i18n="novel.auto">Sayfa bitince sonrakine geç</span><input type="checkbox" id="novel-auto" checked></label>
+        <form class="novel-lookup" id="novel-lookup">
+          <label for="novel-word" class="visually-hidden" data-i18n="novel.lookup">Kelime ara</label>
+          <input id="novel-word" type="search" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="search" placeholder="Kelime yaz, çevir…" data-i18n-placeholder="novel.lookupPh">
+          <button type="submit" class="button small" data-i18n="novel.find">Çevir</button>
+        </form>
       </div>
       <article class="novel-text" id="novel-text" lang="en"></article>
-      <div class="novel-bar novel-bar-bottom">
-        <button type="button" class="button small" id="novel-prev2" data-i18n="novel.prevText">‹ Önceki</button>
-        <button type="button" class="button small primary" id="novel-next2" data-i18n="novel.nextText">Sonraki ›</button>
+      <button type="button" class="novel-turn" id="novel-next2"><span data-i18n="novel.nextText">Sonraki sayfa</span><svg class="icon" aria-hidden="true"><use href="#i-next"/></svg></button>
+      <div class="novel-dock">
+        <div class="novel-progress" aria-hidden="true"><span id="novel-progress-bar"></span></div>
+        <div class="novel-dock-row">
+          <button type="button" class="novel-icon" id="novel-prev" aria-label="Önceki sayfa" data-i18n-aria="novel.prev"><svg class="icon" aria-hidden="true"><use href="#i-prev"/></svg></button>
+          <label class="novel-page"><span class="visually-hidden" data-i18n="novel.page">Sayfa</span><input id="novel-page" type="number" inputmode="numeric" min="1" value="1"><span>/ <span id="novel-total">1</span></span></label>
+          <button type="button" class="novel-play" id="novel-read"><svg class="icon" aria-hidden="true"><use id="novel-read-icon" href="#i-play"/></svg><span id="novel-read-label" data-i18n="novel.readPage">Dinle</span></button>
+          <button type="button" class="novel-icon" id="novel-read-stop" aria-label="Durdur" data-i18n-aria="novel.stopRead" hidden><svg class="icon" aria-hidden="true"><use href="#i-stop"/></svg></button>
+          <button type="button" class="novel-icon" id="novel-next" aria-label="Sonraki sayfa" data-i18n-aria="novel.next"><svg class="icon" aria-hidden="true"><use href="#i-next"/></svg></button>
+        </div>
       </div>
     </div>
     <div class="novel-pop" id="novel-pop" role="dialog" aria-labelledby="novel-pop-word" hidden>
@@ -3095,12 +3168,15 @@ const STRINGS = {
     'novel.choose': 'Choose another PDF', 'novel.hint': 'The book is read on this device only; it is not uploaded anywhere. After the first time it opens straight from this browser.',
     'novel.loading': 'Reading the PDF…', 'novel.progress': 'Reading page {i} of {n}…', 'novel.ready': 'Ready: {n} pages. The book is saved in this browser.',
     'novel.readyNoStore': 'Ready: {n} pages. This browser could not save the book, so choose the file again next time.', 'novel.error': 'This file could not be read as a PDF.',
-    'novel.prev': 'Previous page', 'novel.next': 'Next page', 'novel.prevText': '‹ Previous', 'novel.nextText': 'Next ›', 'novel.page': 'Page',
+    'novel.prev': 'Previous page', 'novel.next': 'Next page', 'novel.prevText': '‹ Previous', 'novel.nextText': 'Next page', 'novel.page': 'Page', 'novel.library': 'Books', 'novel.settings': 'Reading settings',
+    'novel.textSize': 'Text size', 'novel.paper': 'Page colour', 'novel.paperLight': 'Light', 'novel.paperSepia': 'Sepia', 'novel.paperDark': 'Dark',
+    'novel.markOf': 'p. {n} / {total}', 'novel.scanned': 'Scanned book: pages shown as pictures', 'novel.pageImage': 'Picture of the printed page', 'novel.loadingPage': 'Loading the page…',
+    'novel.noText': 'This book is scanned (page photos), so it has no text to read aloud or translate.',
     'novel.smaller': 'Smaller text', 'novel.bigger': 'Larger text', 'novel.lookup': 'Look up a word', 'novel.lookupPh': 'Look up a word…', 'novel.find': 'Translate',
     'novel.listen': 'Listen', 'novel.close': 'Close', 'novel.sayLine': 'Listen to the sentence', 'novel.translateLine': 'Translate the sentence (online)',
     'novel.base': 'from “{w}”', 'novel.name': 'Proper name (person or place)', 'novel.verb': 'Irregular verb: {forms}', 'novel.mark': 'p. {n}', 'novel.unknown': 'Not in the offline dictionary. Use “Translate the sentence” when online.',
     'novel.emptyPage': 'This page has no text (picture or blank page).',
-    'novel.readPage': 'Read this page aloud', 'novel.pauseRead': 'Pause', 'novel.resumeRead': 'Continue', 'novel.stopRead': 'Stop',
+    'novel.readPage': 'Listen', 'novel.pauseRead': 'Pause', 'novel.resumeRead': 'Continue', 'novel.stopRead': 'Stop',
     'novel.auto': 'Continue to the next page', 'novel.noVoice': 'This browser has no English voice for reading aloud.',
     'novel.fetchError': 'The book could not be downloaded. Check the connection or choose the PDF yourself.',
     'novel.fileHint': 'The books in novels/ open automatically when the page is opened from its web address. Opened as a file, choose the PDF yourself.',
@@ -3189,12 +3265,15 @@ const STRINGS = {
     'novel.choose': 'Başka PDF seç', 'novel.hint': 'Kitap yalnızca bu cihazda okunur, hiçbir yere yüklenmez. İlk açılıştan sonra doğrudan bu tarayıcıdan açılır.',
     'novel.loading': 'PDF okunuyor…', 'novel.progress': 'Sayfa {i} / {n} okunuyor…', 'novel.ready': 'Hazır: {n} sayfa. Kitap bu tarayıcıya kaydedildi.',
     'novel.readyNoStore': 'Hazır: {n} sayfa. Bu tarayıcı kitabı kaydedemedi; bir dahaki sefere dosyayı yeniden seç.', 'novel.error': 'Bu dosya PDF olarak okunamadı.',
-    'novel.prev': 'Önceki sayfa', 'novel.next': 'Sonraki sayfa', 'novel.prevText': '‹ Önceki', 'novel.nextText': 'Sonraki ›', 'novel.page': 'Sayfa',
+    'novel.prev': 'Önceki sayfa', 'novel.next': 'Sonraki sayfa', 'novel.prevText': '‹ Önceki', 'novel.nextText': 'Sonraki sayfa', 'novel.page': 'Sayfa', 'novel.library': 'Kitaplar', 'novel.settings': 'Okuma ayarları',
+    'novel.textSize': 'Yazı boyutu', 'novel.paper': 'Sayfa rengi', 'novel.paperLight': 'Açık', 'novel.paperSepia': 'Sepya', 'novel.paperDark': 'Koyu',
+    'novel.markOf': 's. {n} / {total}', 'novel.scanned': 'Taranmış kitap: sayfalar resim olarak', 'novel.pageImage': 'Basılı sayfanın resmi', 'novel.loadingPage': 'Sayfa yükleniyor…',
+    'novel.noText': 'Bu kitap taranmış (sayfa fotoğrafı); sesli okunacak ya da çevrilecek yazısı yok.',
     'novel.smaller': 'Yazıyı küçült', 'novel.bigger': 'Yazıyı büyüt', 'novel.lookup': 'Kelime ara', 'novel.lookupPh': 'Kelime yaz, çevir…', 'novel.find': 'Çevir',
     'novel.listen': 'Dinle', 'novel.close': 'Kapat', 'novel.sayLine': 'Cümleyi dinle', 'novel.translateLine': 'Cümleyi çevir (internet)',
     'novel.base': '“{w}” kelimesinden', 'novel.name': 'Özel isim (kişi veya yer adı)', 'novel.verb': 'Düzensiz fiil: {forms}', 'novel.mark': 's. {n}', 'novel.unknown': 'Çevrimdışı sözlükte yok. İnternet varken “Cümleyi çevir”i kullan.',
     'novel.emptyPage': 'Bu sayfada yazı yok (resim veya boş sayfa).',
-    'novel.readPage': 'Sayfayı sesli oku', 'novel.pauseRead': 'Duraklat', 'novel.resumeRead': 'Devam et', 'novel.stopRead': 'Durdur',
+    'novel.readPage': 'Dinle', 'novel.pauseRead': 'Duraklat', 'novel.resumeRead': 'Devam et', 'novel.stopRead': 'Durdur',
     'novel.auto': 'Sayfa bitince sonrakine geç', 'novel.noVoice': 'Bu tarayıcıda sesli okuma için İngilizce ses yok.',
     'novel.fetchError': 'Kitap indirilemedi. Bağlantını kontrol et ya da PDF’i kendin seç.',
     'novel.fileHint': 'novels/ klasöründeki kitaplar sayfa internet adresinden açılınca kendiliğinden yüklenir. Sayfayı dosya olarak açtıysan PDF’i kendin seç.',
@@ -3820,6 +3899,7 @@ const Router = {
     }
     document.title = t('nav.' + name) + ' · English Study';
     if (changed) Speech.stop();
+    Novel.focusMode();
     const module = MODULES[name];
     if (module && module.onShow) module.onShow();
     if (moveFocus && changed) {
@@ -4104,7 +4184,7 @@ const BookStore = {
 const Novel = {
   KEY: 'english-study-novel.v1',
   /* Version of the page text saved in IndexedDB; raise it when pageParagraphs changes. */
-  FORMAT: 3,
+  FORMAT: 4,
   dict: null,
   book: null,
   page: 0,
@@ -4119,10 +4199,33 @@ const Novel = {
       event.target.value = '';
       if (file) this.openFile(file);
     });
-    for (const [id, step] of [['#novel-prev', -1], ['#novel-prev2', -1], ['#novel-next', 1], ['#novel-next2', 1]]) {
-      $(id).addEventListener('click', () => this.go(this.page + step, id.endsWith('2')));
+    for (const [id, step] of [['#novel-prev', -1], ['#novel-next', 1], ['#novel-next2', 1]]) {
+      $(id).addEventListener('click', () => this.go(this.page + step, true));
     }
-    $('#novel-page').addEventListener('change', event => this.go((parseInt(event.target.value, 10) || 1) - 1));
+    $('#novel-page').addEventListener('change', event => this.go((parseInt(event.target.value, 10) || 1) - 1, true));
+    $('#novel-library').addEventListener('click', () => this.showLibrary(true));
+    $('#novel-aa').addEventListener('click', () => {
+      const open = $('#novel-panel').hidden;
+      $('#novel-panel').hidden = !open;
+      $('#novel-aa').setAttribute('aria-expanded', String(open));
+    });
+    $('#novel-papers').addEventListener('click', event => {
+      const button = event.target.closest('[data-paper]');
+      if (button) { this.paper = button.dataset.paper; this.applyPaper(); this.saveState(); }
+    });
+    /* Swipe left / right on the page turns it. */
+    let touch = null;
+    $('#novel-text').addEventListener('touchstart', event => {
+      const point = event.touches[0];
+      touch = event.touches.length === 1 ? { x: point.clientX, y: point.clientY, at: Date.now() } : null;
+    }, { passive: true });
+    $('#novel-text').addEventListener('touchend', event => {
+      if (!touch) return;
+      const point = event.changedTouches[0];
+      const dx = point.clientX - touch.x, dy = point.clientY - touch.y;
+      touch = null;
+      if (Math.abs(dx) > 70 && Math.abs(dy) < Math.abs(dx) / 2) this.go(this.page + (dx < 0 ? 1 : -1), true);
+    }, { passive: true });
     $('#novel-smaller').addEventListener('click', () => this.setSize(this.size - 0.08));
     $('#novel-bigger').addEventListener('click', () => this.setSize(this.size + 0.08));
     $('#novel-text').addEventListener('click', event => {
@@ -4152,12 +4255,72 @@ const Novel = {
     const saved = this.readState();
     if (saved && saved.size) this.size = saved.size;
     if (saved && saved.auto === false) $('#novel-auto').checked = false;
+    if (saved && saved.paper) this.paper = saved.paper;
+    for (const card of $$('#novel-shelf [data-novel]')) this.colorCard(card);
     this.showMarks();
+  },
+  paper: null,
+  /* Page colour: the learner's choice, otherwise light or dark like the app. */
+  applyPaper() {
+    const theme = document.documentElement.getAttribute('data-theme') || (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    const paper = this.paper || (theme === 'dark' ? 'dark' : 'light');
+    document.body.dataset.paper = paper;
+    for (const button of $$('#novel-papers [data-paper]')) button.setAttribute('aria-pressed', String(button.dataset.paper === paper));
+  },
+  /* Reading mode: while a book is open in the Novel view the page takes the paper colour
+     and, on phones, the app header steps aside. */
+  focusMode() {
+    const on = Router.current === 'novel' && !$('#novel-reader').hidden;
+    document.body.classList.toggle('novel-focus', on);
+    if (on) this.applyPaper(); else delete document.body.dataset.paper;
+  },
+  showLibrary(show) {
+    $('#novel-lib').hidden = !show;
+    $('#novel-reader').hidden = show;
+    if (show) { this.stopReading(); this.closePop(); window.scrollTo(0, 0); }
+    this.focusMode();
+  },
+  colorCard(card) {
+    let hash = 0;
+    for (const ch of card.dataset.novel) hash = (hash * 31 + ch.charCodeAt(0)) >>> 0;
+    card.querySelector('.novel-cover').style.setProperty('--cover', `hsl(${hash % 360} 45% 36%)`);
+  },
+  /* The same card build_index.py writes, for books found later. */
+  addCard(path, title, author) {
+    const card = h('button', { type: 'button', class: 'novel-book', 'data-novel': path, 'aria-pressed': 'false' },
+      h('span', { class: 'novel-cover', 'aria-hidden': 'true', text: (title || '?').slice(0, 1).toUpperCase() }),
+      h('span', { class: 'novel-book-title', lang: 'en', text: title }),
+      h('span', { class: 'novel-book-author', text: author || '' }),
+      h('span', { class: 'novel-book-meta', hidden: '' }, h('span', { class: 'novel-mark' }), h('span', { class: 'novel-meter' }, h('span'))));
+    this.colorCard(card);
+    $('#novel-shelf').append(card);
+    return card;
+  },
+  /* Books added to novels/ on GitHub after the page was built: the site asks
+     GitHub for the folder's file list (public, no account needed). */
+  async findNewBooks() {
+    const site = location.hostname.match(/^([^.]+)\.github\.io$/);
+    const repo = location.pathname.split('/').filter(Boolean)[0];
+    if (!site || !repo) return;
+    try {
+      const response = await fetch(`https://api.github.com/repos/${site[1]}/${repo}/contents/novels`);
+      if (!response.ok) return;
+      const known = new Set($$('#novel-shelf [data-novel]').map(card => card.dataset.novel));
+      const saved = this.readState();
+      for (const file of await response.json()) {
+        const path = 'novels/' + file.name;
+        if (!/\.pdf$/i.test(file.name) || known.has(path)) continue;
+        const title = (saved && saved.titles[path]) || file.name.replace(/\.pdf$/i, '').replace(/[_-]+/g, ' ');
+        this.addCard(path, title, '');
+      }
+      this.showMarks();
+    } catch (_) { /* offline: the built shelf is enough */ }
   },
   /* Opens the last book read on this device, otherwise the first book in novels/. */
   async onShow() {
     if (this.restored) return;
     this.restored = true;
+    this.findNewBooks();
     const book = await BookStore.get();
     const shelf = $$('#novel-shelf [data-novel]').map(button => button.dataset.novel);
     /* A book from novels/ saved by an older version of the reader is read again. */
@@ -4218,7 +4381,7 @@ const Novel = {
     const first = /^(?:(?:part|book|volume)\s+(?:1|i|one)|chapter\s+(?:1|i|one)|prologue|chapter 1)$/i;
     let start = null;
     for (const [key, label] of headings) { if (first.test(label)) { start = key.split(':').map(Number); break; } }
-    if (!start) return pages;
+    if (!start) return Object.assign(pages, { sources: pages.map((_, index) => index) });
     /* End: after "THE END", or before the first back-matter page. */
     let end = [pages.length, 0];
     for (let page = start[0]; page < pages.length && end[0] === pages.length; page++) {
@@ -4227,7 +4390,7 @@ const Novel = {
         if (end[0] === pages.length && (page > start[0] || index > start[1]) && /^the end\.?$/i.test(plain(text))) end = [page, index + 1];
       });
     }
-    const story = [];
+    const story = [], sources = [];
     for (let page = start[0]; page <= Math.min(end[0], pages.length - 1); page++) {
       const from = page === start[0] ? start[1] : 0;
       const to = page === end[0] ? end[1] : pages[page].length;
@@ -4237,11 +4400,13 @@ const Novel = {
       });
       if (page === end[0] && !paragraphs.length) break;
       story.push(paragraphs);
+      sources.push(page);
     }
     /* Blank pages before and after the story (pictures, an emptied back cover) are dropped. */
-    while (story.length && !story[story.length - 1].length) story.pop();
-    while (story.length && !story[0].length) story.shift();
-    return story;
+    while (story.length && !story[story.length - 1].length) { story.pop(); sources.pop(); }
+    while (story.length && !story[0].length) { story.shift(); sources.shift(); }
+    /* story[i] is printed on PDF page sources[i] (shown as a picture when it has no text). */
+    return Object.assign(story, { sources });
   },
   async openUrl(url) {
     if (location.protocol === 'file:') { this.status(t('novel.fileHint')); return; }
@@ -4254,13 +4419,14 @@ const Novel = {
       this.status(t('novel.fetchError'));
     }
   },
-  /* Saved state: { v: 3, name: last book, marks: { book: page }, size, auto }.
-     Each book keeps its own bookmark, so switching books loses no place. */
+  /* Saved state: { v: 3, name: last book, marks: { book: page }, totals: { book: pages },
+     titles: { book: title }, size, auto, paper }. Each book keeps its own bookmark,
+     so switching books loses no place. */
   readState() {
     let state = null;
     try { state = JSON.parse(Store.read(this.KEY) || 'null'); } catch (_) { return null; }
     if (state && state.v === 2) state = { v: 3, name: state.name, marks: state.name ? { [state.name]: state.page || 0 } : {}, size: state.size, auto: state.auto };
-    if (state && !state.marks) state.marks = {};
+    if (state) for (const key of ['marks', 'totals', 'titles']) if (!state[key]) state[key] = {};
     return state;
   },
   markOf(name) {
@@ -4270,19 +4436,25 @@ const Novel = {
   saveState() {
     if (!this.book) return;
     const saved = this.readState();
-    const marks = Object.assign({}, saved && saved.marks, { [this.book.name]: this.page });
-    Store.write(this.KEY, JSON.stringify({ v: 3, name: this.book.name, marks, size: this.size, auto: $('#novel-auto').checked }));
+    const name = this.book.name;
+    const marks = Object.assign({}, saved && saved.marks, { [name]: this.page });
+    const totals = Object.assign({}, saved && saved.totals, { [name]: this.book.pages.length });
+    const titles = Object.assign({}, saved && saved.titles, this.book.title ? { [name]: this.book.title } : {});
+    Store.write(this.KEY, JSON.stringify({ v: 3, name, marks, totals, titles, size: this.size, auto: $('#novel-auto').checked, paper: this.paper }));
     this.showMarks();
   },
-  /* The bookmark page on each shelf button ("s. 42"). */
+  /* The bookmark on each book card: "s. 42 / 181" and a progress bar. */
   showMarks() {
     const saved = this.readState();
-    for (const button of $$('#novel-shelf [data-novel]')) {
-      const mark = button.querySelector('.novel-mark');
-      const page = saved && saved.marks[button.dataset.novel];
-      if (!mark) continue;
-      mark.hidden = !page;
-      mark.textContent = page ? t('novel.mark', { n: page + 1 }) : '';
+    for (const card of $$('#novel-shelf [data-novel]')) {
+      const meta = card.querySelector('.novel-book-meta');
+      const page = saved && saved.marks[card.dataset.novel];
+      const total = saved && saved.totals[card.dataset.novel];
+      if (!meta) continue;
+      meta.hidden = page == null;
+      if (page == null) continue;
+      meta.querySelector('.novel-mark').textContent = total ? t('novel.markOf', { n: page + 1, total }) : t('novel.mark', { n: page + 1 });
+      meta.querySelector('.novel-meter span').style.width = total ? Math.round((page + 1) / total * 100) + '%' : '0';
     }
   },
   status(text) { $('#novel-status').textContent = text; },
@@ -4309,15 +4481,20 @@ const Novel = {
   },
   async openData(name, buffer) {
     const lib = await this.loadPdfjs();
+    const data = buffer.slice(0);  /* pdf.js takes over `buffer`; this copy is kept for page pictures */
     const pdf = await lib.getDocument({ data: new Uint8Array(buffer), isEvalSupported: false, disableFontFace: true }).promise;
+    let title = '';
+    try { title = ((await pdf.getMetadata()).info.Title || '').trim(); } catch (_) { /* no metadata */ }
     const pages = [];
     for (let number = 1; number <= pdf.numPages; number++) {
       const page = await pdf.getPage(number);
       pages.push(this.pageParagraphs(await page.getTextContent()));
       if (number % 10 === 0) this.status(t('novel.progress', { i: number, n: pdf.numPages }));
     }
-    const book = { name, pages, v: this.FORMAT };
+    const book = { name, pages, v: this.FORMAT, data, title };
     const stored = await BookStore.put(book);
+    this.pdfName = name;
+    this.pdfDoc = pdf;
     this.setBook(book, this.markOf(name));
     this.status(t(stored ? 'novel.ready' : 'novel.readyNoStore', { n: this.book.pages.length }));
   },
@@ -4385,15 +4562,34 @@ const Novel = {
   },
   setBook(book, page) {
     this.stopReading();
-    this.book = { name: book.name, pages: this.storyPages(book.pages) };
+    const story = this.storyPages(book.pages);
+    const card = $$('#novel-shelf [data-novel]').find(button => button.dataset.novel === book.name);
+    const saved = this.readState();
+    const title = (card && card.querySelector('.novel-book-title').textContent) || book.title || (saved && saved.titles[book.name]) || book.name.replace(/^.*\//, '').replace(/\.pdf$/i, '');
+    /* A card made from a bare file name gets the PDF's own title. */
+    if (card && book.title && card.dataset.novel.replace(/^.*\//, '').replace(/\.pdf$/i, '').replace(/[_-]+/g, ' ') === title) {
+      card.querySelector('.novel-book-title').textContent = book.title;
+    }
+    this.book = { name: book.name, pages: story, sources: story.sources, data: book.data || null, title: book.title || '' };
+    this.bookTitle = card ? card.querySelector('.novel-book-title').textContent : title;
+    if (this.pdfName !== book.name) { this.pdfDoc = null; this.pdfName = book.name; }
     book = this.book;
+    /* Most pages without text: the book was scanned, its pages are shown as pictures. */
+    this.textless = book.pages.filter(paragraphs => paragraphs.length).length < book.pages.length * 0.25;
+    /* The chapter each page belongs to, for the title bar. */
+    let chapter = '';
+    this.chapters = book.pages.map(paragraphs => {
+      for (const text of paragraphs) if (text.startsWith('\u2061')) chapter = text.slice(1);
+      return chapter;
+    });
     this.page = Math.min(book.pages.length - 1, Math.max(0, page));  /* before setSize saves the state */
     for (const button of $$('#novel-shelf [data-novel]')) button.setAttribute('aria-pressed', String(button.dataset.novel === book.name));
-    $('#novel-reader').hidden = false;
+    $('#novel-book-title').textContent = this.bookTitle;
     $('#novel-total').textContent = book.pages.length;
     $('#novel-page').max = book.pages.length;
+    this.showLibrary(false);
     this.setSize(this.size);
-    this.go(page);
+    this.go(this.page, true);
   },
   setSize(size) {
     this.size = Math.min(1.6, Math.max(0.9, Math.round(size * 100) / 100));
@@ -4403,16 +4599,43 @@ const Novel = {
   go(page, toTop, keepReading) {
     if (!this.book) return;
     if (this.reading && !keepReading) this.stopReading();
-    this.page = Math.min(this.book.pages.length - 1, Math.max(0, page));
+    const total = this.book.pages.length;
+    this.page = Math.min(total - 1, Math.max(0, page));
     $('#novel-page').value = this.page + 1;
-    $('#novel-prev').disabled = $('#novel-prev2').disabled = this.page === 0;
-    $('#novel-next').disabled = $('#novel-next2').disabled = this.page === this.book.pages.length - 1;
+    $('#novel-prev').disabled = this.page === 0;
+    $('#novel-next').disabled = this.page === total - 1;
+    $('#novel-next2').hidden = this.page === total - 1;
+    $('#novel-progress-bar').style.width = ((this.page + 1) / total * 100) + '%';
+    $('#novel-book-place').textContent = this.textless ? t('novel.scanned') : this.chapters[this.page];
     const paragraphs = this.book.pages[this.page];
     const article = $('#novel-text');
-    article.replaceChildren(...(paragraphs.length ? paragraphs.map(text => this.paragraph(text)) : [h('p', { class: 'novel-empty', lang: lang, text: t('novel.emptyPage') })]));
+    if (paragraphs.length) article.replaceChildren(...paragraphs.map(text => this.paragraph(text)));
+    else {
+      article.replaceChildren(h('p', { class: 'novel-empty', lang: lang, text: t('novel.loadingPage') }));
+      this.showPicture(this.page);
+    }
     this.closePop();
     this.saveState();
-    if (toTop) article.scrollIntoView({ block: 'start' });
+    if (toTop) window.scrollTo(0, 0);
+  },
+  /* A page without text (a picture, or a scanned book) is shown as the printed page. */
+  async showPicture(index) {
+    const token = this.pictureToken = {};
+    const article = $('#novel-text');
+    const empty = () => { if (this.pictureToken === token) article.replaceChildren(h('p', { class: 'novel-empty', lang: lang, text: t('novel.emptyPage') })); };
+    try {
+      if (!this.pdfDoc) {
+        if (!this.book.data) { empty(); return; }
+        const lib = await this.loadPdfjs();
+        this.pdfDoc = await lib.getDocument({ data: new Uint8Array(this.book.data.slice(0)), isEvalSupported: false }).promise;
+      }
+      const page = await this.pdfDoc.getPage(this.book.sources[index] + 1);
+      const width = article.clientWidth || 340;
+      const viewport = page.getViewport({ scale: width / page.getViewport({ scale: 1 }).width * Math.min(2, window.devicePixelRatio || 1) });
+      const canvas = h('canvas', { class: 'novel-image', width: Math.floor(viewport.width), height: Math.floor(viewport.height), role: 'img', 'aria-label': t('novel.pageImage') });
+      await page.render({ canvasContext: canvas.getContext('2d'), viewport }).promise;
+      if (this.pictureToken === token && this.page === index) article.replaceChildren(canvas);
+    } catch (_) { empty(); }
   },
   /* ---- Reading the page aloud, sentence by sentence (short utterances keep
      phone voices from stopping halfway). */
@@ -4425,6 +4648,7 @@ const Novel = {
     const paragraphs = $$('#novel-text p:not(.novel-empty), #novel-text .novel-chapter');
     const queue = paragraphs.flatMap((node, index) => this.sentences(node.textContent).map(text => ({ index, text })));
     if (!queue.length) {
+      if (this.textless) { Toast.show(t('novel.noText')); return; }
       if ($('#novel-auto').checked && this.page < this.book.pages.length - 1) { this.go(this.page + 1, true, true); this.startReading(); }
       return;
     }
@@ -4479,6 +4703,7 @@ const Novel = {
   readingUi() {
     const reading = this.reading;
     $('#novel-read-label').textContent = t(!reading ? 'novel.readPage' : (reading.paused ? 'novel.resumeRead' : 'novel.pauseRead'));
+    $('#novel-read-icon').setAttribute('href', reading && !reading.paused ? '#i-pause' : '#i-play');
     $('#novel-read-stop').hidden = !reading;
   },
   paragraph(text) {
