@@ -1943,6 +1943,8 @@ const BookStore = {
 
 const Novel = {
   KEY: 'english-study-novel.v1',
+  /* Version of the page text saved in IndexedDB; raise it when pageParagraphs changes. */
+  FORMAT: 3,
   dict: null,
   book: null,
   page: 0,
@@ -1996,48 +1998,85 @@ const Novel = {
     if (this.restored) return;
     this.restored = true;
     const book = await BookStore.get();
-    if (book && Array.isArray(book.pages) && !this.book) {
+    const shelf = $$('#novel-shelf [data-novel]').map(button => button.dataset.novel);
+    /* A book from novels/ saved by an older version of the reader is read again. */
+    const stale = book && book.v !== this.FORMAT && shelf.includes(book.name);
+    if (book && Array.isArray(book.pages) && !this.book && !stale) {
       const saved = this.readState();
       this.setBook(book, saved && saved.v === 2 && saved.name === book.name ? saved.page : 0);
       return;
     }
-    const first = $('#novel-shelf [data-novel]');
-    if (first && !this.book) this.openUrl(first.dataset.novel);
+    const next = stale ? book.name : shelf[0];
+    if (next && !this.book) this.openUrl(next);
   },
   say(text) {
     if (Speech.hasTTS) Speech.speakNow(text);
     else Speech.speak(text);
   },
-  /* Keep only the story: from the chapter 1 heading to the end of the last
-     chapter. Praise, contents, copyright, excerpts of other books and "about
-     the author" pages are left out. A heading printed as a bare number
-     ("1") is shown as "Chapter 1". Returns the pages unchanged when the book
-     has no numbered chapters. */
-  storyPages(pages) {
-    const number = text => {
-      const match = text.replace(/^[\u2060\u2061]/, '').match(/^(?:chapter\s+)?(\d{1,3})\.?$/i);
-      return match ? Number(match[1]) : 0;
-    };
-    const starts = [];
+  /* Structural headings: "PART ONE", "Book 2", "Chapter 7", "CHAPTER IV",
+     "Prologue", "Epilogue", "THE END", or a bare chapter number ("12"). */
+  HEADING: /^(?:(?:part|book|volume)\s+(?:\d{1,3}|[ivxlc]{1,7}|one|two|three|four|five|six|seven|eight|nine|ten)|chapter\s+(?:\d{1,3}|[ivxlc]{1,7}|[a-z]+(?:-[a-z]+)?)|prologue|epilogue|the end|\d{1,3})\.?$/i,
+  /* Pages that follow the story: other books' excerpts, the author's page, appendices. */
+  BACK_MATTER: /^\W*(you[’']?ll want to read more|turn the page|read an excerpt|an excerpt|excerpt from|about the author|acknowledg|also by|praise for|copyright|reader[’']?s guide|discussion questions|questions for discussion|coming soon|appendix|afterword|author[’']?s note|a note on|glossary|bibliography|further reading|a conversation with)/i,
+  /* Keeps only the story, from its first heading (Part One, Prologue or
+     Chapter 1) to "THE END" or the last page before the back matter. Front
+     matter (praise, title, copyright, contents, foreword) and back matter are
+     left out, printed page numbers are removed, and a heading printed as a
+     bare number is shown as "Chapter N". A book without headings is kept whole. */
+  storyPages(rawPages) {
+    const plain = text => text.replace(/^[\u2060\u2061]/, '');
+    const bare = text => /^\d{1,4}$/.test(plain(text));
+    /* Page numbers: a bare number at the top or bottom of most pages. */
+    const share = test => rawPages.filter(paragraphs => paragraphs.length > 1 && test(paragraphs)).length / Math.max(1, rawPages.length);
+    const headerNumbers = share(p => bare(p[0])) > 0.4, footerNumbers = share(p => bare(p[p.length - 1])) > 0.4;
+    const pages = rawPages.map(paragraphs => {
+      const copy = paragraphs.slice();
+      if (footerNumbers && copy.length && bare(copy[copy.length - 1])) copy.pop();
+      if (headerNumbers && copy.length && bare(copy[0])) copy.shift();
+      return copy;
+    });
+    /* Find the headings, skipping contents pages (many headings on one page). */
+    const headings = new Map();
+    let lastNumber = 0;
     pages.forEach((paragraphs, page) => {
-      /* A page listing several chapter numbers is the table of contents. */
-      if (paragraphs.filter(text => number(text)).length > 2) return;
+      if (paragraphs.filter(text => this.HEADING.test(plain(text))).length > 3) return;
       paragraphs.forEach((text, index) => {
-        if (number(text) === starts.length + 1) starts.push({ page, index });
+        const value = plain(text);
+        if (!this.HEADING.test(value)) return;
+        if (/^\d+\.?$/.test(value)) {
+          const n = parseInt(value, 10);
+          if (n !== 1 && n !== lastNumber + 1) return;  /* page numbers and stray figures */
+          lastNumber = n;
+          headings.set(page + ':' + index, 'Chapter ' + n);
+        } else {
+          headings.set(page + ':' + index, value.replace(/\.$/, ''));
+        }
       });
     });
-    if (!starts.length) return pages;
-    const backMatter = /^\W*(you[’']?ll want to read more|turn the page|read an excerpt|an excerpt|excerpt from|about the author|acknowledg|also by|praise for|copyright|reader[’']?s guide|discussion questions|coming soon|look for)/i;
-    const first = starts[0], last = starts[starts.length - 1];
-    let end = pages.length;
-    for (let page = last.page + 1; page < pages.length; page++) {
-      if (backMatter.test(pages[page][0] || '')) { end = page; break; }
+    const first = /^(?:(?:part|book|volume)\s+(?:1|i|one)|chapter\s+(?:1|i|one)|prologue|chapter 1)$/i;
+    let start = null;
+    for (const [key, label] of headings) { if (first.test(label)) { start = key.split(':').map(Number); break; } }
+    if (!start) return pages;
+    /* End: after "THE END", or before the first back-matter page. */
+    let end = [pages.length, 0];
+    for (let page = start[0]; page < pages.length && end[0] === pages.length; page++) {
+      if (page > start[0] && this.BACK_MATTER.test(pages[page][0] || '')) { end = [page, 0]; break; }
+      pages[page].forEach((text, index) => {
+        if (end[0] === pages.length && (page > start[0] || index > start[1]) && /^the end\.?$/i.test(plain(text))) end = [page, index + 1];
+      });
     }
-    const story = pages.slice(first.page, end).map(paragraphs => paragraphs.slice());
-    story[0] = story[0].slice(first.index);
-    const headings = new Set(starts.map(start => start.page - first.page + ':' + (start.page === first.page ? start.index - first.index : start.index)));
-    return story.map((paragraphs, page) => paragraphs.map((text, index) =>
-      headings.has(page + ':' + index) ? '\u2061Chapter ' + number(text) : text));
+    const story = [];
+    for (let page = start[0]; page <= Math.min(end[0], pages.length - 1); page++) {
+      const from = page === start[0] ? start[1] : 0;
+      const to = page === end[0] ? end[1] : pages[page].length;
+      const paragraphs = pages[page].slice(from, to).map((text, offset) => {
+        const label = headings.get(page + ':' + (from + offset));
+        return label ? '\u2061' + label : text;
+      });
+      if (page === end[0] && !paragraphs.length) break;
+      story.push(paragraphs);
+    }
+    return story.filter((paragraphs, index) => paragraphs.length || (index > 0 && index < story.length - 1));
   },
   async openUrl(url) {
     if (location.protocol === 'file:') { this.status(t('novel.fileHint')); return; }
@@ -2083,7 +2122,7 @@ const Novel = {
       pages.push(this.pageParagraphs(await page.getTextContent()));
       if (number % 10 === 0) this.status(t('novel.progress', { i: number, n: pdf.numPages }));
     }
-    const book = { name, pages };
+    const book = { name, pages, v: this.FORMAT };
     const stored = await BookStore.put(book);
     const saved = this.readState();
     this.setBook(book, saved && saved.v === 2 && saved.name === name ? saved.page : 0);
@@ -2093,6 +2132,8 @@ const Novel = {
      Pick the ligature that makes a dictionary word: "\u0000rst" -> "first". */
   clean(text) {
     return text.replace(/[ɹʃɻɽʀﬁﬂﬀﬃﬄ\u00a0]/g, ch => this.LIGATURES[ch])
+      /* Some PDFs print a space after the fi/fl ligature: "fi rst", "diffi cult". */
+      .replace(/(fi|fl) (?=[a-z])/g, '$1')
       .replace(/[A-Za-z]*\u0000[A-Za-z\u0000]*/g, word => {
         /* Each missing glyph may be a different ligature ("flu\u0000ing" -> "fluffing"). */
         let candidates = [word];
@@ -2122,19 +2163,32 @@ const Novel = {
     const left = Math.min(...[...counts.keys()].filter(x => counts.get(x) >= Math.max(2, lines.length * 0.15)), Infinity);
     const base = Number.isFinite(left) ? left : Math.min(...lines.map(line => line.x));
     const paragraphs = [];
-    let lastY = null;
+    let lastY = null, lastHeading = false;
     for (const line of lines) {
       const text = this.clean(line.text).replace(/\s+/g, ' ').trim();
       if (!text) continue;
+      const heading = this.HEADING.test(text);
       const indented = line.x > base + 6;
       const gap = lastY != null && Math.abs(lastY - line.y) > 40;
-      if (!paragraphs.length || indented || gap) paragraphs.push(text);
-      else paragraphs[paragraphs.length - 1] += (/-$/.test(paragraphs[paragraphs.length - 1]) ? '' : ' ') + text;
+      if (!paragraphs.length || indented || gap || heading || lastHeading) paragraphs.push(text);
+      else paragraphs[paragraphs.length - 1] = this.joinLines(paragraphs[paragraphs.length - 1], text);
       lastY = line.y;
+      lastHeading = heading;
     }
     /* Mark a first paragraph that continues from the previous page. */
     if (lines[0].x <= base + 6 && /^[a-z]/.test(paragraphs[0] || '')) paragraphs[0] = '\u2060' + paragraphs[0];
     return paragraphs;
+  },
+  /* Joins two printed lines. A word broken with a hyphen at the line end
+     ("hos-" + "tility") is put back together, unless both halves are words
+     of their own ("black-" + "moustachio'd"). */
+  joinLines(previous, next) {
+    const broken = previous.match(/([A-Za-z]+)-$/);
+    const after = next.match(/^([a-z]+)/);
+    if (!broken || !after) return previous + ' ' + next;
+    const whole = broken[1] + after[1];
+    const keepHyphen = !this.lookup(whole) && this.lookup(broken[1]) && this.lookup(after[1]);
+    return keepHyphen ? previous + next : previous.slice(0, -1) + next;
   },
   setBook(book, page) {
     this.stopReading();

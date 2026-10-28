@@ -18,8 +18,8 @@ from nltk.corpus import wordnet as wn
 
 HERE = Path(__file__).resolve().parent
 NOVELS = HERE.parent.parent / "novels"
-# Calibre PDFs draw ligatures with these glyphs.
-LIGATURES = {"ɹ": "fi", "ʃ": "ff", "ɻ": "fl", "ɽ": "ffi", "ʀ": "ffl"}
+# Ligature glyphs: Calibre PDFs use phonetic letters, others the Unicode ligatures.
+LIGATURES = {"ɹ": "fi", "ʃ": "ff", "ɻ": "fl", "ɽ": "ffi", "ʀ": "ffl", "ﬁ": "fi", "ﬂ": "fl", "ﬀ": "ff"}
 
 
 def load_dictionary() -> dict:
@@ -38,6 +38,8 @@ def main() -> None:
         text = "\n".join(page.get_text() for page in fitz.open(pdf))
         for glyph, letters in LIGATURES.items():
             text = text.replace(glyph, letters)
+        text = re.sub(r"(fi|fl) (?=[a-z])", r"\g<1>", text)  # "fi rst" -> "first"
+        text = re.sub(r"([a-z])-\s*\n\s*([a-z])", r"\g<1>\g<2>", text)  # words broken at line ends
         for token in set(re.findall(r"[A-Za-z]+(?:['’][A-Za-z]+)*", text)):
             form = token.lower().replace("’", "'")
             base = re.sub(r"'s$", "", form)

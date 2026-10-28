@@ -144,12 +144,16 @@ def novel_shelf() -> str:
     buttons = []
     for pdf in sorted((HERE.parent / "novels").glob("*.pdf")):
         title, author = pdf.stem, ""
+        names = HERE / "novel" / "titles.json"
+        known = json.loads(names.read_text(encoding="utf-8")) if names.exists() else {}
         try:
             import fitz
             meta = fitz.open(pdf).metadata or {}
             title, author = meta.get("title") or title, meta.get("author") or ""
         except Exception:
             pass
+        if pdf.name in known:  # PDFs without a title in their metadata
+            title, author = known[pdf.name].get("title", title), known[pdf.name].get("author", author)
         label = title + (" — " + author if author else "")
         buttons.append(f'<button type="button" class="button primary" data-novel="novels/{esc(pdf.name)}" aria-pressed="false">'
                        f'<svg class="icon" aria-hidden="true"><use href="#i-book"/></svg><span lang="en">{esc(label)}</span></button>')
