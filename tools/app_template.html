@@ -359,10 +359,10 @@ mark.vocab { background: var(--mark); color: inherit; padding: 0 2px; border-rad
 .novel-lib[hidden] { display: none; }
 
 /* Reader page colours ("paper"), chosen on <body data-paper> */
-body { --paper-bg: var(--surface); --paper-card: var(--surface); --paper-text: var(--text); --paper-muted: var(--muted); --paper-line: var(--line); --paper-hi: var(--mark); --paper-word: #ffd95e; --paper-soft: rgba(127, 127, 127, .12); }
-body[data-paper="light"] { --paper-bg: #fbfaf7; --paper-card: #ffffff; --paper-text: #1f1d1a; --paper-muted: #6b665d; --paper-line: #e6e1d7; --paper-hi: #fde9a8; --paper-word: #ffd95e; --paper-soft: rgba(31, 29, 26, .07); }
-body[data-paper="sepia"] { --paper-bg: #f4ecd8; --paper-card: #fcf6e8; --paper-text: #3b2f20; --paper-muted: #7a6a52; --paper-line: #e0d2b4; --paper-hi: #ebd290; --paper-word: #e9bf4f; --paper-soft: rgba(59, 47, 32, .08); }
-body[data-paper="dark"] { --paper-bg: #15171c; --paper-card: #23262e; --paper-text: #d9d4c7; --paper-muted: #8d877b; --paper-line: #2c3038; --paper-hi: #4f4313; --paper-word: #8a6a0c; --paper-soft: rgba(217, 212, 199, .09); }
+body { --paper-bg: var(--surface); --paper-card: var(--surface); --paper-text: var(--text); --paper-muted: var(--muted); --paper-line: var(--line); --paper-hi: var(--mark); --paper-word: #ffd95e; --paper-soft: rgba(127, 127, 127, .12); --paper-tr-bg: var(--primary-soft); --paper-tr: var(--accent-text); }
+body[data-paper="light"] { --paper-bg: #fbfaf7; --paper-card: #ffffff; --paper-text: #1f1d1a; --paper-muted: #6b665d; --paper-line: #e6e1d7; --paper-hi: #fde9a8; --paper-word: #ffd95e; --paper-soft: rgba(31, 29, 26, .07); --paper-tr-bg: #edf1f8; --paper-tr: #34496b; }
+body[data-paper="sepia"] { --paper-bg: #f4ecd8; --paper-card: #fcf6e8; --paper-text: #3b2f20; --paper-muted: #7a6a52; --paper-line: #e0d2b4; --paper-hi: #ebd290; --paper-word: #e9bf4f; --paper-soft: rgba(59, 47, 32, .08); --paper-tr-bg: #eadfc6; --paper-tr: #574329; }
+body[data-paper="dark"] { --paper-bg: #15171c; --paper-card: #23262e; --paper-text: #d9d4c7; --paper-muted: #8d877b; --paper-line: #2c3038; --paper-hi: #4f4313; --paper-word: #8a6a0c; --paper-soft: rgba(217, 212, 199, .09); --paper-tr-bg: #1f2531; --paper-tr: #a9b9d3; }
 body.novel-focus { background: var(--paper-bg); }
 body.novel-focus main { padding-top: 0; padding-bottom: 0; }
 body.novel-focus .site-footer { display: none; }
@@ -377,8 +377,11 @@ body.novel-focus .site-footer { display: none; }
 .novel-icon:disabled { opacity: .3; cursor: default; background: transparent; }
 .novel-icon[hidden] { display: none; }
 .novel-icon .icon { width: 24px; height: 24px; }
+.novel-chip { flex: none; display: grid; place-items: center; min-width: 44px; height: 38px; padding: 0 10px; border: 1px solid var(--paper-line); border-radius: 10px; background: transparent; color: inherit; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.novel-chip:hover { background: var(--paper-soft); }
+.novel-chip[aria-pressed="true"], .novel-chip[aria-expanded="true"] { background: var(--paper-tr-bg); color: var(--paper-tr); border-color: transparent; }
 .novel-aa { font: 600 1.05rem/1 Georgia, serif; }
-.novel-aa[aria-expanded="true"] { background: var(--paper-soft); }
+.novel-tr-toggle { font: 700 .8rem/1 var(--font); letter-spacing: .04em; }
 .novel-panel { display: grid; gap: var(--space-2); max-width: 36em; margin: var(--space-2) auto 0; padding: var(--space-3) var(--space-4); border: 1px solid var(--paper-line); border-radius: var(--radius); background: var(--paper-soft); font-size: .95rem; }
 .novel-panel[hidden] { display: none; }
 .novel-row { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); min-height: var(--tap); }
@@ -393,7 +396,7 @@ body.novel-focus .site-footer { display: none; }
 .novel-lookup input { flex: 1; min-width: 0; min-height: var(--tap); }
 
 /* The page */
-.novel-text { max-width: 36em; margin: 0 auto; padding: var(--space-4) 2px var(--space-3); font-family: Georgia, "Iowan Old Style", "Palatino Linotype", "Times New Roman", serif; font-size: 1.15rem; line-height: 1.75; color: var(--paper-text); overflow-wrap: break-word; touch-action: pan-y; }
+.novel-text { max-width: 36em; margin: 0 auto; padding: var(--space-4) 4px var(--space-3); font-family: Georgia, "Iowan Old Style", "Palatino Linotype", "Times New Roman", serif; font-size: 1.15rem; line-height: 1.65; color: var(--paper-text); overflow-wrap: break-word; touch-action: pan-y; }
 .novel-text p { margin: 0 0 .9em; text-indent: 1.4em; }
 .novel-text p.cont, .novel-text .novel-chapter + p { text-indent: 0; }
 .novel-text .novel-chapter { margin: 1.4em 0 1.1em; font-size: 1.3em; font-weight: 600; text-align: center; letter-spacing: .02em; }
@@ -405,14 +408,13 @@ body.novel-focus .site-footer { display: none; }
 .novel-text .nw.is-word { background: var(--paper-word); box-shadow: 0 0 0 2px var(--paper-word); border-radius: 3px; }
 .novel-empty { color: var(--paper-muted); font-style: italic; text-align: center; }
 /* Sentence by sentence with Turkish under each one */
-.novel-para { margin: 0 0 1.4em; }
-.novel-text .novel-para .novel-sent { margin: 0; text-indent: 0; }
-.novel-tr { margin: .2em 0 .8em; padding-left: .7em; border-left: 3px solid var(--paper-line); font-family: var(--font); font-size: .8em; line-height: 1.5; color: var(--paper-muted); }
-.novel-tr:last-child { margin-bottom: 0; }
+.novel-para { margin: 0 0 1.75em; }
+.novel-pair { margin: 0 0 1em; }
+.novel-pair:last-child { margin-bottom: 0; }
+.novel-text .novel-sent { margin: 0; text-indent: 0; line-height: 1.5; }
+.novel-tr { margin-top: .35em; padding: .45em .75em .5em; border-radius: 10px; background: var(--paper-tr-bg); color: var(--paper-tr); font-family: var(--font); font-size: .8em; line-height: 1.45; }
+.novel-tr.is-waiting { opacity: .55; }
 .novel-tr[hidden] { display: none; }
-.novel-tr-toggle { font: 700 .82rem/1 var(--font); letter-spacing: .03em; }
-.novel-tr-toggle[aria-pressed="true"] { background: var(--primary); color: var(--on-primary); }
-.novel-tr-toggle[aria-pressed="true"]:hover { background: var(--primary-hover); }
 .novel-image { display: block; width: 100%; height: auto; margin: 0 auto; border-radius: 4px; background: #fff; }
 .novel-turn { display: flex; align-items: center; justify-content: center; gap: 6px; width: min(100%, 36em); margin: 0 auto var(--space-4); min-height: 52px; border: 1px solid var(--paper-line); border-radius: var(--radius); background: transparent; color: inherit; font: inherit; font-weight: 600; cursor: pointer; }
 .novel-turn[hidden] { display: none; }
@@ -749,8 +751,8 @@ body.novel-focus .novel-pop-base, body.novel-focus .novel-pop-sentence { color: 
       <div class="novel-top">
         <button type="button" class="novel-icon" id="novel-library" aria-label="Books" data-i18n-aria="novel.library"><svg class="icon" aria-hidden="true"><use href="#i-prev"/></svg></button>
         <div class="novel-top-title"><strong id="novel-book-title" lang="en"></strong><span id="novel-book-place"></span></div>
-        <button type="button" class="novel-icon novel-tr-toggle" id="novel-tr" aria-pressed="false" aria-label="Turkish sentence by sentence" data-i18n-aria="novel.trPage">TR</button>
-        <button type="button" class="novel-icon novel-aa" id="novel-aa" aria-expanded="false" aria-controls="novel-panel" aria-label="Reading settings" data-i18n-aria="novel.settings">Aa</button>
+        <button type="button" class="novel-chip novel-tr-toggle" id="novel-tr" aria-pressed="false" aria-label="Turkish sentence by sentence" data-i18n-aria="novel.trPage">TR</button>
+        <button type="button" class="novel-chip novel-aa" id="novel-aa" aria-expanded="false" aria-controls="novel-panel" aria-label="Reading settings" data-i18n-aria="novel.settings">Aa</button>
       </div>
       <div class="novel-panel" id="novel-panel" hidden>
         <div class="novel-row">
@@ -2645,7 +2647,7 @@ const Novel = {
       for (const sentence of this.sentences(text.replace(/^⁠/, ''))) {
         const line = this.paragraph(sentence);
         line.classList.add('novel-sent');
-        block.append(line, h('div', { class: 'novel-tr', lang: 'tr', 'data-en': sentence, text: '…' }));
+        block.append(h('div', { class: 'novel-pair' }, line, h('div', { class: 'novel-tr is-waiting', lang: 'tr', 'data-en': sentence, text: t('novel.trLoading') })));
       }
       return block;
     });
@@ -2657,7 +2659,7 @@ const Novel = {
     const worker = async () => {
       while (next < lines.length && this.page === page && this.translated) {
         const line = lines[next++];
-        try { line.textContent = await this.translate(line.dataset.en); }
+        try { line.textContent = await this.translate(line.dataset.en); line.classList.remove('is-waiting'); }
         catch (_) {
           line.hidden = true;
           if (!warned) { warned = true; Toast.show(t('novel.trOffline')); }
