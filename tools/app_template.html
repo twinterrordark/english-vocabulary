@@ -363,6 +363,8 @@ mark.vocab { background: var(--mark); color: inherit; padding: 0 2px; border-rad
 .novel-shelf { display: flex; flex-wrap: wrap; gap: var(--space-2); }
 .novel-shelf:empty { display: none; }
 .novel-shelf .button[aria-pressed="true"] { background: var(--primary); border-color: var(--primary); color: var(--on-primary); }
+.novel-mark { font-size: .8rem; font-weight: 600; padding: 1px 8px; border-radius: 999px; background: rgba(0, 0, 0, .14); white-space: nowrap; }
+.novel-mark[hidden] { display: none; }
 .novel-listen { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2); }
 .novel-auto { display: inline-flex; align-items: center; gap: 6px; font-size: .92rem; min-height: var(--tap); }
 .novel-auto input { width: 20px; height: 20px; }
@@ -375,6 +377,8 @@ mark.vocab { background: var(--mark); color: inherit; padding: 0 2px; border-rad
 .novel-pop-base { color: var(--muted); font-size: .9rem; }
 .novel-pop-base:empty { display: none; }
 .novel-pop-tr { font-size: 1.08rem; font-weight: 600; }
+.novel-pop-verb { font-size: .95rem; }
+.novel-pop-verb[hidden] { display: none; }
 .novel-pop-sentence { font-size: .88rem; color: var(--muted); }
 .link-button { background: none; border: 0; padding: 0; color: var(--primary); font: inherit; text-decoration: underline; cursor: pointer; }
 .view[data-view="novel"] { padding-bottom: 200px; }
@@ -705,6 +709,7 @@ mark.vocab { background: var(--mark); color: inherit; padding: 0 2px; border-rad
       </div>
       <p class="novel-pop-base" id="novel-pop-base"></p>
       <p class="novel-pop-tr" id="novel-pop-tr" lang="tr"></p>
+      <p class="novel-pop-verb" id="novel-pop-verb" hidden></p>
       <p class="novel-pop-sentence" id="novel-pop-sentence"><button type="button" class="link-button" id="novel-pop-say" data-i18n="novel.sayLine">Listen to the sentence</button> · <a id="novel-pop-gt" href="#" target="_blank" rel="noopener noreferrer" data-i18n="novel.translateLine">Translate the sentence (online)</a></p>
     </div>
   </section>
@@ -938,7 +943,7 @@ const STRINGS = {
     'novel.prev': 'Previous page', 'novel.next': 'Next page', 'novel.prevText': '‹ Previous', 'novel.nextText': 'Next ›', 'novel.page': 'Page',
     'novel.smaller': 'Smaller text', 'novel.bigger': 'Larger text', 'novel.lookup': 'Look up a word', 'novel.lookupPh': 'Look up a word…', 'novel.find': 'Translate',
     'novel.listen': 'Listen', 'novel.close': 'Close', 'novel.sayLine': 'Listen to the sentence', 'novel.translateLine': 'Translate the sentence (online)',
-    'novel.base': 'from “{w}”', 'novel.name': 'Proper name (person or place)', 'novel.unknown': 'Not in the offline dictionary. Use “Translate the sentence” when online.',
+    'novel.base': 'from “{w}”', 'novel.name': 'Proper name (person or place)', 'novel.verb': 'Irregular verb: {forms}', 'novel.mark': 'p. {n}', 'novel.unknown': 'Not in the offline dictionary. Use “Translate the sentence” when online.',
     'novel.emptyPage': 'This page has no text (picture or blank page).',
     'novel.readPage': 'Read this page aloud', 'novel.pauseRead': 'Pause', 'novel.resumeRead': 'Continue', 'novel.stopRead': 'Stop',
     'novel.auto': 'Continue to the next page', 'novel.noVoice': 'This browser has no English voice for reading aloud.',
@@ -1032,7 +1037,7 @@ const STRINGS = {
     'novel.prev': 'Önceki sayfa', 'novel.next': 'Sonraki sayfa', 'novel.prevText': '‹ Önceki', 'novel.nextText': 'Sonraki ›', 'novel.page': 'Sayfa',
     'novel.smaller': 'Yazıyı küçült', 'novel.bigger': 'Yazıyı büyüt', 'novel.lookup': 'Kelime ara', 'novel.lookupPh': 'Kelime yaz, çevir…', 'novel.find': 'Çevir',
     'novel.listen': 'Dinle', 'novel.close': 'Kapat', 'novel.sayLine': 'Cümleyi dinle', 'novel.translateLine': 'Cümleyi çevir (internet)',
-    'novel.base': '“{w}” kelimesinden', 'novel.name': 'Özel isim (kişi veya yer adı)', 'novel.unknown': 'Çevrimdışı sözlükte yok. İnternet varken “Cümleyi çevir”i kullan.',
+    'novel.base': '“{w}” kelimesinden', 'novel.name': 'Özel isim (kişi veya yer adı)', 'novel.verb': 'Düzensiz fiil: {forms}', 'novel.mark': 's. {n}', 'novel.unknown': 'Çevrimdışı sözlükte yok. İnternet varken “Cümleyi çevir”i kullan.',
     'novel.emptyPage': 'Bu sayfada yazı yok (resim veya boş sayfa).',
     'novel.readPage': 'Sayfayı sesli oku', 'novel.pauseRead': 'Duraklat', 'novel.resumeRead': 'Devam et', 'novel.stopRead': 'Durdur',
     'novel.auto': 'Sayfa bitince sonrakine geç', 'novel.noVoice': 'Bu tarayıcıda sesli okuma için İngilizce ses yok.',
@@ -1992,6 +1997,7 @@ const Novel = {
     const saved = this.readState();
     if (saved && saved.size) this.size = saved.size;
     if (saved && saved.auto === false) $('#novel-auto').checked = false;
+    this.showMarks();
   },
   /* Opens the last book read on this device, otherwise the first book in novels/. */
   async onShow() {
@@ -2001,12 +2007,13 @@ const Novel = {
     const shelf = $$('#novel-shelf [data-novel]').map(button => button.dataset.novel);
     /* A book from novels/ saved by an older version of the reader is read again. */
     const stale = book && book.v !== this.FORMAT && shelf.includes(book.name);
-    if (book && Array.isArray(book.pages) && !this.book && !stale) {
-      const saved = this.readState();
-      this.setBook(book, saved && saved.v === 2 && saved.name === book.name ? saved.page : 0);
+    const saved = this.readState();
+    const last = saved && saved.name;
+    if (book && Array.isArray(book.pages) && !this.book && !stale && (!last || last === book.name)) {
+      this.setBook(book, this.markOf(book.name));
       return;
     }
-    const next = stale ? book.name : shelf[0];
+    const next = stale ? book.name : (last && shelf.includes(last) ? last : shelf[0]);
     if (next && !this.book) this.openUrl(next);
   },
   say(text) {
@@ -2089,8 +2096,37 @@ const Novel = {
       this.status(t('novel.fetchError'));
     }
   },
-  readState() { try { return JSON.parse(Store.read(this.KEY) || 'null'); } catch (_) { return null; } },
-  saveState() { if (this.book) Store.write(this.KEY, JSON.stringify({ v: 2, name: this.book.name, page: this.page, size: this.size, auto: $('#novel-auto').checked })); },
+  /* Saved state: { v: 3, name: last book, marks: { book: page }, size, auto }.
+     Each book keeps its own bookmark, so switching books loses no place. */
+  readState() {
+    let state = null;
+    try { state = JSON.parse(Store.read(this.KEY) || 'null'); } catch (_) { return null; }
+    if (state && state.v === 2) state = { v: 3, name: state.name, marks: state.name ? { [state.name]: state.page || 0 } : {}, size: state.size, auto: state.auto };
+    if (state && !state.marks) state.marks = {};
+    return state;
+  },
+  markOf(name) {
+    const saved = this.readState();
+    return (saved && saved.marks[name]) || 0;
+  },
+  saveState() {
+    if (!this.book) return;
+    const saved = this.readState();
+    const marks = Object.assign({}, saved && saved.marks, { [this.book.name]: this.page });
+    Store.write(this.KEY, JSON.stringify({ v: 3, name: this.book.name, marks, size: this.size, auto: $('#novel-auto').checked }));
+    this.showMarks();
+  },
+  /* The bookmark page on each shelf button ("s. 42"). */
+  showMarks() {
+    const saved = this.readState();
+    for (const button of $$('#novel-shelf [data-novel]')) {
+      const mark = button.querySelector('.novel-mark');
+      const page = saved && saved.marks[button.dataset.novel];
+      if (!mark) continue;
+      mark.hidden = !page;
+      mark.textContent = page ? t('novel.mark', { n: page + 1 }) : '';
+    }
+  },
   status(text) { $('#novel-status').textContent = text; },
   async loadPdfjs() {
     if (window.pdfjsLib) return window.pdfjsLib;
@@ -2124,8 +2160,7 @@ const Novel = {
     }
     const book = { name, pages, v: this.FORMAT };
     const stored = await BookStore.put(book);
-    const saved = this.readState();
-    this.setBook(book, saved && saved.v === 2 && saved.name === name ? saved.page : 0);
+    this.setBook(book, this.markOf(name));
     this.status(t(stored ? 'novel.ready' : 'novel.readyNoStore', { n: this.book.pages.length }));
   },
   /* Some PDFs give no character for a ligature glyph (pdf.js returns \u0000).
@@ -2194,6 +2229,7 @@ const Novel = {
     this.stopReading();
     this.book = { name: book.name, pages: this.storyPages(book.pages) };
     book = this.book;
+    this.page = Math.min(book.pages.length - 1, Math.max(0, page));  /* before setSize saves the state */
     for (const button of $$('#novel-shelf [data-novel]')) button.setAttribute('aria-pressed', String(button.dataset.novel === book.name));
     $('#novel-reader').hidden = false;
     $('#novel-total').textContent = book.pages.length;
@@ -2314,6 +2350,15 @@ const Novel = {
     if (entry) return { base: entry.word, tr: entry.meaning };
     return null;
   },
+  /* "go – went – gone" for an irregular verb or one of its past forms
+     (also for "saw", "found", "left", which are words of their own too). */
+  irregularVerb(raw, found) {
+    const irregular = this.dictionary().irregular || {};
+    const word = raw.toLowerCase().replace(/’/g, "'");
+    let verb = [found && found.base, word].find(w => w && irregular[w]);
+    if (!verb) verb = Object.keys(irregular).find(v => irregular[v].join('/').split('/').includes(word));
+    return verb ? [verb, ...irregular[verb]].join(' – ') : '';
+  },
   sentenceAround(node) {
     if (!node) return '';
     const text = node.parentNode.textContent;
@@ -2335,6 +2380,9 @@ const Novel = {
     $('#novel-pop-word').textContent = raw;
     $('#novel-pop-base').textContent = found && found.base !== raw.toLowerCase().replace(/’/g, "'") ? t('novel.base', { w: found.base }) : '';
     $('#novel-pop-tr').textContent = found ? found.tr : (capital ? t('novel.name') : t('novel.unknown'));
+    const verb = this.irregularVerb(raw, found);
+    $('#novel-pop-verb').hidden = !verb;
+    $('#novel-pop-verb').textContent = verb ? t('novel.verb', { forms: verb }) : '';
     $('#novel-pop-sentence').hidden = !sentence;
     $('#novel-pop-gt').href = 'https://translate.google.com/?sl=en&tl=tr&op=translate&text=' + encodeURIComponent(sentence);
     $('#novel-pop-speak').hidden = !Speech.supported;

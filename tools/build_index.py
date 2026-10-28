@@ -136,7 +136,14 @@ def load_novel_dictionary() -> dict:
     words.pop("_comment", None)
     forms_path = HERE / "novel" / "forms.json"
     forms = json.loads(forms_path.read_text(encoding="utf-8")) if forms_path.exists() else {}
-    return {"words": words, "forms": {f: w for f, w in forms.items() if w in words}}
+    irregular = json.loads((HERE / "novel" / "irregular.json").read_text(encoding="utf-8"))
+    irregular.pop("_comment", None)
+    # "went" -> "go": past forms that are not words of their own lead to their verb.
+    for verb, (past, participle) in irregular.items():
+        for form in (past + "/" + participle).split("/"):
+            if verb in words and form not in words:
+                forms.setdefault(form, verb)
+    return {"words": words, "forms": {f: w for f, w in forms.items() if w in words}, "irregular": irregular}
 
 
 def novel_shelf() -> str:
@@ -156,7 +163,7 @@ def novel_shelf() -> str:
             title, author = known[pdf.name].get("title", title), known[pdf.name].get("author", author)
         label = title + (" — " + author if author else "")
         buttons.append(f'<button type="button" class="button primary" data-novel="novels/{esc(pdf.name)}" aria-pressed="false">'
-                       f'<svg class="icon" aria-hidden="true"><use href="#i-book"/></svg><span lang="en">{esc(label)}</span></button>')
+                       f'<svg class="icon" aria-hidden="true"><use href="#i-book"/></svg><span lang="en">{esc(label)}</span><span class="novel-mark" hidden></span></button>')
     return "".join(buttons)
 
 
