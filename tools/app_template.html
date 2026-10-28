@@ -2083,7 +2083,10 @@ const Novel = {
       if (page === end[0] && !paragraphs.length) break;
       story.push(paragraphs);
     }
-    return story.filter((paragraphs, index) => paragraphs.length || (index > 0 && index < story.length - 1));
+    /* Blank pages before and after the story (pictures, an emptied back cover) are dropped. */
+    while (story.length && !story[story.length - 1].length) story.pop();
+    while (story.length && !story[0].length) story.shift();
+    return story;
   },
   async openUrl(url) {
     if (location.protocol === 'file:') { this.status(t('novel.fileHint')); return; }
