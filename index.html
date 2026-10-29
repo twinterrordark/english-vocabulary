@@ -394,6 +394,69 @@ mark.vocab { background: var(--mark); color: inherit; padding: 0 2px; border-rad
 .speak-round[aria-pressed="true"] .icon { background: var(--warn-soft); color: var(--warn); }
 .speak-round.danger .icon { background: var(--error); color: #fff; }
 
+/* ---------- Teacher (AI) ---------- */
+body.tutor-focus .site-footer, body.speak-focus .site-footer { display: none; }
+body.tutor-focus main { padding-top: 0; }
+@media (max-width: 760px) { body.tutor-focus .app-header, body.tutor-focus .banner { display: none; } }
+.speak-section { margin: var(--space-3) 0 0; font-size: 1rem; color: var(--muted); }
+.tutor-card-head { display: flex; gap: var(--space-3); align-items: flex-start; }
+.tutor-card-head .hint { margin: 2px 0 0; }
+.tutor-avatar { flex: none; display: grid; place-items: center; width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, #2bb3a3, #1d6f8f); color: #fff; font: 700 1.25rem/1 Georgia, serif; }
+.tutor-avatar.small { width: 34px; height: 34px; font-size: .95rem; }
+.tutor { max-width: 640px; margin: 0 auto; padding-bottom: calc(120px + env(safe-area-inset-bottom)); }
+.tutor[hidden] { display: none; }
+.tutor-top { position: sticky; top: 0; z-index: 20; display: flex; align-items: center; gap: var(--space-2); padding: 6px 0; background: var(--bg); border-bottom: 1px solid var(--line); }
+.tutor-top-title { flex: 1; min-width: 0; display: grid; line-height: 1.25; }
+.tutor-top-title span { color: var(--muted); font-size: .8rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.tutor-top .novel-chip { --paper-line: var(--line); --paper-soft: var(--surface-2, var(--line)); --paper-tr-bg: var(--primary-soft); --paper-tr: var(--accent-text); }
+.tutor-top .novel-chip .icon { width: 20px; height: 20px; }
+.tutor-panel { display: grid; gap: var(--space-2); margin-top: var(--space-2); padding: var(--space-3) var(--space-4); border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); --paper-soft: var(--surface-2, var(--line)); }
+.tutor-panel[hidden] { display: none; }
+.tutor-panel .hint { margin: 0; }
+.tutor-row { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); min-height: var(--tap); }
+.tutor-row select { max-width: 62%; min-height: 40px; }
+.tutor-panel .button { justify-self: start; }
+.tutor-chat { list-style: none; margin: var(--space-3) 0 0; padding: 0; display: grid; gap: var(--space-3); }
+.tutor-msg { display: flex; gap: var(--space-2); align-items: flex-end; max-width: 100%; }
+.tutor-msg.from-me { justify-content: flex-end; }
+.tutor-bubble { max-width: 85%; padding: 10px 14px; border-radius: 18px; background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow); overflow-wrap: anywhere; }
+.from-teacher .tutor-bubble { border-bottom-left-radius: 6px; }
+.from-me .tutor-bubble { border-bottom-right-radius: 6px; background: var(--primary); border-color: var(--primary); color: var(--on-primary); }
+.tutor-say { margin: 0; font: 1.08rem/1.5 Georgia, "Times New Roman", serif; }
+.tutor-tools { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: 6px; }
+.tutor-tools button { display: inline-flex; align-items: center; gap: 4px; min-height: 32px; padding: 0 10px; border: 1px solid var(--line); border-radius: 999px; background: transparent; color: var(--accent-text); font: 600 .8rem/1 var(--font); cursor: pointer; }
+.tutor-tools .icon { width: 15px; height: 15px; }
+.tutor-tr { margin: 6px 0 0; padding: 6px 10px; border-radius: 10px; background: var(--primary-soft); color: var(--accent-text); font-size: .9rem; }
+.tutor-tr[hidden] { display: none; }
+.tutor-word { display: inline-flex; align-items: center; gap: 6px; margin-top: 8px; padding: 4px 10px; border-radius: 10px; background: var(--warn-soft); color: var(--warn); font-size: .88rem; }
+.tutor-word strong { font-weight: 700; }
+.tutor-fix { margin: 6px 0 0 auto; max-width: 85%; padding: 8px 12px; border-radius: 12px; background: var(--success-soft); color: var(--success); font-size: .92rem; }
+.tutor-fix strong { display: block; font-size: .78rem; text-transform: uppercase; letter-spacing: .04em; }
+.tutor-fix span { display: block; margin-top: 4px; color: var(--text); opacity: .8; font-size: .86rem; }
+.tutor-me-wrap { display: grid; justify-items: end; max-width: 100%; }
+.tutor-typing .tutor-bubble { display: inline-flex; gap: 5px; padding: 14px 16px; }
+.tutor-typing i { width: 7px; height: 7px; border-radius: 50%; background: var(--muted); animation: tutor-dot 1.2s infinite; }
+.tutor-typing i:nth-child(2) { animation-delay: .2s; }
+.tutor-typing i:nth-child(3) { animation-delay: .4s; }
+@keyframes tutor-dot { 0%, 60%, 100% { opacity: .25; transform: none; } 30% { opacity: 1; transform: translateY(-3px); } }
+@media (prefers-reduced-motion: reduce) { .tutor-typing i { animation: none; } }
+.tutor-error { margin: 0 auto; padding: 8px 12px; border-radius: 12px; background: var(--error-soft); color: var(--error); font-size: .9rem; text-align: center; }
+.tutor-error button { margin-top: 6px; }
+.tutor-dock { position: fixed; left: 0; right: 0; bottom: 0; z-index: 40; display: grid; gap: 8px; padding: 10px var(--gutter) calc(10px + env(safe-area-inset-bottom)); background: var(--surface); border-top: 1px solid var(--line); }
+.tutor[hidden] .tutor-dock { display: none; }
+.tutor-dock > * { width: min(640px, 100%); margin: 0 auto; }
+.tutor-interim { margin: 0 auto; padding: 8px 12px; border-radius: 12px; background: var(--primary-soft); color: var(--accent-text); font-style: italic; }
+.tutor-interim[hidden], .tutor-type[hidden] { display: none; }
+.tutor-type { display: flex; gap: var(--space-2); }
+.tutor-type input { flex: 1; min-width: 0; min-height: var(--tap); }
+.tutor-dock-row { display: flex; align-items: center; justify-content: space-between; }
+.tutor-dock-row .novel-icon { color: var(--text); }
+.tutor-dock-row .novel-icon[aria-pressed="true"] { background: var(--primary-soft); color: var(--accent-text); }
+.tutor-mic { display: inline-flex; align-items: center; gap: 10px; min-height: 56px; padding: 0 28px; border: 0; border-radius: 999px; background: var(--primary); color: var(--on-primary); font: 700 1.05rem/1 var(--font); cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.tutor-mic .icon { width: 22px; height: 22px; }
+.tutor-mic.is-listening { background: var(--error); box-shadow: 0 0 0 6px var(--error-soft); }
+.tutor-mic:disabled { opacity: .5; cursor: default; }
+
 /* ---------- Novel reader ---------- */
 /* Library */
 .novel-shelf { display: grid; gap: var(--space-3); grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr)); }
@@ -579,6 +642,7 @@ body.novel-focus .novel-pop-base, body.novel-focus .novel-pop-sentence { color: 
   <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
   <symbol id="i-mic" viewBox="0 0 24 24"><path d="M12 3a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3zM5 11a7 7 0 0 0 14 0M12 18v3"/></symbol>
   <symbol id="i-mic-off" viewBox="0 0 24 24"><path d="M3 3l18 18M9 9v3a3 3 0 0 0 5.1 2.1M15 9.3V6a3 3 0 0 0-5.7-1.3M19 11a7 7 0 0 1-1.1 3.8M5 11a7 7 0 0 0 10.6 6M12 18v3"/></symbol>
+  <symbol id="i-keyboard" viewBox="0 0 24 24"><path d="M3 6h18v12H3zM7 10h.01M11 10h.01M15 10h.01M7 14h10"/></symbol>
   <symbol id="i-share" viewBox="0 0 24 24"><path d="M4 12v7a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7M16 6l-4-4-4 4M12 2v13"/></symbol>
   <symbol id="i-copy" viewBox="0 0 24 24"><path d="M9 9h11v11H9zM5 15H4V4h11v1"/></symbol>
   <symbol id="i-prev" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></symbol>
@@ -2953,6 +3017,14 @@ body.novel-focus .novel-pop-base, body.novel-focus .novel-pop-sentence { color: 
       <p class="lead" data-i18n="speak.lead">Bir arkadaşınla İngilizce konuş: oda aç, linki gönder, konu kartlarını birlikte kullanın.</p>
     </div>
     <div class="speak-lobby js-only" id="speak-lobby">
+      <div class="panel speak-box tutor-card">
+        <div class="tutor-card-head">
+          <span class="tutor-avatar" aria-hidden="true">E</span>
+          <div><strong data-i18n="tutor.title">Hoca ile konuş</strong><p class="hint" data-i18n="tutor.cardHint">Ms. Emma seni dinler, cevap verir ve hatalarını düzeltir. Arkadaş gerekmez.</p></div>
+        </div>
+        <button type="button" class="button primary speak-big" id="tutor-open"><svg class="icon" aria-hidden="true"><use href="#i-chat"/></svg><span data-i18n="tutor.start">Derse başla</span></button>
+      </div>
+      <h2 class="speak-section" data-i18n="speak.withFriend">Arkadaşla</h2>
       <div class="panel speak-box">
         <button type="button" class="button primary speak-big" id="speak-create"><svg class="icon" aria-hidden="true"><use href="#i-mic"/></svg><span data-i18n="speak.create">Oda aç</span></button>
         <p class="hint" data-i18n="speak.createHint">Arkadaşına göndereceğin bir link oluşur. Linki açtığında bağlanırsınız.</p>
@@ -2966,6 +3038,37 @@ body.novel-focus .novel-pop-base, body.novel-focus .novel-pop-sentence { color: 
       </form>
       <p class="hint speak-note" data-i18n="speak.privacy">Sesin doğrudan iki telefon arasında gider, kaydedilmez. Ücretsiz PeerJS sunucusu yalnızca iki telefonun birbirini bulmasını sağlar.</p>
       <p class="error-text" id="speak-error" role="alert" hidden></p>
+    </div>
+    <!-- Teacher: an AI English teacher (Gemini, through the speakenglish Cloudflare Worker) listens and answers. -->
+    <div class="tutor js-only" id="tutor" hidden>
+      <div class="tutor-top">
+        <button type="button" class="novel-icon" id="tutor-back" aria-label="Geri" data-i18n-aria="tutor.back"><svg class="icon" aria-hidden="true"><use href="#i-prev"/></svg></button>
+        <span class="tutor-avatar small" aria-hidden="true">E</span>
+        <div class="tutor-top-title"><strong>Ms. Emma</strong><span id="tutor-sub"></span></div>
+        <button type="button" class="novel-chip" id="tutor-settings" aria-expanded="false" aria-controls="tutor-panel" aria-label="Ders ayarları" data-i18n-aria="tutor.settings"><svg class="icon" aria-hidden="true"><use href="#i-settings"/></svg></button>
+      </div>
+      <div class="tutor-panel" id="tutor-panel" hidden>
+        <label class="tutor-row"><span data-i18n="tutor.topic">Konu</span><select id="tutor-topic"></select></label>
+        <div class="tutor-row"><span data-i18n="tutor.level">Seviye</span>
+          <span class="novel-seg" id="tutor-levels"><button type="button" data-level="A2">A2</button><button type="button" data-level="B1">B1</button><button type="button" data-level="B2">B2</button></span>
+        </div>
+        <button type="button" class="button" id="tutor-new"><span data-i18n="tutor.new">Yeni ders</span></button>
+        <p class="hint" data-i18n="tutor.privacy">Söylediklerin yazıya çevrilip ders sunucusuna gönderilir; sunucu hocanın cevabını Google Gemini\</p>
+      </div>
+      <ol class="tutor-chat" id="tutor-chat" aria-live="polite"></ol>
+      <div class="tutor-dock">
+        <p class="tutor-interim" id="tutor-interim" lang="en" hidden></p>
+        <form class="tutor-type" id="tutor-type" hidden>
+          <label for="tutor-input" class="visually-hidden" data-i18n="tutor.typeLabel">Cevabın</label>
+          <input id="tutor-input" type="text" autocomplete="off" lang="en" enterkeyhint="send" placeholder="İngilizce yaz…" data-i18n-placeholder="tutor.typePh">
+          <button type="submit" class="button primary" data-i18n="tutor.send">Gönder</button>
+        </form>
+        <div class="tutor-dock-row">
+          <button type="button" class="novel-icon" id="tutor-keyboard" aria-pressed="false" aria-label="Yazarak cevap ver" data-i18n-aria="tutor.keyboard"><svg class="icon" aria-hidden="true"><use href="#i-keyboard"/></svg></button>
+          <button type="button" class="tutor-mic" id="tutor-mic"><svg class="icon" aria-hidden="true"><use href="#i-mic"/></svg><span id="tutor-mic-label" data-i18n="tutor.talk">Konuş</span></button>
+          <button type="button" class="novel-icon" id="tutor-repeat" aria-label="Son cevabı tekrar dinle" data-i18n-aria="tutor.repeat"><svg class="icon" aria-hidden="true"><use href="#i-sound"/></svg></button>
+        </div>
+      </div>
     </div>
     <div class="speak-room js-only" id="speak-room" hidden>
       <div class="speak-bar">
@@ -3310,6 +3413,15 @@ const STRINGS = {
     'continue.learn': 'Open the word list, read the sentences and tap the cards of the words you know.',
     skip: 'Skip to content', 'brand.sub': 'A2–C1 vocabulary and practice', 'nav.label': 'Main',
         'nav.phrases': 'Phrases',
+    'speak.withFriend': 'With a friend', 'tutor.title': 'Talk with the teacher', 'tutor.cardHint': 'Ms. Emma listens, answers and corrects your mistakes. No friend needed.',
+    'tutor.start': 'Start a lesson', 'tutor.back': 'Back', 'tutor.settings': 'Lesson settings', 'tutor.topic': 'Topic', 'tutor.level': 'Level', 'tutor.new': 'New lesson',
+    'tutor.free': 'Free conversation', 'tutor.privacy': 'What you say is turned into text and sent to the lesson server, which asks Google Gemini for the teacher\'s answer. Nothing is saved there.',
+    'tutor.typeLabel': 'Your answer', 'tutor.typePh': 'Type in English…', 'tutor.send': 'Send', 'tutor.keyboard': 'Answer by typing', 'tutor.talk': 'Speak', 'tutor.stop': 'Done',
+    'tutor.repeat': 'Hear the last answer again', 'tutor.listen': 'Listen', 'tutor.turkish': 'Turkish', 'tutor.better': 'Better', 'tutor.thinking': 'The teacher is thinking',
+    'tutor.listening': 'Listening… speak in English', 'tutor.retry': 'Try again', 'tutor.noSpeech': 'I didn\'t hear anything. Tap Speak and try again.',
+    'tutor.micDenied': 'The microphone is blocked. Allow it for this site in the browser settings.', 'tutor.noRecognition': 'This browser cannot turn speech into text; type your answer instead (Chrome or Safari can).',
+    'tutor.err.tooMany': 'Slow down a little 🙂 Too many messages in a minute; wait a moment.', 'tutor.err.limit': 'The free daily limit is used up. Try again a bit later.',
+    'tutor.err.network': 'No connection to the lesson server. Check the internet.', 'tutor.err.server': 'The teacher could not answer. Try again.',
     'nav.speak': 'Speaking', 'mode.speak': 'Talk in English with a friend in a voice room, with topic cards to guide you.',
     'speak.title': 'Speaking room', 'speak.lead': 'Talk in English with a friend: open a room, send them the link and use the topic cards together.',
     'speak.create': 'Open a room', 'speak.createHint': 'You get a link to send to your friend. When they open it, you are connected.',
@@ -3423,6 +3535,15 @@ const STRINGS = {
   },
   tr: {
         'nav.phrases': 'İfadeler',
+    'speak.withFriend': 'Arkadaşla', 'tutor.title': 'Hoca ile konuş', 'tutor.cardHint': 'Ms. Emma seni dinler, cevap verir ve hatalarını düzeltir. Arkadaş gerekmez.',
+    'tutor.start': 'Derse başla', 'tutor.back': 'Geri', 'tutor.settings': 'Ders ayarları', 'tutor.topic': 'Konu', 'tutor.level': 'Seviye', 'tutor.new': 'Yeni ders',
+    'tutor.free': 'Serbest sohbet', 'tutor.privacy': 'Söylediklerin yazıya çevrilip ders sunucusuna gönderilir; sunucu hocanın cevabını Google Gemini\'den alır. Orada hiçbir şey saklanmaz.',
+    'tutor.typeLabel': 'Cevabın', 'tutor.typePh': 'İngilizce yaz…', 'tutor.send': 'Gönder', 'tutor.keyboard': 'Yazarak cevap ver', 'tutor.talk': 'Konuş', 'tutor.stop': 'Bitti',
+    'tutor.repeat': 'Son cevabı tekrar dinle', 'tutor.listen': 'Dinle', 'tutor.turkish': 'Türkçesi', 'tutor.better': 'Doğrusu', 'tutor.thinking': 'Hoca düşünüyor',
+    'tutor.listening': 'Dinliyorum… İngilizce konuş', 'tutor.retry': 'Tekrar dene', 'tutor.noSpeech': 'Bir şey duyamadım. Konuş\'a dokunup tekrar dene.',
+    'tutor.micDenied': 'Mikrofon izni kapalı. Tarayıcı ayarlarından bu siteye mikrofon izni ver.', 'tutor.noRecognition': 'Bu tarayıcı konuşmayı yazıya çeviremiyor; cevabını yazarak ver (Chrome ya da Safari çevirebilir).',
+    'tutor.err.tooMany': 'Biraz yavaşla 🙂 Bir dakikada çok mesaj gönderdin, biraz bekle.', 'tutor.err.limit': 'Günlük ücretsiz kullanım doldu. Biraz sonra tekrar dene.',
+    'tutor.err.network': 'Ders sunucusuna ulaşılamadı. İnternet bağlantını kontrol et.', 'tutor.err.server': 'Hoca cevap veremedi. Tekrar dene.',
     'nav.speak': 'Konuşma', 'mode.speak': 'Bir arkadaşınla sesli odada İngilizce konuş; konu kartları sana yol göstersin.',
     'speak.title': 'Konuşma odası', 'speak.lead': 'Bir arkadaşınla İngilizce konuş: oda aç, linki gönder, konu kartlarını birlikte kullanın.',
     'speak.create': 'Oda aç', 'speak.createHint': 'Arkadaşına göndereceğin bir link oluşur. Linki açtığında bağlanırsınız.',
@@ -4087,8 +4208,9 @@ const Router = {
       row.scrollLeft += tab.getBoundingClientRect().left - row.getBoundingClientRect().left - (row.clientWidth - tab.offsetWidth) / 2;
     }
     document.title = t('nav.' + name) + ' · English Study';
-    if (changed) Speech.stop();
+    if (changed) { Speech.stop(); Tutor.pause(); }
     Novel.focusMode();
+    Tutor.focusMode();
     const module = MODULES[name];
     if (module && module.onShow) module.onShow();
     if (moveFocus && changed) {
@@ -5744,6 +5866,7 @@ const Speak = {
     $('#speak-room').hidden = !on;
     $('#speak-join').classList.remove('is-invited');
     $('.view[data-view="speak"]').classList.toggle('in-room', on);
+    Tutor.focusMode();
     if (on) { this.renderTopics(); this.render(); window.scrollTo(0, 0); }
   },
   setStatus(status) {
@@ -5817,6 +5940,297 @@ const Speak = {
   }
 };
 
+/* ---------- Teacher (AI) ----------
+   Ms. Emma from the speakenglish project. The browser turns speech into text;
+   the speakenglish Cloudflare Worker asks Google Gemini for her answer (with
+   a correction and a Turkish tip) and reads it in a natural voice. The worker
+   accepts calls from twinterrordark.github.io, where this page is published. */
+const Tutor = {
+  API: 'https://english-teacher-3d.twinterrordark.workers.dev',
+  KEY: 'english-study-tutor.v1',
+  ERRORS: { too_many: 'tutor.err.tooMany', rate_limited: 'tutor.err.limit', no_key: 'tutor.err.server', bad_key: 'tutor.err.server', network: 'tutor.err.network' },
+  settings: { topic: -1, level: 'A2', review: [] },
+  history: [],
+  token: 0,
+  busy: false,
+  listening: null,
+  lastReply: '',
+  naturalFailures: 0,
+  init() {
+    try { Object.assign(this.settings, JSON.parse(Store.read(this.KEY) || '{}')); } catch (_) { /* defaults */ }
+    if (!Array.isArray(this.settings.review)) this.settings.review = [];
+    $('#tutor-open').addEventListener('click', () => this.open());
+    $('#tutor-back').addEventListener('click', () => this.close());
+    $('#tutor-settings').addEventListener('click', () => {
+      const open = $('#tutor-panel').hidden;
+      $('#tutor-panel').hidden = !open;
+      $('#tutor-settings').setAttribute('aria-expanded', String(open));
+    });
+    $('#tutor-topic').addEventListener('change', event => { this.settings.topic = parseInt(event.target.value, 10); this.save(); this.newLesson(); });
+    $('#tutor-levels').addEventListener('click', event => {
+      const button = event.target.closest('[data-level]');
+      if (!button || button.dataset.level === this.settings.level) return;
+      this.settings.level = button.dataset.level;
+      this.save();
+      this.newLesson();
+    });
+    $('#tutor-new').addEventListener('click', () => this.newLesson());
+    $('#tutor-mic').addEventListener('click', () => { if (this.listening) this.listening.stop(); else this.listen(); });
+    $('#tutor-keyboard').addEventListener('click', () => this.showTyping($('#tutor-type').hidden));
+    $('#tutor-type').addEventListener('submit', event => {
+      event.preventDefault();
+      const text = $('#tutor-input').value.trim();
+      if (!text || this.busy) return;
+      $('#tutor-input').value = '';
+      this.send(text);
+    });
+    $('#tutor-repeat').addEventListener('click', () => { this.unlock(); if (this.lastReply) this.say(this.lastReply); });
+    $('#tutor-chat').addEventListener('click', event => {
+      const button = event.target.closest('[data-act]');
+      if (!button) return;
+      const message = button.closest('.tutor-msg');
+      if (button.dataset.act === 'listen') { this.unlock(); this.say(message.dataset.say); }
+      if (button.dataset.act === 'tr') this.translate(message);
+      if (button.dataset.act === 'retry') { button.closest('.tutor-error').remove(); this.send(message.dataset.text, message.dataset.hidden === '1'); }
+    });
+  },
+  save() { Store.write(this.KEY, JSON.stringify(this.settings)); },
+  open() {
+    this.unlock();
+    $('#speak-lobby').hidden = true;
+    $('#tutor').hidden = false;
+    $('.view[data-view="speak"]').classList.add('in-room');
+    this.focusMode();
+    this.renderSettings();
+    if (!this.history.length && !$('#tutor-chat').children.length) this.newLesson();
+    if (!(window.SpeechRecognition || window.webkitSpeechRecognition)) this.showTyping(true);
+    window.scrollTo(0, 0);
+  },
+  close() {
+    this.pause();
+    $('#tutor').hidden = true;
+    $('#speak-lobby').hidden = false;
+    $('.view[data-view="speak"]').classList.remove('in-room');
+    this.focusMode();
+  },
+  /* A lesson fills the screen: no footer, and on phones no app header (the back arrow leads out). */
+  focusMode() {
+    const lesson = Router.current === 'speak' && !$('#tutor').hidden;
+    document.body.classList.toggle('tutor-focus', lesson);
+    document.body.classList.toggle('speak-focus', Router.current === 'speak' && !$('#speak-room').hidden);
+  },
+  /* Leaving the view: stop listening and talking. */
+  pause() {
+    if (this.listening) this.listening.abort();
+    this.stopVoice();
+  },
+  topic() { return Speak.topics[this.settings.topic] || null; },
+  renderSettings() {
+    const select = $('#tutor-topic');
+    select.replaceChildren(h('option', { value: -1, text: t('tutor.free') }),
+      ...Speak.topics.map((topic, index) => h('option', { value: index, text: lang === 'tr' ? topic.tr : topic.topic })));
+    select.value = String(this.topic() ? this.settings.topic : -1);
+    for (const button of $$('#tutor-levels [data-level]')) button.setAttribute('aria-pressed', String(button.dataset.level === this.settings.level));
+    const topic = this.topic();
+    $('#tutor-sub').textContent = (topic ? (lang === 'tr' ? topic.tr : topic.topic) : t('tutor.free')) + ' · ' + this.settings.level;
+  },
+  /* The lesson's opening line, as if the student said it: the teacher then
+     starts on the chosen topic (the server itself only knows a few scenarios). */
+  opening() {
+    const topic = this.topic();
+    if (!topic) return '';
+    const name = topic.topic.replace(/\s*\(role-play\)$/i, '');
+    return /role-play/i.test(topic.topic)
+      ? `Hi! Let's do a role-play: ${name.toLowerCase()}. You start, please.`
+      : `Hi! Today I'd like to talk about ${name.toLowerCase()}. Please ask me questions.`;
+  },
+  scenario() {
+    const topic = this.topic();
+    return topic && /restaurant/i.test(topic.topic) ? 'restaurant' : 'free';
+  },
+  newLesson() {
+    this.token++;
+    this.pause();
+    this.busy = false;
+    this.history = [];
+    this.lastReply = '';
+    $('#tutor-chat').replaceChildren();
+    $('#tutor-panel').hidden = true;
+    $('#tutor-settings').setAttribute('aria-expanded', 'false');
+    this.renderSettings();
+    this.send(this.opening(), true);
+  },
+  setBusy(busy) {
+    this.busy = busy;
+    $('#tutor-mic').disabled = busy;
+    $('#tutor-type button').disabled = busy;
+  },
+  async send(text, hidden) {
+    if (this.busy) return;
+    const token = this.token;
+    this.setBusy(true);
+    const mine = hidden ? null : this.addMine(text);
+    const typing = this.add(h('li', { class: 'tutor-msg from-teacher tutor-typing' },
+      h('span', { class: 'tutor-avatar small', 'aria-hidden': 'true', text: 'E' }), h('div', { class: 'tutor-bubble', 'aria-label': t('tutor.thinking') }, h('i'), h('i'), h('i'))));
+    try {
+      let response;
+      try {
+        response = await fetch(this.API + '/api/chat', {
+          method: 'POST',
+          headers: { 'content-type': 'application/json' },
+          body: JSON.stringify({ scenario: this.scenario(), level: this.settings.level, history: this.history.slice(-12), review: this.settings.review.slice(0, 3), message: text })
+        });
+      } catch (_) { throw new Error('network'); }
+      const data = await response.json().catch(() => ({}));
+      if (token !== this.token) return;
+      if (!response.ok || !data.reply) throw new Error(data.error || 'server');
+      typing.remove();
+      if (text) this.history.push({ role: 'user', text });
+      this.history.push({ role: 'model', text: data.reply });
+      if (mine && data.correction) {
+        mine.append(h('div', { class: 'tutor-fix' }, h('strong', { text: t('tutor.better') }), h('span', { lang: 'en', class: 'tutor-fix-en', text: data.correction }), data.tip ? h('span', { lang: 'tr', text: data.tip }) : null));
+        this.settings.review = [data.correction, ...this.settings.review.filter(line => line !== data.correction)].slice(0, 10);
+        this.save();
+      }
+      this.addTeacher(data);
+      this.say(data.reply);
+    } catch (err) {
+      if (token !== this.token) return;
+      typing.remove();
+      if (mine) mine.parentNode.remove();  /* shown again when retried */
+      this.add(h('li', { class: 'tutor-msg tutor-error-row', 'data-text': text, 'data-hidden': hidden ? '1' : '0' },
+        h('div', { class: 'tutor-error' }, h('p', { text: t(this.ERRORS[err.message] || 'tutor.err.server') }),
+          h('button', { type: 'button', class: 'button small', 'data-act': 'retry', text: t('tutor.retry') }))));
+    } finally {
+      if (token === this.token) this.setBusy(false);
+    }
+  },
+  add(node) {
+    $('#tutor-chat').append(node);
+    window.scrollTo({ top: document.documentElement.scrollHeight, behavior: 'smooth' });
+    return node;
+  },
+  addMine(text) {
+    const wrap = h('div', { class: 'tutor-me-wrap' }, h('div', { class: 'tutor-bubble', lang: 'en', text }));
+    this.add(h('li', { class: 'tutor-msg from-me' }, wrap));
+    return wrap;
+  },
+  addTeacher(data) {
+    this.lastReply = data.reply;
+    const word = data.word ? h('div', { class: 'tutor-word' }, data.emoji ? h('span', { 'aria-hidden': 'true', text: data.emoji }) : null,
+      h('strong', { lang: 'en', text: data.word }), data.wordTr ? h('span', { lang: 'tr', text: '— ' + data.wordTr }) : null) : null;
+    const listen = h('button', { type: 'button', 'data-act': 'listen' }, icon('sound'), h('span', { text: t('tutor.listen') }));
+    const translate = h('button', { type: 'button', 'data-act': 'tr', text: t('tutor.turkish') });
+    this.add(h('li', { class: 'tutor-msg from-teacher', 'data-say': data.reply },
+      h('span', { class: 'tutor-avatar small', 'aria-hidden': 'true', text: 'E' }),
+      h('div', { class: 'tutor-bubble' },
+        h('p', { class: 'tutor-say', lang: 'en', text: data.reply }),
+        h('p', { class: 'tutor-tr', lang: 'tr', hidden: true }),
+        word,
+        h('div', { class: 'tutor-tools' }, listen, translate))));
+  },
+  async translate(message) {
+    const line = message.querySelector('.tutor-tr');
+    if (!line.hidden) { line.hidden = true; return; }
+    line.hidden = false;
+    line.textContent = t('novel.trLoading');
+    try { line.textContent = await Novel.translate(message.dataset.say); }
+    catch (_) { line.textContent = t('tutor.err.network'); }
+  },
+  showTyping(on) {
+    $('#tutor-type').hidden = !on;
+    $('#tutor-keyboard').setAttribute('aria-pressed', String(on));
+    if (on) $('#tutor-input').focus();
+  },
+  /* ---- Listening: the browser's own speech recognition (Chrome, Edge, Safari). */
+  listen() {
+    const Recognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (!Recognition) { this.showTyping(true); Toast.show(t('tutor.noRecognition')); return; }
+    if (this.busy) return;
+    this.unlock();
+    this.stopVoice();
+    const rec = new Recognition();
+    rec.lang = 'en-US';
+    rec.interimResults = true;
+    rec.continuous = false;
+    rec.maxAlternatives = 1;
+    let heard = '', problem = '';
+    const interim = $('#tutor-interim');
+    rec.onresult = event => {
+      let partial = '';
+      for (let i = event.resultIndex; i < event.results.length; i++) {
+        const result = event.results[i];
+        if (result.isFinal) heard += result[0].transcript; else partial += result[0].transcript;
+      }
+      interim.textContent = (heard + partial).trim() || t('tutor.listening');
+    };
+    rec.onerror = event => { problem = event.error; };
+    rec.onend = () => {
+      if (this.listening === rec) this.listening = null;
+      this.micUi(false);
+      interim.hidden = true;
+      const text = heard.trim();
+      if (text) this.send(text);
+      else if (problem === 'not-allowed' || problem === 'service-not-allowed') Toast.show(t('tutor.micDenied'));
+      else if (problem === 'network') Toast.show(t('tutor.err.network'));
+      else if (problem === 'audio-capture') Toast.show(t('speak.noMic'));
+      else if (problem !== 'aborted') Toast.show(t('tutor.noSpeech'));
+    };
+    this.listening = rec;
+    this.micUi(true);
+    interim.hidden = false;
+    interim.textContent = t('tutor.listening');
+    try { rec.start(); } catch (_) { this.listening = null; this.micUi(false); interim.hidden = true; }
+  },
+  micUi(on) {
+    $('#tutor-mic').classList.toggle('is-listening', on);
+    $('#tutor-mic-label').textContent = t(on ? 'tutor.stop' : 'tutor.talk');
+  },
+  /* ---- Speaking: the server's natural voice; the device voice when it is not available.
+     Phones play sound only after a tap, so the first tap unlocks both. */
+  unlock() {
+    try {
+      if (!this.ctx && (window.AudioContext || window.webkitAudioContext)) this.ctx = new (window.AudioContext || window.webkitAudioContext)();
+      if (this.ctx && this.ctx.state === 'suspended') this.ctx.resume();
+    } catch (_) { this.ctx = null; }
+    if (!this.spoke && Speech.hasTTS) {
+      this.spoke = true;
+      const silent = new SpeechSynthesisUtterance(' ');
+      silent.volume = 0;
+      speechSynthesis.speak(silent);
+    }
+  },
+  stopVoice() {
+    this.voiceToken = (this.voiceToken || 0) + 1;
+    if (this.source) { try { this.source.stop(); } catch (_) {} this.source = null; }
+    Speech.stop();
+  },
+  async say(text) {
+    this.stopVoice();
+    const token = this.voiceToken;
+    if (this.ctx && Date.now() > (this.naturalDownUntil || 0)) {
+      try {
+        const response = await fetch(this.API + '/api/tts', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ text }) });
+        if (!response.ok) throw new Error(response.status);
+        const audio = await this.ctx.decodeAudioData(await response.arrayBuffer());
+        if (token !== this.voiceToken) return;
+        const source = this.ctx.createBufferSource();
+        source.buffer = audio;
+        source.connect(this.ctx.destination);
+        source.start();
+        this.source = source;
+        this.naturalFailures = 0;
+        return;
+      } catch (_) {
+        /* After a few failures in a row (e.g. the free daily quota is used up), skip the natural voice for a while. */
+        if (++this.naturalFailures >= 3) { this.naturalFailures = 0; this.naturalDownUntil = Date.now() + 5 * 60 * 1000; }
+        if (token !== this.voiceToken) return;
+      }
+    }
+    if (Speech.hasTTS) Speech.speakNow(text); else Speech.speak(text);
+  }
+};
+
 const MODULES = { home: Home, words: Words, phrases: Phrases, speak: Speak, novel: Novel, quiz: Quiz, reading: Reading, settings: Settings };
 
 /* ======================================================================
@@ -5828,7 +6242,7 @@ function init() {
   applyTheme();
   applyTurkishVisibility();
   prepareCards();
-  Home.init(); Words.init(); Phrases.init(); Speak.init(); Novel.init(); Quiz.init(); Settings.init();
+  Home.init(); Words.init(); Phrases.init(); Speak.init(); Tutor.init(); Novel.init(); Quiz.init(); Settings.init();
   if (!Store.usable) Banner.show(t(Store.simulated ? 'storage.simulated' : 'storage.off'));
   else if (loaded.notice) Banner.show(t(loaded.notice, { n: loaded.count || 0 }));
   if (loaded.migrated) persist();
