@@ -398,9 +398,13 @@ def main() -> None:
     # pdf.js (Apache-2.0) reads the PDF the learner opens; kept as text and loaded only when needed.
     pdfjs_lib = (HERE / "vendor" / "pdf.min.js").read_text(encoding="utf-8")
     pdfjs_worker = (HERE / "vendor" / "pdf.worker.min.js").read_text(encoding="utf-8")
-    for code in (pdfjs_lib, pdfjs_worker):
+    # PeerJS 1.5.4 (MIT) connects two browsers for the Speaking room; loaded only when a room opens.
+    peerjs_lib = (HERE / "vendor" / "peerjs.min.js").read_text(encoding="utf-8")
+    for code in (pdfjs_lib, pdfjs_worker, peerjs_lib):
         if "</script" in code.lower() or "<!--" in code:
-            sys.exit("pdf.js source cannot be inlined safely")
+            sys.exit("vendor source cannot be inlined safely")
+    speak_topics = json.loads((HERE / "speaking" / "topics.json").read_text(encoding="utf-8"))
+    print(f"speaking room   {len(speak_topics)} topics, {sum(len(t['questions']) for t in speak_topics)} questions")
 
     template = turkish_static_text(TEMPLATE.read_text(encoding="utf-8"), counts)
     output = (template
@@ -413,9 +417,11 @@ def main() -> None:
               .replace("<!--@PHRASE_COUNT@-->", str(phrase_total))
               .replace("<!--@NOVEL_DICT@-->", json_for_script(novel_dict))
               .replace("<!--@NOVEL_SHELF@-->", novel_shelf())
+              .replace("<!--@SPEAK_TOPICS@-->", json_for_script(speak_topics))
               .replace("@APP_VERSION@", APP_VERSION)
               .replace("<!--@PDFJS_LIB@-->", pdfjs_lib)
-              .replace("<!--@PDFJS_WORKER@-->", pdfjs_worker))
+              .replace("<!--@PDFJS_WORKER@-->", pdfjs_worker)
+              .replace("<!--@PEERJS_LIB@-->", peerjs_lib))
     if "@" + "VOCAB_DATA@" in output or "/*@" in output or ("<!--@" in output and "<!--@WORD" not in output):
         # check only real unreplaced placeholders
         placeholders = re.findall(r'<!--@[A-Z_]+@-->', output)
