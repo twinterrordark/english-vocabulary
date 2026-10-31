@@ -190,11 +190,15 @@ main:focus { outline: none; }
 .section-title { margin-top: var(--space-6); }
 .site-footer { padding-top: var(--space-5); padding-bottom: calc(var(--space-6) + env(safe-area-inset-bottom)); color: var(--muted); font-size: .85rem; border-top: 1px solid var(--line); }
 .toast {
-  position: fixed; left: 50%; bottom: calc(16px + env(safe-area-inset-bottom)); transform: translate(-50%, 20px); z-index: 30;
+  position: fixed; left: 50%; bottom: calc(16px + env(safe-area-inset-bottom)); transform: translate(-50%, 20px); z-index: 70;
   max-width: min(520px, calc(100% - 32px)); padding: 12px 16px; border-radius: var(--radius-s); background: var(--text); color: var(--bg);
   box-shadow: var(--shadow); opacity: 0; pointer-events: none; transition: opacity .2s, transform .2s;
 }
 .toast.show { opacity: 1; transform: translate(-50%, 0); }
+/* Above the reader's, the lesson's and the room's bottom bars. */
+body.novel-focus .toast, body.tutor-focus .toast, body.speak-focus .toast { bottom: calc(100px + env(safe-area-inset-bottom)); }
+.update-bar { position: fixed; top: calc(8px + env(safe-area-inset-top)); left: 50%; transform: translateX(-50%); z-index: 80; display: flex; align-items: center; gap: var(--space-3); width: max-content; max-width: calc(100% - 24px); padding: 8px 8px 8px 16px; border-radius: 999px; background: var(--text); color: var(--bg); box-shadow: 0 8px 24px rgba(0, 0, 0, .25); font-size: .92rem; font-weight: 600; }
+.update-bar[hidden] { display: none; }
 dialog { width: min(460px, calc(100% - 32px)); padding: var(--space-5); border: 1px solid var(--line); border-radius: var(--radius-l); background: var(--surface); color: var(--text); box-shadow: 0 20px 50px rgba(0, 0, 0, .3); }
 dialog::backdrop { background: rgba(8, 14, 28, .55); }
 
@@ -671,6 +675,7 @@ body.novel-focus .novel-pop-base, body.novel-focus .novel-pop-sentence { color: 
   </nav>
 </header>
 
+<div id="update-bar" class="update-bar" role="status" hidden><span data-i18n="update.text">Uygulamanın yeni sürümü hazır.</span><button type="button" class="button small primary" id="update-reload" data-i18n="update.reload">Yenile</button></div>
 <div id="storage-banner" class="banner" role="status" hidden>
   <p id="storage-banner-text"></p>
   <button type="button" class="icon-button" id="storage-banner-close" aria-label="Mesajı kapat" data-i18n-aria="common.dismiss"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
@@ -3423,6 +3428,7 @@ const STRINGS = {
     'tutor.micDenied': 'The microphone is blocked. Allow it for this site in the browser settings.', 'tutor.noRecognition': 'This browser cannot turn speech into text; type your answer instead (Chrome or Safari can).',
     'tutor.err.tooMany': 'Slow down a little 🙂 Too many messages in a minute; wait a moment.', 'tutor.err.limit': 'The free daily limit is used up. Try again a bit later.',
     'tutor.err.network': 'No connection to the lesson server. Check the internet.', 'tutor.err.server': 'The teacher could not answer. Try again.',
+    'update.text': 'A new version of the app is ready.', 'update.reload': 'Reload',
     'nav.speak': 'Speaking', 'mode.speak': 'Talk in English with a friend in a voice room, with topic cards to guide you.',
     'speak.title': 'Speaking room', 'speak.lead': 'Talk in English with a friend: open a room, send them the link and use the topic cards together.',
     'speak.create': 'Open a room', 'speak.createHint': 'You get a link to send to your friend. When they open it, you are connected.',
@@ -3545,6 +3551,7 @@ const STRINGS = {
     'tutor.micDenied': 'Mikrofon izni kapalı. Tarayıcı ayarlarından bu siteye mikrofon izni ver.', 'tutor.noRecognition': 'Bu tarayıcı konuşmayı yazıya çeviremiyor; cevabını yazarak ver (Chrome ya da Safari çevirebilir).',
     'tutor.err.tooMany': 'Biraz yavaşla 🙂 Bir dakikada çok mesaj gönderdin, biraz bekle.', 'tutor.err.limit': 'Günlük ücretsiz kullanım doldu. Biraz sonra tekrar dene.',
     'tutor.err.network': 'Ders sunucusuna ulaşılamadı. İnternet bağlantını kontrol et.', 'tutor.err.server': 'Hoca cevap veremedi. Tekrar dene.',
+    'update.text': 'Uygulamanın yeni sürümü hazır.', 'update.reload': 'Yenile',
     'nav.speak': 'Konuşma', 'mode.speak': 'Bir arkadaşınla sesli odada İngilizce konuş; konu kartları sana yol göstersin.',
     'speak.title': 'Konuşma odası', 'speak.lead': 'Bir arkadaşınla İngilizce konuş: oda aç, linki gönder, konu kartlarını birlikte kullanın.',
     'speak.create': 'Oda aç', 'speak.createHint': 'Arkadaşına göndereceğin bir link oluşur. Linki açtığında bağlanırsınız.',
@@ -6293,13 +6300,43 @@ const MODULES = { home: Home, words: Words, phrases: Phrases, speak: Speak, nove
 /* ======================================================================
    8. INITIALIZATION (single entry point)
 ====================================================================== */
+/* ---------- New version on the site ----------
+   Phones keep the page for a while (GitHub Pages allows 10 minutes, and a tab
+   that comes back is often not loaded again), so a fix can stay invisible.
+   The page asks for version.json, never from the cache, when it opens and
+   whenever it comes back to the screen, and offers to load the new build. */
+const Updater = {
+  build: '162c23dac3a2',
+  checked: 0,
+  init() {
+    if (!/^https?:$/.test(location.protocol) || this.build.length !== 12) return;
+    $('#update-reload').addEventListener('click', () => {
+      /* A new address, so no cache can hand back the old page. */
+      location.replace(location.pathname + '?v=' + Date.now() + location.hash);
+    });
+    this.check();
+    document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible') this.check(); });
+    window.addEventListener('pageshow', event => { if (event.persisted) this.check(); });
+  },
+  async check() {
+    if (Date.now() - this.checked < 30000) return;
+    this.checked = Date.now();
+    try {
+      const response = await fetch('version.json?t=' + Date.now(), { cache: 'no-store' });
+      if (!response.ok) return;
+      const data = await response.json();
+      if (data && data.build && data.build !== this.build) $('#update-bar').hidden = false;
+    } catch (_) { /* offline: nothing to compare */ }
+  }
+};
+
 function init() {
   lang = progress.settings.uiLang;
   applyStaticText();
   applyTheme();
   applyTurkishVisibility();
   prepareCards();
-  Home.init(); Words.init(); Phrases.init(); Speak.init(); Tutor.init(); Novel.init(); Quiz.init(); Settings.init();
+  Home.init(); Words.init(); Phrases.init(); Speak.init(); Tutor.init(); Novel.init(); Quiz.init(); Settings.init(); Updater.init();
   if (!Store.usable) Banner.show(t(Store.simulated ? 'storage.simulated' : 'storage.off'));
   else if (loaded.notice) Banner.show(t(loaded.notice, { n: loaded.count || 0 }));
   if (loaded.migrated) persist();

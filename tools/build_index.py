@@ -427,8 +427,13 @@ def main() -> None:
         placeholders = re.findall(r'<!--@[A-Z_]+@-->', output)
         if placeholders:
             sys.exit(f"Unreplaced template placeholder found: {placeholders}")
+    # A build id that changes with the page; the page compares it with version.json
+    # to tell a phone that still shows an old copy that a new one is out.
+    build_id = hashlib.sha1(output.encode("utf-8")).hexdigest()[:12]
+    output = output.replace("@BUILD_ID@", build_id)
     OUTPUT.write_text(output, encoding="utf-8", newline="\n")
-    print(f"wrote {OUTPUT.name}: {OUTPUT.stat().st_size / 1_048_576:.1f} MB, {len(entries)} words")
+    (ROOT / "version.json").write_text(json.dumps({"build": build_id}) + "\n", encoding="utf-8", newline="\n")
+    print(f"wrote {OUTPUT.name}: {OUTPUT.stat().st_size / 1_048_576:.1f} MB, {len(entries)} words, build {build_id}")
 
 
 if __name__ == "__main__":
