@@ -38,57 +38,69 @@
 ====================================================================== */
 :root {
   color-scheme: light;
-  --bg: #f4f6fa;
+  /* WordFlow palette: emerald for progress, violet for discovery, amber for streaks and XP. */
+  --bg: #f7f8fd;
   --surface: #ffffff;
-  --surface-2: #eef2f8;
-  --surface-3: #e3e9f3;
-  --text: #172036;
-  --muted: #4f5b72;
-  --line: #d9e0ec;
-  --primary: #2350a8;
-  --primary-hover: #1b4190;
+  --surface-2: #f2f3ff;
+  --surface-3: #e2e7ff;
+  --text: #131b2e;
+  --muted: #4b5568;
+  --line: #e2e8f0;
+  --primary: #006948;
+  --primary-hover: #005137;
+  --primary-lip: #00412c;
   --on-primary: #ffffff;
-  --primary-soft: #e4ecfb;
-  --accent-text: #1d4796;
-  --success: #17673f;
-  --success-soft: #dff3e8;
-  --error: #a3261b;
-  --error-soft: #fbe5e2;
-  --warn: #7a4a00;
-  --warn-soft: #fdf1d8;
+  --primary-soft: #d9f8ea;
+  --primary-bright: #00855d;
+  --accent-text: #00684a;
+  --secondary: #712ae2;
+  --secondary-soft: #efe7ff;
+  --secondary-text: #5b1fc0;
+  --tertiary: #b45309;
+  --tertiary-soft: #fef3c7;
+  --success: #00684a;
+  --success-soft: #e3f8ee;
+  --error: #c0261b;
+  --error-soft: #fef2f2;
+  --warn: #8a5300;
+  --warn-soft: #fff4dc;
   --mark: #fff0b8;
-  --header: #1c2b4a;
-  --on-header: #f3f6fc;
-  --on-header-muted: #c3cde0;
-  --focus: #f0a400;
-  --shadow: 0 1px 2px rgba(18, 31, 58, .06), 0 4px 14px rgba(18, 31, 58, .06);
-  --radius-s: 8px;
-  --radius: 12px;
-  --radius-l: 18px;
+  --header: rgba(250, 248, 255, .9);
+  --on-header: #131b2e;
+  --on-header-muted: #4b5568;
+  --focus: #712ae2;
+  --shadow: 0 4px 16px rgba(19, 27, 46, .05);
+  --shadow-lg: 0 12px 28px rgba(19, 27, 46, .1);
+  --radius-s: 12px;
+  --radius: 16px;
+  --radius-l: 24px;
   --space-1: 4px; --space-2: 8px; --space-3: 12px; --space-4: 16px; --space-5: 24px; --space-6: 32px; --space-7: 48px;
-  --font: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --font-display: "Outfit", "Plus Jakarta Sans", system-ui, sans-serif;
   --gutter: max(16px, env(safe-area-inset-left), env(safe-area-inset-right));
   --tap: 44px;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     color-scheme: dark;
-    --bg: #0e1524; --surface: #161f33; --surface-2: #1d283f; --surface-3: #26324b;
-    --text: #e8edf6; --muted: #aab5c9; --line: #2e3a55;
-    --primary: #8db0ff; --primary-hover: #a9c3ff; --on-primary: #0b1530; --primary-soft: #22304d; --accent-text: #a9c3ff;
-    --success: #7fd6a4; --success-soft: #15362a; --error: #ffaaa0; --error-soft: #3d1d1a; --warn: #f5c76b; --warn-soft: #3a2d12;
-    --mark: #4a3f12; --header: #0a101d; --on-header: #e8edf6; --on-header-muted: #9fabc2;
-    --shadow: 0 1px 2px rgba(0, 0, 0, .3), 0 4px 14px rgba(0, 0, 0, .25);
+    --bg: #0b1120; --surface: #141c2f; --surface-2: #1b2539; --surface-3: #243049;
+    --text: #e9eefb; --muted: #a8b3c8; --line: #283450;
+    --primary: #4fd6a2; --primary-hover: #74e4b8; --primary-lip: #1d8c63; --on-primary: #002a1b; --primary-soft: #113a2c; --primary-bright: #4fd6a2; --accent-text: #74e4b8;
+    --secondary: #b794ff; --secondary-soft: #2b2149; --secondary-text: #cdb6ff; --tertiary: #fbbf24; --tertiary-soft: #3a2b0e;
+    --success: #74e4b8; --success-soft: #113a2c; --error: #ffaaa0; --error-soft: #3d1d1a; --warn: #f5c76b; --warn-soft: #3a2d12;
+    --mark: #4a3f12; --header: rgba(11, 17, 32, .9); --on-header: #e9eefb; --on-header-muted: #a8b3c8; --focus: #b794ff;
+    --shadow: 0 4px 16px rgba(0, 0, 0, .3); --shadow-lg: 0 12px 28px rgba(0, 0, 0, .4);
   }
 }
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --bg: #0e1524; --surface: #161f33; --surface-2: #1d283f; --surface-3: #26324b;
-  --text: #e8edf6; --muted: #aab5c9; --line: #2e3a55;
-  --primary: #8db0ff; --primary-hover: #a9c3ff; --on-primary: #0b1530; --primary-soft: #22304d; --accent-text: #a9c3ff;
-  --success: #7fd6a4; --success-soft: #15362a; --error: #ffaaa0; --error-soft: #3d1d1a; --warn: #f5c76b; --warn-soft: #3a2d12;
-  --mark: #4a3f12; --header: #0a101d; --on-header: #e8edf6; --on-header-muted: #9fabc2;
-  --shadow: 0 1px 2px rgba(0, 0, 0, .3), 0 4px 14px rgba(0, 0, 0, .25);
+  --bg: #0b1120; --surface: #141c2f; --surface-2: #1b2539; --surface-3: #243049;
+  --text: #e9eefb; --muted: #a8b3c8; --line: #283450;
+  --primary: #4fd6a2; --primary-hover: #74e4b8; --primary-lip: #1d8c63; --on-primary: #002a1b; --primary-soft: #113a2c; --primary-bright: #4fd6a2; --accent-text: #74e4b8;
+  --secondary: #b794ff; --secondary-soft: #2b2149; --secondary-text: #cdb6ff; --tertiary: #fbbf24; --tertiary-soft: #3a2b0e;
+  --success: #74e4b8; --success-soft: #113a2c; --error: #ffaaa0; --error-soft: #3d1d1a; --warn: #f5c76b; --warn-soft: #3a2d12;
+  --mark: #4a3f12; --header: rgba(11, 17, 32, .9); --on-header: #e9eefb; --on-header-muted: #a8b3c8; --focus: #b794ff;
+  --shadow: 0 4px 16px rgba(0, 0, 0, .3); --shadow-lg: 0 12px 28px rgba(0, 0, 0, .4);
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -324,7 +336,7 @@ dialog::backdrop { background: rgba(8, 14, 28, .55); }
 .review-empty { display: grid; gap: var(--space-2); justify-items: center; text-align: center; padding: var(--space-4) 0; }
 .review-empty h2, .review-empty p { margin: 0; }
 .review-big { font-size: 2.6rem; }
-.novel-pop-save { justify-self: start; margin-top: var(--space-2); }
+
 .continue-panel { display: grid; gap: var(--space-3); align-items: center; background: var(--primary-soft); border-color: transparent; }
 .continue-panel h2 { margin-bottom: var(--space-1); }
 .continue-panel p { margin: 0; }
@@ -915,6 +927,390 @@ body.novel-focus .novel-pop-base, body.novel-focus .novel-pop-sentence { color: 
 .phrase-ans-en { font-weight: 600; color: var(--text); }
 .phrase-ans-tr { color: var(--muted); font-size: .82rem; }
 
+
+/* ======================================================================
+   WordFlow design system (overrides the older look above)
+====================================================================== */
+/*@FONT_FACES@*/
+h1, h2, h3, h4, .brand strong { font-family: var(--font-display); letter-spacing: -.02em; }
+h1 { font-weight: 800; font-size: clamp(1.75rem, 5vw, 2.4rem); }
+h2 { font-weight: 700; }
+body { font-size: 15.5px; }
+.lead { font-size: 1rem; }
+/* Tactile buttons: a darker lip underneath that collapses when pressed. */
+.button { border-radius: var(--radius-s); border: 1.5px solid var(--line); box-shadow: 0 3px 0 var(--surface-3); font-weight: 700; transition: transform .08s, box-shadow .08s, background .15s; }
+.button:active { transform: translateY(2px); box-shadow: 0 1px 0 var(--surface-3); }
+.button.primary { background: var(--primary); border-color: var(--primary); color: var(--on-primary); box-shadow: 0 4px 0 var(--primary-lip); }
+.button.primary:active { box-shadow: 0 2px 0 var(--primary-lip); }
+.button.primary:hover { background: var(--primary-hover); border-color: var(--primary-hover); }
+.button.violet { background: var(--secondary); border-color: var(--secondary); color: #fff; box-shadow: 0 4px 0 #4c1aa0; }
+.button.danger { box-shadow: 0 4px 0 #7f1d1d; }
+.button.ghost, .link-button { box-shadow: none; }
+.button:disabled { box-shadow: none; }
+.panel { border-radius: var(--radius-l); border-color: transparent; box-shadow: var(--shadow); }
+input[type="search"], input[type="text"], select, textarea { border-radius: var(--radius-s); border: 1.5px solid var(--line); background: var(--surface); }
+input:focus-visible, select:focus-visible, textarea:focus-visible { outline: none; border-color: var(--secondary); box-shadow: 0 0 0 3px var(--secondary-soft); }
+.chip { font-family: var(--font-display); font-weight: 800; letter-spacing: .03em; }
+.chip.level { background: var(--secondary-soft); color: var(--secondary-text); }
+.icon-button:hover { background: var(--surface-2); }
+/* Pills: streak (amber), XP (dark), level (violet) */
+.pill { display: inline-flex; align-items: center; gap: 6px; padding: 5px 12px; border-radius: 999px; font: 800 .82rem/1 var(--font-display); white-space: nowrap; }
+.pill.streak { background: var(--tertiary-soft); color: var(--tertiary); box-shadow: 0 0 16px rgba(245, 158, 11, .22); }
+.pill.xp { background: var(--surface-2); color: var(--secondary-text); }
+.pill .icon { width: 16px; height: 16px; }
+.pill.is-bump { animation: pill-bump .5s ease-out; }
+@keyframes pill-bump { 30% { transform: scale(1.18); } }
+/* Header: light and translucent, the brand in emerald */
+.app-header { background: var(--header); color: var(--on-header); -webkit-backdrop-filter: saturate(1.4) blur(14px); backdrop-filter: saturate(1.4) blur(14px); box-shadow: 0 1px 8px rgba(19, 27, 46, .05); position: sticky; top: 0; z-index: 30; }
+.brand strong { color: var(--accent-text); font-size: 1.2rem; font-weight: 800; white-space: nowrap; }
+.brand-mark { background: linear-gradient(135deg, var(--primary-bright), var(--primary)); box-shadow: 0 3px 0 var(--primary-lip); border-radius: 12px; }
+.header-pills { display: flex; align-items: center; gap: 6px; margin-left: auto; }
+@media (max-width: 1023px) { .brand small { display: none; } }
+.header-inner .icon-button { color: var(--muted); }
+.tabs a { color: var(--muted); }
+.tabs a:hover { color: var(--text); background: var(--surface-2); }
+.tabs a[aria-current="page"] { color: var(--accent-text); background: var(--primary-soft); box-shadow: none; }
+@media (min-width: 1024px) {
+  .app-header { position: fixed; box-shadow: 1px 0 0 var(--line); background: var(--surface); }
+  .header-pills { display: none; }
+  .nav-group { color: var(--muted); }
+  .side-toggle { color: var(--muted); }
+  .side-toggle:hover { background: var(--surface-2); color: var(--text); }
+  .tabs a[aria-current="page"] { box-shadow: inset 3px 0 0 var(--primary); }
+}
+.bottom-nav { margin: 0 10px 10px; border-radius: 26px; border: 1px solid var(--line); box-shadow: 0 10px 30px rgba(19, 27, 46, .12); }
+@media (max-width: 1023px) {
+  .bottom-nav { left: 0; right: 0; padding-bottom: 4px; bottom: env(safe-area-inset-bottom); }
+  body { padding-bottom: calc(86px + env(safe-area-inset-bottom)); }
+  .toast { bottom: calc(96px + env(safe-area-inset-bottom)); }
+}
+.bottom-nav [aria-current="page"], .bottom-nav .is-current { color: var(--accent-text); }
+.bottom-nav [aria-current="page"]::before, .bottom-nav .is-current::before { display: none; }
+.bottom-nav [aria-current="page"] .icon, .bottom-nav .is-current .icon { background: var(--primary-soft); border-radius: 12px; padding: 3px 12px; width: 48px; height: 28px; }
+.view-head h1 { margin-bottom: var(--space-2); }
+.eyebrow { display: block; font: 800 .72rem/1.2 var(--font-display); letter-spacing: .08em; text-transform: uppercase; color: var(--secondary); margin-bottom: 4px; }
+
+/* ---------- Home (WordFlow) ---------- */
+.view[data-view="home"] { max-width: 720px; }
+.home-head { display: flex; align-items: flex-end; justify-content: space-between; gap: var(--space-3); margin-bottom: var(--space-4); }
+.home-head h1 { margin: 0; font-size: clamp(1.6rem, 5vw, 2.1rem); }
+.home-xp { font-size: .95rem; padding: 8px 14px; background: var(--surface); box-shadow: var(--shadow); color: var(--accent-text); }
+.goal-card { display: flex; align-items: center; gap: var(--space-4); padding: var(--space-4); margin-bottom: var(--space-4); border-radius: var(--radius-l); background: var(--surface); box-shadow: 0 8px 24px rgba(19, 27, 46, .06); }
+.goal-ring { position: relative; flex: none; width: 96px; height: 96px; }
+.goal-ring svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+.goal-ring circle { fill: none; stroke-width: 3.6; }
+.goal-track { stroke: var(--surface-3); }
+.goal-fill { stroke: var(--primary); stroke-linecap: round; stroke-dasharray: 0 100; transition: stroke-dasharray 1s ease-out; }
+.goal-ring > span { position: absolute; inset: 0; display: grid; place-content: center; text-align: center; line-height: 1; }
+.goal-ring strong { font: 800 1.6rem/1 var(--font-display); }
+.goal-ring small { color: var(--muted); font-weight: 700; font-size: .78rem; }
+.goal-text { display: grid; gap: 4px; min-width: 0; flex: 1; justify-items: start; }
+.goal-text h2 { margin: 0; font-size: 1.15rem; }
+.goal-text p { margin: 0; color: var(--muted); font-size: .9rem; }
+.goal-chip { padding: 3px 10px; border-radius: 999px; background: var(--primary-soft); color: var(--accent-text); font: 800 .72rem/1.3 var(--font-display); }
+.goal-select select { width: auto; min-height: 32px; padding: 2px 8px; font-size: .8rem; }
+.review-hero { position: relative; overflow: hidden; display: grid; gap: var(--space-3); padding: var(--space-4) var(--space-4) var(--space-5); margin-bottom: var(--space-5); border-radius: var(--radius-l); color: #fff; background: linear-gradient(135deg, #006948, #00855d); box-shadow: 0 12px 28px rgba(0, 105, 72, .24); }
+.review-hero::after { content: ""; position: absolute; right: -40px; bottom: -40px; width: 160px; height: 160px; border-radius: 50%; background: rgba(133, 248, 196, .2); filter: blur(24px); pointer-events: none; }
+.review-hero-top { display: flex; align-items: center; justify-content: space-between; gap: var(--space-2); }
+.review-hero-tag { display: inline-flex; align-items: center; gap: 8px; font: 800 .72rem/1.2 var(--font-display); letter-spacing: .08em; text-transform: uppercase; color: #85f8c4; }
+.review-hero-tag .icon { width: 30px; height: 30px; padding: 6px; border-radius: 50%; background: rgba(255, 255, 255, .2); color: #fff; }
+.review-hero-count { padding: 4px 12px; border-radius: 999px; background: #ffddb8; color: #2a1700; font: 800 .75rem/1.3 var(--font-display); }
+.review-hero h2 { margin: 0; color: #fff; font-size: 1.75rem; font-weight: 800; }
+.review-hero p { margin: -6px 0 0; color: rgba(245, 255, 247, .9); font-size: .9rem; }
+.hero-button { position: relative; z-index: 1; width: 100%; min-height: 52px; background: #fff; color: #006948; border-color: #fff; box-shadow: 0 4px 0 #b7c6f0; font-size: 1rem; }
+.hero-button:hover { background: #f2f3ff; }
+.section-row { display: flex; align-items: center; justify-content: space-between; gap: var(--space-2); margin: var(--space-5) 0 var(--space-3); }
+.section-row h2 { display: flex; align-items: center; gap: 8px; margin: 0; font-size: 1.2rem; }
+.section-row h2 .icon { color: var(--primary); }
+.section-note { color: var(--secondary); font-weight: 800; font-size: .82rem; }
+.decks { display: grid; gap: var(--space-3); }
+.deck { display: grid; gap: 8px; padding: var(--space-4); border-radius: var(--radius-l); background: var(--surface); box-shadow: var(--shadow); }
+.deck-top { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--space-2); }
+.deck-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.deck-chip { padding: 4px 10px; border-radius: 999px; background: var(--surface-2); color: var(--muted); font: 800 .7rem/1.3 var(--font-display); letter-spacing: .03em; }
+.deck-chip.is-violet { background: var(--secondary-soft); color: var(--secondary-text); }
+.deck-chip.is-amber { background: var(--tertiary-soft); color: var(--tertiary); }
+.deck h3 { margin: 4px 0 0; font-size: 1.15rem; }
+.deck-note { margin: 0; color: var(--muted); font-size: .88rem; }
+.deck-bar { display: flex; align-items: center; gap: var(--space-3); }
+.deck-bar .gram-meter { flex: 1; height: 10px; }
+.deck.is-violet .gram-meter span { background: var(--secondary); }
+.deck-share { color: var(--muted); font-weight: 700; font-size: .85rem; white-space: nowrap; }
+.deck-foot { display: flex; align-items: center; justify-content: space-between; gap: var(--space-2); margin-top: 4px; }
+.deck-count { display: inline-flex; align-items: center; gap: 6px; color: var(--muted); font-size: .88rem; }
+.deck-count .icon { width: 16px; height: 16px; }
+.deck-foot .button { min-height: 44px; }
+.button.violet-soft { background: var(--secondary-soft); border-color: var(--secondary-soft); color: var(--secondary-text); box-shadow: 0 3px 0 #d2bbff; }
+.audio-button { flex: none; display: inline-grid; place-items: center; width: 40px; height: 40px; border: 0; border-radius: 50%; background: var(--secondary-soft); color: var(--secondary); cursor: pointer; box-shadow: 0 0 0 4px rgba(124, 58, 237, .08); }
+.audio-button.big { width: 52px; height: 52px; }
+.audio-button .icon { width: 20px; height: 20px; }
+.audio-button:active { transform: scale(.94); }
+.week-card { display: grid; gap: var(--space-3); padding: var(--space-4); margin-top: var(--space-5); border-radius: var(--radius-l); background: var(--surface-2); }
+.week-card-head { display: flex; align-items: center; gap: var(--space-3); }
+.week-card-head > div { flex: 1; min-width: 0; }
+.week-card-head strong { font: 800 1.1rem/1.2 var(--font-display); }
+.week-card-head .eyebrow { color: var(--muted); margin: 0; }
+.week-icon { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 50%; background: var(--primary-soft); color: var(--accent-text); }
+.week-score { display: grid; justify-items: center; padding: 6px 14px; border-radius: 14px; background: var(--surface); }
+.week-score strong { color: var(--accent-text); font-size: 1.3rem; }
+.week-score small { color: var(--muted); font-size: .7rem; font-weight: 700; }
+.home-path summary { cursor: pointer; font-weight: 700; }
+.home-path .field { margin-top: var(--space-3); }
+/* ---------- Flashcards (WordFlow) ---------- */
+.view[data-view="review"] { max-width: 640px; }
+.review-progress { display: grid; gap: 8px; margin-bottom: var(--space-4); }
+.review-progress-top { display: flex; align-items: center; justify-content: space-between; gap: var(--space-2); }
+.review-progress-top strong { font: 800 1.15rem/1 var(--font-display); }
+.review-progress .gram-meter { height: 10px; }
+.review-card { padding: 0; background: transparent; border: 0; box-shadow: none; max-width: none; }
+.flash-card { position: relative; display: grid; justify-items: center; gap: var(--space-3); padding: var(--space-4) var(--space-4) var(--space-5); border-radius: var(--radius-l); background: var(--surface); box-shadow: 0 8px 24px rgba(19, 27, 46, .07); text-align: center; cursor: pointer; animation: card-in .25s ease-out; }
+.flash-card.is-flipped { cursor: default; animation: card-flip .3s ease-out; }
+@keyframes card-in { from { opacity: 0; transform: translateY(10px) scale(.98); } }
+@keyframes card-flip { from { transform: rotateY(70deg); opacity: .4; } }
+@media (prefers-reduced-motion: reduce) { .flash-card, .flash-card.is-flipped { animation: none; } }
+.flash-chips { display: flex; flex-wrap: wrap; gap: 6px; justify-self: start; }
+.flash-chip { padding: 6px 12px; border-radius: 999px; background: var(--surface-2); color: var(--muted); font: 800 .78rem/1.2 var(--font-display); letter-spacing: .03em; text-transform: uppercase; }
+.flash-chip.is-level { background: var(--surface-3); color: var(--text); text-transform: none; }
+.flash-chip.is-level::before { content: ""; display: inline-block; width: 8px; height: 8px; margin-right: 6px; border-radius: 50%; background: var(--primary); vertical-align: 1px; }
+.flash-image { width: 100%; max-height: 220px; object-fit: contain; border-radius: var(--radius); background: var(--surface-2); }
+.flash-card .review-word { margin: var(--space-2) 0 0; font: 800 clamp(2.2rem, 9vw, 3rem)/1.1 var(--font-display); letter-spacing: -.03em; }
+.flash-sound { display: flex; align-items: center; gap: var(--space-3); }
+.flash-card .review-pron { margin: 0; color: var(--muted); font-size: 1.05rem; letter-spacing: .04em; }
+.flash-hint { display: inline-flex; align-items: center; gap: 8px; margin: var(--space-2) 0 0; color: var(--muted); font-weight: 600; font-size: .92rem; }
+.flash-hint .icon { width: 18px; height: 18px; }
+.flash-card .review-back { width: 100%; }
+.rate-head { display: flex; justify-content: space-between; margin: var(--space-5) 4px var(--space-2); font: 800 .75rem/1.2 var(--font-display); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.rate-xp { color: var(--tertiary); text-transform: none; letter-spacing: 0; }
+.review-rate { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-2); }
+.rate-tile { display: grid; justify-items: center; gap: 3px; min-width: 0; padding: 10px 4px; border: 0; border-radius: 16px; font: inherit; cursor: pointer; transition: transform .08s; }
+.rate-tile:active { transform: translateY(2px); }
+.rate-tile small { font: 800 .72rem/1.2 var(--font-display); text-transform: uppercase; letter-spacing: .04em; }
+.rate-tile strong { font: 600 1.15rem/1.2 var(--font-display); }
+.rate-points { padding: 2px 8px; border-radius: 999px; color: #fff; font: 800 .75rem/1.3 var(--font-display); }
+.rate-tile.is-again { background: #fde4e1; color: #b3261e; box-shadow: 0 3px 0 #f6b9b2; } .is-again .rate-points { background: #c0261b; }
+.rate-tile.is-hard { background: #ffe0bf; color: #7a4a00; box-shadow: 0 3px 0 #f5c690; } .is-hard .rate-points { background: #7a4a00; }
+.rate-tile.is-good { background: #85f8c4; color: #00513a; box-shadow: 0 3px 0 #4fd6a2; } .is-good .rate-points { background: #006948; }
+.rate-tile.is-easy { background: #eaddff; color: #5b1fc0; box-shadow: 0 3px 0 #d2bbff; } .is-easy .rate-points { background: #712ae2; }
+.review-empty-actions { display: flex; flex-wrap: wrap; gap: var(--space-2); justify-content: center; }
+
+/* ---------- Practice (WordFlow) ---------- */
+.view[data-view="practice"], .view[data-view="rankings"] { max-width: 720px; }
+.practice-area { display: grid; gap: var(--space-4); }
+.xp-card { display: flex; align-items: center; gap: var(--space-3); padding: var(--space-4); border-radius: var(--radius-l); background: var(--surface); box-shadow: var(--shadow); }
+.xp-card-icon { display: grid; place-items: center; flex: none; width: 52px; height: 52px; border-radius: 50%; background: var(--secondary-soft); color: var(--secondary); }
+.xp-card > div:nth-child(2) { display: grid; gap: 2px; flex: 1; min-width: 0; }
+.xp-card strong { font: 800 1.2rem/1.2 var(--font-display); }
+.xp-card-acc { color: var(--accent-text); font-weight: 700; font-size: .88rem; }
+.xp-card-acc::before { content: "● "; }
+.xp-card-side { display: grid; justify-items: end; gap: 6px; text-align: right; }
+.xp-card-side a { font-weight: 700; font-size: .82rem; color: var(--muted); text-decoration: none; }
+.quest-card { display: grid; gap: 10px; padding: var(--space-4); border-radius: var(--radius-l); color: #fff; background: linear-gradient(135deg, #006948, #00855d); box-shadow: 0 12px 28px rgba(0, 105, 72, .24); }
+.quest-top { display: flex; justify-content: space-between; gap: var(--space-2); }
+.quest-tag, .quest-bonus { padding: 4px 12px; border-radius: 999px; font: 800 .72rem/1.3 var(--font-display); letter-spacing: .05em; text-transform: uppercase; }
+.quest-tag { background: rgba(255, 255, 255, .18); }
+.quest-bonus { background: #ffddb8; color: #2a1700; }
+.quest-card h2 { margin: 0; color: #fff; font-size: 1.5rem; font-weight: 800; }
+.quest-progress { display: flex; justify-content: space-between; font-weight: 700; font-size: .88rem; }
+.quest-bar { display: block; height: 10px; border-radius: 10px; background: rgba(255, 255, 255, .25); overflow: hidden; }
+.quest-bar span { display: block; height: 100%; border-radius: 10px; background: #85f8c4; }
+.quest-foot { display: flex; align-items: center; justify-content: space-between; gap: var(--space-2); font-size: .88rem; }
+.quest-go { background: #fff; color: #006948; border-color: #fff; box-shadow: 0 4px 0 #b7c6f0; min-height: 42px; }
+.practice-area .section-row { margin: var(--space-3) 0 0; }
+.practice-area .section-row .hint { margin: 2px 0 0; }
+.game-count { padding: 4px 12px; border-radius: 999px; background: var(--secondary-soft); color: var(--secondary-text); font: 800 .72rem/1.3 var(--font-display); white-space: nowrap; }
+.games { display: grid; gap: var(--space-3); }
+.game-card { display: grid; gap: var(--space-3); padding: var(--space-4); border-radius: var(--radius-l); background: var(--surface); box-shadow: var(--shadow); }
+.game-card-head { display: flex; align-items: flex-start; gap: var(--space-3); }
+.game-card-head > div { flex: 1; min-width: 0; }
+.game-card h3 { margin: 0 0 2px; font-size: 1.15rem; }
+.game-card-head p { margin: 0; color: var(--muted); font-size: .88rem; }
+.game-icon { display: grid; place-items: center; flex: none; width: 46px; height: 46px; border-radius: 14px; background: var(--surface-2); color: var(--text); }
+.is-amber .game-icon { background: var(--tertiary-soft); color: var(--tertiary); }
+.is-violet .game-icon { background: var(--secondary-soft); color: var(--secondary); }
+.is-blue .game-icon { background: #dbeafe; color: #1d4ed8; }
+.is-red .game-icon { background: #fee2e2; color: #b91c1c; }
+.is-mint .game-icon { background: #ffe9d1; color: #b45309; }
+.game-preview { display: flex; flex-wrap: wrap; gap: 8px; padding: 10px; border-radius: 14px; background: var(--surface-2); font-size: .88rem; }
+.game-preview > span { flex: 1; min-width: 120px; padding: 8px 10px; border-radius: 10px; background: var(--surface); }
+.game-preview.is-wave { align-items: center; background: var(--secondary-soft); color: var(--secondary-text); }
+.game-preview.is-wave > span { background: transparent; min-width: 0; }
+.game-preview.is-wave > span:last-child { flex: 1 1 100%; }
+.game-preview.is-quote span { font-style: italic; background: transparent; }
+.game-preview.is-row { justify-content: space-between; align-items: center; }
+.game-preview.is-row span { flex: 0 1 auto; background: transparent; min-width: 0; }
+.wave { display: inline-flex !important; gap: 3px; align-items: center; }
+.wave i { display: block; width: 4px; height: 10px; border-radius: 4px; background: var(--secondary); animation: wave 1s ease-in-out infinite; }
+.wave i:nth-child(2) { animation-delay: .1s; height: 18px; } .wave i:nth-child(3) { animation-delay: .2s; } .wave i:nth-child(4) { animation-delay: .3s; height: 16px; } .wave i:nth-child(5) { animation-delay: .4s; }
+@keyframes wave { 50% { transform: scaleY(.5); } }
+.game-tag { padding: 3px 10px; border-radius: 999px; background: #fee2e2; color: #b91c1c; font: 800 .72rem/1.3 var(--font-display); }
+.game-card-foot { display: flex; align-items: center; justify-content: space-between; gap: var(--space-2); }
+.game-best { color: var(--muted); font-size: .85rem; font-weight: 600; }
+.button.soft { background: var(--surface-3); border-color: var(--surface-3); }
+.mistake-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.mistake-chip { display: inline-flex; gap: 6px; padding: 6px 12px; border-radius: 999px; background: var(--surface-2); font-size: .85rem; font-weight: 600; }
+.mistake-chip b { color: var(--error); font-weight: 800; }
+.game-wide { width: 100%; min-height: 50px; }
+.play { display: grid; gap: var(--space-4); }
+.play-top { display: flex; align-items: center; gap: var(--space-2); }
+.play-top h2 { flex: 1; margin: 0; font-size: 1.3rem; }
+.play-stat { padding: 6px 12px; border-radius: 999px; background: var(--surface); box-shadow: var(--shadow); font: 800 .9rem/1 var(--font-display); white-space: nowrap; }
+.match { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3); }
+.match-col { display: grid; gap: var(--space-2); align-content: start; }
+.match-item { min-height: 56px; padding: 8px 10px; border: 1.5px solid var(--line); border-radius: 14px; background: var(--surface); color: var(--text); font: 700 .95rem/1.25 var(--font); cursor: pointer; box-shadow: 0 3px 0 var(--surface-3); }
+.match-item.is-picked { border: 2px solid var(--secondary); background: var(--secondary-soft); }
+.match-item.is-right { border: 2px solid var(--primary); background: var(--success-soft); color: var(--success); opacity: .7; box-shadow: none; }
+.match-item.is-wrong, .gram-option.is-wrong { animation: shake .35s; }
+@keyframes shake { 25% { transform: translateX(-6px); } 75% { transform: translateX(6px); } }
+.match-item.is-wrong { border: 2px solid var(--error); background: var(--error-soft); }
+.listen-card, .gap-card { display: grid; justify-items: center; gap: var(--space-2); padding: var(--space-5) var(--space-4); border-radius: var(--radius-l); background: var(--surface); box-shadow: var(--shadow); text-align: center; }
+.audio-button.huge { width: 84px; height: 84px; }
+.audio-button.huge .icon { width: 34px; height: 34px; }
+.listen-pron { margin: 0; color: var(--muted); letter-spacing: .04em; }
+.listen-hint { margin: 0; font: 800 1.6rem/1.2 var(--font-display); letter-spacing: .12em; }
+.listen-form { display: flex; gap: var(--space-2); }
+.listen-form input { flex: 1; min-width: 0; font-size: 1.1rem; }
+.gap-card { justify-items: start; text-align: left; }
+.gap-sentence { margin: 0; font: italic 1.2rem/1.5 Georgia, serif; }
+.gap-sentence .gap { display: inline-block; min-width: 3em; padding: 0 6px; border-radius: 6px; background: var(--primary-soft); color: var(--accent-text); font-style: normal; font-weight: 700; }
+.survive-time { display: block; height: 10px; border-radius: 10px; background: var(--surface-3); overflow: hidden; }
+.survive-time span { display: block; height: 100%; background: linear-gradient(90deg, #ef4444, #f59e0b); transition: width .1s linear; }
+.survive-word { margin: var(--space-3) 0; text-align: center; font: 800 2.4rem/1.1 var(--font-display); }
+.play-feedback .gram-feedback { display: grid; gap: 8px; }
+/* ---------- Rankings (WordFlow) ---------- */
+.rank-area { display: grid; gap: var(--space-4); }
+.league-card { border-radius: var(--radius-l); overflow: hidden; color: #fff; background: linear-gradient(135deg, #006948, #00855d 60%, #712ae2); box-shadow: 0 12px 28px rgba(0, 105, 72, .22); }
+.league-top { display: flex; align-items: center; gap: var(--space-3); padding: var(--space-4); }
+.league-top > div { flex: 1; min-width: 0; }
+.league-shield { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; background: rgba(255, 255, 255, .2); }
+.league-top h2 { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 0; color: #fff; font-size: 1.3rem; }
+.league-season { padding: 2px 10px; border-radius: 999px; background: #85f8c4; color: #002114; font: 800 .7rem/1.4 var(--font-display); }
+.league-top p { display: flex; align-items: center; gap: 6px; margin: 4px 0 0; color: rgba(255, 255, 255, .85); font-size: .88rem; }
+.league-top p .icon { width: 16px; height: 16px; }
+.league-goal { display: grid; justify-items: center; padding: 6px 12px; border-radius: 12px; background: rgba(255, 255, 255, .16); }
+.league-goal small { font: 800 .65rem/1.2 var(--font-display); letter-spacing: .08em; text-transform: uppercase; color: #85f8c4; }
+.league-goal strong { font: 800 1.3rem/1.2 var(--font-display); }
+.league-foot { margin: 0; padding: 10px var(--space-4); background: rgba(0, 0, 0, .14); font-size: .85rem; }
+.podium { display: grid; grid-template-columns: 1fr 1.1fr 1fr; align-items: end; gap: 6px; }
+.podium-place { display: grid; justify-items: center; gap: 4px; text-align: center; min-width: 0; }
+.podium-avatar { display: grid; place-items: center; width: 58px; height: 58px; border-radius: 50%; background: var(--surface); box-shadow: var(--shadow); font-size: 1.6rem; }
+.is-first .podium-avatar { width: 74px; height: 74px; font-size: 2rem; box-shadow: 0 0 0 4px #ffb95f, var(--shadow); }
+.podium-place strong { font-size: .88rem; overflow-wrap: anywhere; }
+.podium-days { color: var(--tertiary); font-size: .78rem; font-weight: 700; }
+.podium-block { display: grid; justify-items: center; align-content: center; gap: 4px; width: 100%; border-radius: 16px 16px 0 0; background: var(--surface-3); }
+.podium-block b { font: 800 1.8rem/1 var(--font-display); }
+.podium-block span { font: 800 .78rem/1 var(--font-display); }
+.is-first .podium-block { height: 130px; background: #a7f3d0; color: #00513a; }
+.is-first .podium-block span { padding: 4px 10px; border-radius: 999px; background: #006948; color: #fff; }
+.is-second .podium-block { height: 96px; }
+.is-third .podium-block { height: 80px; }
+.podium-place.is-me strong { color: var(--accent-text); }
+.rank-note { display: flex; align-items: center; gap: 8px; padding: 10px 14px; border-radius: 14px; background: var(--success-soft); color: var(--success); font-weight: 700; font-size: .9rem; }
+.rank-me { display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3) var(--space-4); border-radius: var(--radius-l); background: var(--secondary-soft); color: var(--secondary-text); }
+.rank-me > div:nth-child(2) { display: grid; flex: 1; min-width: 0; }
+.rank-me-side { display: grid; justify-items: end; gap: 4px; }
+.rank-me-side small { color: var(--tertiary); font-weight: 700; }
+.rank-pos { display: grid; place-items: center; flex: none; width: 36px; height: 36px; border-radius: 50%; background: var(--secondary); color: #fff; font: 800 1rem/1 var(--font-display); }
+.rank-list { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-2); }
+.rank-list li { display: flex; align-items: center; gap: var(--space-3); padding: 12px var(--space-4); border-radius: 18px; background: var(--surface); box-shadow: var(--shadow); }
+.rank-list li > div { display: grid; flex: 1; min-width: 0; }
+.rank-list li > div span { color: var(--muted); font-size: .85rem; }
+.rank-list .rank-pos { background: transparent; color: var(--text); }
+.rank-list li.is-me { background: var(--primary-soft); }
+.rank-xp { padding: 4px 10px; border-radius: 999px; background: var(--surface-2); font: 800 .8rem/1.2 var(--font-display); }
+.rank-push { display: grid; gap: var(--space-3); padding: var(--space-4); border-radius: var(--radius-l); background: var(--surface); box-shadow: var(--shadow); }
+.rank-push-head { display: flex; gap: var(--space-3); }
+.rank-push-head p { margin: 2px 0 0; color: var(--muted); font-size: .9rem; }
+.rank-bulb { display: grid; place-items: center; flex: none; width: 44px; height: 44px; border-radius: 50%; background: var(--tertiary-soft); font-size: 1.3rem; }
+.rank-push .button { min-height: 52px; }
+
+/* ---------- Novel library and word card (WordFlow) ---------- */
+.lib-tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; padding: 4px; margin-bottom: var(--space-4); border-radius: 18px; background: var(--surface-3); max-width: 560px; }
+.lib-tab { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 46px; border: 0; border-radius: 14px; background: transparent; color: var(--muted); font: 700 .95rem/1.2 var(--font); cursor: pointer; }
+.lib-tab[aria-pressed="true"] { background: var(--surface); color: var(--accent-text); box-shadow: var(--shadow); }
+.lib-tab .icon { width: 18px; height: 18px; }
+.lib-now { display: grid; gap: var(--space-3); max-width: 560px; }
+.lib-now:empty { display: none; }
+.read-goal { display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3) var(--space-4); border-radius: var(--radius-l); background: var(--surface); box-shadow: var(--shadow); }
+.read-goal-icon { display: grid; place-items: center; flex: none; width: 44px; height: 44px; border-radius: 50%; background: var(--tertiary-soft); font-size: 1.3rem; }
+.read-goal > div { flex: 1; min-width: 0; display: grid; gap: 2px; }
+.read-goal strong { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; font-size: .95rem; }
+.read-goal span { color: var(--muted); font-size: .85rem; }
+.read-xp { padding: 2px 8px; border-radius: 999px; background: var(--primary-soft); color: var(--accent-text); font: 800 .72rem/1.3 var(--font-display); }
+.read-ring { position: relative; flex: none; width: 52px; height: 52px; }
+.read-ring svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+.read-ring circle { fill: none; stroke-width: 3.6; }
+.read-ring span { position: absolute; inset: 0; display: grid; place-items: center; font: 800 .78rem/1 var(--font-display); }
+.now-book { position: relative; overflow: hidden; display: grid; gap: var(--space-3); padding: var(--space-4); border-radius: var(--radius-l); background: var(--surface); box-shadow: var(--shadow); }
+.now-book::after { content: ""; position: absolute; right: -50px; bottom: -50px; width: 170px; height: 170px; border-radius: 50%; background: var(--primary-soft); opacity: .6; pointer-events: none; }
+.now-book-top { display: flex; gap: var(--space-3); position: relative; z-index: 1; }
+.now-cover { position: relative; flex: none; display: grid; place-items: center; width: 96px; height: 136px; border-radius: 6px 12px 12px 6px; color: #fff; font: 700 2.4rem/1 Georgia, serif; background: var(--cover, #006948); box-shadow: inset 6px 0 0 rgba(0, 0, 0, .2), inset 0 -40px 40px rgba(0, 0, 0, .2), 0 8px 18px rgba(19, 27, 46, .18); }
+.now-level { position: absolute; top: 6px; left: -4px; padding: 2px 8px; border-radius: 999px; background: #131b2e; color: #fff; font: 800 .68rem/1.3 var(--font-display); }
+.now-info { display: grid; align-content: start; gap: 4px; min-width: 0; }
+.now-info .deck-chip { justify-self: start; }
+.now-info h2 { margin: 0; font-size: 1.3rem; overflow-wrap: anywhere; }
+.now-author { margin: 0; color: var(--muted); font-size: .9rem; }
+.now-chapter { display: flex; align-items: center; gap: 6px; margin: 0; color: var(--accent-text); font-weight: 700; font-size: .88rem; }
+.now-chapter .icon { width: 16px; height: 16px; }
+.now-words { display: flex; align-items: center; gap: 8px; margin: 4px 0 0; padding: 8px 10px; border-radius: 12px; background: var(--surface-2); color: var(--accent-text); font-size: .85rem; font-weight: 600; }
+.now-progress { display: grid; gap: 6px; position: relative; z-index: 1; }
+.now-progress div { display: flex; justify-content: space-between; font-size: .9rem; color: var(--muted); }
+.now-progress strong { color: var(--text); }
+.now-progress .gram-meter { height: 10px; }
+.now-go { position: relative; z-index: 1; min-height: 54px; font-size: 1rem; }
+.nw.is-saved { background: var(--secondary-soft); color: var(--secondary-text); border-radius: 6px; padding: 0 3px; }
+.nw.is-saved::after { content: "•"; color: var(--secondary); margin-left: 1px; }
+.novel-pop { gap: var(--space-2); padding: var(--space-4); border: 1px solid var(--line); border-radius: var(--radius-l); box-shadow: 0 20px 32px -8px rgba(15, 23, 42, .24); }
+.novel-pop-head strong { flex: 0 1 auto; font: 800 1.6rem/1.1 var(--font-display); letter-spacing: -.02em; }
+.novel-pop-gap { flex: 1; }
+.novel-pop-box { padding: 10px 12px; border-radius: 14px; background: var(--surface-2); }
+.novel-pop-box .eyebrow { color: var(--accent-text); margin-bottom: 2px; }
+.novel-pop .novel-pop-tr { margin: 0; font-size: 1.05rem; font-weight: 700; }
+.novel-pop-sentence { padding: 10px 12px; border-radius: 14px; background: var(--surface-2); font-size: .88rem; color: var(--muted); }
+.novel-pop-sentence i { color: var(--text); }
+.novel-pop-sentence a { display: inline-block; margin-top: 4px; font-weight: 600; font-size: .82rem; }
+.novel-pop-actions { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-2); }
+.novel-pop-actions .button { min-height: 48px; margin: 0; }
+.novel-pop-save[aria-pressed="true"] { background: var(--secondary-soft); border-color: var(--secondary-soft); color: var(--secondary-text); box-shadow: 0 3px 0 #d2bbff; }
+body.novel-focus .novel-pop-box, body.novel-focus .novel-pop-sentence { background: var(--paper-soft); }
+body.novel-focus .novel-pop-sentence i { color: var(--paper-text); }
+
+/* ---------- Teacher chat (WordFlow) ---------- */
+.tutor-top { background: var(--header); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); border-bottom: 0; box-shadow: 0 1px 8px rgba(19, 27, 46, .05); padding: 8px 0; }
+.tutor-avatar { background: linear-gradient(135deg, #00855d, #006948); position: relative; }
+.tutor-top .tutor-avatar::after { content: ""; position: absolute; right: -1px; bottom: -1px; width: 10px; height: 10px; border-radius: 50%; background: #22c55e; border: 2px solid var(--surface); }
+.tutor-top-title strong { font: 800 1.1rem/1.2 var(--font-display); }
+.tutor-top-title span { color: var(--accent-text); font-size: .8rem; font-weight: 600; }
+.tutor-top-title span::before { content: "● "; color: #22c55e; }
+.tutor-bubble { border: 0; border-radius: 22px 22px 22px 6px; box-shadow: 0 4px 16px rgba(19, 27, 46, .06); padding: 14px 16px; }
+.tutor-say { font: 1.08rem/1.5 var(--font); }
+.from-me .tutor-bubble { background: var(--primary); color: #fff; border-radius: 22px 22px 6px 22px; box-shadow: 0 6px 16px rgba(0, 105, 72, .22); }
+.tutor-hl { background: var(--secondary-soft); color: var(--secondary-text); border-radius: 6px; padding: 0 4px; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+.tutor-tools { align-items: center; gap: var(--space-3); margin-top: 10px; }
+.tutor-play { display: inline-flex; align-items: center; gap: 6px; min-height: 36px; padding: 0 14px; border: 0; border-radius: 999px; background: var(--primary); color: #fff; font: 700 .85rem/1 var(--font); cursor: pointer; }
+.tutor-play .icon { width: 16px; height: 16px; }
+.tutor-play .wave i { background: #85f8c4; height: 8px; }
+.tutor-trbtn { border: 0; background: transparent; color: var(--muted); font: 600 .85rem/1.2 var(--font); cursor: pointer; padding: 6px 0; }
+.tutor-trbtn::before { content: "文A  "; color: var(--tertiary); }
+.tutor-word { display: flex; align-items: center; justify-content: space-between; gap: var(--space-2); width: 100%; margin-top: 10px; padding: 8px 12px; border-radius: 14px; background: var(--secondary-soft); color: var(--secondary-text); }
+.tutor-word > div { display: grid; }
+.tutor-word strong { font-weight: 800; }
+.tutor-word span { color: var(--text); font-size: .9rem; }
+.tutor-keep { display: grid; place-items: center; flex: none; width: 36px; height: 36px; border: 0; border-radius: 10px; background: var(--surface); color: var(--secondary); cursor: pointer; }
+.tutor-keep[aria-pressed="true"] { background: var(--secondary); color: #fff; }
+.tutor-fix { margin: 8px 0 0 auto; padding: 12px 14px; border-radius: 18px; background: var(--surface); color: var(--text); box-shadow: 0 4px 16px rgba(19, 27, 46, .06); border: 1.5px solid var(--tertiary-soft); text-align: left; }
+.tutor-fix strong { color: var(--tertiary); text-transform: none; letter-spacing: 0; font: 800 .95rem/1.3 var(--font-display); }
+.tutor-fix.is-good { border-color: var(--success-soft); }
+.tutor-fix.is-good strong { color: var(--success); }
+.tutor-fix .tutor-fix-en { margin: 6px 0 0; font: 1rem/1.45 var(--font); color: var(--text); opacity: 1; }
+.tutor-fix ins { background: var(--success-soft); color: var(--success); text-decoration: none; font-weight: 700; border-radius: 4px; padding: 0 2px; }
+.tutor-dock { border-top: 0; border-radius: 26px 26px 0 0; box-shadow: 0 -8px 24px rgba(19, 27, 46, .08); }
+.tutor-dock-row { justify-content: space-around; }
+.tutor-mic { position: relative; width: 76px; height: 76px; min-height: 76px; padding: 0; justify-content: center; border-radius: 50%; background: var(--primary); box-shadow: 0 0 0 8px var(--primary-soft), 0 6px 16px rgba(0, 105, 72, .3); }
+.tutor-mic .icon { width: 30px; height: 30px; }
+.tutor-mic span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+.tutor-mic.is-listening { background: var(--error); box-shadow: 0 0 0 8px var(--error-soft); animation: mic-pulse 1.2s ease-in-out infinite; }
+@keyframes mic-pulse { 50% { box-shadow: 0 0 0 14px var(--error-soft); } }
+.tutor-dock-row .novel-icon { width: 52px; height: 52px; border-radius: 50%; background: var(--surface-2); }
 </style>
 </head>
 <body>
@@ -948,6 +1344,13 @@ body.novel-focus .novel-pop-base, body.novel-focus .novel-pop-sentence { color: 
   <symbol id="i-repeat" viewBox="0 0 24 24"><path d="M17 2l4 4-4 4"/><path d="M3 11V9a3 3 0 0 1 3-3h15M7 22l-4-4 4-4"/><path d="M21 13v2a3 3 0 0 1-3 3H3"/></symbol>
   <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></symbol>
   <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></symbol>
+  <symbol id="i-cards" viewBox="0 0 24 24"><rect x="7" y="3" width="13" height="16" rx="2" transform="rotate(8 13 11)"/><rect x="4" y="5" width="13" height="16" rx="2"/></symbol>
+  <symbol id="i-trend" viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></symbol>
+  <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20V10h4v10M10 20V4h4v16M16 20v-7h4v7"/></symbol>
+  <symbol id="i-timer" viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5M9 2h6"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></symbol>
   <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></symbol>
   <symbol id="i-pen" viewBox="0 0 24 24"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></symbol>
   <symbol id="i-keyboard" viewBox="0 0 24 24"><path d="M3 6h18v12H3zM7 10h.01M11 10h.01M15 10h.01M7 14h10"/></symbol>
@@ -964,12 +1367,15 @@ body.novel-focus .novel-pop-base, body.novel-focus .novel-pop-sentence { color: 
       <span class="brand-mark" aria-hidden="true">En</span>
       <span><strong>English Study</strong><small data-i18n="brand.sub">B1–B2 vocabulary and practice</small></span>
     </a>
+    <span class="header-pills"><span class="pill streak" id="pill-streak" title="Study streak" data-i18n-title="stat.streak">🔥 0</span><span class="pill xp" id="pill-xp" title="XP this week" data-i18n-title="xp.week">⚡ 0</span></span>
     <button type="button" class="icon-button" id="theme-quick" aria-label="Switch to dark theme" data-i18n-aria="theme.toDark"><svg class="icon"><use href="#i-moon"/></svg></button>
   </div>
   <nav class="tabs" aria-label="Main" data-i18n-aria="nav.label">
     <span class="nav-group" data-i18n="nav.groupDaily">Daily</span>
     <a href="#home" data-route="home"><svg class="icon" aria-hidden="true"><use href="#i-home"/></svg><span data-i18n="nav.home">Home</span></a>
     <a href="#review" data-route="review"><svg class="icon" aria-hidden="true"><use href="#i-repeat"/></svg><span data-i18n="nav.review">Review</span><b class="nav-badge" data-badge hidden></b></a>
+    <a href="#practice" data-route="practice"><svg class="icon" aria-hidden="true"><use href="#i-bolt"/></svg><span data-i18n="nav.practice">Practice</span></a>
+    <a href="#rankings" data-route="rankings"><svg class="icon" aria-hidden="true"><use href="#i-chart"/></svg><span data-i18n="nav.rankings">Rankings</span></a>
     <span class="nav-group" data-i18n="nav.groupLearn">Learn</span>
     <a href="#words" data-route="words"><svg class="icon" aria-hidden="true"><use href="#i-words"/></svg><span data-i18n="nav.words">Words</span></a>
     <a href="#phrases" data-route="phrases"><svg class="icon" aria-hidden="true"><use href="#i-chat"/></svg><span data-i18n="nav.phrases">Phrases</span></a>
@@ -986,10 +1392,10 @@ body.novel-focus .novel-pop-base, body.novel-focus .novel-pop-sentence { color: 
 </header>
 <!-- Phones and tablets: the five most used places at the bottom, the rest under "More". -->
 <nav class="bottom-nav" id="bottom-nav" aria-label="Main" data-i18n-aria="nav.label">
-    <a href="#home" data-route="home"><svg class="icon" aria-hidden="true"><use href="#i-home"/></svg><span data-i18n="nav.home">Home</span></a>
-    <a href="#review" data-route="review"><svg class="icon" aria-hidden="true"><use href="#i-repeat"/></svg><span data-i18n="nav.review">Review</span><b class="nav-badge" data-badge hidden></b></a>
-    <a href="#grammar" data-route="grammar"><svg class="icon" aria-hidden="true"><use href="#i-pen"/></svg><span data-i18n="nav.grammar">Grammar</span></a>
+    <a href="#home" data-route="home"><svg class="icon" aria-hidden="true"><use href="#i-home"/></svg><span data-i18n="nav.learn">Learn</span></a>
+    <a href="#practice" data-route="practice"><svg class="icon" aria-hidden="true"><use href="#i-bolt"/></svg><span data-i18n="nav.practice">Practice</span></a>
     <a href="#novel" data-route="novel"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg><span data-i18n="nav.novel">Novel</span></a>
+    <a href="#speak" data-route="speak"><svg class="icon" aria-hidden="true"><use href="#i-mic"/></svg><span data-i18n="nav.speak">Speaking</span></a>
     <button type="button" id="nav-more" aria-expanded="false" aria-controls="more-sheet"><svg class="icon" aria-hidden="true"><use href="#i-grid"/></svg><span data-i18n="nav.more">More</span></button>
 </nav>
 <div class="more-sheet" id="more-sheet" hidden>
@@ -997,11 +1403,13 @@ body.novel-focus .novel-pop-base, body.novel-focus .novel-pop-sentence { color: 
   <div class="more-panel" role="dialog" aria-modal="true" aria-labelledby="more-title">
     <h2 id="more-title" data-i18n="nav.more">More</h2>
     <div class="more-grid">
+      <a href="#grammar" data-route="grammar"><svg class="icon" aria-hidden="true"><use href="#i-pen"/></svg><span data-i18n="nav.grammar">Grammar</span></a>
+      <a href="#review" data-route="review"><svg class="icon" aria-hidden="true"><use href="#i-repeat"/></svg><span data-i18n="nav.review">Review</span><b class="nav-badge" data-badge hidden></b></a>
       <a href="#words" data-route="words"><svg class="icon" aria-hidden="true"><use href="#i-words"/></svg><span data-i18n="nav.words">Words</span></a>
       <a href="#phrases" data-route="phrases"><svg class="icon" aria-hidden="true"><use href="#i-chat"/></svg><span data-i18n="nav.phrases">Phrases</span></a>
       <a href="#quiz" data-route="quiz"><svg class="icon" aria-hidden="true"><use href="#i-quiz"/></svg><span data-i18n="nav.quiz">Quiz</span></a>
       <a href="#reading" data-route="reading"><svg class="icon" aria-hidden="true"><use href="#i-reading"/></svg><span data-i18n="nav.reading">Reading</span></a>
-      <a href="#speak" data-route="speak"><svg class="icon" aria-hidden="true"><use href="#i-mic"/></svg><span data-i18n="nav.speak">Speaking</span></a>
+      <a href="#rankings" data-route="rankings"><svg class="icon" aria-hidden="true"><use href="#i-chart"/></svg><span data-i18n="nav.rankings">Rankings</span></a>
       <a href="#settings" data-route="settings"><svg class="icon" aria-hidden="true"><use href="#i-settings"/></svg><span data-i18n="nav.settings">Settings</span></a>
     </div>
   </div>
@@ -1031,31 +1439,53 @@ body.novel-focus .novel-pop-base, body.novel-focus .novel-pop-sentence { color: 
   ==================================================================== -->
   <!-- Home / dashboard -->
   <section class="view" data-view="home" aria-labelledby="home-title">
-    <div class="view-head">
-      <h1 id="home-title" tabindex="-1" data-i18n="home.title">Your study space</h1>
-      <p class="lead" data-i18n="home.lead">Learn vocabulary with example sentences for every word type, test yourself and read short texts — all offline in one page.</p>
+    <div class="home-head">
+      <div>
+        <span class="eyebrow" data-i18n="home.eyebrow">Daily goal</span>
+        <h1 id="home-title" tabindex="-1"></h1>
+      </div>
+      <span class="pill xp home-xp" id="home-xp"></span>
     </div>
-    <div class="panel today-panel">
-      <div class="today-head">
-        <div>
-          <h2 data-i18n="today.title">Today</h2>
-          <p class="today-date" id="today-date"></p>
-        </div>
-        <span class="today-streak" id="today-streak"></span>
+    <div class="goal-card js-only">
+      <div class="goal-ring" aria-hidden="true">
+        <svg viewBox="0 0 36 36"><circle class="goal-track" cx="18" cy="18" r="15.9"/><circle class="goal-fill" id="goal-fill" cx="18" cy="18" r="15.9" pathLength="100"/></svg>
+        <span><strong id="goal-done">0</strong><small id="goal-of">/ 20</small></span>
       </div>
-      <div class="today-goal">
-        <div class="today-goal-line"><strong id="today-goal-text"></strong>
-          <label class="visually-hidden" for="today-goal" data-i18n="today.goalLabel">Daily goal</label>
-          <select id="today-goal" class="today-goal-select"></select></div>
-        <span class="gram-meter"><span id="today-goal-bar"></span></span>
+      <div class="goal-text">
+        <span class="goal-chip" id="goal-chip"></span>
+        <h2 id="goal-title"></h2>
+        <p id="goal-note"></p>
+        <label class="goal-select"><span class="visually-hidden" data-i18n="today.goalLabel">Daily goal</span><select id="today-goal"></select></label>
       </div>
-      <a class="button today-start" id="today-review" href="#review"><svg class="icon" aria-hidden="true"><use href="#i-quiz"/></svg><span id="today-review-label">Review</span></a>
-      <h3 class="today-sub" data-i18n="today.continue">Pick up where you left off</h3>
-      <ul class="today-rows" id="today-continue"></ul>
-      <h3 class="today-sub" data-i18n="today.week">This week</h3>
+    </div>
+    <div class="review-hero js-only">
+      <div class="review-hero-top">
+        <span class="review-hero-tag"><svg class="icon" aria-hidden="true"><use href="#i-repeat"/></svg><span data-i18n="home.srs">Spaced repetition</span></span>
+        <span class="review-hero-count" id="hero-count"></span>
+      </div>
+      <h2 id="hero-title" data-i18n="home.heroTitle">Today’s review</h2>
+      <p id="hero-text"></p>
+      <a class="button hero-button" id="hero-start" href="#review"><svg class="icon" aria-hidden="true"><use href="#i-play"/></svg><span id="hero-label"></span></a>
+    </div>
+    <div class="section-row">
+      <h2><svg class="icon" aria-hidden="true"><use href="#i-cards"/></svg><span data-i18n="home.decks">Word decks</span></h2>
+      <span class="section-note" id="deck-count"></span>
+    </div>
+    <div class="decks js-only" id="decks"></div>
+    <div class="week-card js-only">
+      <div class="week-card-head">
+        <span class="week-icon" aria-hidden="true"><svg class="icon"><use href="#i-trend"/></svg></span>
+        <div><span class="eyebrow" data-i18n="home.weekly">Weekly performance</span><strong data-i18n="home.weekTitle">Last 7 days</strong></div>
+        <span class="week-score"><strong id="week-recall">—</strong><small data-i18n="home.recall">recall</small></span>
+      </div>
       <ol class="today-week" id="today-week" aria-label="Cards reviewed in the last seven days" data-i18n-aria="today.weekLabel"></ol>
     </div>
-    <div class="panel">
+    <div class="section-row"><h2 data-i18n="today.continue">Pick up where you left off</h2></div>
+    <ul class="today-rows js-only" id="today-continue"></ul>
+    <h2 class="section-title" data-i18n="home.progress">Your progress</h2>
+    <dl class="stats" id="stats"></dl>
+    <details class="panel home-path">
+      <summary data-i18n="home.path">Study path</summary>
       <div class="field">
         <label for="path-select" data-i18n="home.path">Study path</label>
         <select id="path-select">
@@ -1067,31 +1497,40 @@ body.novel-focus .novel-pop-base, body.novel-focus .novel-pop-sentence { color: 
           <option value="C1+" data-i18n="path.C1+">C1+</option>
         </select>
       </div>
-      <p class="hint" data-i18n="home.pathHint">Your path decides which words the Quiz uses. Levels come from the section titles of the original word list; they are not an official CEFR assessment.</p>
-    </div>
-    <h2 class="section-title" data-i18n="home.progress">Your progress</h2>
-    <dl class="stats" id="stats"></dl>
-    <h2 class="section-title" data-i18n="home.modes">Study modes</h2>
-    <ul class="mode-grid">
-      <li><a class="mode-card" href="#words"><svg class="icon" aria-hidden="true"><use href="#i-words"/></svg><div><strong data-i18n="nav.words">Words</strong><span data-i18n="mode.words">Search the list, open example sentences for each word type and mark words you know.</span></div></a></li>
-      <li><a class="mode-card" href="#phrases"><svg class="icon" aria-hidden="true"><use href="#i-chat"/></svg><div><strong data-i18n="nav.phrases">Phrases</strong><span data-i18n="mode.phrases">40 everyday topics and 719 practical conversation patterns.</span></div></a></li>
-      <li><a class="mode-card" href="#quiz"><svg class="icon" aria-hidden="true"><use href="#i-quiz"/></svg><div><strong data-i18n="nav.quiz">Quiz</strong><span data-i18n="mode.quiz">Multiple-choice and fill-in-the-blank questions.</span></div></a></li>
-      <li><a class="mode-card" href="#grammar"><svg class="icon" aria-hidden="true"><use href="#i-pen"/></svg><div><strong data-i18n="nav.grammar">Grammar</strong><span data-i18n="mode.grammar">Conjunctions, verbs with many meanings, phrasal verbs, relative clauses and story writing.</span></div></a></li>
-      <li><a class="mode-card" href="#speak"><svg class="icon" aria-hidden="true"><use href="#i-mic"/></svg><div><strong data-i18n="nav.speak">Speaking</strong><span data-i18n="mode.speak">Talk in English with a friend in a voice room, with topic cards to guide you.</span></div></a></li>
-      <li><a class="mode-card" href="#novel"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg><div><strong data-i18n="nav.novel">Novel</strong><span data-i18n="mode.novel">Read an English novel and tap any word for its Turkish meaning.</span></div></a></li>
-      <li><a class="mode-card" href="#reading"><svg class="icon" aria-hidden="true"><use href="#i-reading"/></svg><div><strong data-i18n="nav.reading">Reading</strong><span data-i18n="mode.reading">Short texts with questions and optional listening.</span></div></a></li>
-    </ul>
+      <p class="hint" data-i18n="home.pathHint">Your path decides which words the Quiz uses.</p>
+    </details>
     <p class="hint" id="home-storage-note"></p>
   </section>
 
   <!-- Review: spaced repetition cards from words, the novel and grammar. -->
   <section class="view" data-view="review" aria-labelledby="review-title">
     <div class="view-head">
-      <h1 id="review-title" tabindex="-1" data-i18n="review.title">Review</h1>
-      <p class="lead" data-i18n="review.lead">Cards come back just before you would forget them. Say honestly whether you knew each one.</p>
+      <h1 id="review-title" tabindex="-1">Review</h1>
+      <p class="lead" id="review-lead"></p>
     </div>
-    <div class="review-goal js-only"><strong id="review-goal"></strong><span class="gram-meter"><span id="review-goal-bar"></span></span></div>
+    <div class="review-progress js-only">
+      <div class="review-progress-top"><strong id="review-goal"></strong><span class="pill streak" id="review-combo" hidden></span></div>
+      <span class="gram-meter"><span id="review-goal-bar"></span></span>
+    </div>
     <div class="review-card js-only" id="review-card" aria-live="polite"></div>
+  </section>
+
+  <!-- Practice: the daily quest and mini games. -->
+  <section class="view" data-view="practice" aria-labelledby="practice-title">
+    <div class="view-head" id="practice-head">
+      <h1 id="practice-title" tabindex="-1" data-i18n="practice.title">Practice</h1>
+      <p class="lead" data-i18n="practice.lead">Quick games with the words you know, for points and records.</p>
+    </div>
+    <div class="practice-area js-only" id="practice-area"></div>
+  </section>
+
+  <!-- Rankings: this week against your own past weeks. -->
+  <section class="view" data-view="rankings" aria-labelledby="rankings-title">
+    <div class="view-head">
+      <h1 id="rankings-title" tabindex="-1" data-i18n="rank.title">Rankings</h1>
+      <p class="lead" data-i18n="rank.lead">Your league is your own weeks: beat your best ones.</p>
+    </div>
+    <div class="rank-area js-only" id="rank-area"></div>
   </section>
 
   <!-- Vocabulary -->
@@ -1235,11 +1674,18 @@ body.novel-focus .novel-pop-base, body.novel-focus .novel-pop-sentence { color: 
         <h1 id="novel-title" tabindex="-1" data-i18n="novel.title">Read a novel</h1>
         <p class="lead" data-i18n="novel.lead">Open an English novel as a PDF file and tap any word to see its Turkish meaning.</p>
       </div>
+      <div class="lib-tabs js-only">
+        <button type="button" class="lib-tab" data-libtab="now" aria-pressed="true"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg><span data-i18n="novel.tabNow">Reading now</span></button>
+        <button type="button" class="lib-tab" data-libtab="shelf" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="#i-cards"/></svg><span data-i18n="novel.tabShelf">Library</span></button>
+      </div>
+      <div class="lib-now js-only" id="lib-now"></div>
+      <div class="lib-shelf" id="lib-shelf">
       <div class="novel-shelf js-only" id="novel-shelf"><!--@NOVEL_SHELF@--></div>
       <div class="novel-lib-foot js-only">
         <label class="button small ghost" for="novel-file"><svg class="icon" aria-hidden="true"><use href="#i-upload"/></svg><span data-i18n="novel.choose">Choose a PDF</span></label>
         <input id="novel-file" class="visually-hidden" type="file" accept="application/pdf,.pdf">
         <p class="hint" id="novel-status" aria-live="polite" data-i18n="novel.hint">The book is read on this device only; it is not uploaded anywhere. After the first time it opens straight from this browser.</p>
+      </div>
       </div>
     </div>
     <!-- Reader: a plain page of text, settings behind "Aa", page controls in a bar at the bottom. -->
@@ -1289,15 +1735,19 @@ body.novel-focus .novel-pop-base, body.novel-focus .novel-pop-sentence { color: 
     <div class="novel-pop" id="novel-pop" role="dialog" aria-labelledby="novel-pop-word" hidden>
       <div class="novel-pop-head">
         <strong id="novel-pop-word" lang="en"></strong>
-        <button type="button" class="icon-button" id="novel-pop-speak" aria-label="Listen" data-i18n-aria="novel.listen"><svg class="icon" aria-hidden="true"><use href="#i-sound"/></svg></button>
+        <button type="button" class="audio-button" id="novel-pop-speak" aria-label="Listen" data-i18n-aria="novel.listen"><svg class="icon" aria-hidden="true"><use href="#i-sound"/></svg></button>
+        <span class="novel-pop-gap"></span>
         <button type="button" class="icon-button" id="novel-pop-close" aria-label="Close" data-i18n-aria="novel.close"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
       </div>
       <p class="novel-pop-base" id="novel-pop-base"></p>
-      <p class="novel-pop-tr" id="novel-pop-tr" lang="tr"></p>
+      <div class="novel-pop-box"><span class="eyebrow" data-i18n="novel.meaning">Turkish meaning</span><p class="novel-pop-tr" id="novel-pop-tr" lang="tr"></p></div>
       <p class="novel-pop-verb" id="novel-pop-verb" hidden></p>
-      <p class="novel-pop-sentence" id="novel-pop-sentence"><button type="button" class="link-button" id="novel-pop-say" data-i18n="novel.sayLine">Listen to the sentence</button> · <a id="novel-pop-gt" href="#" target="_blank" rel="noopener noreferrer" data-i18n="novel.translateLine">Translate the sentence (online)</a></p>
+      <div class="novel-pop-sentence" id="novel-pop-sentence"><b data-i18n="novel.context">Context:</b> <i id="novel-pop-context" lang="en"></i> <a id="novel-pop-gt" href="#" target="_blank" rel="noopener noreferrer" data-i18n="novel.translateLine">Translate the sentence (online)</a></div>
       <p class="novel-pop-line" id="novel-pop-line" lang="tr" hidden></p>
-      <button type="button" class="button small novel-pop-save" id="novel-pop-save" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg><span id="novel-pop-save-label">Add to review</span></button>
+      <div class="novel-pop-actions">
+        <button type="button" class="button primary novel-pop-save" id="novel-pop-save" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="#i-cards"/></svg><span id="novel-pop-save-label">Add to deck</span></button>
+        <button type="button" class="button" id="novel-pop-say"><svg class="icon" aria-hidden="true"><use href="#i-sound"/></svg><span data-i18n="novel.sayLine">Listen to the sentence</span></button>
+      </div>
     </div>
   </section>
 
@@ -1526,7 +1976,7 @@ body.novel-focus .novel-pop-base, body.novel-focus .novel-pop-sentence { color: 
 
 <footer class="site-footer">
   <p data-i18n="footer.text">Works offline. Progress is stored only in this browser on this device.</p>
-  <p>Fotoğraflar: Wikimedia Commons (yazar ve lisans kartlarda). Simgeler: <a href="https://github.com/jdecked/twemoji" target="_blank" rel="noopener">Twemoji</a>, CC BY 4.0. PDF okuma: <a href="https://mozilla.github.io/pdf.js/" target="_blank" rel="noopener">pdf.js</a> (Mozilla, Apache-2.0).</p>
+  <p>Fotoğraflar: Wikimedia Commons (yazar ve lisans kartlarda). Simgeler: <a href="https://github.com/jdecked/twemoji" target="_blank" rel="noopener">Twemoji</a>, CC BY 4.0. PDF okuma: <a href="https://mozilla.github.io/pdf.js/" target="_blank" rel="noopener">pdf.js</a> (Mozilla, Apache-2.0). Yazı tipleri: Outfit ve Plus Jakarta Sans (SIL Open Font License).</p>
   <p>English Study · v@APP_VERSION@</p>
 </footer>
 
@@ -1717,20 +2167,53 @@ const STRINGS = {
     'story.ltQuota': 'The teacher\'s free daily limit is used up; checked by LanguageTool (spelling and simpler grammar only).',
     'story.found': '{n} corrections', 'story.clean': 'No mistakes found 🎉', 'story.applyAll': 'Apply all', 'story.yours': 'You wrote', 'story.apply': 'Apply', 'story.skip': 'Ignore',
     'story.notFound': 'That part of the story has changed; check again.',
-    'nav.groupDaily': 'Daily', 'nav.groupLearn': 'Learn', 'nav.groupPractice': 'Practice', 'nav.more': 'More', 'nav.collapse': 'Collapse the menu', 'nav.expand': 'Expand the menu',
+    'home.eyebrow': 'Daily goal', 'home.titleReview': 'Time to review! ✨', 'home.titleMorning': 'Good morning! ☀️', 'home.titleDay': 'Let’s learn! ✨', 'home.titleEvening': 'Good evening! 🌙',
+    'home.goalChip': '{p}% done', 'home.goalStart': 'Let’s get started!', 'home.goalGoing': 'You’re doing great!', 'home.goalDone': 'Goal reached! 🎉',
+    'home.goalLeft': 'Only {n} cards to your goal. Keep the rhythm!', 'home.goalDoneNote': 'Anything more today is a bonus.',
+    'home.srs': 'Spaced repetition', 'home.heroTitle': 'Today’s review', 'home.heroCount': '{n} cards ready', 'home.heroNone': 'All caught up',
+    'home.heroText': 'A set of cards timed to the forgetting curve.', 'home.heroNew': 'No cards due. Learn new words from a deck.', 'home.heroStart': 'Start now ({n} cards)', 'home.heroLearn': 'Learn new words',
+    'home.decks': 'Word decks', 'home.deckCount': '{n} decks', 'home.weekly': 'Weekly performance', 'home.weekTitle': 'Last 7 days', 'home.recall': 'recall',
+    'deck.level': '{l} level', 'deck.grammar': 'Grammar', 'deck.steps': '{n} steps', 'deck.stepsDone': '{d} / {n} steps', 'deck.words': '{d} / {n} words', 'deck.start': 'Start studying',
+    'deck.A2': 'A2 Everyday Basics', 'deck.A2note': 'The words you need first, for daily life.', 'deck.B1': 'B1 Daily Communication', 'deck.B1note': 'Talk about work, travel, plans and feelings with ease.',
+    'deck.B2': 'B2 Advanced Daily Vocab', 'deck.B2note': 'Strategic words for fluent work and social English.', 'deck.C1': 'C1 Academic Words', 'deck.C1note': 'Words for articles, essays and serious talk.',
+    'deck.C1plus': 'C1+ Advanced Extras', 'deck.C1plusNote': 'Rare, precise words beyond the Oxford 5000.',
+    'review.learnTitle': 'New words · {l}', 'review.learnLead': 'Flip each card. “Good” or “Easy” adds the word to your learned words and your review.',
+    'review.cardOf': '{d} / {n} cards', 'review.combo': '🔥 {n}x combo', 'review.tapHint': 'Tap to flip the card', 'review.recallLevel': 'How well did you know it?', 'review.instantXp': 'Instant XP',
+    'review.easy': 'Easy', 'review.later': 'later', 'review.sessionDone': 'Session complete!', 'review.sessionText': '{n} cards done · +{xp} XP', 'review.moreWords': 'Learn 10 more',
+    'nav.learn': 'Learn', 'nav.practice': 'Practice', 'nav.rankings': 'Rankings', 'practice.title': 'Practice', 'practice.lead': 'Quick games with the words you know, for points and records.',
+    'game.weekXp': 'Weekly XP: {n}', 'game.accuracy': 'Accuracy: {p}%', 'game.noAccuracy': 'Play to see your accuracy', 'game.streak': '🔥 {n}-day streak', 'game.rank': 'Week #{n} in your league →',
+    'quest.title': 'Today’s quest', 'quest.review': 'Review {n} cards', 'quest.xp': 'Earn {n} XP today', 'quest.read': 'Read {n} pages of your novel', 'quest.progress': 'Progress: {d} / {n}',
+    'quest.left': 'Time left: {t}', 'quest.done': 'Done! +50 XP earned 🎉', 'quest.go': 'Continue', 'quest.reward': 'Quest complete: +50 XP!',
+    'game.title': 'Practice & mini games', 'game.lead': 'Earn points with quick rounds', 'game.modes': '{n} modes', 'game.play': 'Play', 'game.open': 'Open',
+    'game.match': 'Word matching', 'game.matchText': 'Match English words to their Turkish meanings before 60 seconds run out.', 'game.matchHow': 'Tap an English word, then its Turkish meaning.',
+    'game.listen': 'Listen & type', 'game.listenText': 'Hear the word and type it; some letters are shown.', 'game.listenHint': 'Fill in the letters: e _ _ r a o _ _',
+    'game.gap': 'Fill the gap', 'game.gapText': 'Find the missing word in a real sentence.', 'game.context': 'In context',
+    'game.survive': 'Survival', 'game.surviveText': 'Answer faster and faster. Three wrong answers and the game is over!', 'game.level': 'Difficulty:', 'game.tempo': 'Extreme tempo',
+    'game.mistakes': 'Mistake pool', 'game.mistakesText': 'Cards you got wrong in your reviews.', 'game.mistakeCount': '{n} cards', 'game.times': '{n}x',
+    'game.noMistakes': 'No mistakes yet. Cards you miss will gather here.', 'game.mistakesGo': 'Start a quick review of mistakes',
+    'game.classic': 'Classic quiz', 'game.classicText': 'Multiple-choice and fill-in questions over many words.',
+    'game.bestPairs': '🏆 Best: {n} pairs', 'game.bestScore': '🏆 Best: {n} / 10', 'game.bestStreak': '🔥 Best streak: {n}', 'game.noBest': 'No record yet',
+    'game.back': 'Games', 'game.meaning': 'Meaning: {m}', 'game.typeWord': 'Type the word you hear', 'game.itWas': 'The answer: {w}',
+    'game.resultPairs': '{n} pairs', 'game.resultScore': '{n} / {total}', 'game.resultStreak': '{n} in a row', 'game.record': 'New record!', 'game.goodGame': 'Good game!', 'game.again': 'Play again',
+    'rank.title': 'Rankings', 'rank.lead': 'Your league is your own weeks: beat your best ones.', 'rank.league': 'Your league', 'rank.weeks': '{n} weeks', 'rank.closes': 'This week closes in {n} days',
+    'rank.goal': 'Goal', 'rank.how': 'Every week of study is ranked by XP. Get this week onto the podium!', 'rank.thisWeek': 'This week', 'rank.lastWeek': 'Last week', 'rank.days': '{n} days',
+    'rank.onPodium': 'This week is on the podium!', 'rank.toPodium': '{n} XP to reach the podium', 'rank.you': 'You (this week)', 'rank.meNote': '{d} days studied · {w} words learned',
+    'rank.streak': '{n} days', 'rank.few': 'Study a few more weeks and they will be ranked here.', 'rank.keepTitle': 'Stay on top!', 'rank.keepText': 'Keep going to make this your best week.',
+    'rank.closeTitle': 'The podium is close!', 'rank.closeText': 'Only {n} XP to reach the top three.', 'rank.practice': 'Practice now',
+    'xp.week': 'XP this week', 'nav.groupDaily': 'Daily', 'nav.groupLearn': 'Learn', 'nav.groupPractice': 'Practice', 'nav.more': 'More', 'nav.collapse': 'Collapse the menu', 'nav.expand': 'Expand the menu',
     'nav.collapseShort': 'Collapse', 'topbar.search': 'Search words', 'topbar.searchPh': 'Search a word (English or Turkish)', 'topbar.streak': '🔥 {n} days',
     'nav.review': 'Review', 'review.title': 'Review', 'review.lead': 'Cards come back just before you would forget them. Say honestly whether you knew each one.',
     'review.goal': 'Today: {d} / {n} cards', 'review.left': '{n} left', 'review.kindWord': 'Word', 'review.kindNovel': 'From the novel',
-    'review.show': 'Show the answer', 'review.again': 'Didn’t know', 'review.hard': 'Hard', 'review.good': 'Knew it', 'review.soon': 'again soon', 'review.days': 'in {n} d',
+    'review.show': 'Show the answer', 'review.again': 'Again', 'review.hard': 'Hard', 'review.good': 'Good', 'review.soon': '<1 min', 'review.days': '{n} d',
     'review.allDone': 'All done for today!', 'review.allDoneText': 'Come back tomorrow; new cards will be waiting.', 'review.noCards': 'No cards yet',
     'review.noCardsText': 'Mark words as learned, save words in the novel or pass grammar steps; they become review cards.', 'review.home': 'Back to home',
     'today.title': 'Today', 'today.goalLabel': 'Daily goal', 'today.goalOption': '{n} cards a day', 'today.streak': '🔥 {n} days', 'today.review': 'Review {n} cards',
     'today.reviewDone': 'Today’s review is done ✓', 'today.reviewNone': 'No cards due today', 'today.goalText': '{d} / {n} cards', 'today.reviewEmpty': 'Review (no cards yet)', 'today.continue': 'Pick up where you left off', 'today.week': 'This week',
     'today.weekLabel': 'Cards reviewed in the last seven days', 'today.weekDay': '{n} cards', 'today.grammar': 'Grammar · {topic}', 'today.grammarNext': 'Next: {title}',
-    'today.words': '{n} of {total} words learned', 'novel.save': 'Add to review', 'novel.saved': 'In review ✓',
+    'today.words': '{n} of {total} words learned', 'novel.save': 'Add to deck', 'novel.saved': 'In your deck ✓', 'novel.meaning': 'Turkish meaning', 'novel.context': 'Context:', 'novel.tabNow': 'Reading now', 'novel.tabShelf': 'Library', 'novel.goal': 'Today’s reading goal', 'novel.goalText': '{d}/{n} pages read · {m} min this week', 'novel.noBook': 'Pick a book from the library to start.', 'novel.classic': 'Novel', 'novel.savedWords': '{n} words saved to your deck', 'novel.progress2': 'Reading progress', 'novel.progressOf': '{p}% (page {n} / {total})', 'novel.continue': 'Continue reading',
     'update.text': 'A new version of the app is ready.', 'update.reload': 'Reload',
     'nav.speak': 'Speaking', 'mode.speak': 'Talk in English with a friend in a voice room, with topic cards to guide you.',
-    'speak.showCards': 'Show topic questions', 'speak.hideCards': 'Hide topic questions', 'speak.chat': 'Messages', 'speak.chatHint': 'Write in English. Ms. Emma checks each of your sentences; only you see your corrections.',
+    'tutor.great': 'Great sentence!', 'tutor.kept': '“{w}” was added to your deck.', 'speak.showCards': 'Show topic questions', 'speak.hideCards': 'Hide topic questions', 'speak.chat': 'Messages', 'speak.chatHint': 'Write in English. Ms. Emma checks each of your sentences; only you see your corrections.',
     'speak.chatLabel': 'Message', 'speak.chatPh': 'Write in English…', 'speak.send': 'Send', 'speak.textOnly': 'Without a microphone: only write messages',
     'speak.micText': 'No microphone: you can still write messages.', 'speak.checking': 'Checking…', 'speak.correct': '✓ Correct English', 'speak.okSimple': '✓ No mistakes in a simple check (the teacher was not available)',
     'speak.better': 'Better', 'speak.checkFailed': 'Could not check this sentence.', 'speak.notConnected': 'Wait until your friend is connected.',
@@ -1880,20 +2363,53 @@ const STRINGS = {
     'story.ltQuota': 'Hocanın günlük ücretsiz kotası doldu; LanguageTool denetledi (yalnızca yazım ve basit dilbilgisi).',
     'story.found': '{n} düzeltme', 'story.clean': 'Hata bulunamadı 🎉', 'story.applyAll': 'Hepsini uygula', 'story.yours': 'Senin cümlen', 'story.apply': 'Uygula', 'story.skip': 'Yok say',
     'story.notFound': 'Hikâyenin o kısmı değişmiş; tekrar denetle.',
-    'nav.groupDaily': 'Günlük', 'nav.groupLearn': 'Öğren', 'nav.groupPractice': 'Pratik', 'nav.more': 'Daha fazla', 'nav.collapse': 'Menüyü daralt', 'nav.expand': 'Menüyü genişlet',
+    'home.eyebrow': 'Günlük hedef', 'home.titleReview': 'Tekrar zamanı! ✨', 'home.titleMorning': 'Günaydın! ☀️', 'home.titleDay': 'Hadi öğrenelim! ✨', 'home.titleEvening': 'İyi akşamlar! 🌙',
+    'home.goalChip': '%{p} tamamlandı', 'home.goalStart': 'Hadi başlayalım!', 'home.goalGoing': 'Harika gidiyorsun!', 'home.goalDone': 'Hedef tamam! 🎉',
+    'home.goalLeft': 'Hedefe sadece {n} kart kaldı. Ritmini koru!', 'home.goalDoneNote': 'Bugün yapacağın her şey artık bonus.',
+    'home.srs': 'Aralıklı tekrar', 'home.heroTitle': 'Bugünün tekrarı', 'home.heroCount': '{n} kart hazır', 'home.heroNone': 'Hepsi tamam',
+    'home.heroText': 'Unutma eğrisine göre zamanlanmış kart seti.', 'home.heroNew': 'Sırası gelen kart yok. Bir desteden yeni kelime öğren.', 'home.heroStart': 'Hemen başla ({n} kart)', 'home.heroLearn': 'Yeni kelime öğren',
+    'home.decks': 'Kelime desteleri', 'home.deckCount': '{n} deste', 'home.weekly': 'Haftalık performans', 'home.weekTitle': 'Son 7 gün', 'home.recall': 'hatırlama',
+    'deck.level': '{l} seviye', 'deck.grammar': 'Gramer', 'deck.steps': '{n} adım', 'deck.stepsDone': '{d} / {n} adım', 'deck.words': '{d} / {n} kelime', 'deck.start': 'Çalışmaya başla',
+    'deck.A2': 'A2 Günlük Temel Kelimeler', 'deck.A2note': 'Günlük hayatta ilk gereken kelimeler.', 'deck.B1': 'B1 Günlük İletişim', 'deck.B1note': 'İş, seyahat, planlar ve duygular hakkında rahat konuş.',
+    'deck.B2': 'B2 İleri Günlük Kelimeler', 'deck.B2note': 'İş ve sosyal hayatta akıcılık için stratejik kelimeler.', 'deck.C1': 'C1 Akademik Kelimeler', 'deck.C1note': 'Makale, kompozisyon ve ciddi konuşmalar için.',
+    'deck.C1plus': 'C1+ İleri Seviye', 'deck.C1plusNote': 'Oxford 5000 dışındaki nadir ve kesin anlamlı kelimeler.',
+    'review.learnTitle': 'Yeni kelimeler · {l}', 'review.learnLead': 'Her kartı çevir. “İyi” ya da “Kolay” dersen kelime öğrendiklerine ve tekrara eklenir.',
+    'review.cardOf': '{d} / {n} kart', 'review.combo': '🔥 {n}x seri', 'review.tapHint': 'Kartı çevirmek için dokun', 'review.recallLevel': 'Hatırlama düzeyi', 'review.instantXp': 'Anında XP',
+    'review.easy': 'Kolay', 'review.later': 'sonra', 'review.sessionDone': 'Seans tamam!', 'review.sessionText': '{n} kart bitti · +{xp} XP', 'review.moreWords': '10 kelime daha',
+    'nav.learn': 'Öğren', 'nav.practice': 'Pratik', 'nav.rankings': 'Sıralama', 'practice.title': 'Pratik', 'practice.lead': 'Bildiğin kelimelerle kısa oyunlar: puan topla, rekor kır.',
+    'game.weekXp': 'Haftalık XP: {n}', 'game.accuracy': 'Doğruluk oranı: %{p}', 'game.noAccuracy': 'Doğruluk oranı için oyna', 'game.streak': '🔥 {n} günlük seri', 'game.rank': 'Liginde {n}. hafta →',
+    'quest.title': 'Günün görevi', 'quest.review': '{n} kart tekrar et', 'quest.xp': 'Bugün {n} XP kazan', 'quest.read': 'Romanından {n} sayfa oku', 'quest.progress': 'İlerleme: {d} / {n}',
+    'quest.left': 'Kalan süre: {t}', 'quest.done': 'Tamam! +50 XP kazandın 🎉', 'quest.go': 'Devam et', 'quest.reward': 'Görev tamam: +50 XP!',
+    'game.title': 'Pratik ve mini oyunlar', 'game.lead': 'Hızlı turlarla puan kazan', 'game.modes': '{n} mod', 'game.play': 'Oyna', 'game.open': 'Aç',
+    'game.match': 'Kelime eşleştirme', 'game.matchText': '60 saniye bitmeden İngilizce kelimeleri Türkçe karşılıklarıyla eşleştir.', 'game.matchHow': 'Önce bir İngilizce kelimeye, sonra Türkçe anlamına dokun.',
+    'game.listen': 'Dinle ve yaz', 'game.listenText': 'Kelimeyi dinle ve yaz; bazı harfler gösterilir.', 'game.listenHint': 'Harfleri tamamla: e _ _ r a o _ _',
+    'game.gap': 'Boşluk doldurma', 'game.gapText': 'Gerçek bir cümledeki eksik kelimeyi bul.', 'game.context': 'Cümle içinde',
+    'game.survive': 'Zamana karşı', 'game.surviveText': 'Gittikçe hızlanan sorular. Üç yanlışta oyun biter!', 'game.level': 'Zorluk seviyesi:', 'game.tempo': 'Ekstrem tempo',
+    'game.mistakes': 'Hatalı kartlar havuzu', 'game.mistakesText': 'Tekrarlarda takıldığın kartlar.', 'game.mistakeCount': '{n} kart', 'game.times': '{n}x hata',
+    'game.noMistakes': 'Henüz hata yok. Bilemediğin kartlar burada toplanır.', 'game.mistakesGo': 'Hatalarla hızlı tekrara başla',
+    'game.classic': 'Klasik test', 'game.classicText': 'Çok sayıda kelimeyle çoktan seçmeli ve boşluk doldurma soruları.',
+    'game.bestPairs': '🏆 Rekorun: {n} eşleşme', 'game.bestScore': '🏆 Rekorun: {n} / 10', 'game.bestStreak': '🔥 En uzun seri: {n}', 'game.noBest': 'Henüz rekor yok',
+    'game.back': 'Oyunlar', 'game.meaning': 'Anlamı: {m}', 'game.typeWord': 'Duyduğun kelimeyi yaz', 'game.itWas': 'Doğrusu: {w}',
+    'game.resultPairs': '{n} eşleşme', 'game.resultScore': '{n} / {total}', 'game.resultStreak': 'Arka arkaya {n}', 'game.record': 'Yeni rekor!', 'game.goodGame': 'İyi oyundu!', 'game.again': 'Tekrar oyna',
+    'rank.title': 'Sıralama', 'rank.lead': 'Ligin kendi haftalarından oluşuyor: en iyi haftalarını geç.', 'rank.league': 'Kendi ligin', 'rank.weeks': '{n} hafta', 'rank.closes': 'Bu hafta {n} gün sonra kapanıyor',
+    'rank.goal': 'Hedef', 'rank.how': 'Çalıştığın her hafta XP’sine göre sıralanır. Bu haftayı kürsüye taşı!', 'rank.thisWeek': 'Bu hafta', 'rank.lastWeek': 'Geçen hafta', 'rank.days': '{n} gün',
+    'rank.onPodium': 'Bu hafta kürsüde!', 'rank.toPodium': 'Kürsüye {n} XP kaldı', 'rank.you': 'Sen (bu hafta)', 'rank.meNote': '{d} gün çalışıldı · {w} kelime öğrenildi',
+    'rank.streak': '{n} gün', 'rank.few': 'Birkaç hafta daha çalış; haftaların burada sıralanacak.', 'rank.keepTitle': 'Zirvede kal!', 'rank.keepText': 'Devam et ve bunu en iyi haftan yap.',
+    'rank.closeTitle': 'Kürsü çok yakın!', 'rank.closeText': 'İlk üçe girmek için sadece {n} XP kaldı.', 'rank.practice': 'Hemen pratik yap',
+    'xp.week': 'Bu haftaki XP', 'nav.groupDaily': 'Günlük', 'nav.groupLearn': 'Öğren', 'nav.groupPractice': 'Pratik', 'nav.more': 'Daha fazla', 'nav.collapse': 'Menüyü daralt', 'nav.expand': 'Menüyü genişlet',
     'nav.collapseShort': 'Daralt', 'topbar.search': 'Kelime ara', 'topbar.searchPh': 'Kelime ara (İngilizce ya da Türkçe)', 'topbar.streak': '🔥 {n} gün',
     'nav.review': 'Tekrar', 'review.title': 'Tekrar', 'review.lead': 'Kartlar tam unutmak üzereyken geri gelir. Her birini bilip bilmediğini dürüstçe söyle.',
     'review.goal': 'Bugün: {d} / {n} kart', 'review.left': '{n} kart kaldı', 'review.kindWord': 'Kelime', 'review.kindNovel': 'Romandan',
-    'review.show': 'Cevabı göster', 'review.again': 'Bilemedim', 'review.hard': 'Zorlandım', 'review.good': 'Bildim', 'review.soon': 'birazdan', 'review.days': '{n} gün sonra',
+    'review.show': 'Cevabı göster', 'review.again': 'Tekrar', 'review.hard': 'Zor', 'review.good': 'İyi', 'review.soon': '<1 dk', 'review.days': '{n} gün',
     'review.allDone': 'Bugünlük bitti!', 'review.allDoneText': 'Yarın tekrar gel; yeni kartlar seni bekliyor olacak.', 'review.noCards': 'Henüz kart yok',
     'review.noCardsText': 'Kelimeleri öğrendim diye işaretle, romanda kelime kaydet ya da gramer adımlarını geç; hepsi tekrar kartı olur.', 'review.home': 'Ana sayfaya dön',
     'today.title': 'Bugün', 'today.goalLabel': 'Günlük hedef', 'today.goalOption': 'Günde {n} kart', 'today.streak': '🔥 {n} gün', 'today.review': '{n} kartı tekrar et',
     'today.reviewDone': 'Bugünkü tekrar bitti ✓', 'today.reviewNone': 'Bugün sırası gelen kart yok', 'today.goalText': '{d} / {n} kart', 'today.reviewEmpty': 'Tekrar (henüz kart yok)', 'today.continue': 'Kaldığın yerden devam et', 'today.week': 'Bu hafta',
     'today.weekLabel': 'Son yedi günde tekrar edilen kartlar', 'today.weekDay': '{n} kart', 'today.grammar': 'Gramer · {topic}', 'today.grammarNext': 'Sıradaki: {title}',
-    'today.words': '{total} kelimeden {n} tanesi öğrenildi', 'novel.save': 'Tekrara ekle', 'novel.saved': 'Tekrarda ✓',
+    'today.words': '{total} kelimeden {n} tanesi öğrenildi', 'novel.save': 'Desteye ekle', 'novel.saved': 'Destede ✓', 'novel.meaning': 'Türkçe anlamı', 'novel.context': 'Bağlam:', 'novel.tabNow': 'Şu an okuyorum', 'novel.tabShelf': 'Kütüphane', 'novel.goal': 'Günün okuma hedefi', 'novel.goalText': '{d}/{n} sayfa okundu · bu hafta {m} dk', 'novel.noBook': 'Başlamak için kütüphaneden bir kitap seç.', 'novel.classic': 'Roman', 'novel.savedWords': 'Desteye {n} kelime ekledin', 'novel.progress2': 'Okuma ilerlemesi', 'novel.progressOf': '%{p} (sayfa {n} / {total})', 'novel.continue': 'Okumaya devam et',
     'update.text': 'Uygulamanın yeni sürümü hazır.', 'update.reload': 'Yenile',
     'nav.speak': 'Konuşma', 'mode.speak': 'Bir arkadaşınla sesli odada İngilizce konuş; konu kartları sana yol göstersin.',
-    'speak.showCards': 'Konu sorularını göster', 'speak.hideCards': 'Konu sorularını gizle', 'speak.chat': 'Mesajlar', 'speak.chatHint': 'İngilizce yaz. Ms. Emma her cümleni denetler; düzeltmelerini yalnızca sen görürsün.',
+    'tutor.great': 'Harika cümle kurulumu!', 'tutor.kept': '“{w}” desteye eklendi.', 'speak.showCards': 'Konu sorularını göster', 'speak.hideCards': 'Konu sorularını gizle', 'speak.chat': 'Mesajlar', 'speak.chatHint': 'İngilizce yaz. Ms. Emma her cümleni denetler; düzeltmelerini yalnızca sen görürsün.',
     'speak.chatLabel': 'Mesaj', 'speak.chatPh': 'İngilizce yaz…', 'speak.send': 'Gönder', 'speak.textOnly': 'Mikrofonsuz: sadece yazışayım',
     'speak.micText': 'Mikrofon yok: yine de yazışabilirsin.', 'speak.checking': 'Denetleniyor…', 'speak.correct': '✓ Doğru İngilizce', 'speak.okSimple': '✓ Basit denetimde hata bulunmadı (hocaya ulaşılamadı)',
     'speak.better': 'Doğrusu', 'speak.checkFailed': 'Bu cümle denetlenemedi.', 'speak.notConnected': 'Arkadaşın bağlanana kadar bekle.',
@@ -2109,6 +2625,19 @@ function shuffle(list) {
     [copy[i], copy[j]] = [copy[j], copy[i]];
   }
   return copy;
+}
+function svgRing(percent) {
+  const ns = 'http://www.w3.org/2000/svg';
+  const svg = document.createElementNS(ns, 'svg');
+  svg.setAttribute('viewBox', '0 0 36 36');
+  svg.setAttribute('aria-hidden', 'true');
+  for (const [cls, dash] of [['goal-track', null], ['goal-fill', percent]]) {
+    const circle = document.createElementNS(ns, 'circle');
+    for (const [k, v] of [['cx', 18], ['cy', 18], ['r', 15.9], ['class', cls], ['pathLength', 100]]) circle.setAttribute(k, v);
+    if (dash != null) { circle.style.strokeDasharray = dash + ' 100'; circle.style.opacity = dash ? 1 : 0; }
+    svg.append(circle);
+  }
+  return svg;
 }
 function dateKey(date) {
   return date.getFullYear() + '-' + String(date.getMonth() + 1).padStart(2, '0') + '-' + String(date.getDate()).padStart(2, '0');
@@ -2460,7 +2989,7 @@ const Speech = (() => {
 function setLearned(entry, learned) {
   if (learned === learnedSet.has(entry.id)) return;
   if (learned) learnedSet.add(entry.id); else learnedSet.delete(entry.id);
-  if (learned) Review.add('w:' + entry.id, 1); else Review.remove('w:' + entry.id);
+  if (learned) { Review.add('w:' + entry.id, 1); XP.add(5); } else Review.remove('w:' + entry.id);
   recordActivity();
   persist();
   syncWordControls(entry.id);
@@ -2540,7 +3069,7 @@ function relabelCards() {
 }
 
 /* ---------- 7i. Navigation ---------- */
-const ROUTES = ['home', 'review', 'words', 'phrases', 'grammar', 'speak', 'novel', 'quiz', 'reading', 'settings'];
+const ROUTES = ['home', 'review', 'practice', 'rankings', 'words', 'phrases', 'grammar', 'speak', 'novel', 'quiz', 'reading', 'settings'];
 const Router = {
   current: null,
   /* Non-route hashes (e.g. the skip link's #main) keep the current view. */
@@ -2561,7 +3090,7 @@ const Router = {
       row.scrollLeft += tab.getBoundingClientRect().left - row.getBoundingClientRect().left - (row.clientWidth - tab.offsetWidth) / 2;
     }
     document.title = t('nav.' + name) + ' · English Study';
-    if (changed) { Speech.stop(); Tutor.pause(); }
+    if (changed) { Speech.stop(); Tutor.pause(); Games.stop(); }
     Novel.focusMode();
     Tutor.focusMode();
     const module = MODULES[name];
@@ -2863,6 +3392,8 @@ const Novel = {
     $('#novel-tr').addEventListener('click', () => this.setTranslated(!this.translated));
     /* The word card translates its sentence in place; without internet it opens Google Translate. */
     $('#novel-pop-save').addEventListener('click', () => this.toggleSave());
+    for (const tab of $$('[data-libtab]')) tab.addEventListener('click', () => this.libTab(tab.dataset.libtab));
+    $('#lib-now').addEventListener('click', event => { const button = event.target.closest('[data-continue]'); if (button) this.continueBook(button.dataset.continue); });
     $('#novel-pop-gt').addEventListener('click', async event => {
       if (!this.current || !this.current.sentence) return;
       event.preventDefault();
@@ -2943,10 +3474,56 @@ const Novel = {
     document.body.classList.toggle('novel-focus', on);
     if (on) this.applyPaper(); else delete document.body.dataset.paper;
   },
+  /* ---- Library tabs: the book being read (with today's reading goal) and the shelf */
+  libTab(name) {
+    for (const tab of $$('[data-libtab]')) tab.setAttribute('aria-pressed', String(tab.dataset.libtab === name));
+    $('#lib-now').hidden = name !== 'now';
+    $('#lib-shelf').hidden = name !== 'shelf';
+    if (name === 'now') this.renderNow();
+  },
+  renderNow() {
+    const saved = this.readState();
+    const name = (this.book && this.book.name) || (saved && saved.name);
+    const card = name && $$('#novel-shelf [data-novel]').find(item => item.dataset.novel === name);
+    const pages = XP.pagesToday(), goal = XP.READ_GOAL;
+    const share = Math.min(100, Math.round(pages / goal * 100));
+    const goalCard = h('div', { class: 'read-goal' },
+      h('span', { class: 'read-goal-icon', 'aria-hidden': 'true', text: '🔥' }),
+      h('div', {}, h('strong', {}, t('novel.goal'), h('span', { class: 'read-xp', text: '+' + pages * 3 + ' XP' })),
+        h('span', { text: t('novel.goalText', { d: pages, n: goal, m: XP.minutesWeek() }) })),
+      h('span', { class: 'read-ring' }, svgRing(share), h('span', { text: '%' + share })));
+    if (!card) { $('#lib-now').replaceChildren(goalCard, h('p', { class: 'hint', text: t('novel.noBook') })); return; }
+    const title = card.querySelector('.novel-book-title').textContent;
+    const author = card.querySelector('.novel-book-author').textContent;
+    const page = this.book && this.book.name === name ? this.page : (saved.marks[name] || 0);
+    const total = this.book && this.book.name === name ? this.book.pages.length : saved.totals[name];
+    const chapter = this.book && this.book.name === name ? this.chapters[this.page] : '';
+    const words = Object.keys(Review.state.cards).filter(id => id.startsWith('n:')).length;
+    const share2 = total ? Math.round((page + 1) / total * 100) : 0;
+    $('#lib-now').replaceChildren(goalCard,
+      h('div', { class: 'now-book' },
+        h('div', { class: 'now-book-top' },
+          h('span', { class: 'now-cover', style: '--cover:' + (card.querySelector('.novel-cover').style.getPropertyValue('--cover') || '#006948'), 'aria-hidden': 'true' },
+            card.dataset.level ? h('span', { class: 'now-level', text: card.dataset.level }) : null, title.slice(0, 1).toUpperCase()),
+          h('div', { class: 'now-info' },
+            h('span', { class: 'deck-chip is-violet', text: t('novel.classic') }),
+            h('h2', { lang: 'en', text: title }),
+            author ? h('p', { class: 'now-author', text: author }) : null,
+            chapter ? h('p', { class: 'now-chapter' }, icon('book'), chapter) : null,
+            h('p', { class: 'now-words' }, icon('cards'), t('novel.savedWords', { n: words })))),
+        h('div', { class: 'now-progress' },
+          h('div', {}, h('span', { text: t('novel.progress2') }), h('strong', { text: total ? t('novel.progressOf', { p: share2, n: page + 1, total }) : t('novel.mark', { n: page + 1 }) })),
+          h('span', { class: 'gram-meter' }, h('span', { style: 'width:' + share2 + '%' }))),
+        h('button', { type: 'button', class: 'button primary now-go', 'data-continue': name }, icon('book'), h('span', { text: t('novel.continue') }))));
+  },
+  continueBook(name) {
+    if (this.book && this.book.name === name) { this.showLibrary(false); this.go(this.page, true); }
+    else this.openUrl(name);
+  },
   showLibrary(show) {
     $('#novel-lib').hidden = !show;
     $('#novel-reader').hidden = show;
-    if (show) { this.stopReading(); this.closePop(); window.scrollTo(0, 0); }
+    if (show) { this.stopReading(); this.closePop(); window.scrollTo(0, 0); this.libTab($('[data-libtab="shelf"]').getAttribute('aria-pressed') === 'true' ? 'shelf' : 'now'); }
     this.focusMode();
   },
   colorCard(card) {
@@ -3305,6 +3882,7 @@ const Novel = {
     }
     this.closePop();
     this.saveState();
+    XP.readPage(this.book.name, this.page);
     if (toTop) window.scrollTo(0, 0);
   },
   /* A page without text (a picture, or a scanned book) is shown as the printed page. */
@@ -3569,7 +4147,7 @@ const Novel = {
     const node = text.startsWith('\u2061') ? h('h2', { class: 'novel-chapter' }) : h('p', { class: cont ? 'cont' : null });
     for (const part of text.replace(/^[\u2060\u2061]/, '').split(/([A-Za-z]+(?:['’][A-Za-z]+)*)/)) {
       if (!part) continue;
-      node.append(/^[A-Za-z]/.test(part) ? h('span', { class: 'nw', text: part }) : part);
+      node.append(/^[A-Za-z]/.test(part) ? h('span', { class: Review.has('n:' + part.toLowerCase()) ? 'nw is-saved' : 'nw', text: part }) : part);
     }
     return node;
   },
@@ -3625,6 +4203,7 @@ const Novel = {
     $('#novel-pop-verb').hidden = !verb;
     $('#novel-pop-verb').textContent = verb ? t('novel.verb', { forms: verb }) : '';
     $('#novel-pop-sentence').hidden = !sentence;
+    $('#novel-pop-context').textContent = sentence;
     $('#novel-pop-gt').href = 'https://translate.google.com/?sl=en&tl=tr&op=translate&text=' + encodeURIComponent(sentence);
     $('#novel-pop-line').hidden = true;
     this.current.review = found ? { id: 'n:' + found.base, w: found.base, tr: found.tr, s: sentence } : null;
@@ -3643,8 +4222,10 @@ const Novel = {
     const word = this.current && this.current.review;
     if (!word) return;
     if (Review.has(word.id)) Review.remove(word.id);
-    else Review.add(word.id, 1, { w: word.w, tr: word.tr, s: word.s });
+    else { Review.add(word.id, 1, { w: word.w, tr: word.tr, s: word.s }); XP.add(5); }
     this.syncSave();
+    const on = Review.has(word.id);
+    for (const span of $$('#novel-text .nw')) if (span.textContent.toLowerCase() === word.w.toLowerCase() || span.textContent === this.current.word) span.classList.toggle('is-saved', on);
   },
   closePop() {
     $('#novel-pop').hidden = true;
@@ -3802,6 +4383,7 @@ const Quiz = {
     if (!q || !q.options[index]) return;
     this.locked = true;
     const isCorrect = q.options[index].correct;
+    if (isCorrect) XP.add(10);
     this.answered += 1;
     if (isCorrect) this.correct += 1; else { this.missed.push(q); Review.add('w:' + q.entry.id, 0); }
     progress.quiz.attempts += 1;
@@ -4040,7 +4622,7 @@ const Settings = {
   exportProgress() {
     try {
       const data = JSON.stringify({ app: 'english-study', exportedAt: new Date().toISOString(), ...progress, learned: [...learnedSet],
-        review: Review.state, grammar: { best: Grammar.best, learned: Grammar.learned, last: Grammar.lastTopic } }, null, 2);
+        review: Review.state, grammar: { best: Grammar.best, learned: Grammar.learned, last: Grammar.lastTopic }, xp: XP.state }, null, 2);
       const url = URL.createObjectURL(new Blob([data], { type: 'application/json' }));
       const link = h('a', { href: url, download: 'english-study-progress-' + dateKey(new Date()) + '.json' });
       document.body.append(link);
@@ -4066,6 +4648,7 @@ const Settings = {
     /* Review cards and grammar steps are in exports made since they were added. */
     const review = Review.sanitize(parsed.review);
     const grammar = Grammar.sanitize(parsed.grammar);
+    const xp = XP.sanitize(parsed.xp);
     status.textContent = '';
     status.className = '';
     const ok = await confirmDialog({
@@ -4077,6 +4660,7 @@ const Settings = {
     if (!ok) { status.textContent = t('import.cancelled'); return; }
     replaceProgress(imported);
     if (review) { Review.state = review; Review.queue = []; Review.save(); }
+    if (xp) { XP.state = xp; XP.save(); XP.pills(); }
     if (grammar) { Object.assign(Grammar, { best: grammar.best, learned: grammar.learned, lastTopic: grammar.last, mode: null }); Grammar.save(); }
     status.textContent = t('import.done');
   },
@@ -4396,6 +4980,7 @@ const Speak = {
     input.value = '';
     input.style.height = 'auto';
     this.check(text, this.addMessage(text, true));
+    XP.add(5);
   },
   addMessage(text, mine) {
     const list = $('#speak-messages');
@@ -4490,6 +5075,12 @@ const Tutor = {
       const message = button.closest('.tutor-msg');
       if (button.dataset.act === 'listen') { this.unlock(); this.say(message.dataset.say); }
       if (button.dataset.act === 'tr') this.translate(message);
+      if (button.dataset.act === 'keep') {
+        const box = button.closest('.tutor-word');
+        const id = 'n:' + box.dataset.word.toLowerCase();
+        if (Review.has(id)) Review.remove(id); else { Review.add(id, 1, { w: box.dataset.word, tr: box.dataset.tr, s: message.dataset.say }); XP.add(5); Toast.show(t('tutor.kept', { w: box.dataset.word })); }
+        button.setAttribute('aria-pressed', String(Review.has(id)));
+      }
       if (button.dataset.act === 'retry') { button.closest('.tutor-error').remove(); this.send(message.dataset.text, message.dataset.hidden === '1'); }
     });
   },
@@ -4586,12 +5177,17 @@ const Tutor = {
       typing.remove();
       if (text) this.history.push({ role: 'user', text });
       this.history.push({ role: 'model', text: data.reply });
-      if (mine && data.correction) {
-        mine.append(h('div', { class: 'tutor-fix' }, h('strong', { text: t('tutor.better') }), h('span', { lang: 'en', class: 'tutor-fix-en', text: data.correction }), data.tip ? h('span', { lang: 'tr', text: data.tip }) : null));
+      if (mine && (!data.correction || Writer.normal(data.correction) === Writer.normal(text))) {
+        mine.append(h('div', { class: 'tutor-fix is-good' }, h('strong', { text: '★ ' + t('tutor.great') }), data.tip ? h('span', { lang: 'tr', text: data.tip }) : null));
+      } else if (mine && data.correction) {
+        const better = Writer.diff(text, data.correction)[1];
+        better.classList.add('tutor-fix-en');
+        mine.append(h('div', { class: 'tutor-fix' }, h('strong', { text: t('tutor.better') }), better, data.tip ? h('span', { lang: 'tr', text: data.tip }) : null));
         this.settings.review = [data.correction, ...this.settings.review.filter(line => line !== data.correction)].slice(0, 10);
         this.save();
       }
       this.addTeacher(data);
+      if (!hidden) XP.add(10);
       this.say(data.reply);
     } catch (err) {
       if (token !== this.token) return;
@@ -4616,14 +5212,21 @@ const Tutor = {
   },
   addTeacher(data) {
     this.lastReply = data.reply;
-    const word = data.word ? h('div', { class: 'tutor-word' }, data.emoji ? h('span', { 'aria-hidden': 'true', text: data.emoji }) : null,
-      h('strong', { lang: 'en', text: data.word }), data.wordTr ? h('span', { lang: 'tr', text: '— ' + data.wordTr }) : null) : null;
-    const listen = h('button', { type: 'button', 'data-act': 'listen' }, icon('sound'), h('span', { text: t('tutor.listen') }));
-    const translate = h('button', { type: 'button', 'data-act': 'tr', text: t('tutor.turkish') });
+    /* The new word of the answer: marked in the sentence, with its meaning and a button to keep it. */
+    const id = data.word ? 'n:' + data.word.toLowerCase() : '';
+    const word = data.word ? h('div', { class: 'tutor-word', 'data-word': data.word, 'data-tr': data.wordTr || '' },
+      h('div', {}, h('strong', { lang: 'en', text: (data.emoji ? data.emoji + ' ' : '') + data.word }), data.wordTr ? h('span', { lang: 'tr', text: data.wordTr }) : null),
+      h('button', { type: 'button', class: 'tutor-keep', 'data-act': 'keep', 'aria-pressed': String(Review.has(id)), 'aria-label': t('novel.save'), title: t('novel.save') }, icon('cards'))) : null;
+    const listen = h('button', { type: 'button', class: 'tutor-play', 'data-act': 'listen' }, icon('sound'), h('span', { text: t('tutor.listen') }), h('span', { class: 'wave', 'aria-hidden': 'true' }, h('i'), h('i'), h('i'), h('i')));
+    const translate = h('button', { type: 'button', class: 'tutor-trbtn', 'data-act': 'tr', text: t('tutor.turkish') });
+    const say = h('p', { class: 'tutor-say', lang: 'en' });
+    const at = data.word ? data.reply.toLowerCase().indexOf(data.word.toLowerCase()) : -1;
+    if (at >= 0) say.append(data.reply.slice(0, at), h('mark', { class: 'tutor-hl', text: data.reply.slice(at, at + data.word.length) }), data.reply.slice(at + data.word.length));
+    else say.textContent = data.reply;
     this.add(h('li', { class: 'tutor-msg from-teacher', 'data-say': data.reply },
       h('span', { class: 'tutor-avatar small', 'aria-hidden': 'true', text: 'E' }),
       h('div', { class: 'tutor-bubble' },
-        h('p', { class: 'tutor-say', lang: 'en', text: data.reply }),
+        say,
         h('p', { class: 'tutor-tr', lang: 'tr', hidden: true }),
         word,
         h('div', { class: 'tutor-tools' }, listen, translate))));
@@ -5074,7 +5677,7 @@ const Grammar = {
     const units = this.topic.units;
     const total = run.items.length;
     const passed = run.score >= Math.ceil(total * 2 / 3);
-    if (passed && !this.learned[run.unit.id]) { this.learned[run.unit.id] = 1; this.save(); Review.add('g:' + run.unit.id, 2); }
+    if (passed && !this.learned[run.unit.id]) { this.learned[run.unit.id] = 1; this.save(); Review.add('g:' + run.unit.id, 2); XP.add(50); }
     const next = this.unit + 1 < units.length ? this.unit + 1 : null;
     for (const item of $$('#gram-unit .gram-steps li')) { item.className = 'is-done'; item.removeAttribute('aria-current'); }
     run.box.replaceChildren(h('div', { class: 'gram-card gram-done' },
@@ -5138,7 +5741,7 @@ const Grammar = {
     const write = (item.type || run.set.type) === 'write';
     const right = write ? item.answers.some(a => this.normal(a) === this.normal(choice)) : choice === item.answer;
     run.answered = true;
-    if (right) run.score++;
+    if (right) { run.score++; XP.add(5); }
     const fills = write || item.answer === '–' ? [''] : item.answer.split(' … ');
     if (!write) {
       for (const button of run.box.querySelectorAll('.gram-option')) {
@@ -5497,6 +6100,98 @@ const Writer = {
   }
 };
 
+/* ---------- XP: points for every bit of study ----------
+   Stored per day ({ 'YYYY-MM-DD': xp }) so the week's total, the past weeks for
+   the Rankings view and the home page's charts all come from one place. The
+   novel's reading is kept per day too: pages read and seconds spent. */
+const XP = {
+  KEY: 'english-study-xp.v1',
+  READ_GOAL: 15,
+  state: null,
+  init() {
+    try { this.state = JSON.parse(Store.read(this.KEY) || 'null'); } catch (_) { this.state = null; }
+    this.state = this.sanitize(this.state) || { days: {}, read: {}, quests: {} };
+    this.pills();
+  },
+  sanitize(raw) {
+    if (!raw || typeof raw !== 'object') return null;
+    const out = { days: {}, read: {}, quests: {} };
+    for (const key of Object.keys(raw.quests || {})) if (/^\d{4}-\d{2}-\d{2}$/.test(key)) out.quests[key] = 1;
+    const day = /^\d{4}-\d{2}-\d{2}$/;
+    for (const [key, value] of Object.entries(raw.days || {})) if (day.test(key) && Number.isInteger(value) && value > 0) out.days[key] = value;
+    for (const [key, value] of Object.entries(raw.read || {})) {
+      if (!day.test(key) || !value || typeof value !== 'object') continue;
+      out.read[key] = { pages: Math.max(0, value.pages | 0), secs: Math.max(0, value.secs | 0), seen: Array.isArray(value.seen) ? value.seen.filter(x => typeof x === 'string').slice(-400) : [] };
+    }
+    return out;
+  },
+  save() { Store.write(this.KEY, JSON.stringify(this.state)); },
+  add(points) {
+    if (!(points > 0)) return;
+    const key = dateKey(new Date());
+    this.state.days[key] = (this.state.days[key] || 0) + points;
+    this.save();
+    this.pills(points);
+  },
+  today() { return this.state.days[dateKey(new Date())] || 0; },
+  /* Monday of the week a day falls in. */
+  weekStart(date) {
+    const day = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+    day.setDate(day.getDate() - (day.getDay() + 6) % 7);
+    return day;
+  },
+  /* XP of each week that has any, newest first: [{ start: Date, xp, days }] */
+  weeks() {
+    const weeks = new Map();
+    for (const [key, xp] of Object.entries(this.state.days)) {
+      const [y, m, d] = key.split('-').map(Number);
+      const start = this.weekStart(new Date(y, m - 1, d));
+      const id = dateKey(start);
+      const week = weeks.get(id) || { start, xp: 0, days: 0 };
+      week.xp += xp;
+      week.days += 1;
+      weeks.set(id, week);
+    }
+    const thisWeek = dateKey(this.weekStart(new Date()));
+    if (!weeks.has(thisWeek)) weeks.set(thisWeek, { start: this.weekStart(new Date()), xp: 0, days: 0 });
+    return [...weeks.values()].sort((a, b) => b.start - a.start);
+  },
+  week() { return this.weeks()[0].xp; },
+  /* The header's streak and weekly XP pills; a short bump when points come in. */
+  pills(gained) {
+    const streak = $('#pill-streak'), xp = $('#pill-xp');
+    if (!streak) return;
+    streak.textContent = '🔥 ' + studyStreak();
+    xp.textContent = '⚡ ' + this.week();
+    if (gained) { xp.classList.remove('is-bump'); void xp.offsetWidth; xp.classList.add('is-bump'); }
+    if (typeof Nav !== 'undefined' && Nav.counts) Nav.counts();
+  },
+  /* The novel: each page read for the first time today counts once; time between page turns
+     (up to three minutes a page) counts as reading time. */
+  readPage(book, page) {
+    const key = dateKey(new Date());
+    const today = this.state.read[key] || (this.state.read[key] = { pages: 0, secs: 0, seen: [] });
+    const now = Date.now();
+    if (this.lastTurn && now - this.lastTurn < 3600000) today.secs += Math.min(180, Math.round((now - this.lastTurn) / 1000));
+    this.lastTurn = now;
+    const id = book + ':' + page;
+    if (!today.seen.includes(id)) {
+      today.seen.push(id);
+      today.pages += 1;
+      for (const old of Object.keys(this.state.read).sort().slice(0, -60)) delete this.state.read[old];
+      this.save();
+      this.add(3);
+    } else this.save();
+  },
+  pagesToday() { return (this.state.read[dateKey(new Date())] || {}).pages || 0; },
+  /* Minutes read in the last seven days. */
+  minutesWeek() {
+    let secs = 0;
+    for (let back = 0; back < 7; back++) { const day = new Date(); day.setDate(day.getDate() - back); secs += (this.state.read[dateKey(day)] || {}).secs || 0; }
+    return Math.round(secs / 60);
+  }
+};
+
 /* ---------- Review: spaced repetition ----------
    Cards come from words marked learned (w:<id>), words missed in the Quiz,
    words saved from the novel (n:<word>) and grammar units passed (g:<unit>).
@@ -5512,14 +6207,14 @@ const Review = {
   init() {
     try { this.state = JSON.parse(Store.read(this.KEY) || 'null'); } catch (_) { this.state = null; }
     if (!this.state || typeof this.state !== 'object' || typeof this.state.cards !== 'object') this.state = { goal: 20, cards: {}, saved: {}, log: {} };
-    for (const key of ['cards', 'saved', 'log']) if (!this.state[key] || typeof this.state[key] !== 'object') this.state[key] = {};
+    for (const key of ['cards', 'saved', 'log', 'recall']) if (!this.state[key] || typeof this.state[key] !== 'object') this.state[key] = {};
     if (!this.GOALS.includes(this.state.goal)) this.state.goal = 20;
     this.seed();
     $('#review-card').addEventListener('click', event => this.click(event));
     document.addEventListener('keydown', event => {
       if (Router.current !== 'review' || event.target.closest('input, select, textarea') || !this.queue.length) return;
-      if (event.key === ' ' && !this.shown) { event.preventDefault(); this.flip(); }
-      else if (this.shown && ['1', '2', '3'].includes(event.key)) this.rate(['again', 'hard', 'good'][Number(event.key) - 1]);
+      if ((event.key === ' ' || event.key === 'Enter') && !this.shown) { event.preventDefault(); this.flip(); }
+      else if (this.shown && ['1', '2', '3', '4'].includes(event.key)) this.rate(['again', 'hard', 'good', 'easy'][Number(event.key) - 1]);
     });
   },
   save() { Store.write(this.KEY, JSON.stringify(this.state)); },
@@ -5527,7 +6222,8 @@ const Review = {
   sanitize(raw) {
     if (!raw || typeof raw !== 'object' || !raw.cards || typeof raw.cards !== 'object') return null;
     const text = (value, max) => typeof value === 'string' ? value.slice(0, max) : '';
-    const out = { goal: this.GOALS.includes(raw.goal) ? raw.goal : 20, cards: {}, saved: {}, log: {}, seeded: true };
+    const out = { goal: this.GOALS.includes(raw.goal) ? raw.goal : 20, cards: {}, saved: {}, log: {}, recall: {}, seeded: true };
+    for (const [day, pair] of Object.entries(raw.recall || {})) if (/^\d{4}-\d{2}-\d{2}$/.test(day) && Array.isArray(pair) && pair.length === 2 && pair.every(Number.isInteger)) out.recall[day] = pair;
     for (const [id, card] of Object.entries(raw.cards)) {
       if (/^[wng]:[^\s]{1,120}$/.test(id) && Array.isArray(card) && card.length === 5 && card.every(Number.isInteger)) out.cards[id] = card;
     }
@@ -5564,7 +6260,7 @@ const Review = {
     this.save();
   },
   clear() {
-    this.state = { goal: this.state.goal, cards: {}, saved: {}, log: {}, seeded: true };
+    this.state = { goal: this.state.goal, cards: {}, saved: {}, log: {}, recall: {}, seeded: true };
     this.queue = [];
     this.save();
   },
@@ -5605,20 +6301,33 @@ const Review = {
     const [, interval, ease, streak] = card;
     if (answer === 'again') return 0;
     if (answer === 'hard') return Math.max(1, Math.round(interval * 1.2));
+    if (answer === 'easy') return streak === 0 && interval < 1 ? 4 : Math.max(4, Math.round(Math.max(interval, 1) * ease / 100 * 1.4));
     return streak === 0 ? (interval >= 1 ? Math.max(2, Math.round(interval * 1.5)) : 1) : interval <= 1 ? 3 : Math.round(interval * ease / 100);
   },
+  /* "#review" goes through the cards due; "#review/learn/B1" teaches new words of a deck. */
   onShow() {
-    this.queue = this.due();
+    const [, mode, level] = location.hash.split('/');
+    this.mode = mode === 'learn' ? 'learn' : 'review';
+    this.level = decodeURIComponent(level || '');
+    if (mode === 'mistakes') this.mode = 'mistakes';
+    if (this.mode === 'mistakes') {
+      this.queue = Object.entries(this.state.cards).filter(([id, card]) => card[4] > 0 && this.content(id)).sort((a, b) => b[1][4] - a[1][4]).slice(0, 15).map(([id]) => id);
+    } else if (this.mode === 'learn') {
+      this.queue = VOCAB.filter(entry => entry.level === this.level && !learnedSet.has(entry.id)).slice(0, 10).map(entry => 'w:' + entry.id);
+    } else this.queue = this.due();
     this.total = this.queue.length;
+    this.doneNow = 0;
+    this.combo = 0;
+    this.gained = 0;
+    this.shown = false;
     this.render();
   },
   click(event) {
     const button = event.target.closest('button');
-    if (!button) return;
-    if (button.dataset.act === 'flip') this.flip();
-    else if (button.dataset.rate) this.rate(button.dataset.rate);
-    else if (button.dataset.say) Grammar.say(button.dataset.say);
-    else if (button.dataset.act === 'more') this.onShow();
+    if (button && button.dataset.say) { event.stopPropagation(); Grammar.say(button.dataset.say); return; }
+    if (button && button.dataset.rate) { this.rate(button.dataset.rate); return; }
+    if (button && button.dataset.act === 'more') { this.onShow(); return; }
+    if (!this.shown && event.target.closest('.flash-card')) this.flip();
   },
   flip() {
     this.shown = true;
@@ -5626,25 +6335,47 @@ const Review = {
     const first = $('#review-card [data-rate="good"]');
     if (first) first.focus({ preventScroll: true });
   },
+  /* A new word in a deck: "Didn't know" and "Hard" bring it back in this session;
+     "Good" and "Easy" mark it learned and give it a review card. */
+  learnRate(id, answer) {
+    if (answer === 'again' || answer === 'hard') { this.queue.splice(Math.min(answer === 'again' ? 3 : 6, this.queue.length), 0, id); return; }
+    const entry = BY_ID.get(id.slice(2));
+    learnedSet.add(entry.id);
+    persist();
+    syncWordControls(entry.id);
+    Words.dirty = true;
+    this.state.cards[id] = answer === 'easy' ? [this.today() + 4, 4, 265, 1, 0] : [this.today() + 1, 1, 250, 1, 0];
+  },
   rate(answer) {
     const id = this.queue[0];
-    const card = this.state.cards[id];
-    if (!card) return;
-    const days = this.next(card, answer);
-    if (answer === 'again') { card[2] = Math.max(130, card[2] - 20); card[3] = 0; card[4] += 1; }
-    else { if (answer === 'hard') card[2] = Math.max(130, card[2] - 15); card[3] += 1; }
-    card[1] = days;
-    card[0] = this.today() + days;
+    if (!id) return;
+    this.queue.shift();
     const key = dateKey(new Date());
+    if (this.mode === 'learn') this.learnRate(id, answer);
+    else {
+      const card = this.state.cards[id];
+      if (!card) return;
+      const days = this.next(card, answer);
+      if (answer === 'again') { card[2] = Math.max(130, card[2] - 20); card[3] = 0; card[4] += 1; }
+      else { if (answer === 'hard') card[2] = Math.max(130, card[2] - 15); if (answer === 'easy') card[2] = Math.min(330, card[2] + 15); card[3] += 1; }
+      card[1] = days;
+      card[0] = this.today() + days;
+      /* A card you did not know comes back after a few others. */
+      if (answer === 'again') this.queue.splice(Math.min(3, this.queue.length), 0, id);
+    }
     this.state.log[key] = (this.state.log[key] || 0) + 1;
-    for (const old of Object.keys(this.state.log).sort().slice(0, -60)) delete this.state.log[old];
+    const recall = this.state.recall[key] || [0, 0];
+    this.state.recall[key] = [recall[0] + (answer === 'again' ? 0 : 1), recall[1] + 1];
+    for (const store of [this.state.log, this.state.recall]) for (const old of Object.keys(store).sort().slice(0, -60)) delete store[old];
     this.save();
+    const points = { again: 5, hard: 10, good: 20, easy: 30 }[answer];
+    XP.add(points);
+    this.gained += points;
+    this.combo = answer === 'good' || answer === 'easy' ? this.combo + 1 : 0;
+    if (!this.queue.includes(id)) this.doneNow += 1;
     recordActivity();
     persist();
     Nav.counts();
-    this.queue.shift();
-    /* A card you did not know comes back after a few others. */
-    if (answer === 'again') this.queue.splice(Math.min(3, this.queue.length), 0, id);
     this.shown = false;
     this.render();
   },
@@ -5661,76 +6392,159 @@ const Review = {
     }
     return null;
   },
+  /* A word card's picture and word type, from the vocabulary list. */
+  wordDetails(id) {
+    const entry = BY_ID.get(id.slice(2));
+    const image = $('.word-card[data-id="' + entry.id + '"] .word-media img');
+    const types = sentencesFor(entry);
+    return { level: entry.level, pos: types.length ? t('pos.' + types[0][0]) : '', image: image ? image.getAttribute('src') : '' };
+  },
   render() {
     const box = $('#review-card');
+    const learn = this.mode === 'learn';
+    $('#review-title').textContent = learn ? t('review.learnTitle', { l: this.level }) : t(this.mode === 'mistakes' ? 'game.mistakes' : 'review.title');
+    $('#review-lead').textContent = t(learn ? 'review.learnLead' : 'review.lead');
     const done = this.doneToday();
     const goal = this.state.goal;
-    $('#review-goal').textContent = t('review.goal', { d: Math.min(done, goal), n: goal });
-    $('#review-goal-bar').style.width = Math.min(100, Math.round(done / goal * 100)) + '%';
+    $('#review-goal').textContent = this.total ? t('review.cardOf', { d: Math.min(this.doneNow, this.total), n: this.total }) : t('review.goal', { d: Math.min(done, goal), n: goal });
+    $('#review-goal-bar').style.width = (this.total ? Math.round(this.doneNow / this.total * 100) : Math.min(100, Math.round(done / goal * 100))) + '%';
+    $('#review-combo').hidden = this.combo < 2;
+    $('#review-combo').textContent = t('review.combo', { n: this.combo });
     if (!this.queue.length) {
       const waiting = Object.keys(this.state.cards).length;
+      const finished = this.total > 0;
+      const more = learn && VOCAB.some(entry => entry.level === this.level && !learnedSet.has(entry.id));
       box.replaceChildren(h('div', { class: 'review-empty' },
-        h('p', { class: 'review-big', text: waiting ? '🎉' : '🗂️' }),
-        h('h2', { text: t(waiting ? 'review.allDone' : 'review.noCards') }),
-        h('p', { text: t(waiting ? 'review.allDoneText' : 'review.noCardsText') }),
-        h('a', { class: 'button primary', href: '#home', text: t('review.home') })));
+        h('p', { class: 'review-big', text: finished || waiting ? '🎉' : '🗂️' }),
+        h('h2', { text: t(finished ? 'review.sessionDone' : waiting ? 'review.allDone' : 'review.noCards') }),
+        h('p', { text: finished ? t('review.sessionText', { n: this.total, xp: this.gained }) : t(waiting ? 'review.allDoneText' : 'review.noCardsText') }),
+        h('div', { class: 'review-empty-actions' },
+          more ? h('button', { type: 'button', class: 'button primary', 'data-act': 'more', text: t('review.moreWords') }) : null,
+          h('a', { class: 'button' + (more ? '' : ' primary'), href: '#home', text: t('review.home') }))));
       return;
     }
     const id = this.queue[0];
     /* Kept while the card is open, so showing the answer does not pick another sentence. */
-    if (!this.open || this.open.id !== id || !this.shown) this.open = { id, content: this.content(id) };
-    const content = this.open.content;
-    const card = this.state.cards[id];
+    if (!this.open || this.open.id !== id || !this.shown) this.open = { id, content: this.content(id), details: id.startsWith('w:') ? this.wordDetails(id) : null };
+    const { content, details } = this.open;
+    const card = this.state.cards[id] || [0, 0, 250, 0, 0];
     const sentence = this.english(content);
-    const kinds = { word: t('review.kindWord'), novel: t('review.kindNovel'), grammar: content.topic };
+    const kinds = { word: details ? t('deck.level', { l: details.level }) : t('review.kindWord'), novel: t('review.kindNovel'), grammar: content.topic };
+    const intervals = learn ? { again: t('review.soon'), hard: t('review.later'), good: this.when(1), easy: this.when(4) }
+      : Object.fromEntries(['again', 'hard', 'good', 'easy'].map(answer => [answer, this.when(this.next(card, answer))]));
     box.replaceChildren(...[
-      h('div', { class: 'review-top' },
-        h('span', { class: 'review-kind', text: kinds[content.kind] }),
-        h('span', { text: t('review.left', { n: this.queue.length }) })),
-      h('div', { class: 'review-face' },
+      h('div', { class: 'flash-card' + (this.shown ? ' is-flipped' : ''), role: this.shown ? null : 'button', tabindex: this.shown ? null : '0', 'aria-label': this.shown ? null : t('review.show') },
+        h('div', { class: 'flash-chips' },
+          h('span', { class: 'flash-chip is-level', text: kinds[content.kind] }),
+          details && details.pos ? h('span', { class: 'flash-chip', text: details.pos }) : null),
+        details && details.image ? h('img', { class: 'flash-image', src: details.image, alt: '' }) : null,
         content.kind === 'grammar' ? h('p', { class: 'review-sentence is-main' }, sentence) : h('p', { class: 'review-word', lang: 'en', text: content.front }),
         content.kind === 'novel' && sentence ? h('p', { class: 'review-sentence' }, sentence) : null,
-        Speech.supported ? h('button', { type: 'button', class: 'icon-button review-say', 'data-say': content.say, 'aria-label': t('tutor.listen') }, icon('sound')) : null),
+        h('div', { class: 'flash-sound' },
+          content.pron ? h('span', { class: 'review-pron', text: content.pron }) : null,
+          Speech.supported ? h('button', { type: 'button', class: 'audio-button big', 'data-say': content.say, 'aria-label': t('tutor.listen') }, icon('sound')) : null),
+        this.shown
+          ? h('div', { class: 'review-back' },
+            h('p', { class: 'review-meaning', lang: 'tr', text: content.back }),
+            content.kind === 'word' && content.sentence ? h('p', { class: 'review-example', lang: 'en', text: content.sentence }) : null,
+            content.sentenceTr ? h('p', { class: 'review-example-tr', lang: 'tr', text: content.sentenceTr }) : null)
+          : h('p', { class: 'flash-hint' }, icon('repeat'), t('review.tapHint'))),
+      this.shown ? h('div', { class: 'rate-head' }, h('span', { text: t('review.recallLevel') }), h('span', { class: 'rate-xp', text: t('review.instantXp') })) : null,
       this.shown
-        ? h('div', { class: 'review-back' },
-          h('p', { class: 'review-meaning', lang: 'tr', text: content.back }),
-          content.pron ? h('p', { class: 'review-pron', text: content.pron }) : null,
-          content.kind === 'word' && content.sentence ? h('p', { class: 'review-example', lang: 'en', text: content.sentence }) : null,
-          content.sentenceTr ? h('p', { class: 'review-example-tr', lang: 'tr', text: content.sentenceTr }) : null)
-        : null,
-      this.shown
-        ? h('div', { class: 'review-rate' }, [['again', 'review.again'], ['hard', 'review.hard'], ['good', 'review.good']].map(([answer, label], index) =>
-          h('button', { type: 'button', class: 'button review-' + answer, 'data-rate': answer, 'aria-keyshortcuts': String(index + 1) },
-            h('strong', { text: t(label) }), h('small', { text: this.when(this.next(card, answer)) }))))
-        : h('button', { type: 'button', class: 'button primary review-flip', 'data-act': 'flip', 'aria-keyshortcuts': 'Space', text: t('review.show') })
+        ? h('div', { class: 'review-rate' }, [['again', 'review.again', 5], ['hard', 'review.hard', 10], ['good', 'review.good', 20], ['easy', 'review.easy', 30]].map(([answer, label, xp], index) =>
+          h('button', { type: 'button', class: 'rate-tile is-' + answer, 'data-rate': answer, 'aria-keyshortcuts': String(index + 1) },
+            h('small', { text: intervals[answer] }), h('strong', { text: t(label) }), h('span', { class: 'rate-points', text: '+' + xp + ' XP' }))))
+        : null
     ].filter(Boolean));
   }
 };
 
-/* ---------- Today: the home page's plan for the day ---------- */
+/* ---------- Today: the home page ---------- */
 const Today = {
+  /* Word decks: the vocabulary by level, then the grammar topics. */
+  DECKS: [
+    { level: 'A2', tag: 'Oxford 3000', title: 'deck.A2', note: 'deck.A2note' },
+    { level: 'B1', tag: 'Oxford 3000', title: 'deck.B1', note: 'deck.B1note' },
+    { level: 'B2', tag: 'Oxford 5000', title: 'deck.B2', note: 'deck.B2note' },
+    { level: 'C1', tag: 'Oxford 5000', title: 'deck.C1', note: 'deck.C1note' },
+    { level: 'C1+', tag: 'C2', title: 'deck.C1plus', note: 'deck.C1plusNote' }
+  ],
   init() {
     $('#today-goal').addEventListener('change', event => {
       Review.state.goal = Number(event.target.value);
       Review.save();
       this.render();
     });
+    $('#decks').addEventListener('click', event => {
+      const button = event.target.closest('[data-say]');
+      if (button) { event.preventDefault(); Grammar.say(button.dataset.say); }
+    });
   },
   render() {
     const due = Review.due().length;
     const done = Review.doneToday();
     const goal = Review.state.goal;
-    $('#today-date').textContent = new Date().toLocaleDateString(lang === 'tr' ? 'tr-TR' : 'en-GB', { weekday: 'long', day: 'numeric', month: 'long' });
+    const share = Math.min(100, Math.round(done / goal * 100));
+    const hour = new Date().getHours();
+    $('#home-title').textContent = t(due ? 'home.titleReview' : hour < 12 ? 'home.titleMorning' : hour < 18 ? 'home.titleDay' : 'home.titleEvening');
+    $('#home-xp').textContent = '⚡ +' + XP.today() + ' XP';
+    $('#goal-fill').style.strokeDasharray = share + ' 100';
+    $('#goal-fill').style.opacity = share ? '1' : '0';
+    $('#goal-done').textContent = Math.min(done, goal);
+    $('#goal-of').textContent = '/ ' + goal;
+    $('#goal-chip').textContent = t('home.goalChip', { p: share });
+    $('#goal-title').textContent = t(done >= goal ? 'home.goalDone' : done ? 'home.goalGoing' : 'home.goalStart');
+    $('#goal-note').textContent = done >= goal ? t('home.goalDoneNote') : t('home.goalLeft', { n: goal - done });
     $('#today-goal').replaceChildren(...Review.GOALS.map(n => h('option', { value: n, text: t('today.goalOption', { n }) })));
     $('#today-goal').value = goal;
-    $('#today-goal-text').textContent = t('today.goalText', { d: Math.min(done, goal), n: goal });
-    $('#today-goal-bar').style.width = Math.min(100, Math.round(done / goal * 100)) + '%';
-    $('#today-streak').textContent = t('today.streak', { n: studyStreak() });
-    const start = $('#today-review');
-    start.classList.toggle('primary', due > 0);
-    $('#today-review-label').textContent = due ? t('today.review', { n: due }) : t(done ? 'today.reviewDone' : Object.keys(Review.state.cards).length ? 'today.reviewNone' : 'today.reviewEmpty');
+    const firstDeck = this.DECKS.find(deck => VOCAB.some(entry => entry.level === deck.level && !learnedSet.has(entry.id)));
+    $('#hero-count').textContent = due ? t('home.heroCount', { n: due }) : t('home.heroNone');
+    $('#hero-text').textContent = t(due ? 'home.heroText' : 'home.heroNew');
+    $('#hero-label').textContent = due ? t('home.heroStart', { n: due }) : t('home.heroLearn');
+    $('#hero-start').href = due ? '#review' : '#review/learn/' + (firstDeck ? firstDeck.level : 'A2');
+    this.decks();
     $('#today-continue').replaceChildren(...this.rows());
     this.week();
+  },
+  decks() {
+    const cards = [];
+    let nextMarked = false;
+    for (const deck of this.DECKS) {
+      const words = VOCAB.filter(entry => entry.level === deck.level);
+      if (!words.length) continue;
+      const learned = words.filter(entry => learnedSet.has(entry.id)).length;
+      const share = Math.round(learned / words.length * 100);
+      const isNext = !nextMarked && learned < words.length;
+      if (isNext) nextMarked = true;
+      const sample = words.find(entry => !learnedSet.has(entry.id)) || words[0];
+      cards.push(this.deckCard({
+        chips: [[t('deck.level', { l: deck.level }), 'violet'], [deck.tag, '']], title: t(deck.title), note: t(deck.note), share,
+        count: t('deck.words', { d: learned, n: words.length }), href: '#review/learn/' + encodeURIComponent(deck.level), say: sample.word,
+        primary: isNext, color: 'emerald'
+      }));
+    }
+    for (const topic of Grammar.topics) {
+      const done = topic.units.filter(unit => Grammar.learned[unit.id]).length;
+      cards.push(this.deckCard({
+        chips: [[t('deck.grammar'), 'amber'], [t('deck.steps', { n: topic.units.length }), '']], title: topic.title, note: topic.lead,
+        share: Math.round(done / topic.units.length * 100), count: t('deck.stepsDone', { d: done, n: topic.units.length }),
+        href: '#grammar/' + topic.id, primary: false, color: 'violet'
+      }));
+    }
+    $('#decks').replaceChildren(...cards);
+    $('#deck-count').textContent = t('home.deckCount', { n: cards.length });
+  },
+  deckCard({ chips, title, note, share, count, href, say, primary, color }) {
+    return h('article', { class: 'deck is-' + color },
+      h('div', { class: 'deck-top' },
+        h('div', { class: 'deck-chips' }, chips.map(([text, tone]) => h('span', { class: 'deck-chip' + (tone ? ' is-' + tone : ''), text }))),
+        say && Speech.supported ? h('button', { type: 'button', class: 'audio-button', 'data-say': say, 'aria-label': t('card.listenTo', { w: say }) }, icon('sound')) : null),
+      h('h3', { text: title }),
+      h('p', { class: 'deck-note', text: note }),
+      h('div', { class: 'deck-bar' }, h('span', { class: 'gram-meter' }, h('span', { style: 'width:' + share + '%' })), h('span', { class: 'deck-share', text: '★ %' + share })),
+      h('div', { class: 'deck-foot' },
+        h('span', { class: 'deck-count' }, icon('cards'), count),
+        h('a', { class: 'button' + (primary ? ' primary' : color === 'violet' ? ' violet-soft' : ''), href }, h('span', { text: t('deck.start') }), icon('next'))));
   },
   /* Where each study area was left: the next grammar step, the book's page, the words. */
   rows() {
@@ -5748,16 +6562,17 @@ const Today = {
       const title = Grammar.bookTitle(saved.name) || saved.titles[saved.name];
       rows.push([icon('book'), title, total ? t('novel.markOf', { n: page + 1, total }) : t('novel.mark', { n: page + 1 }), '#novel']);
     }
-    const learned = [...learnedSet].filter(id => BY_ID.has(id)).length;
-    rows.push([icon('words'), t('nav.words'), t('today.words', { n: learned, total: VOCAB.length }), '#words']);
     return rows.map(([mark, title, note, href]) => h('li', {}, h('a', { class: 'today-row', href },
       h('span', { class: 'today-icon' }, mark), h('span', { class: 'today-row-text' }, h('strong', { text: title }), h('span', { text: note })), icon('next'))));
   },
-  /* Cards reviewed on each of the last seven days. */
+  /* Cards reviewed on each of the last seven days, and how many of the answers were remembered. */
   week() {
     const days = [];
     for (let back = 6; back >= 0; back--) { const day = new Date(); day.setDate(day.getDate() - back); days.push(day); }
     const counts = days.map(day => Review.state.log[dateKey(day)] || 0);
+    let kept = 0, total = 0;
+    for (const day of days) { const [k, n] = Review.state.recall[dateKey(day)] || [0, 0]; kept += k; total += n; }
+    $('#week-recall').textContent = total ? '%' + Math.round(kept / total * 100) : '—';
     const top = Math.max(Review.state.goal, ...counts);
     $('#today-week').replaceChildren(...days.map((day, index) => h('li', { class: index === 6 ? 'is-today' : null, title: t('today.weekDay', { n: counts[index] }) },
       h('span', { class: 'today-bar' }, h('span', { style: 'height:' + Math.round(counts[index] / top * 100) + '%' })),
@@ -5768,7 +6583,7 @@ const Today = {
 
 /* ---------- Navigation extras: the "More" sheet, the sidebar toggle, the top bar ---------- */
 const Nav = {
-  MORE: ['words', 'phrases', 'quiz', 'reading', 'speak', 'settings'],
+  MORE: ['grammar', 'review', 'words', 'phrases', 'quiz', 'reading', 'rankings', 'settings'],
   KEY: 'english-study-side.v1',
   init() {
     $('#nav-more').addEventListener('click', () => this.sheet(true));
@@ -5818,7 +6633,369 @@ const Nav = {
   }
 };
 
-const MODULES = { home: Home, review: Review, words: Words, phrases: Phrases, grammar: Grammar, speak: Speak, novel: Novel, quiz: Quiz, reading: Reading, settings: Settings };
+/* ---------- Practice: the daily quest and the mini games ----------
+   "#practice" lists the games; "#practice/match" (listen, gap, survive) plays one.
+   Games use the words you have learned (or your study path's words while there
+   are few), award XP and keep your best scores in this browser. */
+const Games = {
+  KEY: 'english-study-games.v1',
+  QUESTS: [
+    { id: 'review', goal: 15, text: 'quest.review', href: '#review', value: () => Review.doneToday() },
+    { id: 'xp', goal: 150, text: 'quest.xp', href: '#practice', value: () => XP.today() },
+    { id: 'read', goal: 10, text: 'quest.read', href: '#novel', value: () => XP.pagesToday() }
+  ],
+  best: {},
+  game: null,
+  init() {
+    try { this.best = JSON.parse(Store.read(this.KEY) || '{}') || {}; } catch (_) { this.best = {}; }
+    $('#practice-area').addEventListener('click', event => this.click(event));
+    $('#practice-area').addEventListener('submit', event => { event.preventDefault(); this.submit(); });
+  },
+  saveBest(id, value, higher = true) {
+    if (!value) return false;
+    const old = this.best[id];
+    if (old == null || (higher ? value > old : value < old)) { this.best[id] = value; Store.write(this.KEY, JSON.stringify(this.best)); return true; }
+    return false;
+  },
+  /* Words to play with: the learned ones, topped up from the study path. */
+  pool(count) {
+    const learned = shuffle(VOCAB.filter(entry => learnedSet.has(entry.id)));
+    const more = shuffle(VOCAB.filter(entry => inPath(entry) && !learnedSet.has(entry.id)));
+    return learned.concat(more).slice(0, count);
+  },
+  /* Short Turkish meaning for buttons: the first sense. */
+  short(entry) { return entry.meaning.split(/[,;(]/)[0].trim(); },
+  onShow() {
+    this.stop();
+    const id = location.hash.split('/')[1] || '';
+    if (['match', 'listen', 'gap', 'survive'].includes(id)) this.start(id); else this.hub();
+  },
+  stop() { clearInterval(this.timer); this.timer = null; this.game = null; },
+  quest() {
+    const index = Math.floor(Review.today()) % this.QUESTS.length;
+    const quest = this.QUESTS[index];
+    const value = Math.min(quest.goal, quest.value());
+    const key = dateKey(new Date());
+    if (value >= quest.goal && !XP.state.quests[key]) { XP.state.quests[key] = 1; XP.save(); XP.add(50); Toast.show(t('quest.reward')); }
+    return { quest, value };
+  },
+  hub() {
+    $('#practice-head').hidden = false;
+    const weeks = XP.weeks();
+    const quiz = progress.quiz;
+    const { quest, value } = this.quest();
+    const midnight = new Date(); midnight.setHours(24, 0, 0, 0);
+    const left = Math.max(0, midnight - Date.now());
+    const clock = [Math.floor(left / 3600000), Math.floor(left / 60000) % 60].map(n => String(n).padStart(2, '0')).join(':');
+    const rank = [...weeks].sort((a, b) => b.xp - a.xp).indexOf(weeks[0]) + 1;
+    const mistakes = Object.entries(Review.state.cards).filter(([id, card]) => card[4] > 0 && Review.content(id)).sort((a, b) => b[1][4] - a[1][4]);
+    const game = (id, iconName, tone, title, text, extra, foot, button) => h('article', { class: 'game-card is-' + tone },
+      h('div', { class: 'game-card-head' }, h('span', { class: 'game-icon' }, icon(iconName)), h('div', {}, h('h3', { text: title }), h('p', { text: text }))),
+      extra,
+      h('div', { class: 'game-card-foot' }, h('span', { class: 'game-best' }, foot), h('a', { class: 'button ' + button, href: '#practice/' + id }, h('span', { text: t('game.play') }), icon('play'))));
+    $('#practice-area').replaceChildren(
+      h('div', { class: 'xp-card' },
+        h('span', { class: 'xp-card-icon' }, icon('bolt')),
+        h('div', {}, h('strong', { text: t('game.weekXp', { n: weeks[0].xp }) }),
+          h('span', { class: 'xp-card-acc', text: quiz.attempts ? t('game.accuracy', { p: Math.round(quiz.correct / quiz.attempts * 100) }) : t('game.noAccuracy') })),
+        h('div', { class: 'xp-card-side' }, h('span', { class: 'pill streak', text: t('game.streak', { n: studyStreak() }) }),
+          h('a', { href: '#rankings', text: t('game.rank', { n: rank }) }))),
+      h('div', { class: 'quest-card' },
+        h('div', { class: 'quest-top' }, h('span', { class: 'quest-tag', text: '★ ' + t('quest.title') }), h('span', { class: 'quest-bonus', text: '+50 XP' })),
+        h('h2', { text: t(quest.text, { n: quest.goal }) }),
+        h('div', { class: 'quest-progress' }, h('span', { text: t('quest.progress', { d: value, n: quest.goal }) }), h('span', { text: '%' + Math.round(value / quest.goal * 100) })),
+        h('span', { class: 'quest-bar' }, h('span', { style: 'width:' + Math.round(value / quest.goal * 100) + '%' })),
+        h('div', { class: 'quest-foot' }, h('span', { text: value >= quest.goal ? t('quest.done') : t('quest.left', { t: clock }) }),
+          value >= quest.goal ? null : h('a', { class: 'button quest-go', href: quest.href }, h('span', { text: t('quest.go') }), icon('next')))),
+      h('div', { class: 'section-row' }, h('div', {}, h('h2', { text: t('game.title') }), h('p', { class: 'hint', text: t('game.lead') })), h('span', { class: 'game-count', text: t('game.modes', { n: 5 }) })),
+      h('div', { class: 'games' },
+        game('match', 'timer', 'amber', t('game.match'), t('game.matchText'),
+          h('div', { class: 'game-preview' }, h('span', { lang: 'en', text: 'Ubiquitous 🇬🇧' }), h('span', { lang: 'tr', text: 'Her yerde bulunan 🇹🇷' })),
+          this.best.match != null ? t('game.bestPairs', { n: this.best.match }) : t('game.noBest'), 'primary'),
+        game('listen', 'sound', 'violet', t('game.listen'), t('game.listenText'),
+          h('div', { class: 'game-preview is-wave' }, icon('sound'), h('span', { class: 'wave', 'aria-hidden': 'true' }, h('i'), h('i'), h('i'), h('i'), h('i')), h('span', { text: t('game.listenHint') })),
+          this.best.listen != null ? t('game.bestScore', { n: this.best.listen }) : t('game.noBest'), 'violet'),
+        game('gap', 'pen', 'blue', t('game.gap'), t('game.gapText'),
+          h('div', { class: 'game-preview is-quote' }, h('span', { lang: 'en', text: '“The new solar breakthrough will significantly [ _____ ] carbon emissions.”' })),
+          this.best.gap != null ? t('game.bestScore', { n: this.best.gap }) : t('game.noBest'), 'soft'),
+        game('survive', 'heart', 'red', t('game.survive'), t('game.surviveText'),
+          h('div', { class: 'game-preview is-row' }, h('span', { text: t('game.level') }), h('span', { class: 'game-tag', text: t('game.tempo') })),
+          this.best.survive != null ? t('game.bestStreak', { n: this.best.survive }) : t('game.noBest'), 'danger'),
+        h('article', { class: 'game-card is-mint' },
+          h('div', { class: 'game-card-head' }, h('span', { class: 'game-icon' }, icon('repeat')),
+            h('div', {}, h('h3', { text: t('game.mistakes') }), h('p', { text: t('game.mistakesText') })),
+            h('span', { class: 'game-tag is-red', text: t('game.mistakeCount', { n: mistakes.length }) })),
+          mistakes.length ? h('div', { class: 'mistake-chips' }, mistakes.slice(0, 8).map(([id, card]) => h('span', { class: 'mistake-chip' },
+            h('span', { lang: 'en', text: Review.content(id).front.replace(/[[\]]/g, '').slice(0, 24) }), h('b', { text: t('game.times', { n: card[4] }) })))) : h('p', { class: 'hint', text: t('game.noMistakes') }),
+          mistakes.length ? h('a', { class: 'button primary game-wide', href: '#review/mistakes' }, icon('timer'), h('span', { text: t('game.mistakesGo') })) : null),
+        h('article', { class: 'game-card is-plain' },
+          h('div', { class: 'game-card-head' }, h('span', { class: 'game-icon' }, icon('quiz')), h('div', {}, h('h3', { text: t('game.classic') }), h('p', { text: t('game.classicText') }))),
+          h('a', { class: 'button game-wide', href: '#quiz' }, h('span', { text: t('game.open') }), icon('next')))));
+  },
+  /* ---- Playing */
+  start(id) {
+    $('#practice-head').hidden = true;
+    window.scrollTo(0, 0);
+    if (id === 'match') { this.game = { id, score: 0, ends: Date.now() + 60000 }; this.matchRound(); this.tick(); }
+    if (id === 'listen') { this.game = { id, words: this.pool(10).filter(e => /^[a-z]+$/i.test(e.word.trim())), at: 0, score: 0 }; this.listenQuestion(); }
+    if (id === 'gap') {
+      const items = [];
+      for (const entry of this.pool(60)) { const blank = blankFor(entry); if (blank) items.push({ entry, blank }); if (items.length === 10) break; }
+      this.game = { id, items, at: 0, score: 0 };
+      this.gapQuestion();
+    }
+    if (id === 'survive') { this.game = { id, lives: 3, streak: 0, limit: 10 }; this.surviveQuestion(); }
+  },
+  frame(title, ...body) {
+    const game = this.game;
+    $('#practice-area').replaceChildren(h('div', { class: 'play' },
+      h('div', { class: 'play-top' },
+        h('a', { class: 'novel-icon', href: '#practice', 'aria-label': t('game.back') }, icon('prev')),
+        h('h2', { text: title }),
+        h('span', { class: 'play-stat', id: 'play-stat' })),
+      ...body));
+    this.stat();
+    return game;
+  },
+  stat() {
+    const game = this.game, node = $('#play-stat');
+    if (!game || !node) return;
+    if (game.id === 'match') node.textContent = '⏱ ' + Math.max(0, Math.ceil((game.ends - Date.now()) / 1000)) + ' sn · ' + game.score;
+    if (game.id === 'listen' || game.id === 'gap') node.textContent = Math.min(game.at + 1, 10) + ' / ' + (game.words || game.items).length + ' · ✓ ' + game.score;
+    if (game.id === 'survive') node.textContent = '❤️'.repeat(game.lives) + '🤍'.repeat(3 - game.lives) + ' · ' + game.streak;
+  },
+  tick() {
+    clearInterval(this.timer);
+    this.timer = setInterval(() => {
+      const game = this.game;
+      if (!game) return this.stop();
+      if (game.id === 'match' && Date.now() >= game.ends) { this.over(); return; }
+      if (game.id === 'survive' && game.deadline && Date.now() >= game.deadline) { game.deadline = 0; this.surviveAnswer(null); return; }
+      if (game.id === 'survive' && game.deadline) {
+        const bar = $('#survive-bar');
+        if (bar) bar.style.width = Math.max(0, (game.deadline - Date.now()) / (game.limit * 1000) * 100) + '%';
+      }
+      this.stat();
+    }, 100);
+  },
+  /* Matching: five pairs at a time for 60 seconds. */
+  matchRound() {
+    const words = this.pool(5);
+    this.game.left = null;
+    this.game.open = words.length;
+    this.frame(t('game.match'),
+      h('p', { class: 'hint', text: t('game.matchHow') }),
+      h('div', { class: 'match' },
+        h('div', { class: 'match-col' }, words.map(entry => h('button', { type: 'button', class: 'match-item', 'data-en': entry.id, lang: 'en', text: entry.word }))),
+        h('div', { class: 'match-col' }, shuffle(words.slice()).map(entry => h('button', { type: 'button', class: 'match-item', 'data-tr': entry.id, lang: 'tr', text: this.short(entry) })))));
+  },
+  matchPick(button) {
+    const game = this.game;
+    if (button.disabled) return;
+    if (button.dataset.en) {
+      for (const b of $$('#practice-area [data-en]')) b.classList.toggle('is-picked', b === button);
+      game.left = button;
+      return;
+    }
+    if (!game.left) return;
+    if (game.left.dataset.en === button.dataset.tr) {
+      for (const b of [game.left, button]) { b.classList.remove('is-picked'); b.classList.add('is-right'); b.disabled = true; }
+      game.score += 1;
+      game.open -= 1;
+      XP.add(2);
+      game.left = null;
+      this.stat();
+      if (!game.open) setTimeout(() => { if (this.game === game) this.matchRound(); }, 350);
+    } else {
+      button.classList.add('is-wrong');
+      setTimeout(() => button.classList.remove('is-wrong'), 400);
+    }
+  },
+  /* Listening: hear a word, type it with some letters shown. */
+  listenQuestion() {
+    const game = this.game;
+    const entry = game.words[game.at];
+    if (!entry) { this.over(); return; }
+    const word = entry.word.trim();
+    const hint = [...word].map((ch, i) => (i === 0 || i % 3 === 2) ? ch.toLowerCase() : '_').join(' ');
+    this.frame(t('game.listen'),
+      h('div', { class: 'listen-card' },
+        h('button', { type: 'button', class: 'audio-button huge', 'data-act': 'hear', 'aria-label': t('tutor.listen') }, icon('sound')),
+        h('p', { class: 'listen-pron', text: entry.pron || '' }),
+        h('p', { class: 'listen-hint', lang: 'en', text: hint }),
+        h('p', { class: 'hint', text: t('game.meaning', { m: entry.meaning }) })),
+      h('form', { class: 'listen-form' },
+        h('label', { class: 'visually-hidden', for: 'listen-input', text: t('game.typeWord') }),
+        h('input', { type: 'text', id: 'listen-input', lang: 'en', autocomplete: 'off', autocapitalize: 'off', spellcheck: 'false', placeholder: t('game.typeWord') }),
+        h('button', { type: 'submit', class: 'button violet', text: t('grammar.check') })),
+      h('div', { class: 'play-feedback', id: 'play-feedback' }));
+    this.hear(word);
+    setTimeout(() => { const input = $('#listen-input'); if (input) input.focus(); }, 100);
+  },
+  hear(word) { Grammar.say(word); },
+  submit() {
+    const game = this.game;
+    if (!game || game.id !== 'listen' || game.answered) return;
+    const entry = game.words[game.at];
+    const value = $('#listen-input').value.trim().toLowerCase();
+    if (!value) return;
+    game.answered = true;
+    const right = value === entry.word.trim().toLowerCase();
+    if (right) { game.score += 1; XP.add(10); }
+    $('#listen-input').readOnly = true;
+    $('#play-feedback').replaceChildren(h('div', { class: 'gram-feedback ' + (right ? 'is-right' : 'is-wrong') },
+      h('p', { text: right ? t('grammar.right') : t('game.itWas', { w: entry.word }) }),
+      h('button', { type: 'button', class: 'button primary', 'data-act': 'next', text: t('grammar.next') })));
+    this.stat();
+  },
+  /* Gap filling: a sentence with the word left out, four choices. */
+  gapQuestion() {
+    const game = this.game;
+    const item = game.items[game.at];
+    if (!item) { this.over(); return; }
+    const others = shuffle(VOCAB.filter(e => e.level === item.entry.level && e !== item.entry && !/\s/.test(e.word.trim()))).slice(0, 3);
+    const options = shuffle([item.entry, ...others]).map(e => e.word.trim().toLowerCase());
+    const [before, after] = item.blank.sentence.split('_____');
+    this.frame(t('game.gap'),
+      h('div', { class: 'gap-card' },
+        h('span', { class: 'eyebrow', text: t('game.context') }),
+        h('p', { class: 'gap-sentence', lang: 'en' }, '“' + before, h('span', { class: 'gap', text: '_____' }), after + '”'),
+        item.blank.hint ? h('p', { class: 'hint', lang: 'tr', text: item.blank.hint }) : null),
+      h('div', { class: 'gram-options' }, options.map(word => h('button', { type: 'button', class: 'gram-option', 'data-gap': word, lang: 'en', text: word }))),
+      h('div', { class: 'play-feedback', id: 'play-feedback' }));
+  },
+  gapAnswer(button) {
+    const game = this.game;
+    if (game.answered) return;
+    game.answered = true;
+    const item = game.items[game.at];
+    const answer = item.entry.word.trim().toLowerCase();
+    const right = button.dataset.gap === answer;
+    if (right) { game.score += 1; XP.add(10); }
+    for (const b of $$('#practice-area [data-gap]')) { b.disabled = true; if (b.dataset.gap === answer) b.classList.add('is-right'); else if (b === button) b.classList.add('is-wrong'); }
+    $('#practice-area .gap').textContent = item.blank.form;
+    $('#play-feedback').replaceChildren(h('div', { class: 'gram-feedback ' + (right ? 'is-right' : 'is-wrong') },
+      h('p', { text: right ? t('grammar.right') : t('game.itWas', { w: item.blank.form }) }),
+      h('p', { class: 'gram-why', lang: 'tr', text: item.entry.word + ' = ' + item.entry.meaning }),
+      h('button', { type: 'button', class: 'button primary', 'data-act': 'next', text: t('grammar.next') })));
+    this.stat();
+  },
+  /* Survival: the meaning in time; three lives, and less time after each right answer. */
+  surviveQuestion() {
+    const game = this.game;
+    const [entry, ...others] = this.pool(30);
+    const wrong = others.filter(e => this.short(e) !== this.short(entry)).slice(0, 3);
+    game.entry = entry;
+    game.answered = false;
+    this.frame(t('game.survive'),
+      h('span', { class: 'survive-time' }, h('span', { id: 'survive-bar' })),
+      h('p', { class: 'survive-word', lang: 'en', text: entry.word }),
+      h('div', { class: 'gram-options' }, shuffle([entry, ...wrong]).map(e => h('button', { type: 'button', class: 'gram-option', 'data-survive': e.id, lang: 'tr', text: this.short(e) }))),
+      h('div', { class: 'play-feedback', id: 'play-feedback' }));
+    game.deadline = Date.now() + game.limit * 1000;
+    this.tick();
+  },
+  surviveAnswer(button) {
+    const game = this.game;
+    if (game.answered) return;
+    game.answered = true;
+    game.deadline = 0;
+    const right = Boolean(button) && button.dataset.survive === game.entry.id;
+    for (const b of $$('#practice-area [data-survive]')) { b.disabled = true; if (b.dataset.survive === game.entry.id) b.classList.add('is-right'); else if (b === button) b.classList.add('is-wrong'); }
+    if (right) { game.streak += 1; game.limit = Math.max(4, game.limit - .4); XP.add(5); }
+    else game.lives -= 1;
+    this.stat();
+    setTimeout(() => { if (this.game !== game) return; if (game.lives <= 0) this.over(); else this.surviveQuestion(); }, right ? 450 : 1100);
+  },
+  over() {
+    const game = this.game;
+    clearInterval(this.timer);
+    let result, record;
+    if (game.id === 'match') { result = t('game.resultPairs', { n: game.score }); record = this.saveBest('match', game.score); }
+    if (game.id === 'listen') { result = t('game.resultScore', { n: game.score, total: game.words.length }); record = this.saveBest('listen', game.score); }
+    if (game.id === 'gap') { result = t('game.resultScore', { n: game.score, total: game.items.length }); record = this.saveBest('gap', game.score); }
+    if (game.id === 'survive') { result = t('game.resultStreak', { n: game.streak }); record = this.saveBest('survive', game.streak); }
+    recordActivity();
+    persist();
+    this.game = { id: game.id, done: true };
+    $('#practice-area').replaceChildren(h('div', { class: 'play' }, h('div', { class: 'gram-card gram-done' },
+      h('p', { class: 'review-big', text: record ? '🏆' : '🎯' }),
+      h('p', { class: 'gram-score', text: result }),
+      h('p', { text: t(record ? 'game.record' : 'game.goodGame') }),
+      h('div', { class: 'gram-actions' },
+        h('a', { class: 'button', href: '#practice', text: t('game.back') }),
+        h('button', { type: 'button', class: 'button primary', 'data-act': 'again', text: t('game.again') })))));
+  },
+  click(event) {
+    const button = event.target.closest('button');
+    if (!button) return;
+    const game = this.game;
+    if (button.dataset.act === 'again') { this.start(game.id); return; }
+    if (!game) return;
+    if (button.dataset.en || button.dataset.tr) this.matchPick(button);
+    else if (button.dataset.act === 'hear') this.hear(game.words[game.at].word.trim());
+    else if (button.dataset.gap) this.gapAnswer(button);
+    else if (button.dataset.survive) this.surviveAnswer(button);
+    else if (button.dataset.act === 'next') {
+      game.at += 1;
+      game.answered = false;
+      if (game.id === 'listen') this.listenQuestion(); else this.gapQuestion();
+    }
+  }
+};
+
+/* ---------- Rankings: this week against your own past weeks ----------
+   There are no other players: the league is made of your own weeks, ranked by XP. */
+const Rankings = {
+  label(week, index) {
+    if (index === 0) return t('rank.thisWeek');
+    const thisWeek = XP.weekStart(new Date());
+    const last = new Date(thisWeek); last.setDate(last.getDate() - 7);
+    if (week.start.getTime() === last.getTime()) return t('rank.lastWeek');
+    const end = new Date(week.start); end.setDate(end.getDate() + 6);
+    const locale = lang === 'tr' ? 'tr-TR' : 'en-GB';
+    return week.start.toLocaleDateString(locale, { day: 'numeric', month: 'short' }) + ' – ' + end.toLocaleDateString(locale, { day: 'numeric', month: 'short' });
+  },
+  onShow() {
+    const weeks = XP.weeks().map((week, index) => ({ ...week, name: this.label(week, index), current: index === 0 }));
+    const ranked = weeks.slice().sort((a, b) => b.xp - a.xp || (b.current ? 1 : 0) - (a.current ? 1 : 0));
+    const me = ranked.findIndex(week => week.current);
+    const current = ranked[me];
+    const daysLeft = 7 - ((new Date().getDay() + 6) % 7);
+    const podium = [ranked[1], ranked[0], ranked[2]];
+    const third = ranked[2] ? ranked[2].xp : 0;
+    const toPodium = me < 3 ? 0 : third - current.xp + 1;
+    const medal = ['🥇', '🥈', '🥉'];
+    $('#rank-area').replaceChildren(
+      h('div', { class: 'league-card' },
+        h('div', { class: 'league-top' }, h('span', { class: 'league-shield' }, icon('shield')),
+          h('div', {}, h('h2', {}, t('rank.league'), h('span', { class: 'league-season', text: t('rank.weeks', { n: weeks.length }) })),
+            h('p', {}, icon('timer'), t('rank.closes', { n: daysLeft }))),
+          h('span', { class: 'league-goal' }, h('small', { text: t('rank.goal') }), h('strong', { text: 'Top 3' }))),
+        h('p', { class: 'league-foot', text: t('rank.how') })),
+      h('div', { class: 'podium' }, podium.map((week, slot) => week ? h('div', { class: 'podium-place is-' + ['second', 'first', 'third'][slot] + (week.current ? ' is-me' : '') },
+        h('span', { class: 'podium-avatar' }, week.current ? '⭐' : medal[[1, 0, 2][slot]]),
+        h('strong', { text: week.name }),
+        h('span', { class: 'podium-days', text: '🔥 ' + t('rank.days', { n: week.days }) }),
+        h('div', { class: 'podium-block' }, h('b', { text: [2, 1, 3][slot] }), h('span', { text: week.xp + ' XP' }))) : h('div', { class: 'podium-place is-empty' }))),
+      h('div', { class: 'rank-note' }, icon('check'), h('span', { text: me < 3 ? t('rank.onPodium') : t('rank.toPodium', { n: toPodium }) })),
+      h('div', { class: 'rank-me' },
+        h('span', { class: 'rank-pos', text: me + 1 }),
+        h('div', {}, h('strong', { text: t('rank.you') }), h('span', { text: t('rank.meNote', { d: current.days, w: [...learnedSet].length }) })),
+        h('div', { class: 'rank-me-side' }, h('span', { class: 'pill xp', text: '⚡ ' + current.xp + ' XP' }), h('small', { text: '🔥 ' + t('rank.streak', { n: studyStreak() }) }))),
+      h('ol', { class: 'rank-list', start: 4 }, ranked.slice(3, 12).map((week, index) => h('li', { class: week.current ? 'is-me' : null },
+        h('span', { class: 'rank-pos', text: index + 4 }),
+        h('div', {}, h('strong', { text: week.name }), h('span', { text: t('rank.days', { n: week.days }) })),
+        h('span', { class: 'rank-xp', text: week.xp + ' XP' })))),
+      weeks.length < 4 ? h('p', { class: 'hint rank-empty', text: t('rank.few') }) : null,
+      h('div', { class: 'rank-push' },
+        h('div', { class: 'rank-push-head' }, h('span', { class: 'rank-bulb', text: '💡' }),
+          h('div', {}, h('strong', { text: t(me < 3 ? 'rank.keepTitle' : 'rank.closeTitle') }), h('p', { text: me < 3 ? t('rank.keepText') : t('rank.closeText', { n: toPodium }) }))),
+        h('a', { class: 'button primary', href: '#practice' }, icon('bolt'), h('span', { text: t('rank.practice') }))));
+  }
+};
+
+const MODULES = { home: Home, review: Review, practice: Games, rankings: Rankings, words: Words, phrases: Phrases, grammar: Grammar, speak: Speak, novel: Novel, quiz: Quiz, reading: Reading, settings: Settings };
 
 /* ======================================================================
    8. INITIALIZATION (single entry point)
@@ -5859,7 +7036,7 @@ function init() {
   applyTheme();
   applyTurkishVisibility();
   prepareCards();
-  Home.init(); Words.init(); Phrases.init(); Grammar.init(); Review.init(); Today.init(); Nav.init(); Writer.init(); Speak.init(); Tutor.init(); Novel.init(); Quiz.init(); Settings.init(); Updater.init();
+  XP.init(); Home.init(); Words.init(); Phrases.init(); Grammar.init(); Review.init(); Today.init(); Nav.init(); Games.init(); Writer.init(); Speak.init(); Tutor.init(); Novel.init(); Quiz.init(); Settings.init(); Updater.init();
   if (!Store.usable) Banner.show(t(Store.simulated ? 'storage.simulated' : 'storage.off'));
   else if (loaded.notice) Banner.show(t(loaded.notice, { n: loaded.count || 0 }));
   if (loaded.migrated) persist();

@@ -146,9 +146,10 @@ def load_novel_dictionary() -> dict:
     return {"words": words, "forms": {f: w for f, w in forms.items() if w in words}, "irregular": irregular}
 
 
-def novel_card(path: str, title: str, author: str) -> str:
+def novel_card(path: str, title: str, author: str, level: str = "") -> str:
     """A book card on the shelf; the reader script builds the same card for books it finds itself."""
-    return (f'<button type="button" class="novel-book" data-novel="{esc(path)}" aria-pressed="false">'
+    level_attr = f' data-level="{esc(level)}"' if level else ""
+    return (f'<button type="button" class="novel-book" data-novel="{esc(path)}"{level_attr} aria-pressed="false">'
             f'<span class="novel-cover" aria-hidden="true">{esc((title or "?")[:1].upper())}</span>'
             f'<span class="novel-book-title" lang="en">{esc(title)}</span><span class="novel-book-author">{esc(author)}</span>'
             f'<span class="novel-book-meta" hidden><span class="novel-mark"></span><span class="novel-meter"><span></span></span></span></button>')
@@ -165,7 +166,7 @@ def novel_shelf() -> str:
     names = HERE / "novel" / "titles.json"
     known = json.loads(names.read_text(encoding="utf-8")) if names.exists() else {}
     for pdf in sorted((HERE.parent / "novels").glob("*.pdf")):
-        title, author = pdf.stem, ""
+        title, author, level = pdf.stem, "", ""
         try:
             import fitz
             doc = fitz.open(pdf)
@@ -183,8 +184,23 @@ def novel_shelf() -> str:
             pass
         if pdf.name in known:  # PDFs without a title in their metadata
             title, author = known[pdf.name].get("title", title), known[pdf.name].get("author", author)
-        cards.append(novel_card(f"novels/{pdf.name}", title, author))
+            level = known[pdf.name].get("level", "")
+        cards.append(novel_card(f"novels/{pdf.name}", title, author, level))
     return "".join(cards)
+
+
+def font_faces() -> str:
+    """Outfit (headings) and Plus Jakarta Sans (text), both SIL Open Font License, from Google
+    Fonts; the latin and latin-ext (Turkish letters) files are inlined so the page works offline."""
+    latin = "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD"
+    latin_ext = "U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF"
+    faces = []
+    for family, stem, weights in (("Outfit", "outfit", "500 800"), ("Plus Jakarta Sans", "jakarta", "400 800")):
+        for subset, ranges in (("latin-ext", latin_ext), ("latin", latin)):
+            data = base64.b64encode((HERE / "vendor" / "fonts" / f"{stem}-{subset}.woff2").read_bytes()).decode("ascii")
+            faces.append(f"@font-face {{ font-family: '{family}'; font-style: normal; font-weight: {weights}; font-display: swap; "
+                         f"src: url(data:font/woff2;base64,{data}) format('woff2'); unicode-range: {ranges}; }}")
+    return "\n".join(faces)
 
 
 def esc(text: str) -> str:
@@ -448,6 +464,7 @@ def main() -> None:
               .replace("<!--@NOVEL_SHELF@-->", novel_shelf())
               .replace("<!--@SPEAK_TOPICS@-->", json_for_script(speak_topics))
               .replace("<!--@GRAMMAR_DATA@-->", json_for_script(grammar))
+              .replace("/*@FONT_FACES@*/", font_faces())
               .replace("@APP_VERSION@", APP_VERSION)
               .replace("<!--@PDFJS_LIB@-->", pdfjs_lib)
               .replace("<!--@PDFJS_WORKER@-->", pdfjs_worker)

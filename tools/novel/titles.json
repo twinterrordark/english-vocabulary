@@ -1,10 +1,17 @@
 {
+  "novel_1.pdf": {
+    "title": "Holes",
+    "author": "Louis Sachar",
+    "level": "A2–B1"
+  },
   "novel_2.pdf": {
     "title": "Nineteen Eighty-Four",
-    "author": "George Orwell"
+    "author": "George Orwell",
+    "level": "B2–C1"
   },
   "novel_3.pdf": {
     "title": "Don Quixote",
-    "author": "Miguel de Cervantes"
+    "author": "Miguel de Cervantes",
+    "level": "B1–B2"
   }
 }
