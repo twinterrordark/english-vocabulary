@@ -398,6 +398,95 @@ mark.vocab { background: var(--mark); color: inherit; padding: 0 2px; border-rad
 .speak-round[aria-pressed="true"] .icon { background: var(--warn-soft); color: var(--warn); }
 .speak-round.danger .icon { background: var(--error); color: #fff; }
 
+/* ---------- Grammar and writing ---------- */
+.gram-switch { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-1); padding: var(--space-1); max-width: 520px; border-radius: var(--radius); background: var(--surface-2, var(--line)); }
+.gram-switch .button { border-color: transparent; background: transparent; min-width: 0; padding: 8px 6px; }
+.gram-switch .button[aria-pressed="true"] { background: var(--surface); border-color: var(--primary); box-shadow: var(--shadow); }
+.gram-pane { margin-top: var(--space-4); max-width: 760px; }
+.gram-pane[hidden] { display: none; }
+.gram-tabs { display: flex; gap: var(--space-2); overflow-x: auto; scrollbar-width: none; margin-bottom: var(--space-3); }
+.gram-tabs::-webkit-scrollbar { display: none; }
+.chip-button { flex: none; min-height: 40px; padding: 0 16px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); color: var(--text); font: 600 .9rem/1 var(--font); cursor: pointer; }
+.chip-button[aria-pressed="true"] { background: var(--primary); border-color: var(--primary); color: var(--on-primary); }
+.gram-lessons, .gram-practice, .gram-novel { display: grid; gap: var(--space-3); }
+.gram-lessons[hidden], .gram-practice[hidden], .gram-novel[hidden] { display: none; }
+.gram-lesson { border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); box-shadow: var(--shadow); }
+.gram-lesson summary { display: flex; align-items: center; gap: var(--space-2); min-height: 52px; padding: 10px var(--space-4); font-weight: 700; cursor: pointer; list-style: none; }
+.gram-lesson summary::-webkit-details-marker { display: none; }
+.gram-lesson summary::after { content: "›"; margin-left: auto; font-size: 1.4rem; color: var(--muted); transition: transform .15s; }
+.gram-lesson[open] summary::after { transform: rotate(90deg); }
+.gram-num { flex: none; display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: var(--primary-soft); color: var(--accent-text); font-size: .85rem; }
+.gram-lesson-body { padding: 0 var(--space-4) var(--space-4); }
+.gram-lesson-body > p { margin: 0 0 var(--space-3); line-height: 1.6; }
+.gram-examples { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-2); }
+.gram-examples li { display: grid; grid-template-columns: 1fr auto; gap: 2px var(--space-2); align-items: center; padding: 10px 12px; border-radius: 10px; background: var(--surface-2, var(--bg)); }
+.gram-en { font: 1.05rem/1.45 Georgia, "Times New Roman", serif; }
+.gram-tr { grid-column: 1; color: var(--muted); font-size: .88rem; }
+.gram-examples .icon-button { grid-row: 1 / 3; grid-column: 2; }
+mark.gram-rel { background: var(--primary-soft); color: var(--accent-text); padding: 0 3px; border-radius: 4px; font-weight: 700; }
+.gram-sets { display: grid; gap: var(--space-2); }
+.gram-set { display: flex; align-items: center; gap: var(--space-3); width: 100%; padding: var(--space-3) var(--space-4); text-align: left; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); color: var(--text); font: inherit; cursor: pointer; box-shadow: var(--shadow); }
+.gram-set strong { display: block; }
+.gram-set span { color: var(--muted); font-size: .85rem; }
+.gram-set .gram-best { margin-left: auto; flex: none; font-weight: 700; color: var(--success); }
+.gram-card { display: grid; gap: var(--space-3); padding: var(--space-4); border-radius: var(--radius-l); background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow); }
+.gram-card-top { display: flex; align-items: center; gap: var(--space-2); color: var(--muted); font-size: .85rem; }
+.gram-card-top .gram-bar { flex: 1; height: 6px; border-radius: 6px; background: var(--line); overflow: hidden; }
+.gram-card-top .gram-bar span { display: block; height: 100%; background: var(--primary); }
+.gram-q { margin: 0; font: 600 1.25rem/1.45 Georgia, "Times New Roman", serif; }
+.gram-q .gap { display: inline-block; min-width: 3.2em; border-bottom: 2px solid var(--primary); color: var(--accent-text); text-align: center; }
+.gram-hint { margin: 0; color: var(--muted); font-size: .9rem; }
+.gram-options { display: grid; gap: var(--space-2); }
+.gram-option { min-height: 50px; padding: 10px 14px; text-align: left; border: 2px solid var(--line); border-radius: 12px; background: var(--surface); color: var(--text); font: 1rem/1.4 var(--font); cursor: pointer; }
+.gram-option.is-long { font-family: Georgia, "Times New Roman", serif; }
+.gram-option.is-right { border-color: var(--success); background: var(--success-soft); color: var(--success); font-weight: 700; }
+.gram-option.is-wrong { border-color: var(--error); background: var(--error-soft); color: var(--error); }
+.gram-option:disabled { cursor: default; }
+.gram-write-input { width: 100%; min-height: 96px; font: 1.05rem/1.5 Georgia, "Times New Roman", serif; }
+.gram-feedback { padding: 10px 14px; border-radius: 12px; font-size: .95rem; line-height: 1.5; }
+.gram-feedback.is-right { background: var(--success-soft); color: var(--success); }
+.gram-feedback.is-wrong { background: var(--error-soft); color: var(--error); }
+.gram-feedback p { margin: 0; }
+.gram-feedback .gram-model { margin-top: 6px; color: var(--text); font: 1rem/1.45 Georgia, serif; }
+.gram-feedback .gram-why { margin-top: 6px; color: var(--text); opacity: .85; }
+.gram-actions { display: flex; gap: var(--space-2); flex-wrap: wrap; }
+.gram-actions .button { flex: 1; min-height: 48px; }
+.gram-done { text-align: center; }
+.gram-done .gram-score { margin: 0; font: 800 2.4rem/1 var(--font); color: var(--accent-text); }
+.gram-quote { padding: var(--space-3) var(--space-4); border-radius: var(--radius); background: var(--surface); border: 1px solid var(--line); }
+.gram-quote p { margin: 0; font: 1.05rem/1.55 Georgia, "Times New Roman", serif; }
+.gram-quote .gram-tr-line { margin-top: 6px; font: .9rem/1.45 var(--font); color: var(--accent-text); background: var(--primary-soft); padding: 6px 10px; border-radius: 8px; }
+.gram-quote .gram-tr-line[hidden] { display: none; }
+.gram-quote-tools { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: 8px; align-items: center; color: var(--muted); font-size: .82rem; }
+.gram-quote-tools button { min-height: 32px; padding: 0 10px; border: 1px solid var(--line); border-radius: 999px; background: transparent; color: var(--accent-text); font: 600 .8rem/1 var(--font); cursor: pointer; }
+/* Stories */
+.story-list { display: grid; gap: var(--space-3); }
+.story-list[hidden], .story-editor[hidden] { display: none; }
+.story-new { justify-self: start; min-height: 50px; }
+.story-items { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-2); }
+.story-items button { display: grid; gap: 2px; width: 100%; padding: var(--space-3) var(--space-4); text-align: left; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); color: var(--text); font: inherit; cursor: pointer; }
+.story-items strong { font: 600 1.05rem/1.3 Georgia, serif; }
+.story-items span { color: var(--muted); font-size: .85rem; }
+.story-editor { display: grid; gap: var(--space-2); }
+.story-top { display: flex; align-items: center; gap: var(--space-2); }
+.story-top input { flex: 1; min-width: 0; min-height: var(--tap); font: 600 1.1rem/1.3 Georgia, serif; }
+.story-idea { margin: 0; font-size: .9rem; color: var(--muted); }
+#story-text { width: 100%; min-height: 40vh; font: 1.08rem/1.65 Georgia, "Times New Roman", serif; }
+.story-meta { display: flex; justify-content: space-between; color: var(--muted); font-size: .82rem; }
+.story-check { min-height: 52px; }
+.story-results { display: grid; gap: var(--space-3); margin-top: var(--space-2); }
+.story-summary { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2); justify-content: space-between; padding: 10px 14px; border-radius: 12px; background: var(--surface-2, var(--bg)); font-weight: 600; }
+.story-summary small { display: block; font-weight: 400; color: var(--muted); }
+.story-fix { display: grid; gap: 6px; padding: var(--space-3); border-radius: var(--radius); border: 1px solid var(--line); background: var(--surface); }
+.story-fix.is-done { opacity: .55; }
+.story-fix .story-old, .story-fix .story-new-line { margin: 0; font: 1rem/1.5 Georgia, "Times New Roman", serif; }
+.story-fix .story-label { font-size: .72rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: var(--muted); }
+.story-fix del { background: var(--error-soft); color: var(--error); text-decoration: line-through; border-radius: 3px; padding: 0 2px; }
+.story-fix ins { background: var(--success-soft); color: var(--success); text-decoration: none; font-weight: 700; border-radius: 3px; padding: 0 2px; }
+.story-fix .story-tip { margin: 0; padding: 6px 10px; border-radius: 8px; background: var(--primary-soft); color: var(--accent-text); font-size: .9rem; }
+.story-fix .gram-actions .button { flex: 0 1 auto; min-height: 40px; }
+.story-progress { margin: 0; color: var(--muted); }
+
 /* ---------- Teacher (AI) ---------- */
 body.tutor-focus .site-footer, body.speak-focus .site-footer { display: none; }
 body.tutor-focus main { padding-top: 0; }
@@ -647,6 +736,7 @@ body.novel-focus .novel-pop-base, body.novel-focus .novel-pop-sentence { color: 
   <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
   <symbol id="i-mic" viewBox="0 0 24 24"><path d="M12 3a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3zM5 11a7 7 0 0 0 14 0M12 18v3"/></symbol>
   <symbol id="i-mic-off" viewBox="0 0 24 24"><path d="M3 3l18 18M9 9v3a3 3 0 0 0 5.1 2.1M15 9.3V6a3 3 0 0 0-5.7-1.3M19 11a7 7 0 0 1-1.1 3.8M5 11a7 7 0 0 0 10.6 6M12 18v3"/></symbol>
+  <symbol id="i-pen" viewBox="0 0 24 24"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></symbol>
   <symbol id="i-keyboard" viewBox="0 0 24 24"><path d="M3 6h18v12H3zM7 10h.01M11 10h.01M15 10h.01M7 14h10"/></symbol>
   <symbol id="i-share" viewBox="0 0 24 24"><path d="M4 12v7a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7M16 6l-4-4-4 4M12 2v13"/></symbol>
   <symbol id="i-copy" viewBox="0 0 24 24"><path d="M9 9h11v11H9zM5 15H4V4h11v1"/></symbol>
@@ -667,6 +757,7 @@ body.novel-focus .novel-pop-base, body.novel-focus .novel-pop-sentence { color: 
     <a href="#home" data-route="home"><svg class="icon" aria-hidden="true"><use href="#i-home"/></svg><span data-i18n="nav.home">Ana sayfa</span></a>
     <a href="#words" data-route="words"><svg class="icon" aria-hidden="true"><use href="#i-words"/></svg><span data-i18n="nav.words">Kelimeler</span></a>
     <a href="#phrases" data-route="phrases"><svg class="icon" aria-hidden="true"><use href="#i-chat"/></svg><span data-i18n="nav.phrases">İfadeler</span></a>
+    <a href="#grammar" data-route="grammar"><svg class="icon" aria-hidden="true"><use href="#i-pen"/></svg><span data-i18n="nav.grammar">Gramer</span></a>
     <a href="#speak" data-route="speak"><svg class="icon" aria-hidden="true"><use href="#i-mic"/></svg><span data-i18n="nav.speak">Konuşma</span></a>
     <a href="#quiz" data-route="quiz"><svg class="icon" aria-hidden="true"><use href="#i-quiz"/></svg><span data-i18n="nav.quiz">Test</span></a>
     <a href="#novel" data-route="novel"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg><span data-i18n="nav.novel">Roman</span></a>
@@ -721,6 +812,7 @@ body.novel-focus .novel-pop-base, body.novel-focus .novel-pop-sentence { color: 
       <li><a class="mode-card" href="#words"><svg class="icon" aria-hidden="true"><use href="#i-words"/></svg><div><strong data-i18n="nav.words">Kelimeler</strong><span data-i18n="mode.words">Listede ara, her kelime türü için örnek cümleleri oku ve öğrendiğin kartlara dokun.</span></div></a></li>
       <li><a class="mode-card" href="#phrases"><svg class="icon" aria-hidden="true"><use href="#i-chat"/></svg><div><strong data-i18n="nav.phrases">İfadeler</strong><span data-i18n="mode.phrases">40 günlük yaşam konusu ve 719 pratik konuşma kalıbı.</span></div></a></li>
       <li><a class="mode-card" href="#quiz"><svg class="icon" aria-hidden="true"><use href="#i-quiz"/></svg><div><strong data-i18n="nav.quiz">Test</strong><span data-i18n="mode.quiz">Çoktan seçmeli ve boşluk doldurma soruları.</span></div></a></li>
+      <li><a class="mode-card" href="#grammar"><svg class="icon" aria-hidden="true"><use href="#i-pen"/></svg><div><strong data-i18n="nav.grammar">Gramer</strong><span data-i18n="mode.grammar">Relative clause öğren, kısa hikâyeler yaz ve dilbilgisini denetlet.</span></div></a></li>
       <li><a class="mode-card" href="#speak"><svg class="icon" aria-hidden="true"><use href="#i-mic"/></svg><div><strong data-i18n="nav.speak">Konuşma</strong><span data-i18n="mode.speak">Bir arkadaşınla sesli odada İngilizce konuş; konu kartları sana yol göstersin.</span></div></a></li>
       <li><a class="mode-card" href="#novel"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg><div><strong data-i18n="nav.novel">Roman</strong><span data-i18n="mode.novel">İngilizce roman oku, istediğin kelimeye dokun, Türkçesini gör.</span></div></a></li>
       <li><a class="mode-card" href="#reading"><svg class="icon" aria-hidden="true"><use href="#i-reading"/></svg><div><strong data-i18n="nav.reading">Okuma</strong><span data-i18n="mode.reading">Sorulu kısa metinler ve isteğe bağlı dinleme.</span></div></a></li>
@@ -3016,6 +3108,48 @@ body.novel-focus .novel-pop-base, body.novel-focus .novel-pop-sentence { color: 
     </div>
   </section>
 
+  <!-- Grammar: relative clauses (lessons, practice, examples from the learner's novel) and story writing with a grammar check. -->
+  <section class="view" data-view="grammar" aria-labelledby="grammar-title">
+    <div class="view-head">
+      <h1 id="grammar-title" tabindex="-1" data-i18n="grammar.title">Gramer ve yazma</h1>
+      <p class="lead" data-i18n="grammar.lead">Relative clause yapısını adım adım öğren, sonra kendi hikâyelerini yaz ve denetlet.</p>
+    </div>
+    <div class="gram-switch js-only" role="group" aria-label="Bölüm" data-i18n-aria="grammar.section">
+      <button type="button" class="button" data-gpane="rc" aria-pressed="true"><span data-i18n="grammar.rc">Relative clauses</span></button>
+      <button type="button" class="button" data-gpane="write" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="#i-pen"/></svg><span data-i18n="grammar.write">Hikâye yaz</span></button>
+    </div>
+    <div class="gram-pane js-only" id="gram-rc">
+      <div class="gram-tabs" role="group">
+        <button type="button" class="chip-button" data-gtab="lessons" aria-pressed="true" data-i18n="grammar.lessons">Konu anlatımı</button>
+        <button type="button" class="chip-button" data-gtab="practice" aria-pressed="false" data-i18n="grammar.practice">Alıştırmalar</button>
+        <button type="button" class="chip-button" data-gtab="novel" aria-pressed="false" data-i18n="grammar.fromNovel">Romanından örnekler</button>
+      </div>
+      <div class="gram-lessons" id="gram-lessons"></div>
+      <div class="gram-practice" id="gram-practice" hidden></div>
+      <div class="gram-novel" id="gram-novel" hidden></div>
+    </div>
+    <div class="gram-pane js-only" id="gram-write" hidden>
+      <div class="story-list" id="story-list">
+        <button type="button" class="button primary story-new" id="story-new"><svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg><span data-i18n="story.new">Yeni hikâye</span></button>
+        <ul class="story-items" id="story-items"></ul>
+      </div>
+      <div class="story-editor" id="story-editor" hidden>
+        <div class="story-top">
+          <button type="button" class="novel-icon" id="story-back" aria-label="Hikâyeler" data-i18n-aria="story.back"><svg class="icon" aria-hidden="true"><use href="#i-prev"/></svg></button>
+          <label class="visually-hidden" for="story-title" data-i18n="story.titleLabel">Başlık</label>
+          <input id="story-title" type="text" lang="en" autocomplete="off" placeholder="Başlık" data-i18n-placeholder="story.titlePh">
+          <button type="button" class="novel-icon" id="story-delete" aria-label="Hikâyeyi sil" data-i18n-aria="story.delete"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
+        </div>
+        <p class="story-idea"><button type="button" class="link-button" id="story-idea" data-i18n="story.idea">Bana bir konu öner</button> <span id="story-idea-text" lang="en"></span></p>
+        <label class="visually-hidden" for="story-text" data-i18n="story.textLabel">Hikâyen</label>
+        <textarea id="story-text" lang="en" spellcheck="true" rows="12" placeholder="Once upon a time…" data-i18n-placeholder="story.textPh"></textarea>
+        <div class="story-meta"><span id="story-count"></span><span id="story-saved"></span></div>
+        <button type="button" class="button primary story-check" id="story-check"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="story.check">Dilbilgisini denetle</span></button>
+        <div class="story-results" id="story-results" aria-live="polite"></div>
+      </div>
+    </div>
+  </section>
+
   <!-- Speaking room: two people talk over the internet (PeerJS / WebRTC) with shared topic cards. -->
   <section class="view" data-view="speak" aria-labelledby="speak-title">
     <div class="view-head">
@@ -3267,6 +3401,8 @@ body.novel-focus .novel-pop-base, body.novel-focus .novel-pop-sentence { color: 
     isUnifiedPlanSupported:${this.isUnifiedPlanSupported()}`}constructor(){this.isIOS="undefined"!=typeof navigator&&["iPad","iPhone","iPod"].includes(navigator.platform),this.supportedBrowsers=["firefox","chrome","safari"],this.minFirefoxVersion=59,this.minChromeVersion=72,this.minSafariVersion=605}},ew=e=>!e||/^[A-Za-z0-9]+(?:[ _-][A-Za-z0-9]+)*$/.test(e),eE=()=>Math.random().toString(36).slice(2),eD={iceServers:[{urls:"stun:stun.l.google.com:19302"},{urls:["turn:eu-0.turn.peerjs.com:3478","turn:us-0.turn.peerjs.com:3478"],username:"peerjs",credential:"peerjsp"}],sdpSemantics:"unified-plan"},ex=new class extends n{noop(){}blobToArrayBuffer(e,t){let n=new FileReader;return n.onload=function(e){e.target&&t(e.target.result)},n.readAsArrayBuffer(e),n}binaryStringToArrayBuffer(e){let t=new Uint8Array(e.length);for(let n=0;n<e.length;n++)t[n]=255&e.charCodeAt(n);return t.buffer}isSecure(){return"https:"===location.protocol}constructor(...e){super(...e),this.CLOUD_HOST="0.peerjs.com",this.CLOUD_PORT=443,this.chunkedBrowsers={Chrome:1,chrome:1},this.defaultConfig=eD,this.browser=eP.getBrowser(),this.browserVersion=eP.getVersion(),this.pack=o,this.unpack=i,this.supports=function(){let e;let t={browser:eP.isBrowserSupported(),webRTC:eP.isWebRTCSupported(),audioVideo:!1,data:!1,binaryBlob:!1,reliable:!1};if(!t.webRTC)return t;try{let n;e=new RTCPeerConnection(eD),t.audioVideo=!0;try{n=e.createDataChannel("_PEERJSTEST",{ordered:!0}),t.data=!0,t.reliable=!!n.ordered;try{n.binaryType="blob",t.binaryBlob=!eP.isIOS}catch(e){}}catch(e){}finally{n&&n.close()}}catch(e){}finally{e&&e.close()}return t}(),this.validateId=ew,this.randomToken=eE}};(_=P||(P={}))[_.Disabled=0]="Disabled",_[_.Errors=1]="Errors",_[_.Warnings=2]="Warnings",_[_.All=3]="All";var eI=new class{get logLevel(){return this._logLevel}set logLevel(e){this._logLevel=e}log(...e){this._logLevel>=3&&this._print(3,...e)}warn(...e){this._logLevel>=2&&this._print(2,...e)}error(...e){this._logLevel>=1&&this._print(1,...e)}setLogFunction(e){this._print=e}_print(e,...t){let n=["PeerJS: ",...t];for(let e in n)n[e]instanceof Error&&(n[e]="("+n[e].name+") "+n[e].message);e>=3?console.log(...n):e>=2?console.warn("WARNING",...n):e>=1&&console.error("ERROR",...n)}constructor(){this._logLevel=0}},eM={},eO=Object.prototype.hasOwnProperty,ej="~";function eL(){}function eA(e,t,n){this.fn=e,this.context=t,this.once=n||!1}function eB(e,t,n,r,i){if("function"!=typeof n)throw TypeError("The listener must be a function");var o=new eA(n,r||e,i),s=ej?ej+t:t;return e._events[s]?e._events[s].fn?e._events[s]=[e._events[s],o]:e._events[s].push(o):(e._events[s]=o,e._eventsCount++),e}function eF(e,t){0==--e._eventsCount?e._events=new eL:delete e._events[t]}function eU(){this._events=new eL,this._eventsCount=0}Object.create&&(eL.prototype=Object.create(null),new eL().__proto__||(ej=!1)),eU.prototype.eventNames=function(){var e,t,n=[];if(0===this._eventsCount)return n;for(t in e=this._events)eO.call(e,t)&&n.push(ej?t.slice(1):t);return Object.getOwnPropertySymbols?n.concat(Object.getOwnPropertySymbols(e)):n},eU.prototype.listeners=function(e){var t=ej?ej+e:e,n=this._events[t];if(!n)return[];if(n.fn)return[n.fn];for(var r=0,i=n.length,o=Array(i);r<i;r++)o[r]=n[r].fn;return o},eU.prototype.listenerCount=function(e){var t=ej?ej+e:e,n=this._events[t];return n?n.fn?1:n.length:0},eU.prototype.emit=function(e,t,n,r,i,o){var s=ej?ej+e:e;if(!this._events[s])return!1;var a,c,l=this._events[s],p=arguments.length;if(l.fn){switch(l.once&&this.removeListener(e,l.fn,void 0,!0),p){case 1:return l.fn.call(l.context),!0;case 2:return l.fn.call(l.context,t),!0;case 3:return l.fn.call(l.context,t,n),!0;case 4:return l.fn.call(l.context,t,n,r),!0;case 5:return l.fn.call(l.context,t,n,r,i),!0;case 6:return l.fn.call(l.context,t,n,r,i,o),!0}for(c=1,a=Array(p-1);c<p;c++)a[c-1]=arguments[c];l.fn.apply(l.context,a)}else{var d,h=l.length;for(c=0;c<h;c++)switch(l[c].once&&this.removeListener(e,l[c].fn,void 0,!0),p){case 1:l[c].fn.call(l[c].context);break;case 2:l[c].fn.call(l[c].context,t);break;case 3:l[c].fn.call(l[c].context,t,n);break;case 4:l[c].fn.call(l[c].context,t,n,r);break;default:if(!a)for(d=1,a=Array(p-1);d<p;d++)a[d-1]=arguments[d];l[c].fn.apply(l[c].context,a)}}return!0},eU.prototype.on=function(e,t,n){return eB(this,e,t,n,!1)},eU.prototype.once=function(e,t,n){return eB(this,e,t,n,!0)},eU.prototype.removeListener=function(e,t,n,r){var i=ej?ej+e:e;if(!this._events[i])return this;if(!t)return eF(this,i),this;var o=this._events[i];if(o.fn)o.fn!==t||r&&!o.once||n&&o.context!==n||eF(this,i);else{for(var s=0,a=[],c=o.length;s<c;s++)(o[s].fn!==t||r&&!o[s].once||n&&o[s].context!==n)&&a.push(o[s]);a.length?this._events[i]=1===a.length?a[0]:a:eF(this,i)}return this},eU.prototype.removeAllListeners=function(e){var t;return e?(t=ej?ej+e:e,this._events[t]&&eF(this,t)):(this._events=new eL,this._eventsCount=0),this},eU.prototype.off=eU.prototype.removeListener,eU.prototype.addListener=eU.prototype.on,eU.prefixed=ej,eU.EventEmitter=eU,eM=eU,(C=w||(w={})).Data="data",C.Media="media",(b=E||(E={})).BrowserIncompatible="browser-incompatible",b.Disconnected="disconnected",b.InvalidID="invalid-id",b.InvalidKey="invalid-key",b.Network="network",b.PeerUnavailable="peer-unavailable",b.SslUnavailable="ssl-unavailable",b.ServerError="server-error",b.SocketError="socket-error",b.SocketClosed="socket-closed",b.UnavailableID="unavailable-id",b.WebRTC="webrtc",(v=D||(D={})).NegotiationFailed="negotiation-failed",v.ConnectionClosed="connection-closed",(k=x||(x={})).NotOpenYet="not-open-yet",k.MessageToBig="message-too-big",(T=I||(I={})).Binary="binary",T.BinaryUTF8="binary-utf8",T.JSON="json",T.None="raw",(S=M||(M={})).Message="message",S.Disconnected="disconnected",S.Error="error",S.Close="close",(R=O||(O={})).Heartbeat="HEARTBEAT",R.Candidate="CANDIDATE",R.Offer="OFFER",R.Answer="ANSWER",R.Open="OPEN",R.Error="ERROR",R.IdTaken="ID-TAKEN",R.InvalidKey="INVALID-KEY",R.Leave="LEAVE",R.Expire="EXPIRE";var ez={};ez=JSON.parse('{"name":"peerjs","version":"1.5.4","keywords":["peerjs","webrtc","p2p","rtc"],"description":"PeerJS client","homepage":"https://peerjs.com","bugs":{"url":"https://github.com/peers/peerjs/issues"},"repository":{"type":"git","url":"https://github.com/peers/peerjs"},"license":"MIT","contributors":["Michelle Bu <michelle@michellebu.com>","afrokick <devbyru@gmail.com>","ericz <really.ez@gmail.com>","Jairo <kidandcat@gmail.com>","Jonas Gloning <34194370+jonasgloning@users.noreply.github.com>","Jairo Caro-Accino Viciana <jairo@galax.be>","Carlos Caballero <carlos.caballero.gonzalez@gmail.com>","hc <hheennrryy@gmail.com>","Muhammad Asif <capripio@gmail.com>","PrashoonB <prashoonbhattacharjee@gmail.com>","Harsh Bardhan Mishra <47351025+HarshCasper@users.noreply.github.com>","akotynski <aleksanderkotbury@gmail.com>","lmb <i@lmb.io>","Jairooo <jairocaro@msn.com>","Moritz Stückler <moritz.stueckler@gmail.com>","Simon <crydotsnakegithub@gmail.com>","Denis Lukov <denismassters@gmail.com>","Philipp Hancke <fippo@andyet.net>","Hans Oksendahl <hansoksendahl@gmail.com>","Jess <jessachandler@gmail.com>","khankuan <khankuan@gmail.com>","DUODVK <kurmanov.work@gmail.com>","XiZhao <kwang1imsa@gmail.com>","Matthias Lohr <matthias@lohr.me>","=frank tree <=frnktrb@googlemail.com>","Andre Eckardt <aeckardt@outlook.com>","Chris Cowan <agentme49@gmail.com>","Alex Chuev <alex@chuev.com>","alxnull <alxnull@e.mail.de>","Yemel Jardi <angel.jardi@gmail.com>","Ben Parnell <benjaminparnell.94@gmail.com>","Benny Lichtner <bennlich@gmail.com>","fresheneesz <bitetrudpublic@gmail.com>","bob.barstead@exaptive.com <bob.barstead@exaptive.com>","chandika <chandika@gmail.com>","emersion <contact@emersion.fr>","Christopher Van <cvan@users.noreply.github.com>","eddieherm <edhermoso@gmail.com>","Eduardo Pinho <enet4mikeenet@gmail.com>","Evandro Zanatta <ezanatta@tray.net.br>","Gardner Bickford <gardner@users.noreply.github.com>","Gian Luca <gianluca.cecchi@cynny.com>","PatrickJS <github@gdi2290.com>","jonnyf <github@jonathanfoss.co.uk>","Hizkia Felix <hizkifw@gmail.com>","Hristo Oskov <hristo.oskov@gmail.com>","Isaac Madwed <i.madwed@gmail.com>","Ilya Konanykhin <ilya.konanykhin@gmail.com>","jasonbarry <jasbarry@me.com>","Jonathan Burke <jonathan.burke.1311@googlemail.com>","Josh Hamit <josh.hamit@gmail.com>","Jordan Austin <jrax86@gmail.com>","Joel Wetzell <jwetzell@yahoo.com>","xizhao <kevin.wang@cloudera.com>","Alberto Torres <kungfoobar@gmail.com>","Jonathan Mayol <mayoljonathan@gmail.com>","Jefferson Felix <me@jsfelix.dev>","Rolf Erik Lekang <me@rolflekang.com>","Kevin Mai-Husan Chia <mhchia@users.noreply.github.com>","Pepijn de Vos <pepijndevos@gmail.com>","JooYoung <qkdlql@naver.com>","Tobias Speicher <rootcommander@gmail.com>","Steve Blaurock <sblaurock@gmail.com>","Kyrylo Shegeda <shegeda@ualberta.ca>","Diwank Singh Tomer <singh@diwank.name>","Sören Balko <Soeren.Balko@gmail.com>","Arpit Solanki <solankiarpit1997@gmail.com>","Yuki Ito <yuki@gnnk.net>","Artur Zayats <zag2art@gmail.com>"],"funding":{"type":"opencollective","url":"https://opencollective.com/peer"},"collective":{"type":"opencollective","url":"https://opencollective.com/peer"},"files":["dist/*"],"sideEffects":["lib/global.ts","lib/supports.ts"],"main":"dist/bundler.cjs","module":"dist/bundler.mjs","browser-minified":"dist/peerjs.min.js","browser-unminified":"dist/peerjs.js","browser-minified-msgpack":"dist/serializer.msgpack.mjs","types":"dist/types.d.ts","engines":{"node":">= 14"},"targets":{"types":{"source":"lib/exports.ts"},"main":{"source":"lib/exports.ts","sourceMap":{"inlineSources":true}},"module":{"source":"lib/exports.ts","includeNodeModules":["eventemitter3"],"sourceMap":{"inlineSources":true}},"browser-minified":{"context":"browser","outputFormat":"global","optimize":true,"engines":{"browsers":"chrome >= 83, edge >= 83, firefox >= 80, safari >= 15"},"source":"lib/global.ts"},"browser-unminified":{"context":"browser","outputFormat":"global","optimize":false,"engines":{"browsers":"chrome >= 83, edge >= 83, firefox >= 80, safari >= 15"},"source":"lib/global.ts"},"browser-minified-msgpack":{"context":"browser","outputFormat":"esmodule","isLibrary":true,"optimize":true,"engines":{"browsers":"chrome >= 83, edge >= 83, firefox >= 102, safari >= 15"},"source":"lib/dataconnection/StreamConnection/MsgPack.ts"}},"scripts":{"contributors":"git-authors-cli --print=false && prettier --write package.json && git add package.json package-lock.json && git commit -m \\"chore(contributors): update and sort contributors list\\"","check":"tsc --noEmit && tsc -p e2e/tsconfig.json --noEmit","watch":"parcel watch","build":"rm -rf dist && parcel build","prepublishOnly":"npm run build","test":"jest","test:watch":"jest --watch","coverage":"jest --coverage --collectCoverageFrom=\\"./lib/**\\"","format":"prettier --write .","format:check":"prettier --check .","semantic-release":"semantic-release","e2e":"wdio run e2e/wdio.local.conf.ts","e2e:bstack":"wdio run e2e/wdio.bstack.conf.ts"},"devDependencies":{"@parcel/config-default":"^2.9.3","@parcel/packager-ts":"^2.9.3","@parcel/transformer-typescript-tsc":"^2.9.3","@parcel/transformer-typescript-types":"^2.9.3","@semantic-release/changelog":"^6.0.1","@semantic-release/git":"^10.0.1","@swc/core":"^1.3.27","@swc/jest":"^0.2.24","@types/jasmine":"^4.3.4","@wdio/browserstack-service":"^8.11.2","@wdio/cli":"^8.11.2","@wdio/globals":"^8.11.2","@wdio/jasmine-framework":"^8.11.2","@wdio/local-runner":"^8.11.2","@wdio/spec-reporter":"^8.11.2","@wdio/types":"^8.10.4","http-server":"^14.1.1","jest":"^29.3.1","jest-environment-jsdom":"^29.3.1","mock-socket":"^9.0.0","parcel":"^2.9.3","prettier":"^3.0.0","semantic-release":"^21.0.0","ts-node":"^10.9.1","typescript":"^5.0.0","wdio-geckodriver-service":"^5.0.1"},"dependencies":{"@msgpack/msgpack":"^2.8.0","eventemitter3":"^4.0.7","peerjs-js-binarypack":"^2.1.0","webrtc-adapter":"^9.0.0"},"alias":{"process":false,"buffer":false}}');class eN extends eM.EventEmitter{start(e,t){this._id=e;let n=`${this._baseUrl}&id=${e}&token=${t}`;!this._socket&&this._disconnected&&(this._socket=new WebSocket(n+"&version="+ez.version),this._disconnected=!1,this._socket.onmessage=e=>{let t;try{t=JSON.parse(e.data),eI.log("Server message received:",t)}catch(t){eI.log("Invalid server message",e.data);return}this.emit(M.Message,t)},this._socket.onclose=e=>{this._disconnected||(eI.log("Socket closed.",e),this._cleanup(),this._disconnected=!0,this.emit(M.Disconnected))},this._socket.onopen=()=>{this._disconnected||(this._sendQueuedMessages(),eI.log("Socket open"),this._scheduleHeartbeat())})}_scheduleHeartbeat(){this._wsPingTimer=setTimeout(()=>{this._sendHeartbeat()},this.pingInterval)}_sendHeartbeat(){if(!this._wsOpen()){eI.log("Cannot send heartbeat, because socket closed");return}let e=JSON.stringify({type:O.Heartbeat});this._socket.send(e),this._scheduleHeartbeat()}_wsOpen(){return!!this._socket&&1===this._socket.readyState}_sendQueuedMessages(){let e=[...this._messagesQueue];for(let t of(this._messagesQueue=[],e))this.send(t)}send(e){if(this._disconnected)return;if(!this._id){this._messagesQueue.push(e);return}if(!e.type){this.emit(M.Error,"Invalid message");return}if(!this._wsOpen())return;let t=JSON.stringify(e);this._socket.send(t)}close(){this._disconnected||(this._cleanup(),this._disconnected=!0)}_cleanup(){this._socket&&(this._socket.onopen=this._socket.onmessage=this._socket.onclose=null,this._socket.close(),this._socket=void 0),clearTimeout(this._wsPingTimer)}constructor(e,t,n,r,i,o=5e3){super(),this.pingInterval=o,this._disconnected=!0,this._messagesQueue=[],this._baseUrl=(e?"wss://":"ws://")+t+":"+n+r+"peerjs?key="+i}}class e${startConnection(e){let t=this._startPeerConnection();if(this.connection.peerConnection=t,this.connection.type===w.Media&&e._stream&&this._addTracksToConnection(e._stream,t),e.originator){let n=this.connection,r={ordered:!!e.reliable},i=t.createDataChannel(n.label,r);n._initializeDataChannel(i),this._makeOffer()}else this.handleSDP("OFFER",e.sdp)}_startPeerConnection(){eI.log("Creating RTCPeerConnection.");let e=new RTCPeerConnection(this.connection.provider.options.config);return this._setupListeners(e),e}_setupListeners(e){let t=this.connection.peer,n=this.connection.connectionId,r=this.connection.type,i=this.connection.provider;eI.log("Listening for ICE candidates."),e.onicecandidate=e=>{e.candidate&&e.candidate.candidate&&(eI.log(`Received ICE candidates for ${t}:`,e.candidate),i.socket.send({type:O.Candidate,payload:{candidate:e.candidate,type:r,connectionId:n},dst:t}))},e.oniceconnectionstatechange=()=>{switch(e.iceConnectionState){case"failed":eI.log("iceConnectionState is failed, closing connections to "+t),this.connection.emitError(D.NegotiationFailed,"Negotiation of connection to "+t+" failed."),this.connection.close();break;case"closed":eI.log("iceConnectionState is closed, closing connections to "+t),this.connection.emitError(D.ConnectionClosed,"Connection to "+t+" closed."),this.connection.close();break;case"disconnected":eI.log("iceConnectionState changed to disconnected on the connection with "+t);break;case"completed":e.onicecandidate=()=>{}}this.connection.emit("iceStateChanged",e.iceConnectionState)},eI.log("Listening for data channel"),e.ondatachannel=e=>{eI.log("Received data channel");let r=e.channel;i.getConnection(t,n)._initializeDataChannel(r)},eI.log("Listening for remote stream"),e.ontrack=e=>{eI.log("Received remote stream");let r=e.streams[0],o=i.getConnection(t,n);o.type===w.Media&&this._addStreamToMediaConnection(r,o)}}cleanup(){eI.log("Cleaning up PeerConnection to "+this.connection.peer);let e=this.connection.peerConnection;if(!e)return;this.connection.peerConnection=null,e.onicecandidate=e.oniceconnectionstatechange=e.ondatachannel=e.ontrack=()=>{};let t="closed"!==e.signalingState,n=!1,r=this.connection.dataChannel;r&&(n=!!r.readyState&&"closed"!==r.readyState),(t||n)&&e.close()}async _makeOffer(){let e=this.connection.peerConnection,t=this.connection.provider;try{let n=await e.createOffer(this.connection.options.constraints);eI.log("Created offer."),this.connection.options.sdpTransform&&"function"==typeof this.connection.options.sdpTransform&&(n.sdp=this.connection.options.sdpTransform(n.sdp)||n.sdp);try{await e.setLocalDescription(n),eI.log("Set localDescription:",n,`for:${this.connection.peer}`);let r={sdp:n,type:this.connection.type,connectionId:this.connection.connectionId,metadata:this.connection.metadata};if(this.connection.type===w.Data){let e=this.connection;r={...r,label:e.label,reliable:e.reliable,serialization:e.serialization}}t.socket.send({type:O.Offer,payload:r,dst:this.connection.peer})}catch(e){"OperationError: Failed to set local offer sdp: Called in wrong state: kHaveRemoteOffer"!=e&&(t.emitError(E.WebRTC,e),eI.log("Failed to setLocalDescription, ",e))}}catch(e){t.emitError(E.WebRTC,e),eI.log("Failed to createOffer, ",e)}}async _makeAnswer(){let e=this.connection.peerConnection,t=this.connection.provider;try{let n=await e.createAnswer();eI.log("Created answer."),this.connection.options.sdpTransform&&"function"==typeof this.connection.options.sdpTransform&&(n.sdp=this.connection.options.sdpTransform(n.sdp)||n.sdp);try{await e.setLocalDescription(n),eI.log("Set localDescription:",n,`for:${this.connection.peer}`),t.socket.send({type:O.Answer,payload:{sdp:n,type:this.connection.type,connectionId:this.connection.connectionId},dst:this.connection.peer})}catch(e){t.emitError(E.WebRTC,e),eI.log("Failed to setLocalDescription, ",e)}}catch(e){t.emitError(E.WebRTC,e),eI.log("Failed to create answer, ",e)}}async handleSDP(e,t){t=new RTCSessionDescription(t);let n=this.connection.peerConnection,r=this.connection.provider;eI.log("Setting remote description",t);try{await n.setRemoteDescription(t),eI.log(`Set remoteDescription:${e} for:${this.connection.peer}`),"OFFER"===e&&await this._makeAnswer()}catch(e){r.emitError(E.WebRTC,e),eI.log("Failed to setRemoteDescription, ",e)}}async handleCandidate(e){eI.log("handleCandidate:",e);try{await this.connection.peerConnection.addIceCandidate(e),eI.log(`Added ICE candidate for:${this.connection.peer}`)}catch(e){this.connection.provider.emitError(E.WebRTC,e),eI.log("Failed to handleCandidate, ",e)}}_addTracksToConnection(e,t){if(eI.log(`add tracks from stream ${e.id} to peer connection`),!t.addTrack)return eI.error("Your browser does't support RTCPeerConnection#addTrack. Ignored.");e.getTracks().forEach(n=>{t.addTrack(n,e)})}_addStreamToMediaConnection(e,t){eI.log(`add stream ${e.id} to media connection ${t.connectionId}`),t.addStream(e)}constructor(e){this.connection=e}}class eJ extends eM.EventEmitter{emitError(e,t){eI.error("Error:",t),this.emit("error",new eV(`${e}`,t))}}class eV extends Error{constructor(e,t){"string"==typeof t?super(t):(super(),Object.assign(this,t)),this.type=e}}class eG extends eJ{get open(){return this._open}constructor(e,t,n){super(),this.peer=e,this.provider=t,this.options=n,this._open=!1,this.metadata=n.metadata}}class eW extends eG{get type(){return w.Media}get localStream(){return this._localStream}get remoteStream(){return this._remoteStream}_initializeDataChannel(e){this.dataChannel=e,this.dataChannel.onopen=()=>{eI.log(`DC#${this.connectionId} dc connection success`),this.emit("willCloseOnRemote")},this.dataChannel.onclose=()=>{eI.log(`DC#${this.connectionId} dc closed for:`,this.peer),this.close()}}addStream(e){eI.log("Receiving stream",e),this._remoteStream=e,super.emit("stream",e)}handleMessage(e){let t=e.type,n=e.payload;switch(e.type){case O.Answer:this._negotiator.handleSDP(t,n.sdp),this._open=!0;break;case O.Candidate:this._negotiator.handleCandidate(n.candidate);break;default:eI.warn(`Unrecognized message type:${t} from peer:${this.peer}`)}}answer(e,t={}){if(this._localStream){eI.warn("Local stream already exists on this MediaConnection. Are you answering a call twice?");return}for(let n of(this._localStream=e,t&&t.sdpTransform&&(this.options.sdpTransform=t.sdpTransform),this._negotiator.startConnection({...this.options._payload,_stream:e}),this.provider._getMessages(this.connectionId)))this.handleMessage(n);this._open=!0}close(){this._negotiator&&(this._negotiator.cleanup(),this._negotiator=null),this._localStream=null,this._remoteStream=null,this.provider&&(this.provider._removeConnection(this),this.provider=null),this.options&&this.options._stream&&(this.options._stream=null),this.open&&(this._open=!1,super.emit("close"))}constructor(e,t,n){super(e,t,n),this._localStream=this.options._stream,this.connectionId=this.options.connectionId||eW.ID_PREFIX+ex.randomToken(),this._negotiator=new e$(this),this._localStream&&this._negotiator.startConnection({_stream:this._localStream,originator:!0})}}eW.ID_PREFIX="mc_";class eH{_buildRequest(e){let t=this._options.secure?"https":"http",{host:n,port:r,path:i,key:o}=this._options,s=new URL(`${t}://${n}:${r}${i}${o}/${e}`);return s.searchParams.set("ts",`${Date.now()}${Math.random()}`),s.searchParams.set("version",ez.version),fetch(s.href,{referrerPolicy:this._options.referrerPolicy})}async retrieveId(){try{let e=await this._buildRequest("id");if(200!==e.status)throw Error(`Error. Status:${e.status}`);return e.text()}catch(t){eI.error("Error retrieving ID",t);let e="";throw"/"===this._options.path&&this._options.host!==ex.CLOUD_HOST&&(e=" If you passed in a `path` to your self-hosted PeerServer, you'll also need to pass in that same path when creating a new Peer."),Error("Could not get an ID from the server."+e)}}async listAllPeers(){try{let e=await this._buildRequest("peers");if(200!==e.status){if(401===e.status){let e="";throw e=this._options.host===ex.CLOUD_HOST?"It looks like you're using the cloud server. You can email team@peerjs.com to enable peer listing for your API key.":"You need to enable `allow_discovery` on your self-hosted PeerServer to use this feature.",Error("It doesn't look like you have permission to list peers IDs. "+e)}throw Error(`Error. Status:${e.status}`)}return e.json()}catch(e){throw eI.error("Error retrieving list peers",e),Error("Could not get list peers from the server."+e)}}constructor(e){this._options=e}}class eY extends eG{get type(){return w.Data}_initializeDataChannel(e){this.dataChannel=e,this.dataChannel.onopen=()=>{eI.log(`DC#${this.connectionId} dc connection success`),this._open=!0,this.emit("open")},this.dataChannel.onmessage=e=>{eI.log(`DC#${this.connectionId} dc onmessage:`,e.data)},this.dataChannel.onclose=()=>{eI.log(`DC#${this.connectionId} dc closed for:`,this.peer),this.close()}}close(e){if(e?.flush){this.send({__peerData:{type:"close"}});return}this._negotiator&&(this._negotiator.cleanup(),this._negotiator=null),this.provider&&(this.provider._removeConnection(this),this.provider=null),this.dataChannel&&(this.dataChannel.onopen=null,this.dataChannel.onmessage=null,this.dataChannel.onclose=null,this.dataChannel=null),this.open&&(this._open=!1,super.emit("close"))}send(e,t=!1){if(!this.open){this.emitError(x.NotOpenYet,"Connection is not open. You should listen for the `open` event before sending messages.");return}return this._send(e,t)}async handleMessage(e){let t=e.payload;switch(e.type){case O.Answer:await this._negotiator.handleSDP(e.type,t.sdp);break;case O.Candidate:await this._negotiator.handleCandidate(t.candidate);break;default:eI.warn("Unrecognized message type:",e.type,"from peer:",this.peer)}}constructor(e,t,n){super(e,t,n),this.connectionId=this.options.connectionId||eY.ID_PREFIX+eE(),this.label=this.options.label||this.connectionId,this.reliable=!!this.options.reliable,this._negotiator=new e$(this),this._negotiator.startConnection(this.options._payload||{originator:!0,reliable:this.reliable})}}eY.ID_PREFIX="dc_",eY.MAX_BUFFERED_AMOUNT=8388608;class eK extends eY{get bufferSize(){return this._bufferSize}_initializeDataChannel(e){super._initializeDataChannel(e),this.dataChannel.binaryType="arraybuffer",this.dataChannel.addEventListener("message",e=>this._handleDataMessage(e))}_bufferedSend(e){(this._buffering||!this._trySend(e))&&(this._buffer.push(e),this._bufferSize=this._buffer.length)}_trySend(e){if(!this.open)return!1;if(this.dataChannel.bufferedAmount>eY.MAX_BUFFERED_AMOUNT)return this._buffering=!0,setTimeout(()=>{this._buffering=!1,this._tryBuffer()},50),!1;try{this.dataChannel.send(e)}catch(e){return eI.error(`DC#:${this.connectionId} Error when sending:`,e),this._buffering=!0,this.close(),!1}return!0}_tryBuffer(){if(!this.open||0===this._buffer.length)return;let e=this._buffer[0];this._trySend(e)&&(this._buffer.shift(),this._bufferSize=this._buffer.length,this._tryBuffer())}close(e){if(e?.flush){this.send({__peerData:{type:"close"}});return}this._buffer=[],this._bufferSize=0,super.close()}constructor(...e){super(...e),this._buffer=[],this._bufferSize=0,this._buffering=!1}}class eX extends eK{close(e){super.close(e),this._chunkedData={}}_handleDataMessage({data:e}){let t=i(e),n=t.__peerData;if(n){if("close"===n.type){this.close();return}this._handleChunk(t);return}this.emit("data",t)}_handleChunk(e){let t=e.__peerData,n=this._chunkedData[t]||{data:[],count:0,total:e.total};if(n.data[e.n]=new Uint8Array(e.data),n.count++,this._chunkedData[t]=n,n.total===n.count){delete this._chunkedData[t];let e=function(e){let t=0;for(let n of e)t+=n.byteLength;let n=new Uint8Array(t),r=0;for(let t of e)n.set(t,r),r+=t.byteLength;return n}(n.data);this._handleDataMessage({data:e})}}_send(e,t){let n=o(e);if(n instanceof Promise)return this._send_blob(n);if(!t&&n.byteLength>this.chunker.chunkedMTU){this._sendChunks(n);return}this._bufferedSend(n)}async _send_blob(e){let t=await e;if(t.byteLength>this.chunker.chunkedMTU){this._sendChunks(t);return}this._bufferedSend(t)}_sendChunks(e){let t=this.chunker.chunk(e);for(let e of(eI.log(`DC#${this.connectionId} Try to send ${t.length} chunks...`),t))this.send(e,!0)}constructor(e,t,r){super(e,t,r),this.chunker=new n,this.serialization=I.Binary,this._chunkedData={}}}class eq extends eK{_handleDataMessage({data:e}){super.emit("data",e)}_send(e,t){this._bufferedSend(e)}constructor(...e){super(...e),this.serialization=I.None}}class eQ extends eK{_handleDataMessage({data:e}){let t=this.parse(this.decoder.decode(e)),n=t.__peerData;if(n&&"close"===n.type){this.close();return}this.emit("data",t)}_send(e,t){let n=this.encoder.encode(this.stringify(e));if(n.byteLength>=ex.chunkedMTU){this.emitError(x.MessageToBig,"Message too big for JSON channel");return}this._bufferedSend(n)}constructor(...e){super(...e),this.serialization=I.JSON,this.encoder=new TextEncoder,this.decoder=new TextDecoder,this.stringify=JSON.stringify,this.parse=JSON.parse}}class eZ extends eJ{get id(){return this._id}get options(){return this._options}get open(){return this._open}get socket(){return this._socket}get connections(){let e=Object.create(null);for(let[t,n]of this._connections)e[t]=n;return e}get destroyed(){return this._destroyed}get disconnected(){return this._disconnected}_createServerConnection(){let e=new eN(this._options.secure,this._options.host,this._options.port,this._options.path,this._options.key,this._options.pingInterval);return e.on(M.Message,e=>{this._handleMessage(e)}),e.on(M.Error,e=>{this._abort(E.SocketError,e)}),e.on(M.Disconnected,()=>{this.disconnected||(this.emitError(E.Network,"Lost connection to server."),this.disconnect())}),e.on(M.Close,()=>{this.disconnected||this._abort(E.SocketClosed,"Underlying socket is already closed.")}),e}_initialize(e){this._id=e,this.socket.start(e,this._options.token)}_handleMessage(e){let t=e.type,n=e.payload,r=e.src;switch(t){case O.Open:this._lastServerId=this.id,this._open=!0,this.emit("open",this.id);break;case O.Error:this._abort(E.ServerError,n.msg);break;case O.IdTaken:this._abort(E.UnavailableID,`ID "${this.id}" is taken`);break;case O.InvalidKey:this._abort(E.InvalidKey,`API KEY "${this._options.key}" is invalid`);break;case O.Leave:eI.log(`Received leave message from ${r}`),this._cleanupPeer(r),this._connections.delete(r);break;case O.Expire:this.emitError(E.PeerUnavailable,`Could not connect to peer ${r}`);break;case O.Offer:{let e=n.connectionId,t=this.getConnection(r,e);if(t&&(t.close(),eI.warn(`Offer received for existing Connection ID:${e}`)),n.type===w.Media){let i=new eW(r,this,{connectionId:e,_payload:n,metadata:n.metadata});t=i,this._addConnection(r,t),this.emit("call",i)}else if(n.type===w.Data){let i=new this._serializers[n.serialization](r,this,{connectionId:e,_payload:n,metadata:n.metadata,label:n.label,serialization:n.serialization,reliable:n.reliable});t=i,this._addConnection(r,t),this.emit("connection",i)}else{eI.warn(`Received malformed connection type:${n.type}`);return}for(let n of this._getMessages(e))t.handleMessage(n);break}default:{if(!n){eI.warn(`You received a malformed message from ${r} of type ${t}`);return}let i=n.connectionId,o=this.getConnection(r,i);o&&o.peerConnection?o.handleMessage(e):i?this._storeMessage(i,e):eI.warn("You received an unrecognized message:",e)}}}_storeMessage(e,t){this._lostMessages.has(e)||this._lostMessages.set(e,[]),this._lostMessages.get(e).push(t)}_getMessages(e){let t=this._lostMessages.get(e);return t?(this._lostMessages.delete(e),t):[]}connect(e,t={}){if(t={serialization:"default",...t},this.disconnected){eI.warn("You cannot connect to a new Peer because you called .disconnect() on this Peer and ended your connection with the server. You can create a new Peer to reconnect, or call reconnect on this peer if you believe its ID to still be available."),this.emitError(E.Disconnected,"Cannot connect to new Peer after disconnecting from server.");return}let n=new this._serializers[t.serialization](e,this,t);return this._addConnection(e,n),n}call(e,t,n={}){if(this.disconnected){eI.warn("You cannot connect to a new Peer because you called .disconnect() on this Peer and ended your connection with the server. You can create a new Peer to reconnect."),this.emitError(E.Disconnected,"Cannot connect to new Peer after disconnecting from server.");return}if(!t){eI.error("To call a peer, you must provide a stream from your browser's `getUserMedia`.");return}let r=new eW(e,this,{...n,_stream:t});return this._addConnection(e,r),r}_addConnection(e,t){eI.log(`add connection ${t.type}:${t.connectionId} to peerId:${e}`),this._connections.has(e)||this._connections.set(e,[]),this._connections.get(e).push(t)}_removeConnection(e){let t=this._connections.get(e.peer);if(t){let n=t.indexOf(e);-1!==n&&t.splice(n,1)}this._lostMessages.delete(e.connectionId)}getConnection(e,t){let n=this._connections.get(e);if(!n)return null;for(let e of n)if(e.connectionId===t)return e;return null}_delayedAbort(e,t){setTimeout(()=>{this._abort(e,t)},0)}_abort(e,t){eI.error("Aborting!"),this.emitError(e,t),this._lastServerId?this.disconnect():this.destroy()}destroy(){this.destroyed||(eI.log(`Destroy peer with ID:${this.id}`),this.disconnect(),this._cleanup(),this._destroyed=!0,this.emit("close"))}_cleanup(){for(let e of this._connections.keys())this._cleanupPeer(e),this._connections.delete(e);this.socket.removeAllListeners()}_cleanupPeer(e){let t=this._connections.get(e);if(t)for(let e of t)e.close()}disconnect(){if(this.disconnected)return;let e=this.id;eI.log(`Disconnect peer with ID:${e}`),this._disconnected=!0,this._open=!1,this.socket.close(),this._lastServerId=e,this._id=null,this.emit("disconnected",e)}reconnect(){if(this.disconnected&&!this.destroyed)eI.log(`Attempting reconnection to server with ID ${this._lastServerId}`),this._disconnected=!1,this._initialize(this._lastServerId);else if(this.destroyed)throw Error("This peer cannot reconnect to the server. It has already been destroyed.");else if(this.disconnected||this.open)throw Error(`Peer ${this.id} cannot reconnect because it is not disconnected from the server!`);else eI.error("In a hurry? We're still trying to make the initial connection!")}listAllPeers(e=e=>{}){this._api.listAllPeers().then(t=>e(t)).catch(e=>this._abort(E.ServerError,e))}constructor(e,t){let n;if(super(),this._serializers={raw:eq,json:eQ,binary:eX,"binary-utf8":eX,default:eX},this._id=null,this._lastServerId=null,this._destroyed=!1,this._disconnected=!1,this._open=!1,this._connections=new Map,this._lostMessages=new Map,e&&e.constructor==Object?t=e:e&&(n=e.toString()),t={debug:0,host:ex.CLOUD_HOST,port:ex.CLOUD_PORT,path:"/",key:eZ.DEFAULT_KEY,token:ex.randomToken(),config:ex.defaultConfig,referrerPolicy:"strict-origin-when-cross-origin",serializers:{},...t},this._options=t,this._serializers={...this._serializers,...this.options.serializers},"/"===this._options.host&&(this._options.host=window.location.hostname),this._options.path&&("/"!==this._options.path[0]&&(this._options.path="/"+this._options.path),"/"!==this._options.path[this._options.path.length-1]&&(this._options.path+="/")),void 0===this._options.secure&&this._options.host!==ex.CLOUD_HOST?this._options.secure=ex.isSecure():this._options.host==ex.CLOUD_HOST&&(this._options.secure=!0),this._options.logFunction&&eI.setLogFunction(this._options.logFunction),eI.logLevel=this._options.debug||0,this._api=new eH(t),this._socket=this._createServerConnection(),!ex.supports.audioVideo&&!ex.supports.data){this._delayedAbort(E.BrowserIncompatible,"The current browser does not support WebRTC");return}if(n&&!ex.validateId(n)){this._delayedAbort(E.InvalidID,`ID "${n}" is invalid`);return}n?this._initialize(n):this._api.retrieveId().then(e=>this._initialize(e)).catch(e=>this._abort(E.ServerError,e))}}eZ.DEFAULT_KEY="peerjs",window.peerjs={Peer:eZ,util:ex},window.Peer=eZ})();
 //# sourceMappingURL=peerjs.min.js.map
 </script>
+<!-- Relative clause lessons and exercises (source: tools/grammar/relative_clauses.json). -->
+<script type="application/json" id="grammar-data">{"title":"Relative clauses","lessons":[{"title":"Relative clause nedir?","text":"Bir ismi tanımlayan ya da onun hakkında bilgi veren yan cümledir. Türkçedeki “-en / -an”, “-dığı / -diği” yapılarının karşılığıdır. İngilizcede tanımlanan ismin hemen ARKASINDAN gelir ve who, which, that, whose, where, when gibi bir kelimeyle başlar.","examples":[["The man who lives next door is a doctor.","Yan kapıda oturan adam doktor."],["I lost the book that you gave me.","Bana verdiğin kitabı kaybettim."],["This is the town where I was born.","Burası doğduğum kasaba."]]},{"title":"who · which · that","text":"Kişiler için who, eşyalar ve hayvanlar için which kullanılır. That ikisinin yerine de geçebilir ve günlük konuşmada çok yaygındır. Ama virgüllü (ek bilgi veren) cümlelerde that kullanılmaz.","examples":[["The girl who/that won the race is my sister.","Yarışı kazanan kız kız kardeşim."],["The car which/that I bought is red.","Aldığım araba kırmızı."],["The dog which/that bit me was huge.","Beni ısıran köpek kocamandı."]]},{"title":"whose: sahiplik","text":"whose, “-in … olan / -in -sı” anlamında sahiplik gösterir. Hem kişiler hem eşyalar için kullanılır. Arkasından her zaman bir isim gelir: whose + isim.","examples":[["That's the boy whose father is a pilot.","Bu, babası pilot olan çocuk."],["I met a woman whose car was stolen.","Arabası çalınan bir kadınla tanıştım."],["It's a house whose windows are blue.","Pencereleri mavi olan bir ev."]]},{"title":"where · when · why","text":"where yer için (in which), when zaman için (on which / in which), why “the reason” ile neden için kullanılır.","examples":[["This is the café where we first met.","Burası ilk tanıştığımız kafe."],["I remember the day when you arrived.","Geldiğin günü hatırlıyorum."],["That's the reason why I called you.","Seni aramamın nedeni bu."]]},{"title":"Özne mi nesne mi? Zamir ne zaman atılır?","text":"Zamirden sonra hemen fiil geliyorsa zamir cümlenin ÖZNESİDİR ve atılamaz. Zamirden sonra yeni bir özne (I, you, she, the teacher…) geliyorsa zamir NESNEDİR; who / which / that atılabilir. Bu, Türkçedeki “-dığım / -diğin” yapısına denk gelir.","examples":[["The book (that) I read was great.","Okuduğum kitap harikaydı. (nesne → atılabilir)"],["The woman (who) we met was friendly.","Tanıştığımız kadın cana yakındı. (nesne → atılabilir)"],["The man who called you is here.","Seni arayan adam burada. (özne → atılamaz)"]]},{"title":"Virgüllü – virgülsüz (defining / non-defining)","text":"Virgülsüz cümle hangi kişi ya da şeyden bahsettiğimizi BELİRLER; çıkarırsan anlam eksik kalır. Virgüllü cümle zaten belli olan bir şeye EK BİLGİ ekler; çıkarsan da cümle anlaşılır. Virgüllü cümlede that kullanılmaz ve zamir atılamaz.","examples":[["My sister who lives in Ankara is a teacher.","Ankara'da yaşayan kız kardeşim öğretmen. (birden fazla kız kardeşim var)"],["My mother, who is 60, still runs every day.","60 yaşındaki annem hâlâ her gün koşuyor. (tek bir annem var, ek bilgi)"],["Istanbul, which has two continents, is huge.","İki kıtası olan İstanbul çok büyük."]]},{"title":"Edatlarla: in which, the house I live in","text":"Fiil bir edatla kullanılıyorsa (live in, talk to, look for) edat iki yerde durabilir: resmi dilde zamirin önünde (in which, to whom), günlük dilde cümlenin sonunda. Edat önde ise that ve who kullanılmaz; which ya da whom gelir.","examples":[["The house in which I live is old.","Yaşadığım ev eski. (resmi)"],["The house (that) I live in is old.","Yaşadığım ev eski. (günlük)"],["The person to whom I spoke was polite.","Konuştuğum kişi kibardı."]]},{"title":"whom","text":"whom, kişi NESNE olduğunda who yerine kullanılan resmi biçimdir. Edattan sonra mutlaka whom gelir (to whom, with whom). Günlük konuşmada genellikle who ya da hiç zamir kullanılmaz.","examples":[["The man whom I saw was tall.","Gördüğüm adam uzundu. (resmi)"],["The man I saw was tall.","Gördüğüm adam uzundu. (günlük)"],["She is the friend with whom I travel.","Birlikte seyahat ettiğim arkadaş o."]]},{"title":"which: bütün cümleye gönderme","text":"Virgülden sonra gelen which bazen tek bir isme değil, önceki cümlenin tamamına gönderme yapar (“bu da …”). Burada that kullanılamaz.","examples":[["He was late again, which made me angry.","Yine geç kaldı, bu da beni kızdırdı."],["It rained all day, which was a pity.","Bütün gün yağmur yağdı, bu da üzücüydü."]]},{"title":"Kısaltılmış relative clause (-ing / -ed)","text":"Zamir özne ise cümle kısaltılabilir. Etken anlamda fiil -ing alır (who is sitting → sitting), edilgen anlamda üçüncü hâl kullanılır (which was made → made).","examples":[["The girl sitting by the window is my cousin.","Pencerenin yanında oturan kız kuzenim."],["The cars made in this factory are cheap.","Bu fabrikada üretilen arabalar ucuz."],["Anyone wanting tickets should call now.","Bilet isteyen herkes hemen aramalı."]]}],"sets":[{"id":"pronoun","title":"Doğru zamiri seç","hint":"Boşluğa hangi kelime gelmeli?","items":[{"q":"The woman ___ lives next door is a nurse.","options":["who","which","whose","where"],"answer":"who","why":"Kişi + hemen ardından fiil (lives) → özne → who."},{"q":"I bought a phone ___ has a great camera.","options":["who","which","where","whose"],"answer":"which","why":"Eşya → which (ya da that)."},{"q":"That's the man ___ dog bit me.","options":["who","whose","which","whom"],"answer":"whose","why":"“köpeği beni ısıran adam” → sahiplik → whose + isim."},{"q":"This is the park ___ we play football.","options":["which","when","where","who"],"answer":"where","why":"Yer → where (= in which)."},{"q":"I'll never forget the day ___ I met you.","options":["where","when","which","who"],"answer":"when","why":"Zaman (the day) → when."},{"q":"The students ___ passed the exam were happy.","options":["which","who","whose","where"],"answer":"who","why":"Kişiler + özne → who."},{"q":"The cake ___ my mum made was delicious.","options":["who","where","which","whose"],"answer":"which","why":"Eşya (cake) → which. Nesne olduğu için atılabilir de: the cake my mum made."},{"q":"She has a brother ___ name is Ali.","options":["who","whose","which","that"],"answer":"whose","why":"“adı Ali olan” → whose + name."},{"q":"Is this the bag ___ you lost?","options":["who","where","that","whose"],"answer":"that","why":"Eşya → that (ya da which)."},{"q":"The hotel ___ we stayed was near the sea.","options":["which","where","when","who"],"answer":"where","why":"Kaldığımız yer → where. (which kullanırsan sonuna “at” gerekir: which we stayed at.)"},{"q":"My grandfather, ___ is 85, still drives.","options":["that","who","which","whose"],"answer":"who","why":"Virgüllü cümlede that kullanılmaz; kişi → who."},{"q":"Paris, ___ is the capital of France, is beautiful.","options":["that","where","which","who"],"answer":"which","why":"Virgüllü + şehir (şey) → which. Virgüllü cümlede that olmaz."},{"q":"He forgot my birthday, ___ really upset me.","options":["that","which","what","who"],"answer":"which","why":"Önceki cümlenin tamamına gönderme → , which."},{"q":"The person to ___ I spoke was very helpful.","options":["who","whom","that","which"],"answer":"whom","why":"Edattan (to) sonra kişi için whom gelir."},{"q":"That's the reason ___ I'm late.","options":["why","where","which","when"],"answer":"why","why":"the reason → why."},{"q":"A dictionary is a book ___ gives the meanings of words.","options":["who","where","which","whose"],"answer":"which","why":"Eşya + özne → which."},{"q":"I know a girl ___ father is a famous singer.","options":["who's","whose","who","which"],"answer":"whose","why":"whose (sahiplik) ile who's (= who is) karışmasın: “babası şarkıcı olan”."},{"q":"The year ___ I finished school was 2020.","options":["when","where","who","whose"],"answer":"when","why":"Zaman (the year) → when."},{"q":"Do you know anyone ___ can fix computers?","options":["which","who","where","whose"],"answer":"who","why":"anyone = kişi → who."},{"q":"The film ___ we watched last night was boring.","options":["who","where","–","whose"],"answer":"–","why":"Nesne (we watched) → zamir atılabilir: the film we watched. (which / that da olur.)"}]},{"id":"omit","title":"Zamir atılabilir mi?","hint":"Parantezdeki kelimeyi çıkarırsak cümle doğru olur mu?","items":[{"q":"The book (that) I'm reading is exciting.","options":["Atılabilir","Atılamaz"],"answer":"Atılabilir","why":"that'tan sonra yeni özne (I) var → nesne → atılabilir."},{"q":"The man (who) helped me was kind.","options":["Atılabilir","Atılamaz"],"answer":"Atılamaz","why":"who'dan sonra hemen fiil (helped) var → özne → atılamaz."},{"q":"The people (who) we met in Rome were friendly.","options":["Atılabilir","Atılamaz"],"answer":"Atılabilir","why":"who'dan sonra özne (we) var → nesne → atılabilir."},{"q":"The bus (which) goes to the airport is late.","options":["Atılabilir","Atılamaz"],"answer":"Atılamaz","why":"which'ten sonra fiil (goes) → özne → atılamaz."},{"q":"This is the song (that) I love most.","options":["Atılabilir","Atılamaz"],"answer":"Atılabilir","why":"that + I love → nesne → atılabilir."},{"q":"My father, (who) works in a bank, is tired.","options":["Atılabilir","Atılamaz"],"answer":"Atılamaz","why":"Virgüllü cümlede zamir asla atılmaz (ayrıca burada özne)."},{"q":"The girl (whose) bag was stolen called the police.","options":["Atılabilir","Atılamaz"],"answer":"Atılamaz","why":"whose hiçbir zaman atılmaz."},{"q":"The house (that) they bought is very old.","options":["Atılabilir","Atılamaz"],"answer":"Atılabilir","why":"that + they bought → nesne → atılabilir."},{"q":"The teacher (who) teaches us English is from London.","options":["Atılabilir","Atılamaz"],"answer":"Atılamaz","why":"who + teaches → özne → atılamaz."},{"q":"Everything (that) she said was true.","options":["Atılabilir","Atılamaz"],"answer":"Atılabilir","why":"that + she said → nesne → atılabilir."}]},{"id":"comma","title":"Virgül: tanımlayıcı mı, ek bilgi mi?","hint":"Hangi cümle doğru?","items":[{"q":"Annem tek; yaşını ek bilgi olarak söylüyoruz.","options":["My mother, who is 50, is a doctor.","My mother who is 50 is a doctor.","My mother, that is 50, is a doctor."],"answer":"My mother, who is 50, is a doctor.","why":"Tek bir annen var → ek bilgi → virgüllü ve who."},{"q":"Hangi öğrencilerden bahsettiğimizi belirtiyoruz.","options":["Students, who study hard, pass exams.","Students who study hard pass exams.","Students, that study hard, pass exams."],"answer":"Students who study hard pass exams.","why":"Sadece çok çalışan öğrenciler → tanımlayıcı → virgül yok."},{"q":"Ankara hakkında ek bilgi.","options":["Ankara which is the capital is big.","Ankara, that is the capital, is big.","Ankara, which is the capital, is big."],"answer":"Ankara, which is the capital, is big.","why":"Tek bir Ankara var → ek bilgi → virgüller + which (that olmaz)."},{"q":"Birçok arabam var; dün aldığımdan bahsediyorum.","options":["The car that I bought yesterday is blue.","The car, that I bought yesterday, is blue.","The car, I bought yesterday, is blue."],"answer":"The car that I bought yesterday is blue.","why":"Hangi araba olduğunu belirliyor → virgülsüz."},{"q":"Doğru olanı seç.","options":["My best friend, who lives in Izmir, is visiting me.","My best friend, that lives in Izmir, is visiting me.","My best friend, lives in Izmir, is visiting me."],"answer":"My best friend, who lives in Izmir, is visiting me.","why":"En iyi arkadaş tek → ek bilgi → virgül + who."},{"q":"Doğru olanı seç.","options":["People, who smoke, damage their health.","People who smoke damage their health.","People which smoke damage their health."],"answer":"People who smoke damage their health.","why":"Sigara içen insanlar (hepsi değil) → tanımlayıcı → virgülsüz, kişi → who."},{"q":"Doğru olanı seç.","options":["The Nile, which is very long, flows into the sea.","The Nile which is very long flows into the sea.","The Nile, that is very long, flows into the sea."],"answer":"The Nile, which is very long, flows into the sea.","why":"Tek bir Nil → ek bilgi → virgül + which."},{"q":"Doğru olanı seç.","options":["He passed the exam, that surprised everyone.","He passed the exam, which surprised everyone.","He passed the exam which surprised everyone."],"answer":"He passed the exam, which surprised everyone.","why":"Bütün cümleye gönderme → , which (that olmaz)."}]},{"id":"fix","title":"Hatayı bul","hint":"Doğru cümleyi seç.","items":[{"q":"The man which lives here is my uncle.","options":["The man who lives here is my uncle.","The man which lives here is my uncle.","The man where lives here is my uncle."],"answer":"The man who lives here is my uncle.","why":"Kişi için which değil who."},{"q":"This is the book who I told you about.","options":["This is the book who I told you about.","This is the book which I told you about.","This is the book whose I told you about."],"answer":"This is the book which I told you about.","why":"Eşya için who değil which (ya da that / hiç)."},{"q":"The girl who her brother is my friend is here.","options":["The girl whose brother is my friend is here.","The girl who her brother is my friend is here.","The girl who's brother is my friend is here."],"answer":"The girl whose brother is my friend is here.","why":"“who her” değil, sahiplik için whose."},{"q":"The film that I watched it was funny.","options":["The film that I watched it was funny.","The film that I watched was funny.","The film I watched it was funny."],"answer":"The film that I watched was funny.","why":"that zaten filmi gösteriyor; ayrıca “it” eklenmez."},{"q":"The city where I live in is small.","options":["The city where I live in is small.","The city where I live is small.","The city which I live is small."],"answer":"The city where I live is small.","why":"where zaten “in which” demek; sonuna in eklenmez. (Ya da: the city which I live in.)"},{"q":"My father, that is a teacher, loves books.","options":["My father, who is a teacher, loves books.","My father, that is a teacher, loves books.","My father that is a teacher loves books."],"answer":"My father, who is a teacher, loves books.","why":"Virgüllü cümlede that kullanılmaz."},{"q":"The people who works here are nice.","options":["The people who works here are nice.","The people who work here are nice.","The people which work here are nice."],"answer":"The people who work here are nice.","why":"Fiil, zamirin gösterdiği isme uyar: people → work."},{"q":"I have a friend who he speaks Spanish.","options":["I have a friend who he speaks Spanish.","I have a friend he speaks Spanish.","I have a friend who speaks Spanish."],"answer":"I have a friend who speaks Spanish.","why":"who özne; ayrıca “he” eklenmez."},{"q":"The day which we met was rainy.","options":["The day when we met was rainy.","The day where we met was rainy.","The day which we met was rainy."],"answer":"The day when we met was rainy.","why":"Zaman için when (ya da: the day on which / the day we met)."},{"q":"She won the prize, that made her parents proud.","options":["She won the prize, that made her parents proud.","She won the prize, which made her parents proud.","She won the prize, what made her parents proud."],"answer":"She won the prize, which made her parents proud.","why":"Bütün cümleye gönderme → , which."}]},{"id":"combine","type":"write","title":"Cümleleri birleştir","hint":"İki cümleyi relative clause ile tek cümle yap.","items":[{"q":"I have a friend. She speaks five languages.","answers":["I have a friend who speaks five languages.","I have a friend that speaks five languages."],"why":"She → who (kişi, özne)."},{"q":"This is the bike. I bought it last week.","answers":["This is the bike which I bought last week.","This is the bike that I bought last week.","This is the bike I bought last week."],"why":"it → which / that; nesne olduğu için atılabilir. “it” tekrar yazılmaz."},{"q":"That's the woman. Her son is a doctor.","answers":["That's the woman whose son is a doctor.","That is the woman whose son is a doctor."],"why":"Her son → whose son."},{"q":"We visited the village. My grandmother was born there.","answers":["We visited the village where my grandmother was born.","We visited the village in which my grandmother was born.","We visited the village which my grandmother was born in.","We visited the village that my grandmother was born in.","We visited the village my grandmother was born in."],"why":"there → where."},{"q":"The man is a famous actor. He is talking to Ali.","answers":["The man who is talking to Ali is a famous actor.","The man that is talking to Ali is a famous actor.","The man talking to Ali is a famous actor."],"why":"Relative clause tanımladığı ismin hemen arkasına gelir: The man who is talking to Ali …"},{"q":"My brother lives in Berlin. He is an engineer. (ek bilgi)","answers":["My brother, who lives in Berlin, is an engineer.","My brother, who is an engineer, lives in Berlin."],"why":"Ek bilgi → virgüller + who."},{"q":"The cake was delicious. You made it.","answers":["The cake which you made was delicious.","The cake that you made was delicious.","The cake you made was delicious."],"why":"it → which / that; nesne → atılabilir."},{"q":"I remember the summer. We went to Antalya then.","answers":["I remember the summer when we went to Antalya.","I remember the summer we went to Antalya."],"why":"then (zaman) → when."},{"q":"The students were tired. They had worked all night.","answers":["The students who had worked all night were tired.","The students that had worked all night were tired."],"why":"They → who, ismin hemen arkasına."},{"q":"He didn't call me. That made me sad.","answers":["He didn't call me, which made me sad.","He did not call me, which made me sad."],"why":"Bütün cümleye gönderme → , which."},{"q":"This is the teacher. I told you about her.","answers":["This is the teacher who I told you about.","This is the teacher that I told you about.","This is the teacher I told you about.","This is the teacher whom I told you about.","This is the teacher about whom I told you."],"why":"her → who / whom; edat sonda kalabilir ya da öne gelir (about whom)."},{"q":"Istanbul is a big city. It has 16 million people. (ek bilgi)","answers":["Istanbul, which has 16 million people, is a big city."],"why":"Ek bilgi → virgüller + which (that olmaz)."}]}]}</script>
 <!-- Speaking room topic cards (source: tools/speaking/topics.json). -->
 <script type="application/json" id="speak-topics">[{"topic":"Getting to know each other","tr":"Tanışma","questions":["Where are you from, and what do you like about it?","What do you do — work or study?","How do you usually spend your weekends?","What is something most people don't know about you?","Why are you learning English?","What would your perfect day look like?"],"phrases":[["Nice to meet you.","Tanıştığımıza memnun oldum."],["I'm originally from…","Aslen …'lıyım."],["In my free time, I…","Boş zamanımda …"],["What about you?","Peki ya sen?"]]},{"topic":"Daily routine","tr":"Günlük rutin","questions":["What time do you usually get up?","What is the first thing you do in the morning?","How do you get to work or school?","What is the busiest part of your day?","Do you prefer mornings or evenings? Why?","What do you do to relax at the end of the day?"],"phrases":[["I usually…","Genelde …"],["First, … Then, …","Önce … Sonra …"],["It takes me about … minutes.","Yaklaşık … dakikamı alıyor."],["I'm a morning person.","Sabah insanıyım."]]},{"topic":"Food and cooking","tr":"Yemek ve mutfak","questions":["What is your favourite food?","Can you cook? What do you cook best?","What did you eat yesterday?","Which Turkish dish would you recommend to a foreigner?","Do you prefer eating at home or eating out?","Is there a food you really don't like?"],"phrases":[["It tastes…","Tadı … "],["I'm not a big fan of…","… pek sevmem."],["You should definitely try…","… mutlaka denemelisin."],["It's made with…","… ile yapılıyor."]]},{"topic":"Travel","tr":"Seyahat","questions":["What is the best place you have ever visited?","Where would you like to go next, and why?","Do you prefer the beach or the mountains?","What do you always pack for a trip?","Have you ever had a problem while travelling?","Would you rather travel alone or with friends?"],"phrases":[["I've been to…","…'e gittim (bulundum)."],["I've always wanted to visit…","Hep …'i görmek istemişimdir."],["The best part was…","En güzel kısmı … idi."],["I'd rather…","… tercih ederim."]]},{"topic":"Hobbies and free time","tr":"Hobiler","questions":["What are your hobbies?","How did you get into your favourite hobby?","Is there a hobby you would like to try?","Do you play any sports or musical instruments?","How much free time do you have in a week?","Do you prefer hobbies you do alone or with others?"],"phrases":[["I'm really into…","…'e çok merakım var."],["I got into it when…","… olduğunda başladım."],["I've been doing it for… years.","… yıldır yapıyorum."],["It helps me relax.","Rahatlamamı sağlıyor."]]},{"topic":"Films, series and books","tr":"Film, dizi ve kitap","questions":["What was the last film or series you watched?","Can you describe your favourite film without saying its name?","Do you read books? What kind?","Do you watch things in English? With subtitles?","Which character from a story would you like to meet?","Do you prefer the book or the film?"],"phrases":[["It's about…","… hakkında."],["The main character is…","Ana karakter …"],["I'd recommend it because…","Tavsiye ederim çünkü …"],["The ending was…","Sonu … idi."]]},{"topic":"Work and jobs","tr":"İş ve meslekler","questions":["What do you do, or what would you like to do?","What do you like most about your job or studies?","What was your first job?","Would you rather work from home or in an office?","What job would you never want to do?","What makes a good boss?"],"phrases":[["I work as a…","… olarak çalışıyorum."],["I'm responsible for…","…'den sorumluyum."],["The hardest part is…","En zor kısmı …"],["In the future, I'd like to…","İleride … istiyorum."]]},{"topic":"Family and friends","tr":"Aile ve arkadaşlar","questions":["Tell me about your family.","Who are you most similar to in your family?","How did you meet your best friend?","What do you usually do with your friends?","What makes someone a good friend?","Do you live with your family?"],"phrases":[["We get along really well.","Çok iyi anlaşırız."],["He/She takes after…","…'e çekmiş."],["We've known each other since…","…'den beri tanışıyoruz."],["We have a lot in common.","Çok ortak noktamız var."]]},{"topic":"Shopping","tr":"Alışveriş","questions":["Do you like shopping? Why or why not?","Do you prefer shopping online or in shops?","What was the last thing you bought?","Have you ever bought something and regretted it?","Are you careful with money or do you spend easily?","What is something you would never spend a lot of money on?"],"phrases":[["It was a bargain.","Kelepirdi."],["It's a bit too expensive.","Biraz fazla pahalı."],["I'm just looking, thanks.","Sadece bakıyorum, teşekkürler."],["Can I pay by card?","Kartla ödeyebilir miyim?"]]},{"topic":"Health and sport","tr":"Sağlık ve spor","questions":["What do you do to stay healthy?","How often do you exercise?","Do you sleep enough?","What is a healthy habit you would like to start?","Have you ever been really ill? What happened?","Do you follow any sports team?"],"phrases":[["I try to…","… yapmaya çalışıyorum."],["I should … more.","Daha çok … yapmalıyım."],["I've got a headache.","Başım ağrıyor."],["I feel much better now.","Şimdi çok daha iyiyim."]]},{"topic":"Technology","tr":"Teknoloji","questions":["How many hours a day do you use your phone?","Which app could you not live without?","Is technology making our lives better or worse?","What did people do before smartphones?","Would you like a robot at home? What would it do?","How do you use technology to learn English?"],"phrases":[["I can't live without…","… olmadan yaşayamam."],["On the one hand… on the other hand…","Bir yandan … öte yandan …"],["It saves a lot of time.","Çok zaman kazandırıyor."],["I'm addicted to…","…'e bağımlıyım."]]},{"topic":"Home and city","tr":"Ev ve şehir","questions":["Describe your home.","What is your favourite room, and why?","What do you like and dislike about your city?","Would you rather live in a big city or a small town?","If you could live anywhere, where would it be?","What is your neighbourhood like?"],"phrases":[["It's quite small but cosy.","Oldukça küçük ama sıcacık."],["It's close to…","…'e yakın."],["The traffic is terrible.","Trafik berbat."],["There's a lot to do.","Yapacak çok şey var."]]},{"topic":"Weather and seasons","tr":"Hava ve mevsimler","questions":["What's the weather like today where you are?","What is your favourite season, and why?","What do you like to do on a rainy day?","Can you handle very hot or very cold weather?","Has the weather ever ruined your plans?","How is the weather changing where you live?"],"phrases":[["It's freezing today.","Bugün buz gibi."],["It's pouring with rain.","Bardaktan boşanırcasına yağıyor."],["I can't stand the heat.","Sıcağa dayanamıyorum."],["It depends on the weather.","Havaya bağlı."]]},{"topic":"School and learning","tr":"Okul ve öğrenme","questions":["What was your favourite subject at school?","Who was your best teacher, and why?","What is the best way to learn a language?","What is something you taught yourself?","What is difficult for you in English?","What would you like to learn next?"],"phrases":[["I was good at…","…'de iyiydim."],["I struggle with…","… ile zorlanıyorum."],["Practice makes perfect.","Pratik mükemmelleştirir."],["I learned it by…","… yaparak öğrendim."]]},{"topic":"Memories and the past","tr":"Anılar ve geçmiş","questions":["What is one of your favourite childhood memories?","What games did you play as a child?","How have you changed in the last five years?","What is the best decision you have ever made?","Tell me about a time you were really surprised.","What did you want to be when you were a child?"],"phrases":[["When I was a kid, I used to…","Çocukken … yapardım."],["I'll never forget…","…'i asla unutmayacağım."],["Looking back,…","Geriye dönüp bakınca, …"],["It was such a long time ago.","Çok uzun zaman önceydi."]]},{"topic":"Plans and dreams","tr":"Planlar ve hayaller","questions":["What are your plans for this weekend?","Where do you see yourself in five years?","What is something you really want to achieve this year?","If you won the lottery, what would you do first?","What is on your bucket list?","If you could have any job in the world, what would it be?"],"phrases":[["I'm planning to…","… yapmayı planlıyorum."],["I'm thinking of…","… yapmayı düşünüyorum."],["If I had the chance, I would…","Fırsatım olsa … yapardım."],["My dream is to…","Hayalim … ."]]},{"topic":"Opinions and debates","tr":"Fikirler ve tartışma","questions":["Is it better to be a cat person or a dog person?","Should homework be banned?","Is social media good or bad for friendships?","Should everyone learn to cook?","Is it better to rent or to buy a home?","Are video games a waste of time?"],"phrases":[["In my opinion,…","Bence, …"],["I see your point, but…","Ne demek istediğini anlıyorum ama …"],["I couldn't agree more.","Sonuna kadar katılıyorum."],["That's a good point.","Bu iyi bir nokta."]]},{"topic":"At a restaurant (role-play)","tr":"Restoranda (rol yapma)","questions":["One of you is the waiter, the other the customer: order a meal.","Ask about a dish on the menu and what is in it.","Something is wrong with your food — complain politely.","Ask for a table for four at 8 pm.","Ask for the bill and pay.","Swap roles and do it again."],"phrases":[["Could I have…, please?","… alabilir miyim, lütfen?"],["What do you recommend?","Ne önerirsiniz?"],["Excuse me, this is cold.","Pardon, bu soğuk."],["Could we have the bill, please?","Hesabı alabilir miyiz, lütfen?"]]},{"topic":"At the doctor (role-play)","tr":"Doktorda (rol yapma)","questions":["One of you is the doctor: ask what the problem is.","Describe your symptoms in detail.","The doctor gives advice; ask questions about it.","Make an appointment by phone.","Explain how and when you got hurt.","Swap roles and do it again."],"phrases":[["What seems to be the problem?","Sorun nedir?"],["It hurts when I…","… yapınca acıyor."],["I've had it since…","…'den beri var."],["Take this twice a day.","Bunu günde iki kez alın."]]},{"topic":"Asking for directions (role-play)","tr":"Yol sorma (rol yapma)","questions":["You are lost in a city: ask how to get to the station.","Give directions from your home to a nearby shop.","Ask which bus goes to the city centre.","Explain the way to your favourite café.","Ask how long it takes to walk there.","Swap roles and do it again."],"phrases":[["Excuse me, how do I get to…?","Affedersiniz, …'e nasıl giderim?"],["Go straight on and turn left.","Düz git ve sola dön."],["It's next to / opposite…","…'in yanında / karşısında."],["You can't miss it.","Kaçırmazsın, hemen görürsün."]]}]</script>
 
@@ -3428,6 +3564,22 @@ const STRINGS = {
     'tutor.micDenied': 'The microphone is blocked. Allow it for this site in the browser settings.', 'tutor.noRecognition': 'This browser cannot turn speech into text; type your answer instead (Chrome or Safari can).',
     'tutor.err.tooMany': 'Slow down a little 🙂 Too many messages in a minute; wait a moment.', 'tutor.err.limit': 'The free daily limit is used up. Try again a bit later.',
     'tutor.err.network': 'No connection to the lesson server. Check the internet.', 'tutor.err.server': 'The teacher could not answer. Try again.',
+    'nav.grammar': 'Grammar', 'mode.grammar': 'Learn relative clauses and write short stories that get a grammar check.',
+    'grammar.title': 'Grammar and writing', 'grammar.lead': 'Learn relative clauses step by step, then write your own stories and have them checked.',
+    'grammar.section': 'Section', 'grammar.rc': 'Relative clauses', 'grammar.write': 'Write a story', 'grammar.lessons': 'Lessons', 'grammar.practice': 'Practice', 'grammar.fromNovel': 'From your novel',
+    'grammar.questions': '{n} questions', 'grammar.allSets': 'All sets', 'grammar.writePh': 'Write one sentence…', 'grammar.none': '(nothing – leave it out)', 'grammar.check': 'Check',
+    'grammar.right': 'Correct!', 'grammar.wrong': 'Not quite. The right answer:', 'grammar.next': 'Next', 'grammar.finish': 'See my score', 'grammar.retry': 'Try again',
+    'grammar.perfect': 'Perfect! You know this well.', 'grammar.good': 'Well done! Look at the ones you missed once more.', 'grammar.again': 'Read the lessons again and try once more.',
+    'grammar.noBook': 'Open a book in the Novel tab first; its relative clauses will be listed here.', 'grammar.novelIntro': '{n} relative clauses found in {book}. The relative words are marked.',
+    'grammar.openPage': 'Open page {n}', 'grammar.more': 'Show more',
+    'story.new': 'New story', 'story.back': 'Stories', 'story.titleLabel': 'Title', 'story.titlePh': 'Title', 'story.delete': 'Delete the story', 'story.idea': 'Give me an idea',
+    'story.textLabel': 'Your story', 'story.textPh': 'Once upon a time…', 'story.check': 'Check my grammar', 'story.untitled': 'Untitled story', 'story.info': '{n} words · {date}',
+    'story.confirmDelete': 'Delete this story?', 'story.words': '{n} words', 'story.saved': 'Saved', 'story.tooShort': 'Write a few sentences first.',
+    'story.checking': 'Checking…', 'story.checkingN': 'The teacher is reading… ({i}/{n})', 'story.failed': 'The check did not work. Try again later.',
+    'story.teacherNote': 'Checked by Ms. Emma (Google Gemini).', 'story.ltNote': 'The teacher was not available; checked by LanguageTool (spelling and simpler grammar only).',
+    'story.ltQuota': 'The teacher\'s free daily limit is used up; checked by LanguageTool (spelling and simpler grammar only).',
+    'story.found': '{n} corrections', 'story.clean': 'No mistakes found 🎉', 'story.applyAll': 'Apply all', 'story.yours': 'You wrote', 'story.apply': 'Apply', 'story.skip': 'Ignore',
+    'story.notFound': 'That part of the story has changed; check again.',
     'update.text': 'A new version of the app is ready.', 'update.reload': 'Reload',
     'nav.speak': 'Speaking', 'mode.speak': 'Talk in English with a friend in a voice room, with topic cards to guide you.',
     'speak.title': 'Speaking room', 'speak.lead': 'Talk in English with a friend: open a room, send them the link and use the topic cards together.',
@@ -3551,6 +3703,22 @@ const STRINGS = {
     'tutor.micDenied': 'Mikrofon izni kapalı. Tarayıcı ayarlarından bu siteye mikrofon izni ver.', 'tutor.noRecognition': 'Bu tarayıcı konuşmayı yazıya çeviremiyor; cevabını yazarak ver (Chrome ya da Safari çevirebilir).',
     'tutor.err.tooMany': 'Biraz yavaşla 🙂 Bir dakikada çok mesaj gönderdin, biraz bekle.', 'tutor.err.limit': 'Günlük ücretsiz kullanım doldu. Biraz sonra tekrar dene.',
     'tutor.err.network': 'Ders sunucusuna ulaşılamadı. İnternet bağlantını kontrol et.', 'tutor.err.server': 'Hoca cevap veremedi. Tekrar dene.',
+    'nav.grammar': 'Gramer', 'mode.grammar': 'Relative clause öğren, kısa hikâyeler yaz ve dilbilgisini denetlet.',
+    'grammar.title': 'Gramer ve yazma', 'grammar.lead': 'Relative clause yapısını adım adım öğren, sonra kendi hikâyelerini yaz ve denetlet.',
+    'grammar.section': 'Bölüm', 'grammar.rc': 'Relative clauses', 'grammar.write': 'Hikâye yaz', 'grammar.lessons': 'Konu anlatımı', 'grammar.practice': 'Alıştırmalar', 'grammar.fromNovel': 'Romanından örnekler',
+    'grammar.questions': '{n} soru', 'grammar.allSets': 'Tüm setler', 'grammar.writePh': 'Tek bir cümle yaz…', 'grammar.none': '(hiçbiri – boş bırak)', 'grammar.check': 'Kontrol et',
+    'grammar.right': 'Doğru!', 'grammar.wrong': 'Olmadı. Doğrusu:', 'grammar.next': 'Sonraki', 'grammar.finish': 'Sonucu gör', 'grammar.retry': 'Tekrar çöz',
+    'grammar.perfect': 'Mükemmel! Bu konuyu iyi biliyorsun.', 'grammar.good': 'Aferin! Yanlışlarına bir kez daha göz at.', 'grammar.again': 'Konu anlatımını tekrar oku ve bir daha dene.',
+    'grammar.noBook': 'Önce Roman sekmesinden bir kitap aç; içindeki relative clause cümleleri burada listelenecek.', 'grammar.novelIntro': '{book} içinde {n} relative clause bulundu. Bağlaçlar işaretli.',
+    'grammar.openPage': 'Sayfa {n}’de aç', 'grammar.more': 'Daha fazla göster',
+    'story.new': 'Yeni hikâye', 'story.back': 'Hikâyeler', 'story.titleLabel': 'Başlık', 'story.titlePh': 'Başlık', 'story.delete': 'Hikâyeyi sil', 'story.idea': 'Bana bir konu öner',
+    'story.textLabel': 'Hikâyen', 'story.textPh': 'Once upon a time…', 'story.check': 'Dilbilgisini denetle', 'story.untitled': 'Başlıksız hikâye', 'story.info': '{n} kelime · {date}',
+    'story.confirmDelete': 'Bu hikâye silinsin mi?', 'story.words': '{n} kelime', 'story.saved': 'Kaydedildi', 'story.tooShort': 'Önce birkaç cümle yaz.',
+    'story.checking': 'Denetleniyor…', 'story.checkingN': 'Hoca okuyor… ({i}/{n})', 'story.failed': 'Denetim yapılamadı. Biraz sonra tekrar dene.',
+    'story.teacherNote': 'Ms. Emma denetledi (Google Gemini).', 'story.ltNote': 'Hocaya ulaşılamadı; LanguageTool denetledi (yalnızca yazım ve basit dilbilgisi).',
+    'story.ltQuota': 'Hocanın günlük ücretsiz kotası doldu; LanguageTool denetledi (yalnızca yazım ve basit dilbilgisi).',
+    'story.found': '{n} düzeltme', 'story.clean': 'Hata bulunamadı 🎉', 'story.applyAll': 'Hepsini uygula', 'story.yours': 'Senin cümlen', 'story.apply': 'Uygula', 'story.skip': 'Yok say',
+    'story.notFound': 'Hikâyenin o kısmı değişmiş; tekrar denetle.',
     'update.text': 'Uygulamanın yeni sürümü hazır.', 'update.reload': 'Yenile',
     'nav.speak': 'Konuşma', 'mode.speak': 'Bir arkadaşınla sesli odada İngilizce konuş; konu kartları sana yol göstersin.',
     'speak.title': 'Konuşma odası', 'speak.lead': 'Bir arkadaşınla İngilizce konuş: oda aç, linki gönder, konu kartlarını birlikte kullanın.',
@@ -4195,7 +4363,7 @@ function relabelCards() {
 }
 
 /* ---------- 7i. Navigation ---------- */
-const ROUTES = ['home', 'words', 'phrases', 'speak', 'novel', 'quiz', 'reading', 'settings'];
+const ROUTES = ['home', 'words', 'phrases', 'grammar', 'speak', 'novel', 'quiz', 'reading', 'settings'];
 const Router = {
   current: null,
   /* Non-route hashes (e.g. the skip link's #main) keep the current view. */
@@ -6295,7 +6463,468 @@ const Tutor = {
   }
 };
 
-const MODULES = { home: Home, words: Words, phrases: Phrases, speak: Speak, novel: Novel, quiz: Quiz, reading: Reading, settings: Settings };
+/* ---------- Grammar: relative clauses ---------- */
+const Grammar = {
+  KEY: 'english-study-grammar.v1',
+  REL: /\b(who|whom|whose|which|that|where|when|why)\b/gi,
+  data: null,
+  best: {},
+  run: null,
+  init() {
+    this.data = readJsonScript('grammar-data') || { lessons: [], sets: [] };
+    try { this.best = JSON.parse(Store.read(this.KEY) || '{}').best || {}; } catch (_) { this.best = {}; }
+    for (const button of $$('[data-gpane]')) button.addEventListener('click', () => this.pane(button.dataset.gpane));
+    for (const button of $$('[data-gtab]')) button.addEventListener('click', () => this.tab(button.dataset.gtab));
+    $('#gram-lessons').addEventListener('click', event => {
+      const button = event.target.closest('[data-say]');
+      if (button) this.say(button.dataset.say);
+    });
+    $('#gram-practice').addEventListener('click', event => this.practiceClick(event));
+    $('#gram-novel').addEventListener('click', event => this.novelClick(event));
+    this.renderLessons();
+  },
+  onShow() { if (!$('#gram-practice').hidden && !this.run) this.renderSets(); },
+  say(text) { if (Speech.hasTTS) Speech.speakNow(text); else Speech.speak(text); },
+  pane(name) {
+    for (const button of $$('[data-gpane]')) button.setAttribute('aria-pressed', String(button.dataset.gpane === name));
+    $('#gram-rc').hidden = name !== 'rc';
+    $('#gram-write').hidden = name !== 'write';
+    if (name === 'write') Writer.show();
+  },
+  tab(name) {
+    for (const button of $$('[data-gtab]')) button.setAttribute('aria-pressed', String(button.dataset.gtab === name));
+    $('#gram-lessons').hidden = name !== 'lessons';
+    $('#gram-practice').hidden = name !== 'practice';
+    $('#gram-novel').hidden = name !== 'novel';
+    if (name === 'practice' && !this.run) this.renderSets();
+    if (name === 'novel') this.renderNovel();
+  },
+  /* An English sentence with its relative words marked (not a capital "That" opening it). */
+  marked(text) {
+    const node = h('span', { class: 'gram-en', lang: 'en' });
+    let last = 0;
+    for (const match of text.matchAll(this.REL)) {
+      if (match.index === 0) continue;
+      node.append(text.slice(last, match.index), h('mark', { class: 'gram-rel', text: match[0] }));
+      last = match.index + match[0].length;
+    }
+    node.append(text.slice(last));
+    return node;
+  },
+  renderLessons() {
+    $('#gram-lessons').replaceChildren(...this.data.lessons.map((lesson, index) =>
+      h('details', { class: 'gram-lesson', open: index === 0 ? true : null },
+        h('summary', {}, h('span', { class: 'gram-num', text: index + 1 }), h('span', { text: lesson.title })),
+        h('div', { class: 'gram-lesson-body' },
+          h('p', { lang: 'tr', text: lesson.text }),
+          h('ul', { class: 'gram-examples' }, lesson.examples.map(([en, tr]) => h('li', {},
+            this.marked(en),
+            h('span', { class: 'gram-tr', lang: 'tr', text: tr }),
+            h('button', { type: 'button', class: 'icon-button', 'data-say': en.replace(/\//g, ' or '), 'aria-label': t('tutor.listen') }, icon('sound')))))))));
+  },
+  /* ---- Practice sets */
+  renderSets() {
+    this.run = null;
+    $('#gram-practice').replaceChildren(h('div', { class: 'gram-sets' }, this.data.sets.map(set => {
+      const best = this.best[set.id];
+      return h('button', { type: 'button', class: 'gram-set', 'data-set': set.id },
+        h('div', {}, h('strong', { text: set.title }), h('span', { text: t('grammar.questions', { n: set.items.length }) })),
+        best != null ? h('span', { class: 'gram-best', text: best + '/' + set.items.length }) : null);
+    })));
+  },
+  start(id) {
+    const set = this.data.sets.find(s => s.id === id);
+    if (!set) return;
+    this.run = { set, items: shuffle(set.items.slice()), at: 0, score: 0, answered: false };
+    this.renderQuestion();
+  },
+  renderQuestion() {
+    const run = this.run;
+    const item = run.items[run.at];
+    const write = run.set.type === 'write';
+    const question = h('p', { class: 'gram-q', lang: 'en' });
+    const parts = item.q.split('___');
+    question.append(parts[0]);
+    if (parts.length > 1) question.append(h('span', { class: 'gap', text: '…' }), parts[1]);
+    const card = h('div', { class: 'gram-card' },
+      h('div', { class: 'gram-card-top' }, h('span', { text: (run.at + 1) + ' / ' + run.items.length }),
+        h('span', { class: 'gram-bar' }, h('span', { style: 'width:' + Math.round(run.at / run.items.length * 100) + '%' })),
+        h('button', { type: 'button', class: 'link-button', 'data-act': 'sets', text: t('grammar.allSets') })),
+      h('p', { class: 'gram-hint', text: run.set.hint }),
+      question,
+      write
+        ? h('textarea', { class: 'gram-write-input', id: 'gram-answer', lang: 'en', rows: 3, spellcheck: 'false', placeholder: t('grammar.writePh') })
+        : h('div', { class: 'gram-options' }, shuffle(item.options.slice()).map(option =>
+          h('button', { type: 'button', class: 'gram-option' + (option.length > 25 ? ' is-long' : ''), 'data-option': option, lang: option === '–' ? null : 'en', text: option === '–' ? t('grammar.none') : option }))),
+      h('div', { class: 'gram-feedback-slot' }),
+      h('div', { class: 'gram-actions' }, write ? h('button', { type: 'button', class: 'button primary', 'data-act': 'check', text: t('grammar.check') }) : null));
+    $('#gram-practice').replaceChildren(card);
+    run.answered = false;
+  },
+  /* Answers compared without case, punctuation and extra spaces; "that is" = "that's". */
+  normal(text) {
+    return text.toLowerCase().replace(/[’']s\b/g, ' is').replace(/n[’']t\b/g, ' not').replace(/[^a-z0-9 ]+/g, ' ').replace(/\s+/g, ' ').trim();
+  },
+  answer(choice) {
+    const run = this.run;
+    if (!run || run.answered) return;
+    const item = run.items[run.at];
+    const write = run.set.type === 'write';
+    const right = write ? item.answers.some(a => this.normal(a) === this.normal(choice)) : choice === item.answer;
+    run.answered = true;
+    if (right) run.score++;
+    if (!write) {
+      for (const button of $$('#gram-practice .gram-option')) {
+        button.disabled = true;
+        if (button.dataset.option === item.answer) button.classList.add('is-right');
+        else if (button.dataset.option === choice) button.classList.add('is-wrong');
+      }
+      const gap = $('#gram-practice .gap');
+      if (gap) gap.textContent = item.answer === '–' ? '∅' : item.answer;
+    } else $('#gram-answer').readOnly = true;
+    const model = write ? item.answers[0] : (item.q.includes('___') ? item.q.replace('___', item.answer === '–' ? '' : item.answer).replace(/\s+/g, ' ') : null);
+    $('#gram-practice .gram-feedback-slot').replaceChildren(h('div', { class: 'gram-feedback ' + (right ? 'is-right' : 'is-wrong') },
+      h('p', { text: t(right ? 'grammar.right' : 'grammar.wrong') }),
+      model ? h('p', { class: 'gram-model', lang: 'en', text: model }) : null,
+      h('p', { class: 'gram-why', lang: 'tr', text: item.why })));
+    const last = run.at === run.items.length - 1;
+    $('#gram-practice .gram-actions').replaceChildren(
+      model ? h('button', { type: 'button', class: 'button', 'data-say': model }, icon('sound'), h('span', { text: t('tutor.listen') })) : null,
+      h('button', { type: 'button', class: 'button primary', 'data-act': 'next', text: t(last ? 'grammar.finish' : 'grammar.next') }));
+  },
+  finish() {
+    const run = this.run;
+    const total = run.items.length;
+    if (this.best[run.set.id] == null || run.score > this.best[run.set.id]) this.best[run.set.id] = run.score;
+    Store.write(this.KEY, JSON.stringify({ best: this.best }));
+    $('#gram-practice').replaceChildren(h('div', { class: 'gram-card gram-done' },
+      h('p', { class: 'gram-score', text: run.score + ' / ' + total }),
+      h('p', { text: t(run.score === total ? 'grammar.perfect' : run.score >= total * 0.7 ? 'grammar.good' : 'grammar.again') }),
+      h('div', { class: 'gram-actions' },
+        h('button', { type: 'button', class: 'button', 'data-act': 'sets', text: t('grammar.allSets') }),
+        h('button', { type: 'button', class: 'button primary', 'data-set': run.set.id, text: t('grammar.retry') }))));
+    this.run = null;
+  },
+  practiceClick(event) {
+    const target = event.target.closest('button');
+    if (!target) return;
+    if (target.dataset.set) this.start(target.dataset.set);
+    else if (target.dataset.option) this.answer(target.dataset.option);
+    else if (target.dataset.say) this.say(target.dataset.say);
+    else if (target.dataset.act === 'check') { const value = $('#gram-answer').value.trim(); if (value) this.answer(value); }
+    else if (target.dataset.act === 'next') { if (this.run.at === this.run.items.length - 1) this.finish(); else { this.run.at++; this.renderQuestion(); } }
+    else if (target.dataset.act === 'sets') this.renderSets();
+  },
+  /* ---- Relative clauses in the novel the learner is reading */
+  async renderNovel() {
+    const box = $('#gram-novel');
+    if (!this.found) {
+      box.replaceChildren(h('p', { class: 'hint', text: t('novel.loadingPage') }));
+      const stored = Novel.book ? null : await BookStore.get();
+      const pages = Novel.book ? Novel.book.pages : (stored && Array.isArray(stored.pages) ? Novel.storyPages(stored.pages) : null);
+      const name = Novel.book ? Novel.bookTitle : (stored ? stored.title || stored.name.replace(/^.*\//, '').replace(/\.pdf$/i, '') : '');
+      if (!pages) { box.replaceChildren(h('p', { class: 'hint', text: t('grammar.noBook') })); return; }
+      const found = [];
+      pages.forEach((paragraphs, page) => {
+        for (const paragraph of paragraphs) {
+          if (paragraph.startsWith('⁡')) continue;
+          for (const sentence of Novel.sentences(paragraph.replace(/^⁠/, ''))) {
+            /* who / whom / whose / which in the middle of a statement: almost always a relative clause. */
+            if (/\?["”’]?$/.test(sentence) || sentence.length < 25 || sentence.length > 220) continue;
+            if (/\S\s+(who|whom|whose|which)\b/i.test(sentence) && !/^(who|whom|whose|which)\b/i.test(sentence)) found.push({ sentence, page });
+          }
+        }
+      });
+      this.found = { name, list: shuffle(found) };
+    }
+    const { name, list } = this.found;
+    if (!list.length) { box.replaceChildren(h('p', { class: 'hint', text: t('grammar.noBook') })); return; }
+    this.shown = this.shown || 8;
+    box.replaceChildren(
+      h('p', { class: 'hint', text: t('grammar.novelIntro', { book: name, n: list.length }) }),
+      ...list.slice(0, this.shown).map(({ sentence, page }) => h('div', { class: 'gram-quote', 'data-page': page, 'data-en': sentence },
+        h('p', {}, this.marked(sentence)),
+        h('p', { class: 'gram-tr-line', lang: 'tr', hidden: true }),
+        h('div', { class: 'gram-quote-tools' },
+          h('button', { type: 'button', 'data-act': 'say', text: t('tutor.listen') }),
+          h('button', { type: 'button', 'data-act': 'tr', text: t('tutor.turkish') }),
+          h('button', { type: 'button', 'data-act': 'open', text: t('grammar.openPage', { n: page + 1 }) })))),
+      list.length > this.shown ? h('button', { type: 'button', class: 'button', 'data-act': 'more', text: t('grammar.more') }) : null);
+  },
+  async novelClick(event) {
+    const button = event.target.closest('button');
+    if (!button) return;
+    if (button.dataset.act === 'more') { this.shown += 8; this.renderNovel(); return; }
+    const quote = button.closest('.gram-quote');
+    if (!quote) return;
+    if (button.dataset.act === 'say') this.say(quote.dataset.en);
+    if (button.dataset.act === 'open') {
+      location.hash = '#novel';
+      const page = Number(quote.dataset.page);
+      setTimeout(() => { if (Novel.book) Novel.go(page, true); else Novel.restored = false; }, 50);
+    }
+    if (button.dataset.act === 'tr') {
+      const line = quote.querySelector('.gram-tr-line');
+      if (!line.hidden) { line.hidden = true; return; }
+      line.hidden = false;
+      line.textContent = t('novel.trLoading');
+      try { line.textContent = await Novel.translate(quote.dataset.en); } catch (_) { line.textContent = t('novel.trBusy'); }
+    }
+  }
+};
+
+/* ---------- Writing: short stories with a grammar check ----------
+   Stories stay in this browser. "Check" sends the story in short pieces to
+   Ms. Emma's server (Google Gemini, see Tutor): it returns each piece
+   corrected, with a Turkish tip. When that server cannot answer (daily free
+   quota, no connection) the free LanguageTool service checks the text. */
+const Writer = {
+  KEY: 'english-study-stories.v1',
+  IDEAS: [
+    'Write about a person who changed your life.',
+    'Describe a place where you feel happy.',
+    'Tell the story of a day when everything went wrong.',
+    'Write about a present that someone gave you.',
+    'A stranger, whose bag looked heavy, sat next to you on the bus…',
+    'Describe a film which you will never forget.',
+    'Write about the town where you grew up.',
+    'Tell the story of a friend who always makes you laugh.'
+  ],
+  stories: [],
+  current: null,
+  init() {
+    try { this.stories = JSON.parse(Store.read(this.KEY) || '[]'); } catch (_) { this.stories = []; }
+    if (!Array.isArray(this.stories)) this.stories = [];
+    $('#story-new').addEventListener('click', () => this.open(null));
+    $('#story-items').addEventListener('click', event => { const button = event.target.closest('[data-story]'); if (button) this.open(button.dataset.story); });
+    $('#story-back').addEventListener('click', () => this.list());
+    $('#story-delete').addEventListener('click', () => this.remove());
+    $('#story-idea').addEventListener('click', () => {
+      this.idea = ((this.idea ?? -1) + 1) % this.IDEAS.length;
+      $('#story-idea-text').textContent = this.IDEAS[this.idea];
+    });
+    for (const id of ['#story-title', '#story-text']) $(id).addEventListener('input', () => this.changed());
+    $('#story-check').addEventListener('click', () => this.check());
+    $('#story-results').addEventListener('click', event => this.resultClick(event));
+  },
+  show() { if ($('#story-editor').hidden) this.list(); },
+  save() { Store.write(this.KEY, JSON.stringify(this.stories)); },
+  words(text) { return (text.match(/[A-Za-z’']+/g) || []).length; },
+  list() {
+    $('#story-editor').hidden = true;
+    $('#story-list').hidden = false;
+    this.current = null;
+    const sorted = this.stories.slice().sort((a, b) => b.updated - a.updated);
+    $('#story-items').replaceChildren(...sorted.map(story => h('li', {}, h('button', { type: 'button', 'data-story': story.id },
+      h('strong', { lang: 'en', text: story.title || t('story.untitled') }),
+      h('span', { text: t('story.info', { n: this.words(story.text), date: new Date(story.updated).toLocaleDateString(lang === 'tr' ? 'tr-TR' : 'en-GB') }) })))));
+  },
+  open(id) {
+    let story = this.stories.find(s => s.id === id);
+    if (!story) {
+      story = { id: 's' + Date.now().toString(36), title: '', text: '', updated: Date.now() };
+      this.stories.push(story);
+    }
+    this.current = story;
+    $('#story-list').hidden = true;
+    $('#story-editor').hidden = false;
+    $('#story-title').value = story.title;
+    $('#story-text').value = story.text;
+    $('#story-results').replaceChildren();
+    $('#story-idea-text').textContent = '';
+    this.meta(false);
+    if (!story.text) $('#story-text').focus();
+  },
+  remove() {
+    if (!this.current) return;
+    if (this.current.text.trim() && !confirm(t('story.confirmDelete'))) return;
+    this.stories = this.stories.filter(s => s !== this.current);
+    this.save();
+    this.list();
+  },
+  changed() {
+    if (!this.current) return;
+    this.current.title = $('#story-title').value;
+    this.current.text = $('#story-text').value;
+    this.current.updated = Date.now();
+    clearTimeout(this.timer);
+    this.timer = setTimeout(() => { this.save(); this.meta(true); }, 500);
+    this.meta(false);
+  },
+  meta(saved) {
+    $('#story-count').textContent = t('story.words', { n: this.words($('#story-text').value) });
+    $('#story-saved').textContent = saved ? t('story.saved') : '';
+  },
+  /* Sentences with their place in the text, so a fix can be put back. */
+  sentences(text) {
+    const out = [];
+    const re = /[^.!?\n]+(?:[.!?]+["”’)]*|(?=\n)|$)/g;
+    let m;
+    while ((m = re.exec(text))) {
+      if (!m[0].trim()) { if (re.lastIndex === m.index) re.lastIndex++; continue; }
+      const lead = m[0].length - m[0].trimStart().length;
+      out.push({ text: m[0].trim(), start: m.index + lead });
+    }
+    return out;
+  },
+  async check() {
+    const story = this.current;
+    const text = $('#story-text').value;
+    if (!story || this.words(text) < 3) { Toast.show(t('story.tooShort')); return; }
+    const results = $('#story-results');
+    const button = $('#story-check');
+    button.disabled = true;
+    const progress = h('p', { class: 'story-progress', text: t('story.checking') });
+    results.replaceChildren(progress);
+    let fixes = null, source = 'teacher', problem = '';
+    try { fixes = await this.teacherFixes(text, (done, total) => { progress.textContent = t('story.checkingN', { i: done, n: total }); }); }
+    catch (err) { problem = err.message; }
+    if (!fixes) {
+      source = 'lt';
+      try { fixes = await this.toolFixes(text); }
+      catch (err) { button.disabled = false; results.replaceChildren(h('p', { class: 'error-text', text: t(err.message === 'offline' ? 'tutor.err.network' : 'story.failed') })); return; }
+    }
+    button.disabled = false;
+    if (this.current !== story) return;
+    this.fixes = fixes;
+    this.renderFixes(source, problem);
+  },
+  /* Ms. Emma's server: pieces of about 300 characters (it takes up to 400). */
+  async teacherFixes(text, onProgress) {
+    const sentences = this.sentences(text);
+    const chunks = [];
+    for (const sentence of sentences) {
+      const last = chunks[chunks.length - 1];
+      if (last && last.text.length + sentence.text.length < 300) last.parts.push(sentence), last.text += ' ' + sentence.text;
+      else chunks.push({ parts: [sentence], text: sentence.text.slice(0, 390) });
+    }
+    const fixes = [];
+    for (let i = 0; i < chunks.length; i++) {
+      onProgress(i + 1, chunks.length);
+      const data = await this.ask(chunks[i].text);
+      if (!data.correction || this.normal(data.correction) === this.normal(chunks[i].text)) continue;
+      const fixed = this.sentences(data.correction).map(s => s.text);
+      const parts = chunks[i].parts;
+      if (fixed.length === parts.length) {
+        let tipShown = false;
+        parts.forEach((part, k) => {
+          if (this.normal(part.text) === this.normal(fixed[k])) return;
+          fixes.push({ from: part.text, to: fixed[k], start: part.start, tip: tipShown ? '' : data.tip });
+          tipShown = true;
+        });
+      } else {
+        const first = parts[0], end = parts[parts.length - 1];
+        fixes.push({ from: text.slice(first.start, end.start + end.text.length), to: data.correction, start: first.start, tip: data.tip });
+      }
+    }
+    return fixes;
+  },
+  normal(text) { return text.toLowerCase().replace(/[^a-z0-9']+/g, ' ').trim(); },
+  async ask(message, tries = 0) {
+    let response;
+    try {
+      response = await fetch(Tutor.API + '/api/chat', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ scenario: 'free', level: Tutor.settings.level, history: [], review: [], message })
+      });
+    } catch (_) { throw new Error(navigator.onLine === false ? 'offline' : 'server'); }
+    const data = await response.json().catch(() => ({}));
+    /* The server allows 12 messages a minute: wait and try again. */
+    if (data.error === 'too_many' && tries < 3) { await new Promise(r => setTimeout(r, 8000)); return this.ask(message, tries + 1); }
+    if (!response.ok || !data.reply) throw new Error(data.error || 'server');
+    return data;
+  },
+  /* LanguageTool's free service (spelling and simpler grammar). */
+  async toolFixes(text) {
+    let response;
+    try {
+      response = await fetch('https://api.languagetool.org/v2/check', { method: 'POST', body: new URLSearchParams({ text: text.slice(0, 18000), language: 'en-US' }) });
+    } catch (_) { throw new Error(navigator.onLine === false ? 'offline' : 'server'); }
+    if (!response.ok) throw new Error('server');
+    const data = await response.json();
+    return (data.matches || []).filter(m => m.replacements && m.replacements.length).map(m => ({
+      from: text.substr(m.offset, m.length), to: m.replacements[0].value, start: m.offset, note: m.message,
+      context: { before: text.slice(Math.max(0, m.offset - 30), m.offset), after: text.slice(m.offset + m.length, m.offset + m.length + 30) }
+    }));
+  },
+  /* Word-by-word difference: removed words struck through, new words in green. */
+  diff(a, b) {
+    const x = a.split(/(\s+)/).filter(Boolean), y = b.split(/(\s+)/).filter(Boolean);
+    const table = Array.from({ length: x.length + 1 }, () => new Array(y.length + 1).fill(0));
+    for (let i = x.length - 1; i >= 0; i--) for (let j = y.length - 1; j >= 0; j--) table[i][j] = x[i] === y[j] ? table[i + 1][j + 1] + 1 : Math.max(table[i + 1][j], table[i][j + 1]);
+    const old = h('p', { class: 'story-old', lang: 'en' }), neu = h('p', { class: 'story-new-line', lang: 'en' });
+    let i = 0, j = 0;
+    while (i < x.length || j < y.length) {
+      if (i < x.length && j < y.length && x[i] === y[j]) { old.append(x[i]); neu.append(y[j]); i++; j++; }
+      else if (j < y.length && (i >= x.length || table[i][j + 1] >= table[i + 1][j])) { if (/\S/.test(y[j])) neu.append(h('ins', { text: y[j] })); else neu.append(y[j]); j++; }
+      else { if (/\S/.test(x[i])) old.append(h('del', { text: x[i] })); else old.append(x[i]); i++; }
+    }
+    return [old, neu];
+  },
+  renderFixes(source, problem) {
+    const fixes = this.fixes;
+    const note = source === 'lt' ? t(problem === 'rate_limited' ? 'story.ltQuota' : 'story.ltNote') : t('story.teacherNote');
+    const summary = h('div', { class: 'story-summary' },
+      h('div', {}, h('span', { text: fixes.length ? t('story.found', { n: fixes.length }) : t('story.clean') }), h('small', { text: note })),
+      fixes.length > 1 ? h('button', { type: 'button', class: 'button small primary', 'data-act': 'all', text: t('story.applyAll') }) : null);
+    $('#story-results').replaceChildren(summary, ...fixes.map((fix, index) => {
+      const card = h('div', { class: 'story-fix', 'data-fix': index });
+      if (fix.context) {
+        card.append(h('p', { class: 'story-old', lang: 'en' }, '…' + fix.context.before, h('del', { text: fix.from }), fix.context.after + '…'),
+          h('p', { class: 'story-new-line', lang: 'en' }, h('ins', { text: fix.to })),
+          h('p', { class: 'story-tip', lang: 'en', text: fix.note }));
+      } else {
+        const [old, neu] = this.diff(fix.from, fix.to);
+        card.append(h('span', { class: 'story-label', text: t('story.yours') }), old, h('span', { class: 'story-label', text: t('tutor.better') }), neu);
+        if (fix.tip) card.append(h('p', { class: 'story-tip', lang: 'tr', text: fix.tip }));
+      }
+      card.append(h('div', { class: 'gram-actions' },
+        h('button', { type: 'button', class: 'button small primary', 'data-act': 'apply', text: t('story.apply') }),
+        fix.context ? h('button', { type: 'button', class: 'button small', 'data-act': 'trnote', text: t('tutor.turkish') }) : null,
+        h('button', { type: 'button', class: 'button small', 'data-act': 'skip', text: t('story.skip') })));
+      return card;
+    }));
+  },
+  /* Puts a fix into the story: at its place if the text there is unchanged, otherwise where the old words are found. */
+  apply(fix) {
+    const area = $('#story-text');
+    let text = area.value;
+    let at = text.substr(fix.start, fix.from.length) === fix.from ? fix.start : text.indexOf(fix.from);
+    if (at < 0) return false;
+    text = text.slice(0, at) + fix.to + text.slice(at + fix.from.length);
+    const shift = fix.to.length - fix.from.length;
+    for (const other of this.fixes) if (other !== fix && !other.done && other.start > at) other.start += shift;
+    area.value = text;
+    fix.done = true;
+    this.changed();
+    return true;
+  },
+  async resultClick(event) {
+    const button = event.target.closest('button[data-act]');
+    if (!button) return;
+    if (button.dataset.act === 'all') {
+      for (const card of $$('#story-results .story-fix:not(.is-done)')) { this.apply(this.fixes[card.dataset.fix]); card.classList.add('is-done'); card.querySelector('.gram-actions').remove(); }
+      button.remove();
+      return;
+    }
+    const card = button.closest('.story-fix');
+    const fix = this.fixes[card.dataset.fix];
+    if (button.dataset.act === 'apply') {
+      if (!this.apply(fix)) { Toast.show(t('story.notFound')); return; }
+      card.classList.add('is-done');
+      card.querySelector('.gram-actions').remove();
+    }
+    if (button.dataset.act === 'skip') card.remove();
+    if (button.dataset.act === 'trnote') {
+      const tip = card.querySelector('.story-tip');
+      button.disabled = true;
+      try { tip.textContent = await Novel.translate(fix.note); tip.lang = 'tr'; } catch (_) { button.disabled = false; }
+    }
+  }
+};
+
+const MODULES = { home: Home, words: Words, phrases: Phrases, grammar: Grammar, speak: Speak, novel: Novel, quiz: Quiz, reading: Reading, settings: Settings };
 
 /* ======================================================================
    8. INITIALIZATION (single entry point)
@@ -6306,7 +6935,7 @@ const MODULES = { home: Home, words: Words, phrases: Phrases, speak: Speak, nove
    The page asks for version.json, never from the cache, when it opens and
    whenever it comes back to the screen, and offers to load the new build. */
 const Updater = {
-  build: '162c23dac3a2',
+  build: '3c641db48c6d',
   checked: 0,
   init() {
     if (!/^https?:$/.test(location.protocol) || this.build.length !== 12) return;
@@ -6336,7 +6965,7 @@ function init() {
   applyTheme();
   applyTurkishVisibility();
   prepareCards();
-  Home.init(); Words.init(); Phrases.init(); Speak.init(); Tutor.init(); Novel.init(); Quiz.init(); Settings.init(); Updater.init();
+  Home.init(); Words.init(); Phrases.init(); Grammar.init(); Writer.init(); Speak.init(); Tutor.init(); Novel.init(); Quiz.init(); Settings.init(); Updater.init();
   if (!Store.usable) Banner.show(t(Store.simulated ? 'storage.simulated' : 'storage.off'));
   else if (loaded.notice) Banner.show(t(loaded.notice, { n: loaded.count || 0 }));
   if (loaded.migrated) persist();

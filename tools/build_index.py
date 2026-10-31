@@ -404,6 +404,8 @@ def main() -> None:
         if "</script" in code.lower() or "<!--" in code:
             sys.exit("vendor source cannot be inlined safely")
     speak_topics = json.loads((HERE / "speaking" / "topics.json").read_text(encoding="utf-8"))
+    grammar = json.loads((HERE / "grammar" / "relative_clauses.json").read_text(encoding="utf-8"))
+    print(f"grammar         {len(grammar['lessons'])} lessons, {sum(len(s['items']) for s in grammar['sets'])} exercises")
     print(f"speaking room   {len(speak_topics)} topics, {sum(len(t['questions']) for t in speak_topics)} questions")
 
     template = turkish_static_text(TEMPLATE.read_text(encoding="utf-8"), counts)
@@ -418,6 +420,7 @@ def main() -> None:
               .replace("<!--@NOVEL_DICT@-->", json_for_script(novel_dict))
               .replace("<!--@NOVEL_SHELF@-->", novel_shelf())
               .replace("<!--@SPEAK_TOPICS@-->", json_for_script(speak_topics))
+              .replace("<!--@GRAMMAR_DATA@-->", json_for_script(grammar))
               .replace("@APP_VERSION@", APP_VERSION)
               .replace("<!--@PDFJS_LIB@-->", pdfjs_lib)
               .replace("<!--@PDFJS_WORKER@-->", pdfjs_worker)

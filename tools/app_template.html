@@ -398,6 +398,95 @@ mark.vocab { background: var(--mark); color: inherit; padding: 0 2px; border-rad
 .speak-round[aria-pressed="true"] .icon { background: var(--warn-soft); color: var(--warn); }
 .speak-round.danger .icon { background: var(--error); color: #fff; }
 
+/* ---------- Grammar and writing ---------- */
+.gram-switch { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-1); padding: var(--space-1); max-width: 520px; border-radius: var(--radius); background: var(--surface-2, var(--line)); }
+.gram-switch .button { border-color: transparent; background: transparent; min-width: 0; padding: 8px 6px; }
+.gram-switch .button[aria-pressed="true"] { background: var(--surface); border-color: var(--primary); box-shadow: var(--shadow); }
+.gram-pane { margin-top: var(--space-4); max-width: 760px; }
+.gram-pane[hidden] { display: none; }
+.gram-tabs { display: flex; gap: var(--space-2); overflow-x: auto; scrollbar-width: none; margin-bottom: var(--space-3); }
+.gram-tabs::-webkit-scrollbar { display: none; }
+.chip-button { flex: none; min-height: 40px; padding: 0 16px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); color: var(--text); font: 600 .9rem/1 var(--font); cursor: pointer; }
+.chip-button[aria-pressed="true"] { background: var(--primary); border-color: var(--primary); color: var(--on-primary); }
+.gram-lessons, .gram-practice, .gram-novel { display: grid; gap: var(--space-3); }
+.gram-lessons[hidden], .gram-practice[hidden], .gram-novel[hidden] { display: none; }
+.gram-lesson { border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); box-shadow: var(--shadow); }
+.gram-lesson summary { display: flex; align-items: center; gap: var(--space-2); min-height: 52px; padding: 10px var(--space-4); font-weight: 700; cursor: pointer; list-style: none; }
+.gram-lesson summary::-webkit-details-marker { display: none; }
+.gram-lesson summary::after { content: "›"; margin-left: auto; font-size: 1.4rem; color: var(--muted); transition: transform .15s; }
+.gram-lesson[open] summary::after { transform: rotate(90deg); }
+.gram-num { flex: none; display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: var(--primary-soft); color: var(--accent-text); font-size: .85rem; }
+.gram-lesson-body { padding: 0 var(--space-4) var(--space-4); }
+.gram-lesson-body > p { margin: 0 0 var(--space-3); line-height: 1.6; }
+.gram-examples { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-2); }
+.gram-examples li { display: grid; grid-template-columns: 1fr auto; gap: 2px var(--space-2); align-items: center; padding: 10px 12px; border-radius: 10px; background: var(--surface-2, var(--bg)); }
+.gram-en { font: 1.05rem/1.45 Georgia, "Times New Roman", serif; }
+.gram-tr { grid-column: 1; color: var(--muted); font-size: .88rem; }
+.gram-examples .icon-button { grid-row: 1 / 3; grid-column: 2; }
+mark.gram-rel { background: var(--primary-soft); color: var(--accent-text); padding: 0 3px; border-radius: 4px; font-weight: 700; }
+.gram-sets { display: grid; gap: var(--space-2); }
+.gram-set { display: flex; align-items: center; gap: var(--space-3); width: 100%; padding: var(--space-3) var(--space-4); text-align: left; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); color: var(--text); font: inherit; cursor: pointer; box-shadow: var(--shadow); }
+.gram-set strong { display: block; }
+.gram-set span { color: var(--muted); font-size: .85rem; }
+.gram-set .gram-best { margin-left: auto; flex: none; font-weight: 700; color: var(--success); }
+.gram-card { display: grid; gap: var(--space-3); padding: var(--space-4); border-radius: var(--radius-l); background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow); }
+.gram-card-top { display: flex; align-items: center; gap: var(--space-2); color: var(--muted); font-size: .85rem; }
+.gram-card-top .gram-bar { flex: 1; height: 6px; border-radius: 6px; background: var(--line); overflow: hidden; }
+.gram-card-top .gram-bar span { display: block; height: 100%; background: var(--primary); }
+.gram-q { margin: 0; font: 600 1.25rem/1.45 Georgia, "Times New Roman", serif; }
+.gram-q .gap { display: inline-block; min-width: 3.2em; border-bottom: 2px solid var(--primary); color: var(--accent-text); text-align: center; }
+.gram-hint { margin: 0; color: var(--muted); font-size: .9rem; }
+.gram-options { display: grid; gap: var(--space-2); }
+.gram-option { min-height: 50px; padding: 10px 14px; text-align: left; border: 2px solid var(--line); border-radius: 12px; background: var(--surface); color: var(--text); font: 1rem/1.4 var(--font); cursor: pointer; }
+.gram-option.is-long { font-family: Georgia, "Times New Roman", serif; }
+.gram-option.is-right { border-color: var(--success); background: var(--success-soft); color: var(--success); font-weight: 700; }
+.gram-option.is-wrong { border-color: var(--error); background: var(--error-soft); color: var(--error); }
+.gram-option:disabled { cursor: default; }
+.gram-write-input { width: 100%; min-height: 96px; font: 1.05rem/1.5 Georgia, "Times New Roman", serif; }
+.gram-feedback { padding: 10px 14px; border-radius: 12px; font-size: .95rem; line-height: 1.5; }
+.gram-feedback.is-right { background: var(--success-soft); color: var(--success); }
+.gram-feedback.is-wrong { background: var(--error-soft); color: var(--error); }
+.gram-feedback p { margin: 0; }
+.gram-feedback .gram-model { margin-top: 6px; color: var(--text); font: 1rem/1.45 Georgia, serif; }
+.gram-feedback .gram-why { margin-top: 6px; color: var(--text); opacity: .85; }
+.gram-actions { display: flex; gap: var(--space-2); flex-wrap: wrap; }
+.gram-actions .button { flex: 1; min-height: 48px; }
+.gram-done { text-align: center; }
+.gram-done .gram-score { margin: 0; font: 800 2.4rem/1 var(--font); color: var(--accent-text); }
+.gram-quote { padding: var(--space-3) var(--space-4); border-radius: var(--radius); background: var(--surface); border: 1px solid var(--line); }
+.gram-quote p { margin: 0; font: 1.05rem/1.55 Georgia, "Times New Roman", serif; }
+.gram-quote .gram-tr-line { margin-top: 6px; font: .9rem/1.45 var(--font); color: var(--accent-text); background: var(--primary-soft); padding: 6px 10px; border-radius: 8px; }
+.gram-quote .gram-tr-line[hidden] { display: none; }
+.gram-quote-tools { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: 8px; align-items: center; color: var(--muted); font-size: .82rem; }
+.gram-quote-tools button { min-height: 32px; padding: 0 10px; border: 1px solid var(--line); border-radius: 999px; background: transparent; color: var(--accent-text); font: 600 .8rem/1 var(--font); cursor: pointer; }
+/* Stories */
+.story-list { display: grid; gap: var(--space-3); }
+.story-list[hidden], .story-editor[hidden] { display: none; }
+.story-new { justify-self: start; min-height: 50px; }
+.story-items { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-2); }
+.story-items button { display: grid; gap: 2px; width: 100%; padding: var(--space-3) var(--space-4); text-align: left; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); color: var(--text); font: inherit; cursor: pointer; }
+.story-items strong { font: 600 1.05rem/1.3 Georgia, serif; }
+.story-items span { color: var(--muted); font-size: .85rem; }
+.story-editor { display: grid; gap: var(--space-2); }
+.story-top { display: flex; align-items: center; gap: var(--space-2); }
+.story-top input { flex: 1; min-width: 0; min-height: var(--tap); font: 600 1.1rem/1.3 Georgia, serif; }
+.story-idea { margin: 0; font-size: .9rem; color: var(--muted); }
+#story-text { width: 100%; min-height: 40vh; font: 1.08rem/1.65 Georgia, "Times New Roman", serif; }
+.story-meta { display: flex; justify-content: space-between; color: var(--muted); font-size: .82rem; }
+.story-check { min-height: 52px; }
+.story-results { display: grid; gap: var(--space-3); margin-top: var(--space-2); }
+.story-summary { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2); justify-content: space-between; padding: 10px 14px; border-radius: 12px; background: var(--surface-2, var(--bg)); font-weight: 600; }
+.story-summary small { display: block; font-weight: 400; color: var(--muted); }
+.story-fix { display: grid; gap: 6px; padding: var(--space-3); border-radius: var(--radius); border: 1px solid var(--line); background: var(--surface); }
+.story-fix.is-done { opacity: .55; }
+.story-fix .story-old, .story-fix .story-new-line { margin: 0; font: 1rem/1.5 Georgia, "Times New Roman", serif; }
+.story-fix .story-label { font-size: .72rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: var(--muted); }
+.story-fix del { background: var(--error-soft); color: var(--error); text-decoration: line-through; border-radius: 3px; padding: 0 2px; }
+.story-fix ins { background: var(--success-soft); color: var(--success); text-decoration: none; font-weight: 700; border-radius: 3px; padding: 0 2px; }
+.story-fix .story-tip { margin: 0; padding: 6px 10px; border-radius: 8px; background: var(--primary-soft); color: var(--accent-text); font-size: .9rem; }
+.story-fix .gram-actions .button { flex: 0 1 auto; min-height: 40px; }
+.story-progress { margin: 0; color: var(--muted); }
+
 /* ---------- Teacher (AI) ---------- */
 body.tutor-focus .site-footer, body.speak-focus .site-footer { display: none; }
 body.tutor-focus main { padding-top: 0; }
@@ -647,6 +736,7 @@ body.novel-focus .novel-pop-base, body.novel-focus .novel-pop-sentence { color: 
   <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
   <symbol id="i-mic" viewBox="0 0 24 24"><path d="M12 3a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3zM5 11a7 7 0 0 0 14 0M12 18v3"/></symbol>
   <symbol id="i-mic-off" viewBox="0 0 24 24"><path d="M3 3l18 18M9 9v3a3 3 0 0 0 5.1 2.1M15 9.3V6a3 3 0 0 0-5.7-1.3M19 11a7 7 0 0 1-1.1 3.8M5 11a7 7 0 0 0 10.6 6M12 18v3"/></symbol>
+  <symbol id="i-pen" viewBox="0 0 24 24"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></symbol>
   <symbol id="i-keyboard" viewBox="0 0 24 24"><path d="M3 6h18v12H3zM7 10h.01M11 10h.01M15 10h.01M7 14h10"/></symbol>
   <symbol id="i-share" viewBox="0 0 24 24"><path d="M4 12v7a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7M16 6l-4-4-4 4M12 2v13"/></symbol>
   <symbol id="i-copy" viewBox="0 0 24 24"><path d="M9 9h11v11H9zM5 15H4V4h11v1"/></symbol>
@@ -667,6 +757,7 @@ body.novel-focus .novel-pop-base, body.novel-focus .novel-pop-sentence { color: 
     <a href="#home" data-route="home"><svg class="icon" aria-hidden="true"><use href="#i-home"/></svg><span data-i18n="nav.home">Home</span></a>
     <a href="#words" data-route="words"><svg class="icon" aria-hidden="true"><use href="#i-words"/></svg><span data-i18n="nav.words">Words</span></a>
     <a href="#phrases" data-route="phrases"><svg class="icon" aria-hidden="true"><use href="#i-chat"/></svg><span data-i18n="nav.phrases">Phrases</span></a>
+    <a href="#grammar" data-route="grammar"><svg class="icon" aria-hidden="true"><use href="#i-pen"/></svg><span data-i18n="nav.grammar">Grammar</span></a>
     <a href="#speak" data-route="speak"><svg class="icon" aria-hidden="true"><use href="#i-mic"/></svg><span data-i18n="nav.speak">Speaking</span></a>
     <a href="#quiz" data-route="quiz"><svg class="icon" aria-hidden="true"><use href="#i-quiz"/></svg><span data-i18n="nav.quiz">Quiz</span></a>
     <a href="#novel" data-route="novel"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg><span data-i18n="nav.novel">Novel</span></a>
@@ -721,6 +812,7 @@ body.novel-focus .novel-pop-base, body.novel-focus .novel-pop-sentence { color: 
       <li><a class="mode-card" href="#words"><svg class="icon" aria-hidden="true"><use href="#i-words"/></svg><div><strong data-i18n="nav.words">Words</strong><span data-i18n="mode.words">Search the list, open example sentences for each word type and mark words you know.</span></div></a></li>
       <li><a class="mode-card" href="#phrases"><svg class="icon" aria-hidden="true"><use href="#i-chat"/></svg><div><strong data-i18n="nav.phrases">Phrases</strong><span data-i18n="mode.phrases">40 everyday topics and 719 practical conversation patterns.</span></div></a></li>
       <li><a class="mode-card" href="#quiz"><svg class="icon" aria-hidden="true"><use href="#i-quiz"/></svg><div><strong data-i18n="nav.quiz">Quiz</strong><span data-i18n="mode.quiz">Multiple-choice and fill-in-the-blank questions.</span></div></a></li>
+      <li><a class="mode-card" href="#grammar"><svg class="icon" aria-hidden="true"><use href="#i-pen"/></svg><div><strong data-i18n="nav.grammar">Grammar</strong><span data-i18n="mode.grammar">Learn relative clauses and write short stories that get a grammar check.</span></div></a></li>
       <li><a class="mode-card" href="#speak"><svg class="icon" aria-hidden="true"><use href="#i-mic"/></svg><div><strong data-i18n="nav.speak">Speaking</strong><span data-i18n="mode.speak">Talk in English with a friend in a voice room, with topic cards to guide you.</span></div></a></li>
       <li><a class="mode-card" href="#novel"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg><div><strong data-i18n="nav.novel">Novel</strong><span data-i18n="mode.novel">Read an English novel and tap any word for its Turkish meaning.</span></div></a></li>
       <li><a class="mode-card" href="#reading"><svg class="icon" aria-hidden="true"><use href="#i-reading"/></svg><div><strong data-i18n="nav.reading">Reading</strong><span data-i18n="mode.reading">Short texts with questions and optional listening.</span></div></a></li>
@@ -934,6 +1026,48 @@ body.novel-focus .novel-pop-base, body.novel-focus .novel-pop-sentence { color: 
     </div>
   </section>
 
+  <!-- Grammar: relative clauses (lessons, practice, examples from the learner's novel) and story writing with a grammar check. -->
+  <section class="view" data-view="grammar" aria-labelledby="grammar-title">
+    <div class="view-head">
+      <h1 id="grammar-title" tabindex="-1" data-i18n="grammar.title">Grammar and writing</h1>
+      <p class="lead" data-i18n="grammar.lead">Learn relative clauses step by step, then write your own stories and have them checked.</p>
+    </div>
+    <div class="gram-switch js-only" role="group" aria-label="Section" data-i18n-aria="grammar.section">
+      <button type="button" class="button" data-gpane="rc" aria-pressed="true"><span data-i18n="grammar.rc">Relative clauses</span></button>
+      <button type="button" class="button" data-gpane="write" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="#i-pen"/></svg><span data-i18n="grammar.write">Write a story</span></button>
+    </div>
+    <div class="gram-pane js-only" id="gram-rc">
+      <div class="gram-tabs" role="group">
+        <button type="button" class="chip-button" data-gtab="lessons" aria-pressed="true" data-i18n="grammar.lessons">Lessons</button>
+        <button type="button" class="chip-button" data-gtab="practice" aria-pressed="false" data-i18n="grammar.practice">Practice</button>
+        <button type="button" class="chip-button" data-gtab="novel" aria-pressed="false" data-i18n="grammar.fromNovel">From your novel</button>
+      </div>
+      <div class="gram-lessons" id="gram-lessons"></div>
+      <div class="gram-practice" id="gram-practice" hidden></div>
+      <div class="gram-novel" id="gram-novel" hidden></div>
+    </div>
+    <div class="gram-pane js-only" id="gram-write" hidden>
+      <div class="story-list" id="story-list">
+        <button type="button" class="button primary story-new" id="story-new"><svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg><span data-i18n="story.new">New story</span></button>
+        <ul class="story-items" id="story-items"></ul>
+      </div>
+      <div class="story-editor" id="story-editor" hidden>
+        <div class="story-top">
+          <button type="button" class="novel-icon" id="story-back" aria-label="Stories" data-i18n-aria="story.back"><svg class="icon" aria-hidden="true"><use href="#i-prev"/></svg></button>
+          <label class="visually-hidden" for="story-title" data-i18n="story.titleLabel">Title</label>
+          <input id="story-title" type="text" lang="en" autocomplete="off" placeholder="Title" data-i18n-placeholder="story.titlePh">
+          <button type="button" class="novel-icon" id="story-delete" aria-label="Delete the story" data-i18n-aria="story.delete"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
+        </div>
+        <p class="story-idea"><button type="button" class="link-button" id="story-idea" data-i18n="story.idea">Give me an idea</button> <span id="story-idea-text" lang="en"></span></p>
+        <label class="visually-hidden" for="story-text" data-i18n="story.textLabel">Your story</label>
+        <textarea id="story-text" lang="en" spellcheck="true" rows="12" placeholder="Once upon a time…" data-i18n-placeholder="story.textPh"></textarea>
+        <div class="story-meta"><span id="story-count"></span><span id="story-saved"></span></div>
+        <button type="button" class="button primary story-check" id="story-check"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="story.check">Check my grammar</span></button>
+        <div class="story-results" id="story-results" aria-live="polite"></div>
+      </div>
+    </div>
+  </section>
+
   <!-- Speaking room: two people talk over the internet (PeerJS / WebRTC) with shared topic cards. -->
   <section class="view" data-view="speak" aria-labelledby="speak-title">
     <div class="view-head">
@@ -1135,6 +1269,8 @@ body.novel-focus .novel-pop-base, body.novel-focus .novel-pop-sentence { color: 
 <script type="text/plain" id="pdfjs-worker-src"><!--@PDFJS_WORKER@--></script>
 <!-- PeerJS 1.5.4 (MIT), loaded only when a speaking room opens. -->
 <script type="text/plain" id="peerjs-src"><!--@PEERJS_LIB@--></script>
+<!-- Relative clause lessons and exercises (source: tools/grammar/relative_clauses.json). -->
+<script type="application/json" id="grammar-data"><!--@GRAMMAR_DATA@--></script>
 <!-- Speaking room topic cards (source: tools/speaking/topics.json). -->
 <script type="application/json" id="speak-topics"><!--@SPEAK_TOPICS@--></script>
 
@@ -1265,6 +1401,22 @@ const STRINGS = {
     'tutor.micDenied': 'The microphone is blocked. Allow it for this site in the browser settings.', 'tutor.noRecognition': 'This browser cannot turn speech into text; type your answer instead (Chrome or Safari can).',
     'tutor.err.tooMany': 'Slow down a little 🙂 Too many messages in a minute; wait a moment.', 'tutor.err.limit': 'The free daily limit is used up. Try again a bit later.',
     'tutor.err.network': 'No connection to the lesson server. Check the internet.', 'tutor.err.server': 'The teacher could not answer. Try again.',
+    'nav.grammar': 'Grammar', 'mode.grammar': 'Learn relative clauses and write short stories that get a grammar check.',
+    'grammar.title': 'Grammar and writing', 'grammar.lead': 'Learn relative clauses step by step, then write your own stories and have them checked.',
+    'grammar.section': 'Section', 'grammar.rc': 'Relative clauses', 'grammar.write': 'Write a story', 'grammar.lessons': 'Lessons', 'grammar.practice': 'Practice', 'grammar.fromNovel': 'From your novel',
+    'grammar.questions': '{n} questions', 'grammar.allSets': 'All sets', 'grammar.writePh': 'Write one sentence…', 'grammar.none': '(nothing – leave it out)', 'grammar.check': 'Check',
+    'grammar.right': 'Correct!', 'grammar.wrong': 'Not quite. The right answer:', 'grammar.next': 'Next', 'grammar.finish': 'See my score', 'grammar.retry': 'Try again',
+    'grammar.perfect': 'Perfect! You know this well.', 'grammar.good': 'Well done! Look at the ones you missed once more.', 'grammar.again': 'Read the lessons again and try once more.',
+    'grammar.noBook': 'Open a book in the Novel tab first; its relative clauses will be listed here.', 'grammar.novelIntro': '{n} relative clauses found in {book}. The relative words are marked.',
+    'grammar.openPage': 'Open page {n}', 'grammar.more': 'Show more',
+    'story.new': 'New story', 'story.back': 'Stories', 'story.titleLabel': 'Title', 'story.titlePh': 'Title', 'story.delete': 'Delete the story', 'story.idea': 'Give me an idea',
+    'story.textLabel': 'Your story', 'story.textPh': 'Once upon a time…', 'story.check': 'Check my grammar', 'story.untitled': 'Untitled story', 'story.info': '{n} words · {date}',
+    'story.confirmDelete': 'Delete this story?', 'story.words': '{n} words', 'story.saved': 'Saved', 'story.tooShort': 'Write a few sentences first.',
+    'story.checking': 'Checking…', 'story.checkingN': 'The teacher is reading… ({i}/{n})', 'story.failed': 'The check did not work. Try again later.',
+    'story.teacherNote': 'Checked by Ms. Emma (Google Gemini).', 'story.ltNote': 'The teacher was not available; checked by LanguageTool (spelling and simpler grammar only).',
+    'story.ltQuota': 'The teacher\'s free daily limit is used up; checked by LanguageTool (spelling and simpler grammar only).',
+    'story.found': '{n} corrections', 'story.clean': 'No mistakes found 🎉', 'story.applyAll': 'Apply all', 'story.yours': 'You wrote', 'story.apply': 'Apply', 'story.skip': 'Ignore',
+    'story.notFound': 'That part of the story has changed; check again.',
     'update.text': 'A new version of the app is ready.', 'update.reload': 'Reload',
     'nav.speak': 'Speaking', 'mode.speak': 'Talk in English with a friend in a voice room, with topic cards to guide you.',
     'speak.title': 'Speaking room', 'speak.lead': 'Talk in English with a friend: open a room, send them the link and use the topic cards together.',
@@ -1388,6 +1540,22 @@ const STRINGS = {
     'tutor.micDenied': 'Mikrofon izni kapalı. Tarayıcı ayarlarından bu siteye mikrofon izni ver.', 'tutor.noRecognition': 'Bu tarayıcı konuşmayı yazıya çeviremiyor; cevabını yazarak ver (Chrome ya da Safari çevirebilir).',
     'tutor.err.tooMany': 'Biraz yavaşla 🙂 Bir dakikada çok mesaj gönderdin, biraz bekle.', 'tutor.err.limit': 'Günlük ücretsiz kullanım doldu. Biraz sonra tekrar dene.',
     'tutor.err.network': 'Ders sunucusuna ulaşılamadı. İnternet bağlantını kontrol et.', 'tutor.err.server': 'Hoca cevap veremedi. Tekrar dene.',
+    'nav.grammar': 'Gramer', 'mode.grammar': 'Relative clause öğren, kısa hikâyeler yaz ve dilbilgisini denetlet.',
+    'grammar.title': 'Gramer ve yazma', 'grammar.lead': 'Relative clause yapısını adım adım öğren, sonra kendi hikâyelerini yaz ve denetlet.',
+    'grammar.section': 'Bölüm', 'grammar.rc': 'Relative clauses', 'grammar.write': 'Hikâye yaz', 'grammar.lessons': 'Konu anlatımı', 'grammar.practice': 'Alıştırmalar', 'grammar.fromNovel': 'Romanından örnekler',
+    'grammar.questions': '{n} soru', 'grammar.allSets': 'Tüm setler', 'grammar.writePh': 'Tek bir cümle yaz…', 'grammar.none': '(hiçbiri – boş bırak)', 'grammar.check': 'Kontrol et',
+    'grammar.right': 'Doğru!', 'grammar.wrong': 'Olmadı. Doğrusu:', 'grammar.next': 'Sonraki', 'grammar.finish': 'Sonucu gör', 'grammar.retry': 'Tekrar çöz',
+    'grammar.perfect': 'Mükemmel! Bu konuyu iyi biliyorsun.', 'grammar.good': 'Aferin! Yanlışlarına bir kez daha göz at.', 'grammar.again': 'Konu anlatımını tekrar oku ve bir daha dene.',
+    'grammar.noBook': 'Önce Roman sekmesinden bir kitap aç; içindeki relative clause cümleleri burada listelenecek.', 'grammar.novelIntro': '{book} içinde {n} relative clause bulundu. Bağlaçlar işaretli.',
+    'grammar.openPage': 'Sayfa {n}’de aç', 'grammar.more': 'Daha fazla göster',
+    'story.new': 'Yeni hikâye', 'story.back': 'Hikâyeler', 'story.titleLabel': 'Başlık', 'story.titlePh': 'Başlık', 'story.delete': 'Hikâyeyi sil', 'story.idea': 'Bana bir konu öner',
+    'story.textLabel': 'Hikâyen', 'story.textPh': 'Once upon a time…', 'story.check': 'Dilbilgisini denetle', 'story.untitled': 'Başlıksız hikâye', 'story.info': '{n} kelime · {date}',
+    'story.confirmDelete': 'Bu hikâye silinsin mi?', 'story.words': '{n} kelime', 'story.saved': 'Kaydedildi', 'story.tooShort': 'Önce birkaç cümle yaz.',
+    'story.checking': 'Denetleniyor…', 'story.checkingN': 'Hoca okuyor… ({i}/{n})', 'story.failed': 'Denetim yapılamadı. Biraz sonra tekrar dene.',
+    'story.teacherNote': 'Ms. Emma denetledi (Google Gemini).', 'story.ltNote': 'Hocaya ulaşılamadı; LanguageTool denetledi (yalnızca yazım ve basit dilbilgisi).',
+    'story.ltQuota': 'Hocanın günlük ücretsiz kotası doldu; LanguageTool denetledi (yalnızca yazım ve basit dilbilgisi).',
+    'story.found': '{n} düzeltme', 'story.clean': 'Hata bulunamadı 🎉', 'story.applyAll': 'Hepsini uygula', 'story.yours': 'Senin cümlen', 'story.apply': 'Uygula', 'story.skip': 'Yok say',
+    'story.notFound': 'Hikâyenin o kısmı değişmiş; tekrar denetle.',
     'update.text': 'Uygulamanın yeni sürümü hazır.', 'update.reload': 'Yenile',
     'nav.speak': 'Konuşma', 'mode.speak': 'Bir arkadaşınla sesli odada İngilizce konuş; konu kartları sana yol göstersin.',
     'speak.title': 'Konuşma odası', 'speak.lead': 'Bir arkadaşınla İngilizce konuş: oda aç, linki gönder, konu kartlarını birlikte kullanın.',
@@ -2032,7 +2200,7 @@ function relabelCards() {
 }
 
 /* ---------- 7i. Navigation ---------- */
-const ROUTES = ['home', 'words', 'phrases', 'speak', 'novel', 'quiz', 'reading', 'settings'];
+const ROUTES = ['home', 'words', 'phrases', 'grammar', 'speak', 'novel', 'quiz', 'reading', 'settings'];
 const Router = {
   current: null,
   /* Non-route hashes (e.g. the skip link's #main) keep the current view. */
@@ -4132,7 +4300,468 @@ const Tutor = {
   }
 };
 
-const MODULES = { home: Home, words: Words, phrases: Phrases, speak: Speak, novel: Novel, quiz: Quiz, reading: Reading, settings: Settings };
+/* ---------- Grammar: relative clauses ---------- */
+const Grammar = {
+  KEY: 'english-study-grammar.v1',
+  REL: /\b(who|whom|whose|which|that|where|when|why)\b/gi,
+  data: null,
+  best: {},
+  run: null,
+  init() {
+    this.data = readJsonScript('grammar-data') || { lessons: [], sets: [] };
+    try { this.best = JSON.parse(Store.read(this.KEY) || '{}').best || {}; } catch (_) { this.best = {}; }
+    for (const button of $$('[data-gpane]')) button.addEventListener('click', () => this.pane(button.dataset.gpane));
+    for (const button of $$('[data-gtab]')) button.addEventListener('click', () => this.tab(button.dataset.gtab));
+    $('#gram-lessons').addEventListener('click', event => {
+      const button = event.target.closest('[data-say]');
+      if (button) this.say(button.dataset.say);
+    });
+    $('#gram-practice').addEventListener('click', event => this.practiceClick(event));
+    $('#gram-novel').addEventListener('click', event => this.novelClick(event));
+    this.renderLessons();
+  },
+  onShow() { if (!$('#gram-practice').hidden && !this.run) this.renderSets(); },
+  say(text) { if (Speech.hasTTS) Speech.speakNow(text); else Speech.speak(text); },
+  pane(name) {
+    for (const button of $$('[data-gpane]')) button.setAttribute('aria-pressed', String(button.dataset.gpane === name));
+    $('#gram-rc').hidden = name !== 'rc';
+    $('#gram-write').hidden = name !== 'write';
+    if (name === 'write') Writer.show();
+  },
+  tab(name) {
+    for (const button of $$('[data-gtab]')) button.setAttribute('aria-pressed', String(button.dataset.gtab === name));
+    $('#gram-lessons').hidden = name !== 'lessons';
+    $('#gram-practice').hidden = name !== 'practice';
+    $('#gram-novel').hidden = name !== 'novel';
+    if (name === 'practice' && !this.run) this.renderSets();
+    if (name === 'novel') this.renderNovel();
+  },
+  /* An English sentence with its relative words marked (not a capital "That" opening it). */
+  marked(text) {
+    const node = h('span', { class: 'gram-en', lang: 'en' });
+    let last = 0;
+    for (const match of text.matchAll(this.REL)) {
+      if (match.index === 0) continue;
+      node.append(text.slice(last, match.index), h('mark', { class: 'gram-rel', text: match[0] }));
+      last = match.index + match[0].length;
+    }
+    node.append(text.slice(last));
+    return node;
+  },
+  renderLessons() {
+    $('#gram-lessons').replaceChildren(...this.data.lessons.map((lesson, index) =>
+      h('details', { class: 'gram-lesson', open: index === 0 ? true : null },
+        h('summary', {}, h('span', { class: 'gram-num', text: index + 1 }), h('span', { text: lesson.title })),
+        h('div', { class: 'gram-lesson-body' },
+          h('p', { lang: 'tr', text: lesson.text }),
+          h('ul', { class: 'gram-examples' }, lesson.examples.map(([en, tr]) => h('li', {},
+            this.marked(en),
+            h('span', { class: 'gram-tr', lang: 'tr', text: tr }),
+            h('button', { type: 'button', class: 'icon-button', 'data-say': en.replace(/\//g, ' or '), 'aria-label': t('tutor.listen') }, icon('sound')))))))));
+  },
+  /* ---- Practice sets */
+  renderSets() {
+    this.run = null;
+    $('#gram-practice').replaceChildren(h('div', { class: 'gram-sets' }, this.data.sets.map(set => {
+      const best = this.best[set.id];
+      return h('button', { type: 'button', class: 'gram-set', 'data-set': set.id },
+        h('div', {}, h('strong', { text: set.title }), h('span', { text: t('grammar.questions', { n: set.items.length }) })),
+        best != null ? h('span', { class: 'gram-best', text: best + '/' + set.items.length }) : null);
+    })));
+  },
+  start(id) {
+    const set = this.data.sets.find(s => s.id === id);
+    if (!set) return;
+    this.run = { set, items: shuffle(set.items.slice()), at: 0, score: 0, answered: false };
+    this.renderQuestion();
+  },
+  renderQuestion() {
+    const run = this.run;
+    const item = run.items[run.at];
+    const write = run.set.type === 'write';
+    const question = h('p', { class: 'gram-q', lang: 'en' });
+    const parts = item.q.split('___');
+    question.append(parts[0]);
+    if (parts.length > 1) question.append(h('span', { class: 'gap', text: '…' }), parts[1]);
+    const card = h('div', { class: 'gram-card' },
+      h('div', { class: 'gram-card-top' }, h('span', { text: (run.at + 1) + ' / ' + run.items.length }),
+        h('span', { class: 'gram-bar' }, h('span', { style: 'width:' + Math.round(run.at / run.items.length * 100) + '%' })),
+        h('button', { type: 'button', class: 'link-button', 'data-act': 'sets', text: t('grammar.allSets') })),
+      h('p', { class: 'gram-hint', text: run.set.hint }),
+      question,
+      write
+        ? h('textarea', { class: 'gram-write-input', id: 'gram-answer', lang: 'en', rows: 3, spellcheck: 'false', placeholder: t('grammar.writePh') })
+        : h('div', { class: 'gram-options' }, shuffle(item.options.slice()).map(option =>
+          h('button', { type: 'button', class: 'gram-option' + (option.length > 25 ? ' is-long' : ''), 'data-option': option, lang: option === '–' ? null : 'en', text: option === '–' ? t('grammar.none') : option }))),
+      h('div', { class: 'gram-feedback-slot' }),
+      h('div', { class: 'gram-actions' }, write ? h('button', { type: 'button', class: 'button primary', 'data-act': 'check', text: t('grammar.check') }) : null));
+    $('#gram-practice').replaceChildren(card);
+    run.answered = false;
+  },
+  /* Answers compared without case, punctuation and extra spaces; "that is" = "that's". */
+  normal(text) {
+    return text.toLowerCase().replace(/[’']s\b/g, ' is').replace(/n[’']t\b/g, ' not').replace(/[^a-z0-9 ]+/g, ' ').replace(/\s+/g, ' ').trim();
+  },
+  answer(choice) {
+    const run = this.run;
+    if (!run || run.answered) return;
+    const item = run.items[run.at];
+    const write = run.set.type === 'write';
+    const right = write ? item.answers.some(a => this.normal(a) === this.normal(choice)) : choice === item.answer;
+    run.answered = true;
+    if (right) run.score++;
+    if (!write) {
+      for (const button of $$('#gram-practice .gram-option')) {
+        button.disabled = true;
+        if (button.dataset.option === item.answer) button.classList.add('is-right');
+        else if (button.dataset.option === choice) button.classList.add('is-wrong');
+      }
+      const gap = $('#gram-practice .gap');
+      if (gap) gap.textContent = item.answer === '–' ? '∅' : item.answer;
+    } else $('#gram-answer').readOnly = true;
+    const model = write ? item.answers[0] : (item.q.includes('___') ? item.q.replace('___', item.answer === '–' ? '' : item.answer).replace(/\s+/g, ' ') : null);
+    $('#gram-practice .gram-feedback-slot').replaceChildren(h('div', { class: 'gram-feedback ' + (right ? 'is-right' : 'is-wrong') },
+      h('p', { text: t(right ? 'grammar.right' : 'grammar.wrong') }),
+      model ? h('p', { class: 'gram-model', lang: 'en', text: model }) : null,
+      h('p', { class: 'gram-why', lang: 'tr', text: item.why })));
+    const last = run.at === run.items.length - 1;
+    $('#gram-practice .gram-actions').replaceChildren(
+      model ? h('button', { type: 'button', class: 'button', 'data-say': model }, icon('sound'), h('span', { text: t('tutor.listen') })) : null,
+      h('button', { type: 'button', class: 'button primary', 'data-act': 'next', text: t(last ? 'grammar.finish' : 'grammar.next') }));
+  },
+  finish() {
+    const run = this.run;
+    const total = run.items.length;
+    if (this.best[run.set.id] == null || run.score > this.best[run.set.id]) this.best[run.set.id] = run.score;
+    Store.write(this.KEY, JSON.stringify({ best: this.best }));
+    $('#gram-practice').replaceChildren(h('div', { class: 'gram-card gram-done' },
+      h('p', { class: 'gram-score', text: run.score + ' / ' + total }),
+      h('p', { text: t(run.score === total ? 'grammar.perfect' : run.score >= total * 0.7 ? 'grammar.good' : 'grammar.again') }),
+      h('div', { class: 'gram-actions' },
+        h('button', { type: 'button', class: 'button', 'data-act': 'sets', text: t('grammar.allSets') }),
+        h('button', { type: 'button', class: 'button primary', 'data-set': run.set.id, text: t('grammar.retry') }))));
+    this.run = null;
+  },
+  practiceClick(event) {
+    const target = event.target.closest('button');
+    if (!target) return;
+    if (target.dataset.set) this.start(target.dataset.set);
+    else if (target.dataset.option) this.answer(target.dataset.option);
+    else if (target.dataset.say) this.say(target.dataset.say);
+    else if (target.dataset.act === 'check') { const value = $('#gram-answer').value.trim(); if (value) this.answer(value); }
+    else if (target.dataset.act === 'next') { if (this.run.at === this.run.items.length - 1) this.finish(); else { this.run.at++; this.renderQuestion(); } }
+    else if (target.dataset.act === 'sets') this.renderSets();
+  },
+  /* ---- Relative clauses in the novel the learner is reading */
+  async renderNovel() {
+    const box = $('#gram-novel');
+    if (!this.found) {
+      box.replaceChildren(h('p', { class: 'hint', text: t('novel.loadingPage') }));
+      const stored = Novel.book ? null : await BookStore.get();
+      const pages = Novel.book ? Novel.book.pages : (stored && Array.isArray(stored.pages) ? Novel.storyPages(stored.pages) : null);
+      const name = Novel.book ? Novel.bookTitle : (stored ? stored.title || stored.name.replace(/^.*\//, '').replace(/\.pdf$/i, '') : '');
+      if (!pages) { box.replaceChildren(h('p', { class: 'hint', text: t('grammar.noBook') })); return; }
+      const found = [];
+      pages.forEach((paragraphs, page) => {
+        for (const paragraph of paragraphs) {
+          if (paragraph.startsWith('⁡')) continue;
+          for (const sentence of Novel.sentences(paragraph.replace(/^⁠/, ''))) {
+            /* who / whom / whose / which in the middle of a statement: almost always a relative clause. */
+            if (/\?["”’]?$/.test(sentence) || sentence.length < 25 || sentence.length > 220) continue;
+            if (/\S\s+(who|whom|whose|which)\b/i.test(sentence) && !/^(who|whom|whose|which)\b/i.test(sentence)) found.push({ sentence, page });
+          }
+        }
+      });
+      this.found = { name, list: shuffle(found) };
+    }
+    const { name, list } = this.found;
+    if (!list.length) { box.replaceChildren(h('p', { class: 'hint', text: t('grammar.noBook') })); return; }
+    this.shown = this.shown || 8;
+    box.replaceChildren(
+      h('p', { class: 'hint', text: t('grammar.novelIntro', { book: name, n: list.length }) }),
+      ...list.slice(0, this.shown).map(({ sentence, page }) => h('div', { class: 'gram-quote', 'data-page': page, 'data-en': sentence },
+        h('p', {}, this.marked(sentence)),
+        h('p', { class: 'gram-tr-line', lang: 'tr', hidden: true }),
+        h('div', { class: 'gram-quote-tools' },
+          h('button', { type: 'button', 'data-act': 'say', text: t('tutor.listen') }),
+          h('button', { type: 'button', 'data-act': 'tr', text: t('tutor.turkish') }),
+          h('button', { type: 'button', 'data-act': 'open', text: t('grammar.openPage', { n: page + 1 }) })))),
+      list.length > this.shown ? h('button', { type: 'button', class: 'button', 'data-act': 'more', text: t('grammar.more') }) : null);
+  },
+  async novelClick(event) {
+    const button = event.target.closest('button');
+    if (!button) return;
+    if (button.dataset.act === 'more') { this.shown += 8; this.renderNovel(); return; }
+    const quote = button.closest('.gram-quote');
+    if (!quote) return;
+    if (button.dataset.act === 'say') this.say(quote.dataset.en);
+    if (button.dataset.act === 'open') {
+      location.hash = '#novel';
+      const page = Number(quote.dataset.page);
+      setTimeout(() => { if (Novel.book) Novel.go(page, true); else Novel.restored = false; }, 50);
+    }
+    if (button.dataset.act === 'tr') {
+      const line = quote.querySelector('.gram-tr-line');
+      if (!line.hidden) { line.hidden = true; return; }
+      line.hidden = false;
+      line.textContent = t('novel.trLoading');
+      try { line.textContent = await Novel.translate(quote.dataset.en); } catch (_) { line.textContent = t('novel.trBusy'); }
+    }
+  }
+};
+
+/* ---------- Writing: short stories with a grammar check ----------
+   Stories stay in this browser. "Check" sends the story in short pieces to
+   Ms. Emma's server (Google Gemini, see Tutor): it returns each piece
+   corrected, with a Turkish tip. When that server cannot answer (daily free
+   quota, no connection) the free LanguageTool service checks the text. */
+const Writer = {
+  KEY: 'english-study-stories.v1',
+  IDEAS: [
+    'Write about a person who changed your life.',
+    'Describe a place where you feel happy.',
+    'Tell the story of a day when everything went wrong.',
+    'Write about a present that someone gave you.',
+    'A stranger, whose bag looked heavy, sat next to you on the bus…',
+    'Describe a film which you will never forget.',
+    'Write about the town where you grew up.',
+    'Tell the story of a friend who always makes you laugh.'
+  ],
+  stories: [],
+  current: null,
+  init() {
+    try { this.stories = JSON.parse(Store.read(this.KEY) || '[]'); } catch (_) { this.stories = []; }
+    if (!Array.isArray(this.stories)) this.stories = [];
+    $('#story-new').addEventListener('click', () => this.open(null));
+    $('#story-items').addEventListener('click', event => { const button = event.target.closest('[data-story]'); if (button) this.open(button.dataset.story); });
+    $('#story-back').addEventListener('click', () => this.list());
+    $('#story-delete').addEventListener('click', () => this.remove());
+    $('#story-idea').addEventListener('click', () => {
+      this.idea = ((this.idea ?? -1) + 1) % this.IDEAS.length;
+      $('#story-idea-text').textContent = this.IDEAS[this.idea];
+    });
+    for (const id of ['#story-title', '#story-text']) $(id).addEventListener('input', () => this.changed());
+    $('#story-check').addEventListener('click', () => this.check());
+    $('#story-results').addEventListener('click', event => this.resultClick(event));
+  },
+  show() { if ($('#story-editor').hidden) this.list(); },
+  save() { Store.write(this.KEY, JSON.stringify(this.stories)); },
+  words(text) { return (text.match(/[A-Za-z’']+/g) || []).length; },
+  list() {
+    $('#story-editor').hidden = true;
+    $('#story-list').hidden = false;
+    this.current = null;
+    const sorted = this.stories.slice().sort((a, b) => b.updated - a.updated);
+    $('#story-items').replaceChildren(...sorted.map(story => h('li', {}, h('button', { type: 'button', 'data-story': story.id },
+      h('strong', { lang: 'en', text: story.title || t('story.untitled') }),
+      h('span', { text: t('story.info', { n: this.words(story.text), date: new Date(story.updated).toLocaleDateString(lang === 'tr' ? 'tr-TR' : 'en-GB') }) })))));
+  },
+  open(id) {
+    let story = this.stories.find(s => s.id === id);
+    if (!story) {
+      story = { id: 's' + Date.now().toString(36), title: '', text: '', updated: Date.now() };
+      this.stories.push(story);
+    }
+    this.current = story;
+    $('#story-list').hidden = true;
+    $('#story-editor').hidden = false;
+    $('#story-title').value = story.title;
+    $('#story-text').value = story.text;
+    $('#story-results').replaceChildren();
+    $('#story-idea-text').textContent = '';
+    this.meta(false);
+    if (!story.text) $('#story-text').focus();
+  },
+  remove() {
+    if (!this.current) return;
+    if (this.current.text.trim() && !confirm(t('story.confirmDelete'))) return;
+    this.stories = this.stories.filter(s => s !== this.current);
+    this.save();
+    this.list();
+  },
+  changed() {
+    if (!this.current) return;
+    this.current.title = $('#story-title').value;
+    this.current.text = $('#story-text').value;
+    this.current.updated = Date.now();
+    clearTimeout(this.timer);
+    this.timer = setTimeout(() => { this.save(); this.meta(true); }, 500);
+    this.meta(false);
+  },
+  meta(saved) {
+    $('#story-count').textContent = t('story.words', { n: this.words($('#story-text').value) });
+    $('#story-saved').textContent = saved ? t('story.saved') : '';
+  },
+  /* Sentences with their place in the text, so a fix can be put back. */
+  sentences(text) {
+    const out = [];
+    const re = /[^.!?\n]+(?:[.!?]+["”’)]*|(?=\n)|$)/g;
+    let m;
+    while ((m = re.exec(text))) {
+      if (!m[0].trim()) { if (re.lastIndex === m.index) re.lastIndex++; continue; }
+      const lead = m[0].length - m[0].trimStart().length;
+      out.push({ text: m[0].trim(), start: m.index + lead });
+    }
+    return out;
+  },
+  async check() {
+    const story = this.current;
+    const text = $('#story-text').value;
+    if (!story || this.words(text) < 3) { Toast.show(t('story.tooShort')); return; }
+    const results = $('#story-results');
+    const button = $('#story-check');
+    button.disabled = true;
+    const progress = h('p', { class: 'story-progress', text: t('story.checking') });
+    results.replaceChildren(progress);
+    let fixes = null, source = 'teacher', problem = '';
+    try { fixes = await this.teacherFixes(text, (done, total) => { progress.textContent = t('story.checkingN', { i: done, n: total }); }); }
+    catch (err) { problem = err.message; }
+    if (!fixes) {
+      source = 'lt';
+      try { fixes = await this.toolFixes(text); }
+      catch (err) { button.disabled = false; results.replaceChildren(h('p', { class: 'error-text', text: t(err.message === 'offline' ? 'tutor.err.network' : 'story.failed') })); return; }
+    }
+    button.disabled = false;
+    if (this.current !== story) return;
+    this.fixes = fixes;
+    this.renderFixes(source, problem);
+  },
+  /* Ms. Emma's server: pieces of about 300 characters (it takes up to 400). */
+  async teacherFixes(text, onProgress) {
+    const sentences = this.sentences(text);
+    const chunks = [];
+    for (const sentence of sentences) {
+      const last = chunks[chunks.length - 1];
+      if (last && last.text.length + sentence.text.length < 300) last.parts.push(sentence), last.text += ' ' + sentence.text;
+      else chunks.push({ parts: [sentence], text: sentence.text.slice(0, 390) });
+    }
+    const fixes = [];
+    for (let i = 0; i < chunks.length; i++) {
+      onProgress(i + 1, chunks.length);
+      const data = await this.ask(chunks[i].text);
+      if (!data.correction || this.normal(data.correction) === this.normal(chunks[i].text)) continue;
+      const fixed = this.sentences(data.correction).map(s => s.text);
+      const parts = chunks[i].parts;
+      if (fixed.length === parts.length) {
+        let tipShown = false;
+        parts.forEach((part, k) => {
+          if (this.normal(part.text) === this.normal(fixed[k])) return;
+          fixes.push({ from: part.text, to: fixed[k], start: part.start, tip: tipShown ? '' : data.tip });
+          tipShown = true;
+        });
+      } else {
+        const first = parts[0], end = parts[parts.length - 1];
+        fixes.push({ from: text.slice(first.start, end.start + end.text.length), to: data.correction, start: first.start, tip: data.tip });
+      }
+    }
+    return fixes;
+  },
+  normal(text) { return text.toLowerCase().replace(/[^a-z0-9']+/g, ' ').trim(); },
+  async ask(message, tries = 0) {
+    let response;
+    try {
+      response = await fetch(Tutor.API + '/api/chat', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ scenario: 'free', level: Tutor.settings.level, history: [], review: [], message })
+      });
+    } catch (_) { throw new Error(navigator.onLine === false ? 'offline' : 'server'); }
+    const data = await response.json().catch(() => ({}));
+    /* The server allows 12 messages a minute: wait and try again. */
+    if (data.error === 'too_many' && tries < 3) { await new Promise(r => setTimeout(r, 8000)); return this.ask(message, tries + 1); }
+    if (!response.ok || !data.reply) throw new Error(data.error || 'server');
+    return data;
+  },
+  /* LanguageTool's free service (spelling and simpler grammar). */
+  async toolFixes(text) {
+    let response;
+    try {
+      response = await fetch('https://api.languagetool.org/v2/check', { method: 'POST', body: new URLSearchParams({ text: text.slice(0, 18000), language: 'en-US' }) });
+    } catch (_) { throw new Error(navigator.onLine === false ? 'offline' : 'server'); }
+    if (!response.ok) throw new Error('server');
+    const data = await response.json();
+    return (data.matches || []).filter(m => m.replacements && m.replacements.length).map(m => ({
+      from: text.substr(m.offset, m.length), to: m.replacements[0].value, start: m.offset, note: m.message,
+      context: { before: text.slice(Math.max(0, m.offset - 30), m.offset), after: text.slice(m.offset + m.length, m.offset + m.length + 30) }
+    }));
+  },
+  /* Word-by-word difference: removed words struck through, new words in green. */
+  diff(a, b) {
+    const x = a.split(/(\s+)/).filter(Boolean), y = b.split(/(\s+)/).filter(Boolean);
+    const table = Array.from({ length: x.length + 1 }, () => new Array(y.length + 1).fill(0));
+    for (let i = x.length - 1; i >= 0; i--) for (let j = y.length - 1; j >= 0; j--) table[i][j] = x[i] === y[j] ? table[i + 1][j + 1] + 1 : Math.max(table[i + 1][j], table[i][j + 1]);
+    const old = h('p', { class: 'story-old', lang: 'en' }), neu = h('p', { class: 'story-new-line', lang: 'en' });
+    let i = 0, j = 0;
+    while (i < x.length || j < y.length) {
+      if (i < x.length && j < y.length && x[i] === y[j]) { old.append(x[i]); neu.append(y[j]); i++; j++; }
+      else if (j < y.length && (i >= x.length || table[i][j + 1] >= table[i + 1][j])) { if (/\S/.test(y[j])) neu.append(h('ins', { text: y[j] })); else neu.append(y[j]); j++; }
+      else { if (/\S/.test(x[i])) old.append(h('del', { text: x[i] })); else old.append(x[i]); i++; }
+    }
+    return [old, neu];
+  },
+  renderFixes(source, problem) {
+    const fixes = this.fixes;
+    const note = source === 'lt' ? t(problem === 'rate_limited' ? 'story.ltQuota' : 'story.ltNote') : t('story.teacherNote');
+    const summary = h('div', { class: 'story-summary' },
+      h('div', {}, h('span', { text: fixes.length ? t('story.found', { n: fixes.length }) : t('story.clean') }), h('small', { text: note })),
+      fixes.length > 1 ? h('button', { type: 'button', class: 'button small primary', 'data-act': 'all', text: t('story.applyAll') }) : null);
+    $('#story-results').replaceChildren(summary, ...fixes.map((fix, index) => {
+      const card = h('div', { class: 'story-fix', 'data-fix': index });
+      if (fix.context) {
+        card.append(h('p', { class: 'story-old', lang: 'en' }, '…' + fix.context.before, h('del', { text: fix.from }), fix.context.after + '…'),
+          h('p', { class: 'story-new-line', lang: 'en' }, h('ins', { text: fix.to })),
+          h('p', { class: 'story-tip', lang: 'en', text: fix.note }));
+      } else {
+        const [old, neu] = this.diff(fix.from, fix.to);
+        card.append(h('span', { class: 'story-label', text: t('story.yours') }), old, h('span', { class: 'story-label', text: t('tutor.better') }), neu);
+        if (fix.tip) card.append(h('p', { class: 'story-tip', lang: 'tr', text: fix.tip }));
+      }
+      card.append(h('div', { class: 'gram-actions' },
+        h('button', { type: 'button', class: 'button small primary', 'data-act': 'apply', text: t('story.apply') }),
+        fix.context ? h('button', { type: 'button', class: 'button small', 'data-act': 'trnote', text: t('tutor.turkish') }) : null,
+        h('button', { type: 'button', class: 'button small', 'data-act': 'skip', text: t('story.skip') })));
+      return card;
+    }));
+  },
+  /* Puts a fix into the story: at its place if the text there is unchanged, otherwise where the old words are found. */
+  apply(fix) {
+    const area = $('#story-text');
+    let text = area.value;
+    let at = text.substr(fix.start, fix.from.length) === fix.from ? fix.start : text.indexOf(fix.from);
+    if (at < 0) return false;
+    text = text.slice(0, at) + fix.to + text.slice(at + fix.from.length);
+    const shift = fix.to.length - fix.from.length;
+    for (const other of this.fixes) if (other !== fix && !other.done && other.start > at) other.start += shift;
+    area.value = text;
+    fix.done = true;
+    this.changed();
+    return true;
+  },
+  async resultClick(event) {
+    const button = event.target.closest('button[data-act]');
+    if (!button) return;
+    if (button.dataset.act === 'all') {
+      for (const card of $$('#story-results .story-fix:not(.is-done)')) { this.apply(this.fixes[card.dataset.fix]); card.classList.add('is-done'); card.querySelector('.gram-actions').remove(); }
+      button.remove();
+      return;
+    }
+    const card = button.closest('.story-fix');
+    const fix = this.fixes[card.dataset.fix];
+    if (button.dataset.act === 'apply') {
+      if (!this.apply(fix)) { Toast.show(t('story.notFound')); return; }
+      card.classList.add('is-done');
+      card.querySelector('.gram-actions').remove();
+    }
+    if (button.dataset.act === 'skip') card.remove();
+    if (button.dataset.act === 'trnote') {
+      const tip = card.querySelector('.story-tip');
+      button.disabled = true;
+      try { tip.textContent = await Novel.translate(fix.note); tip.lang = 'tr'; } catch (_) { button.disabled = false; }
+    }
+  }
+};
+
+const MODULES = { home: Home, words: Words, phrases: Phrases, grammar: Grammar, speak: Speak, novel: Novel, quiz: Quiz, reading: Reading, settings: Settings };
 
 /* ======================================================================
    8. INITIALIZATION (single entry point)
@@ -4173,7 +4802,7 @@ function init() {
   applyTheme();
   applyTurkishVisibility();
   prepareCards();
-  Home.init(); Words.init(); Phrases.init(); Speak.init(); Tutor.init(); Novel.init(); Quiz.init(); Settings.init(); Updater.init();
+  Home.init(); Words.init(); Phrases.init(); Grammar.init(); Writer.init(); Speak.init(); Tutor.init(); Novel.init(); Quiz.init(); Settings.init(); Updater.init();
   if (!Store.usable) Banner.show(t(Store.simulated ? 'storage.simulated' : 'storage.off'));
   else if (loaded.notice) Banner.show(t(loaded.notice, { n: loaded.count || 0 }));
   if (loaded.migrated) persist();
