@@ -1,0 +1,257 @@
+{
+  "title": "Phrasal verbs ve kalıplar",
+  "lead": "Get up, take off, look after gibi günlük kalıplar, konulara göre.",
+  "lessons": [
+    {
+      "title": "Phrasal verb nedir?",
+      "text": "Bir fiil + bir edat (up, off, on, out, in, down, away, back…) birleşip yeni bir anlam kazanır: look = bakmak ama look after = bakmak (ilgilenmek), look up = (sözlükte) aramak. Ayrılabilen fiillerde nesne ortaya da gelebilir: \"turn off the TV\" ya da \"turn the TV off\". Ama nesne bir zamirse (it, them, him…) MUTLAKA ortaya gelir: \"turn it off\" ✓, \"turn off it\" ✗. Ayrılamayanlarda (look after, get on, run into) nesne hep sonda kalır: \"look after him\".",
+      "examples": [
+        ["Please [turn off] the light.", "Lütfen ışığı kapat.", "turn off = kapatmak"],
+        ["Please [turn] the light [off].", "Lütfen ışığı kapat.", "Nesne ortaya da gelebilir"],
+        ["It's too bright. [Turn] it [off].", "Çok parlak. Kapat onu.", "Zamir (it) mutlaka ortada"],
+        ["Can you [look after] my cat?", "Kedime bakabilir misin?", "look after = ilgilenmek (ayrılmaz)"],
+        ["Can you [look after] her?", "Ona bakabilir misin?", "Ayrılmaz: zamir sonda"],
+        ["I [ran into] an old friend.", "Eski bir arkadaşıma rastladım.", "run into = rastlamak (ayrılmaz)"]
+      ]
+    },
+    {
+      "title": "Günlük rutin",
+      "text": "Sabahtan akşama bir günü anlatırken kullanılan kalıplar. Hikâye yazarken çok işine yarar.",
+      "examples": [
+        ["I [wake up] at seven every day.", "Her gün yedide uyanırım.", "wake up = uyanmak"],
+        ["I don't like [getting up] early.", "Erken kalkmayı sevmem.", "get up = (yataktan) kalkmak"],
+        ["[Put on] your coat, it's cold.", "Montunu giy, hava soğuk.", "put on = giymek"],
+        ["[Take off] your shoes, please.", "Ayakkabılarını çıkar, lütfen.", "take off = çıkarmak (giysi)"],
+        ["Can I [try on] this jacket?", "Bu ceketi deneyebilir miyim?", "try on = (giysi) denemek"],
+        ["[Turn on] the TV.", "Televizyonu aç.", "turn on = açmak (cihaz)"],
+        ["[Turn] the music [down], please.", "Müziğin sesini kıs, lütfen.", "turn down = sesini kısmak"],
+        ["[Turn] it [up]! I love this song.", "Sesini aç! Bu şarkıya bayılıyorum.", "turn up = sesini açmak"],
+        ["Let's [eat out] tonight.", "Bu akşam dışarıda yiyelim.", "eat out = dışarıda yemek"],
+        ["I usually [go out] on Fridays.", "Cuma günleri genelde dışarı çıkarım.", "go out = dışarı çıkmak, eğlenmeye gitmek"],
+        ["What time will you [come back]?", "Saat kaçta döneceksin?", "come back = geri dönmek"],
+        ["[Sit down], please.", "Oturun, lütfen.", "sit down = oturmak"],
+        ["Everybody [stood up] when she came in.", "O içeri girince herkes ayağa kalktı.", "stand up = ayağa kalkmak"],
+        ["I [lay down] on the sofa.", "Kanepeye uzandım.", "lie down = uzanmak"],
+        ["We [stayed up] until midnight.", "Gece yarısına kadar yatmadık.", "stay up = geç saate kadar yatmamak"],
+        ["On Sundays I [sleep in].", "Pazarları geç saate kadar uyurum.", "sleep in = geç uyanmak (bilerek)"],
+        ["Please [clean up] your room.", "Lütfen odanı topla.", "clean up / tidy up = toplamak, temizlemek"],
+        ["I'll [wash up] after dinner.", "Yemekten sonra bulaşıkları yıkarım.", "wash up = bulaşık yıkamak"]
+      ]
+    },
+    {
+      "title": "Yolculuk ve hareket",
+      "text": "Araçlara binip inmek, yola çıkmak ve bir yere gitmekle ilgili kalıplar. Dikkat: otobüs, tren, uçak için get on / get off; araba ve taksi için get in / get out of.",
+      "examples": [
+        ["[Get on] the bus at the next stop.", "Bir sonraki durakta otobüse bin.", "get on = (otobüs, tren) binmek"],
+        ["We [got off] the train in Izmir.", "İzmir'de trenden indik.", "get off = (otobüs, tren) inmek"],
+        ["[Get in] the car, we're late!", "Arabaya bin, geç kaldık!", "get in = (araba) binmek"],
+        ["She [got out of] the taxi.", "Taksiden indi.", "get out of = (araba) inmek, çıkmak"],
+        ["The plane [took off] at nine.", "Uçak dokuzda kalktı.", "take off = (uçak) kalkmak"],
+        ["We [set off] early in the morning.", "Sabah erkenden yola çıktık.", "set off = yola çıkmak"],
+        ["I'll [pick] you [up] at the airport.", "Seni havalimanından alırım.", "pick up = (arabayla) almak"],
+        ["Can you [drop] me [off] at the station?", "Beni istasyona bırakır mısın?", "drop off = (birini bir yere) bırakmak"],
+        ["We [checked in] at the hotel at three.", "Otele saat üçte giriş yaptık.", "check in = giriş yapmak"],
+        ["You must [check out] before noon.", "Öğlenden önce çıkış yapmalısın.", "check out = (otelden) çıkış yapmak"],
+        ["[Slow down]! You're driving too fast.", "Yavaşla! Çok hızlı gidiyorsun.", "slow down = yavaşlamak"],
+        ["Our car [broke down] on the motorway.", "Arabamız otoyolda bozuldu.", "break down = (araç, makine) bozulmak"],
+        ["We had to [turn back] because of the snow.", "Kar yüzünden geri dönmek zorunda kaldık.", "turn back = geri dönmek"],
+        ["[Come in] and sit down.", "Gir ve otur.", "come in = içeri girmek"],
+        ["[Go away]! I'm busy.", "Git başımdan! Meşgulüm.", "go away = gitmek, uzaklaşmak"],
+        ["The dog [ran away].", "Köpek kaçtı.", "run away = kaçmak"],
+        ["We [got back] from holiday yesterday.", "Dün tatilden döndük.", "get back = dönmek"]
+      ]
+    },
+    {
+      "title": "İnsanlar ve ilişkiler",
+      "text": "Aile, arkadaşlar ve ilişkiler hakkında konuşurken çok kullanılan kalıplar. Romanlarda da sık görürsün.",
+      "examples": [
+        ["I [get on] well [with] my sister.", "Kız kardeşimle iyi anlaşırım.", "get on with = iyi anlaşmak"],
+        ["Do you [get along with] your boss?", "Patronunla iyi anlaşıyor musun?", "get along with = anlaşmak"],
+        ["My grandmother [looks after] my little brother.", "Küçük kardeşime büyükannem bakıyor.", "look after = bakmak, ilgilenmek"],
+        ["She [takes after] her father.", "Babasına çekmiş.", "take after = (aileden birine) benzemek, çekmek"],
+        ["I [grew up] in a small village.", "Küçük bir köyde büyüdüm.", "grow up = büyümek"],
+        ["My aunt [brought] me [up].", "Beni teyzem büyüttü.", "bring up = (çocuk) yetiştirmek"],
+        ["They had a fight but they [made up].", "Kavga ettiler ama barıştılar.", "make up = barışmak"],
+        ["Ali and Elif [broke up] last month.", "Ali ile Elif geçen ay ayrıldı.", "break up = (sevgililer) ayrılmak"],
+        ["He [asked] her [out] to dinner.", "Ona akşam yemeğine çıkma teklif etti.", "ask out = çıkma teklif etmek"],
+        ["We often [hang out] at the park.", "Sık sık parkta takılırız.", "hang out = takılmak, vakit geçirmek"],
+        ["Let's meet and [catch up].", "Buluşup hasret giderelim (son durumları konuşalım).", "catch up = birbirinden haber almak"],
+        ["I've always [looked up to] my teacher.", "Öğretmenimi hep örnek aldım.", "look up to = örnek almak, saygı duymak"],
+        ["Don't [look down on] people.", "İnsanları küçümseme.", "look down on = küçümsemek"],
+        ["I [ran into] Mehmet at the supermarket.", "Markette Mehmet'e rastladım.", "run into = (birine) rastlamak"],
+        ["I [came across] an old photo of us.", "Eski bir fotoğrafımıza rastladım.", "come across = (bir şeye) rastlamak"],
+        ["Please don't [let] me [down].", "Lütfen beni hayal kırıklığına uğratma.", "let down = hayal kırıklığına uğratmak"],
+        ["She [fell out with] her best friend.", "En yakın arkadaşıyla arası bozuldu.", "fall out with = (biriyle) bozuşmak"],
+        ["He [turned up] late to the party.", "Partiye geç geldi.", "turn up = (beklenmedik / geç) gelmek, çıkagelmek"],
+        ["Can you [call] me [back] later?", "Beni sonra geri arar mısın?", "call back = geri aramak"]
+      ]
+    },
+    {
+      "title": "Bilgi, okul ve iletişim",
+      "text": "Öğrenmek, araştırmak, anlamak ve konuşmakla ilgili kalıplar.",
+      "examples": [
+        ["I need to [find out] the truth.", "Gerçeği öğrenmem lazım.", "find out = öğrenmek, ortaya çıkarmak"],
+        ["[Look up] the word in the dictionary.", "Kelimeye sözlükte bak.", "look up = (sözlükte, internette) aramak"],
+        ["I can't [figure out] this puzzle.", "Bu bulmacayı çözemiyorum.", "figure out = çözmek, anlamak"],
+        ["Can you [work out] the answer?", "Cevabı bulabilir misin?", "work out = hesaplamak, çözmek"],
+        ["I can't [make out] what he's saying.", "Ne dediğini seçemiyorum (anlayamıyorum).", "make out = seçebilmek, anlamak"],
+        ["She [pointed out] my mistake.", "Hatamı gösterdi.", "point out = belirtmek, dikkat çekmek"],
+        ["[Write] it [down] so you don't forget.", "Unutmamak için yaz onu.", "write down = not almak, yazmak"],
+        ["Please [fill in] this form.", "Lütfen bu formu doldur.", "fill in / fill out = (form) doldurmak"],
+        ["[Hand in] your homework on Monday.", "Ödevini pazartesi teslim et.", "hand in = teslim etmek"],
+        ["Can you [give] my book [back]?", "Kitabımı geri verir misin?", "give back = geri vermek"],
+        ["Please [go on]. I'm listening.", "Lütfen devam et. Dinliyorum.", "go on = devam etmek"],
+        ["[Carry on] reading.", "Okumaya devam et.", "carry on = devam etmek"],
+        ["[Speak up]! I can't hear you.", "Yüksek sesle konuş! Seni duyamıyorum.", "speak up = sesini yükseltmek"],
+        ["He [hung up] without saying goodbye.", "Hoşça kal demeden telefonu kapattı.", "hang up = telefonu kapatmak"],
+        ["I didn't want to [bring up] the subject.", "Konuyu açmak istemedim.", "bring up = (konu) açmak"],
+        ["[Look out]! A car!", "Dikkat et! Araba!", "look out / watch out = dikkat etmek"],
+        ["I can't [keep up with] the class.", "Sınıfa yetişemiyorum.", "keep up with = (birine, bir hıza) yetişmek"],
+        ["I was ill, so I [fell behind].", "Hastaydım, bu yüzden geride kaldım.", "fall behind = geride kalmak"],
+        ["She is [catching up with] the others.", "Diğerlerine yetişiyor.", "catch up with = (geride kalan) yetişmek"]
+      ]
+    },
+    {
+      "title": "İş, planlar ve sorunlar",
+      "text": "Bir işi başlatmak, ertelemek, çözmek ya da bırakmakla ilgili kalıplar.",
+      "examples": [
+        ["They [set up] a new company.", "Yeni bir şirket kurdular.", "set up = kurmak"],
+        ["Can you help me [set up] my new phone?", "Yeni telefonumu kurmama yardım eder misin?", "set up = (cihaz) kurmak, ayarlamak"],
+        ["Don't [give up]! You can do it.", "Pes etme! Yapabilirsin.", "give up = pes etmek, vazgeçmek"],
+        ["I [gave up] smoking last year.", "Geçen yıl sigarayı bıraktım.", "give up + -ing = bırakmak"],
+        ["We had to [put off] the meeting.", "Toplantıyı ertelemek zorunda kaldık.", "put off = ertelemek"],
+        ["The match was [called off] because of the rain.", "Maç yağmur yüzünden iptal edildi.", "call off = iptal etmek"],
+        ["We've [run out of] milk.", "Sütümüz bitti.", "run out of = (bir şey) tükenmek, bitmek"],
+        ["She [came up with] a great idea.", "Harika bir fikir buldu.", "come up with = (fikir) bulmak"],
+        ["The police are [looking into] the case.", "Polis olayı araştırıyor.", "look into = araştırmak, incelemek"],
+        ["Don't worry, I'll [sort] it [out].", "Merak etme, hallederim.", "sort out = halletmek, çözmek"],
+        ["I have a lot of problems to [deal with].", "Uğraşmam gereken bir sürü sorun var.", "deal with = ilgilenmek, uğraşmak"],
+        ["The scientists [carried out] an experiment.", "Bilim insanları bir deney yaptı.", "carry out = gerçekleştirmek, yürütmek"],
+        ["She will [take over] the company.", "Şirketin yönetimini o devralacak.", "take over = devralmak"],
+        ["I can't [take on] any more work.", "Daha fazla iş üstlenemem.", "take on = üstlenmek"],
+        ["They [turned down] my offer.", "Teklifimi geri çevirdiler.", "turn down = reddetmek, geri çevirmek"],
+        ["I can't [put up with] this noise any longer.", "Bu gürültüye artık katlanamıyorum.", "put up with = katlanmak"],
+        ["I'm [looking forward to] the holiday.", "Tatili dört gözle bekliyorum.", "look forward to + isim / -ing = dört gözle beklemek"],
+        ["How did your plan [work out]?", "Planın nasıl sonuçlandı?", "work out = sonuçlanmak, iyi gitmek"],
+        ["I [work out] at the gym three times a week.", "Haftada üç kez spor salonunda çalışırım.", "work out = spor yapmak"],
+        ["Let me [think] it [over].", "Bir düşüneyim.", "think over = enine boyuna düşünmek"]
+      ]
+    },
+    {
+      "title": "Duygular ve durumlar",
+      "text": "Duyguları ve beklenmedik olayları anlatan kalıplar.",
+      "examples": [
+        ["[Calm down]! Everything is OK.", "Sakin ol! Her şey yolunda.", "calm down = sakinleşmek"],
+        ["[Cheer up]! It's not so bad.", "Neşelen! O kadar kötü değil.", "cheer up = neşelenmek"],
+        ["It took me months to [get over] the illness.", "Hastalığı atlatmam aylar sürdü.", "get over = atlatmak, iyileşmek"],
+        ["He finally [gave in] and said yes.", "Sonunda pes etti ve evet dedi.", "give in = boyun eğmek, teslim olmak"],
+        ["She [broke down] and cried.", "Kendini tutamayıp ağladı.", "break down = (duygusal olarak) çökmek"],
+        ["He likes [showing off] his new car.", "Yeni arabasıyla hava atmayı seviyor.", "show off = hava atmak, gösteriş yapmak"],
+        ["It was so hot that she [passed out].", "O kadar sıcaktı ki bayıldı.", "pass out = bayılmak"],
+        ["The bomb [blew up].", "Bomba patladı.", "blow up = patlamak"],
+        ["A fire [broke out] in the kitchen.", "Mutfakta yangın çıktı.", "break out = (yangın, savaş) çıkmak"],
+        ["The prisoner [broke out of] prison.", "Mahkûm hapisten kaçtı.", "break out of = (bir yerden) kaçmak"],
+        ["Prices have [gone up] again.", "Fiyatlar yine arttı.", "go up = artmak, yükselmek"],
+        ["The temperature [went down] at night.", "Gece sıcaklık düştü.", "go down = düşmek, azalmak"],
+        ["What's [going on] here?", "Burada neler oluyor?", "go on = olmak, olup bitmek"],
+        ["He [found] it [out] by chance.", "Bunu tesadüfen öğrendi.", "find out = öğrenmek"],
+        ["I [made up] a story for my son.", "Oğlum için bir hikâye uydurdum.", "make up = uydurmak"],
+        ["The fire [went out].", "Ateş söndü.", "go out = (ateş, ışık) sönmek"],
+        ["[Hold on]! I'm coming.", "Bekle! Geliyorum.", "hold on = beklemek, tutunmak"],
+        ["[Hurry up]! The film is starting.", "Acele et! Film başlıyor.", "hurry up = acele etmek"]
+      ]
+    },
+    {
+      "title": "Bir fiil, birçok edat: get, take, look, put",
+      "text": "Aynı fiil farklı edatlarla bambaşka anlamlar kazanır. Bu dördü en sık karşılaşacaklarındır.",
+      "examples": [
+        ["I [get up] at seven.", "Yedide kalkarım.", "get up = kalkmak"],
+        ["How do you [get to] the station?", "İstasyona nasıl gidilir?", "get to = varmak"],
+        ["I need to [get rid of] these old clothes.", "Bu eski kıyafetlerden kurtulmam lazım.", "get rid of = kurtulmak"],
+        ["The thief [got away].", "Hırsız kaçıp kurtuldu.", "get away = kaçmak, kurtulmak"],
+        ["The plane [took off].", "Uçak kalktı.", "take off = kalkmak / çıkarmak"],
+        ["Let me [take] you [out] for dinner.", "Seni akşam yemeğine çıkarayım.", "take out = (yemeğe) çıkarmak / dışarı çıkarmak"],
+        ["I'm [taking up] the guitar.", "Gitara başlıyorum.", "take up = (hobi) edinmek, başlamak"],
+        ["[Look at] this picture.", "Bu resme bak.", "look at = bakmak"],
+        ["I'm [looking for] my glasses.", "Gözlüğümü arıyorum.", "look for = aramak"],
+        ["[Look up] his number.", "Numarasına bak (bul).", "look up = arayıp bulmak"],
+        ["[Look after] yourself.", "Kendine iyi bak.", "look after = bakmak, ilgilenmek"],
+        ["[Put on] some music.", "Biraz müzik aç.", "put on = (giysi) giymek / (müzik) açmak"],
+        ["[Put] your toys [away].", "Oyuncaklarını kaldır.", "put away = yerine kaldırmak"],
+        ["The firefighters [put out] the fire.", "İtfaiyeciler yangını söndürdü.", "put out = söndürmek"],
+        ["Don't [put off] your homework.", "Ödevini erteleme.", "put off = ertelemek"]
+      ]
+    }
+  ],
+  "sets": [
+    {
+      "id": "pv-particle",
+      "title": "Eksik edatı seç",
+      "hint": "Phrasal verb'ü tamamlayan kelimeyi seç.",
+      "items": [
+        { "q": "I usually get ___ at seven o'clock.", "options": ["up", "on", "off", "out"], "answer": "up", "why": "get up = yataktan kalkmak." },
+        { "q": "Can you look ___ my dog while I'm away?", "options": ["after", "for", "up", "into"], "answer": "after", "why": "look after = bakmak, ilgilenmek." },
+        { "q": "I'm looking ___ my keys. Have you seen them?", "options": ["for", "after", "at", "up"], "answer": "for", "why": "look for = aramak." },
+        { "q": "If you don't know the word, look it ___.", "options": ["up", "for", "after", "on"], "answer": "up", "why": "look up = sözlükte aramak." },
+        { "q": "Please turn ___ the lights when you leave.", "options": ["off", "up", "out", "down"], "answer": "off", "why": "turn off = kapatmak." },
+        { "q": "It's cold. Put ___ your jacket.", "options": ["on", "off", "up", "away"], "answer": "on", "why": "put on = giymek." },
+        { "q": "The plane took ___ on time.", "options": ["off", "on", "up", "out"], "answer": "off", "why": "take off = (uçak) kalkmak." },
+        { "q": "Don't give ___! You're nearly there.", "options": ["up", "in", "out", "off"], "answer": "up", "why": "give up = pes etmek." },
+        { "q": "We have run ___ of sugar.", "options": ["out", "off", "away", "down"], "answer": "out", "why": "run out of = tükenmek." },
+        { "q": "I want to find ___ what happened.", "options": ["out", "up", "off", "in"], "answer": "out", "why": "find out = öğrenmek." },
+        { "q": "They put ___ the match until next week.", "options": ["off", "on", "out", "up"], "answer": "off", "why": "put off = ertelemek." },
+        { "q": "I can't put up ___ his rudeness.", "options": ["with", "to", "for", "on"], "answer": "with", "why": "put up with = katlanmak." },
+        { "q": "I'm looking forward ___ seeing you.", "options": ["to", "for", "at", "with"], "answer": "to", "why": "look forward to + -ing." },
+        { "q": "We got ___ the bus at the museum.", "options": ["off", "out", "down", "away"], "answer": "off", "why": "Otobüsten inmek → get off." },
+        { "q": "She takes ___ her mother. They have the same eyes.", "options": ["after", "over", "on", "up"], "answer": "after", "why": "take after = (aileden birine) çekmek." },
+        { "q": "I grew ___ in Istanbul.", "options": ["up", "out", "on", "over"], "answer": "up", "why": "grow up = büyümek." },
+        { "q": "Our car broke ___ on the way home.", "options": ["down", "up", "out", "off"], "answer": "down", "why": "break down = bozulmak." },
+        { "q": "Fill ___ this form, please.", "options": ["in", "up", "on", "off"], "answer": "in", "why": "fill in = (form) doldurmak." },
+        { "q": "Calm ___. It's only a spider.", "options": ["down", "up", "off", "out"], "answer": "down", "why": "calm down = sakinleşmek." },
+        { "q": "Who came up ___ this idea?", "options": ["with", "to", "for", "on"], "answer": "with", "why": "come up with = (fikir) bulmak." },
+        { "q": "I ran ___ my teacher at the cinema.", "options": ["into", "out", "away", "over"], "answer": "into", "why": "run into = rastlamak." },
+        { "q": "The firefighters put ___ the fire.", "options": ["out", "off", "away", "down"], "answer": "out", "why": "put out = söndürmek." }
+      ]
+    },
+    {
+      "id": "pv-meaning",
+      "title": "Anlamını seç",
+      "hint": "Phrasal verb'ün Türkçe anlamını seç.",
+      "trOptions": true,
+      "items": [
+        { "q": "We set off at dawn.", "options": ["yola çıkmak", "kurmak", "ertelemek", "kalkmak"], "answer": "yola çıkmak", "why": "set off = yola çıkmak." },
+        { "q": "They set up a small business.", "options": ["kurmak", "yola çıkmak", "iptal etmek", "devralmak"], "answer": "kurmak", "why": "set up = kurmak." },
+        { "q": "The concert was called off.", "options": ["iptal etmek", "ertelemek", "aramak", "başlamak"], "answer": "iptal etmek", "why": "call off = iptal etmek." },
+        { "q": "She turned down the job.", "options": ["reddetmek", "sesini kısmak", "kabul etmek", "aramak"], "answer": "reddetmek", "why": "Bir teklif için turn down = reddetmek." },
+        { "q": "They broke up after two years.", "options": ["ayrılmak", "bozulmak", "barışmak", "kaçmak"], "answer": "ayrılmak", "why": "break up = (sevgililer) ayrılmak." },
+        { "q": "We had a fight, but we made up.", "options": ["barışmak", "uydurmak", "ayrılmak", "makyaj yapmak"], "answer": "barışmak", "why": "make up (kavgadan sonra) = barışmak." },
+        { "q": "I get on well with my neighbours.", "options": ["iyi anlaşmak", "binmek", "kalkmak", "devam etmek"], "answer": "iyi anlaşmak", "why": "get on (well) with = iyi anlaşmak." },
+        { "q": "It took him a long time to get over the shock.", "options": ["atlatmak", "anlamak", "kaçmak", "kalkmak"], "answer": "atlatmak", "why": "get over = atlatmak." },
+        { "q": "Prices are going up.", "options": ["artmak", "düşmek", "sönmek", "devam etmek"], "answer": "artmak", "why": "go up = artmak." },
+        { "q": "Please carry on.", "options": ["devam etmek", "taşımak", "gerçekleştirmek", "durmak"], "answer": "devam etmek", "why": "carry on = devam etmek." },
+        { "q": "He showed off in front of the girls.", "options": ["hava atmak", "ortaya çıkmak", "göstermek", "bayılmak"], "answer": "hava atmak", "why": "show off = gösteriş yapmak." },
+        { "q": "The police are looking into the robbery.", "options": ["araştırmak", "bakmak", "aramak", "örnek almak"], "answer": "araştırmak", "why": "look into = araştırmak, incelemek." },
+        { "q": "I look up to my older brother.", "options": ["örnek almak", "küçümsemek", "sözlükte aramak", "yukarı bakmak"], "answer": "örnek almak", "why": "look up to = örnek almak, hayranlık duymak." },
+        { "q": "My uncle turned up without calling.", "options": ["çıkagelmek", "sesini açmak", "reddetmek", "dönmek"], "answer": "çıkagelmek", "why": "turn up (kişi) = gelmek, ortaya çıkmak." },
+        { "q": "I'm taking up tennis this summer.", "options": ["(hobiye) başlamak", "kaldırmak", "çıkarmak", "devralmak"], "answer": "(hobiye) başlamak", "why": "take up = yeni bir uğraşa başlamak." }
+      ]
+    },
+    {
+      "id": "pv-order",
+      "title": "Doğru sıra: turn it off",
+      "hint": "Zamir (it, them, him…) ayrılabilen fiillerde ortaya gelir.",
+      "items": [
+        { "q": "The radio is too loud. Can you ___?", "options": ["turn it down", "turn down it"], "answer": "turn it down", "why": "Zamir (it) ortaya: turn it down." },
+        { "q": "These are your shoes. ___!", "options": ["Put them on", "Put on them"], "answer": "Put them on", "why": "Zamir (them) ortaya: put them on." },
+        { "q": "I don't know this word. I'll ___.", "options": ["look it up", "look up it"], "answer": "look it up", "why": "look up ayrılabilir; zamir ortaya." },
+        { "q": "Your baby is crying. Can you ___?", "options": ["look after him", "look him after"], "answer": "look after him", "why": "look after ayrılamaz; zamir sona gelir." },
+        { "q": "This is my book. Please ___ tomorrow.", "options": ["give it back", "give back it"], "answer": "give it back", "why": "Zamir ortaya: give it back." },
+        { "q": "I met Selin at the market. I ___ by chance.", "options": ["ran into her", "ran her into"], "answer": "ran into her", "why": "run into ayrılamaz." },
+        { "q": "Write the address. ___ before you forget.", "options": ["Write it down", "Write down it"], "answer": "Write it down", "why": "Zamir ortaya: write it down." },
+        { "q": "The kids are at school. I'll ___ at four.", "options": ["pick them up", "pick up them"], "answer": "pick them up", "why": "Zamir ortaya: pick them up." },
+        { "q": "My coat is wet. I'll ___.", "options": ["take it off", "take off it"], "answer": "take it off", "why": "Zamir ortaya: take it off." },
+        { "q": "That's a hard problem. I'll ___ for you.", "options": ["sort it out", "sort out it"], "answer": "sort it out", "why": "Zamir ortaya: sort it out." }
+      ]
+    }
+  ]
+}

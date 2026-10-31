@@ -404,8 +404,19 @@ def main() -> None:
         if "</script" in code.lower() or "<!--" in code:
             sys.exit("vendor source cannot be inlined safely")
     speak_topics = json.loads((HERE / "speaking" / "topics.json").read_text(encoding="utf-8"))
-    grammar = json.loads((HERE / "grammar" / "relative_clauses.json").read_text(encoding="utf-8"))
-    print(f"grammar         {len(grammar['lessons'])} lessons, {sum(len(s['items']) for s in grammar['sets'])} exercises")
+    # Grammar topics in the order the Grammar tab lists them: (id, file, badge, has "From your novel").
+    topics = []
+    for topic_id, file_name, badge, novel in (("cj", "conjunctions", "&", False), ("vb", "verbs", "GET", False),
+                                              ("pv", "phrasal_verbs", "UP", False), ("rc", "relative_clauses", "WHO", True)):
+        topic = json.loads((HERE / "grammar" / f"{file_name}.json").read_text(encoding="utf-8"))
+        topic.update(id=topic_id, badge=badge, novel=novel)
+        for exercise_set in topic["sets"]:
+            for item in exercise_set["items"]:
+                if "options" in item and item["answer"] not in item["options"]:
+                    sys.exit(f"{file_name}: answer missing from options: {item['q']}")
+        topics.append(topic)
+        print(f"grammar {topic_id:7} {len(topic['lessons'])} lessons, {sum(len(s['items']) for s in topic['sets'])} exercises")
+    grammar = {"topics": topics}
     print(f"speaking room   {len(speak_topics)} topics, {sum(len(t['questions']) for t in speak_topics)} questions")
 
     template = turkish_static_text(TEMPLATE.read_text(encoding="utf-8"), counts)

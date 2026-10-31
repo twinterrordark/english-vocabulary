@@ -399,6 +399,23 @@ mark.vocab { background: var(--mark); color: inherit; padding: 0 2px; border-rad
 .speak-round.danger .icon { background: var(--error); color: #fff; }
 
 /* ---------- Grammar and writing ---------- */
+.gram-top { display: flex; align-items: flex-start; gap: var(--space-2); }
+.gram-top > div { min-width: 0; }
+.gram-top .novel-icon { flex: none; margin-top: 2px; }
+.gram-top .novel-icon[hidden], .chip-button[hidden] { display: none; }
+.gram-topics { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-3); max-width: 760px; }
+.gram-topics[hidden] { display: none; }
+.gram-topic { display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3) var(--space-4); border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); color: var(--text); text-decoration: none; box-shadow: var(--shadow); }
+.gram-topic:hover { border-color: var(--primary); }
+.gram-topic::after { content: "›"; margin-left: auto; padding-left: var(--space-2); font-size: 1.5rem; color: var(--muted); }
+.gram-topic > div { display: grid; gap: 2px; min-width: 0; }
+.gram-topic strong { font-size: 1.05rem; }
+.gram-topic span:not(.gram-badge) { color: var(--muted); font-size: .88rem; line-height: 1.4; }
+.gram-topic small { color: var(--accent-text); font-weight: 600; font-size: .8rem; }
+.gram-badge { flex: none; display: grid; place-items: center; width: 52px; height: 52px; border-radius: 14px; background: var(--primary-soft); color: var(--accent-text); font: 800 .95rem/1 var(--font); letter-spacing: .02em; }
+.gram-badge .icon { width: 24px; height: 24px; }
+.gram-ex { display: grid; gap: 2px; min-width: 0; flex: 1; }
+.gram-label { justify-self: start; font-size: .75rem; font-weight: 700; color: var(--accent-text); }
 .gram-switch { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-1); padding: var(--space-1); max-width: 520px; border-radius: var(--radius); background: var(--surface-2, var(--line)); }
 .gram-switch .button { border-color: transparent; background: transparent; min-width: 0; padding: 8px 6px; }
 .gram-switch .button[aria-pressed="true"] { background: var(--surface); border-color: var(--primary); box-shadow: var(--shadow); }
@@ -419,10 +436,10 @@ mark.vocab { background: var(--mark); color: inherit; padding: 0 2px; border-rad
 .gram-lesson-body { padding: 0 var(--space-4) var(--space-4); }
 .gram-lesson-body > p { margin: 0 0 var(--space-3); line-height: 1.6; }
 .gram-examples { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-2); }
-.gram-examples li { display: grid; grid-template-columns: 1fr auto; gap: 2px var(--space-2); align-items: center; padding: 10px 12px; border-radius: 10px; background: var(--surface-2, var(--bg)); }
+.gram-examples li { display: flex; gap: var(--space-2); align-items: center; padding: 10px 12px; border-radius: 10px; background: var(--surface-2, var(--bg)); }
 .gram-en { font: 1.05rem/1.45 Georgia, "Times New Roman", serif; }
-.gram-tr { grid-column: 1; color: var(--muted); font-size: .88rem; }
-.gram-examples .icon-button { grid-row: 1 / 3; grid-column: 2; }
+.gram-tr { color: var(--muted); font-size: .88rem; }
+.gram-examples .icon-button { flex: none; }
 mark.gram-rel { background: var(--primary-soft); color: var(--accent-text); padding: 0 3px; border-radius: 4px; font-weight: 700; }
 .gram-sets { display: grid; gap: var(--space-2); }
 .gram-set { display: flex; align-items: center; gap: var(--space-3); width: 100%; padding: var(--space-3) var(--space-4); text-align: left; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); color: var(--text); font: inherit; cursor: pointer; box-shadow: var(--shadow); }
@@ -812,7 +829,7 @@ body.novel-focus .novel-pop-base, body.novel-focus .novel-pop-sentence { color: 
       <li><a class="mode-card" href="#words"><svg class="icon" aria-hidden="true"><use href="#i-words"/></svg><div><strong data-i18n="nav.words">Words</strong><span data-i18n="mode.words">Search the list, open example sentences for each word type and mark words you know.</span></div></a></li>
       <li><a class="mode-card" href="#phrases"><svg class="icon" aria-hidden="true"><use href="#i-chat"/></svg><div><strong data-i18n="nav.phrases">Phrases</strong><span data-i18n="mode.phrases">40 everyday topics and 719 practical conversation patterns.</span></div></a></li>
       <li><a class="mode-card" href="#quiz"><svg class="icon" aria-hidden="true"><use href="#i-quiz"/></svg><div><strong data-i18n="nav.quiz">Quiz</strong><span data-i18n="mode.quiz">Multiple-choice and fill-in-the-blank questions.</span></div></a></li>
-      <li><a class="mode-card" href="#grammar"><svg class="icon" aria-hidden="true"><use href="#i-pen"/></svg><div><strong data-i18n="nav.grammar">Grammar</strong><span data-i18n="mode.grammar">Learn relative clauses and write short stories that get a grammar check.</span></div></a></li>
+      <li><a class="mode-card" href="#grammar"><svg class="icon" aria-hidden="true"><use href="#i-pen"/></svg><div><strong data-i18n="nav.grammar">Grammar</strong><span data-i18n="mode.grammar">Conjunctions, verbs with many meanings, phrasal verbs, relative clauses and story writing.</span></div></a></li>
       <li><a class="mode-card" href="#speak"><svg class="icon" aria-hidden="true"><use href="#i-mic"/></svg><div><strong data-i18n="nav.speak">Speaking</strong><span data-i18n="mode.speak">Talk in English with a friend in a voice room, with topic cards to guide you.</span></div></a></li>
       <li><a class="mode-card" href="#novel"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg><div><strong data-i18n="nav.novel">Novel</strong><span data-i18n="mode.novel">Read an English novel and tap any word for its Turkish meaning.</span></div></a></li>
       <li><a class="mode-card" href="#reading"><svg class="icon" aria-hidden="true"><use href="#i-reading"/></svg><div><strong data-i18n="nav.reading">Reading</strong><span data-i18n="mode.reading">Short texts with questions and optional listening.</span></div></a></li>
@@ -1028,19 +1045,19 @@ body.novel-focus .novel-pop-base, body.novel-focus .novel-pop-sentence { color: 
 
   <!-- Grammar: relative clauses (lessons, practice, examples from the learner's novel) and story writing with a grammar check. -->
   <section class="view" data-view="grammar" aria-labelledby="grammar-title">
-    <div class="view-head">
-      <h1 id="grammar-title" tabindex="-1" data-i18n="grammar.title">Grammar and writing</h1>
-      <p class="lead" data-i18n="grammar.lead">Learn relative clauses step by step, then write your own stories and have them checked.</p>
+    <div class="view-head gram-top">
+      <a class="novel-icon js-only" id="gram-back" href="#grammar" aria-label="All topics" data-i18n-aria="grammar.back" hidden><svg class="icon" aria-hidden="true"><use href="#i-prev"/></svg></a>
+      <div>
+        <h1 id="grammar-title" tabindex="-1">Grammar and writing</h1>
+        <p class="lead" id="gram-lead">Conjunctions, verbs with many meanings, phrasal verbs, relative clauses and story writing.</p>
+      </div>
     </div>
-    <div class="gram-switch js-only" role="group" aria-label="Section" data-i18n-aria="grammar.section">
-      <button type="button" class="button" data-gpane="rc" aria-pressed="true"><span data-i18n="grammar.rc">Relative clauses</span></button>
-      <button type="button" class="button" data-gpane="write" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="#i-pen"/></svg><span data-i18n="grammar.write">Write a story</span></button>
-    </div>
-    <div class="gram-pane js-only" id="gram-rc">
+    <ul class="gram-topics js-only" id="gram-topics"></ul>
+    <div class="gram-pane js-only" id="gram-rc" hidden>
       <div class="gram-tabs" role="group">
         <button type="button" class="chip-button" data-gtab="lessons" aria-pressed="true" data-i18n="grammar.lessons">Lessons</button>
         <button type="button" class="chip-button" data-gtab="practice" aria-pressed="false" data-i18n="grammar.practice">Practice</button>
-        <button type="button" class="chip-button" data-gtab="novel" aria-pressed="false" data-i18n="grammar.fromNovel">From your novel</button>
+        <button type="button" class="chip-button" id="gram-novel-tab" data-gtab="novel" aria-pressed="false" data-i18n="grammar.fromNovel">From your novel</button>
       </div>
       <div class="gram-lessons" id="gram-lessons"></div>
       <div class="gram-practice" id="gram-practice" hidden></div>
@@ -1401,8 +1418,10 @@ const STRINGS = {
     'tutor.micDenied': 'The microphone is blocked. Allow it for this site in the browser settings.', 'tutor.noRecognition': 'This browser cannot turn speech into text; type your answer instead (Chrome or Safari can).',
     'tutor.err.tooMany': 'Slow down a little 🙂 Too many messages in a minute; wait a moment.', 'tutor.err.limit': 'The free daily limit is used up. Try again a bit later.',
     'tutor.err.network': 'No connection to the lesson server. Check the internet.', 'tutor.err.server': 'The teacher could not answer. Try again.',
-    'nav.grammar': 'Grammar', 'mode.grammar': 'Learn relative clauses and write short stories that get a grammar check.',
-    'grammar.title': 'Grammar and writing', 'grammar.lead': 'Learn relative clauses step by step, then write your own stories and have them checked.',
+    'nav.grammar': 'Grammar', 'mode.grammar': 'Conjunctions, verbs with many meanings, phrasal verbs, relative clauses and story writing.',
+    'grammar.title': 'Grammar and writing', 'grammar.lead': 'Pick a topic: read the lesson, then test yourself with the exercises.',
+    'grammar.back': 'All topics', 'grammar.count': '{l} lessons · {n} questions', 'grammar.setsDone': '{d}/{n} sets done',
+    'story.lead': 'Write short stories in English and have their grammar checked.', 'story.count': '{n} stories',
     'grammar.section': 'Section', 'grammar.rc': 'Relative clauses', 'grammar.write': 'Write a story', 'grammar.lessons': 'Lessons', 'grammar.practice': 'Practice', 'grammar.fromNovel': 'From your novel',
     'grammar.questions': '{n} questions', 'grammar.allSets': 'All sets', 'grammar.writePh': 'Write one sentence…', 'grammar.none': '(nothing – leave it out)', 'grammar.check': 'Check',
     'grammar.right': 'Correct!', 'grammar.wrong': 'Not quite. The right answer:', 'grammar.next': 'Next', 'grammar.finish': 'See my score', 'grammar.retry': 'Try again',
@@ -1540,8 +1559,10 @@ const STRINGS = {
     'tutor.micDenied': 'Mikrofon izni kapalı. Tarayıcı ayarlarından bu siteye mikrofon izni ver.', 'tutor.noRecognition': 'Bu tarayıcı konuşmayı yazıya çeviremiyor; cevabını yazarak ver (Chrome ya da Safari çevirebilir).',
     'tutor.err.tooMany': 'Biraz yavaşla 🙂 Bir dakikada çok mesaj gönderdin, biraz bekle.', 'tutor.err.limit': 'Günlük ücretsiz kullanım doldu. Biraz sonra tekrar dene.',
     'tutor.err.network': 'Ders sunucusuna ulaşılamadı. İnternet bağlantını kontrol et.', 'tutor.err.server': 'Hoca cevap veremedi. Tekrar dene.',
-    'nav.grammar': 'Gramer', 'mode.grammar': 'Relative clause öğren, kısa hikâyeler yaz ve dilbilgisini denetlet.',
-    'grammar.title': 'Gramer ve yazma', 'grammar.lead': 'Relative clause yapısını adım adım öğren, sonra kendi hikâyelerini yaz ve denetlet.',
+    'nav.grammar': 'Gramer', 'mode.grammar': 'Bağlaçlar, çok anlamlı fiiller, phrasal verbs, relative clauses ve hikâye yazma.',
+    'grammar.title': 'Gramer ve yazma', 'grammar.lead': 'Bir konu seç: önce konu anlatımını oku, sonra alıştırmalarla kendini dene.',
+    'grammar.back': 'Tüm konular', 'grammar.count': '{l} ders · {n} soru', 'grammar.setsDone': '{d}/{n} set tamam',
+    'story.lead': 'İngilizce kısa hikâyeler yaz ve dilbilgisini denetlet.', 'story.count': '{n} hikâye',
     'grammar.section': 'Bölüm', 'grammar.rc': 'Relative clauses', 'grammar.write': 'Hikâye yaz', 'grammar.lessons': 'Konu anlatımı', 'grammar.practice': 'Alıştırmalar', 'grammar.fromNovel': 'Romanından örnekler',
     'grammar.questions': '{n} soru', 'grammar.allSets': 'Tüm setler', 'grammar.writePh': 'Tek bir cümle yaz…', 'grammar.none': '(hiçbiri – boş bırak)', 'grammar.check': 'Kontrol et',
     'grammar.right': 'Doğru!', 'grammar.wrong': 'Olmadı. Doğrusu:', 'grammar.next': 'Sonraki', 'grammar.finish': 'Sonucu gör', 'grammar.retry': 'Tekrar çöz',
@@ -4304,13 +4325,14 @@ const Tutor = {
 const Grammar = {
   KEY: 'english-study-grammar.v1',
   REL: /\b(who|whom|whose|which|that|where|when|why)\b/gi,
-  data: null,
+  topics: [],
+  topic: null,
+  mode: null,
   best: {},
   run: null,
   init() {
-    this.data = readJsonScript('grammar-data') || { lessons: [], sets: [] };
+    this.topics = (readJsonScript('grammar-data') || {}).topics || [];
     try { this.best = JSON.parse(Store.read(this.KEY) || '{}').best || {}; } catch (_) { this.best = {}; }
-    for (const button of $$('[data-gpane]')) button.addEventListener('click', () => this.pane(button.dataset.gpane));
     for (const button of $$('[data-gtab]')) button.addEventListener('click', () => this.tab(button.dataset.gtab));
     $('#gram-lessons').addEventListener('click', event => {
       const button = event.target.closest('[data-say]');
@@ -4318,16 +4340,56 @@ const Grammar = {
     });
     $('#gram-practice').addEventListener('click', event => this.practiceClick(event));
     $('#gram-novel').addEventListener('click', event => this.novelClick(event));
-    this.renderLessons();
   },
-  onShow() { if (!$('#gram-practice').hidden && !this.run) this.renderSets(); },
+  /* "#grammar" lists the topics, "#grammar/cj" opens one, "#grammar/write" the stories. */
+  onShow() {
+    const id = location.hash.split('/')[1] || '';
+    const topic = this.topics.find(item => item.id === id) || null;
+    const mode = id === 'write' ? 'write' : topic ? 'topic' : 'home';
+    if (mode !== this.mode || topic !== this.topic) this.open(mode, topic);
+    else if (mode === 'topic' && !$('#gram-practice').hidden && !this.run) this.renderSets();
+    if (mode === 'home') this.renderTopics();
+    this.heading();
+  },
+  open(mode, topic) {
+    const moved = this.mode != null;
+    this.mode = mode;
+    this.topic = topic;
+    this.run = null;
+    $('#gram-topics').hidden = mode !== 'home';
+    $('#gram-rc').hidden = mode !== 'topic';
+    $('#gram-write').hidden = mode !== 'write';
+    $('#gram-back').hidden = mode === 'home';
+    if (mode === 'topic') {
+      $('#gram-novel-tab').hidden = !topic.novel;
+      this.renderLessons();
+      this.tab('lessons');
+    }
+    if (mode === 'write') Writer.show();
+    if (moved) window.scrollTo(0, 0);
+  },
+  heading() {
+    const topic = this.mode === 'topic' ? this.topic : null;
+    $('#grammar-title').textContent = topic ? topic.title : t(this.mode === 'write' ? 'grammar.write' : 'grammar.title');
+    $('#gram-lead').textContent = topic ? topic.lead : t(this.mode === 'write' ? 'story.lead' : 'grammar.lead');
+  },
+  renderTopics() {
+    const cards = this.topics.map(topic => {
+      const done = topic.sets.filter(set => this.best[set.id] != null).length;
+      const questions = topic.sets.reduce((n, set) => n + set.items.length, 0);
+      const info = t('grammar.count', { l: topic.lessons.length, n: questions }) + (done ? ' · ' + t('grammar.setsDone', { d: done, n: topic.sets.length }) : '');
+      return h('li', {}, h('a', { class: 'gram-topic', href: '#grammar/' + topic.id },
+        h('span', { class: 'gram-badge', lang: 'en', text: topic.badge }),
+        h('div', {}, h('strong', { text: topic.title }), h('span', { text: topic.lead }), h('small', { text: info }))));
+    });
+    const stories = Writer.stories.length;
+    cards.push(h('li', {}, h('a', { class: 'gram-topic', href: '#grammar/write' },
+      h('span', { class: 'gram-badge' }, icon('pen')),
+      h('div', {}, h('strong', { text: t('grammar.write') }), h('span', { text: t('story.lead') }),
+        stories ? h('small', { text: t('story.count', { n: stories }) }) : null))));
+    $('#gram-topics').replaceChildren(...cards);
+  },
   say(text) { if (Speech.hasTTS) Speech.speakNow(text); else Speech.speak(text); },
-  pane(name) {
-    for (const button of $$('[data-gpane]')) button.setAttribute('aria-pressed', String(button.dataset.gpane === name));
-    $('#gram-rc').hidden = name !== 'rc';
-    $('#gram-write').hidden = name !== 'write';
-    if (name === 'write') Writer.show();
-  },
   tab(name) {
     for (const button of $$('[data-gtab]')) button.setAttribute('aria-pressed', String(button.dataset.gtab === name));
     $('#gram-lessons').hidden = name !== 'lessons';
@@ -4336,9 +4398,14 @@ const Grammar = {
     if (name === 'practice' && !this.run) this.renderSets();
     if (name === 'novel') this.renderNovel();
   },
-  /* An English sentence with its relative words marked (not a capital "That" opening it). */
-  marked(text) {
+  /* An English sentence with its relative words marked (not a capital "That" opening it).
+     Lesson examples mark their key words themselves: "I [get up] at seven." */
+  marked(text, brackets) {
     const node = h('span', { class: 'gram-en', lang: 'en' });
+    if (brackets) {
+      for (const part of text.split(/(\[[^\]]+\])/)) node.append(part.startsWith('[') ? h('mark', { class: 'gram-rel', text: part.slice(1, -1) }) : part);
+      return node;
+    }
     let last = 0;
     for (const match of text.matchAll(this.REL)) {
       if (match.index === 0) continue;
@@ -4349,20 +4416,22 @@ const Grammar = {
     return node;
   },
   renderLessons() {
-    $('#gram-lessons').replaceChildren(...this.data.lessons.map((lesson, index) =>
+    $('#gram-lessons').replaceChildren(...this.topic.lessons.map((lesson, index) =>
       h('details', { class: 'gram-lesson', open: index === 0 ? true : null },
         h('summary', {}, h('span', { class: 'gram-num', text: index + 1 }), h('span', { text: lesson.title })),
         h('div', { class: 'gram-lesson-body' },
           h('p', { lang: 'tr', text: lesson.text }),
-          h('ul', { class: 'gram-examples' }, lesson.examples.map(([en, tr]) => h('li', {},
-            this.marked(en),
-            h('span', { class: 'gram-tr', lang: 'tr', text: tr }),
-            h('button', { type: 'button', class: 'icon-button', 'data-say': en.replace(/\//g, ' or '), 'aria-label': t('tutor.listen') }, icon('sound')))))))));
+          h('ul', { class: 'gram-examples' }, lesson.examples.map(([en, tr, label]) => h('li', {},
+            h('div', { class: 'gram-ex' },
+              label ? h('span', { class: 'gram-label', lang: 'tr', text: label }) : null,
+              this.marked(en, en.includes('[')),
+              h('span', { class: 'gram-tr', lang: 'tr', text: tr })),
+            h('button', { type: 'button', class: 'icon-button', 'data-say': en.replace(/[[\]]/g, '').replace(/\//g, ' or '), 'aria-label': t('tutor.listen') }, icon('sound')))))))));
   },
   /* ---- Practice sets */
   renderSets() {
     this.run = null;
-    $('#gram-practice').replaceChildren(h('div', { class: 'gram-sets' }, this.data.sets.map(set => {
+    $('#gram-practice').replaceChildren(h('div', { class: 'gram-sets' }, this.topic.sets.map(set => {
       const best = this.best[set.id];
       return h('button', { type: 'button', class: 'gram-set', 'data-set': set.id },
         h('div', {}, h('strong', { text: set.title }), h('span', { text: t('grammar.questions', { n: set.items.length }) })),
@@ -4370,7 +4439,7 @@ const Grammar = {
     })));
   },
   start(id) {
-    const set = this.data.sets.find(s => s.id === id);
+    const set = this.topic.sets.find(s => s.id === id);
     if (!set) return;
     this.run = { set, items: shuffle(set.items.slice()), at: 0, score: 0, answered: false };
     this.renderQuestion();
@@ -4392,7 +4461,7 @@ const Grammar = {
       write
         ? h('textarea', { class: 'gram-write-input', id: 'gram-answer', lang: 'en', rows: 3, spellcheck: 'false', placeholder: t('grammar.writePh') })
         : h('div', { class: 'gram-options' }, shuffle(item.options.slice()).map(option =>
-          h('button', { type: 'button', class: 'gram-option' + (option.length > 25 ? ' is-long' : ''), 'data-option': option, lang: option === '–' ? null : 'en', text: option === '–' ? t('grammar.none') : option }))),
+          h('button', { type: 'button', class: 'gram-option' + (option.length > 25 && !run.set.trOptions ? ' is-long' : ''), 'data-option': option, lang: option === '–' ? null : run.set.trOptions ? 'tr' : 'en', text: option === '–' ? t('grammar.none') : option }))),
       h('div', { class: 'gram-feedback-slot' }),
       h('div', { class: 'gram-actions' }, write ? h('button', { type: 'button', class: 'button primary', 'data-act': 'check', text: t('grammar.check') }) : null));
     $('#gram-practice').replaceChildren(card);

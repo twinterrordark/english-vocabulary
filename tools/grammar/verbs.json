@@ -1,0 +1,317 @@
+{
+  "title": "Çok anlamlı fiiller",
+  "lead": "Get, take, make, do… Cümleye göre anlamı değişen fiiller, en sık anlamlarıyla.",
+  "lessons": [
+    {
+      "title": "GET",
+      "text": "İngilizcenin en çok kullanılan fiillerinden biri. Temel fikir: bir şeye \"sahip olmak, ulaşmak ya da bir duruma geçmek\". get + sıfat = bir hale gelmek (get tired = yorulmak). get + yer = varmak. Düzensizdir: get – got – got (Amerikan İngilizcesinde gotten).",
+      "examples": [
+        ["I [got] a new phone for my birthday.", "Doğum günümde yeni bir telefon aldım.", "almak, edinmek"],
+        ["She [got] a letter from her friend.", "Arkadaşından bir mektup aldı.", "almak (gelen bir şeyi)"],
+        ["What time did you [get] home?", "Eve saat kaçta vardın?", "varmak, ulaşmak"],
+        ["It's [getting] dark.", "Hava kararıyor.", "olmak, hale gelmek (get + sıfat)"],
+        ["Can you [get] me a glass of water?", "Bana bir bardak su getirir misin?", "getirmek"],
+        ["Sorry, I don't [get] it.", "Pardon, anlamadım.", "anlamak"],
+        ["We [got] the bus to the city centre.", "Şehir merkezine otobüse bindik.", "(araca) binmek, yakalamak"],
+        ["I [got] a cold last week.", "Geçen hafta soğuk algınlığına yakalandım.", "(hastalığa) yakalanmak"],
+        ["They [got] married in June.", "Haziranda evlendiler.", "get married = evlenmek"],
+        ["I need to [get] my hair cut.", "Saçımı kestirmem lazım.", "get + şey + V3 = yaptırmak"]
+      ]
+    },
+    {
+      "title": "TAKE",
+      "text": "Temel fikir: bir şeyi \"alıp yanında götürmek\" ya da \"üstlenmek\". Zaman ve süre için de kullanılır (It takes … = … sürer). Düzensizdir: take – took – taken.",
+      "examples": [
+        ["[Take] an umbrella with you.", "Yanına bir şemsiye al.", "almak, yanına almak"],
+        ["Can you [take] me to the station?", "Beni istasyona götürür müsün?", "götürmek"],
+        ["It [takes] two hours to get there.", "Oraya gitmek iki saat sürüyor.", "sürmek (zaman)"],
+        ["I [take] the bus to work.", "İşe otobüsle giderim.", "(araca) binmek, kullanmak"],
+        ["[Take] this medicine twice a day.", "Bu ilacı günde iki kez al.", "(ilaç) almak, içmek"],
+        ["Let's [take] a photo.", "Hadi fotoğraf çekelim.", "take a photo = fotoğraf çekmek"],
+        ["I'm going to [take] a shower.", "Duş alacağım.", "take a shower / a break / a rest"],
+        ["She [took] an English exam yesterday.", "Dün bir İngilizce sınavına girdi.", "(sınava) girmek"],
+        ["Someone [took] my wallet!", "Biri cüzdanımı aldı (çaldı)!", "alıp götürmek, çalmak"],
+        ["It [takes] courage to say no.", "Hayır demek cesaret ister.", "gerektirmek"]
+      ]
+    },
+    {
+      "title": "MAKE",
+      "text": "Temel fikir: \"yapmak, üretmek, ortaya çıkarmak\" — daha önce olmayan bir şey ortaya çıkar. make + kişi + fiil = birine bir şey yaptırmak (zorlamak). Düzensizdir: make – made – made. Make mi do mu konusuna ayrıca bak.",
+      "examples": [
+        ["My mother [made] a cake.", "Annem bir kek yaptı.", "yapmak, üretmek"],
+        ["Don't [make] so much noise.", "Bu kadar gürültü yapma.", "make noise = gürültü yapmak"],
+        ["The film [made] me cry.", "Film beni ağlattı.", "make + kişi + fiil = -dırmak"],
+        ["This song [makes] me happy.", "Bu şarkı beni mutlu ediyor.", "make + kişi + sıfat = … yapmak"],
+        ["He [makes] a lot of money.", "Çok para kazanıyor.", "make money = para kazanmak"],
+        ["I [made] a mistake.", "Bir hata yaptım.", "make a mistake = hata yapmak"],
+        ["We need to [make] a decision.", "Bir karar vermemiz gerek.", "make a decision = karar vermek"],
+        ["Two and two [make] four.", "İki iki daha dört eder.", "etmek (toplam)"],
+        ["Did you [make] the train?", "Trene yetişebildin mi?", "yetişmek (konuşma dili)"],
+        ["I'll [make] a phone call.", "Bir telefon edeceğim.", "make a call / a plan / friends"]
+      ]
+    },
+    {
+      "title": "DO",
+      "text": "Temel fikir: \"bir işi, görevi, eylemi yapmak\" — genelde ortaya yeni bir şey çıkmaz. Yardımcı fiil olarak da kullanılır (Do you…? I don't…). Bir işin adını bilmediğimizde de do kullanılır: do something. Düzensizdir: do – did – done.",
+      "examples": [
+        ["I [do] my homework after dinner.", "Ödevimi akşam yemeğinden sonra yaparım.", "(iş, görev) yapmak"],
+        ["What do you [do]?", "Ne iş yapıyorsun?", "meslek sormak"],
+        ["Can you [do] me a favour?", "Bana bir iyilik yapar mısın?", "do a favour = iyilik yapmak"],
+        ["I [do] the shopping on Saturdays.", "Alışverişi cumartesi yaparım.", "do the shopping / the dishes / the cleaning"],
+        ["She [does] yoga every morning.", "Her sabah yoga yapıyor.", "(spor) yapmak: do yoga / karate"],
+        ["He [did] well in the exam.", "Sınavda iyi yaptı (başarılı oldu).", "do well / badly = başarılı / başarısız olmak"],
+        ["Ten euros will [do].", "On avro yeter.", "yetmek, iş görmek"],
+        ["I [do] like this song!", "Bu şarkıyı gerçekten seviyorum!", "vurgu: gerçekten"],
+        ["This medicine will [do] you good.", "Bu ilaç sana iyi gelecek.", "do good / harm = iyi gelmek / zarar vermek"]
+      ]
+    },
+    {
+      "title": "Make mi, do mu?",
+      "text": "Kısa kural: yeni bir şey ÜRETİYORSAN make, bir İŞİ / GÖREVİ yerine getiriyorsan do. Ama birçok kalıp ezber gerektirir. MAKE: a mistake, a decision, a plan, money, friends, noise, a mess, a phone call, an effort, progress, an excuse, the bed, breakfast. DO: homework, housework, the dishes, the shopping, a job, business, exercise, sport, your best, a favour, research, damage.",
+      "examples": [
+        ["I always [make] my bed in the morning.", "Sabahları hep yatağımı toplarım.", "make the bed"],
+        ["Can you [do] the dishes tonight?", "Bu akşam bulaşığı yıkar mısın?", "do the dishes"],
+        ["Try to [make] friends at your new school.", "Yeni okulunda arkadaş edinmeye çalış.", "make friends"],
+        ["Just [do] your best.", "Sadece elinden geleni yap.", "do your best"],
+        ["The children [made] a mess in the kitchen.", "Çocuklar mutfağı dağıttı.", "make a mess"],
+        ["The storm [did] a lot of damage.", "Fırtına büyük hasar verdi.", "do damage"],
+        ["You are [making] good progress.", "İyi ilerleme kaydediyorsun.", "make progress"],
+        ["I [do] exercise three times a week.", "Haftada üç kez egzersiz yaparım.", "do exercise"]
+      ]
+    },
+    {
+      "title": "SET",
+      "text": "Temel fikir: bir şeyi \"bir yere koymak, ayarlamak, belirlemek\". Güneş için \"batmak\" anlamına gelir. Düzensizdir ve üç hali aynıdır: set – set – set.",
+      "examples": [
+        ["She [set] the box on the table.", "Kutuyu masaya koydu.", "koymak, yerleştirmek"],
+        ["I [set] my alarm for six o'clock.", "Alarmımı saat altıya kurdum.", "(saat, alarm) kurmak, ayarlamak"],
+        ["Can you [set] the table for dinner?", "Akşam yemeği için sofrayı kurar mısın?", "set the table = sofra kurmak"],
+        ["The sun [sets] in the west.", "Güneş batıdan batar.", "(güneş) batmak"],
+        ["Let's [set] a date for the meeting.", "Toplantı için bir tarih belirleyelim.", "(tarih, kural) belirlemek"],
+        ["The teacher [set] us a lot of homework.", "Öğretmen bize çok ödev verdi.", "(ödev, görev) vermek"],
+        ["The story is [set] in London.", "Hikâye Londra'da geçiyor.", "be set in = (bir yerde/zamanda) geçmek"],
+        ["He [set] a new world record.", "Yeni bir dünya rekoru kırdı.", "set a record = rekor kırmak"],
+        ["They [set] the prisoner free.", "Mahkûmu serbest bıraktılar.", "set free = serbest bırakmak"],
+        ["The house was [set] on fire.", "Ev ateşe verildi.", "set on fire = ateşe vermek"]
+      ]
+    },
+    {
+      "title": "PUT",
+      "text": "Temel fikir: bir şeyi \"bir yere koymak\". set'e benzer ama daha günlük ve genel. Üç hali aynıdır: put – put – put. Birçok phrasal verb'ün temelidir (put on, put off, put up with).",
+      "examples": [
+        ["[Put] your bag on the chair.", "Çantanı sandalyeye koy.", "koymak"],
+        ["Where did you [put] my keys?", "Anahtarlarımı nereye koydun?", "koymak, bırakmak"],
+        ["She [put] her hand on my shoulder.", "Elini omzuma koydu.", "koymak, yerleştirmek"],
+        ["Let me [put] it another way.", "Başka bir şekilde ifade edeyim.", "ifade etmek, söylemek"],
+        ["Don't [put] the blame on me.", "Suçu bana atma.", "put the blame on = suçu atmak"],
+        ["[Put] your name at the top of the page.", "Adını sayfanın en üstüne yaz.", "yazmak"],
+        ["I [put] a lot of time into this project.", "Bu projeye çok zaman harcadım.", "put into = (emek, zaman) harcamak"],
+        ["The news [put] her in a good mood.", "Haber onu neşelendirdi.", "put in a mood = bir ruh haline sokmak"]
+      ]
+    },
+    {
+      "title": "GO",
+      "text": "Temel fikir: \"bir yerden uzaklaşmak, gitmek\". go + sıfat = (genelde kötü) bir hale gelmek (go bad = bozulmak). go + -ing = bir etkinliğe gitmek (go swimming). Düzensizdir: go – went – gone.",
+      "examples": [
+        ["We [go] to school by bus.", "Okula otobüsle gideriz.", "gitmek"],
+        ["Let's [go] swimming tomorrow.", "Yarın yüzmeye gidelim.", "go + -ing = … yapmaya gitmek"],
+        ["The milk has [gone] bad.", "Süt bozulmuş.", "go + sıfat = hale gelmek: go bad / go wrong"],
+        ["His hair is [going] grey.", "Saçları ağarıyor.", "go grey = ağarmak"],
+        ["How did the interview [go]?", "Mülakat nasıl geçti?", "geçmek, gitmek (olay)"],
+        ["This road [goes] to the beach.", "Bu yol plaja gidiyor.", "(yol) gitmek, uzanmak"],
+        ["My headache has [gone].", "Baş ağrım geçti.", "geçmek, yok olmak"],
+        ["Does this red tie [go] with my shirt?", "Bu kırmızı kravat gömleğime uyar mı?", "go with = uymak, yakışmak"],
+        ["The dog [goes] \"woof\".", "Köpek \"hav\" der.", "(ses) çıkarmak, demek"],
+        ["Where do the cups [go]?", "Fincanlar nereye konuyor?", "(bir yere) ait olmak, konmak"]
+      ]
+    },
+    {
+      "title": "COME",
+      "text": "Temel fikir: \"konuşana doğru hareket etmek, gelmek\". Bir şeyin bir yerden çıkması, bir sıraya girmesi ya da bir hale gelmesi için de kullanılır. Düzensizdir: come – came – come.",
+      "examples": [
+        ["[Come] here, please.", "Buraya gel, lütfen.", "gelmek"],
+        ["Can I [come] with you?", "Seninle gelebilir miyim?", "(birine) katılmak, eşlik etmek"],
+        ["Where do you [come] from?", "Nerelisin?", "come from = …den gelmek, -li olmak"],
+        ["She [came] first in the race.", "Yarışta birinci oldu.", "(bir sırada) gelmek, olmak"],
+        ["My dream has [come] true.", "Hayalim gerçek oldu.", "come true = gerçekleşmek"],
+        ["The shoes [come] in three colours.", "Ayakkabıların üç renk seçeneği var.", "(… şeklinde) bulunmak, satılmak"],
+        ["The door [came] open.", "Kapı açıldı.", "come + sıfat = hale gelmek: come open / loose"],
+        ["I'm [coming]!", "Geliyorum!", "(karşıdakine doğru) gelmek"],
+        ["Christmas [comes] once a year.", "Noel yılda bir gelir.", "(zaman, olay) gelmek"]
+      ]
+    },
+    {
+      "title": "TURN",
+      "text": "Temel fikir: \"dönmek, döndürmek\" ve bir halden başka bir hale \"dönüşmek\". turn + sıfat = (birden) bir hale gelmek (turn red). turn into = -e dönüşmek. Düzenlidir: turn – turned – turned.",
+      "examples": [
+        ["[Turn] left at the bank.", "Bankadan sola dön.", "(yön) dönmek"],
+        ["She [turned] the key and opened the door.", "Anahtarı çevirip kapıyı açtı.", "çevirmek, döndürmek"],
+        ["Please [turn] the page.", "Lütfen sayfayı çevir.", "(sayfa) çevirmek"],
+        ["He [turned] to me and smiled.", "Bana dönüp gülümsedi.", "(birine) dönmek"],
+        ["The leaves [turn] yellow in autumn.", "Sonbaharda yapraklar sararır.", "turn + sıfat = olmak, hale gelmek"],
+        ["The frog [turned] into a prince.", "Kurbağa bir prense dönüştü.", "turn into = dönüşmek"],
+        ["My son [turns] ten next week.", "Oğlum gelecek hafta on yaşına giriyor.", "(yaşa) girmek"],
+        ["It's your [turn].", "Sıra sende.", "isim: sıra"]
+      ]
+    },
+    {
+      "title": "RUN",
+      "text": "Temel fikir: \"koşmak\", ama aynı zamanda \"çalışmak, işlemek, yönetmek, akmak\" gibi sürekli hareket eden her şey için. Düzensizdir: run – ran – run.",
+      "examples": [
+        ["I [run] five kilometres every morning.", "Her sabah beş kilometre koşarım.", "koşmak"],
+        ["She [runs] a small café.", "Küçük bir kafe işletiyor.", "işletmek, yönetmek"],
+        ["The engine is [running].", "Motor çalışıyor.", "(makine) çalışmak"],
+        ["The buses [run] every ten minutes.", "Otobüsler her on dakikada bir çalışıyor.", "(toplu taşıma) işlemek"],
+        ["Don't leave the water [running].", "Suyu açık bırakma.", "(su) akmak"],
+        ["My nose is [running].", "Burnum akıyor.", "(burun) akmak"],
+        ["The film [runs] for two hours.", "Film iki saat sürüyor.", "sürmek, devam etmek"],
+        ["He is [running] for president.", "Başkanlığa aday.", "run for = aday olmak"],
+        ["This app [runs] on any phone.", "Bu uygulama her telefonda çalışır.", "(program) çalışmak"]
+      ]
+    },
+    {
+      "title": "BREAK",
+      "text": "Temel fikir: \"kırmak, bozmak\" — bir şeyin bütünlüğünü bozmak. Kural, söz ve rekor için de kullanılır. Düzensizdir: break – broke – broken.",
+      "examples": [
+        ["Who [broke] the window?", "Camı kim kırdı?", "kırmak"],
+        ["He [broke] his leg playing football.", "Futbol oynarken bacağını kırdı.", "(kemik) kırmak"],
+        ["My phone is [broken].", "Telefonum bozuk.", "bozulmak, bozuk"],
+        ["You [broke] your promise!", "Sözünü tutmadın!", "(söz) bozmak, tutmamak"],
+        ["Don't [break] the rules.", "Kuralları çiğneme.", "(kural, yasa) çiğnemek"],
+        ["Let's [break] for lunch.", "Öğle yemeği için ara verelim.", "ara vermek"],
+        ["She [broke] the news to her parents.", "Haberi ailesine verdi (açıkladı).", "break the news = (kötü) haberi vermek"],
+        ["Can you [break] a 50-lira note?", "50 liralık bozabilir misin?", "(para) bozmak"],
+        ["He [broke] the world record.", "Dünya rekorunu kırdı.", "break a record = rekor kırmak"]
+      ]
+    },
+    {
+      "title": "HOLD",
+      "text": "Temel fikir: \"elde tutmak\" ve bir şeyi bir yerde \"tutmak, bekletmek\". Bir şeyin kapasitesini anlatmak ya da bir etkinlik düzenlemek için de kullanılır. Düzensizdir: hold – held – held.",
+      "examples": [
+        ["[Hold] my hand.", "Elimi tut.", "(elde) tutmak"],
+        ["She was [holding] a baby.", "Kucağında bir bebek tutuyordu.", "tutmak, taşımak"],
+        ["This bottle [holds] two litres.", "Bu şişe iki litre alır.", "almak, içine sığdırmak"],
+        ["The meeting will be [held] on Monday.", "Toplantı pazartesi yapılacak.", "(toplantı, etkinlik) düzenlemek"],
+        ["[Hold] on, please. I'll get him.", "Lütfen bekleyin, onu çağırıyorum.", "hold on = beklemek (telefonda)"],
+        ["Can you [hold] the door for me?", "Kapıyı benim için tutar mısın?", "(açık) tutmak"],
+        ["He [holds] the world record.", "Dünya rekoru onda.", "(unvan, rekor) sahibi olmak"],
+        ["[Hold] your breath.", "Nefesini tut.", "hold your breath = nefesini tutmak"]
+      ]
+    },
+    {
+      "title": "KEEP",
+      "text": "Temel fikir: bir şeyin \"aynı şekilde kalmasını sağlamak\". keep + -ing = bir şeyi yapmaya devam etmek. keep + sıfat = … tutmak, … kalmak. Düzensizdir: keep – kept – kept.",
+      "examples": [
+        ["You can [keep] the change.", "Para üstü sende kalsın.", "(sahip olarak) tutmak, saklamak"],
+        ["[Keep] the door closed.", "Kapıyı kapalı tut.", "keep + nesne + sıfat = … tutmak"],
+        ["[Keep] calm!", "Sakin ol!", "keep + sıfat = … kalmak"],
+        ["He [kept] talking during the film.", "Film boyunca konuşup durdu.", "keep + -ing = -ip durmak, devam etmek"],
+        ["I always [keep] my promises.", "Sözlerimi hep tutarım.", "(söz) tutmak"],
+        ["Can you [keep] a secret?", "Sır tutabilir misin?", "(sır) saklamak"],
+        ["Sorry to [keep] you waiting.", "Seni beklettiğim için üzgünüm.", "keep someone waiting = bekletmek"],
+        ["Where do you [keep] the sugar?", "Şekeri nerede saklıyorsun?", "(bir yerde) saklamak, bulundurmak"],
+        ["Milk doesn't [keep] long in summer.", "Süt yazın uzun dayanmaz.", "(bozulmadan) dayanmak"]
+      ]
+    },
+    {
+      "title": "CARRY",
+      "text": "Temel fikir: bir şeyi \"üzerinde taşıyarak bir yerden başka bir yere götürmek\". Bir şeyi yanında bulundurmak ve bir mağazanın bir ürünü satması için de kullanılır. Düzenlidir: carry – carried – carried.",
+      "examples": [
+        ["Can you help me [carry] this box?", "Bu kutuyu taşımama yardım eder misin?", "taşımak"],
+        ["She always [carries] an umbrella.", "Her zaman yanında şemsiye taşır.", "yanında bulundurmak"],
+        ["The bus can [carry] fifty passengers.", "Otobüs elli yolcu taşıyabilir.", "(yolcu, yük) taşımak"],
+        ["Mosquitoes [carry] diseases.", "Sivrisinekler hastalık taşır.", "(hastalık) taşımak, bulaştırmak"],
+        ["Does this shop [carry] English books?", "Bu dükkânda İngilizce kitap var mı?", "(ürün) satmak, bulundurmak"],
+        ["Her voice [carried] across the room.", "Sesi odanın öbür ucuna kadar ulaştı.", "(ses) ulaşmak, yayılmak"],
+        ["[Carry] on, please.", "Devam et, lütfen.", "carry on = devam etmek"]
+      ]
+    },
+    {
+      "title": "BRING",
+      "text": "Temel fikir: bir şeyi \"konuşanın olduğu yere getirmek\". take ise \"götürmek\"tir: Bring it here / Take it there. Bir sonuca yol açmak için de kullanılır. Düzensizdir: bring – brought – brought.",
+      "examples": [
+        ["[Bring] me the newspaper, please.", "Bana gazeteyi getir, lütfen.", "getirmek"],
+        ["Can I [bring] a friend to the party?", "Partiye bir arkadaş getirebilir miyim?", "(birini) getirmek, yanında getirmek"],
+        ["Don't forget to [bring] your passport.", "Pasaportunu getirmeyi unutma.", "yanında getirmek"],
+        ["Money doesn't always [bring] happiness.", "Para her zaman mutluluk getirmez.", "(sonuç) getirmek, yol açmak"],
+        ["The song [brought] tears to my eyes.", "Şarkı gözlerimi yaşarttı.", "bring tears = gözleri yaşartmak"],
+        ["What [brings] you here?", "Seni buraya hangi rüzgâr attı?", "buraya getirmek (neden)"],
+        ["I couldn't [bring] myself to tell her.", "Ona söylemeye bir türlü cesaret edemedim.", "bring oneself to = (zor bir şeyi) yapmaya kendini ikna etmek"]
+      ]
+    }
+  ],
+  "sets": [
+    {
+      "id": "vb-meaning",
+      "title": "Bu cümlede ne anlama geliyor?",
+      "hint": "Fiilin bu cümledeki Türkçe anlamını seç.",
+      "trOptions": true,
+      "items": [
+        { "q": "What time did you get home last night?", "options": ["varmak", "almak", "anlamak", "olmak"], "answer": "varmak", "why": "get + yer (home) = varmak, ulaşmak." },
+        { "q": "It's getting cold.", "options": ["hale gelmek, olmak", "almak", "getirmek", "binmek"], "answer": "hale gelmek, olmak", "why": "get + sıfat (cold) = bir hale gelmek: soğuyor." },
+        { "q": "Sorry, I don't get the joke.", "options": ["anlamak", "almak", "varmak", "getirmek"], "answer": "anlamak", "why": "Konuşma dilinde get = anlamak." },
+        { "q": "It takes ten minutes to walk there.", "options": ["sürmek", "almak", "götürmek", "binmek"], "answer": "sürmek", "why": "It takes + süre = … sürer." },
+        { "q": "Can you take me to the airport?", "options": ["götürmek", "almak", "sürmek", "çalmak"], "answer": "götürmek", "why": "take + kişi + to + yer = birini bir yere götürmek." },
+        { "q": "She makes a lot of money.", "options": ["kazanmak", "yapmak", "harcamak", "vermek"], "answer": "kazanmak", "why": "make money = para kazanmak." },
+        { "q": "That joke made me laugh.", "options": ["-dırmak (birine yaptırmak)", "üretmek", "kazanmak", "etmek"], "answer": "-dırmak (birine yaptırmak)", "why": "make + kişi + fiil: beni güldürdü." },
+        { "q": "Ten minutes will do.", "options": ["yetmek", "yapmak", "başarmak", "bitirmek"], "answer": "yetmek", "why": "will do = yeter, iş görür." },
+        { "q": "The sun sets at seven.", "options": ["batmak", "koymak", "kurmak", "doğmak"], "answer": "batmak", "why": "Güneş için set = batmak." },
+        { "q": "I set my alarm for 6 a.m.", "options": ["kurmak, ayarlamak", "koymak", "batmak", "belirlemek"], "answer": "kurmak, ayarlamak", "why": "set an alarm = alarm kurmak." },
+        { "q": "The milk has gone sour.", "options": ["hale gelmek (bozulmak)", "gitmek", "geçmek", "uymak"], "answer": "hale gelmek (bozulmak)", "why": "go + sıfat = (genelde kötü) bir hale gelmek." },
+        { "q": "Do these shoes go with my dress?", "options": ["uymak", "gitmek", "geçmek", "bozulmak"], "answer": "uymak", "why": "go with = uymak, yakışmak." },
+        { "q": "My wish came true.", "options": ["gerçekleşmek", "gelmek", "birinci olmak", "açılmak"], "answer": "gerçekleşmek", "why": "come true = gerçek olmak." },
+        { "q": "Our daughter turns six tomorrow.", "options": ["(yaşa) girmek", "dönmek", "çevirmek", "dönüşmek"], "answer": "(yaşa) girmek", "why": "turn + yaş = o yaşa girmek." },
+        { "q": "He runs a hotel by the sea.", "options": ["işletmek", "koşmak", "akmak", "sürmek"], "answer": "işletmek", "why": "run a business / hotel = işletmek." },
+        { "q": "The trains don't run on Sundays.", "options": ["işlemek, çalışmak", "koşmak", "akmak", "kaçmak"], "answer": "işlemek, çalışmak", "why": "Toplu taşıma için run = sefer yapmak, işlemek." },
+        { "q": "He never breaks his promises.", "options": ["(söz) bozmak", "kırmak", "ara vermek", "bozdurmak"], "answer": "(söz) bozmak", "why": "break a promise = sözünü tutmamak." },
+        { "q": "This jug holds one litre.", "options": ["almak (kapasite)", "tutmak", "düzenlemek", "beklemek"], "answer": "almak (kapasite)", "why": "hold = içine alabilmek: bir litre alıyor." },
+        { "q": "She kept asking questions.", "options": ["-ip durmak, devam etmek", "saklamak", "tutmak", "dayanmak"], "answer": "-ip durmak, devam etmek", "why": "keep + -ing = bir şeyi yapmaya devam etmek." },
+        { "q": "The supermarket doesn't carry fresh fish.", "options": ["(ürün) satmak", "taşımak", "götürmek", "bulaştırmak"], "answer": "(ürün) satmak", "why": "Mağaza için carry = bir ürünü satmak, bulundurmak." }
+      ]
+    },
+    {
+      "id": "vb-makedo",
+      "title": "Make mi, do mu?",
+      "hint": "Kalıba uyan fiili seç.",
+      "items": [
+        { "q": "Don't worry, everyone ___ mistakes.", "options": ["makes", "does"], "answer": "makes", "why": "make a mistake." },
+        { "q": "I have to ___ my homework now.", "options": ["do", "make"], "answer": "do", "why": "do homework." },
+        { "q": "Could you ___ me a favour?", "options": ["do", "make"], "answer": "do", "why": "do someone a favour." },
+        { "q": "We need to ___ a decision today.", "options": ["make", "do"], "answer": "make", "why": "make a decision." },
+        { "q": "Who is going to ___ the dishes?", "options": ["do", "make"], "answer": "do", "why": "do the dishes." },
+        { "q": "Please don't ___ so much noise.", "options": ["make", "do"], "answer": "make", "why": "make noise." },
+        { "q": "She ___ yoga twice a week.", "options": ["does", "makes"], "answer": "does", "why": "do yoga / do sport / do exercise." },
+        { "q": "I'll ___ breakfast for everyone.", "options": ["make", "do"], "answer": "make", "why": "Yemek hazırlamak → make breakfast / dinner." },
+        { "q": "It's easy to ___ friends here.", "options": ["make", "do"], "answer": "make", "why": "make friends." },
+        { "q": "Just ___ your best.", "options": ["do", "make"], "answer": "do", "why": "do your best." },
+        { "q": "Can I ___ a phone call?", "options": ["make", "do"], "answer": "make", "why": "make a phone call." },
+        { "q": "My father ___ the shopping on Fridays.", "options": ["does", "makes"], "answer": "does", "why": "do the shopping." },
+        { "q": "You've ___ a lot of progress.", "options": ["made", "done"], "answer": "made", "why": "make progress." },
+        { "q": "The flood ___ a lot of damage.", "options": ["did", "made"], "answer": "did", "why": "do damage." },
+        { "q": "Don't forget to ___ your bed.", "options": ["make", "do"], "answer": "make", "why": "make the bed = yatağı toplamak." }
+      ]
+    },
+    {
+      "id": "vb-choose",
+      "title": "Doğru fiili seç",
+      "hint": "Boşluğa uyan fiili seç.",
+      "items": [
+        { "q": "Can you ___ me to the station?", "options": ["take", "bring", "carry", "keep"], "answer": "take", "why": "Birini bir yere götürmek → take." },
+        { "q": "___ your friends to my party!", "options": ["Bring", "Take", "Carry", "Hold"], "answer": "Bring", "why": "Konuşanın olduğu yere (benim partime) getirmek → bring." },
+        { "q": "Please ___ the door open for me.", "options": ["hold", "carry", "bring", "set"], "answer": "hold", "why": "Kapıyı açık tutmak → hold the door." },
+        { "q": "___ quiet, the baby is sleeping.", "options": ["Keep", "Hold", "Put", "Make"], "answer": "Keep", "why": "keep + sıfat = … kalmak: sessiz ol." },
+        { "q": "Can you help me ___ these bags to the car?", "options": ["carry", "hold", "keep", "set"], "answer": "carry", "why": "Bir yerden başka bir yere taşımak → carry." },
+        { "q": "Where should I ___ my coat?", "options": ["put", "take", "keep on", "run"], "answer": "put", "why": "Bir şeyi bir yere koymak → put." },
+        { "q": "The leaves ___ red in autumn.", "options": ["turn", "make", "break", "put"], "answer": "turn", "why": "turn + renk = o renge dönüşmek." },
+        { "q": "Who ___ the vase? It's in pieces!", "options": ["broke", "turned", "ran", "set"], "answer": "broke", "why": "Paramparça → break (kırmak)." },
+        { "q": "I usually ___ the 8 o'clock train.", "options": ["take", "make", "bring", "put"], "answer": "take", "why": "Bir araçla gitmek → take the train." },
+        { "q": "She ___ a new world record in Paris.", "options": ["set", "made", "did", "put"], "answer": "set", "why": "set a record (ilk kez rekor koymak); break a record da olur." },
+        { "q": "We ___ fishing every summer.", "options": ["go", "do", "make", "come"], "answer": "go", "why": "go + -ing (etkinlik): go fishing." },
+        { "q": "Where does your family ___ from?", "options": ["come", "go", "get", "bring"], "answer": "come", "why": "come from = …den gelmek, -li olmak." },
+        { "q": "Hurry up, we're ___ late!", "options": ["getting", "making", "doing", "taking"], "answer": "getting", "why": "get + sıfat = hale gelmek: geç kalıyoruz." },
+        { "q": "My computer won't ___ this game.", "options": ["run", "go", "turn", "make"], "answer": "run", "why": "Program çalıştırmak → run." },
+        { "q": "The museum ___ an exhibition every spring.", "options": ["holds", "keeps", "carries", "sets"], "answer": "holds", "why": "Etkinlik düzenlemek → hold." }
+      ]
+    }
+  ]
+}

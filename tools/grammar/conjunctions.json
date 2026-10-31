@@ -1,0 +1,224 @@
+{
+  "title": "Bağlaçlar",
+  "lead": "İki fikri birbirine bağlayan kelimeler: anlamları, kuralları ve örnekleri.",
+  "lessons": [
+    {
+      "title": "Temel bağlaçlar: and, but, or, so",
+      "text": "Bunlar iki eşit parçayı (iki kelime ya da iki tam cümle) bağlar. İki tam cümleyi bağlarken bağlaçtan önce genelde virgül konur: \"I was tired, so I went to bed.\" Kısa cümlelerde virgül atlanabilir. Kural: bu bağlaçlar cümlenin ortasında durur; yazıda cümleye \"And\" ya da \"But\" ile başlamak konuşma dilidir.",
+      "examples": [
+        ["I like tea [and] coffee.", "Çayı ve kahveyi severim.", "and = ve"],
+        ["She is small [but] very strong.", "Küçük ama çok güçlü.", "but = ama, fakat"],
+        ["Do you want tea [or] coffee?", "Çay mı kahve mi istersin?", "or = ya da, veya"],
+        ["It was raining, [so] we stayed at home.", "Yağmur yağıyordu, bu yüzden evde kaldık.", "so = bu yüzden"],
+        ["He studied hard, [yet] he failed the test.", "Çok çalıştı, yine de sınavı geçemedi.", "yet = yine de (but'tan daha resmî)"],
+        ["We went home early, [for] it was very late.", "Erken eve gittik, çünkü çok geç olmuştu.", "for = çünkü (eski / edebî; romanlarda sık)"],
+        ["He doesn't eat meat, [nor] does he drink milk.", "Et yemez, süt de içmez.", "nor = ne de (arkasından devrik cümle gelir)"]
+      ]
+    },
+    {
+      "title": "Sebep: because, since, as, because of",
+      "text": "because, since ve as arkasından tam bir cümle (özne + fiil) alır. because of ve due to ise arkasından bir isim alır. Since ve as genelde cümlenin başında, bilinen bir sebebi söylerken kullanılır. Sık hata: \"because of it was late\" ✗ → \"because it was late\" ✓.",
+      "examples": [
+        ["I stayed at home [because] I was ill.", "Hasta olduğum için evde kaldım.", "because + cümle = çünkü, -dığı için"],
+        ["[Since] you are here, you can help me.", "Madem buradasın, bana yardım edebilirsin.", "since = madem, -dığına göre"],
+        ["[As] it was late, we took a taxi.", "Geç olduğu için taksiye bindik.", "as = -dığı için"],
+        ["The match was cancelled [because of] the rain.", "Maç yağmur yüzünden iptal edildi.", "because of + isim = yüzünden"],
+        ["The delay was [due to] a technical problem.", "Gecikme teknik bir sorun nedeniyle oldu.", "due to + isim = nedeniyle (resmî)"],
+        ["I bought it [thanks to] your advice.", "Senin tavsiyen sayesinde aldım.", "thanks to = sayesinde"]
+      ]
+    },
+    {
+      "title": "Sonuç: so, therefore, so … that, such … that",
+      "text": "so iki cümleyi bağlar. therefore ve as a result daha resmîdir; genelde yeni cümlenin başında, arkalarında virgülle gelir. \"so + sıfat + that\" ve \"such + (a) + sıfat + isim + that\" bir şeyin o kadar fazla olduğunu ki bir sonuç doğurduğunu anlatır.",
+      "examples": [
+        ["I was hungry, [so] I made a sandwich.", "Acıkmıştım, bu yüzden sandviç yaptım.", "so = bu yüzden"],
+        ["The roads were icy. [Therefore], the school was closed.", "Yollar buzluydu. Bu nedenle okul kapatıldı.", "therefore = bu nedenle (resmî)"],
+        ["He didn't train. [As a result], he lost the race.", "Antrenman yapmadı. Sonuç olarak yarışı kaybetti.", "as a result = sonuç olarak"],
+        ["The film was [so] boring [that] I fell asleep.", "Film o kadar sıkıcıydı ki uyuyakaldım.", "so + sıfat + that = o kadar … ki"],
+        ["It was [such] a good book [that] I read it twice.", "O kadar iyi bir kitaptı ki iki kez okudum.", "such + a + sıfat + isim + that"],
+        ["There were [so] many people [that] we couldn't sit.", "O kadar çok insan vardı ki oturamadık.", "so many / so much + isim + that"]
+      ]
+    },
+    {
+      "title": "Zıtlık: although, even though, however, despite",
+      "text": "although, though ve even though arkasından tam cümle alır (even though daha güçlüdür). despite ve in spite of ise isim ya da -ing alır. however iki ayrı cümleyi bağlar, virgülle kullanılır. while ve whereas iki şeyi karşılaştırır. Sık hata: \"Although it was cold, but we swam\" ✗ — although ile but birlikte kullanılmaz.",
+      "examples": [
+        ["[Although] it was cold, we went swimming.", "Hava soğuk olmasına rağmen yüzmeye gittik.", "although + cümle = -masına rağmen"],
+        ["[Even though] he is rich, he is not happy.", "Zengin olduğu halde mutlu değil.", "even though = -dığı halde (daha güçlü)"],
+        ["We enjoyed the trip, [though] the hotel was bad.", "Otel kötü olsa da geziden keyif aldık.", "though = -sa da (konuşmada cümle sonunda da gelir)"],
+        ["[Despite] the rain, we played football.", "Yağmura rağmen futbol oynadık.", "despite + isim"],
+        ["[In spite of] being tired, she finished the work.", "Yorgun olmasına rağmen işi bitirdi.", "in spite of + -ing"],
+        ["The plan was good. [However], it didn't work.", "Plan iyiydi. Ancak işe yaramadı.", "however = ancak, yine de"],
+        ["My brother loves sport, [while] I prefer books.", "Kardeşim sporu sever, oysa ben kitapları tercih ederim.", "while = oysa, -iken"],
+        ["Some people walk to work, [whereas] others drive.", "Bazıları işe yürür, oysa diğerleri araba kullanır.", "whereas = oysa (resmî)"]
+      ]
+    },
+    {
+      "title": "Zaman: when, while, before, after, until, as soon as",
+      "text": "Zaman bağlaçlarından sonra gelecek zaman için will kullanılmaz, geniş zaman (present simple) kullanılır: \"When I arrive, I will call you\" ✓, \"When I will arrive\" ✗. while uzun süren bir eylemle kullanılır. until \"-e kadar\" demektir ve bir eylemin o ana kadar sürdüğünü anlatır; by the time ise \"-diği zamana kadar (çoktan)\" anlamındadır.",
+      "examples": [
+        ["[When] I was a child, I lived in Ankara.", "Çocukken Ankara'da yaşıyordum.", "when = -dığında, -ken"],
+        ["She called me [while] I was cooking.", "Ben yemek yaparken beni aradı.", "while = -ken (süren eylem)"],
+        ["Wash your hands [before] you eat.", "Yemekten önce ellerini yıka.", "before = -madan önce"],
+        ["[After] we had dinner, we watched a film.", "Akşam yemeğinden sonra film izledik.", "after = -dıktan sonra"],
+        ["Wait here [until] I come back.", "Ben geri gelene kadar burada bekle.", "until = -e kadar"],
+        ["I'll call you [as soon as] I arrive.", "Varır varmaz seni arayacağım.", "as soon as = -ir -mez"],
+        ["[Once] you learn the rules, it is easy.", "Kuralları bir kez öğrendiğinde kolay.", "once = bir kez … -dığında"],
+        ["I have lived here [since] I was ten.", "On yaşımdan beri burada yaşıyorum.", "since = -den beri"],
+        ["[By the time] we got there, the film had started.", "Oraya vardığımızda film çoktan başlamıştı.", "by the time = -diği zamana kadar"],
+        ["[Whenever] I see her, she smiles.", "Onu ne zaman görsem gülümser.", "whenever = ne zaman … -sa"],
+        ["[As] I was leaving, the phone rang.", "Tam çıkarken telefon çaldı.", "as = tam -ken"]
+      ]
+    },
+    {
+      "title": "Koşul: if, unless, as long as, in case",
+      "text": "unless = if … not (… -medikçe, -mezse). unless'tan sonra olumsuz fiil kullanılmaz: \"unless you don't hurry\" ✗. as long as ve provided that bir şarta bağlar. in case ise bir ihtimale karşı önlem almaktır (\"belki olur diye\"). otherwise \"yoksa\" demektir ve yeni bir cümle başlatır.",
+      "examples": [
+        ["[If] it rains, we will stay at home.", "Yağmur yağarsa evde kalırız.", "if = eğer, -sa"],
+        ["You will miss the bus [unless] you hurry.", "Acele etmezsen otobüsü kaçıracaksın.", "unless = -mezse"],
+        ["You can borrow my car [as long as] you drive carefully.", "Dikkatli sürdüğün sürece arabamı ödünç alabilirsin.", "as long as = -dığı sürece"],
+        ["I'll come [provided that] I finish work early.", "İşi erken bitirmem şartıyla geleceğim.", "provided that = şartıyla"],
+        ["Take an umbrella [in case] it rains.", "Yağmur yağar diye şemsiye al.", "in case = … olur diye, ihtimaline karşı"],
+        ["Hurry up, [otherwise] we'll be late.", "Acele et, yoksa geç kalacağız.", "otherwise = yoksa"],
+        ["I don't know [whether] he will come.", "Gelip gelmeyeceğini bilmiyorum.", "whether = -ip -mediği"],
+        ["[Even if] you run, you won't catch the train.", "Koşsan bile treni yakalayamazsın.", "even if = -sa bile"]
+      ]
+    },
+    {
+      "title": "Amaç: to, in order to, so that",
+      "text": "Amaç için en sık \"to + fiil\" kullanılır: \"I went to the shop to buy milk\". \"for + fiil\" ✗ hatasından kaçın: \"for buy\" yanlıştır. in order to daha resmîdir. so that arkasından tam cümle alır ve çoğu zaman can / could / will / would ile kullanılır.",
+      "examples": [
+        ["I went to the shop [to] buy some milk.", "Süt almak için markete gittim.", "to + fiil = -mek için"],
+        ["She studies every day [in order to] pass the exam.", "Sınavı geçmek için her gün çalışıyor.", "in order to = -mek amacıyla"],
+        ["Speak slowly [so that] everyone can understand.", "Herkes anlayabilsin diye yavaş konuş.", "so that = -sin diye"],
+        ["I left early [so as not to] miss the bus.", "Otobüsü kaçırmamak için erken çıktım.", "so as not to = -memek için"],
+        ["This knife is [for] cutting bread.", "Bu bıçak ekmek kesmek için.", "for + -ing = bir aletin ne işe yaradığı"]
+      ]
+    },
+    {
+      "title": "İkili bağlaçlar: both … and, either … or, neither … nor",
+      "text": "Bunlar çift olarak kullanılır. both … and = hem … hem. either … or = ya … ya. neither … nor = ne … ne (cümle olumsuz anlam taşır ama fiil olumlu kalır). not only … but also = sadece … değil, aynı zamanda. Fiil, nor / or'dan sonraki isme uyar: \"Neither my brother nor my parents are at home.\"",
+      "examples": [
+        ["[Both] my mother [and] my father are teachers.", "Hem annem hem babam öğretmen.", "both … and = hem … hem"],
+        ["You can [either] stay [or] come with us.", "Ya kalabilirsin ya da bizimle gelebilirsin.", "either … or = ya … ya"],
+        ["[Neither] Ali [nor] Ayşe came to the party.", "Ne Ali ne de Ayşe partiye geldi.", "neither … nor = ne … ne"],
+        ["She is [not only] clever [but also] kind.", "O sadece zeki değil, aynı zamanda nazik.", "not only … but also"],
+        ["I can't decide [whether] to stay [or] go.", "Kalsam mı gitsem mi karar veremiyorum.", "whether … or = -sa mı … -sa mı"],
+        ["Ask [either] your teacher [or] your parents.", "Ya öğretmenine ya da ailene sor.", "either … or"]
+      ]
+    },
+    {
+      "title": "Ekleme ve sıralama: also, too, besides, moreover",
+      "text": "too ve as well cümlenin sonunda, also ise fiilden önce gelir. besides, moreover, furthermore ve in addition yeni bir bilgi eklerken cümlenin başında, virgülle kullanılır (yazı dilinde). Bir hikâyede olayları sıralamak için first, then, after that, finally çok kullanışlıdır.",
+      "examples": [
+        ["I [also] speak German.", "Ben Almanca da konuşurum.", "also = de, da (fiilden önce)"],
+        ["I like jazz, and I like rock [too].", "Cazı severim, rock'ı da severim.", "too = de, da (cümle sonunda)"],
+        ["She plays the guitar [as well].", "Gitar da çalıyor.", "as well = de, da"],
+        ["The hotel was cheap. [Besides], it was near the sea.", "Otel ucuzdu. Üstelik denize yakındı.", "besides = üstelik"],
+        ["The plan is cheap. [Moreover], it is safe.", "Plan ucuz. Dahası, güvenli.", "moreover = dahası (resmî)"],
+        ["[In addition to] English, he speaks French.", "İngilizceye ek olarak Fransızca konuşuyor.", "in addition to + isim = -e ek olarak"],
+        ["[First], open the box. [Then] take out the phone. [Finally], turn it on.", "Önce kutuyu aç. Sonra telefonu çıkar. Son olarak aç.", "first / then / finally = önce / sonra / son olarak"]
+      ]
+    },
+    {
+      "title": "Karşılaştırma ve benzetme: like, as, as if, than",
+      "text": "like arkasından isim alır (\"like a bird\"), as ise cümle alır (\"as I told you\"). as if / as though \"-mış gibi\" demektir. than karşılaştırmada, as … as eşitlikte kullanılır. Örnek ve açıklama vermek için for example, such as ve that is (i.e.) kullanılır.",
+      "examples": [
+        ["She sings [like] a bird.", "Bir kuş gibi şarkı söylüyor.", "like + isim = gibi"],
+        ["Do it [as] I showed you.", "Sana gösterdiğim gibi yap.", "as + cümle = -dığı gibi"],
+        ["He talks [as if] he knows everything.", "Her şeyi biliyormuş gibi konuşuyor.", "as if = -mış gibi"],
+        ["My sister is taller [than] me.", "Kız kardeşim benden daha uzun.", "than = -den (daha)"],
+        ["This bag is [as] heavy [as] that one.", "Bu çanta o çanta kadar ağır.", "as … as = … kadar"],
+        ["I like fruit [such as] apples and pears.", "Elma ve armut gibi meyveleri severim.", "such as = gibi (örnek verirken)"],
+        ["Many animals, [for example] bears, sleep in winter.", "Birçok hayvan, örneğin ayılar, kışın uyur.", "for example = örneğin"]
+      ]
+    },
+    {
+      "title": "Virgül ve cümle başı kuralları",
+      "text": "1) Yan cümle başa gelirse arkasına virgül konur: \"When I got home, I slept.\" Sona gelirse virgül gerekmez: \"I slept when I got home.\" 2) however, therefore, moreover iki cümleyi tek başına virgülle bağlayamaz; nokta ya da noktalı virgül kullanılır. 3) because ile başlayan yan cümle tek başına bir cümle değildir: \"Because I was tired.\" ✗ (konuşmada soruya cevapta olur).",
+      "examples": [
+        ["[If] you need help, call me.", "Yardıma ihtiyacın olursa beni ara.", "Yan cümle başta → virgül"],
+        ["Call me [if] you need help.", "Yardıma ihtiyacın olursa beni ara.", "Yan cümle sonda → virgül yok"],
+        ["It was late; [however], nobody wanted to leave.", "Geç olmuştu; ancak kimse gitmek istemiyordu.", "however → noktalı virgül ya da nokta"],
+        ["I was tired [because] I worked all day.", "Bütün gün çalıştığım için yorgundum.", "because cümlesi ana cümleye bağlı"],
+        ["\"Why are you late?\" \"[Because] I missed the bus.\"", "\"Neden geç kaldın?\" \"Çünkü otobüsü kaçırdım.\"", "Soruya cevapta because ile başlamak olur"]
+      ]
+    }
+  ],
+  "sets": [
+    {
+      "id": "cj-choose",
+      "title": "Doğru bağlacı seç",
+      "hint": "Boşluğa anlama en uygun bağlacı seç.",
+      "items": [
+        { "q": "I was tired, ___ I went to bed early.", "options": ["so", "but", "because", "although"], "answer": "so", "why": "Yorgunluğun sonucu erken yatmak → so (bu yüzden)." },
+        { "q": "I went to bed early ___ I was tired.", "options": ["because", "so", "but", "unless"], "answer": "because", "why": "Erken yatmanın sebebi yorgunluk → because (çünkü)." },
+        { "q": "She is rich, ___ she isn't happy.", "options": ["but", "so", "or", "because"], "answer": "but", "why": "Zengin ama mutlu değil: iki zıt fikir → but." },
+        { "q": "Do you want pizza ___ pasta?", "options": ["or", "and", "but", "so"], "answer": "or", "why": "İki seçenek arasında seçim → or." },
+        { "q": "___ it was raining, we went for a walk.", "options": ["Although", "Because", "So", "Despite"], "answer": "Although", "why": "Yağmura rağmen yürüyüş: zıtlık + tam cümle → Although. Despite isim ister." },
+        { "q": "Wait here ___ I come back.", "options": ["until", "since", "while", "unless"], "answer": "until", "why": "Ben gelene KADAR bekle → until." },
+        { "q": "I have known him ___ 2015.", "options": ["since", "for", "until", "when"], "answer": "since", "why": "Bir başlangıç noktasından beri → since. (for bir süre ister: for ten years.)" },
+        { "q": "She phoned me ___ I was having a shower.", "options": ["while", "until", "after", "unless"], "answer": "while", "why": "Duş alıyorKEN (süren eylem) → while." },
+        { "q": "You won't pass ___ you study.", "options": ["unless", "if", "because", "so"], "answer": "unless", "why": "Çalışmazsan geçemezsin → unless (= if not)." },
+        { "q": "Take a jacket ___ it gets cold.", "options": ["in case", "unless", "so", "although"], "answer": "in case", "why": "Hava soğur diye, ihtimale karşı önlem → in case." },
+        { "q": "I'll call you as soon as I ___ home.", "options": ["get", "will get", "got", "getting"], "answer": "get", "why": "Zaman bağlacından (as soon as) sonra will gelmez; geniş zaman kullanılır." },
+        { "q": "He spoke slowly ___ we could understand him.", "options": ["so that", "because", "although", "unless"], "answer": "so that", "why": "Anlayabilelim DİYE → amaç → so that." },
+        { "q": "My brother likes football, ___ I prefer tennis.", "options": ["while", "so", "because", "unless"], "answer": "while", "why": "İki kişiyi karşılaştırıyor: o … oysa ben → while." },
+        { "q": "The film was ___ funny that we couldn't stop laughing.", "options": ["so", "such", "too", "very"], "answer": "so", "why": "so + sıfat (funny) + that → o kadar komik ki." },
+        { "q": "It was ___ a hot day that we stayed inside.", "options": ["such", "so", "too", "very"], "answer": "such", "why": "such + a + sıfat + isim (a hot day) + that." },
+        { "q": "You can use my phone as ___ as you are careful.", "options": ["long", "soon", "well", "far"], "answer": "long", "why": "as long as = -dığı sürece (şart)." },
+        { "q": "He looked at me ___ he had seen a ghost.", "options": ["as if", "like if", "unless", "so that"], "answer": "as if", "why": "Hayalet görmüş GİBİ → as if (arkasından cümle)." },
+        { "q": "By the time we arrived, the shop ___.", "options": ["had closed", "closes", "will close", "is closing"], "answer": "had closed", "why": "by the time + geçmiş: biz varmadan ÇOKTAN kapanmıştı → past perfect." },
+        { "q": "The trains were late ___ the snow.", "options": ["because of", "because", "although", "so"], "answer": "because of", "why": "Arkasında isim var (the snow) → because of." },
+        { "q": "Hurry up, ___ you'll miss the bus.", "options": ["otherwise", "unless", "although", "because"], "answer": "otherwise", "why": "Acele et, YOKSA … → otherwise." }
+      ]
+    },
+    {
+      "id": "cj-although",
+      "title": "Although mu, despite mı, however mı?",
+      "hint": "Arkasından ne geldiğine bak: tam cümle mi, isim mi?",
+      "items": [
+        { "q": "___ the bad weather, the plane landed safely.", "options": ["Despite", "Although", "However", "But"], "answer": "Despite", "why": "Arkasından isim (the bad weather) geliyor → Despite." },
+        { "q": "___ the weather was bad, the plane landed safely.", "options": ["Although", "Despite", "In spite of", "However"], "answer": "Although", "why": "Arkasından tam cümle (the weather was bad) geliyor → Although." },
+        { "q": "The food was cold. ___, we ate it.", "options": ["However", "Although", "Despite", "Because"], "answer": "However", "why": "İki ayrı cümle; ikincinin başında virgülle → However." },
+        { "q": "In spite of ___ tired, he kept working.", "options": ["being", "he was", "be", "was"], "answer": "being", "why": "in spite of + -ing → being. (he was ✗)" },
+        { "q": "___ he is only ten, he speaks three languages.", "options": ["Even though", "Despite", "However", "In spite"], "answer": "Even though", "why": "Arkasında tam cümle var ve vurgu güçlü → Even though." },
+        { "q": "Although it was late, ___ we kept talking.", "options": ["–", "but", "so", "however"], "answer": "–", "why": "although ile but aynı cümlede kullanılmaz. Boşluğa bir şey gelmez." },
+        { "q": "She went to work ___ having a cold.", "options": ["despite", "although", "however", "even though"], "answer": "despite", "why": "Arkasında -ing (having) var → despite." },
+        { "q": "I liked the hotel, ___ the room was small.", "options": ["though", "despite", "however", "in spite of"], "answer": "though", "why": "Arkasında tam cümle (the room was small) var → though / although." },
+        { "q": "We missed the train ___ we left early.", "options": ["even though", "despite", "because of", "however"], "answer": "even though", "why": "Erken çıktığımız HALDE (beklenmedik sonuç) + tam cümle → even though." },
+        { "q": "___ all his money, he wasn't happy.", "options": ["Despite", "Although", "However", "Even though"], "answer": "Despite", "why": "Arkasında isim (all his money) var → Despite. Although ve even though tam cümle ister." }
+      ]
+    },
+    {
+      "id": "cj-pairs",
+      "title": "İkili bağlaçlar",
+      "hint": "Çiftin eksik parçasını seç.",
+      "items": [
+        { "q": "Both my sister ___ my brother live in London.", "options": ["and", "or", "nor", "but"], "answer": "and", "why": "both … and = hem … hem." },
+        { "q": "You can have either tea ___ coffee.", "options": ["or", "and", "nor", "but"], "answer": "or", "why": "either … or = ya … ya." },
+        { "q": "Neither my phone ___ my laptop works.", "options": ["nor", "or", "and", "but"], "answer": "nor", "why": "neither … nor = ne … ne." },
+        { "q": "He is not only a singer ___ also an actor.", "options": ["but", "and", "or", "so"], "answer": "but", "why": "not only … but also." },
+        { "q": "___ Tom nor Jerry was at school.", "options": ["Neither", "Either", "Both", "Not"], "answer": "Neither", "why": "nor ile eşi neither'dır." },
+        { "q": "Neither the teacher nor the students ___ ready.", "options": ["were", "was", "is", "be"], "answer": "were", "why": "Fiil nor'dan sonraki isme (the students, çoğul) uyar → were." },
+        { "q": "I don't know ___ to laugh or cry.", "options": ["whether", "either", "neither", "both"], "answer": "whether", "why": "whether … or = -sa mı … -sa mı (kararsızlık)." },
+        { "q": "___ you or your friend must sign here.", "options": ["Either", "Neither", "Both", "Whether"], "answer": "Either", "why": "İkinizden biri → either … or." }
+      ]
+    },
+    {
+      "id": "cj-time",
+      "title": "Zaman bağlaçları ve will",
+      "hint": "Zaman bağlacından sonra gelecek için will kullanılmaz.",
+      "items": [
+        { "q": "When she ___, we'll start dinner.", "options": ["arrives", "will arrive", "arrived", "arriving"], "answer": "arrives", "why": "when + geniş zaman (gelecek anlamında)." },
+        { "q": "I won't leave until you ___ me the truth.", "options": ["tell", "will tell", "told", "telling"], "answer": "tell", "why": "until'den sonra geniş zaman." },
+        { "q": "Please finish your homework ___ you go out.", "options": ["before", "after", "since", "while"], "answer": "before", "why": "Dışarı çıkmadan ÖNCE → before." },
+        { "q": "___ she finished the book, she gave it to me.", "options": ["After", "Before", "Until", "Unless"], "answer": "After", "why": "Kitabı bitirdikten SONRA verdi → After." },
+        { "q": "I'll finish the report ___ Friday.", "options": ["by", "until", "since", "while"], "answer": "by", "why": "by = en geç (o güne kadar bitmiş olacak). until süreyi anlatır." },
+        { "q": "I'll stay at work ___ six o'clock.", "options": ["until", "by", "since", "as soon as"], "answer": "until", "why": "Saat altıya KADAR sürekli → until." },
+        { "q": "___ I was walking home, I saw an accident.", "options": ["While", "During", "Until", "Since"], "answer": "While", "why": "while + cümle; during + isim (during the night)." },
+        { "q": "I fell asleep ___ the film.", "options": ["during", "while", "when", "until"], "answer": "during", "why": "Arkasında isim (the film) var → during." }
+      ]
+    }
+  ]
+}
