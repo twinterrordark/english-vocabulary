@@ -199,6 +199,73 @@ main:focus { outline: none; }
 body.novel-focus .toast, body.tutor-focus .toast, body.speak-focus .toast { bottom: calc(100px + env(safe-area-inset-bottom)); }
 .update-bar { position: fixed; top: calc(8px + env(safe-area-inset-top)); left: 50%; transform: translateX(-50%); z-index: 80; display: flex; align-items: center; gap: var(--space-3); width: max-content; max-width: calc(100% - 24px); padding: 8px 8px 8px 16px; border-radius: 999px; background: var(--text); color: var(--bg); box-shadow: 0 8px 24px rgba(0, 0, 0, .25); font-size: .92rem; font-weight: 600; }
 .update-bar[hidden] { display: none; }
+/* ---------- Navigation: sidebar on wide screens, bottom bar on phones ---------- */
+.nav-group, .nav-end, .side-toggle, .bottom-nav, .topbar { display: none; }
+.nav-badge { min-width: 20px; height: 20px; padding: 0 6px; border-radius: 999px; background: var(--focus); color: #1c1300; font-size: .72rem; font-weight: 800; line-height: 20px; text-align: center; }
+.view.is-active { animation: view-in .22s ease-out both; }
+@keyframes view-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .view.is-active { animation: none; } }
+@media (min-width: 1024px) {
+  body { --side: 252px; padding-left: var(--side); }
+  body.side-collapsed { --side: 80px; }
+  .app-header { position: fixed; top: 0; bottom: 0; left: 0; z-index: 30; width: var(--side); display: flex; flex-direction: column; overflow-y: auto; overflow-x: hidden; scrollbar-width: thin; }
+  .header-inner { width: auto; margin: 0; padding: 18px 14px 10px 18px; }
+  .tabs { width: auto; margin: 0; display: flex; flex-direction: column; flex: 1; gap: 2px; padding: 0 12px 14px; overflow: visible; }
+  .tabs a { flex-direction: row; justify-content: flex-start; gap: 12px; min-height: 44px; padding: 8px 12px; font-size: .95rem; border-radius: 10px; }
+  .tabs a span { flex: 1; text-align: left; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .tabs a .nav-badge { flex: none; }
+  .tabs a[aria-current="page"] { box-shadow: inset 3px 0 0 var(--focus); }
+  .nav-group { display: block; padding: 16px 12px 4px; color: var(--on-header-muted); font-size: .7rem; font-weight: 800; letter-spacing: .09em; text-transform: uppercase; opacity: .8; white-space: nowrap; }
+  .nav-end { display: block; flex: 1; min-height: 12px; }
+  .side-toggle { display: flex; align-items: center; gap: 12px; min-height: 40px; padding: 8px 12px; border: 0; border-radius: 10px; background: transparent; color: var(--on-header-muted); font: 600 .85rem/1 var(--font); cursor: pointer; }
+  .side-toggle:hover { background: rgba(255, 255, 255, .08); color: var(--on-header); }
+  body.side-collapsed .brand > span:last-child, body.side-collapsed .tabs a span, body.side-collapsed .side-toggle span, body.side-collapsed .nav-group { display: none; }
+  body.side-collapsed .header-inner { flex-direction: column; padding-left: 14px; }
+  body.side-collapsed .tabs a, body.side-collapsed .side-toggle { justify-content: center; padding: 8px; position: relative; }
+  body.side-collapsed .tabs a .nav-badge { position: absolute; top: 2px; right: 4px; min-width: 18px; height: 18px; line-height: 18px; font-size: .65rem; padding: 0 4px; }
+  body.side-collapsed .side-toggle .icon { transform: rotate(180deg); }
+  body.side-collapsed .nav-group + a { margin-top: 10px; }
+  main { padding-top: var(--space-5); }
+  .topbar { display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-6); }
+  body.novel-focus .topbar, body.tutor-focus .topbar, body.speak-focus .topbar { display: none; }
+  .topbar-search { position: relative; flex: 1; max-width: 460px; }
+  .topbar-search .icon { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: var(--muted); pointer-events: none; }
+  .topbar-search input { padding-left: 44px; border-radius: 999px; background: var(--surface); box-shadow: var(--shadow); }
+  .topbar-streak { margin-left: auto; padding: 8px 14px; border-radius: 999px; background: var(--surface); border: 1px solid var(--line); font-weight: 700; font-size: .9rem; white-space: nowrap; }
+  .topbar-goal { display: grid; gap: 6px; min-width: 170px; padding: 8px 16px; border-radius: 14px; background: var(--surface); border: 1px solid var(--line); color: var(--text); text-decoration: none; font-weight: 700; font-size: .88rem; box-shadow: var(--shadow); }
+  .topbar-goal:hover { border-color: var(--primary); }
+  body .speak-controls, body .tutor-dock, body .novel-dock { left: var(--side); }
+  .site-footer { width: auto; max-width: 1180px; }
+  .view-head { margin-bottom: var(--space-6); }
+}
+@media (max-width: 1023px) {
+  .tabs { display: none; }
+  .header-inner { padding-top: var(--space-2); padding-bottom: var(--space-2); }
+  .bottom-nav { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); position: fixed; left: 0; right: 0; bottom: 0; z-index: 35; padding: 4px 4px env(safe-area-inset-bottom); background: var(--surface); border-top: 1px solid var(--line); box-shadow: 0 -4px 18px rgba(18, 31, 58, .08); }
+  .bottom-nav a, .bottom-nav button { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; min-height: 58px; padding: 6px 2px; border: 0; border-radius: 12px; background: transparent; color: var(--muted); font: 600 .72rem/1.1 var(--font); text-decoration: none; cursor: pointer; -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
+  .bottom-nav .icon { width: 24px; height: 24px; }
+  .bottom-nav [aria-current="page"], .bottom-nav .is-current { color: var(--accent-text); }
+  .bottom-nav [aria-current="page"] .icon, .bottom-nav .is-current .icon { stroke-width: 2.4; }
+  .bottom-nav [aria-current="page"]::before, .bottom-nav .is-current::before { content: ""; position: absolute; top: 0; width: 28px; height: 3px; border-radius: 0 0 3px 3px; background: var(--primary); }
+  .bottom-nav .nav-badge { position: absolute; top: 4px; left: calc(50% + 6px); min-width: 18px; height: 18px; line-height: 18px; font-size: .65rem; padding: 0 4px; }
+  body { padding-bottom: calc(66px + env(safe-area-inset-bottom)); }
+  body.novel-focus, body.tutor-focus, body.speak-focus { padding-bottom: 0; }
+  body.novel-focus .bottom-nav, body.tutor-focus .bottom-nav, body.speak-focus .bottom-nav { display: none; }
+  .toast { bottom: calc(80px + env(safe-area-inset-bottom)); }
+  .site-footer { padding-bottom: var(--space-5); }
+}
+.more-sheet { position: fixed; inset: 0; z-index: 60; display: flex; align-items: flex-end; }
+.more-sheet[hidden] { display: none; }
+.more-backdrop { position: absolute; inset: 0; background: rgba(8, 14, 28, .45); animation: fade-in .2s ease-out; }
+.more-panel { position: relative; width: 100%; padding: var(--space-4) var(--gutter) calc(var(--space-5) + env(safe-area-inset-bottom)); border-radius: 22px 22px 0 0; background: var(--surface); box-shadow: 0 -10px 30px rgba(0, 0, 0, .2); animation: sheet-up .24s ease-out; }
+.more-panel h2 { margin: 0 0 var(--space-3); font-size: 1rem; color: var(--muted); }
+.more-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-2); }
+.more-grid a { display: grid; justify-items: center; gap: 6px; padding: 14px 6px; border-radius: 14px; background: var(--surface-2); color: var(--text); text-decoration: none; font-weight: 600; font-size: .88rem; }
+.more-grid a[aria-current="page"] { background: var(--primary-soft); color: var(--accent-text); }
+.more-grid .icon { width: 26px; height: 26px; color: var(--accent-text); }
+@keyframes sheet-up { from { transform: translateY(100%); } to { transform: none; } }
+@keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .more-panel, .more-backdrop { animation: none; } }
 dialog { width: min(460px, calc(100% - 32px)); padding: var(--space-5); border: 1px solid var(--line); border-radius: var(--radius-l); background: var(--surface); color: var(--text); box-shadow: 0 20px 50px rgba(0, 0, 0, .3); }
 dialog::backdrop { background: rgba(8, 14, 28, .55); }
 
@@ -214,7 +281,7 @@ dialog::backdrop { background: rgba(8, 14, 28, .55); }
 .today-streak { flex: none; padding: 4px 10px; border-radius: 999px; background: var(--primary-soft); color: var(--accent-text); font-weight: 700; font-size: .85rem; }
 .today-goal { display: grid; gap: 6px; }
 .today-goal-line { display: flex; align-items: center; justify-content: space-between; gap: var(--space-2); }
-.today-goal-select { min-height: 36px; padding: 2px 8px; font-size: .85rem; }
+.today-goal-select { width: auto; flex: none; min-height: 36px; padding: 2px 8px; font-size: .85rem; }
 .today-start { min-height: 54px; font-size: 1.05rem; }
 .today-sub { margin: var(--space-2) 0 0; font-size: .8rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
 .today-rows { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
@@ -443,6 +510,27 @@ mark.vocab { background: var(--mark); color: inherit; padding: 0 2px; border-rad
 .speak-tr { color: var(--muted); font-size: .88rem; }
 .speak-next { min-height: 52px; font-size: 1.02rem; }
 .speak-next .icon { width: 20px; height: 20px; }
+.speak-textonly { display: flex; align-items: center; gap: var(--space-2); font-size: .92rem; cursor: pointer; }
+.speak-textonly input { width: 20px; height: 20px; accent-color: var(--primary); }
+.speak-chat { display: grid; gap: var(--space-2); padding: var(--space-4); border-radius: var(--radius-l); background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow); }
+.speak-chat-title { margin: 0; font-size: 1.05rem; }
+.speak-chat .hint { margin: 0; }
+.speak-messages { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-2); max-height: 50vh; overflow-y: auto; overscroll-behavior: contain; }
+.speak-messages:empty { display: none; }
+.speak-msg { display: grid; gap: 4px; justify-items: start; max-width: 88%; }
+.speak-msg.is-mine { justify-self: end; justify-items: end; }
+.speak-bubble { margin: 0; padding: 8px 12px; border-radius: 16px 16px 16px 4px; background: var(--surface-2, var(--bg)); border: 1px solid var(--line); font: 1rem/1.45 Georgia, "Times New Roman", serif; overflow-wrap: anywhere; }
+.is-mine .speak-bubble { border-radius: 16px 16px 4px 16px; background: var(--primary-soft); border-color: transparent; }
+.speak-bubble del { background: var(--error-soft); color: var(--error); border-radius: 3px; padding: 0 2px; }
+.speak-check { display: grid; gap: 4px; justify-items: end; max-width: 100%; font-size: .82rem; color: var(--muted); }
+.speak-check.is-ok { color: var(--success); font-weight: 700; }
+.speak-check.is-fixed { padding: 8px 10px; border-radius: 12px; background: var(--surface); border: 1px solid var(--success); text-align: left; justify-items: start; }
+.speak-check .story-new-line { margin: 0; font: 1rem/1.45 Georgia, "Times New Roman", serif; color: var(--text); }
+.speak-check ins { background: var(--success-soft); color: var(--success); text-decoration: none; font-weight: 700; border-radius: 3px; padding: 0 2px; }
+.speak-check .story-tip { margin: 0; padding: 6px 10px; border-radius: 8px; background: var(--primary-soft); color: var(--accent-text); font-size: .88rem; }
+.speak-chat-form { display: flex; gap: var(--space-2); align-items: flex-end; }
+.speak-chat-form textarea { flex: 1; min-width: 0; min-height: 48px; max-height: 140px; resize: none; padding: 12px 14px; border-radius: 16px; font: 1rem/1.4 var(--font); }
+.speak-send { flex: none; width: 48px; min-height: 48px; padding: 0; }
 .speak-controls { position: fixed; left: 0; right: 0; bottom: 0; z-index: 40; display: flex; justify-content: center; gap: var(--space-5); padding: 10px var(--gutter) calc(10px + env(safe-area-inset-bottom)); background: var(--surface); border-top: 1px solid var(--line); }
 .speak-room[hidden] .speak-controls { display: none; }
 .speak-round { display: grid; justify-items: center; gap: 2px; min-width: 76px; padding: 6px 10px; border: 0; background: transparent; color: var(--text); font: inherit; font-size: .78rem; font-weight: 600; cursor: pointer; -webkit-tap-highlight-color: transparent; }
@@ -852,6 +940,9 @@ body.novel-focus .novel-pop-base, body.novel-focus .novel-pop-sentence { color: 
   <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
   <symbol id="i-mic" viewBox="0 0 24 24"><path d="M12 3a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3zM5 11a7 7 0 0 0 14 0M12 18v3"/></symbol>
   <symbol id="i-mic-off" viewBox="0 0 24 24"><path d="M3 3l18 18M9 9v3a3 3 0 0 0 5.1 2.1M15 9.3V6a3 3 0 0 0-5.7-1.3M19 11a7 7 0 0 1-1.1 3.8M5 11a7 7 0 0 0 10.6 6M12 18v3"/></symbol>
+  <symbol id="i-repeat" viewBox="0 0 24 24"><path d="M17 2l4 4-4 4"/><path d="M3 11V9a3 3 0 0 1 3-3h15M7 22l-4-4 4-4"/><path d="M21 13v2a3 3 0 0 1-3 3H3"/></symbol>
+  <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></symbol>
   <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></symbol>
   <symbol id="i-pen" viewBox="0 0 24 24"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></symbol>
   <symbol id="i-keyboard" viewBox="0 0 24 24"><path d="M3 6h18v12H3zM7 10h.01M11 10h.01M15 10h.01M7 14h10"/></symbol>
@@ -871,17 +962,45 @@ body.novel-focus .novel-pop-base, body.novel-focus .novel-pop-sentence { color: 
     <button type="button" class="icon-button" id="theme-quick" aria-label="Switch to dark theme" data-i18n-aria="theme.toDark"><svg class="icon"><use href="#i-moon"/></svg></button>
   </div>
   <nav class="tabs" aria-label="Main" data-i18n-aria="nav.label">
+    <span class="nav-group" data-i18n="nav.groupDaily">Daily</span>
     <a href="#home" data-route="home"><svg class="icon" aria-hidden="true"><use href="#i-home"/></svg><span data-i18n="nav.home">Home</span></a>
+    <a href="#review" data-route="review"><svg class="icon" aria-hidden="true"><use href="#i-repeat"/></svg><span data-i18n="nav.review">Review</span><b class="nav-badge" data-badge hidden></b></a>
+    <span class="nav-group" data-i18n="nav.groupLearn">Learn</span>
     <a href="#words" data-route="words"><svg class="icon" aria-hidden="true"><use href="#i-words"/></svg><span data-i18n="nav.words">Words</span></a>
     <a href="#phrases" data-route="phrases"><svg class="icon" aria-hidden="true"><use href="#i-chat"/></svg><span data-i18n="nav.phrases">Phrases</span></a>
     <a href="#grammar" data-route="grammar"><svg class="icon" aria-hidden="true"><use href="#i-pen"/></svg><span data-i18n="nav.grammar">Grammar</span></a>
-    <a href="#speak" data-route="speak"><svg class="icon" aria-hidden="true"><use href="#i-mic"/></svg><span data-i18n="nav.speak">Speaking</span></a>
+    <span class="nav-group" data-i18n="nav.groupPractice">Practice</span>
     <a href="#quiz" data-route="quiz"><svg class="icon" aria-hidden="true"><use href="#i-quiz"/></svg><span data-i18n="nav.quiz">Quiz</span></a>
-    <a href="#novel" data-route="novel"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg><span data-i18n="nav.novel">Novel</span></a>
     <a href="#reading" data-route="reading"><svg class="icon" aria-hidden="true"><use href="#i-reading"/></svg><span data-i18n="nav.reading">Reading</span></a>
+    <a href="#novel" data-route="novel"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg><span data-i18n="nav.novel">Novel</span></a>
+    <a href="#speak" data-route="speak"><svg class="icon" aria-hidden="true"><use href="#i-mic"/></svg><span data-i18n="nav.speak">Speaking</span></a>
+    <span class="nav-end" aria-hidden="true"></span>
     <a href="#settings" data-route="settings"><svg class="icon" aria-hidden="true"><use href="#i-settings"/></svg><span data-i18n="nav.settings">Settings</span></a>
+    <button type="button" class="side-toggle" id="side-toggle" aria-pressed="false" aria-label="Collapse the menu" data-i18n-aria="nav.collapse"><svg class="icon" aria-hidden="true"><use href="#i-prev"/></svg><span data-i18n="nav.collapseShort">Collapse</span></button>
   </nav>
 </header>
+<!-- Phones and tablets: the five most used places at the bottom, the rest under "More". -->
+<nav class="bottom-nav" id="bottom-nav" aria-label="Main" data-i18n-aria="nav.label">
+    <a href="#home" data-route="home"><svg class="icon" aria-hidden="true"><use href="#i-home"/></svg><span data-i18n="nav.home">Home</span></a>
+    <a href="#review" data-route="review"><svg class="icon" aria-hidden="true"><use href="#i-repeat"/></svg><span data-i18n="nav.review">Review</span><b class="nav-badge" data-badge hidden></b></a>
+    <a href="#grammar" data-route="grammar"><svg class="icon" aria-hidden="true"><use href="#i-pen"/></svg><span data-i18n="nav.grammar">Grammar</span></a>
+    <a href="#novel" data-route="novel"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg><span data-i18n="nav.novel">Novel</span></a>
+    <button type="button" id="nav-more" aria-expanded="false" aria-controls="more-sheet"><svg class="icon" aria-hidden="true"><use href="#i-grid"/></svg><span data-i18n="nav.more">More</span></button>
+</nav>
+<div class="more-sheet" id="more-sheet" hidden>
+  <div class="more-backdrop" data-close></div>
+  <div class="more-panel" role="dialog" aria-modal="true" aria-labelledby="more-title">
+    <h2 id="more-title" data-i18n="nav.more">More</h2>
+    <div class="more-grid">
+      <a href="#words" data-route="words"><svg class="icon" aria-hidden="true"><use href="#i-words"/></svg><span data-i18n="nav.words">Words</span></a>
+      <a href="#phrases" data-route="phrases"><svg class="icon" aria-hidden="true"><use href="#i-chat"/></svg><span data-i18n="nav.phrases">Phrases</span></a>
+      <a href="#quiz" data-route="quiz"><svg class="icon" aria-hidden="true"><use href="#i-quiz"/></svg><span data-i18n="nav.quiz">Quiz</span></a>
+      <a href="#reading" data-route="reading"><svg class="icon" aria-hidden="true"><use href="#i-reading"/></svg><span data-i18n="nav.reading">Reading</span></a>
+      <a href="#speak" data-route="speak"><svg class="icon" aria-hidden="true"><use href="#i-mic"/></svg><span data-i18n="nav.speak">Speaking</span></a>
+      <a href="#settings" data-route="settings"><svg class="icon" aria-hidden="true"><use href="#i-settings"/></svg><span data-i18n="nav.settings">Settings</span></a>
+    </div>
+  </div>
+</div>
 
 <div id="update-bar" class="update-bar" role="status" hidden><span data-i18n="update.text">A new version of the app is ready.</span><button type="button" class="button small primary" id="update-reload" data-i18n="update.reload">Reload</button></div>
 <div id="storage-banner" class="banner" role="status" hidden>
@@ -890,6 +1009,16 @@ body.novel-focus .novel-pop-base, body.novel-focus .novel-pop-sentence { color: 
 </div>
 
 <main id="main" tabindex="-1">
+  <!-- Wide screens: search, today's goal and the cards waiting for review. -->
+  <div class="topbar js-only" id="topbar">
+    <form class="topbar-search" id="topbar-search" role="search">
+      <svg class="icon" aria-hidden="true"><use href="#i-search"/></svg>
+      <label for="topbar-q" class="visually-hidden" data-i18n="topbar.search">Search words</label>
+      <input type="search" id="topbar-q" autocomplete="off" placeholder="Search a word (English or Turkish)" data-i18n-placeholder="topbar.searchPh">
+    </form>
+    <span class="topbar-streak" id="topbar-streak"></span>
+    <a class="topbar-goal" href="#review" id="topbar-goal"><span id="topbar-goal-text"></span><span class="gram-meter"><span id="topbar-goal-bar"></span></span></a>
+  </div>
   <p id="boot-status" class="boot">Yükleniyor…</p>
 
   <!-- ====================================================================
@@ -1215,7 +1344,7 @@ body.novel-focus .novel-pop-base, body.novel-focus .novel-pop-sentence { color: 
   <section class="view" data-view="speak" aria-labelledby="speak-title">
     <div class="view-head">
       <h1 id="speak-title" tabindex="-1" data-i18n="speak.title">Speaking room</h1>
-      <p class="lead" data-i18n="speak.lead">Talk in English with a friend: open a room, send them the link and use the topic cards together.</p>
+      <p class="lead" data-i18n="speak.lead">Talk or write in English with a friend: open a room, send them the link and use the topic cards together. Your messages are checked for grammar.</p>
     </div>
     <div class="speak-lobby js-only" id="speak-lobby">
       <div class="panel speak-box tutor-card">
@@ -1237,6 +1366,7 @@ body.novel-focus .novel-pop-base, body.novel-focus .novel-pop-sentence { color: 
           <button type="submit" class="button primary" data-i18n="speak.join">Join</button>
         </div>
       </form>
+      <label class="speak-textonly"><input type="checkbox" id="speak-text-only"><span data-i18n="speak.textOnly">Without a microphone: only write messages</span></label>
       <p class="hint speak-note" data-i18n="speak.privacy">Your voice goes straight between the two phones and is not recorded. A free PeerJS server only helps the two phones find each other.</p>
       <p class="error-text" id="speak-error" role="alert" hidden></p>
     </div>
@@ -1300,6 +1430,17 @@ body.novel-focus .novel-pop-base, body.novel-focus .novel-pop-sentence { color: 
         </details>
         <button type="button" class="button primary speak-next" id="speak-next"><span data-i18n="speak.next">Next question</span><svg class="icon" aria-hidden="true"><use href="#i-next"/></svg></button>
       </article>
+      <!-- Messages between the two: each side's sentences are checked, and only the writer sees the correction. -->
+      <section class="speak-chat" aria-labelledby="speak-chat-title">
+        <h2 class="speak-chat-title" id="speak-chat-title" data-i18n="speak.chat">Messages</h2>
+        <p class="hint" data-i18n="speak.chatHint">Write in English. Ms. Emma checks each of your sentences; only you see your corrections.</p>
+        <ol class="speak-messages" id="speak-messages" aria-live="polite"></ol>
+        <form class="speak-chat-form" id="speak-chat-form">
+          <label for="speak-chat-input" class="visually-hidden" data-i18n="speak.chatLabel">Message</label>
+          <textarea id="speak-chat-input" rows="1" lang="en" maxlength="400" autocomplete="off" spellcheck="false" enterkeyhint="send" placeholder="Write in English…" data-i18n-placeholder="speak.chatPh"></textarea>
+          <button type="submit" class="button primary speak-send" aria-label="Send" data-i18n-aria="speak.send"><svg class="icon" aria-hidden="true"><use href="#i-next"/></svg></button>
+        </form>
+      </section>
       <div class="speak-controls">
         <button type="button" class="speak-round" id="speak-mute" aria-pressed="false"><svg class="icon" aria-hidden="true"><use id="speak-mute-icon" href="#i-mic"/></svg><span id="speak-mute-label" data-i18n="speak.mute">Mute</span></button>
         <button type="button" class="speak-round danger" id="speak-leave"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg><span data-i18n="speak.leave">Leave</span></button>
@@ -1569,6 +1710,8 @@ const STRINGS = {
     'story.ltQuota': 'The teacher\'s free daily limit is used up; checked by LanguageTool (spelling and simpler grammar only).',
     'story.found': '{n} corrections', 'story.clean': 'No mistakes found 🎉', 'story.applyAll': 'Apply all', 'story.yours': 'You wrote', 'story.apply': 'Apply', 'story.skip': 'Ignore',
     'story.notFound': 'That part of the story has changed; check again.',
+    'nav.groupDaily': 'Daily', 'nav.groupLearn': 'Learn', 'nav.groupPractice': 'Practice', 'nav.more': 'More', 'nav.collapse': 'Collapse the menu', 'nav.expand': 'Expand the menu',
+    'nav.collapseShort': 'Collapse', 'topbar.search': 'Search words', 'topbar.searchPh': 'Search a word (English or Turkish)', 'topbar.streak': '🔥 {n} days',
     'nav.review': 'Review', 'review.title': 'Review', 'review.lead': 'Cards come back just before you would forget them. Say honestly whether you knew each one.',
     'review.goal': 'Today: {d} / {n} cards', 'review.left': '{n} left', 'review.kindWord': 'Word', 'review.kindNovel': 'From the novel',
     'review.show': 'Show the answer', 'review.again': 'Didn’t know', 'review.hard': 'Hard', 'review.good': 'Knew it', 'review.soon': 'again soon', 'review.days': 'in {n} d',
@@ -1580,7 +1723,11 @@ const STRINGS = {
     'today.words': '{n} of {total} words learned', 'novel.save': 'Add to review', 'novel.saved': 'In review ✓',
     'update.text': 'A new version of the app is ready.', 'update.reload': 'Reload',
     'nav.speak': 'Speaking', 'mode.speak': 'Talk in English with a friend in a voice room, with topic cards to guide you.',
-    'speak.title': 'Speaking room', 'speak.lead': 'Talk in English with a friend: open a room, send them the link and use the topic cards together.',
+    'speak.chat': 'Messages', 'speak.chatHint': 'Write in English. Ms. Emma checks each of your sentences; only you see your corrections.',
+    'speak.chatLabel': 'Message', 'speak.chatPh': 'Write in English…', 'speak.send': 'Send', 'speak.textOnly': 'Without a microphone: only write messages',
+    'speak.micText': 'No microphone: you can still write messages.', 'speak.checking': 'Checking…', 'speak.correct': '✓ Correct English', 'speak.okSimple': '✓ No mistakes in a simple check (the teacher was not available)',
+    'speak.better': 'Better', 'speak.checkFailed': 'Could not check this sentence.', 'speak.notConnected': 'Wait until your friend is connected.',
+    'speak.title': 'Speaking room', 'speak.lead': 'Talk or write in English with a friend: open a room, send them the link and use the topic cards together. Your messages are checked for grammar.',
     'speak.create': 'Open a room', 'speak.createHint': 'You get a link to send to your friend. When they open it, you are connected.',
     'speak.joinLabel': 'Join with a code', 'speak.join': 'Join', 'speak.roomCode': 'Room code', 'speak.share': 'Send the link', 'speak.copy': 'Copy',
     'speak.privacy': 'Your voice goes straight between the two phones and is not recorded. A free PeerJS server only helps the two phones find each other.',
@@ -1726,6 +1873,8 @@ const STRINGS = {
     'story.ltQuota': 'Hocanın günlük ücretsiz kotası doldu; LanguageTool denetledi (yalnızca yazım ve basit dilbilgisi).',
     'story.found': '{n} düzeltme', 'story.clean': 'Hata bulunamadı 🎉', 'story.applyAll': 'Hepsini uygula', 'story.yours': 'Senin cümlen', 'story.apply': 'Uygula', 'story.skip': 'Yok say',
     'story.notFound': 'Hikâyenin o kısmı değişmiş; tekrar denetle.',
+    'nav.groupDaily': 'Günlük', 'nav.groupLearn': 'Öğren', 'nav.groupPractice': 'Pratik', 'nav.more': 'Daha fazla', 'nav.collapse': 'Menüyü daralt', 'nav.expand': 'Menüyü genişlet',
+    'nav.collapseShort': 'Daralt', 'topbar.search': 'Kelime ara', 'topbar.searchPh': 'Kelime ara (İngilizce ya da Türkçe)', 'topbar.streak': '🔥 {n} gün',
     'nav.review': 'Tekrar', 'review.title': 'Tekrar', 'review.lead': 'Kartlar tam unutmak üzereyken geri gelir. Her birini bilip bilmediğini dürüstçe söyle.',
     'review.goal': 'Bugün: {d} / {n} kart', 'review.left': '{n} kart kaldı', 'review.kindWord': 'Kelime', 'review.kindNovel': 'Romandan',
     'review.show': 'Cevabı göster', 'review.again': 'Bilemedim', 'review.hard': 'Zorlandım', 'review.good': 'Bildim', 'review.soon': 'birazdan', 'review.days': '{n} gün sonra',
@@ -1737,7 +1886,11 @@ const STRINGS = {
     'today.words': '{total} kelimeden {n} tanesi öğrenildi', 'novel.save': 'Tekrara ekle', 'novel.saved': 'Tekrarda ✓',
     'update.text': 'Uygulamanın yeni sürümü hazır.', 'update.reload': 'Yenile',
     'nav.speak': 'Konuşma', 'mode.speak': 'Bir arkadaşınla sesli odada İngilizce konuş; konu kartları sana yol göstersin.',
-    'speak.title': 'Konuşma odası', 'speak.lead': 'Bir arkadaşınla İngilizce konuş: oda aç, linki gönder, konu kartlarını birlikte kullanın.',
+    'speak.chat': 'Mesajlar', 'speak.chatHint': 'İngilizce yaz. Ms. Emma her cümleni denetler; düzeltmelerini yalnızca sen görürsün.',
+    'speak.chatLabel': 'Mesaj', 'speak.chatPh': 'İngilizce yaz…', 'speak.send': 'Gönder', 'speak.textOnly': 'Mikrofonsuz: sadece yazışayım',
+    'speak.micText': 'Mikrofon yok: yine de yazışabilirsin.', 'speak.checking': 'Denetleniyor…', 'speak.correct': '✓ Doğru İngilizce', 'speak.okSimple': '✓ Basit denetimde hata bulunmadı (hocaya ulaşılamadı)',
+    'speak.better': 'Doğrusu', 'speak.checkFailed': 'Bu cümle denetlenemedi.', 'speak.notConnected': 'Arkadaşın bağlanana kadar bekle.',
+    'speak.title': 'Konuşma odası', 'speak.lead': 'Bir arkadaşınla İngilizce konuş ya da yazış: oda aç, linki gönder, konu kartlarını birlikte kullanın. Mesajlarının dilbilgisi denetlenir.',
     'speak.create': 'Oda aç', 'speak.createHint': 'Arkadaşına göndereceğin bir link oluşur. Linki açtığında bağlanırsınız.',
     'speak.joinLabel': 'Kodla odaya katıl', 'speak.join': 'Katıl', 'speak.roomCode': 'Oda kodu', 'speak.share': 'Linki gönder', 'speak.copy': 'Kopyala',
     'speak.privacy': 'Sesin doğrudan iki telefon arasında gider, kaydedilmez. Ücretsiz PeerJS sunucusu yalnızca iki telefonun birbirini bulmasını sağlar.',
@@ -2406,6 +2559,7 @@ const Router = {
     Tutor.focusMode();
     const module = MODULES[name];
     if (module && module.onShow) module.onShow();
+    Nav.update(name);
     if (moveFocus && changed) {
       window.scrollTo(0, 0);
       const heading = $('.view[data-view="' + name + '"] h1');
@@ -3999,6 +4153,11 @@ const Speak = {
     });
     $('#speak-mute').addEventListener('click', () => this.setMuted(!this.muted));
     $('#speak-leave').addEventListener('click', () => this.leave());
+    $('#speak-chat-form').addEventListener('submit', event => { event.preventDefault(); this.sendMessage(); });
+    $('#speak-chat-input').addEventListener('keydown', event => {
+      if (event.key === 'Enter' && !event.shiftKey && !event.isComposing) { event.preventDefault(); this.sendMessage(); }
+    });
+    $('#speak-chat-input').addEventListener('input', event => { event.target.style.height = 'auto'; event.target.style.height = event.target.scrollHeight + 'px'; });
     window.addEventListener('pagehide', () => { if (this.peer) this.leave(true); });
   },
   /* "#speak/ABC123" (the link a friend sent) fills in the code; joining needs a
@@ -4042,15 +4201,16 @@ const Speak = {
   async start(host, code) {
     $('#speak-error').hidden = true;
     let Peer;
-    if (!this.stream) {
+    /* Without a microphone (none, blocked, or the box ticked) the room is for messages only. */
+    if (!this.stream && !$('#speak-text-only').checked) {
       try {
         if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) throw new Error('no microphone');
         this.stream = await navigator.mediaDevices.getUserMedia({ audio: { echoCancellation: true, noiseSuppression: true, autoGainControl: true } });
       } catch (err) {
-        this.error(err && err.name === 'NotAllowedError' ? 'speak.micDenied' : 'speak.noMic');
-        return;
+        Toast.show(t(err && err.name === 'NotAllowedError' ? 'speak.micDenied' : 'speak.micText'));
       }
     }
+    $('#speak-mute').hidden = !this.stream;
     try { Peer = await this.loadPeer(); } catch (_) { this.leave(true); this.error('speak.connError'); return; }
     this.host = host;
     this.code = code;
@@ -4067,13 +4227,13 @@ const Speak = {
       }
       const target = this.PREFIX + code.toLowerCase();
       this.bindConn(peer.connect(target, { reliable: true }));
-      this.bindCall(peer.call(target, this.stream));
+      if (this.stream) this.bindCall(peer.call(target, this.stream));
     });
     /* A room is for two: a third person is turned away. */
     peer.on('connection', conn => { if (this.conn) conn.close(); else this.bindConn(conn); });
     peer.on('call', call => {
       if (this.call) { call.close(); return; }
-      call.answer(this.stream);
+      call.answer(this.stream || undefined);
       this.bindCall(call);
     });
     peer.on('disconnected', () => { if (this.peer === peer && !peer.destroyed) peer.reconnect(); });
@@ -4114,6 +4274,7 @@ const Speak = {
   receive(data) {
     if (!data || typeof data !== 'object') return;
     if (data.type === 'bye') { this.friendLeft(); return; }
+    if (data.type === 'msg' && typeof data.text === 'string' && data.text.trim()) { this.addMessage(data.text.trim().slice(0, 400), false); return; }
     if (data.type !== 'card') return;
     const topic = this.topics[data.topic | 0];
     const v = data.v | 0;
@@ -4210,8 +4371,51 @@ const Speak = {
     $('#speak-audio').srcObject = null;
     if (this.wakeLock) { this.wakeLock.release().catch(() => {}); this.wakeLock = null; }
   },
+  /* ---- Messages */
+  sendMessage() {
+    const input = $('#speak-chat-input');
+    const text = input.value.replace(/\s+/g, ' ').trim().slice(0, 400);
+    if (!text) return;
+    if (!this.conn || !this.conn.open) { Toast.show(t('speak.notConnected')); return; }
+    this.send({ type: 'msg', text });
+    input.value = '';
+    input.style.height = 'auto';
+    this.check(text, this.addMessage(text, true));
+  },
+  addMessage(text, mine) {
+    const list = $('#speak-messages');
+    const item = h('li', { class: 'speak-msg' + (mine ? ' is-mine' : '') }, h('p', { class: 'speak-bubble', lang: 'en', text }));
+    list.append(item);
+    list.scrollTop = list.scrollHeight;
+    return item;
+  },
+  /* The writer's own sentence, checked by Ms. Emma (Gemini); LanguageTool when she cannot answer. */
+  async check(text, item) {
+    const note = h('div', { class: 'speak-check', text: t('speak.checking') });
+    item.append(note);
+    let fixed, tip = '', simple = false;
+    try {
+      const data = await Writer.ask(text);
+      fixed = data.correction || text;
+      tip = data.tip || '';
+    } catch (_) {
+      try {
+        fixed = text;
+        simple = true;
+        for (const fix of (await Writer.toolFixes(text)).sort((a, b) => b.start - a.start)) fixed = fixed.slice(0, fix.start) + fix.to + fixed.slice(fix.start + fix.from.length);
+      } catch (__) { note.textContent = t('speak.checkFailed'); return; }
+    }
+    if (Writer.normal(fixed) === Writer.normal(text)) { note.className = 'speak-check is-ok'; note.textContent = t(simple ? 'speak.okSimple' : 'speak.correct'); return; }
+    const [old, better] = Writer.diff(text, fixed);
+    item.querySelector('.speak-bubble').replaceChildren(...old.childNodes);
+    note.className = 'speak-check is-fixed';
+    note.replaceChildren(...[h('span', { class: 'story-label', text: t('speak.better') }), better, tip ? h('p', { class: 'story-tip', lang: 'tr', text: tip }) : null].filter(Boolean));
+    const list = $('#speak-messages');
+    list.scrollTop = list.scrollHeight;
+  },
   leave(quiet) {
     this.close();
+    $('#speak-messages').replaceChildren();
     if (this.stream) { for (const track of this.stream.getTracks()) track.stop(); this.stream = null; }
     this.status = 'idle';
     this.showRoom(false);
@@ -5422,6 +5626,7 @@ const Review = {
     this.save();
     recordActivity();
     persist();
+    Nav.counts();
     this.queue.shift();
     /* A card you did not know comes back after a few others. */
     if (answer === 'again') this.queue.splice(Math.min(3, this.queue.length), 0, id);
@@ -5546,6 +5751,58 @@ const Today = {
   }
 };
 
+/* ---------- Navigation extras: the "More" sheet, the sidebar toggle, the top bar ---------- */
+const Nav = {
+  MORE: ['words', 'phrases', 'quiz', 'reading', 'speak', 'settings'],
+  KEY: 'english-study-side.v1',
+  init() {
+    $('#nav-more').addEventListener('click', () => this.sheet(true));
+    $('#more-sheet').addEventListener('click', event => { if (event.target.closest('[data-close], a')) this.sheet(false); });
+    document.addEventListener('keydown', event => { if (event.key === 'Escape' && !$('#more-sheet').hidden) this.sheet(false); });
+    $('#side-toggle').addEventListener('click', () => this.collapse(!document.body.classList.contains('side-collapsed')));
+    this.collapse(Store.read(this.KEY) === '1', true);
+    $('#topbar-search').addEventListener('submit', event => {
+      event.preventDefault();
+      const query = $('#topbar-q').value.trim();
+      $('#word-search').value = query;
+      Words.filters.query = query;
+      if (Router.current === 'words') Words.render(); else { Words.dirty = true; location.hash = '#words'; }
+      $('#topbar-q').blur();
+    });
+  },
+  sheet(open) {
+    $('#more-sheet').hidden = !open;
+    $('#nav-more').setAttribute('aria-expanded', String(open));
+    if (open) $('#more-sheet a').focus(); else if (document.activeElement && $('#more-sheet').contains(document.activeElement)) $('#nav-more').focus();
+  },
+  collapse(on, quiet) {
+    document.body.classList.toggle('side-collapsed', on);
+    const button = $('#side-toggle');
+    button.setAttribute('aria-pressed', String(on));
+    button.dataset.i18nAria = on ? 'nav.expand' : 'nav.collapse';
+    button.setAttribute('aria-label', t(button.dataset.i18nAria));
+    if (!quiet) Store.write(this.KEY, on ? '1' : '0');
+  },
+  /* Called on every route change and after each review: current place, review count, today's goal. */
+  update(name) {
+    for (const link of $$('.bottom-nav a, .more-grid a')) {
+      if (link.dataset.route === name) link.setAttribute('aria-current', 'page'); else link.removeAttribute('aria-current');
+    }
+    $('#nav-more').classList.toggle('is-current', this.MORE.includes(name));
+    this.sheet(false);
+    this.counts();
+  },
+  counts() {
+    if (!Review.state) return;
+    const due = Review.due().length;
+    for (const badge of $$('[data-badge]')) { badge.textContent = due > 99 ? '99+' : String(due); badge.hidden = !due; }
+    const done = Review.doneToday(), goal = Review.state.goal;
+    $('#topbar-goal-text').textContent = t('today.goalText', { d: Math.min(done, goal), n: goal });
+    $('#topbar-goal-bar').style.width = Math.min(100, Math.round(done / goal * 100)) + '%';
+    $('#topbar-streak').textContent = t('topbar.streak', { n: studyStreak() });
+  }
+};
+
 const MODULES = { home: Home, review: Review, words: Words, phrases: Phrases, grammar: Grammar, speak: Speak, novel: Novel, quiz: Quiz, reading: Reading, settings: Settings };
 
 /* ======================================================================
@@ -5587,7 +5844,7 @@ function init() {
   applyTheme();
   applyTurkishVisibility();
   prepareCards();
-  Home.init(); Words.init(); Phrases.init(); Grammar.init(); Review.init(); Today.init(); Writer.init(); Speak.init(); Tutor.init(); Novel.init(); Quiz.init(); Settings.init(); Updater.init();
+  Home.init(); Words.init(); Phrases.init(); Grammar.init(); Review.init(); Today.init(); Nav.init(); Writer.init(); Speak.init(); Tutor.init(); Novel.init(); Quiz.init(); Settings.init(); Updater.init();
   if (!Store.usable) Banner.show(t(Store.simulated ? 'storage.simulated' : 'storage.off'));
   else if (loaded.notice) Banner.show(t(loaded.notice, { n: loaded.count || 0 }));
   if (loaded.migrated) persist();
