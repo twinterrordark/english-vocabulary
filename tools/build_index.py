@@ -150,9 +150,11 @@ def novel_card(path: str, title: str, author: str, level: str = "") -> str:
     """A book card on the shelf; the reader script builds the same card for books it finds itself."""
     level_attr = f' data-level="{esc(level)}"' if level else ""
     return (f'<button type="button" class="novel-book" data-novel="{esc(path)}"{level_attr} aria-pressed="false">'
-            f'<span class="novel-cover" aria-hidden="true">{esc((title or "?")[:1].upper())}</span>'
-            f'<span class="novel-book-title" lang="en">{esc(title)}</span><span class="novel-book-author">{esc(author)}</span>'
-            f'<span class="novel-book-meta" hidden><span class="novel-mark"></span><span class="novel-meter"><span></span></span></span></button>')
+            f'<span class="novel-cover" aria-hidden="true">{f'<span class="novel-level">{esc(level)}</span>' if level else ""}{esc((title or "?")[:1].upper())}</span>'
+            f'<span class="novel-book-author">{esc(author)}</span><span class="novel-book-title" lang="en">{esc(title)}</span>'
+            f'<span class="novel-book-sub" data-i18n="novel.cardSub">Original English text · tap any word</span>'
+            f'<span class="novel-book-meta" hidden><span class="novel-mark"></span><span class="novel-meter"><span></span></span></span>'
+            f'<span class="novel-book-go"><span data-i18n="novel.open">Open the book</span><svg class="icon" aria-hidden="true"><use href="#i-next"/></svg></span></button>')
 
 
 def novel_shelf() -> str:
