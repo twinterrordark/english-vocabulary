@@ -1447,6 +1447,23 @@ body.novel-focus .novel-pop-sentence i { color: var(--paper-text); }
 .write-text strong { font: 800 1.1rem/1.2 var(--font-display); }
 .write-text > span:last-child { color: var(--muted); font-size: .85rem; }
 .write-go { flex: none; min-height: 42px; padding: 8px 14px; }
+
+.deck.is-novel { border: 1.5px solid var(--secondary-soft); }
+.deck.is-novel .gram-meter span { background: var(--secondary); }
+.deck-list-link { display: inline-flex; align-items: center; gap: 6px; color: var(--secondary-text); font-weight: 700; font-size: .88rem; text-decoration: none; }
+.deck-list-link .icon { width: 16px; height: 16px; }
+.saved-head { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); margin-bottom: var(--space-3); }
+.saved-head p { margin: 0; color: var(--muted); font-size: .9rem; }
+.saved-head .button { flex: none; }
+.saved-list { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-2); }
+.saved-item { display: grid; gap: 4px; padding: var(--space-3) var(--space-4); border-radius: 18px; background: var(--surface); box-shadow: var(--shadow); }
+.saved-word { display: flex; align-items: center; gap: var(--space-2); }
+.saved-word strong { font: 800 1.2rem/1.2 var(--font-display); }
+.saved-word .audio-button { width: 34px; height: 34px; }
+.saved-due { margin-left: auto; padding: 2px 8px; border-radius: 999px; background: var(--surface-2); color: var(--muted); font-size: .75rem; font-weight: 700; white-space: nowrap; }
+.saved-remove { color: var(--muted); width: 36px; height: 36px; }
+.saved-tr { margin: 0; font-weight: 700; color: var(--accent-text); }
+.saved-sentence { margin: 0; color: var(--muted); font-size: .9rem; font-style: italic; }
 </style>
 </head>
 <body>
@@ -4501,6 +4518,7 @@ const STRINGS = {
     'story.found': '{n} corrections', 'story.clean': 'No mistakes found 🎉', 'story.applyAll': 'Apply all', 'story.yours': 'You wrote', 'story.apply': 'Apply', 'story.skip': 'Ignore',
     'story.notFound': 'That part of the story has changed; check again.',
     'home.writeTag': 'Writing', 'home.writeTitle': 'Write a story', 'home.writeGo': 'Write', 'home.writeNote': '{n} stories · Ms. Emma checks the grammar', 'home.writeEmpty': 'Write in English; Ms. Emma checks the grammar.',
+    'deck.novel': 'My words from the novel', 'deck.novelTag': 'Novel & teacher', 'deck.wordsN': '{n} words', 'deck.novelNote': 'Words you added from the novel and the teacher, with their sentences.', 'deck.novelEmpty': 'Tap a word in your novel and choose “Add to deck”; it will appear here.', 'deck.seeList': 'See the list', 'deck.novelListNote': '{n} words, with the sentence each came from.', 'deck.dueNow': 'due today', 'deck.dueIn': 'in {n} d', 'deck.remove': 'Remove “{w}” from the deck',
     'home.eyebrow': 'Daily goal', 'home.titleReview': 'Time to review! ✨', 'home.titleMorning': 'Good morning! ☀️', 'home.titleDay': 'Let’s learn! ✨', 'home.titleEvening': 'Good evening! 🌙',
     'home.goalChip': '{p}% done', 'home.goalStart': 'Let’s get started!', 'home.goalGoing': 'You’re doing great!', 'home.goalDone': 'Goal reached! 🎉',
     'home.goalLeft': 'Only {n} cards to your goal. Keep the rhythm!', 'home.goalDoneNote': 'Anything more today is a bonus.',
@@ -4705,6 +4723,7 @@ const STRINGS = {
     'story.found': '{n} düzeltme', 'story.clean': 'Hata bulunamadı 🎉', 'story.applyAll': 'Hepsini uygula', 'story.yours': 'Senin cümlen', 'story.apply': 'Uygula', 'story.skip': 'Yok say',
     'story.notFound': 'Hikâyenin o kısmı değişmiş; tekrar denetle.',
     'home.writeTag': 'Yazma', 'home.writeTitle': 'Hikâye yaz', 'home.writeGo': 'Yaz', 'home.writeNote': '{n} hikâye · dilbilgisini Ms. Emma denetler', 'home.writeEmpty': 'İngilizce yaz; dilbilgisini Ms. Emma denetlesin.',
+    'deck.novel': 'Romandan kelimelerim', 'deck.novelTag': 'Roman ve hoca', 'deck.wordsN': '{n} kelime', 'deck.novelNote': 'Romandan ve hocadan eklediğin kelimeler, cümleleriyle birlikte.', 'deck.novelEmpty': 'Romanda bir kelimeye dokunup “Desteye ekle” de; burada görünür.', 'deck.seeList': 'Listeyi gör', 'deck.novelListNote': '{n} kelime, geldiği cümleyle birlikte.', 'deck.dueNow': 'bugün', 'deck.dueIn': '{n} gün sonra', 'deck.remove': '“{w}” kelimesini desteden çıkar',
     'home.eyebrow': 'Günlük hedef', 'home.titleReview': 'Tekrar zamanı! ✨', 'home.titleMorning': 'Günaydın! ☀️', 'home.titleDay': 'Hadi öğrenelim! ✨', 'home.titleEvening': 'İyi akşamlar! 🌙',
     'home.goalChip': '%{p} tamamlandı', 'home.goalStart': 'Hadi başlayalım!', 'home.goalGoing': 'Harika gidiyorsun!', 'home.goalDone': 'Hedef tamam! 🎉',
     'home.goalLeft': 'Hedefe sadece {n} kart kaldı. Ritmini koru!', 'home.goalDoneNote': 'Bugün yapacağın her şey artık bonus.',
@@ -8763,13 +8782,19 @@ const Review = {
     if (answer === 'easy') return streak === 0 && interval < 1 ? 4 : Math.max(4, Math.round(Math.max(interval, 1) * ease / 100 * 1.4));
     return streak === 0 ? (interval >= 1 ? Math.max(2, Math.round(interval * 1.5)) : 1) : interval <= 1 ? 3 : Math.round(interval * ease / 100);
   },
-  /* "#review" goes through the cards due; "#review/learn/B1" teaches new words of a deck. */
+  /* "#review" goes through the cards due; "#review/learn/B1" teaches new words of a deck;
+     "#review/novel" studies the words saved from the novel and the teacher, "#review/words" lists them. */
+  saved() { return Object.keys(this.state.cards).filter(id => id.startsWith('n:') && this.content(id)); },
   onShow() {
     const [, mode, level] = location.hash.split('/');
     this.mode = mode === 'learn' ? 'learn' : 'review';
     this.level = decodeURIComponent(level || '');
-    if (mode === 'mistakes') this.mode = 'mistakes';
-    if (this.mode === 'mistakes') {
+    if (['mistakes', 'novel', 'words'].includes(mode)) this.mode = mode;
+    if (this.mode === 'words') { this.renderWords(); return; }
+    $('.review-progress').hidden = false;
+    if (this.mode === 'novel') {
+      this.queue = shuffle(this.saved()).slice(0, 20);
+    } else if (this.mode === 'mistakes') {
       this.queue = Object.entries(this.state.cards).filter(([id, card]) => card[4] > 0 && this.content(id)).sort((a, b) => b[1][4] - a[1][4]).slice(0, 15).map(([id]) => id);
     } else if (this.mode === 'learn') {
       this.queue = VOCAB.filter(entry => entry.level === this.level && !learnedSet.has(entry.id)).slice(0, 10).map(entry => 'w:' + entry.id);
@@ -8786,6 +8811,13 @@ const Review = {
     if (button && button.dataset.say) { event.stopPropagation(); Grammar.say(button.dataset.say); return; }
     if (button && button.dataset.rate) { if (this.shown) this.rate(button.dataset.rate); else this.flip(); return; }
     if (button && button.dataset.act === 'more') { this.onShow(); return; }
+    if (button && button.dataset.remove) {
+      this.remove(button.dataset.remove);
+      button.closest('.saved-item').remove();
+      Nav.counts();
+      if (!$('#review-card .saved-item')) this.renderWords();
+      return;
+    }
     if (!this.shown && event.target.closest('.flash-card')) this.flip();
   },
   flip() {
@@ -8858,10 +8890,32 @@ const Review = {
     const types = sentencesFor(entry);
     return { level: entry.level, pos: types.length ? t('pos.' + types[0][0]) : '', image: image ? image.getAttribute('src') : '' };
   },
+  /* The words saved from the novel and the teacher, newest first, each with its sentence. */
+  renderWords() {
+    const ids = this.saved().sort((a, b) => this.state.cards[b][0] - this.state.cards[a][0] || a.localeCompare(b));
+    $('#review-title').textContent = t('deck.novel');
+    $('.review-progress').hidden = true;
+    $('#review-card').replaceChildren(
+      h('div', { class: 'saved-head' },
+        h('p', { text: ids.length ? t('deck.novelListNote', { n: ids.length }) : t('deck.novelEmpty') }),
+        ids.length ? h('a', { class: 'button primary', href: '#review/novel' }, icon('play'), h('span', { text: t('deck.start') })) : h('a', { class: 'button primary', href: '#novel', text: t('novel.continue') })),
+      h('ul', { class: 'saved-list' }, ids.map(id => {
+        const content = this.content(id);
+        const card = this.state.cards[id];
+        return h('li', { class: 'saved-item', 'data-id': id },
+          h('div', { class: 'saved-word' },
+            h('strong', { lang: 'en', text: content.front }),
+            Speech.supported ? h('button', { type: 'button', class: 'audio-button', 'data-say': content.say, 'aria-label': t('tutor.listen') }, icon('sound')) : null,
+            h('span', { class: 'saved-due', text: card[0] <= this.today() ? t('deck.dueNow') : t('deck.dueIn', { n: card[0] - this.today() }) }),
+            h('button', { type: 'button', class: 'icon-button saved-remove', 'data-remove': id, 'aria-label': t('deck.remove', { w: content.front }) }, icon('close'))),
+          h('p', { class: 'saved-tr', lang: 'tr', text: content.back }),
+          content.sentence ? h('p', { class: 'saved-sentence' }, this.english(content)) : null);
+      })));
+  },
   render() {
     const box = $('#review-card');
     const learn = this.mode === 'learn';
-    $('#review-title').textContent = learn ? t('review.learnTitle', { l: this.level }) : t(this.mode === 'mistakes' ? 'game.mistakes' : 'review.title');
+    $('#review-title').textContent = learn ? t('review.learnTitle', { l: this.level }) : t(this.mode === 'mistakes' ? 'game.mistakes' : this.mode === 'novel' ? 'deck.novel' : 'review.title');
     $('#review-lead').textContent = t(learn ? 'review.learnLead' : 'review.lead');
     const done = this.doneToday();
     const goal = this.state.goal;
@@ -8969,6 +9023,21 @@ const Today = {
   decks() {
     const cards = [];
     let nextMarked = false;
+    const saved = Review.saved();
+    const known = saved.filter(id => Review.state.cards[id][3] >= 2).length;
+    const sample = saved.length ? Review.content(saved[saved.length - 1]).front : '';
+    cards.push(h('article', { class: 'deck is-novel' },
+      h('div', { class: 'deck-top' },
+        h('div', { class: 'deck-chips' }, h('span', { class: 'deck-chip is-amber', text: t('deck.novelTag') }), h('span', { class: 'deck-chip', text: t('deck.wordsN', { n: saved.length }) })),
+        sample && Speech.supported ? h('button', { type: 'button', class: 'audio-button', 'data-say': sample, 'aria-label': t('card.listenTo', { w: sample }) }, icon('sound')) : null),
+      h('h3', { text: t('deck.novel') }),
+      h('p', { class: 'deck-note', text: saved.length ? t('deck.novelNote') : t('deck.novelEmpty') }),
+      h('div', { class: 'deck-bar' }, h('span', { class: 'gram-meter' }, h('span', { style: 'width:' + (saved.length ? Math.round(known / saved.length * 100) : 0) + '%' })),
+        h('span', { class: 'deck-share', text: '★ %' + (saved.length ? Math.round(known / saved.length * 100) : 0) })),
+      h('div', { class: 'deck-foot' },
+        h('a', { class: 'deck-list-link', href: '#review/words' }, icon('cards'), t('deck.seeList')),
+        saved.length ? h('a', { class: 'button violet', href: '#review/novel' }, h('span', { text: t('deck.start') }), icon('next'))
+          : h('a', { class: 'button violet-soft', href: '#novel' }, h('span', { text: t('novel.title2') }), icon('next')))));
     for (const deck of this.DECKS) {
       const words = VOCAB.filter(entry => entry.level === deck.level);
       if (!words.length) continue;
@@ -9487,7 +9556,7 @@ const MODULES = { home: Home, review: Review, practice: Games, rankings: Ranking
    The page asks for version.json, never from the cache, when it opens and
    whenever it comes back to the screen, and offers to load the new build. */
 const Updater = {
-  build: '961ae396d732',
+  build: '42aec5a585eb',
   checked: 0,
   init() {
     if (!/^https?:$/.test(location.protocol) || this.build.length !== 12) return;
