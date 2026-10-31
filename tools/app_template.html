@@ -1461,6 +1461,41 @@ body.novel-focus .novel-pop-sentence i { color: var(--paper-text); }
 .saved-remove { color: var(--muted); width: 36px; height: 36px; }
 .saved-tr { margin: 0; font-weight: 700; color: var(--accent-text); }
 .saved-sentence { margin: 0; color: var(--muted); font-size: .9rem; font-style: italic; }
+
+/* ---------- AI stories (Language Reactor style) ---------- */
+.ai-story { display: grid; gap: var(--space-3); margin-bottom: var(--space-5); padding: var(--space-4); border-radius: var(--radius-l); background: var(--surface); box-shadow: var(--shadow); }
+.ai-story-head { display: flex; gap: var(--space-3); align-items: center; }
+.ai-story-head h2 { margin: 0; font-size: 1.15rem; }
+.ai-story-head p { margin: 2px 0 0; color: var(--muted); font-size: .88rem; }
+.ai-sources { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; }
+.ai-sources::-webkit-scrollbar { display: none; }
+.ai-sources .lib-chip[aria-pressed="true"] { background: var(--secondary); border-color: var(--secondary); color: #fff; }
+#ai-words { min-height: 64px; font: 1rem/1.5 var(--font); }
+.ai-actions { display: flex; align-items: center; justify-content: space-between; gap: var(--space-2); }
+.ai-level { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; font-size: .88rem; }
+.ai-level select { width: auto; min-height: 40px; }
+.ai-chat { display: grid; gap: var(--space-3); }
+.ai-turn { display: grid; gap: 6px; }
+.ai-turn:not(.is-me) { grid-template-columns: auto 1fr; align-items: start; gap: var(--space-2); }
+.ai-avatar { margin-top: 6px; background: var(--secondary-soft); color: var(--secondary); }
+.ai-lines { display: grid; gap: 6px; }
+.ai-row { display: grid; grid-template-columns: 1fr 1fr; overflow: hidden; border-radius: 16px; background: var(--surface-2); }
+.ai-row > div { padding: 10px 14px; line-height: 1.5; }
+.ai-en { display: flex; align-items: flex-start; gap: 8px; font-size: 1.02rem; }
+.ai-tr { color: var(--muted); background: rgba(127, 127, 127, .06); font-size: .95rem; }
+.ai-row.is-prompt { background: #24426f; color: #fff; }
+.ai-row.is-prompt .ai-tr { color: #d5e0f5; background: rgba(255, 255, 255, .06); }
+.ai-play { display: grid; place-items: center; flex: none; width: 26px; height: 26px; margin-top: 1px; border: 0; border-radius: 50%; background: var(--secondary); color: #fff; cursor: pointer; }
+.ai-play .icon { width: 13px; height: 13px; fill: currentColor; }
+.ai-hit { color: var(--secondary-text); }
+.ai-tools { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+.ai-history h3 { margin: var(--space-2) 0; font-size: .95rem; color: var(--muted); }
+@media (max-width: 560px) {
+  .ai-row { grid-template-columns: 1fr; }
+  .ai-row > div { padding: 8px 12px; }
+  .ai-tr { padding-top: 0 !important; background: transparent; }
+  .ai-row.is-prompt .ai-tr { background: transparent; }
+}
 </style>
 </head>
 <body>
@@ -1946,6 +1981,28 @@ body.novel-focus .novel-pop-sentence i { color: var(--paper-text); }
     </div>
     <div class="gram-pane js-only" id="gram-write" hidden>
       <div class="story-list" id="story-list">
+      <!-- A story written by AI from chosen words, shown sentence by sentence with Turkish (like Language Reactor). -->
+      <section class="ai-story js-only" aria-labelledby="ai-story-title">
+        <div class="ai-story-head">
+          <span class="tutor-bot" aria-hidden="true"><svg class="icon"><use href="#i-bot"/></svg></span>
+          <div><h2 id="ai-story-title" data-i18n="ai.title">Let AI write a story</h2><p data-i18n="ai.lead">A short story with your words, every sentence with its Turkish.</p></div>
+        </div>
+        <div class="ai-sources" role="group" aria-label="Words from" data-i18n-aria="ai.from">
+          <button type="button" class="lib-chip" data-source="novel" data-i18n="ai.srcNovel">My novel words</button>
+          <button type="button" class="lib-chip" data-source="learned" data-i18n="ai.srcLearned">Learned words</button>
+          <button type="button" class="lib-chip" data-source="new" data-i18n="ai.srcNew">New words</button>
+          <button type="button" class="lib-chip" data-source="common" data-i18n="ai.srcCommon">Most common words</button>
+        </div>
+        <label class="visually-hidden" for="ai-words" data-i18n="ai.wordsLabel">Words for the story</label>
+        <textarea id="ai-words" rows="2" lang="en" spellcheck="false" placeholder="whisper, island, storm, brave…" data-i18n-placeholder="ai.wordsPh"></textarea>
+        <div class="ai-actions">
+          <label class="ai-level"><span data-i18n="tutor.level">Level</span>
+            <select id="ai-level"><option>A2</option><option selected>B1</option><option>B2</option></select></label>
+          <button type="button" class="button violet" id="ai-write"><svg class="icon" aria-hidden="true"><use href="#i-pen"/></svg><span data-i18n="ai.write">Write the story</span></button>
+        </div>
+        <div class="ai-output" id="ai-output" aria-live="polite"></div>
+        <div class="ai-history" id="ai-history"></div>
+      </section>
         <button type="button" class="button primary story-new" id="story-new"><svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg><span data-i18n="story.new">New story</span></button>
         <ul class="story-items" id="story-items"></ul>
       </div>
@@ -2390,6 +2447,11 @@ const STRINGS = {
     'novel.title2': 'Read a novel', 'novel.sub': 'Novel & story reader', 'novel.tabShelf2': 'Graded library', 'novel.filter': 'Level & category', 'novel.allLevels': 'All levels',
     'novel.bookCount': '{n} novels', 'novel.cardSub': 'Original English text · tap any word', 'novel.open': 'Open the book', 'novel.continueChapter': 'Continue reading {c}',
     'novel.area': 'Interactive reading area', 'novel.tapWords': 'Tap the words', 'novel.pageOriginal': 'Page {n} · original text',
+    'ai.title': 'Let AI write a story', 'ai.lead': 'A short story with your words, every sentence with its Turkish.', 'ai.from': 'Words from',
+    'ai.srcNovel': 'My novel words', 'ai.srcLearned': 'Learned words', 'ai.srcNew': 'New words', 'ai.srcCommon': 'Most common words', 'ai.wordsLabel': 'Words for the story',
+    'ai.wordsPh': 'whisper, island, storm, brave…', 'ai.write': 'Write the story', 'ai.writing': 'Writing the story…', 'ai.failed': 'The story could not be written. Try again in a moment.',
+    'ai.listenAll': 'Listen to all', 'ai.copy': 'Copy', 'ai.delete': 'Delete', 'ai.copied': 'Story copied.', 'ai.copyFailed': 'Could not copy.', 'ai.history': 'Earlier AI stories',
+    'ai.noNovel': 'You have not added words from the novel yet.', 'ai.noLearned': 'There are no words here yet; try another source.',
     'xp.week': 'XP this week', 'nav.groupDaily': 'Daily', 'nav.groupLearn': 'Learn', 'nav.groupPractice': 'Practice', 'nav.more': 'More', 'nav.collapse': 'Collapse the menu', 'nav.expand': 'Expand the menu',
     'nav.collapseShort': 'Collapse', 'topbar.search': 'Search words', 'topbar.searchPh': 'Search a word (English or Turkish)', 'topbar.streak': '🔥 {n} days',
     'nav.review': 'Review', 'review.title': 'Review', 'review.lead': 'Cards come back just before you would forget them. Say honestly whether you knew each one.',
@@ -2595,6 +2657,11 @@ const STRINGS = {
     'novel.title2': 'Roman Oku', 'novel.sub': 'Roman & hikâye okuyucu', 'novel.tabShelf2': 'Seviyeli kütüphane', 'novel.filter': 'Seviye ve kategori filtrele', 'novel.allLevels': 'Tüm seviyeler',
     'novel.bookCount': '{n} roman', 'novel.cardSub': 'Orijinal İngilizce metin · kelimelere dokun', 'novel.open': 'Kitabı aç', 'novel.continueChapter': '{c} okumaya devam et',
     'novel.area': 'İnteraktif okuma alanı', 'novel.tapWords': 'Kelimelere dokun', 'novel.pageOriginal': 'Sayfa {n} · orijinal metin',
+    'ai.title': 'Yapay zekâ hikâye yazsın', 'ai.lead': 'Seçtiğin kelimelerle kısa bir hikâye; her cümle Türkçesiyle.', 'ai.from': 'Kelimelerin kaynağı',
+    'ai.srcNovel': 'Romandan kelimelerim', 'ai.srcLearned': 'Öğrendiğim kelimeler', 'ai.srcNew': 'Yeni kelimeler', 'ai.srcCommon': 'En sık kelimeler', 'ai.wordsLabel': 'Hikâyenin kelimeleri',
+    'ai.wordsPh': 'whisper, island, storm, brave…', 'ai.write': 'Hikâyeyi yaz', 'ai.writing': 'Hikâye yazılıyor…', 'ai.failed': 'Hikâye yazılamadı. Biraz sonra tekrar dene.',
+    'ai.listenAll': 'Hepsini dinle', 'ai.copy': 'Kopyala', 'ai.delete': 'Sil', 'ai.copied': 'Hikâye kopyalandı.', 'ai.copyFailed': 'Kopyalanamadı.', 'ai.history': 'Önceki yapay zekâ hikâyeleri',
+    'ai.noNovel': 'Henüz romandan kelime eklemedin.', 'ai.noLearned': 'Burada henüz kelime yok; başka bir kaynak dene.',
     'xp.week': 'Bu haftaki XP', 'nav.groupDaily': 'Günlük', 'nav.groupLearn': 'Öğren', 'nav.groupPractice': 'Pratik', 'nav.more': 'Daha fazla', 'nav.collapse': 'Menüyü daralt', 'nav.expand': 'Menüyü genişlet',
     'nav.collapseShort': 'Daralt', 'topbar.search': 'Kelime ara', 'topbar.searchPh': 'Kelime ara (İngilizce ya da Türkçe)', 'topbar.streak': '🔥 {n} gün',
     'nav.review': 'Tekrar', 'review.title': 'Tekrar', 'review.lead': 'Kartlar tam unutmak üzereyken geri gelir. Her birini bilip bilmediğini dürüstçe söyle.',
@@ -7379,6 +7446,149 @@ const Rankings = {
   }
 };
 
+/* ---------- AI stories: a short story from chosen words, sentence by sentence with Turkish ----------
+   Pollinations' free text service (no account, no key) writes the story; only the word list and
+   the level are sent. The Turkish comes from the same translation as the novel's sentences. */
+const AiStory = {
+  KEY: 'english-study-aistories.v1',
+  URL: 'https://text.pollinations.ai/openai',
+  COMMON: 'I, you, be, the, to, a, it, not, do, and, that, we, he, have, of, in, what, go, this, get, can, know, like, make, think, see, come, want, look, time, good'.split(', '),
+  stories: [],
+  init() {
+    try { this.stories = JSON.parse(Store.read(this.KEY) || '[]'); } catch (_) { this.stories = []; }
+    if (!Array.isArray(this.stories)) this.stories = [];
+    $('.ai-sources').addEventListener('click', event => { const chip = event.target.closest('[data-source]'); if (chip) this.fill(chip.dataset.source); });
+    $('#ai-write').addEventListener('click', () => this.write());
+    $('#ai-output').addEventListener('click', event => this.click(event));
+    $('#ai-history').addEventListener('click', event => {
+      const button = event.target.closest('[data-story]');
+      if (button) this.show(this.stories.find(story => story.id === button.dataset.story));
+    });
+    this.history();
+  },
+  /* Up to twelve words from the chosen source. */
+  fill(source) {
+    for (const chip of $$('.ai-sources [data-source]')) chip.setAttribute('aria-pressed', String(chip.dataset.source === source));
+    let words = [];
+    if (source === 'novel') words = shuffle(Review.saved().map(id => Review.content(id).front));
+    if (source === 'learned') words = shuffle(VOCAB.filter(entry => learnedSet.has(entry.id)).map(entry => entry.word));
+    if (source === 'new') words = shuffle(VOCAB.filter(entry => inPath(entry) && !learnedSet.has(entry.id)).map(entry => entry.word));
+    if (source === 'common') words = this.COMMON.slice(0, 20);
+    words = [...new Set(words.map(word => word.trim().toLowerCase()))].slice(0, source === 'common' ? 20 : 12);
+    if (!words.length) { Toast.show(t(source === 'novel' ? 'ai.noNovel' : 'ai.noLearned')); return; }
+    $('#ai-words').value = words.join(', ');
+  },
+  async write() {
+    const words = $('#ai-words').value.split(/[,;\n]+/).map(word => word.trim()).filter(Boolean).slice(0, 25);
+    if (!words.length) { this.fill('new'); return; }
+    const level = $('#ai-level').value;
+    const button = $('#ai-write');
+    button.disabled = true;
+    $('#ai-output').replaceChildren(h('p', { class: 'story-progress', text: t('ai.writing') }));
+    let lines;
+    try {
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), 45000);
+      const response = await fetch(this.URL, {
+        method: 'POST', signal: controller.signal, headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ model: 'openai', messages: [
+          { role: 'system', content: `You write short, simple stories for English learners at ${level} level. Reply with the story only: 6 to 9 short sentences, one sentence per line. A line may start with one fitting emoji.` },
+          { role: 'user', content: 'Please write a story using some of these words: ' + words.join(', ') }] })
+      });
+      clearTimeout(timer);
+      if (!response.ok) throw new Error('server');
+      const data = await response.json();
+      const text = String(((data.choices || [])[0] || {}).message ? data.choices[0].message.content : '').trim();
+      lines = text.split(/\n+/).map(line => line.replace(/^[-*\d.)\s]+(?=\S)/u, '').trim()).filter(Boolean);
+      if (lines.length < 3) lines = Writer.sentences(text).map(part => part.text);
+      if (!lines.length) throw new Error('empty');
+    } catch (err) {
+      button.disabled = false;
+      $('#ai-output').replaceChildren(h('p', { class: 'error-text', text: t(navigator.onLine === false ? 'tutor.err.network' : 'ai.failed') }));
+      return;
+    }
+    const story = { id: 'a' + Date.now().toString(36), at: Date.now(), level, words, lines: lines.slice(0, 14), tr: {} };
+    this.stories = [story, ...this.stories].slice(0, 20);
+    this.save();
+    button.disabled = false;
+    XP.add(10);
+    this.show(story);
+    this.history();
+  },
+  save() { Store.write(this.KEY, JSON.stringify(this.stories)); },
+  /* Plain text for speech: no emoji. */
+  spoken(text) { return text.replace(/[\p{Extended_Pictographic}\uFE0F\u200D]/gu, '').trim(); },
+  /* The story's own words in bold violet. */
+  marked(line, words) {
+    const node = h('span', { lang: 'en' });
+    const stems = words.map(word => word.toLowerCase()).filter(word => word.length > 2);
+    for (const part of line.split(/([A-Za-z]+(?:['’][A-Za-z]+)*)/)) {
+      const lower = part.toLowerCase();
+      node.append(part && stems.some(stem => lower === stem || (lower.startsWith(stem) && lower.length - stem.length <= 3)) ? h('b', { class: 'ai-hit', text: part }) : part);
+    }
+    return node;
+  },
+  async show(story) {
+    if (!story) return;
+    this.current = story;
+    const prompt = 'Please write a story using some of these words:';
+    const wordLine = story.words.join(', ');
+    const row = (en, tr, kind) => h('div', { class: 'ai-row' + (kind ? ' is-' + kind : '') },
+      h('div', { class: 'ai-en' },
+        kind === 'prompt' ? null : h('button', { type: 'button', class: 'ai-play', 'data-say': this.spoken(en), 'aria-label': t('tutor.listen') }, icon('play')),
+        kind === 'prompt' ? h('span', { lang: 'en', text: en }) : this.marked(en, story.words)),
+      h('div', { class: 'ai-tr', lang: 'tr', 'data-tr-for': en, text: tr || '…' }));
+    $('#ai-output').replaceChildren(
+      h('div', { class: 'ai-chat' },
+        h('div', { class: 'ai-turn is-me' }, row(prompt, 'Lütfen şu kelimelerden bazılarını kullanarak bir hikâye yazın:', 'prompt'), row(wordLine, story.tr[wordLine], 'prompt')),
+        h('div', { class: 'ai-turn' }, h('span', { class: 'tutor-bot small ai-avatar', 'aria-hidden': 'true' }, icon('bot')),
+          h('div', { class: 'ai-lines' }, story.lines.map(line => row(line, story.tr[line]))))),
+      h('div', { class: 'ai-tools' },
+        h('button', { type: 'button', class: 'button small', 'data-act': 'all' }, icon('sound'), h('span', { text: t('ai.listenAll') })),
+        h('button', { type: 'button', class: 'button small', 'data-act': 'copy' }, icon('copy'), h('span', { text: t('ai.copy') })),
+        h('button', { type: 'button', class: 'button small ghost', 'data-act': 'delete' }, icon('close'), h('span', { text: t('ai.delete') }))));
+    const missing = [wordLine, ...story.lines].filter(line => !story.tr[line]);
+    if (!missing.length) return;
+    try {
+      const found = await Novel.translateLines(missing.map(line => this.spoken(line)));
+      for (const line of missing) {
+        const tr = found.get(this.spoken(line));
+        if (!tr) continue;
+        const emoji = (line.match(/^[\p{Extended_Pictographic}\uFE0F\u200D]+\s*/u) || [''])[0];
+        story.tr[line] = emoji + tr;
+      }
+      this.save();
+      if (this.current === story) for (const cell of $$('#ai-output [data-tr-for]')) if (story.tr[cell.dataset.trFor]) cell.textContent = story.tr[cell.dataset.trFor];
+    } catch (_) {
+      for (const cell of $$('#ai-output [data-tr-for]')) if (cell.textContent === '…') cell.textContent = t('novel.trBusy');
+    }
+  },
+  click(event) {
+    const button = event.target.closest('button');
+    if (!button || !this.current) return;
+    if (button.dataset.say) Grammar.say(button.dataset.say);
+    if (button.dataset.act === 'all') Grammar.say(this.current.lines.map(line => this.spoken(line)).join(' '));
+    if (button.dataset.act === 'copy') {
+      const text = this.current.lines.map(line => line + (this.current.tr[line] ? '\n' + this.current.tr[line] : '')).join('\n\n');
+      navigator.clipboard.writeText(text).then(() => Toast.show(t('ai.copied')), () => Toast.show(t('ai.copyFailed')));
+    }
+    if (button.dataset.act === 'delete') {
+      this.stories = this.stories.filter(story => story !== this.current);
+      this.save();
+      this.current = null;
+      $('#ai-output').replaceChildren();
+      this.history();
+    }
+  },
+  history() {
+    $('#ai-history').replaceChildren(...(this.stories.length ? [
+      h('h3', { text: t('ai.history') }),
+      h('ul', { class: 'story-items' }, this.stories.map(story => h('li', {}, h('button', { type: 'button', 'data-story': story.id },
+        h('strong', { lang: 'en', text: this.spoken(story.lines[0]).slice(0, 70) }),
+        h('span', { text: story.level + ' · ' + story.words.slice(0, 5).join(', ') + (story.words.length > 5 ? '…' : '') })))))] : []));
+  }
+};
+
 const MODULES = { home: Home, review: Review, practice: Games, rankings: Rankings, words: Words, phrases: Phrases, grammar: Grammar, speak: Speak, novel: Novel, quiz: Quiz, reading: Reading, settings: Settings };
 
 /* ======================================================================
@@ -7420,7 +7630,7 @@ function init() {
   applyTheme();
   applyTurkishVisibility();
   prepareCards();
-  XP.init(); Home.init(); Words.init(); Phrases.init(); Grammar.init(); Review.init(); Today.init(); Nav.init(); Games.init(); Writer.init(); Speak.init(); Tutor.init(); Novel.init(); Quiz.init(); Settings.init(); Updater.init();
+  XP.init(); Home.init(); Words.init(); Phrases.init(); Grammar.init(); Review.init(); Today.init(); Nav.init(); Games.init(); Writer.init(); AiStory.init(); Speak.init(); Tutor.init(); Novel.init(); Quiz.init(); Settings.init(); Updater.init();
   if (!Store.usable) Banner.show(t(Store.simulated ? 'storage.simulated' : 'storage.off'));
   else if (loaded.notice) Banner.show(t(loaded.notice, { n: loaded.count || 0 }));
   if (loaded.migrated) persist();
