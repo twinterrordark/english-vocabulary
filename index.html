@@ -3447,7 +3447,7 @@ body.novel-focus .novel-pop-base, body.novel-focus .novel-pop-sentence { color: 
         </div>
         <p id="import-status" role="status"></p>
         <button type="button" class="button danger" id="reset-progress" data-i18n="settings.reset">Tüm ilerlemeyi sıfırla</button>
-        <p class="hint" data-i18n="settings.resetHint">Sıfırlama; öğrenildi işaretlerini, test istatistiklerini ve çalışma günlerini siler. Görünüm ayarları korunur.</p>
+        <p class="hint" data-i18n="settings.resetHint">Sıfırlama; öğrenildi işaretlerini, test istatistiklerini, çalışma günlerini ve tekrar kartlarını siler. Görünüm ayarları korunur.</p>
       </div>
       <div class="panel">
         <h2 data-i18n="settings.about">Uygulama hakkında</h2>
@@ -3842,11 +3842,11 @@ const STRINGS = {
     'settings.speech': 'Pronunciation audio', 'settings.voice': 'Voice', 'settings.rate': 'Speed', 'settings.test': 'Test voice', 'settings.defaultVoice': 'Device default (English)',
     'settings.testPhrase': 'This is how words will sound on this device.',
     'settings.data': 'Your progress data', 'settings.export': 'Export progress (JSON)', 'settings.import': 'Import progress', 'settings.reset': 'Reset all progress',
-    'settings.resetHint': 'Reset removes learned marks, quiz statistics and study days. Display settings are kept.',
+    'settings.resetHint': 'Reset removes learned marks, quiz statistics, study days and review cards. Display settings are kept.',
     'settings.about': 'About this app', 'settings.aboutText': 'Version {v}. {n} vocabulary entries ({s} with sentences by word type), {i} embedded images, {r} reading texts.',
     'settings.aboutContent': 'Meanings, pronunciation notes and original examples come from the original page. Photos come from Wikimedia Commons (free licences; the author and licence are shown on each card). Illustrations that the original page made for a specific word are kept. Words without a fitting photo show a Twemoji illustration chosen for that word (Twemoji by Twitter and contributors, CC BY 4.0). The example sentences grouped by word type were written for this app.',
     'reset.title': 'Reset all progress?', 'reset.msg': 'Learned marks, quiz statistics and study days will be deleted. Consider exporting a backup first.', 'reset.ok': 'Reset progress', 'reset.done': 'Progress has been reset.',
-    'import.title': 'Replace your current progress?', 'import.msg': 'The file contains {l} learned words and {a} quiz answers. Your current progress will be replaced.', 'import.ok': 'Replace progress',
+    'import.title': 'Replace your current progress?', 'import.msg': 'The file contains {l} learned words and {a} quiz answers. Your current progress will be replaced.', 'import.ok': 'Replace progress', 'import.msgMore': 'It also has {c} review cards and {g} grammar steps learned.',
     'import.done': 'Progress imported.', 'import.cancelled': 'Import cancelled. Nothing was changed.', 'import.tooBig': 'This file is too large to be a progress export.',
     'import.badJson': 'This file is not valid JSON.', 'import.badSchema': 'This file is not a progress export from this app, or it was made by a newer version.',
     'export.done': 'Progress file downloaded.', 'export.fail': 'The download could not start in this browser.',
@@ -4030,11 +4030,11 @@ const STRINGS = {
     'settings.speech': 'Telaffuz sesi', 'settings.voice': 'Ses', 'settings.rate': 'Hız', 'settings.test': 'Sesi dene', 'settings.defaultVoice': 'Cihaz varsayılanı (İngilizce)',
     'settings.testPhrase': 'This is how words will sound on this device.',
     'settings.data': 'İlerleme verilerin', 'settings.export': 'İlerlemeyi dışa aktar (JSON)', 'settings.import': 'İlerlemeyi içe aktar', 'settings.reset': 'Tüm ilerlemeyi sıfırla',
-    'settings.resetHint': 'Sıfırlama; öğrenildi işaretlerini, test istatistiklerini ve çalışma günlerini siler. Görünüm ayarları korunur.',
+    'settings.resetHint': 'Sıfırlama; öğrenildi işaretlerini, test istatistiklerini, çalışma günlerini ve tekrar kartlarını siler. Görünüm ayarları korunur.',
     'settings.about': 'Uygulama hakkında', 'settings.aboutText': 'Sürüm {v}. {n} kelime ({s} tanesinde türlere göre cümle var), {i} gömülü görsel, {r} okuma metni.',
     'settings.aboutContent': 'Anlamlar, okunuşlar ve özgün örnekler özgün sayfadan alınmıştır. Fotoğraflar Wikimedia Commons’tan gelir (özgür lisanslı; her kartta yazar ve lisans gösterilir). Özgün sayfanın belirli bir kelime için hazırladığı çizimler korunmuştur. Uygun fotoğrafı olmayan kelimelerde o kelime için seçilmiş bir Twemoji çizimi gösterilir (Twemoji: Twitter ve katkıda bulunanlar, CC BY 4.0). Kelime türlerine göre gruplanan örnek cümleler bu uygulama için yazılmıştır.',
     'reset.title': 'Tüm ilerleme sıfırlansın mı?', 'reset.msg': 'Öğrenildi işaretleri, test istatistikleri ve çalışma günleri silinecek. Önce yedek almayı düşün.', 'reset.ok': 'İlerlemeyi sıfırla', 'reset.done': 'İlerleme sıfırlandı.',
-    'import.title': 'Mevcut ilerleme değiştirilsin mi?', 'import.msg': 'Dosyada {l} öğrenilmiş kelime ve {a} test cevabı var. Mevcut ilerlemenin yerine geçecek.', 'import.ok': 'İlerlemeyi değiştir',
+    'import.title': 'Mevcut ilerleme değiştirilsin mi?', 'import.msg': 'Dosyada {l} öğrenilmiş kelime ve {a} test cevabı var. Mevcut ilerlemenin yerine geçecek.', 'import.ok': 'İlerlemeyi değiştir', 'import.msgMore': 'Ayrıca {c} tekrar kartı ve öğrenilmiş {g} gramer adımı var.',
     'import.done': 'İlerleme içe aktarıldı.', 'import.cancelled': 'İçe aktarma iptal edildi. Hiçbir şey değişmedi.', 'import.tooBig': 'Bu dosya bir ilerleme dosyası olamayacak kadar büyük.',
     'import.badJson': 'Bu dosya geçerli bir JSON değil.', 'import.badSchema': 'Bu dosya bu uygulamanın ilerleme dosyası değil ya da daha yeni bir sürümle oluşturulmuş.',
     'export.done': 'İlerleme dosyası indirildi.', 'export.fail': 'Bu tarayıcıda indirme başlatılamadı.',
@@ -6041,7 +6041,8 @@ const Settings = {
   },
   exportProgress() {
     try {
-      const data = JSON.stringify({ app: 'english-study', exportedAt: new Date().toISOString(), ...progress, learned: [...learnedSet] }, null, 2);
+      const data = JSON.stringify({ app: 'english-study', exportedAt: new Date().toISOString(), ...progress, learned: [...learnedSet],
+        review: Review.state, grammar: { best: Grammar.best, learned: Grammar.learned, last: Grammar.lastTopic } }, null, 2);
       const url = URL.createObjectURL(new Blob([data], { type: 'application/json' }));
       const link = h('a', { href: url, download: 'english-study-progress-' + dateKey(new Date()) + '.json' });
       document.body.append(link);
@@ -6064,15 +6065,21 @@ const Settings = {
     try { parsed = JSON.parse(await file.text()); } catch (_) { status.textContent = t('import.badJson'); return; }
     let imported;
     try { imported = sanitizeProgress(parsed); } catch (_) { status.textContent = t('import.badSchema'); return; }
+    /* Review cards and grammar steps are in exports made since they were added. */
+    const review = Review.sanitize(parsed.review);
+    const grammar = Grammar.sanitize(parsed.grammar);
     status.textContent = '';
     status.className = '';
     const ok = await confirmDialog({
       title: t('import.title'),
-      message: t('import.msg', { l: imported.learned.length, a: imported.quiz.attempts }),
+      message: t('import.msg', { l: imported.learned.length, a: imported.quiz.attempts })
+        + (review || grammar ? ' ' + t('import.msgMore', { c: review ? Object.keys(review.cards).length : 0, g: grammar ? Object.keys(grammar.learned).length : 0 }) : ''),
       confirmLabel: t('import.ok')
     });
     if (!ok) { status.textContent = t('import.cancelled'); return; }
     replaceProgress(imported);
+    if (review) { Review.state = review; Review.queue = []; Review.save(); }
+    if (grammar) { Object.assign(Grammar, { best: grammar.best, learned: grammar.learned, lastTopic: grammar.last, mode: null }); Grammar.save(); }
     status.textContent = t('import.done');
   },
   async resetProgress() {
@@ -6692,6 +6699,14 @@ const Grammar = {
     $('#gram-novel').addEventListener('click', event => this.novelClick(event));
   },
   save() { Store.write(this.KEY, JSON.stringify({ best: this.best, learned: this.learned, last: this.lastTopic })); },
+  /* Checks grammar progress from an imported file; null when it is missing or malformed. */
+  sanitize(raw) {
+    if (!raw || typeof raw !== 'object') return null;
+    const out = { best: {}, learned: {}, last: typeof raw.last === 'string' && this.topics.some(topic => topic.id === raw.last) ? raw.last : null };
+    for (const [id, score] of Object.entries(raw.best || {})) if (/^[\w-]{1,40}$/.test(id) && Number.isInteger(score) && score >= 0) out.best[id] = score;
+    for (const id of Object.keys(raw.learned || {})) if (/^[a-z]{2}:[\w-]{1,80}$/.test(id)) out.learned[id] = 1;
+    return out;
+  },
   /* "#grammar" lists the topics, "#grammar/pv" opens a topic's learning path,
      "#grammar/pv/3" its fourth unit, "#grammar/write" the stories. */
   onShow() {
@@ -7452,6 +7467,20 @@ const Review = {
     });
   },
   save() { Store.write(this.KEY, JSON.stringify(this.state)); },
+  /* Checks review data from an imported file; null when it is missing or malformed. */
+  sanitize(raw) {
+    if (!raw || typeof raw !== 'object' || !raw.cards || typeof raw.cards !== 'object') return null;
+    const text = (value, max) => typeof value === 'string' ? value.slice(0, max) : '';
+    const out = { goal: this.GOALS.includes(raw.goal) ? raw.goal : 20, cards: {}, saved: {}, log: {}, seeded: true };
+    for (const [id, card] of Object.entries(raw.cards)) {
+      if (/^[wng]:[^\s]{1,120}$/.test(id) && Array.isArray(card) && card.length === 5 && card.every(Number.isInteger)) out.cards[id] = card;
+    }
+    for (const [id, saved] of Object.entries(raw.saved || {})) {
+      if (out.cards[id] && saved && typeof saved === 'object' && text(saved.w, 60)) out.saved[id] = { w: text(saved.w, 60), tr: text(saved.tr, 300), s: text(saved.s, 500) };
+    }
+    for (const [day, count] of Object.entries(raw.log || {})) if (/^\d{4}-\d{2}-\d{2}$/.test(day) && Number.isInteger(count) && count > 0) out.log[day] = count;
+    return out;
+  },
   today() { const now = new Date(); return Math.floor((now - now.getTimezoneOffset() * 60000) / 864e5); },
   /* Words learned and grammar units passed before this feature existed join the
      review over the next week instead of all at once. */
@@ -7691,7 +7720,7 @@ const MODULES = { home: Home, review: Review, words: Words, phrases: Phrases, gr
    The page asks for version.json, never from the cache, when it opens and
    whenever it comes back to the screen, and offers to load the new build. */
 const Updater = {
-  build: '0f6c0f86a3d9',
+  build: 'e27b861bada7',
   checked: 0,
   init() {
     if (!/^https?:$/.test(location.protocol) || this.build.length !== 12) return;
