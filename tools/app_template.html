@@ -1436,6 +1436,14 @@ body.novel-focus .novel-pop-sentence i { color: var(--paper-text); }
   body.route-review .bottom-nav, body.route-review .site-footer { display: none; }
   body.route-review { padding-bottom: env(safe-area-inset-bottom); }
 }
+
+.write-card { display: flex; align-items: center; gap: var(--space-3); margin: calc(-1 * var(--space-2)) 0 var(--space-2); padding: var(--space-3) var(--space-4); border-radius: var(--radius-l); background: var(--surface); box-shadow: var(--shadow); color: var(--text); text-decoration: none; }
+.write-icon { display: grid; place-items: center; flex: none; width: 48px; height: 48px; border-radius: 14px; background: var(--secondary-soft); color: var(--secondary); }
+.write-text { display: grid; flex: 1; min-width: 0; }
+.write-text .eyebrow { margin: 0; }
+.write-text strong { font: 800 1.1rem/1.2 var(--font-display); }
+.write-text > span:last-child { color: var(--muted); font-size: .85rem; }
+.write-go { flex: none; min-height: 42px; padding: 8px 14px; }
 </style>
 </head>
 <body>
@@ -1602,6 +1610,11 @@ body.novel-focus .novel-pop-sentence i { color: var(--paper-text); }
       <p id="hero-text"></p>
       <a class="button hero-button" id="hero-start" href="#review"><svg class="icon" aria-hidden="true"><use href="#i-play"/></svg><span id="hero-label"></span></a>
     </div>
+    <a class="write-card js-only" href="#grammar/write">
+      <span class="write-icon" aria-hidden="true"><svg class="icon"><use href="#i-pen"/></svg></span>
+      <span class="write-text"><span class="eyebrow" data-i18n="home.writeTag">Writing</span><strong data-i18n="home.writeTitle">Write a story</strong><span id="home-write-note"></span></span>
+      <span class="button violet write-go"><span data-i18n="home.writeGo">Write</span><svg class="icon" aria-hidden="true"><use href="#i-next"/></svg></span>
+    </a>
     <div class="section-row">
       <h2><svg class="icon" aria-hidden="true"><use href="#i-cards"/></svg><span data-i18n="home.decks">Word decks</span></h2>
       <span class="section-note" id="deck-count"></span>
@@ -2321,6 +2334,7 @@ const STRINGS = {
     'story.ltQuota': 'The teacher\'s free daily limit is used up; checked by LanguageTool (spelling and simpler grammar only).',
     'story.found': '{n} corrections', 'story.clean': 'No mistakes found 🎉', 'story.applyAll': 'Apply all', 'story.yours': 'You wrote', 'story.apply': 'Apply', 'story.skip': 'Ignore',
     'story.notFound': 'That part of the story has changed; check again.',
+    'home.writeTag': 'Writing', 'home.writeTitle': 'Write a story', 'home.writeGo': 'Write', 'home.writeNote': '{n} stories · Ms. Emma checks the grammar', 'home.writeEmpty': 'Write in English; Ms. Emma checks the grammar.',
     'home.eyebrow': 'Daily goal', 'home.titleReview': 'Time to review! ✨', 'home.titleMorning': 'Good morning! ☀️', 'home.titleDay': 'Let’s learn! ✨', 'home.titleEvening': 'Good evening! 🌙',
     'home.goalChip': '{p}% done', 'home.goalStart': 'Let’s get started!', 'home.goalGoing': 'You’re doing great!', 'home.goalDone': 'Goal reached! 🎉',
     'home.goalLeft': 'Only {n} cards to your goal. Keep the rhythm!', 'home.goalDoneNote': 'Anything more today is a bonus.',
@@ -2524,6 +2538,7 @@ const STRINGS = {
     'story.ltQuota': 'Hocanın günlük ücretsiz kotası doldu; LanguageTool denetledi (yalnızca yazım ve basit dilbilgisi).',
     'story.found': '{n} düzeltme', 'story.clean': 'Hata bulunamadı 🎉', 'story.applyAll': 'Hepsini uygula', 'story.yours': 'Senin cümlen', 'story.apply': 'Uygula', 'story.skip': 'Yok say',
     'story.notFound': 'Hikâyenin o kısmı değişmiş; tekrar denetle.',
+    'home.writeTag': 'Yazma', 'home.writeTitle': 'Hikâye yaz', 'home.writeGo': 'Yaz', 'home.writeNote': '{n} hikâye · dilbilgisini Ms. Emma denetler', 'home.writeEmpty': 'İngilizce yaz; dilbilgisini Ms. Emma denetlesin.',
     'home.eyebrow': 'Günlük hedef', 'home.titleReview': 'Tekrar zamanı! ✨', 'home.titleMorning': 'Günaydın! ☀️', 'home.titleDay': 'Hadi öğrenelim! ✨', 'home.titleEvening': 'İyi akşamlar! 🌙',
     'home.goalChip': '%{p} tamamlandı', 'home.goalStart': 'Hadi başlayalım!', 'home.goalGoing': 'Harika gidiyorsun!', 'home.goalDone': 'Hedef tamam! 🎉',
     'home.goalLeft': 'Hedefe sadece {n} kart kaldı. Ritmini koru!', 'home.goalDoneNote': 'Bugün yapacağın her şey artık bonus.',
@@ -6779,6 +6794,8 @@ const Today = {
     $('#hero-text').textContent = t(due ? 'home.heroText' : 'home.heroNew');
     $('#hero-label').textContent = due ? t('home.heroStart', { n: due }) : t('home.heroLearn');
     $('#hero-start').href = due ? '#review' : '#review/learn/' + (firstDeck ? firstDeck.level : 'A2');
+    const stories = Writer.stories.length;
+    $('#home-write-note').textContent = stories ? t('home.writeNote', { n: stories }) : t('home.writeEmpty');
     this.decks();
     $('#today-continue').replaceChildren(...this.rows());
     this.week();
