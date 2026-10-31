@@ -206,6 +206,58 @@ dialog::backdrop { background: rgba(8, 14, 28, .55); }
    4. LEARNING VIEWS
 ====================================================================== */
 /* ---------- Dashboard ---------- */
+/* Today panel and review cards */
+.today-panel { display: grid; gap: var(--space-3); }
+.today-head { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--space-2); }
+.today-head h2 { margin: 0; }
+.today-date { margin: 2px 0 0; color: var(--muted); font-size: .88rem; }
+.today-streak { flex: none; padding: 4px 10px; border-radius: 999px; background: var(--primary-soft); color: var(--accent-text); font-weight: 700; font-size: .85rem; }
+.today-goal { display: grid; gap: 6px; }
+.today-goal-line { display: flex; align-items: center; justify-content: space-between; gap: var(--space-2); }
+.today-goal-select { min-height: 36px; padding: 2px 8px; font-size: .85rem; }
+.today-start { min-height: 54px; font-size: 1.05rem; }
+.today-sub { margin: var(--space-2) 0 0; font-size: .8rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.today-rows { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.today-row { display: flex; align-items: center; gap: var(--space-3); min-height: 56px; padding: 8px var(--space-3); border: 1px solid var(--line); border-radius: 14px; color: var(--text); text-decoration: none; background: var(--bg); }
+.today-row > .icon { flex: none; width: 18px; height: 18px; color: var(--muted); }
+.today-icon { flex: none; display: grid; place-items: center; width: 36px; height: 36px; border-radius: 10px; background: var(--primary-soft); color: var(--accent-text); }
+.today-icon .icon { width: 20px; height: 20px; }
+.today-row-text { display: grid; gap: 1px; min-width: 0; flex: 1; }
+.today-row-text span { color: var(--muted); font-size: .85rem; overflow-wrap: anywhere; }
+.today-week { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; align-items: end; }
+.today-week li { display: grid; justify-items: center; gap: 2px; font-size: .72rem; color: var(--muted); }
+.today-week b { min-height: 1em; font-size: .7rem; color: var(--accent-text); }
+.today-bar { display: flex; align-items: flex-end; width: 100%; max-width: 30px; height: 64px; border-radius: 8px; background: var(--line); overflow: hidden; order: -1; }
+.today-week b { order: -2; }
+.today-bar span { display: block; width: 100%; background: var(--primary); border-radius: 8px 8px 0 0; }
+.today-week .is-today small { color: var(--accent-text); font-weight: 800; }
+.review-goal { display: grid; gap: 6px; max-width: 560px; margin-bottom: var(--space-3); }
+.review-card { display: grid; gap: var(--space-3); max-width: 560px; padding: var(--space-4); border-radius: var(--radius-l); background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow); }
+.review-top { display: flex; justify-content: space-between; gap: var(--space-2); color: var(--muted); font-size: .82rem; }
+.review-kind { padding: 2px 10px; border-radius: 999px; background: var(--primary-soft); color: var(--accent-text); font-weight: 700; }
+.review-face { position: relative; display: grid; gap: var(--space-2); justify-items: center; text-align: center; padding: var(--space-4) var(--space-2); min-height: 120px; align-content: center; }
+.review-word { margin: 0; font: 700 2.2rem/1.15 Georgia, "Times New Roman", serif; overflow-wrap: anywhere; }
+.review-sentence { margin: 0; font: 1.05rem/1.55 Georgia, "Times New Roman", serif; color: var(--muted); }
+.review-sentence.is-main { font-size: 1.25rem; color: var(--text); }
+.review-sentence .gram-en { font: inherit; }
+.review-say { position: absolute; top: 0; right: 0; }
+.review-back { display: grid; gap: 6px; padding-top: var(--space-3); border-top: 1px dashed var(--line); text-align: center; }
+.review-back p { margin: 0; }
+.review-meaning { font-size: 1.35rem; font-weight: 700; color: var(--accent-text); }
+.review-pron { color: var(--muted); }
+.review-example { font: 1rem/1.5 Georgia, serif; }
+.review-example-tr { color: var(--muted); font-size: .92rem; }
+.review-flip { min-height: 56px; font-size: 1.05rem; }
+.review-rate { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-2); }
+.review-rate .button { display: grid; gap: 2px; min-height: 64px; padding: 6px; min-width: 0; }
+.review-rate small { font-weight: 400; font-size: .75rem; opacity: .85; }
+.review-again { border-color: var(--error); color: var(--error); }
+.review-hard { border-color: var(--line); }
+.review-good { background: var(--success); border-color: var(--success); color: #fff; }
+.review-empty { display: grid; gap: var(--space-2); justify-items: center; text-align: center; padding: var(--space-4) 0; }
+.review-empty h2, .review-empty p { margin: 0; }
+.review-big { font-size: 2.6rem; }
+.novel-pop-save { justify-self: start; margin-top: var(--space-2); }
 .continue-panel { display: grid; gap: var(--space-3); align-items: center; background: var(--primary-soft); border-color: transparent; }
 .continue-panel h2 { margin-bottom: var(--space-1); }
 .continue-panel p { margin: 0; }
@@ -849,12 +901,25 @@ body.novel-focus .novel-pop-base, body.novel-focus .novel-pop-sentence { color: 
       <h1 id="home-title" tabindex="-1" data-i18n="home.title">Your study space</h1>
       <p class="lead" data-i18n="home.lead">Learn vocabulary with example sentences for every word type, test yourself and read short texts — all offline in one page.</p>
     </div>
-    <div class="panel continue-panel">
-      <div>
-        <h2 data-i18n="home.next">Next step</h2>
-        <p id="continue-text"></p>
+    <div class="panel today-panel">
+      <div class="today-head">
+        <div>
+          <h2 data-i18n="today.title">Today</h2>
+          <p class="today-date" id="today-date"></p>
+        </div>
+        <span class="today-streak" id="today-streak"></span>
       </div>
-      <a class="button primary" id="continue-link" href="#words"><span id="continue-label">Continue learning</span><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      <div class="today-goal">
+        <div class="today-goal-line"><strong id="today-goal-text"></strong>
+          <label class="visually-hidden" for="today-goal" data-i18n="today.goalLabel">Daily goal</label>
+          <select id="today-goal" class="today-goal-select"></select></div>
+        <span class="gram-meter"><span id="today-goal-bar"></span></span>
+      </div>
+      <a class="button today-start" id="today-review" href="#review"><svg class="icon" aria-hidden="true"><use href="#i-quiz"/></svg><span id="today-review-label">Review</span></a>
+      <h3 class="today-sub" data-i18n="today.continue">Pick up where you left off</h3>
+      <ul class="today-rows" id="today-continue"></ul>
+      <h3 class="today-sub" data-i18n="today.week">This week</h3>
+      <ol class="today-week" id="today-week" aria-label="Cards reviewed in the last seven days" data-i18n-aria="today.weekLabel"></ol>
     </div>
     <div class="panel">
       <div class="field">
@@ -883,6 +948,16 @@ body.novel-focus .novel-pop-base, body.novel-focus .novel-pop-sentence { color: 
       <li><a class="mode-card" href="#reading"><svg class="icon" aria-hidden="true"><use href="#i-reading"/></svg><div><strong data-i18n="nav.reading">Reading</strong><span data-i18n="mode.reading">Short texts with questions and optional listening.</span></div></a></li>
     </ul>
     <p class="hint" id="home-storage-note"></p>
+  </section>
+
+  <!-- Review: spaced repetition cards from words, the novel and grammar. -->
+  <section class="view" data-view="review" aria-labelledby="review-title">
+    <div class="view-head">
+      <h1 id="review-title" tabindex="-1" data-i18n="review.title">Review</h1>
+      <p class="lead" data-i18n="review.lead">Cards come back just before you would forget them. Say honestly whether you knew each one.</p>
+    </div>
+    <div class="review-goal js-only"><strong id="review-goal"></strong><span class="gram-meter"><span id="review-goal-bar"></span></span></div>
+    <div class="review-card js-only" id="review-card" aria-live="polite"></div>
   </section>
 
   <!-- Vocabulary -->
@@ -1088,6 +1163,7 @@ body.novel-focus .novel-pop-base, body.novel-focus .novel-pop-sentence { color: 
       <p class="novel-pop-verb" id="novel-pop-verb" hidden></p>
       <p class="novel-pop-sentence" id="novel-pop-sentence"><button type="button" class="link-button" id="novel-pop-say" data-i18n="novel.sayLine">Listen to the sentence</button> · <a id="novel-pop-gt" href="#" target="_blank" rel="noopener noreferrer" data-i18n="novel.translateLine">Translate the sentence (online)</a></p>
       <p class="novel-pop-line" id="novel-pop-line" lang="tr" hidden></p>
+      <button type="button" class="button small novel-pop-save" id="novel-pop-save" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg><span id="novel-pop-save-label">Add to review</span></button>
     </div>
   </section>
 
@@ -1493,6 +1569,15 @@ const STRINGS = {
     'story.ltQuota': 'The teacher\'s free daily limit is used up; checked by LanguageTool (spelling and simpler grammar only).',
     'story.found': '{n} corrections', 'story.clean': 'No mistakes found 🎉', 'story.applyAll': 'Apply all', 'story.yours': 'You wrote', 'story.apply': 'Apply', 'story.skip': 'Ignore',
     'story.notFound': 'That part of the story has changed; check again.',
+    'nav.review': 'Review', 'review.title': 'Review', 'review.lead': 'Cards come back just before you would forget them. Say honestly whether you knew each one.',
+    'review.goal': 'Today: {d} / {n} cards', 'review.left': '{n} left', 'review.kindWord': 'Word', 'review.kindNovel': 'From the novel',
+    'review.show': 'Show the answer', 'review.again': 'Didn’t know', 'review.hard': 'Hard', 'review.good': 'Knew it', 'review.soon': 'again soon', 'review.days': 'in {n} d',
+    'review.allDone': 'All done for today!', 'review.allDoneText': 'Come back tomorrow; new cards will be waiting.', 'review.noCards': 'No cards yet',
+    'review.noCardsText': 'Mark words as learned, save words in the novel or pass grammar steps; they become review cards.', 'review.home': 'Back to home',
+    'today.title': 'Today', 'today.goalLabel': 'Daily goal', 'today.goalOption': '{n} cards a day', 'today.streak': '🔥 {n} days', 'today.review': 'Review {n} cards',
+    'today.reviewDone': 'Today’s review is done ✓', 'today.reviewNone': 'No cards due today', 'today.goalText': '{d} / {n} cards', 'today.reviewEmpty': 'Review (no cards yet)', 'today.continue': 'Pick up where you left off', 'today.week': 'This week',
+    'today.weekLabel': 'Cards reviewed in the last seven days', 'today.weekDay': '{n} cards', 'today.grammar': 'Grammar · {topic}', 'today.grammarNext': 'Next: {title}',
+    'today.words': '{n} of {total} words learned', 'novel.save': 'Add to review', 'novel.saved': 'In review ✓',
     'update.text': 'A new version of the app is ready.', 'update.reload': 'Reload',
     'nav.speak': 'Speaking', 'mode.speak': 'Talk in English with a friend in a voice room, with topic cards to guide you.',
     'speak.title': 'Speaking room', 'speak.lead': 'Talk in English with a friend: open a room, send them the link and use the topic cards together.',
@@ -1641,6 +1726,15 @@ const STRINGS = {
     'story.ltQuota': 'Hocanın günlük ücretsiz kotası doldu; LanguageTool denetledi (yalnızca yazım ve basit dilbilgisi).',
     'story.found': '{n} düzeltme', 'story.clean': 'Hata bulunamadı 🎉', 'story.applyAll': 'Hepsini uygula', 'story.yours': 'Senin cümlen', 'story.apply': 'Uygula', 'story.skip': 'Yok say',
     'story.notFound': 'Hikâyenin o kısmı değişmiş; tekrar denetle.',
+    'nav.review': 'Tekrar', 'review.title': 'Tekrar', 'review.lead': 'Kartlar tam unutmak üzereyken geri gelir. Her birini bilip bilmediğini dürüstçe söyle.',
+    'review.goal': 'Bugün: {d} / {n} kart', 'review.left': '{n} kart kaldı', 'review.kindWord': 'Kelime', 'review.kindNovel': 'Romandan',
+    'review.show': 'Cevabı göster', 'review.again': 'Bilemedim', 'review.hard': 'Zorlandım', 'review.good': 'Bildim', 'review.soon': 'birazdan', 'review.days': '{n} gün sonra',
+    'review.allDone': 'Bugünlük bitti!', 'review.allDoneText': 'Yarın tekrar gel; yeni kartlar seni bekliyor olacak.', 'review.noCards': 'Henüz kart yok',
+    'review.noCardsText': 'Kelimeleri öğrendim diye işaretle, romanda kelime kaydet ya da gramer adımlarını geç; hepsi tekrar kartı olur.', 'review.home': 'Ana sayfaya dön',
+    'today.title': 'Bugün', 'today.goalLabel': 'Günlük hedef', 'today.goalOption': 'Günde {n} kart', 'today.streak': '🔥 {n} gün', 'today.review': '{n} kartı tekrar et',
+    'today.reviewDone': 'Bugünkü tekrar bitti ✓', 'today.reviewNone': 'Bugün sırası gelen kart yok', 'today.goalText': '{d} / {n} kart', 'today.reviewEmpty': 'Tekrar (henüz kart yok)', 'today.continue': 'Kaldığın yerden devam et', 'today.week': 'Bu hafta',
+    'today.weekLabel': 'Son yedi günde tekrar edilen kartlar', 'today.weekDay': '{n} kart', 'today.grammar': 'Gramer · {topic}', 'today.grammarNext': 'Sıradaki: {title}',
+    'today.words': '{total} kelimeden {n} tanesi öğrenildi', 'novel.save': 'Tekrara ekle', 'novel.saved': 'Tekrarda ✓',
     'update.text': 'Uygulamanın yeni sürümü hazır.', 'update.reload': 'Yenile',
     'nav.speak': 'Konuşma', 'mode.speak': 'Bir arkadaşınla sesli odada İngilizce konuş; konu kartları sana yol göstersin.',
     'speak.title': 'Konuşma odası', 'speak.lead': 'Bir arkadaşınla İngilizce konuş: oda aç, linki gönder, konu kartlarını birlikte kullanın.',
@@ -2206,6 +2300,7 @@ const Speech = (() => {
 function setLearned(entry, learned) {
   if (learned === learnedSet.has(entry.id)) return;
   if (learned) learnedSet.add(entry.id); else learnedSet.delete(entry.id);
+  if (learned) Review.add('w:' + entry.id, 1); else Review.remove('w:' + entry.id);
   recordActivity();
   persist();
   syncWordControls(entry.id);
@@ -2285,7 +2380,7 @@ function relabelCards() {
 }
 
 /* ---------- 7i. Navigation ---------- */
-const ROUTES = ['home', 'words', 'phrases', 'grammar', 'speak', 'novel', 'quiz', 'reading', 'settings'];
+const ROUTES = ['home', 'review', 'words', 'phrases', 'grammar', 'speak', 'novel', 'quiz', 'reading', 'settings'];
 const Router = {
   current: null,
   /* Non-route hashes (e.g. the skip link's #main) keep the current view. */
@@ -2332,16 +2427,7 @@ const Home = {
   render() {
     $('#path-select').value = progress.settings.path;
     const learned = [...learnedSet].filter(id => BY_ID.has(id)).length;
-    const link = $('#continue-link');
-    if (learned > 0) {
-      $('#continue-text').textContent = t('continue.quiz', { n: learned });
-      $('#continue-label').textContent = t('continue.quizBtn');
-      link.href = '#quiz';
-    } else {
-      $('#continue-text').textContent = t('continue.learn');
-      $('#continue-label').textContent = t('continue.learnBtn');
-      link.href = '#words';
-    }
+    Today.render();
     const quiz = progress.quiz;
     const tiles = [
       [t('stat.learned'), learned + ' / ' + VOCAB.length, t('stat.learnedNote'), learned],
@@ -2615,6 +2701,7 @@ const Novel = {
     $('#novel-library').addEventListener('click', () => this.showLibrary(true));
     $('#novel-tr').addEventListener('click', () => this.setTranslated(!this.translated));
     /* The word card translates its sentence in place; without internet it opens Google Translate. */
+    $('#novel-pop-save').addEventListener('click', () => this.toggleSave());
     $('#novel-pop-gt').addEventListener('click', async event => {
       if (!this.current || !this.current.sentence) return;
       event.preventDefault();
@@ -3379,9 +3466,24 @@ const Novel = {
     $('#novel-pop-sentence').hidden = !sentence;
     $('#novel-pop-gt').href = 'https://translate.google.com/?sl=en&tl=tr&op=translate&text=' + encodeURIComponent(sentence);
     $('#novel-pop-line').hidden = true;
+    this.current.review = found ? { id: 'n:' + found.base, w: found.base, tr: found.tr, s: sentence } : null;
+    $('#novel-pop-save').hidden = !found;
+    this.syncSave();
     $('#novel-pop-speak').hidden = !Speech.supported;
     $('#novel-pop-say').hidden = !Speech.supported;
     $('#novel-pop').hidden = false;
+  },
+  syncSave() {
+    const saved = Boolean(this.current && this.current.review && Review.has(this.current.review.id));
+    $('#novel-pop-save').setAttribute('aria-pressed', String(saved));
+    $('#novel-pop-save-label').textContent = t(saved ? 'novel.saved' : 'novel.save');
+  },
+  toggleSave() {
+    const word = this.current && this.current.review;
+    if (!word) return;
+    if (Review.has(word.id)) Review.remove(word.id);
+    else Review.add(word.id, 1, { w: word.w, tr: word.tr, s: word.s });
+    this.syncSave();
   },
   closePop() {
     $('#novel-pop').hidden = true;
@@ -3540,7 +3642,7 @@ const Quiz = {
     this.locked = true;
     const isCorrect = q.options[index].correct;
     this.answered += 1;
-    if (isCorrect) this.correct += 1; else this.missed.push(q);
+    if (isCorrect) this.correct += 1; else { this.missed.push(q); Review.add('w:' + q.entry.id, 0); }
     progress.quiz.attempts += 1;
     if (isCorrect) progress.quiz.correct += 1;
     recordActivity();
@@ -3814,6 +3916,7 @@ const Settings = {
     const ok = await confirmDialog({ title: t('reset.title'), message: t('reset.msg'), confirmLabel: t('reset.ok') });
     if (!ok) return;
     replaceProgress(createEmptyProgress(progress.settings));
+    Review.clear();
     Toast.show(t('reset.done'));
   }
 };
@@ -4418,13 +4521,14 @@ const Grammar = {
       const saved = JSON.parse(Store.read(this.KEY) || '{}');
       this.best = saved.best || {};
       this.learned = saved.learned || {};
+      this.lastTopic = saved.last || null;
     } catch (_) { this.best = {}; this.learned = {}; }
     for (const button of $$('[data-gtab]')) button.addEventListener('click', () => this.tab(button.dataset.gtab));
     $('#gram-practice').addEventListener('click', event => this.practiceClick(event));
     $('#gram-unit').addEventListener('click', event => this.unitClick(event));
     $('#gram-novel').addEventListener('click', event => this.novelClick(event));
   },
-  save() { Store.write(this.KEY, JSON.stringify({ best: this.best, learned: this.learned })); },
+  save() { Store.write(this.KEY, JSON.stringify({ best: this.best, learned: this.learned, last: this.lastTopic })); },
   /* "#grammar" lists the topics, "#grammar/pv" opens a topic's learning path,
      "#grammar/pv/3" its fourth unit, "#grammar/write" the stories. */
   onShow() {
@@ -4447,7 +4551,7 @@ const Grammar = {
     $('#gram-rc').hidden = mode !== 'topic';
     $('#gram-write').hidden = mode !== 'write';
     $('#gram-back').hidden = mode === 'home';
-    if (mode === 'topic') $('#gram-novel-tab').hidden = !topic.novel;
+    if (mode === 'topic') { $('#gram-novel-tab').hidden = !topic.novel; this.lastTopic = topic.id; this.save(); }
     if (mode === 'write') Writer.show();
     if (moved) window.scrollTo(0, 0);
   },
@@ -4736,7 +4840,7 @@ const Grammar = {
     const units = this.topic.units;
     const total = run.items.length;
     const passed = run.score >= Math.ceil(total * 2 / 3);
-    if (passed && !this.learned[run.unit.id]) { this.learned[run.unit.id] = 1; this.save(); }
+    if (passed && !this.learned[run.unit.id]) { this.learned[run.unit.id] = 1; this.save(); Review.add('g:' + run.unit.id, 2); }
     const next = this.unit + 1 < units.length ? this.unit + 1 : null;
     for (const item of $$('#gram-unit .gram-steps li')) { item.className = 'is-done'; item.removeAttribute('aria-current'); }
     run.box.replaceChildren(h('div', { class: 'gram-card gram-done' },
@@ -5159,7 +5263,261 @@ const Writer = {
   }
 };
 
-const MODULES = { home: Home, words: Words, phrases: Phrases, grammar: Grammar, speak: Speak, novel: Novel, quiz: Quiz, reading: Reading, settings: Settings };
+/* ---------- Review: spaced repetition ----------
+   Cards come from words marked learned (w:<id>), words missed in the Quiz,
+   words saved from the novel (n:<word>) and grammar units passed (g:<unit>).
+   Each card keeps [due day, interval in days, ease ×100, successful reviews in a row,
+   lapses]. "I knew it" pushes a card further out each time (1, 3, then ×2.5 days),
+   "Hard" a little, "Didn't know" brings it back later in the same session. */
+const Review = {
+  KEY: 'english-study-review.v1',
+  GOALS: [10, 20, 30, 50],
+  state: null,
+  queue: [],
+  shown: false,
+  init() {
+    try { this.state = JSON.parse(Store.read(this.KEY) || 'null'); } catch (_) { this.state = null; }
+    if (!this.state || typeof this.state !== 'object' || typeof this.state.cards !== 'object') this.state = { goal: 20, cards: {}, saved: {}, log: {} };
+    for (const key of ['cards', 'saved', 'log']) if (!this.state[key] || typeof this.state[key] !== 'object') this.state[key] = {};
+    if (!this.GOALS.includes(this.state.goal)) this.state.goal = 20;
+    this.seed();
+    $('#review-card').addEventListener('click', event => this.click(event));
+    document.addEventListener('keydown', event => {
+      if (Router.current !== 'review' || event.target.closest('input, select, textarea') || !this.queue.length) return;
+      if (event.key === ' ' && !this.shown) { event.preventDefault(); this.flip(); }
+      else if (this.shown && ['1', '2', '3'].includes(event.key)) this.rate(['again', 'hard', 'good'][Number(event.key) - 1]);
+    });
+  },
+  save() { Store.write(this.KEY, JSON.stringify(this.state)); },
+  today() { const now = new Date(); return Math.floor((now - now.getTimezoneOffset() * 60000) / 864e5); },
+  /* Words learned and grammar units passed before this feature existed join the
+     review over the next week instead of all at once. */
+  seed() {
+    if (this.state.seeded) return;
+    const old = [...learnedSet].filter(id => BY_ID.has(id)).map(id => 'w:' + id)
+      .concat(Object.keys(Grammar.learned).map(id => 'g:' + id));
+    old.forEach((id, index) => { if (!this.state.cards[id]) this.state.cards[id] = [this.today() + 1 + index % 7, 1, 250, 1, 0]; });
+    this.state.seeded = true;
+    this.save();
+  },
+  has(id) { return Boolean(this.state.cards[id]); },
+  /* Adds a card due in `days` (0 = today). A card already there is only brought forward. */
+  add(id, days, saved) {
+    const due = this.today() + days;
+    const card = this.state.cards[id];
+    if (card) { if (card[0] > due) { card[0] = due; card[1] = Math.min(card[1], Math.max(days, 0)); card[3] = 0; } }
+    else this.state.cards[id] = [due, 0, 250, 0, 0];
+    if (saved) this.state.saved[id] = saved;
+    this.save();
+  },
+  remove(id) {
+    delete this.state.cards[id];
+    delete this.state.saved[id];
+    this.save();
+  },
+  clear() {
+    this.state = { goal: this.state.goal, cards: {}, saved: {}, log: {}, seeded: true };
+    this.queue = [];
+    this.save();
+  },
+  /* What a card shows; null when its word or unit no longer exists. */
+  content(id) {
+    const [kind, key] = [id.slice(0, 1), id.slice(2)];
+    if (kind === 'w') {
+      const entry = BY_ID.get(key);
+      if (!entry) return null;
+      return { kind: 'word', front: entry.word, say: entry.word, back: entry.meaning, pron: entry.pron || '',
+        sentence: entry.example || '', sentenceTr: entry.exampleTr || '' };
+    }
+    if (kind === 'n') {
+      const saved = this.state.saved[id];
+      if (!saved) return null;
+      return { kind: 'novel', front: saved.w, say: saved.w, back: saved.tr, sentence: saved.s || '', mark: saved.w };
+    }
+    if (kind === 'g') {
+      for (const topic of Grammar.topics) {
+        const unit = topic.units.find(u => u.id === key);
+        if (!unit) continue;
+        const pool = unit.book.map(([en, tr, , , sense]) => [en, tr, sense]).concat(unit.examples).filter(example => example[0].includes('['));
+        const [en, tr, label] = pool.length ? pool[Math.floor(Math.random() * pool.length)] : unit.examples[0];
+        return { kind: 'grammar', topic: topic.title, front: en, say: en.replace(/[[\]]/g, ''), back: unit.meaning ? unit.title + ' = ' + unit.meaning : label || unit.title,
+          sentenceTr: tr, bracketed: en.includes('[') };
+      }
+      return null;
+    }
+    return null;
+  },
+  due() {
+    const today = this.today();
+    return Object.entries(this.state.cards).filter(([id, card]) => card[0] <= today && this.content(id)).sort((a, b) => a[1][0] - b[1][0]).map(([id]) => id);
+  },
+  doneToday() { return this.state.log[dateKey(new Date())] || 0; },
+  /* Days until the card comes back for each answer. */
+  next(card, answer) {
+    const [, interval, ease, streak] = card;
+    if (answer === 'again') return 0;
+    if (answer === 'hard') return Math.max(1, Math.round(interval * 1.2));
+    return streak === 0 ? (interval >= 1 ? Math.max(2, Math.round(interval * 1.5)) : 1) : interval <= 1 ? 3 : Math.round(interval * ease / 100);
+  },
+  onShow() {
+    this.queue = this.due();
+    this.total = this.queue.length;
+    this.render();
+  },
+  click(event) {
+    const button = event.target.closest('button');
+    if (!button) return;
+    if (button.dataset.act === 'flip') this.flip();
+    else if (button.dataset.rate) this.rate(button.dataset.rate);
+    else if (button.dataset.say) Grammar.say(button.dataset.say);
+    else if (button.dataset.act === 'more') this.onShow();
+  },
+  flip() {
+    this.shown = true;
+    this.render();
+    const first = $('#review-card [data-rate="good"]');
+    if (first) first.focus({ preventScroll: true });
+  },
+  rate(answer) {
+    const id = this.queue[0];
+    const card = this.state.cards[id];
+    if (!card) return;
+    const days = this.next(card, answer);
+    if (answer === 'again') { card[2] = Math.max(130, card[2] - 20); card[3] = 0; card[4] += 1; }
+    else { if (answer === 'hard') card[2] = Math.max(130, card[2] - 15); card[3] += 1; }
+    card[1] = days;
+    card[0] = this.today() + days;
+    const key = dateKey(new Date());
+    this.state.log[key] = (this.state.log[key] || 0) + 1;
+    for (const old of Object.keys(this.state.log).sort().slice(0, -60)) delete this.state.log[old];
+    this.save();
+    recordActivity();
+    persist();
+    this.queue.shift();
+    /* A card you did not know comes back after a few others. */
+    if (answer === 'again') this.queue.splice(Math.min(3, this.queue.length), 0, id);
+    this.shown = false;
+    this.render();
+  },
+  when(days) { return days === 0 ? t('review.soon') : t('review.days', { n: days }); },
+  /* The card's English, with the word or the grammar key words marked. */
+  english(content) {
+    if (content.bracketed) return Grammar.marked(content.front, true);
+    if (content.kind === 'novel' && content.sentence) {
+      const node = h('span', { lang: 'en' });
+      const at = content.sentence.toLowerCase().indexOf(content.mark.toLowerCase());
+      if (at < 0) return content.sentence;
+      node.append(content.sentence.slice(0, at), h('mark', { class: 'gram-rel', text: content.sentence.slice(at, at + content.mark.length) }), content.sentence.slice(at + content.mark.length));
+      return node;
+    }
+    return null;
+  },
+  render() {
+    const box = $('#review-card');
+    const done = this.doneToday();
+    const goal = this.state.goal;
+    $('#review-goal').textContent = t('review.goal', { d: Math.min(done, goal), n: goal });
+    $('#review-goal-bar').style.width = Math.min(100, Math.round(done / goal * 100)) + '%';
+    if (!this.queue.length) {
+      const waiting = Object.keys(this.state.cards).length;
+      box.replaceChildren(h('div', { class: 'review-empty' },
+        h('p', { class: 'review-big', text: waiting ? '🎉' : '🗂️' }),
+        h('h2', { text: t(waiting ? 'review.allDone' : 'review.noCards') }),
+        h('p', { text: t(waiting ? 'review.allDoneText' : 'review.noCardsText') }),
+        h('a', { class: 'button primary', href: '#home', text: t('review.home') })));
+      return;
+    }
+    const id = this.queue[0];
+    /* Kept while the card is open, so showing the answer does not pick another sentence. */
+    if (!this.open || this.open.id !== id || !this.shown) this.open = { id, content: this.content(id) };
+    const content = this.open.content;
+    const card = this.state.cards[id];
+    const sentence = this.english(content);
+    const kinds = { word: t('review.kindWord'), novel: t('review.kindNovel'), grammar: content.topic };
+    box.replaceChildren(...[
+      h('div', { class: 'review-top' },
+        h('span', { class: 'review-kind', text: kinds[content.kind] }),
+        h('span', { text: t('review.left', { n: this.queue.length }) })),
+      h('div', { class: 'review-face' },
+        content.kind === 'grammar' ? h('p', { class: 'review-sentence is-main' }, sentence) : h('p', { class: 'review-word', lang: 'en', text: content.front }),
+        content.kind === 'novel' && sentence ? h('p', { class: 'review-sentence' }, sentence) : null,
+        Speech.supported ? h('button', { type: 'button', class: 'icon-button review-say', 'data-say': content.say, 'aria-label': t('tutor.listen') }, icon('sound')) : null),
+      this.shown
+        ? h('div', { class: 'review-back' },
+          h('p', { class: 'review-meaning', lang: 'tr', text: content.back }),
+          content.pron ? h('p', { class: 'review-pron', text: content.pron }) : null,
+          content.kind === 'word' && content.sentence ? h('p', { class: 'review-example', lang: 'en', text: content.sentence }) : null,
+          content.sentenceTr ? h('p', { class: 'review-example-tr', lang: 'tr', text: content.sentenceTr }) : null)
+        : null,
+      this.shown
+        ? h('div', { class: 'review-rate' }, [['again', 'review.again'], ['hard', 'review.hard'], ['good', 'review.good']].map(([answer, label], index) =>
+          h('button', { type: 'button', class: 'button review-' + answer, 'data-rate': answer, 'aria-keyshortcuts': String(index + 1) },
+            h('strong', { text: t(label) }), h('small', { text: this.when(this.next(card, answer)) }))))
+        : h('button', { type: 'button', class: 'button primary review-flip', 'data-act': 'flip', 'aria-keyshortcuts': 'Space', text: t('review.show') })
+    ].filter(Boolean));
+  }
+};
+
+/* ---------- Today: the home page's plan for the day ---------- */
+const Today = {
+  init() {
+    $('#today-goal').addEventListener('change', event => {
+      Review.state.goal = Number(event.target.value);
+      Review.save();
+      this.render();
+    });
+  },
+  render() {
+    const due = Review.due().length;
+    const done = Review.doneToday();
+    const goal = Review.state.goal;
+    $('#today-date').textContent = new Date().toLocaleDateString(lang === 'tr' ? 'tr-TR' : 'en-GB', { weekday: 'long', day: 'numeric', month: 'long' });
+    $('#today-goal').replaceChildren(...Review.GOALS.map(n => h('option', { value: n, text: t('today.goalOption', { n }) })));
+    $('#today-goal').value = goal;
+    $('#today-goal-text').textContent = t('today.goalText', { d: Math.min(done, goal), n: goal });
+    $('#today-goal-bar').style.width = Math.min(100, Math.round(done / goal * 100)) + '%';
+    $('#today-streak').textContent = t('today.streak', { n: studyStreak() });
+    const start = $('#today-review');
+    start.classList.toggle('primary', due > 0);
+    $('#today-review-label').textContent = due ? t('today.review', { n: due }) : t(done ? 'today.reviewDone' : Object.keys(Review.state.cards).length ? 'today.reviewNone' : 'today.reviewEmpty');
+    $('#today-continue').replaceChildren(...this.rows());
+    this.week();
+  },
+  /* Where each study area was left: the next grammar step, the book's page, the words. */
+  rows() {
+    const rows = [];
+    const topic = Grammar.topics.find(item => item.id === Grammar.lastTopic) || Grammar.topics[0];
+    if (topic) {
+      const next = topic.units.findIndex(unit => !Grammar.learned[unit.id]);
+      rows.push([icon('pen'), t('today.grammar', { topic: topic.title }), next >= 0 ? t('today.grammarNext', { title: topic.units[next].title }) : t('grammar.topicDone'),
+        '#grammar/' + topic.id + (next >= 0 ? '/' + next : '')]);
+    }
+    const saved = Novel.readState();
+    if (saved && saved.name) {
+      const page = saved.marks[saved.name] || 0;
+      const total = saved.totals[saved.name];
+      const title = Grammar.bookTitle(saved.name) || saved.titles[saved.name];
+      rows.push([icon('book'), title, total ? t('novel.markOf', { n: page + 1, total }) : t('novel.mark', { n: page + 1 }), '#novel']);
+    }
+    const learned = [...learnedSet].filter(id => BY_ID.has(id)).length;
+    rows.push([icon('words'), t('nav.words'), t('today.words', { n: learned, total: VOCAB.length }), '#words']);
+    return rows.map(([mark, title, note, href]) => h('li', {}, h('a', { class: 'today-row', href },
+      h('span', { class: 'today-icon' }, mark), h('span', { class: 'today-row-text' }, h('strong', { text: title }), h('span', { text: note })), icon('next'))));
+  },
+  /* Cards reviewed on each of the last seven days. */
+  week() {
+    const days = [];
+    for (let back = 6; back >= 0; back--) { const day = new Date(); day.setDate(day.getDate() - back); days.push(day); }
+    const counts = days.map(day => Review.state.log[dateKey(day)] || 0);
+    const top = Math.max(Review.state.goal, ...counts);
+    $('#today-week').replaceChildren(...days.map((day, index) => h('li', { class: index === 6 ? 'is-today' : null, title: t('today.weekDay', { n: counts[index] }) },
+      h('span', { class: 'today-bar' }, h('span', { style: 'height:' + Math.round(counts[index] / top * 100) + '%' })),
+      h('small', { text: day.toLocaleDateString(lang === 'tr' ? 'tr-TR' : 'en-GB', { weekday: 'short' }).slice(0, 3) }),
+      h('b', { text: counts[index] || '' }))));
+  }
+};
+
+const MODULES = { home: Home, review: Review, words: Words, phrases: Phrases, grammar: Grammar, speak: Speak, novel: Novel, quiz: Quiz, reading: Reading, settings: Settings };
 
 /* ======================================================================
    8. INITIALIZATION (single entry point)
@@ -5200,7 +5558,7 @@ function init() {
   applyTheme();
   applyTurkishVisibility();
   prepareCards();
-  Home.init(); Words.init(); Phrases.init(); Grammar.init(); Writer.init(); Speak.init(); Tutor.init(); Novel.init(); Quiz.init(); Settings.init(); Updater.init();
+  Home.init(); Words.init(); Phrases.init(); Grammar.init(); Review.init(); Today.init(); Writer.init(); Speak.init(); Tutor.init(); Novel.init(); Quiz.init(); Settings.init(); Updater.init();
   if (!Store.usable) Banner.show(t(Store.simulated ? 'storage.simulated' : 'storage.off'));
   else if (loaded.notice) Banner.show(t(loaded.notice, { n: loaded.count || 0 }));
   if (loaded.migrated) persist();
