@@ -531,6 +531,7 @@ body.novel-focus .site-footer { display: none; }
 .novel-text .novel-sent { margin: 0; text-indent: 0; line-height: 1.5; }
 .novel-tr { margin-top: .35em; padding: .45em .75em .5em; border-radius: 10px; background: var(--paper-tr-bg); color: var(--paper-tr); font-family: var(--font); font-size: .8em; line-height: 1.45; }
 .novel-tr.is-waiting { opacity: .55; }
+.novel-tr-note { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; margin: 0 0 1.2em; padding: .6em .8em; border-radius: 10px; background: var(--paper-tr-bg); color: var(--paper-tr); font: .8em/1.45 var(--font); }
 .novel-tr[hidden] { display: none; }
 .novel-image { display: block; width: 100%; height: auto; margin: 0 auto; border-radius: 4px; background: #fff; }
 .novel-turn { display: flex; align-items: center; justify-content: center; gap: 6px; width: min(100%, 36em); margin: 0 auto var(--space-4); min-height: 52px; border: 1px solid var(--paper-line); border-radius: var(--radius); background: transparent; color: inherit; font: inherit; font-weight: 600; cursor: pointer; }
@@ -3443,7 +3444,7 @@ const STRINGS = {
     'novel.readyNoStore': 'Ready: {n} pages. This browser could not save the book, so choose the file again next time.', 'novel.error': 'This file could not be read as a PDF.',
     'novel.prev': 'Previous page', 'novel.next': 'Next page', 'novel.prevText': '‹ Previous', 'novel.nextText': 'Next page', 'novel.page': 'Page', 'novel.library': 'Books', 'novel.settings': 'Reading settings', 'novel.trPage': 'Turkish sentence by sentence',
     'novel.trOn': 'Each sentence gets its Turkish under it (Google Translate, needs internet). Translated pages also open offline.',
-    'novel.trOffline': 'No internet: sentences not translated yet are hidden.', 'novel.trLoading': 'Translating…',
+    'novel.trOffline': 'No internet: sentences not translated yet are hidden.', 'novel.trBusy': 'The translation service is not answering right now (maybe too many requests). Try again in a little while.', 'novel.trLoading': 'Translating…',
     'novel.textSize': 'Text size', 'novel.paper': 'Page colour', 'novel.paperLight': 'Light', 'novel.paperSepia': 'Sepia', 'novel.paperDark': 'Dark',
     'novel.markOf': 'p. {n} / {total}', 'novel.scanned': 'Scanned book: pages shown as pictures', 'novel.pageImage': 'Picture of the printed page', 'novel.loadingPage': 'Loading the page…',
     'novel.noText': 'This book is scanned (page photos), so it has no text to read aloud or translate.',
@@ -3565,7 +3566,7 @@ const STRINGS = {
     'novel.readyNoStore': 'Hazır: {n} sayfa. Bu tarayıcı kitabı kaydedemedi; bir dahaki sefere dosyayı yeniden seç.', 'novel.error': 'Bu dosya PDF olarak okunamadı.',
     'novel.prev': 'Önceki sayfa', 'novel.next': 'Sonraki sayfa', 'novel.prevText': '‹ Önceki', 'novel.nextText': 'Sonraki sayfa', 'novel.page': 'Sayfa', 'novel.library': 'Kitaplar', 'novel.settings': 'Okuma ayarları', 'novel.trPage': 'Cümle cümle Türkçe',
     'novel.trOn': 'Her cümlenin altında Türkçesi görünür (Google Çeviri, internet gerekir). Çevrilen sayfalar internetsiz de açılır.',
-    'novel.trOffline': 'İnternet yok: henüz çevrilmemiş cümlelerin Türkçesi gösterilemiyor.', 'novel.trLoading': 'Çevriliyor…',
+    'novel.trOffline': 'İnternet yok: henüz çevrilmemiş cümlelerin Türkçesi gösterilemiyor.', 'novel.trBusy': 'Çeviri servisi şu an cevap vermiyor (çok fazla istek olabilir). Biraz sonra tekrar dene.', 'novel.trLoading': 'Çevriliyor…',
     'novel.textSize': 'Yazı boyutu', 'novel.paper': 'Sayfa rengi', 'novel.paperLight': 'Açık', 'novel.paperSepia': 'Sepya', 'novel.paperDark': 'Koyu',
     'novel.markOf': 's. {n} / {total}', 'novel.scanned': 'Taranmış kitap: sayfalar resim olarak', 'novel.pageImage': 'Basılı sayfanın resmi', 'novel.loadingPage': 'Sayfa yükleniyor…',
     'novel.noText': 'Bu kitap taranmış (sayfa fotoğrafı); sesli okunacak ya da çevrilecek yazısı yok.',
@@ -5058,22 +5059,68 @@ const Novel = {
     }
     return this.trCache;
   },
-  async translate(text) {
+  remember(english, turkish) {
     const cache = this.trCacheMap();
-    if (cache.has(text)) return cache.get(text);
-    const response = await fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=tr&dt=t&q=' + encodeURIComponent(text));
-    if (!response.ok) throw new Error(response.status);
-    const data = await response.json();
-    const turkish = (data[0] || []).map(part => part[0]).join('').trim();
-    cache.set(text, turkish);
+    cache.delete(english);
+    cache.set(english, turkish);
     clearTimeout(this.trSave);
     this.trSave = setTimeout(() => {
       /* The oldest sentences go first when the store gets big. */
       while (cache.size > 4000) cache.delete(cache.keys().next().value);
       Store.write(this.TR_KEY, JSON.stringify(Object.fromEntries(cache)));
     }, 800);
-    return turkish;
   },
+  /* A whole page goes to Google Translate in one request, one sentence per
+     line: a request per sentence got phones blocked for "too many requests".
+     When Google refuses, MyMemory translates the sentences one by one. */
+  async translateLines(texts) {
+    const cache = this.trCacheMap();
+    const out = new Map();
+    const missing = [...new Set(texts)].filter(text => {
+      if (!cache.has(text)) return true;
+      out.set(text, cache.get(text));
+      return false;
+    });
+    for (let i = 0; i < missing.length;) {
+      const chunk = [];
+      for (let size = 0; i < missing.length && (!chunk.length || size + missing[i].length < 1500); i++) {
+        size += missing[i].length + 1;
+        chunk.push(missing[i]);
+      }
+      let turkish = null;
+      try { turkish = await this.googleLines(chunk); } catch (err) { if (err.message === 'offline') throw err; }
+      if (!turkish) turkish = await this.myMemoryLines(chunk);
+      chunk.forEach((english, k) => { out.set(english, turkish[k]); this.remember(english, turkish[k]); });
+    }
+    return out;
+  },
+  /* A request that did not get through: offline when the phone says so,
+     otherwise the service is refusing (a blocked request has no CORS headers). */
+  trError() { return new Error(navigator.onLine === false ? 'offline' : 'busy'); },
+  async googleLines(lines) {
+    let response;
+    try { response = await fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=tr&dt=t&q=' + encodeURIComponent(lines.join('\n'))); }
+    catch (_) { throw this.trError(); }
+    if (!response.ok) return null;
+    const data = await response.json().catch(() => null);
+    const parts = data && Array.isArray(data[0]) ? data[0].map(part => part[0] || '').join('').split('\n').map(line => line.trim()) : [];
+    return parts.length === lines.length && parts.every(Boolean) ? parts : null;
+  },
+  async myMemoryLines(lines) {
+    const out = [];
+    for (const line of lines) {
+      let response;
+      try { response = await fetch('https://api.mymemory.translated.net/get?langpair=en|tr&q=' + encodeURIComponent(line.slice(0, 500))); }
+      catch (_) { throw this.trError(); }
+      const data = response.ok ? await response.json().catch(() => null) : null;
+      const text = data && Number(data.responseStatus) === 200 && data.responseData && data.responseData.translatedText;
+      if (!text) throw new Error('busy');
+      /* MyMemory sends HTML entities ("it&#39;s"). */
+      out.push(new DOMParser().parseFromString(text, 'text/html').documentElement.textContent.trim());
+    }
+    return out;
+  },
+  async translate(text) { return (await this.translateLines([text])).get(text); },
   setTranslated(on) {
     this.translated = on;
     $('#novel-tr').setAttribute('aria-pressed', String(on));
@@ -5097,18 +5144,28 @@ const Novel = {
   async fillTranslations() {
     const page = this.page;
     const lines = $$('#novel-text .novel-tr');
-    let next = 0, warned = false;
-    const worker = async () => {
-      while (next < lines.length && this.page === page && this.translated) {
-        const line = lines[next++];
-        try { line.textContent = await this.translate(line.dataset.en); line.classList.remove('is-waiting'); }
-        catch (_) {
-          line.hidden = true;
-          if (!warned) { warned = true; Toast.show(t('novel.trOffline')); }
-        }
-      }
-    };
-    await Promise.all([worker(), worker(), worker()]);
+    for (const note of $$('#novel-text .novel-tr-note')) note.remove();
+    let problem = null, turkish = new Map();
+    try { turkish = await this.translateLines(lines.map(line => line.dataset.en)); }
+    catch (err) { problem = err.message; }
+    if (this.page !== page || !this.translated) return;
+    /* Sentences translated before (or in a part that got through) are shown either way. */
+    const cache = this.trCacheMap();
+    for (const line of lines) {
+      const text = turkish.get(line.dataset.en) || cache.get(line.dataset.en) || '';
+      line.textContent = text;
+      line.hidden = !text;
+      line.classList.remove('is-waiting');
+    }
+    if (!problem) return;
+    const retry = h('button', { type: 'button', class: 'button small', text: t('tutor.retry') });
+    const note = h('div', { class: 'novel-tr-note', role: 'status' }, h('span', { text: t(problem === 'offline' ? 'novel.trOffline' : 'novel.trBusy') }), retry);
+    retry.addEventListener('click', () => {
+      note.remove();
+      for (const line of lines) if (line.hidden) { line.hidden = false; line.classList.add('is-waiting'); line.textContent = t('novel.trLoading'); }
+      this.fillTranslations();
+    });
+    $('#novel-text').prepend(note);
   },
   /* The word being spoken; the page follows it. */
   markWord(span) {
