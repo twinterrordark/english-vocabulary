@@ -9103,10 +9103,27 @@ const Games = {
     return false;
   },
   /* Words to play with: the learned ones, topped up from the study path. */
-  pool(count) {
-    const learned = shuffle(VOCAB.filter(entry => learnedSet.has(entry.id)));
-    const more = shuffle(VOCAB.filter(entry => inPath(entry) && !learnedSet.has(entry.id)));
-    return learned.concat(more).slice(0, count);
+  /* Words to play with: learned words mixed with the study path's other words (more learned
+     ones the more you know), leaving out the last 150 words the games showed, so rounds and
+     games do not repeat the same words. `remember` false: the caller marks what it shows. */
+  RECENT_KEY: 'english-study-games-recent.v1',
+  pool(count, remember = true) {
+    if (!this.recent) { try { this.recent = JSON.parse(Store.read(this.RECENT_KEY) || '[]'); } catch (_) { this.recent = []; } if (!Array.isArray(this.recent)) this.recent = []; }
+    const recent = new Set(this.recent);
+    const learned = VOCAB.filter(entry => learnedSet.has(entry.id));
+    const others = VOCAB.filter(entry => inPath(entry) && !learnedSet.has(entry.id));
+    let known = shuffle(learned.filter(entry => !recent.has(entry.id)));
+    let fresh = shuffle(others.filter(entry => !recent.has(entry.id)));
+    if (known.length + fresh.length < count) { known = shuffle(learned.slice()); fresh = shuffle(others.slice()); }
+    const share = Math.min(0.6, learned.length / (learned.length + 40));
+    const picked = [];
+    while (picked.length < count && (known.length || fresh.length)) picked.push((known.length && (!fresh.length || Math.random() < share) ? known : fresh).pop());
+    if (remember) this.remember(picked);
+    return picked;
+  },
+  remember(entries) {
+    this.recent = [...entries.map(entry => entry.id), ...(this.recent || []).filter(id => !entries.some(entry => entry.id === id))].slice(0, 150);
+    Store.write(this.RECENT_KEY, JSON.stringify(this.recent));
   },
   /* Short Turkish meaning for buttons: the first sense. */
   short(entry) { return entry.meaning.split(/[,;(]/)[0].trim(); },
@@ -9185,7 +9202,8 @@ const Games = {
     if (id === 'listen') { this.game = { id, words: this.pool(10).filter(e => /^[a-z]+$/i.test(e.word.trim())), at: 0, score: 0 }; this.listenQuestion(); }
     if (id === 'gap') {
       const items = [];
-      for (const entry of this.pool(60)) { const blank = blankFor(entry); if (blank) items.push({ entry, blank }); if (items.length === 10) break; }
+      for (const entry of this.pool(80, false)) { const blank = blankFor(entry); if (blank) items.push({ entry, blank }); if (items.length === 10) break; }
+      this.remember(items.map(item => item.entry));
       this.game = { id, items, at: 0, score: 0 };
       this.gapQuestion();
     }
@@ -9328,7 +9346,8 @@ const Games = {
   /* Survival: the meaning in time; three lives, and less time after each right answer. */
   surviveQuestion() {
     const game = this.game;
-    const [entry, ...others] = this.pool(30);
+    const [entry, ...others] = this.pool(30, false);
+    this.remember([entry]);
     const wrong = others.filter(e => this.short(e) !== this.short(entry)).slice(0, 3);
     game.entry = entry;
     game.answered = false;
@@ -9451,7 +9470,7 @@ const MODULES = { home: Home, review: Review, practice: Games, rankings: Ranking
    The page asks for version.json, never from the cache, when it opens and
    whenever it comes back to the screen, and offers to load the new build. */
 const Updater = {
-  build: '1c92248ddecb',
+  build: '88e42d75ddf2',
   checked: 0,
   init() {
     if (!/^https?:$/.test(location.protocol) || this.build.length !== 12) return;
