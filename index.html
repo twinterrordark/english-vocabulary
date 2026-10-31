@@ -493,6 +493,11 @@ mark.vocab { background: var(--mark); color: inherit; padding: 0 2px; border-rad
 .speak-invite[hidden] { display: none; }
 .speak-code { margin: 0; font: 800 2rem/1.1 var(--font); letter-spacing: .22em; color: var(--accent-text); }
 .speak-invite-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-2); }
+.speak-cards-toggle { display: flex; align-items: center; gap: var(--space-2); min-height: 48px; padding: 8px 14px; border: 1px solid var(--line); border-radius: 14px; background: var(--surface); color: var(--text); font: 600 .95rem/1.2 var(--font); cursor: pointer; text-align: left; }
+.speak-cards-toggle span { flex: 1; }
+.speak-cards-toggle .icon { color: var(--accent-text); }
+.speak-cards-arrow { transition: transform .15s; }
+.speak-cards-toggle[aria-expanded="true"] .speak-cards-arrow { transform: rotate(90deg); }
 .speak-card { display: grid; gap: var(--space-3); padding: var(--space-4); border-radius: var(--radius-l); background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow); }
 .speak-card-top { display: flex; align-items: center; gap: var(--space-2); }
 .speak-card-top select { flex: 1; min-width: 0; min-height: 40px; font-weight: 600; }
@@ -3497,7 +3502,9 @@ body.novel-focus .novel-pop-base, body.novel-focus .novel-pop-sentence { color: 
           <button type="button" class="button" id="speak-copy"><svg class="icon" aria-hidden="true"><use href="#i-copy"/></svg><span data-i18n="speak.copy">Kopyala</span></button>
         </div>
       </div>
-      <article class="speak-card" id="speak-card" aria-labelledby="speak-q">
+      <!-- Topic questions only when wanted: they take room from the messages. -->
+      <button type="button" class="speak-cards-toggle" id="speak-cards-toggle" aria-expanded="false" aria-controls="speak-card"><svg class="icon" aria-hidden="true"><use href="#i-chat"/></svg><span id="speak-cards-label">Show topic questions</span><svg class="icon speak-cards-arrow" aria-hidden="true"><use href="#i-next"/></svg></button>
+      <article class="speak-card" id="speak-card" aria-labelledby="speak-q" hidden>
         <div class="speak-card-top">
           <label class="visually-hidden" for="speak-topic" data-i18n="speak.topic">Konu</label>
           <select id="speak-topic"></select>
@@ -3886,7 +3893,7 @@ const STRINGS = {
     'today.words': '{n} of {total} words learned', 'novel.save': 'Add to review', 'novel.saved': 'In review ✓',
     'update.text': 'A new version of the app is ready.', 'update.reload': 'Reload',
     'nav.speak': 'Speaking', 'mode.speak': 'Talk in English with a friend in a voice room, with topic cards to guide you.',
-    'speak.chat': 'Messages', 'speak.chatHint': 'Write in English. Ms. Emma checks each of your sentences; only you see your corrections.',
+    'speak.showCards': 'Show topic questions', 'speak.hideCards': 'Hide topic questions', 'speak.chat': 'Messages', 'speak.chatHint': 'Write in English. Ms. Emma checks each of your sentences; only you see your corrections.',
     'speak.chatLabel': 'Message', 'speak.chatPh': 'Write in English…', 'speak.send': 'Send', 'speak.textOnly': 'Without a microphone: only write messages',
     'speak.micText': 'No microphone: you can still write messages.', 'speak.checking': 'Checking…', 'speak.correct': '✓ Correct English', 'speak.okSimple': '✓ No mistakes in a simple check (the teacher was not available)',
     'speak.better': 'Better', 'speak.checkFailed': 'Could not check this sentence.', 'speak.notConnected': 'Wait until your friend is connected.',
@@ -4049,7 +4056,7 @@ const STRINGS = {
     'today.words': '{total} kelimeden {n} tanesi öğrenildi', 'novel.save': 'Tekrara ekle', 'novel.saved': 'Tekrarda ✓',
     'update.text': 'Uygulamanın yeni sürümü hazır.', 'update.reload': 'Yenile',
     'nav.speak': 'Konuşma', 'mode.speak': 'Bir arkadaşınla sesli odada İngilizce konuş; konu kartları sana yol göstersin.',
-    'speak.chat': 'Mesajlar', 'speak.chatHint': 'İngilizce yaz. Ms. Emma her cümleni denetler; düzeltmelerini yalnızca sen görürsün.',
+    'speak.showCards': 'Konu sorularını göster', 'speak.hideCards': 'Konu sorularını gizle', 'speak.chat': 'Mesajlar', 'speak.chatHint': 'İngilizce yaz. Ms. Emma her cümleni denetler; düzeltmelerini yalnızca sen görürsün.',
     'speak.chatLabel': 'Mesaj', 'speak.chatPh': 'İngilizce yaz…', 'speak.send': 'Gönder', 'speak.textOnly': 'Mikrofonsuz: sadece yazışayım',
     'speak.micText': 'Mikrofon yok: yine de yazışabilirsin.', 'speak.checking': 'Denetleniyor…', 'speak.correct': '✓ Doğru İngilizce', 'speak.okSimple': '✓ Basit denetimde hata bulunmadı (hocaya ulaşılamadı)',
     'speak.better': 'Doğrusu', 'speak.checkFailed': 'Bu cümle denetlenemedi.', 'speak.notConnected': 'Arkadaşın bağlanana kadar bekle.',
@@ -6316,6 +6323,7 @@ const Speak = {
     });
     $('#speak-mute').addEventListener('click', () => this.setMuted(!this.muted));
     $('#speak-leave').addEventListener('click', () => this.leave());
+    $('#speak-cards-toggle').addEventListener('click', () => this.showCards($('#speak-card').hidden, true));
     $('#speak-chat-form').addEventListener('submit', event => { event.preventDefault(); this.sendMessage(); });
     $('#speak-chat-input').addEventListener('keydown', event => {
       if (event.key === 'Enter' && !event.shiftKey && !event.isComposing) { event.preventDefault(); this.sendMessage(); }
@@ -6471,7 +6479,7 @@ const Speak = {
     $('#speak-join').classList.remove('is-invited');
     $('.view[data-view="speak"]').classList.toggle('in-room', on);
     Tutor.focusMode();
-    if (on) { this.renderTopics(); this.render(); window.scrollTo(0, 0); }
+    if (on) { this.renderTopics(); this.render(); this.showCards(Store.read('english-study-speak-cards') === '1'); window.scrollTo(0, 0); }
   },
   setStatus(status) {
     this.status = status;
@@ -6533,6 +6541,13 @@ const Speak = {
     $('#speak-timer').textContent = '00:00';
     $('#speak-audio').srcObject = null;
     if (this.wakeLock) { this.wakeLock.release().catch(() => {}); this.wakeLock = null; }
+  },
+  /* The topic card is closed unless asked for; the choice is remembered. */
+  showCards(on, remember) {
+    $('#speak-card').hidden = !on;
+    $('#speak-cards-toggle').setAttribute('aria-expanded', String(on));
+    $('#speak-cards-label').textContent = t(on ? 'speak.hideCards' : 'speak.showCards');
+    if (remember) Store.write('english-study-speak-cards', on ? '1' : '0');
   },
   /* ---- Messages */
   sendMessage() {
@@ -7977,7 +7992,7 @@ const MODULES = { home: Home, review: Review, words: Words, phrases: Phrases, gr
    The page asks for version.json, never from the cache, when it opens and
    whenever it comes back to the screen, and offers to load the new build. */
 const Updater = {
-  build: '1728cbd5c43f',
+  build: '18bc0f64db35',
   checked: 0,
   init() {
     if (!/^https?:$/.test(location.protocol) || this.build.length !== 12) return;
