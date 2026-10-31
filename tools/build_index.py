@@ -405,17 +405,33 @@ def main() -> None:
             sys.exit("vendor source cannot be inlined safely")
     speak_topics = json.loads((HERE / "speaking" / "topics.json").read_text(encoding="utf-8"))
     # Grammar topics in the order the Grammar tab lists them: (id, file, badge, has "From your novel").
+    # Each topic is a learning path of units; units get their example sentences from the novels.
+    sys.path.insert(0, str(HERE / "grammar"))
+    from units import units
+    book_examples = json.loads((HERE / "grammar" / "book_examples.json").read_text(encoding="utf-8"))
+    book_examples.pop("_comment")
     topics = []
     for topic_id, file_name, badge, novel in (("cj", "conjunctions", "&", False), ("vb", "verbs", "GET", False),
                                               ("pv", "phrasal_verbs", "UP", False), ("rc", "relative_clauses", "WHO", True)):
         topic = json.loads((HERE / "grammar" / f"{file_name}.json").read_text(encoding="utf-8"))
-        topic.update(id=topic_id, badge=badge, novel=novel)
+        topic.update(id=topic_id, badge=badge, novel=novel, units=units(topic_id, topic))
+        set_ids = {exercise_set["id"] for exercise_set in topic["sets"]}
         for exercise_set in topic["sets"]:
             for item in exercise_set["items"]:
                 if "options" in item and item["answer"] not in item["options"]:
                     sys.exit(f"{file_name}: answer missing from options: {item['q']}")
+        for unit in topic["units"]:
+            quiz = topic["lessons"][unit["lesson"]].get("quiz")
+            if isinstance(quiz, dict) and quiz["set"] not in set_ids:
+                sys.exit(f"{file_name}: {unit['id']} takes its test from a missing set")
+            # [English, Turkish, "novels/novel_N.pdf", PDF page, meaning (verbs)]
+            unit["book"] = [[en, tr, f"novels/novel_{where.split(':')[0]}.pdf", int(where.split(":")[1]), *rest]
+                            for en, tr, where, *rest in book_examples.pop(unit["id"], [])]
         topics.append(topic)
-        print(f"grammar {topic_id:7} {len(topic['lessons'])} lessons, {sum(len(s['items']) for s in topic['sets'])} exercises")
+        print(f"grammar {topic_id:7} {len(topic['units'])} units ({sum(bool(u['book']) for u in topic['units'])} with book examples), "
+              f"{sum(len(s['items']) for s in topic['sets'])} exercises")
+    if book_examples:
+        sys.exit(f"book_examples.json: no unit for {', '.join(book_examples)}")
     grammar = {"topics": topics}
     print(f"speaking room   {len(speak_topics)} topics, {sum(len(t['questions']) for t in speak_topics)} questions")
 

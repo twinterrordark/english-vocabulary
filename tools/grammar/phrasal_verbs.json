@@ -12,7 +12,10 @@
         ["Can you [look after] my cat?", "Kedime bakabilir misin?", "look after = ilgilenmek (ayrılmaz)"],
         ["Can you [look after] her?", "Ona bakabilir misin?", "Ayrılmaz: zamir sonda"],
         ["I [ran into] an old friend.", "Eski bir arkadaşıma rastladım.", "run into = rastlamak (ayrılmaz)"]
-      ]
+      ],
+      "quiz": {
+        "set": "pv-order"
+      }
     },
     {
       "title": "Günlük rutin",
@@ -36,7 +39,8 @@
         ["On Sundays I [sleep in].", "Pazarları geç saate kadar uyurum.", "sleep in = geç uyanmak (bilerek)"],
         ["Please [clean up] your room.", "Lütfen odanı topla.", "clean up / tidy up = toplamak, temizlemek"],
         ["I'll [wash up] after dinner.", "Yemekten sonra bulaşıkları yıkarım.", "wash up = bulaşık yıkamak"]
-      ]
+      ],
+      "mode": "items"
     },
     {
       "title": "Yolculuk ve hareket",
@@ -48,7 +52,7 @@
         ["She [got out of] the taxi.", "Taksiden indi.", "get out of = (araba) inmek, çıkmak"],
         ["The plane [took off] at nine.", "Uçak dokuzda kalktı.", "take off = (uçak) kalkmak"],
         ["We [set off] early in the morning.", "Sabah erkenden yola çıktık.", "set off = yola çıkmak"],
-        ["I'll [pick] you [up] at the airport.", "Seni havalimanından alırım.", "pick up = (arabayla) almak"],
+        ["I'll [pick] you [up] at the airport.", "Seni havalimanından alırım.", "pick up = (yerden / arabayla) almak"],
         ["Can you [drop] me [off] at the station?", "Beni istasyona bırakır mısın?", "drop off = (birini bir yere) bırakmak"],
         ["We [checked in] at the hotel at three.", "Otele saat üçte giriş yaptık.", "check in = giriş yapmak"],
         ["You must [check out] before noon.", "Öğlenden önce çıkış yapmalısın.", "check out = (otelden) çıkış yapmak"],
@@ -59,7 +63,8 @@
         ["[Go away]! I'm busy.", "Git başımdan! Meşgulüm.", "go away = gitmek, uzaklaşmak"],
         ["The dog [ran away].", "Köpek kaçtı.", "run away = kaçmak"],
         ["We [got back] from holiday yesterday.", "Dün tatilden döndük.", "get back = dönmek"]
-      ]
+      ],
+      "mode": "items"
     },
     {
       "title": "İnsanlar ve ilişkiler",
@@ -84,7 +89,8 @@
         ["She [fell out with] her best friend.", "En yakın arkadaşıyla arası bozuldu.", "fall out with = (biriyle) bozuşmak"],
         ["He [turned up] late to the party.", "Partiye geç geldi.", "turn up = (beklenmedik / geç) gelmek, çıkagelmek"],
         ["Can you [call] me [back] later?", "Beni sonra geri arar mısın?", "call back = geri aramak"]
-      ]
+      ],
+      "mode": "items"
     },
     {
       "title": "Bilgi, okul ve iletişim",
@@ -109,7 +115,8 @@
         ["I can't [keep up with] the class.", "Sınıfa yetişemiyorum.", "keep up with = (birine, bir hıza) yetişmek"],
         ["I was ill, so I [fell behind].", "Hastaydım, bu yüzden geride kaldım.", "fall behind = geride kalmak"],
         ["She is [catching up with] the others.", "Diğerlerine yetişiyor.", "catch up with = (geride kalan) yetişmek"]
-      ]
+      ],
+      "mode": "items"
     },
     {
       "title": "İş, planlar ve sorunlar",
@@ -135,7 +142,8 @@
         ["How did your plan [work out]?", "Planın nasıl sonuçlandı?", "work out = sonuçlanmak, iyi gitmek"],
         ["I [work out] at the gym three times a week.", "Haftada üç kez spor salonunda çalışırım.", "work out = spor yapmak"],
         ["Let me [think] it [over].", "Bir düşüneyim.", "think over = enine boyuna düşünmek"]
-      ]
+      ],
+      "mode": "items"
     },
     {
       "title": "Duygular ve durumlar",
@@ -154,12 +162,12 @@
         ["Prices have [gone up] again.", "Fiyatlar yine arttı.", "go up = artmak, yükselmek"],
         ["The temperature [went down] at night.", "Gece sıcaklık düştü.", "go down = düşmek, azalmak"],
         ["What's [going on] here?", "Burada neler oluyor?", "go on = olmak, olup bitmek"],
-        ["He [found] it [out] by chance.", "Bunu tesadüfen öğrendi.", "find out = öğrenmek"],
         ["I [made up] a story for my son.", "Oğlum için bir hikâye uydurdum.", "make up = uydurmak"],
         ["The fire [went out].", "Ateş söndü.", "go out = (ateş, ışık) sönmek"],
         ["[Hold on]! I'm coming.", "Bekle! Geliyorum.", "hold on = beklemek, tutunmak"],
         ["[Hurry up]! The film is starting.", "Acele et! Film başlıyor.", "hurry up = acele etmek"]
-      ]
+      ],
+      "mode": "items"
     },
     {
       "title": "Bir fiil, birçok edat: get, take, look, put",

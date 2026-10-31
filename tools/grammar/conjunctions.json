@@ -1,6 +1,7 @@
 {
   "title": "Bağlaçlar",
   "lead": "İki fikri birbirine bağlayan kelimeler: anlamları, kuralları ve örnekleri.",
+  "lessonsGroupSynonyms": true,
   "lessons": [
     {
       "title": "Temel bağlaçlar: and, but, or, so",
@@ -13,7 +14,8 @@
         ["He studied hard, [yet] he failed the test.", "Çok çalıştı, yine de sınavı geçemedi.", "yet = yine de (but'tan daha resmî)"],
         ["We went home early, [for] it was very late.", "Erken eve gittik, çünkü çok geç olmuştu.", "for = çünkü (eski / edebî; romanlarda sık)"],
         ["He doesn't eat meat, [nor] does he drink milk.", "Et yemez, süt de içmez.", "nor = ne de (arkasından devrik cümle gelir)"]
-      ]
+      ],
+      "mode": "items"
     },
     {
       "title": "Sebep: because, since, as, because of",
@@ -25,19 +27,20 @@
         ["The match was cancelled [because of] the rain.", "Maç yağmur yüzünden iptal edildi.", "because of + isim = yüzünden"],
         ["The delay was [due to] a technical problem.", "Gecikme teknik bir sorun nedeniyle oldu.", "due to + isim = nedeniyle (resmî)"],
         ["I bought it [thanks to] your advice.", "Senin tavsiyen sayesinde aldım.", "thanks to = sayesinde"]
-      ]
+      ],
+      "mode": "items"
     },
     {
       "title": "Sonuç: so, therefore, so … that, such … that",
       "text": "so iki cümleyi bağlar. therefore ve as a result daha resmîdir; genelde yeni cümlenin başında, arkalarında virgülle gelir. \"so + sıfat + that\" ve \"such + (a) + sıfat + isim + that\" bir şeyin o kadar fazla olduğunu ki bir sonuç doğurduğunu anlatır.",
       "examples": [
-        ["I was hungry, [so] I made a sandwich.", "Acıkmıştım, bu yüzden sandviç yaptım.", "so = bu yüzden"],
         ["The roads were icy. [Therefore], the school was closed.", "Yollar buzluydu. Bu nedenle okul kapatıldı.", "therefore = bu nedenle (resmî)"],
         ["He didn't train. [As a result], he lost the race.", "Antrenman yapmadı. Sonuç olarak yarışı kaybetti.", "as a result = sonuç olarak"],
         ["The film was [so] boring [that] I fell asleep.", "Film o kadar sıkıcıydı ki uyuyakaldım.", "so + sıfat + that = o kadar … ki"],
-        ["It was [such] a good book [that] I read it twice.", "O kadar iyi bir kitaptı ki iki kez okudum.", "such + a + sıfat + isim + that"],
-        ["There were [so] many people [that] we couldn't sit.", "O kadar çok insan vardı ki oturamadık.", "so many / so much + isim + that"]
-      ]
+        ["It was [such] a good book [that] I read it twice.", "O kadar iyi bir kitaptı ki iki kez okudum.", "such + a + sıfat + isim + that = o kadar … bir … ki"],
+        ["There were [so] many people [that] we couldn't sit.", "O kadar çok insan vardı ki oturamadık.", "so many / so much + isim + that = o kadar çok … ki"]
+      ],
+      "mode": "items"
     },
     {
       "title": "Zıtlık: although, even though, however, despite",
@@ -46,12 +49,13 @@
         ["[Although] it was cold, we went swimming.", "Hava soğuk olmasına rağmen yüzmeye gittik.", "although + cümle = -masına rağmen"],
         ["[Even though] he is rich, he is not happy.", "Zengin olduğu halde mutlu değil.", "even though = -dığı halde (daha güçlü)"],
         ["We enjoyed the trip, [though] the hotel was bad.", "Otel kötü olsa da geziden keyif aldık.", "though = -sa da (konuşmada cümle sonunda da gelir)"],
-        ["[Despite] the rain, we played football.", "Yağmura rağmen futbol oynadık.", "despite + isim"],
-        ["[In spite of] being tired, she finished the work.", "Yorgun olmasına rağmen işi bitirdi.", "in spite of + -ing"],
+        ["[Despite] the rain, we played football.", "Yağmura rağmen futbol oynadık.", "despite + isim = -e rağmen"],
+        ["[In spite of] being tired, she finished the work.", "Yorgun olmasına rağmen işi bitirdi.", "in spite of + -ing = -mesine rağmen"],
         ["The plan was good. [However], it didn't work.", "Plan iyiydi. Ancak işe yaramadı.", "however = ancak, yine de"],
         ["My brother loves sport, [while] I prefer books.", "Kardeşim sporu sever, oysa ben kitapları tercih ederim.", "while = oysa, -iken"],
         ["Some people walk to work, [whereas] others drive.", "Bazıları işe yürür, oysa diğerleri araba kullanır.", "whereas = oysa (resmî)"]
-      ]
+      ],
+      "mode": "items"
     },
     {
       "title": "Zaman: when, while, before, after, until, as soon as",
@@ -68,7 +72,8 @@
         ["[By the time] we got there, the film had started.", "Oraya vardığımızda film çoktan başlamıştı.", "by the time = -diği zamana kadar"],
         ["[Whenever] I see her, she smiles.", "Onu ne zaman görsem gülümser.", "whenever = ne zaman … -sa"],
         ["[As] I was leaving, the phone rang.", "Tam çıkarken telefon çaldı.", "as = tam -ken"]
-      ]
+      ],
+      "mode": "items"
     },
     {
       "title": "Koşul: if, unless, as long as, in case",
@@ -82,7 +87,8 @@
         ["Hurry up, [otherwise] we'll be late.", "Acele et, yoksa geç kalacağız.", "otherwise = yoksa"],
         ["I don't know [whether] he will come.", "Gelip gelmeyeceğini bilmiyorum.", "whether = -ip -mediği"],
         ["[Even if] you run, you won't catch the train.", "Koşsan bile treni yakalayamazsın.", "even if = -sa bile"]
-      ]
+      ],
+      "mode": "items"
     },
     {
       "title": "Amaç: to, in order to, so that",
@@ -93,7 +99,8 @@
         ["Speak slowly [so that] everyone can understand.", "Herkes anlayabilsin diye yavaş konuş.", "so that = -sin diye"],
         ["I left early [so as not to] miss the bus.", "Otobüsü kaçırmamak için erken çıktım.", "so as not to = -memek için"],
         ["This knife is [for] cutting bread.", "Bu bıçak ekmek kesmek için.", "for + -ing = bir aletin ne işe yaradığı"]
-      ]
+      ],
+      "mode": "items"
     },
     {
       "title": "İkili bağlaçlar: both … and, either … or, neither … nor",
@@ -102,10 +109,10 @@
         ["[Both] my mother [and] my father are teachers.", "Hem annem hem babam öğretmen.", "both … and = hem … hem"],
         ["You can [either] stay [or] come with us.", "Ya kalabilirsin ya da bizimle gelebilirsin.", "either … or = ya … ya"],
         ["[Neither] Ali [nor] Ayşe came to the party.", "Ne Ali ne de Ayşe partiye geldi.", "neither … nor = ne … ne"],
-        ["She is [not only] clever [but also] kind.", "O sadece zeki değil, aynı zamanda nazik.", "not only … but also"],
-        ["I can't decide [whether] to stay [or] go.", "Kalsam mı gitsem mi karar veremiyorum.", "whether … or = -sa mı … -sa mı"],
-        ["Ask [either] your teacher [or] your parents.", "Ya öğretmenine ya da ailene sor.", "either … or"]
-      ]
+        ["She is [not only] clever [but also] kind.", "O sadece zeki değil, aynı zamanda nazik.", "not only … but also = sadece … değil, aynı zamanda"],
+        ["I can't decide [whether] to stay [or] go.", "Kalsam mı gitsem mi karar veremiyorum.", "whether … or = -sa mı … -sa mı"]
+      ],
+      "mode": "items"
     },
     {
       "title": "Ekleme ve sıralama: also, too, besides, moreover",
@@ -118,7 +125,8 @@
         ["The plan is cheap. [Moreover], it is safe.", "Plan ucuz. Dahası, güvenli.", "moreover = dahası (resmî)"],
         ["[In addition to] English, he speaks French.", "İngilizceye ek olarak Fransızca konuşuyor.", "in addition to + isim = -e ek olarak"],
         ["[First], open the box. [Then] take out the phone. [Finally], turn it on.", "Önce kutuyu aç. Sonra telefonu çıkar. Son olarak aç.", "first / then / finally = önce / sonra / son olarak"]
-      ]
+      ],
+      "mode": "items"
     },
     {
       "title": "Karşılaştırma ve benzetme: like, as, as if, than",
@@ -131,7 +139,8 @@
         ["This bag is [as] heavy [as] that one.", "Bu çanta o çanta kadar ağır.", "as … as = … kadar"],
         ["I like fruit [such as] apples and pears.", "Elma ve armut gibi meyveleri severim.", "such as = gibi (örnek verirken)"],
         ["Many animals, [for example] bears, sleep in winter.", "Birçok hayvan, örneğin ayılar, kışın uyur.", "for example = örneğin"]
-      ]
+      ],
+      "mode": "items"
     },
     {
       "title": "Virgül ve cümle başı kuralları",
@@ -142,7 +151,10 @@
         ["It was late; [however], nobody wanted to leave.", "Geç olmuştu; ancak kimse gitmek istemiyordu.", "however → noktalı virgül ya da nokta"],
         ["I was tired [because] I worked all day.", "Bütün gün çalıştığım için yorgundum.", "because cümlesi ana cümleye bağlı"],
         ["\"Why are you late?\" \"[Because] I missed the bus.\"", "\"Neden geç kaldın?\" \"Çünkü otobüsü kaçırdım.\"", "Soruya cevapta because ile başlamak olur"]
-      ]
+      ],
+      "quiz": {
+        "set": "cj-comma"
+      }
     }
   ],
   "sets": [
@@ -218,6 +230,19 @@
         { "q": "I'll stay at work ___ six o'clock.", "options": ["until", "by", "since", "as soon as"], "answer": "until", "why": "Saat altıya KADAR sürekli → until." },
         { "q": "___ I was walking home, I saw an accident.", "options": ["While", "During", "Until", "Since"], "answer": "While", "why": "while + cümle; during + isim (during the night)." },
         { "q": "I fell asleep ___ the film.", "options": ["during", "while", "when", "until"], "answer": "during", "why": "Arkasında isim (the film) var → during." }
+      ]
+    },
+    {
+      "id": "cj-comma",
+      "title": "Virgül ve noktalama",
+      "hint": "Noktalaması doğru olan cümleyi seç.",
+      "items": [
+        { "q": "", "options": ["When I got home, I made tea.", "When I got home I made tea, ."], "answer": "When I got home, I made tea.", "why": "Yan cümle (When …) başta ise arkasına virgül konur." },
+        { "q": "", "options": ["I made tea when I got home.", "I made tea, when, I got home."], "answer": "I made tea when I got home.", "why": "Yan cümle sonda ise virgül gerekmez." },
+        { "q": "", "options": ["It was cold; however, we went out.", "It was cold, however we went out."], "answer": "It was cold; however, we went out.", "why": "however iki cümleyi virgülle tek başına bağlayamaz; noktalı virgül ya da nokta kullanılır." },
+        { "q": "", "options": ["If you are hungry, eat something.", "If you are hungry eat, something."], "answer": "If you are hungry, eat something.", "why": "If cümlesi başta → arkasına virgül." },
+        { "q": "", "options": ["I was tired, so I went to bed.", "I was tired so, I went to bed."], "answer": "I was tired, so I went to bed.", "why": "İki tam cümleyi bağlayan so'dan ÖNCE virgül konur." },
+        { "q": "", "options": ["Although it rained, we played.", "Although it rained, but we played."], "answer": "Although it rained, we played.", "why": "although ile but aynı cümlede kullanılmaz." }
       ]
     }
   ]

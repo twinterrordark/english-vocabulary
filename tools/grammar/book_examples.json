@@ -1,0 +1,598 @@
+{
+"_comment": "Sentences from the novels in novels/ for each grammar unit (see units.py): [English with the key words in brackets, Turkish, \"book:page\" (novel_<book>.pdf, 0-based PDF page), meaning (verbs only)]. Candidates: book_candidates.py.",
+"cj:and": [
+  ["He had blisters on every one of his fingers, [and] one in the center of each palm.", "Parmaklarının her birinde su toplanmıştı, ve her avucunun ortasında da bir tane vardı.", "1:33"],
+  ["There was a bed against the wall, [and] a lamp on the table, turned down very low.", "Duvarın dibinde bir yatak, ve masanın üstünde ışığı iyice kısılmış bir lamba vardı.", "2:60"]
+],
+"cj:but": [
+  ["His name was Brian, [but] X-Ray called him Twitch because he was always fidgeting.", "Adı Brian'dı ama X-Ray ona Twitch diyordu, çünkü hep kıpır kıpırdı.", "1:119"],
+  ["He did not know her name, [but] he knew that she worked in the Fiction Department.", "Kızın adını bilmiyordu ama Kurgu Bölümü'nde çalıştığını biliyordu.", "2:11"]
+],
+"cj:or": [
+  ["He wondered why the Warden would ever have the need to wear nail polish [or] makeup.", "Müdürün neden oje ya da makyaj sürmeye ihtiyaç duyacağını merak etti.", "1:78"],
+  ["Now, sir, open the cages at once [or] I will fasten you to your wagon with my lance.", "Şimdi efendim, kafesleri hemen açın, yoksa sizi mızrağımla arabanıza çivilerim.", "3:141"]
+],
+"cj:so": [
+  ["After all, you only have one life, [so] you should try to make the most of it.", "Sonuçta tek bir hayatın var, bu yüzden ondan en iyi şekilde yararlanmaya çalışmalısın.", "1:52"],
+  ["[So] he crept over to Sancho and whispered, \"Wake up, Sancho, here is an adventure.", "Bu yüzden sessizce Sancho'nun yanına sokulup fısıldadı: \"Uyan Sancho, işte bir macera.", "3:121"]
+],
+"cj:yet": [
+  ["[Yet] Armpit, and all the others, seemed to be willing to do whatever X-Ray asked of them.", "Yine de Armpit ve diğerleri, X-Ray ne isterse yapmaya hazır görünüyordu.", "1:50"],
+  ["He had got to ask it, and [yet] it was as though his tongue would not utter it.", "Bunu sormak zorundaydı, yine de sanki dili bunu söylemeye varmıyordu.", "2:236"]
+],
+"cj:nor": [
+  ["Winston had never been inside the Ministry of Love, [nor] within half a kilometre of it.", "Winston Sevgi Bakanlığı'nın içine hiç girmemişti, yarım kilometre yakınına bile gitmemişti.", "2:7"],
+  ["Then the mysterious knight began singing a love song—not very well, [nor] was his guitar-playing good.", "Sonra gizemli şövalye bir aşk şarkısı söylemeye başladı; pek iyi değildi, gitar çalışı da iyi değildi.", "3:121"]
+],
+"cj:because": [
+  ["His name was Brian, but X-Ray called him Twitch [because] he was always fidgeting.", "Adı Brian'dı ama X-Ray ona Twitch diyordu, çünkü hep kıpır kıpırdı.", "1:119"],
+  ["He did not stir, [because] Julia was sleeping with her head in the crook of his arm.", "Kıpırdamadı, çünkü Julia başı onun kolunun içinde uyuyordu.", "2:130"]
+],
+"cj:since": [
+  ["They decided to save the canteen for last, [since] it couldn't accidentally break.", "Matarayı sona bırakmaya karar verdiler, madem yanlışlıkla kırılamazdı.", "1:159"],
+  ["[Since] it seemed they would have to pass the night this way, Sancho proposed that he tell an entertaining story.", "Geceyi böyle geçirecekleri anlaşıldığına göre, Sancho eğlenceli bir hikâye anlatmayı önerdi.", "3:68"]
+],
+"cj:because-of": [
+  ["[Because of] the baseball schedule, Stanley's trial was delayed several months.", "Beyzbol programı yüzünden Stanley'nin davası birkaç ay ertelendi.", "1:28"],
+  ["The train was full of proles, in holiday mood [because of] the summery weather.", "Tren, yazı andıran hava yüzünden bayram havasındaki prollerle doluydu.", "2:107"]
+],
+"cj:due-to": [
+  ["\"From what I have just heard from you,\" said Don Quixote, \"I take it your woes are [due to] love—an unrequited passion for a fair lady?\"", "\"Az önce senden duyduklarıma bakılırsa,\" dedi Don Quixote, \"dertlerin aşk nedeniyle; güzel bir hanıma karşılıksız bir tutku, değil mi?\"", "3:122"]
+],
+"cj:therefore": [
+  ["There are [therefore] two great problems which the Party is concerned to solve.", "Bu nedenle Parti'nin çözmeye çalıştığı iki büyük sorun var.", "2:177"],
+  ["He had [therefore] added to the conditions of the combat that the loser must return home.", "Bu nedenle dövüşün şartlarına, kaybedenin evine dönmesi gerektiğini eklemişti.", "3:131"]
+],
+"cj:so-2": [
+  ["It was almost as if the temperature had gotten [so] hot [that] the air itself was sweating.", "Sanki hava o kadar ısınmıştı ki havanın kendisi terliyordu.", "1:106"],
+  ["The bluebells were [so] thick underfoot [that] it was impossible not to tread on them.", "Çan çiçekleri ayak altında o kadar sıktı ki onlara basmamak imkânsızdı.", "2:107"]
+],
+"cj:such": [
+  ["He had hardly done so when the vigilant Don Quixote gave him [such] a thwack on the head with his lance [that] he was knocked out.", "Daha bunu yapar yapmaz, tetikteki Don Quixote mızrağıyla kafasına öyle bir vurdu ki adam bayıldı.", "3:24"],
+  ["Sancho felt [such] compassion for the old man [that] he took a coin from his pocket and gave it to him in charity.", "Sancho yaşlı adama o kadar acıdı ki cebinden bir para çıkarıp sadaka olarak ona verdi.", "3:80"]
+],
+"cj:although": [
+  ["[Although] they didn't mention it, it had become a kind of challenge between him and Zero.", "Bundan bahsetmeseler de bu, onunla Zero arasında bir tür yarışa dönüşmüştü.", "1:158"],
+  ["He noticed that [although] it was nearly twenty-one hours the shop was still open.", "Saat neredeyse yirmi bir olmasına rağmen dükkânın hâlâ açık olduğunu fark etti.", "2:86"]
+],
+"cj:even-though": [
+  ["[Even though] he was inside, he wore sunglasses and a cowboy hat.", "İçeride olduğu halde güneş gözlüğü ve kovboy şapkası takıyordu.", "1:17"],
+  ["So he decided to sleep out under the stars, [even though] he was not far from the castle where he expected to find Don Quixote.", "Bu yüzden, Don Quixote'u bulmayı umduğu şatodan uzak olmadığı halde yıldızların altında uyumaya karar verdi.", "3:207"]
+],
+"cj:though": [
+  ["He had become friends with her, [though] she was quite a bit older than him.", "Ondan epey büyük olsa da onunla arkadaş olmuştu.", "1:31"],
+  ["Winston had stopped weeping, [though] the tears were still oozing out of his eyes.", "Gözlerinden hâlâ yaş sızsa da Winston ağlamayı bırakmıştı.", "2:248"]
+],
+"cj:despite": [
+  ["[Despite] their awful luck, they always remained hopeful.", "Korkunç şanssızlıklarına rağmen hep umutlu kaldılar.", "1:15"],
+  ["[Despite] his shower, his body still radiated heat.", "Duşa rağmen vücudundan hâlâ sıcaklık yayılıyordu.", "1:43"]
+],
+"cj:in-spite-of": [
+  ["[In spite of] his formidable appearance he had a certain charm of manner.", "Ürkütücü görünüşüne rağmen tavırlarında bir çekicilik vardı.", "2:12"],
+  ["[In spite of] his protests he was seated at the head of the table.", "İtirazlarına rağmen masanın başına oturtuldu.", "3:157"]
+],
+"cj:however": [
+  ["At that moment, [however], Hattie Parker stepped out of the general store.", "Ancak tam o sırada Hattie Parker bakkaldan dışarı çıktı.", "1:94"],
+  ["[However], he let the youngster go and urged him to seek justice from his champion.", "Yine de genci bıraktı ve hakkını koruyucusundan aramasını öğütledi.", "3:30"]
+],
+"cj:while": [
+  ["The fields are cultivated with horse-ploughs [while] books are written by machinery.", "Tarlalar atlı sabanlarla sürülüyor, oysa kitaplar makinelerle yazılıyor.", "2:176"]
+],
+"cj:when": [
+  ["[When] the wheelbarrow was full, he took it a good distance away before dumping it.", "El arabası dolduğunda, boşaltmadan önce onu epey uzağa götürdü.", "1:63"],
+  ["[When] Don Quixote heard of the loss, his dismay was nearly as great as his squire's.", "Don Quixote kaybı duyduğunda, onun da üzüntüsü neredeyse silahtarınınki kadar büyüktü.", "3:62"]
+],
+"cj:while-2": [
+  ["But you can leave me some lint and ointment to dress my wounds [while] you are away.", "Ama sen yokken yaralarımı sarmam için bana biraz tiftik ve merhem bırakabilirsin.", "3:94"],
+  ["I heard cases and gave decisions, all the [while] suffering from hunger and thirst.", "Davalara baktım ve kararlar verdim, bütün bu süre boyunca açlık ve susuzluk çekerken.", "3:211"]
+],
+"cj:before": [
+  ["When the wheelbarrow was full, he took it a good distance away [before] dumping it.", "El arabası dolduğunda, boşaltmadan önce onu epey uzağa götürdü.", "1:63"],
+  ["She would leave first, and Winston was to wait half an hour [before] following her.", "Önce o çıkacaktı, Winston da onun peşinden gitmeden önce yarım saat bekleyecekti.", "2:116"]
+],
+"cj:after": [
+  ["He read it later, [after] the other boys had gone to dinner.", "Onu sonra, diğer çocuklar akşam yemeğine gittikten sonra okudu.", "1:67"],
+  ["The old man had grown noticeably more cheerful [after] receiving the four dollars.", "Yaşlı adam dört doları aldıktan sonra gözle görülür biçimde neşelenmişti.", "2:88"]
+],
+"cj:until": [
+  ["He waited [until] he was certain the last of the campers had finished for the day.", "Kampçıların sonuncusunun da o günkü işini bitirdiğinden emin olana kadar bekledi.", "1:162"],
+  ["They did not return to the subject [until] they had been in bed for half an hour.", "Yatakta yarım saat geçirene kadar konuya geri dönmediler.", "2:183"]
+],
+"cj:as-soon-as": [
+  ["\"[As soon as] I turn eighteen, you're going to be the second person I fire.\"", "\"On sekiz yaşına girer girmez, kovacağım ikinci kişi sen olacaksın.\"", "1:209"],
+  ["[As soon as] the door had shut behind her he appeared to forget her existence.", "Kapı onun arkasından kapanır kapanmaz, kadının varlığını unutmuş gibiydi.", "2:161"]
+],
+"cj:once": [
+  ["[Once] he started a project he would work on it for years, often going days without sleep.", "Bir projeye bir kez başladığında yıllarca üzerinde çalışır, çoğu zaman günlerce uyumazdı.", "1:15"],
+  ["At last he gave up, hoping to be able to see a way out [once] there was daylight.", "Sonunda vazgeçti; gün ışığı bir kez çıktığında bir çıkış yolu görebileceğini umuyordu.", "3:207"]
+],
+"cj:since-2": [
+  ["It was the first cloud he could remember seeing [since] coming to Camp Green Lake.", "Camp Green Lake'e geldiğinden beri gördüğünü hatırladığı ilk bulut buydu.", "1:54"],
+  ["Do you know that you have lost twenty-five kilograms [since] you have been in our hands?", "Elimize düştüğünden beri yirmi beş kilo verdiğini biliyor musun?", "2:246"]
+],
+"cj:by-the-time": [
+  ["[By the time] Stanley retrieved it, he had missed his bus and had to walk home.", "Stanley onu geri aldığında otobüsü çoktan kaçırmıştı ve eve yürümek zorunda kaldı.", "1:27"],
+  ["[By the time] we had finished with them they were only the shells of men.", "Biz onlarla işimizi bitirdiğimizde, sadece insan kabuğuna dönmüşlerdi.", "2:232"]
+],
+"cj:whenever": [
+  ["\"[Whenever] you speak to me you must call me by my name, is that clear?\"", "\"Benimle ne zaman konuşsan bana adımla hitap etmelisin, anlaşıldı mı?\"", "1:18"],
+  ["Don Quixote replied that he did not feel hungry just then, but Sancho might eat [whenever] he pleased.", "Don Quixote o an aç olmadığını, ama Sancho'nun canı ne zaman isterse yiyebileceğini söyledi.", "3:41"]
+],
+"cj:as-2": [
+  ["[As] she hurried to the door, she heard the sheriff say, \"The law will punish Sam.\"", "Tam kapıya koşarken şerifin \"Kanun Sam'i cezalandıracak\" dediğini duydu.", "1:96"],
+  ["[As] dawn now began to appear, Sancho thought it wise to untie Rocinante's feet.", "Tam şafak sökerken Sancho, Rocinante'nin ayaklarını çözmenin akıllıca olacağını düşündü.", "3:71"]
+],
+"cj:if": [
+  ["[If] you've ever been close enough to see the yellow spots, you are probably dead.", "Eğer sarı benekleri görecek kadar yaklaştıysan, muhtemelen ölmüşsündür.", "1:41"],
+  ["He felt that [if] he held up his hand he would be able to see the light through it.", "Elini kaldırsa ışığı içinden görebileceğini hissediyordu.", "2:164"]
+],
+"cj:unless": [
+  ["It was unwise to be seen in such places, [unless] you had definite business there.", "Belirli bir işin yoksa böyle yerlerde görünmek akıllıca değildi.", "2:77"],
+  ["It was no use [unless] he could get the girl alone.", "Kızı yalnız yakalayamazsa hiçbir işe yaramazdı.", "2:102"]
+],
+"cj:as-long-as": [
+  ["[As long as] they did as they were told, they wouldn't have to dig any more holes.", "Söyleneni yaptıkları sürece artık çukur kazmak zorunda kalmayacaklardı.", "1:171"],
+  ["\"[As long as] you live it will be an unsolved riddle in your mind.\"", "\"Yaşadığın sürece bu, aklında çözülmemiş bir bilmece olarak kalacak.\"", "2:236"]
+],
+"cj:provided-that": [
+  ["And it was easy enough, [provided that] you could avoid being caught in the act.", "Üstelik bu oldukça kolaydı, suçüstü yakalanmamayı başarmak şartıyla.", "2:60"]
+],
+"cj:in-case": [
+  ["But he couldn't go visit them, [in case] the police were watching the apartment.", "Ama onları ziyaret edemezdi; polis daireyi gözetliyor olabilir diye.", "1:154"],
+  ["They put four of the unbroken jars in the burlap sack, [in case] they might be able to use them.", "Kırılmamış kavanozlardan dördünü, belki işe yarar diye çuvala koydular.", "1:131"]
+],
+"cj:otherwise": [
+  ["[Otherwise] you're going to end up right back in jail.", "Yoksa kendini yine hapiste bulacaksın.", "1:52"]
+],
+"cj:whether": [
+  ["Winston wondered [whether] Comrade Tillotson was engaged on the same job as himself.", "Winston, Yoldaş Tillotson'un da kendisiyle aynı işi yapıp yapmadığını merak etti.", "2:42"],
+  ["She even doubts [whether] Stanley's great-great-grandfather really stole a pig.", "Stanley'nin büyük büyük dedesinin gerçekten bir domuz çalıp çalmadığından bile şüphe ediyor.", "1:186"]
+],
+"cj:even-if": [
+  ["[Even if] he could somehow climb Big Thumb, he knew he wouldn't find water.", "Big Thumb'a bir şekilde tırmanabilse bile su bulamayacağını biliyordu.", "1:140"],
+  ["He begged him to return to the high road, [even if] they had to go three days without water.", "Üç gün susuz kalmak zorunda kalsalar bile ana yola dönmesi için yalvardı.", "3:67"]
+],
+"cj:to": [
+  ["This was the uniform of the capitalists, and no one else was allowed [to] wear it.", "Bu, kapitalistlerin üniformasıydı ve başka kimsenin onu giymesine izin verilmiyordu.", "2:68"]
+],
+"cj:in-order-to": [
+  ["At times he had to use the side of the rut for support, [in order to] make it to the next ledge.", "Bir sonraki çıkıntıya ulaşabilmek için zaman zaman yarığın kenarından destek almak zorunda kaldı.", "1:134"]
+],
+"cj:so-that": [
+  ["O'Brien had turned himself a little in his chair [so that] he was facing Winston.", "O'Brien, Winston'la yüz yüze gelsin diye sandalyesinde biraz dönmüştü.", "2:156"],
+  ["\"I beg you to go over the case again [so that] I may more thoroughly understand it.\"", "\"Davayı daha iyi anlayabileyim diye lütfen bir kez daha anlatın.\"", "3:196"]
+],
+"cj:so-as-not-to": [
+  ["It will be necessary for you to be alert [so as not to] be surprised.", "Gafil avlanmamak için tetikte olman gerekecek.", "3:191"]
+],
+"cj:both-and": [
+  ["Its place was taken by THINK, which did duty for [both] noun [and] verb.", "Onun yerini hem isim hem fiil görevi yapan THINK aldı.", "2:273"],
+  ["He pressed the matter no further and soon [both] the knight [and] squire were fully enjoying their naps.", "Konuyu daha fazla uzatmadı ve çok geçmeden hem şövalye hem silahtar şekerlemelerinin tadını çıkarıyordu.", "3:220"]
+],
+"cj:either-or": [
+  ["He figured that in a year and a half he'd be [either] in great physical condition, [or] else dead.", "Bir buçuk yıl içinde ya çok formda olacağını ya da öleceğini düşündü.", "1:54"],
+  ["In all the useful arts the world is [either] standing still [or] going backwards.", "Bütün yararlı sanatlarda dünya ya yerinde sayıyor ya da geriye gidiyor.", "2:176"]
+],
+"cj:neither-nor": [
+  ["[Neither] Stanley [nor] Zero had the strength to try to swat at them.", "Ne Stanley'nin ne de Zero'nun onları kovalamaya gücü vardı.", "1:137"],
+  ["[Neither] you [nor] your crazy master will escape this time without paying every penny of the damages.", "Bu sefer ne sen ne de deli efendin zararın son kuruşunu ödemeden kaçabileceksiniz.", "3:106"]
+],
+"cj:not-only-but-also": [
+  ["And whenever they were sick, they would go [not only] to Doc Hawthorn [but also] to Sam.", "Hastalandıklarında da sadece Doktor Hawthorn'a değil, aynı zamanda Sam'e de giderlerdi.", "1:91"]
+],
+"cj:whether-or": [
+  ["He tried to decide [whether] to go to it [or] continue toward Big Thumb.", "Oraya mı gitse yoksa Big Thumb'a doğru mu devam etse karar vermeye çalıştı.", "1:125"],
+  ["\"I won't have any lashes,\" shouted Sancho, \"[whether] from my own hand [or] anybody else's.\"", "\"Kırbaç falan istemem,\" diye bağırdı Sancho, \"ister kendi elimden ister başkasının.\"", "3:170"]
+],
+"cj:also": [
+  ["He was [also] the only player in history to ever hit four triples in one game.", "Ayrıca tarihte bir maçta dört üçlük vuruş yapan tek oyuncuydu.", "1:26"],
+  ["To his housekeeper he [also] left a handsome amount and all the rest of his property he gave to his niece.", "Kâhya kadınına da yüklü bir miktar bıraktı, malının geri kalanını da yeğenine verdi.", "3:255"]
+],
+"cj:too": [
+  ["But the last thing he wanted to do after digging all day was to dig at night, [too].", "Ama bütün gün kazdıktan sonra en son isteyeceği şey gece de kazmaktı.", "1:66"],
+  ["The tune that they were playing changed, and the tone of the music changed [too].", "Çaldıkları ezgi değişti, müziğin tonu da değişti.", "2:71"]
+],
+"cj:as-well": [
+  ["She taught classes in the evening for adults, and many of the adults loved her [as well].", "Akşamları yetişkinlere ders veriyordu ve yetişkinlerin çoğu da onu seviyordu.", "1:86"],
+  ["This idea alarmed the party, but amused them [as well].", "Bu fikir grubu telaşlandırdı ama onları eğlendirdi de.", "3:215"]
+],
+"cj:besides": [
+  ["[Besides], he liked Madame Zeroni and would be glad to carry her up the mountain.", "Üstelik Madam Zeroni'yi seviyordu ve onu dağa taşımaktan memnun olurdu.", "1:33"],
+  ["[Besides], I have no sword and I've never had one in my life.", "Üstelik kılıcım yok ve hayatımda hiç olmadı.", "3:128"]
+],
+"cj:moreover": [
+  ["[Moreover] it was filled with a sort of exaltation, a lunatic intensity.", "Dahası, bir tür coşkuyla, çılgınca bir yoğunlukla doluydu.", "2:230"],
+  ["[Moreover], he offered to add to the amount if Sancho would begin as soon as possible.", "Dahası, Sancho bir an önce başlarsa miktarı artırmayı teklif etti.", "3:243"]
+],
+"cj:like": [
+  ["It felt [like] heaven as it flowed over his dry mouth and down his parched throat.", "Kuru ağzından ve kavrulmuş boğazından aşağı akarken cennet gibi geldi.", "1:128"],
+  ["They needed only to rise up and shake themselves [like] a horse shaking off flies.", "Tek yapmaları gereken ayağa kalkıp sinekleri silkeleyen bir at gibi silkinmekti.", "2:65"]
+],
+"cj:as-if": [
+  ["The glass on the TV was smashed, [as if] someone had put his foot through it.", "Televizyonun camı, sanki biri ayağını içinden geçirmiş gibi paramparçaydı.", "1:44"],
+  ["Sancho ran to Dapple and, with many endearing words, kissed her and hugged her neck [as if] she had been a lost child.", "Sancho Dapple'a koştu ve tatlı sözlerle, sanki kayıp bir çocukmuş gibi onu öpüp boynuna sarıldı.", "3:105"]
+],
+"cj:than": [
+  ["He was older [than] Winston had thought him; he was perhaps forty-eight or fifty.", "Winston'ın sandığından daha yaşlıydı; belki kırk sekiz ya da elli yaşındaydı.", "2:223"],
+  ["Zigzag may have been taller [than] Armpit, but that was only because of his neck.", "Zigzag, Armpit'ten daha uzun olabilirdi ama bu sadece boynu yüzündendi.", "1:50"]
+],
+"cj:as-as": [
+  ["Stanley's hole was [as] deep [as] his shovel, but not quite wide enough on the bottom.", "Stanley'nin çukuru küreği kadar derindi ama tabanı yeterince geniş değildi.", "1:39"],
+  ["When Don Quixote heard of the loss, his dismay was nearly [as] great [as] his squire's.", "Don Quixote kaybı duyduğunda, onun üzüntüsü de neredeyse silahtarınınki kadar büyüktü.", "3:62"]
+],
+"cj:such-as": [
+  ["Certain of our present-day adjectives, [such as] GOOD, STRONG, BIG, BLACK, SOFT, were retained, but their total number was very small.", "GOOD, STRONG, BIG, BLACK, SOFT gibi bugünkü sıfatlarımızdan bazıları korundu, ama toplam sayıları çok azdı.", "2:273"]
+],
+"cj:for-example": [
+  ["It would have been possible, [for example], to say BIG BROTHER IS UNGOOD.", "Örneğin BÜYÜK BİRADER İYİSİZDİR demek mümkün olurdu.", "2:280"],
+  ["Thus [for example], SPEEDFUL meant 'rapid' and SPEEDWISE meant 'quickly'.", "Böylece örneğin SPEEDFUL 'hızlı', SPEEDWISE ise 'çabucak' anlamına geliyordu.", "2:273"]
+],
+"vb:get": [
+  ["When I [got] outside, I ran around the corner and immediately took off the shoes.", "Dışarı çıktığımda köşeyi koşarak döndüm ve hemen ayakkabıları çıkardım.", "1:150", "varmak, ulaşmak"],
+  ["They would [get] regular medicine from Doc Hawthorn and onion concoctions from Sam.", "Doktor Hawthorn'dan düzenli ilaç, Sam'den de soğan karışımları alırlardı.", "1:92", "almak (gelen bir şeyi)"],
+  ["He was not certain that he would use the razor blade even if he [got] the chance.", "Fırsatı olsa bile jileti kullanıp kullanmayacağından emin değildi.", "2:209", "almak, edinmek"],
+  ["The deeper he [got], the harder it was to raise the dirt up and out of the hole.", "Derinleştikçe toprağı kaldırıp çukurdan dışarı atmak zorlaşıyordu.", "1:38", "olmak, hale gelmek (get + sıfat)"]
+],
+"vb:take": [
+  ["It all seemed like one big hole, and it would [take] a year and a half to dig it.", "Hepsi tek bir büyük çukur gibiydi ve onu kazmak bir buçuk yıl sürecekti.", "1:54", "sürmek (zaman)"],
+  ["When the wheelbarrow was full, he [took] it a good distance away before dumping it.", "El arabası dolunca, boşaltmadan önce onu epey uzağa götürdü.", "1:63", "götürmek"],
+  ["The valiant Biscayan drew his sword and [took] a cushion from the coach to be his shield.", "Yiğit Biskayalı kılıcını çekti ve kalkan olsun diye arabadan bir minder aldı.", "3:48", "almak, yanına almak"]
+],
+"vb:make": [
+  ["It [made] a horrible loud noise and spewed ugly black smoke over the beautiful lake.", "Korkunç, yüksek bir gürültü çıkardı ve güzel gölün üzerine çirkin, kara bir duman püskürttü.", "1:87", "make noise = gürültü yapmak"],
+  ["\"If it [makes] you feel better to call me Mom, Theodore, go ahead and call me Mom.\"", "\"Bana anne demek seni rahatlatıyorsa Theodore, buyur, bana anne de.\"", "1:23", "make + kişi + fiil = -dırmak"],
+  ["It wasn't just being sent to Camp Green Lake that had [made] his life miserable.", "Hayatını perişan eden sadece Camp Green Lake'e gönderilmek değildi.", "1:153", "make + kişi + sıfat = … yapmak"],
+  ["He had [made] his cloak into a sort of sack and was cramming it full with food.", "Pelerinini bir tür çuvala çevirmiş, içini yiyecekle tıka basa dolduruyordu.", "3:65", "yapmak, üretmek"]
+],
+"vb:do": [
+  ["After you give the pig to Myra's father, I want you to [do] one more thing for me.", "Domuzu Myra'nın babasına verdikten sonra benim için bir şey daha yapmanı istiyorum.", "1:33", "(iş, görev) yapmak"],
+  ["\"That would never [do], your excellency, because the man cannot be cut in two.\"", "\"Bu hiç olmaz ekselansları, çünkü adam ikiye bölünemez.\"", "3:196", "yetmek, iş görmek"],
+  ["As for scholarship, I barely know my ABCs, but I [do] know how to bless myself.", "Bilgiye gelince, alfabeyi zar zor bilirim ama haç çıkarmayı gerçekten bilirim.", "3:174", "vurgu: gerçekten"]
+],
+"vb:set": [
+  ["He [set] the shovel so that half the blade was supported by the rock slab.", "Küreği, ağzının yarısı kaya parçasına dayanacak şekilde yerleştirdi.", "1:135", "koymak, yerleştirmek"],
+  ["He remembered that when they left the boat, they were headed toward the [setting] sun.", "Tekneden ayrıldıklarında batan güneşe doğru gittiklerini hatırladı.", "1:159", "(güneş) batmak"],
+  ["Before Sancho could recover from his surprise another tempting dish was [set] in front of him.", "Sancho şaşkınlığını atlatamadan önüne iştah açıcı bir yemek daha kondu.", "3:187", "koymak, yerleştirmek"]
+],
+"vb:put": [
+  ["They had spent the morning picking onions and [putting] them in the sack.", "Sabahı soğan toplayıp çuvala koyarak geçirmişlerdi.", "1:156", "koymak"],
+  ["When it had begun to rain, he had [put] the basin on his head to protect his new hat.", "Yağmur başlayınca yeni şapkasını korumak için leğeni başına koymuştu.", "3:72", "koymak, yerleştirmek"],
+  ["Curiously, the chiming of the hour seemed to have [put] new heart into him.", "Tuhaftır, saatin çalması ona yeniden cesaret vermiş gibiydi.", "2:26", "put in a mood = bir ruh haline sokmak"]
+],
+"vb:go": [
+  ["I [went] with her through the doorway and across a backyard into a basement kitchen.", "Onunla birlikte kapıdan geçip bir arka bahçeden bodrumdaki bir mutfağa gittim.", "2:60", "gitmek"],
+  ["And almost in the same instant bang! would [go] the bullet, too late, or too early.", "Ve neredeyse aynı anda kurşun \"bang!\" diye patlardı; ya çok geç ya çok erken.", "2:255", "(ses) çıkarmak, demek"],
+  ["He noticed how much softer her waist seemed to feel now that the sash was [gone].", "Kuşak artık olmadığı için belinin ne kadar yumuşak geldiğini fark etti.", "2:111", "geçmek, yok olmak"]
+],
+"vb:come": [
+  ["A guard [came] in, carrying something made of wire, a box or basket of some kind.", "Bir gardiyan elinde telden yapılmış bir şeyle, bir tür kutu ya da sepetle içeri geldi.", "2:257", "gelmek"],
+  ["He could hear voices [coming] from back by the truck but couldn't make out the words.", "Kamyonun arkasından gelen sesleri duyabiliyordu ama kelimeleri seçemiyordu.", "1:122", "come from = …den gelmek, -li olmak"],
+  ["He knew that he knew what [came] next, but for the moment he could not recall it.", "Sonra ne geldiğini bildiğini biliyordu ama o an hatırlayamıyordu.", "2:251", "(bir sırada) gelmek, olmak"]
+],
+"vb:turn": [
+  ["Normally they headed up Woodridge Lane and then [turned] right on Richmond Road.", "Normalde Woodridge Sokağı'ndan çıkıp Richmond Yolu'nda sağa dönerlerdi.", "1:201", "(yön) dönmek"],
+  ["Then he [turned] a switch and the voices stopped.", "Sonra bir düğmeyi çevirdi ve sesler kesildi.", "2:245", "çevirmek, döndürmek"],
+  ["Instantly his face [turned] scarlet and the water ran out of his eyes.", "Yüzü anında kıpkırmızı oldu ve gözlerinden yaş aktı.", "2:7", "turn + sıfat = olmak, hale gelmek"],
+  ["The doctor fled in fright and Sancho [turned] to the servants.", "Doktor korkuyla kaçtı ve Sancho uşaklara döndü.", "3:190", "(birine) dönmek"]
+],
+"vb:run": [
+  ["She [ran] down to the lakefront, where Sam was hitching Mary Lou to the onion cart.", "Sam'in Mary Lou'yu soğan arabasına koştuğu göl kıyısına koşarak indi.", "1:96", "koşmak"],
+  ["Instantly his face turned scarlet and the water [ran] out of his eyes.", "Yüzü anında kıpkırmızı oldu ve gözlerinden yaş aktı.", "2:7", "(su) akmak"],
+  ["Sancho and Don Quixote [ran] to help her, but she was on her legs before they could do much.", "Sancho ve Don Quixote ona yardıma koştu ama onlar bir şey yapamadan o ayağa kalkmıştı.", "3:117", "koşmak"]
+],
+"vb:break": [
+  ["She knew that other kids [broke] the rules all the time, and nothing bad ever happened to them.", "Diğer çocukların sürekli kuralları çiğnediğini ve başlarına hiç kötü bir şey gelmediğini biliyordu.", "1:203", "(kural, yasa) çiğnemek"],
+  ["Nearly everything in the room was [broken]; the TV, the pinball machine, the furniture.", "Odadaki neredeyse her şey bozuktu; televizyon, langırt makinesi, mobilyalar.", "1:42", "bozulmak, bozuk"],
+  ["He then ordered the cane [broken] in two.", "Sonra bastonun ikiye kırılmasını emretti.", "3:184", "kırmak"],
+  ["When he took a [break], she would sometimes read a poem to him.", "O mola verdiğinde, kadın bazen ona bir şiir okurdu.", "1:93", "ara vermek"]
+],
+"vb:hold": [
+  ["Zero [held] a jar in his hand and grunted as he tried to unscrew the lid.", "Zero elinde bir kavanoz tutuyordu ve kapağını açmaya çalışırken homurdandı.", "1:128", "(elde) tutmak"],
+  ["At the other side of him stood a man in a white coat, [holding] a hypodermic syringe.", "Öbür yanında, elinde bir şırınga tutan beyaz önlüklü bir adam duruyordu.", "2:219", "tutmak, taşımak"],
+  ["As the holy cross was being passed to him, he gave his walking cane to his friend to [hold].", "Kutsal haç ona uzatılırken, bastonunu tutsun diye arkadaşına verdi.", "3:183", "(elde) tutmak"]
+],
+"vb:keep": [
+  ["If Zero had just [kept] those shoes, then neither of them would be here right now.", "Zero o ayakkabıları yanında tutmuş olsaydı, şu anda ikisi de burada olmazdı.", "1:153", "(sahip olarak) tutmak, saklamak"],
+  ["There was this one mother who [kept] staring at me like I was some kind of monster.", "Bir anne vardı, bana sanki bir canavarmışım gibi bakıp duruyordu.", "1:160", "keep + -ing = -ip durmak, devam etmek"],
+  ["Madame Zeroni led Elya around the back of her house where she [kept] her pigs.", "Madam Zeroni, Elya'yı domuzlarını tuttuğu evinin arkasına götürdü.", "1:32", "(bir yerde) saklamak, bulundurmak"]
+],
+"vb:carry": [
+  ["Not everybody could [carry] a full-grown pig up the side of a mountain.", "Herkes tam büyümüş bir domuzu dağın yamacından yukarı taşıyamazdı.", "1:37", "taşımak"],
+  ["For the time being, Sancho treated the injured ear with lint and ointment he [carried] in his pouch.", "Sancho şimdilik yaralı kulağı, kesesinde taşıdığı tiftik ve merhemle tedavi etti.", "3:51", "yanında bulundurmak"],
+  ["I always [carry] one end of a banner in the processions.", "Yürüyüşlerde pankartın bir ucunu hep ben taşırım.", "2:111", "taşımak"]
+],
+"vb:bring": [
+  ["She wanted to throw her arms around him but couldn't [bring] herself to do it.", "Ona sarılmak istedi ama bir türlü cesaret edemedi.", "1:94", "bring oneself to = (zor bir şeyi) yapmaya kendini ikna etmek"],
+  ["Revenge and a sense of injustice had [brought] him into the life he now led.", "İntikam ve haksızlık duygusu onu şimdi sürdüğü hayata getirmişti.", "3:226", "(sonuç) getirmek, yol açmak"],
+  ["And next time we come here I'll [bring] some plaster and bung it up properly.", "Bir dahaki gelişimizde biraz alçı getirip orayı güzelce kapatırım.", "2:132", "yanında getirmek"]
+],
+"pv:wake-up": [
+  ["He was surprised when he heard Zero whispering for him to [wake up].", "Zero'nun ona uyanması için fısıldadığını duyunca şaşırdı.", "1:163"],
+  ["When Winston [woke up] the hands of the clock had crept round to nearly nine.", "Winston uyandığında saatin akrebi neredeyse dokuza gelmişti.", "2:130"]
+],
+"pv:get-up": [
+  ["He put the piece of stationery back in the box, then [got up] and followed the boys out to the tables.", "Mektup kâğıdını kutuya geri koydu, sonra kalkıp çocukların peşinden masalara gitti.", "1:45"],
+  ["'[Get up] from that bed,' he said.", "\"Kalk o yataktan,\" dedi.", "2:245"]
+],
+"pv:put-on": [
+  ["Finally he was allowed to escape to apartments assigned to him and Sancho, where he [put on] the splendid clothes the Duke had given him.", "Sonunda kendisine ve Sancho'ya ayrılan odalara kaçmasına izin verildi; orada Dük'ün verdiği görkemli giysileri giydi.", "3:157"],
+  ["I'm going to [put] my clothes [on],' she added.", "\"Giyineceğim,\" diye ekledi.", "2:200"]
+],
+"pv:take-off": [
+  ["When I got outside, I ran around the corner and immediately [took off] the shoes.", "Dışarı çıkınca köşeyi koşarak döndüm ve hemen ayakkabıları çıkardım.", "1:150"],
+  ["He [took off] his glasses, wiped them on his dirty clothes, and put them back on.", "Gözlüğünü çıkardı, kirli giysilerine silip yeniden taktı.", "1:48"]
+],
+"pv:turn-down": [
+  ["There was a bed against the wall, and a lamp on the table, [turned down] very low.", "Duvarın dibinde bir yatak, masada da ışığı iyice kısılmış bir lamba vardı.", "2:60"]
+],
+"pv:turn-up": [
+  ["He wrote: I [turned up] the lamp.", "Şunu yazdı: Lambanın ışığını açtım.", "2:63"]
+],
+"pv:go-out": [
+  ["It was important, he said, not to [go out] smelling of wine: the lift attendants were very observant.", "Şarap kokarak dışarı çıkmamak önemliydi, dedi; asansör görevlileri çok dikkatliydi.", "2:161"]
+],
+"pv:come-back": [
+  ["\"If it doesn't, you can [come back] next week and I'll give you your money back.\"", "\"İşe yaramazsa gelecek hafta geri gelirsin, paranı iade ederim.\"", "1:182"],
+  ["The rat had never [come back], but the bugs had multiplied hideously in the heat.", "Fare bir daha hiç geri gelmemişti ama böcekler sıcakta korkunç biçimde çoğalmıştı.", "2:137"]
+],
+"pv:sit-down": [
+  ["He came to a bare spot between two large patches of weeds and [sat down] to rest.", "İki büyük ot öbeğinin arasındaki çıplak bir yere geldi ve dinlenmek için oturdu.", "1:147"],
+  ["They [sat down] on two iron chairs, side by side but not too close together.", "İki demir sandalyeye yan yana ama birbirlerine çok yakın olmadan oturdular.", "2:265"]
+],
+"pv:stand-up": [
+  ["She finished painting her nails, then [stood up].", "Tırnaklarını boyamayı bitirdi, sonra ayağa kalktı.", "1:79"],
+  ["Sancho [stood up], furious at having been trampled by the dirty pigs.", "Pis domuzların altında ezildiği için öfkeden kudurmuş Sancho ayağa kalktı.", "3:241"]
+],
+"pv:lie-down": [
+  ["He shut the book, put it carefully on the floor, [lay down], and pulled the coverlet over both of them.", "Kitabı kapattı, dikkatle yere koydu, uzandı ve örtüyü ikisinin üstüne çekti.", "2:199"]
+],
+"pv:stay-up": [
+  ["She and Elya often [stayed up] half the night talking and laughing together.", "O ve Elya çoğu zaman gecenin yarısına kadar yatmayıp konuşur, gülerdi.", "1:38"],
+  ["But the rest of the party, as well as other guests, [stayed up] very late talking and telling stories.", "Ama grubun geri kalanı ve diğer konuklar çok geç saate kadar yatmayıp konuştu, hikâyeler anlattı.", "3:105"]
+],
+"pv:sleep-in": [
+  ["\"I get to [sleep in], because it's my birthday.\"", "\"Geç saate kadar uyuyabilirim, çünkü bugün benim doğum günüm.\"", "1:108"]
+],
+"pv:clean-up-tidy-up": [
+  ["When he was [cleaned up], he took his seat at the head of the table.", "Temizlendikten sonra masanın başındaki yerini aldı.", "3:186"]
+],
+"pv:get-on": [
+  ["He kept calling to the merchants not to leave like cowards, but to wait until he could [get] back [on] his horse.", "Tüccarlara korkaklar gibi kaçmamalarını, atına yeniden binene kadar beklemelerini söyleyip duruyordu.", "3:34"]
+],
+"pv:get-off": [
+  ["By degrees he came to spend less time in sleep, but he still felt no impulse to [get off] the bed.", "Yavaş yavaş daha az uyumaya başladı ama hâlâ yataktan inmek için hiçbir istek duymuyordu.", "2:250"]
+],
+"pv:get-in": [
+  ["Together they [got in] the boat, untied the rope, and drifted downstream.", "Birlikte tekneye bindiler, ipi çözdüler ve akıntıyla aşağı süzüldüler.", "3:148"]
+],
+"pv:get-out-of": [
+  ["Someone made a grab for her, tearing her dress, but she managed to [get out of] the building.", "Biri onu yakalamaya çalışıp elbisesini yırttı ama binadan çıkmayı başardı.", "1:95"],
+  ["Julia [got out of] bed, pulled on her overalls, and made the coffee.", "Julia yataktan çıktı, tulumunu giydi ve kahveyi yaptı.", "2:132"]
+],
+"pv:pick-up": [
+  ["He reached down to [pick up] his cap, and there next to it he saw a wide flat rock.", "Şapkasını almak için eğildi ve hemen yanında geniş, düz bir taş gördü.", "1:47"],
+  ["Don Quixote ordered Sancho to [pick up] the basin, which had fallen to the ground.", "Don Quixote, Sancho'ya yere düşen leğeni almasını emretti.", "3:73"]
+],
+"pv:drop-off": [
+  ["\"After you [drop off] X-Ray, I want you to bring back three wheelbarrows,\" she said.", "\"X-Ray'i bıraktıktan sonra üç el arabası getirmeni istiyorum,\" dedi.", "1:62"]
+],
+"pv:slow-down": [
+  ["The bus was [slowing down].", "Otobüs yavaşlıyordu.", "1:16"],
+  ["He made a halfhearted attempt to catch up, then [slowed down], turned, and made off in the opposite direction.", "Yetişmek için gönülsüzce bir deneme yaptı, sonra yavaşladı, döndü ve ters yöne gitti.", "2:266"]
+],
+"pv:turn-back": [
+  ["He figured he could walk for no more than another hour, maybe two, before he had to [turn back].", "Geri dönmek zorunda kalmadan önce en fazla bir, belki iki saat daha yürüyebileceğini düşündü.", "1:124"],
+  ["So great was his concern at this discovery that he almost [turned back].", "Bu keşif onu o kadar kaygılandırdı ki neredeyse geri dönüyordu.", "3:20"]
+],
+"pv:come-in": [
+  ["Mr. Pendanski [came in] and woke everyone up.", "Bay Pendanski içeri girdi ve herkesi uyandırdı.", "1:29"],
+  ["Sure enough, the little yellow-faced servant had [come in] without knocking.", "Tahmin ettiği gibi, sarı yüzlü küçük uşak kapıyı çalmadan içeri girmişti.", "2:155"]
+],
+"pv:go-away": [
+  ["If he didn't talk about it, maybe it would [go away].", "Ondan bahsetmezse belki geçip giderdi.", "1:90"],
+  ["He sat as still as a mouse, in the futile hope that whoever it was might [go away] after a single attempt.", "Kim olursa olsun bir denemeden sonra gider umuduyla fare gibi kıpırdamadan oturdu.", "2:19"]
+],
+"pv:run-away": [
+  ["So this is what happened: Stanley tried to [run away] in the night, fell in a hole, and the lizards got him.", "Demek olan şu: Stanley gece kaçmaya çalıştı, bir çukura düştü ve kertenkeleler onu yakaladı.", "1:169"],
+  ["At last they were face to face, and it seemed that his only impulse was to [run away].", "Sonunda yüz yüze geldiler ve tek isteği kaçmakmış gibi göründü.", "2:143"]
+],
+"pv:get-back": [
+  ["It was after twenty-two hours when he [got back] to the flat.", "Daireye döndüğünde saat yirmi ikiyi geçiyordu.", "2:93"],
+  ["She made them eat quickly, so they could [get back] to work.", "İşe geri dönebilsinler diye onlara hızlıca yemek yedirdi.", "1:66"]
+],
+"pv:grow-up": [
+  ["She had [grown up] since the Revolution and was too young to remember the ideological battles of the fifties and sixties.", "Devrim'den sonra büyümüştü ve elli ile altmışlı yılların ideolojik kavgalarını hatırlamak için çok gençti.", "2:139"],
+  ["\"So I was, but as I [grew up] I herded geese,\" said Sancho.", "\"Öyleydim, ama büyüyünce kaz güttüm,\" dedi Sancho.", "3:175"]
+],
+"pv:bring-up": [
+  ["It shows I [brought] her [up] in the right spirit, anyway.", "En azından onu doğru bir anlayışla yetiştirdiğimi gösteriyor.", "2:213"],
+  ["All children were to be begotten by artificial insemination (ARTSEM, it was called in Newspeak) and [brought up] in public institutions.", "Bütün çocuklar yapay döllenmeyle (Yenikonuş'ta ARTSEM deniyordu) dünyaya getirilecek ve devlet kurumlarında yetiştirilecekti.", "2:61"]
+],
+"pv:catch-up-with": [
+  ["It occurred to him that the girl had only passed him three minutes ago and that by running he could probably [catch up with] her.", "Kızın yanından yalnızca üç dakika önce geçtiğini ve koşarsa muhtemelen ona yetişebileceğini düşündü.", "2:93"]
+],
+"pv:run-into": [
+  ["Four days had gone past since the evening when he had [run into] her outside the junk-shop.", "Hurdacı dükkânının önünde ona rastladığı akşamdan bu yana dört gün geçmişti.", "2:96"],
+  ["The patrols might stop you if you happened to [run into] them.", "Devriyelere rastlarsan seni durdurabilirlerdi.", "2:77"]
+],
+"pv:come-across": [
+  ["As he continued to widen his hole, his hand [came across] a smooth, round object.", "Çukurunu genişletmeye devam ederken eli pürüzsüz, yuvarlak bir nesneye rastladı.", "1:140"],
+  ["During his stay in the mountains he did [come across] him twice, but to no purpose.", "Dağlarda kaldığı süre boyunca ona iki kez rastladı ama bir işe yaramadı.", "3:92"]
+],
+"pv:turn-up-2": [
+  ["She may yet [turn up] in her true shape and convince you that you were even more deceived than your master on that occasion.", "Belki bir gün gerçek kılığında çıkagelir ve o olayda efendinden de çok kandırıldığına seni inandırır.", "3:162"]
+],
+"pv:find-out": [
+  ["If they'd [found out] I didn't have a mom, they would have made me a ward of the state.", "Annem olmadığını öğrenselerdi beni devlet korumasına verirlerdi.", "1:149"],
+  ["Even now he had not [found out] her surname or her address.", "Şimdi bile kızın soyadını ya da adresini öğrenmemişti.", "2:116"]
+],
+"pv:figure-out": [
+  ["He tried to [figure out] some way that he wouldn't have to give it to X-Ray.", "Onu X-Ray'e vermek zorunda kalmayacağı bir yol bulmaya çalıştı.", "1:55"],
+  ["He tried to [figure out] how long he'd been at Camp Green Lake, if indeed it was July 8.", "Gerçekten 8 Temmuz'sa, Camp Green Lake'te ne kadar zamandır bulunduğunu hesaplamaya çalıştı.", "1:108"]
+],
+"pv:work-out": [
+  ["He [worked out] all the details in the most clever and romantic fashion.", "Bütün ayrıntıları en zekice ve en romantik biçimde planlayıp çözdü.", "3:254"]
+],
+"pv:make-out": [
+  ["He could hear voices coming from back by the truck but couldn't [make out] the words.", "Kamyonun arkasından gelen sesleri duyabiliyordu ama kelimeleri seçemiyordu.", "1:122"],
+  ["After a while he thought he could [make out] the shape of the mountains through the haze.", "Bir süre sonra pusun içinden dağların şeklini seçebildiğini düşündü.", "1:124"]
+],
+"pv:point-out": [
+  ["\"This is where I found the shovel,\" Stanley said, [pointing out] a patch of weeds.", "\"Küreği burada buldum,\" dedi Stanley, bir ot öbeğini göstererek.", "1:157"],
+  ["\"He was lucky to have survived,\" Stanley's mother was quick to [point out].", "\"Hayatta kaldığı için şanslıydı,\" diye hemen belirtti Stanley'nin annesi.", "1:16"]
+],
+"pv:write-down": [
+  ["She gave it to him, and Squid [wrote down] a phone number which he gave to Stanley.", "Kadın onu verdi, Squid de bir telefon numarası yazıp Stanley'ye verdi.", "1:180"],
+  ["He began to [write down] the thoughts that came into his head.", "Aklına gelen düşünceleri yazmaya başladı.", "2:251"]
+],
+"pv:fill-in-fill-out": [
+  ["You will have to [fill in] the holes yourself.", "Boşlukları kendin doldurmak zorunda kalacaksın.", "1:187"]
+],
+"pv:give-back": [
+  ["[Give] your sister [back] her chocolate!", "Kız kardeşine çikolatasını geri ver!", "2:148"],
+  ["Mr. Pendanski laughed as he [gave] the fossil [back] to Stanley.", "Bay Pendanski fosili Stanley'ye geri verirken güldü.", "1:48"]
+],
+"pv:go-on": [
+  ["He paused, and [went on] in a gentler tone: 'You are improving.'", "Durakladı ve daha yumuşak bir sesle devam etti: \"İlerliyorsun.\"", "2:255"],
+  ["After the melancholy ceremony, the knight and his squire [went on] their way.", "Hüzünlü törenin ardından şövalye ile silahtarı yollarına devam etti.", "3:52"]
+],
+"pv:carry-on": [
+  ["Their luck would hold indefinitely, and they would [carry on] their intrigue, just like this, for the remainder of their natural lives.", "Şansları sonsuza dek sürecek ve gizli ilişkilerine ömürlerinin sonuna kadar böyle devam edeceklerdi.", "2:138"]
+],
+"pv:look-out-watch-out": [
+  ["'Steamer!' he yelled. '[Look out], guv'nor!", "\"Bomba!\" diye bağırdı. \"Dikkat et, beyim!\"", "2:78"]
+],
+"pv:give-up": [
+  ["But that's no reason to [give up].", "Ama bu, pes etmek için bir sebep değil.", "1:52"],
+  ["At last he [gave up], hoping to be able to see a way out once there was daylight.", "Sonunda vazgeçti; gün ışığı çıkınca bir çıkış yolu görebileceğini umuyordu.", "3:207"]
+],
+"pv:give-up-2": [
+  ["But luckily no child appeared, and in the end she agreed to [give up] trying, and soon afterwards they parted.", "Ama neyse ki çocuk olmadı, sonunda kadın denemeyi bırakmayı kabul etti ve kısa süre sonra ayrıldılar.", "2:62"]
+],
+"pv:put-off": [
+  ["\"We should [put off] any more lashes until we get home, which should be the day after tomorrow.\"", "\"Kalan kırbaçları eve varana kadar ertelemeliyiz, ki bu da öbür gün olur.\"", "3:248"],
+  ["Obviously we shall [put] it [off] as long as we can.", "Elbette elimizden geldiğince erteleyeceğiz.", "2:123"]
+],
+"pv:run-out-of": [
+  ["Stanley told him he needed to write smaller, or else they'd [run out of] paper real quick.", "Stanley ona daha küçük yazması gerektiğini, yoksa kâğıtlarının çabucak biteceğini söyledi.", "1:84"],
+  ["She'd [run out of] things needing to be fixed.", "Tamir edilecek şeyler tükenmişti.", "1:94"]
+],
+"pv:come-up-with": [
+  ["Instead, he [came up with] a better idea, although he didn't have it quite all figured out yet.", "Bunun yerine daha iyi bir fikir buldu, gerçi henüz her şeyini tam çözmemişti.", "1:117"],
+  ["El Genius had [come up with] the name Kaira DeLeon.", "Kaira DeLeon adını El Genius bulmuştu.", "1:210"]
+],
+"pv:deal-with": [
+  ["It was an intricate and responsible job and had better be [dealt with] last.", "Karmaşık ve sorumluluk isteyen bir işti, en sona bırakılsa iyi olurdu.", "2:37"],
+  ["\"Mine is to [deal with] these lions.\"", "\"Benim işim bu aslanlarla uğraşmak.\"", "3:141"]
+],
+"pv:carry-out": [
+  ["Even the one plan that was practicable, suicide, they had no intention of [carrying out].", "Uygulanabilir tek plan olan intiharı bile gerçekleştirmeye hiç niyetleri yoktu.", "2:138"]
+],
+"pv:take-over": [
+  ["After lunch, Zero [took over] the digging again, and Stanley returned to the wheelbarrow.", "Öğle yemeğinden sonra kazma işini yine Zero devraldı, Stanley de el arabasına döndü.", "1:63"],
+  ["The music from the telescreen stopped and a voice [took over].", "Tele-ekrandaki müzik durdu ve yerini bir ses aldı.", "2:262"]
+],
+"pv:turn-down-2": [
+  ["He found it hard to believe that Miss Katherine had [turned] him [down].", "Bayan Katherine'in onu geri çevirdiğine inanmakta zorlandı.", "1:87"]
+],
+"pv:put-up-with": [
+  ["Just think what THEY have to [put up with].", "Bir düşün, ONLAR nelere katlanmak zorunda.", "2:34"],
+  ["\"I am naturally goodnatured and fair-minded, but I cannot [put up with] rogues.\"", "\"Doğuştan iyi huylu ve adil biriyim ama düzenbazlara katlanamam.\"", "3:162"]
+],
+"pv:think-over": [
+  ["She [thought] it [over].", "Bunu enine boyuna düşündü.", "2:151"]
+],
+"pv:calm-down": [
+  ["It would be better to return later, after everyone had a chance to [calm down].", "Herkes sakinleşme fırsatı bulduktan sonra dönmek daha iyi olurdu.", "1:122"],
+  ["Sancho at last [calmed down] after Don Quixote promised him three of the donkeys he had at home.", "Don Quixote ona evdeki eşeklerinden üçünü söz verince Sancho sonunda sakinleşti.", "3:90"]
+],
+"pv:cheer-up": [
+  ["All the while he suffered from the blackest melancholy, in spite of all the efforts of his host and friends to [cheer] him [up].", "Ev sahibinin ve dostlarının onu neşelendirmek için gösterdiği bütün çabalara rağmen, bu süre boyunca kapkara bir hüzün içindeydi.", "3:237"]
+],
+"pv:get-over": [
+  ["After they [got over] their illness, no one could be sure, not even Doc Hawthorn, which of the two treatments had done the trick.", "Hastalığı atlattıktan sonra, iki tedaviden hangisinin işe yaradığından kimse, Doktor Hawthorn bile emin olamadı.", "1:92"],
+  ["\"We can [get over] that difficulty,\" said the other.", "\"O zorluğu aşabiliriz,\" dedi öteki.", "3:128"]
+],
+"pv:give-in": [
+  ["Finally the knight [gave in] to Sancho's persuasion and ate a little.", "Sonunda şövalye Sancho'nun ısrarına boyun eğdi ve biraz yedi.", "3:219"]
+],
+"pv:break-down-2": [
+  ["In the end the nagging voices [broke] him [down] more completely than the boots and fists of the guards.", "Sonunda onu, gardiyanların botlarından ve yumruklarından çok o dırdırcı sesler tamamen çökertti.", "2:221"]
+],
+"pv:show-off": [
+  ["She knew boys liked to [show off].", "Erkek çocukların hava atmayı sevdiğini biliyordu.", "1:193"]
+],
+"pv:pass-out": [
+  ["He wasn't sure if he [passed out] or not.", "Bayılıp bayılmadığından emin değildi.", "1:70"]
+],
+"pv:break-out": [
+  ["A sudden hot sweat had [broken out] all over Winston's body.", "Winston'ın bütün vücudunda birden sıcak bir ter boşanmıştı.", "2:34"]
+],
+"pv:go-up": [
+  ["The needle [went up] to sixty.", "İbre altmışa yükseldi.", "2:227"]
+],
+"pv:go-down": [
+  ["Mr. Sir's face had [gone down], but it was still a little puffy.", "Bay Sir'ün yüzünün şişliği inmişti ama hâlâ biraz şişti.", "1:99"]
+],
+"pv:go-on-2": [
+  ["Some men were gathering on another dock, and he went to see what was [going on].", "Başka bir iskelede bazı adamlar toplanıyordu, o da neler olduğunu görmeye gitti.", "1:37"],
+  ["Naturally, this woke Sancho up and he asked Don Quixote what was [going on].", "Tabii bu Sancho'yu uyandırdı ve Don Quixote'a neler olduğunu sordu.", "3:222"]
+],
+"pv:make-up-2": [
+  ["A great deal of the time you were expected to [make] them [up] out of your head.", "Çoğu zaman onları kafandan uydurman beklenirdi.", "2:39"],
+  ["After [making up] and rejecting many possible names, he at last fixed on \"Rocinante.\"", "Pek çok isim uydurup reddettikten sonra sonunda \"Rocinante\"de karar kıldı.", "3:17"]
+],
+"pv:go-out-2": [
+  ["His cigarette had [gone out], and he laid it carefully on the edge of the table.", "Sigarası sönmüştü, onu dikkatle masanın kenarına bıraktı.", "2:58"],
+  ["She had let her cigarette [go out] and was listening intently.", "Sigarasının sönmesine aldırmamış, dikkatle dinliyordu.", "2:159"]
+],
+"pv:hold-on": [
+  ["\"[Hold on],\" Zero said, stopping abruptly.", "\"Bekle,\" dedi Zero, aniden durarak.", "1:161"],
+  ["Truisms are true, [hold on] to that!", "Apaçık gerçekler doğrudur, buna sıkı tutun!", "2:75"]
+],
+"rc:relative-clause-nedir": [
+  ["She was one of those people [who] can go to sleep at any hour and in any position.", "Her saatte ve her pozisyonda uyuyabilen insanlardan biriydi.", "2:142"],
+  ["He thought only about each step, and not the impossible task [that] lay before him.", "Sadece her adımı düşündü, önünde duran imkânsız görevi değil.", "1:139"]
+],
+"rc:who-which-that": [
+  ["There was this one mother [who] kept staring at me like I was some kind of monster.", "Bir anne vardı, bana sanki bir canavarmışım gibi bakıp duruyordu.", "1:160"],
+  ["She gave it to him, and Squid wrote down a phone number [which] he gave to Stanley.", "Kadın onu verdi, Squid de Stanley'ye verdiği bir telefon numarası yazdı.", "1:180"],
+  ["World-conquest is believed in most firmly by those [who] know it to be impossible.", "Dünyayı fethetmeye en çok, bunun imkânsız olduğunu bilenler inanır.", "2:198"]
+],
+"rc:whose-sahiplik": [
+  ["They were in the midst of lofty trees [whose] high leaves made strange whisperings.", "Yüksek yaprakları tuhaf fısıltılar çıkaran ulu ağaçların ortasındaydılar.", "3:66"],
+  ["Do you know that Newspeak is the only language in the world [whose] vocabulary gets smaller every year?", "Yenikonuş'un, kelime hazinesi her yıl küçülen dünyadaki tek dil olduğunu biliyor musun?", "2:49"]
+],
+"rc:where-when-why": [
+  ["\"That's the one,\" he whispered, pointing out the hole [where] he had found the gold tube.", "\"İşte o,\" diye fısıldadı, altın tüpü bulduğu çukuru göstererek.", "1:162"],
+  ["His brain took him back to a time [when] he was very little, all bundled up in a snowsuit.", "Beyni onu, kar tulumuna sarılmış çok küçük olduğu bir zamana götürdü.", "1:170"],
+  ["The room [where] he had been interrogated by O'Brien was high up near the roof.", "O'Brien'ın onu sorguladığı oda yukarıda, çatıya yakındı.", "2:257"]
+],
+"rc:ozne-mi-nesne-mi-zamir-ne-zaman-atilir": [
+  ["That would have been really cool, but she only kissed [the men she killed].", "Bu gerçekten harika olurdu, ama o sadece öldürdüğü adamları öperdi.", "1:16"],
+  ["Jones, Aaronson, and Rutherford were guilty of [the crimes they were charged with].", "Jones, Aaronson ve Rutherford kendilerine yöneltilen suçlardan suçluydu.", "2:251"],
+  ["Sancho realized the trick that had been played on him and [the loss he had suffered].", "Sancho kendisine oynanan oyunu ve uğradığı kaybı anladı.", "3:88"]
+],
+"rc:virgullu-virgulsuz-defining-non-defining": [
+  ["Then she turned her attention to Stanley, [who] was obviously in the worst condition.", "Sonra dikkatini, belli ki durumu en kötü olan Stanley'ye çevirdi.", "1:112"],
+  ["The drovers, [who] numbered about twenty, beat off Rocinante with needless violence.", "Sayıları yirmi kadar olan çobanlar, Rocinante'yi gereksiz bir şiddetle kovaladı.", "3:52"],
+  ["He was skinny and wore glasses, [which] were now covered with clip-on shades.", "Sıskaydı ve gözlük takıyordu; gözlüklerin üstünde artık takma güneş camları vardı.", "1:206"]
+],
+"rc:edatlarla-in-which-the-house-i-live-in": [
+  ["He was innocent of the crime [for which] he was convicted.", "Mahkûm edildiği suçu işlememişti.", "1:14"],
+  ["Nothing exists except an endless present [in which] the Party is always right.", "Parti'nin hep haklı olduğu sonsuz bir şimdiden başka hiçbir şey yok.", "2:141"],
+  ["Don Quixote looked up and down the river but saw no one [to whom] the boat might belong.", "Don Quixote nehrin bir aşağısına bir yukarısına baktı ama teknenin sahibi olabilecek kimseyi göremedi.", "3:146"]
+],
+"rc:whom": [
+  ["One of them was a girl [whom] he often passed in the corridors.", "Biri, koridorlarda sık sık yanından geçtiği bir kızdı.", "2:11"],
+  ["Someone [whom] the old man loved— a little granddaughter, perhaps— had been killed.", "Yaşlı adamın sevdiği biri, belki küçük bir torunu, öldürülmüştü.", "2:31"]
+],
+"rc:which-butun-cumleye-gonderme": [
+  ["Sam claimed that Mary Lou was almost fifty years old, [which] was, and still is, extraordinarily old for a donkey.", "Sam, Mary Lou'nun neredeyse elli yaşında olduğunu söylerdi; bu da bir eşek için o zaman da şimdi de olağanüstü bir yaştı.", "1:91"],
+  ["\"I go to her at once in obedience to her command,\" said Don Quixote, [which] was just what Sancho wanted to hear.", "\"Emrine uyarak hemen ona gidiyorum,\" dedi Don Quixote; bu da tam Sancho'nun duymak istediği şeydi.", "3:102"]
+],
+"rc:kisaltilmis-relative-clause-ing-ed": [
+  ["\"Except they're not really dogs,\" said the boy [sitting] next to Tamaya.", "\"Ama aslında köpek değiller,\" dedi Tamaya'nın yanında oturan çocuk.", "1:193"],
+  ["He fell in love with a woman [named] Sarah Miller.", "Sarah Miller adında bir kadına âşık oldu.", "1:38"]
+]
+}

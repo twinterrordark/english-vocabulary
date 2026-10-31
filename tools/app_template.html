@@ -476,6 +476,53 @@ mark.gram-rel { background: var(--primary-soft); color: var(--accent-text); padd
 .gram-quote .gram-tr-line[hidden] { display: none; }
 .gram-quote-tools { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: 8px; align-items: center; color: var(--muted); font-size: .82rem; }
 .gram-quote-tools button { min-height: 32px; padding: 0 10px; border: 1px solid var(--line); border-radius: 999px; background: transparent; color: var(--accent-text); font: 600 .8rem/1 var(--font); cursor: pointer; }
+/* Learning path */
+.gram-progress { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3); justify-content: space-between; margin-bottom: var(--space-3); padding: var(--space-3) var(--space-4); border-radius: var(--radius); background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow); }
+.gram-progress[hidden], .gram-unit[hidden], .gram-tabs[hidden] { display: none; }
+.gram-progress-text { display: grid; gap: 6px; flex: 1; min-width: 160px; }
+.gram-progress .button { min-height: 46px; }
+.gram-all-done { font-weight: 700; color: var(--success); }
+.gram-meter { display: block; height: 6px; border-radius: 6px; background: var(--line); overflow: hidden; }
+.gram-meter span { display: block; height: 100%; border-radius: 6px; background: var(--primary); }
+.gram-topic .gram-meter { margin-top: 4px; max-width: 220px; }
+.gram-chapter h2 { margin: var(--space-4) 0 var(--space-2); font-size: .8rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.gram-units { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.gram-unit-row { display: flex; align-items: center; gap: var(--space-3); min-height: 56px; padding: 8px var(--space-3); border: 1px solid var(--line); border-radius: 14px; background: var(--surface); color: var(--text); text-decoration: none; }
+.gram-unit-row.is-next { border: 2px solid var(--primary); box-shadow: var(--shadow); }
+.gram-unit-row.is-locked { opacity: .5; }
+.gram-dot { flex: none; display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: var(--line); color: var(--muted); font-size: .8rem; font-weight: 700; }
+.gram-dot .icon { width: 16px; height: 16px; }
+.is-done .gram-dot { background: var(--success); color: #fff; }
+.is-next .gram-dot { background: var(--primary); color: var(--on-primary); }
+.gram-unit-text { display: grid; gap: 1px; min-width: 0; flex: 1; }
+.gram-unit-text strong { font-size: 1rem; overflow-wrap: anywhere; }
+.gram-unit-text span { color: var(--muted); font-size: .85rem; }
+.gram-book-tag { flex: none; color: var(--accent-text); opacity: .7; }
+.gram-book-tag .icon { width: 18px; height: 18px; }
+.gram-unit { display: grid; gap: var(--space-3); }
+.gram-steps { list-style: none; margin: 0; padding: 0; display: flex; gap: 6px; counter-reset: none; }
+.gram-steps li { flex: 1; display: flex; align-items: center; gap: 6px; padding: 6px 8px; border-radius: 10px; background: var(--surface-2, var(--line)); color: var(--muted); font-size: .8rem; font-weight: 700; min-width: 0; }
+.gram-steps li span { flex: none; display: grid; place-items: center; width: 20px; height: 20px; border-radius: 50%; background: var(--surface); font-size: .72rem; }
+.gram-steps li.is-now { background: var(--primary); color: var(--on-primary); }
+.gram-steps li.is-now span { color: var(--accent-text); }
+.gram-steps li.is-done { background: var(--success-soft); color: var(--success); }
+.gram-unit-head h2 { margin: 2px 0 0; font: 700 1.7rem/1.2 Georgia, "Times New Roman", serif; overflow-wrap: anywhere; }
+.gram-unit-of { margin: 0; color: var(--muted); font-size: .82rem; }
+.gram-meaning { margin: 4px 0 0; font-size: 1.1rem; font-weight: 600; color: var(--accent-text); }
+.gram-step { display: grid; gap: var(--space-3); }
+.gram-step h3 { margin: var(--space-2) 0 0; font-size: .95rem; }
+.gram-rule { border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
+.gram-rule summary { padding: 12px var(--space-4); font-weight: 700; cursor: pointer; }
+.gram-rule p, .gram-rule-text { margin: 0; line-height: 1.6; }
+.gram-rule p { padding: 0 var(--space-4) var(--space-4); }
+.gram-rule-text { padding: var(--space-3) var(--space-4); border-radius: var(--radius); background: var(--surface); border: 1px solid var(--line); }
+.gram-source { display: inline-flex; align-items: center; gap: 4px; margin-right: auto; font-style: italic; }
+.gram-source .icon { width: 14px; height: 14px; }
+.gram-q .gram-en { font: inherit; }
+.gram-q[lang="tr"] { font-family: var(--font); }
+.gram-q-tr { margin: -6px 0 0; color: var(--muted); font-size: .92rem; }
+.gram-step .gram-actions .button, .gram-done .gram-actions .button { flex: 1 1 auto; }
+.gram-actions .button .icon { width: 18px; height: 18px; }
 /* Stories */
 .story-list { display: grid; gap: var(--space-3); }
 .story-list[hidden], .story-editor[hidden] { display: none; }
@@ -753,6 +800,7 @@ body.novel-focus .novel-pop-base, body.novel-focus .novel-pop-sentence { color: 
   <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
   <symbol id="i-mic" viewBox="0 0 24 24"><path d="M12 3a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3zM5 11a7 7 0 0 0 14 0M12 18v3"/></symbol>
   <symbol id="i-mic-off" viewBox="0 0 24 24"><path d="M3 3l18 18M9 9v3a3 3 0 0 0 5.1 2.1M15 9.3V6a3 3 0 0 0-5.7-1.3M19 11a7 7 0 0 1-1.1 3.8M5 11a7 7 0 0 0 10.6 6M12 18v3"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></symbol>
   <symbol id="i-pen" viewBox="0 0 24 24"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></symbol>
   <symbol id="i-keyboard" viewBox="0 0 24 24"><path d="M3 6h18v12H3zM7 10h.01M11 10h.01M15 10h.01M7 14h10"/></symbol>
   <symbol id="i-share" viewBox="0 0 24 24"><path d="M4 12v7a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7M16 6l-4-4-4 4M12 2v13"/></symbol>
@@ -1054,6 +1102,7 @@ body.novel-focus .novel-pop-base, body.novel-focus .novel-pop-sentence { color: 
     </div>
     <ul class="gram-topics js-only" id="gram-topics"></ul>
     <div class="gram-pane js-only" id="gram-rc" hidden>
+      <div class="gram-progress" id="gram-progress"></div>
       <div class="gram-tabs" role="group">
         <button type="button" class="chip-button" data-gtab="lessons" aria-pressed="true" data-i18n="grammar.lessons">Lessons</button>
         <button type="button" class="chip-button" data-gtab="practice" aria-pressed="false" data-i18n="grammar.practice">Practice</button>
@@ -1062,6 +1111,7 @@ body.novel-focus .novel-pop-base, body.novel-focus .novel-pop-sentence { color: 
       <div class="gram-lessons" id="gram-lessons"></div>
       <div class="gram-practice" id="gram-practice" hidden></div>
       <div class="gram-novel" id="gram-novel" hidden></div>
+      <div class="gram-unit" id="gram-unit" hidden></div>
     </div>
     <div class="gram-pane js-only" id="gram-write" hidden>
       <div class="story-list" id="story-list">
@@ -1422,7 +1472,14 @@ const STRINGS = {
     'grammar.title': 'Grammar and writing', 'grammar.lead': 'Pick a topic: read the lesson, then test yourself with the exercises.',
     'grammar.back': 'All topics', 'grammar.count': '{l} lessons · {n} questions', 'grammar.setsDone': '{d}/{n} sets done',
     'story.lead': 'Write short stories in English and have their grammar checked.', 'story.count': '{n} stories',
-    'grammar.section': 'Section', 'grammar.rc': 'Relative clauses', 'grammar.write': 'Write a story', 'grammar.lessons': 'Lessons', 'grammar.practice': 'Practice', 'grammar.fromNovel': 'From your novel',
+    'grammar.section': 'Section', 'grammar.rc': 'Relative clauses', 'grammar.write': 'Write a story', 'grammar.lessons': 'Learning path', 'grammar.practice': 'Review', 'grammar.fromNovel': 'From your novel',
+    'grammar.learned': '{d} / {n} learned', 'grammar.start': 'Start', 'grammar.continue': 'Continue', 'grammar.topicDone': 'You finished this topic! 🎉', 'grammar.locked': 'Finish the step before it first.',
+    'grammar.bookTag': 'Has sentences from the novels', 'grammar.steps': 'Steps', 'grammar.stepLearn': 'Learn', 'grammar.stepBook': 'In the books', 'grammar.stepTest': 'Test',
+    'grammar.unitOf': 'Step {i} of {n}', 'grammar.rule': 'Rule: {title}', 'grammar.examples': 'Examples', 'grammar.toBook': 'See it in the books', 'grammar.toTest': 'Test yourself',
+    'grammar.bookIntro': 'Read each sentence and try to understand it first; then check the Turkish.', 'grammar.inBook': 'Open in the book',
+    'grammar.meaningHint': 'What does “{term}” mean in this sentence?', 'grammar.gapHint': 'Which one fits the gap? The Turkish helps.', 'grammar.reverseHint': 'Which one has this meaning?',
+    'grammar.senseHint': 'Which meaning of “{verb}” is this?', 'grammar.wrongIs': 'Not quite. The right answer: {answer}',
+    'grammar.unitPassed': 'Learned! The next step is open.', 'grammar.unitFailed': 'Not yet. Read the step again and try once more.', 'grammar.path': 'Learning path', 'grammar.nextUnit': 'Next step', 'grammar.reread': 'Read again',
     'grammar.questions': '{n} questions', 'grammar.allSets': 'All sets', 'grammar.writePh': 'Write one sentence…', 'grammar.none': '(nothing – leave it out)', 'grammar.check': 'Check',
     'grammar.right': 'Correct!', 'grammar.wrong': 'Not quite. The right answer:', 'grammar.next': 'Next', 'grammar.finish': 'See my score', 'grammar.retry': 'Try again',
     'grammar.perfect': 'Perfect! You know this well.', 'grammar.good': 'Well done! Look at the ones you missed once more.', 'grammar.again': 'Read the lessons again and try once more.',
@@ -1563,7 +1620,14 @@ const STRINGS = {
     'grammar.title': 'Gramer ve yazma', 'grammar.lead': 'Bir konu seç: önce konu anlatımını oku, sonra alıştırmalarla kendini dene.',
     'grammar.back': 'Tüm konular', 'grammar.count': '{l} ders · {n} soru', 'grammar.setsDone': '{d}/{n} set tamam',
     'story.lead': 'İngilizce kısa hikâyeler yaz ve dilbilgisini denetlet.', 'story.count': '{n} hikâye',
-    'grammar.section': 'Bölüm', 'grammar.rc': 'Relative clauses', 'grammar.write': 'Hikâye yaz', 'grammar.lessons': 'Konu anlatımı', 'grammar.practice': 'Alıştırmalar', 'grammar.fromNovel': 'Romanından örnekler',
+    'grammar.section': 'Bölüm', 'grammar.rc': 'Relative clauses', 'grammar.write': 'Hikâye yaz', 'grammar.lessons': 'Ders yolu', 'grammar.practice': 'Genel tekrar', 'grammar.fromNovel': 'Romanından örnekler',
+    'grammar.learned': '{d} / {n} öğrenildi', 'grammar.start': 'Başla', 'grammar.continue': 'Devam et', 'grammar.topicDone': 'Bu konuyu bitirdin! 🎉', 'grammar.locked': 'Önce bir önceki adımı bitir.',
+    'grammar.bookTag': 'Romanlardan cümleleri var', 'grammar.steps': 'Adımlar', 'grammar.stepLearn': 'Öğren', 'grammar.stepBook': 'Kitapta', 'grammar.stepTest': 'Test',
+    'grammar.unitOf': 'Adım {i} / {n}', 'grammar.rule': 'Kural: {title}', 'grammar.examples': 'Örnekler', 'grammar.toBook': 'Kitaplarda gör', 'grammar.toTest': 'Kendini dene',
+    'grammar.bookIntro': 'Her cümleyi önce kendin anlamaya çalış, sonra Türkçesine bak.', 'grammar.inBook': 'Kitapta aç',
+    'grammar.meaningHint': '“{term}” bu cümlede ne anlama geliyor?', 'grammar.gapHint': 'Boşluğa hangisi gelir? Türkçesi yardımcı olur.', 'grammar.reverseHint': 'Hangisi bu anlama gelir?',
+    'grammar.senseHint': '“{verb}” bu cümlede hangi anlamda?', 'grammar.wrongIs': 'Olmadı. Doğru cevap: {answer}',
+    'grammar.unitPassed': 'Öğrendin! Sıradaki adım açıldı.', 'grammar.unitFailed': 'Henüz olmadı. Adımı tekrar oku ve bir daha dene.', 'grammar.path': 'Ders yolu', 'grammar.nextUnit': 'Sıradaki adım', 'grammar.reread': 'Tekrar oku',
     'grammar.questions': '{n} soru', 'grammar.allSets': 'Tüm setler', 'grammar.writePh': 'Tek bir cümle yaz…', 'grammar.none': '(hiçbiri – boş bırak)', 'grammar.check': 'Kontrol et',
     'grammar.right': 'Doğru!', 'grammar.wrong': 'Olmadı. Doğrusu:', 'grammar.next': 'Sonraki', 'grammar.finish': 'Sonucu gör', 'grammar.retry': 'Tekrar çöz',
     'grammar.perfect': 'Mükemmel! Bu konuyu iyi biliyorsun.', 'grammar.good': 'Aferin! Yanlışlarına bir kez daha göz at.', 'grammar.again': 'Konu anlatımını tekrar oku ve bir daha dene.',
@@ -2918,6 +2982,17 @@ const Novel = {
     const keepHyphen = !this.lookup(whole) && this.lookup(broken[1]) && this.lookup(after[1]);
     return keepHyphen ? previous + next : previous.slice(0, -1) + next;
   },
+  /* Opens a book from the shelf at a PDF page (for the Grammar tab's sentences from the novels). */
+  openAt(name, pdfPage) {
+    this.restored = true;
+    if (this.book && this.book.name === name) {
+      const index = this.book.sources.findIndex(source => source >= pdfPage);
+      if (index >= 0) this.go(index, true);
+      return;
+    }
+    this.target = { name, pdfPage };
+    this.openUrl(name);
+  },
   setBook(book, page) {
     this.stopReading();
     const story = this.storyPages(book.pages);
@@ -2929,6 +3004,11 @@ const Novel = {
       card.querySelector('.novel-book-title').textContent = book.title;
     }
     this.book = { name: book.name, pages: story, sources: story.sources, data: book.data || null, title: book.title || '' };
+    if (this.target && this.target.name === book.name) {
+      const index = story.sources.findIndex(source => source >= this.target.pdfPage);
+      if (index >= 0) page = index;
+      this.target = null;
+    }
     this.bookTitle = card ? card.querySelector('.novel-book-title').textContent : title;
     if (this.pdfName !== book.name) { this.pdfDoc = null; this.pdfName = book.name; }
     book = this.book;
@@ -4328,26 +4408,31 @@ const Grammar = {
   topics: [],
   topic: null,
   mode: null,
+  unit: null,
   best: {},
+  learned: {},
   run: null,
   init() {
     this.topics = (readJsonScript('grammar-data') || {}).topics || [];
-    try { this.best = JSON.parse(Store.read(this.KEY) || '{}').best || {}; } catch (_) { this.best = {}; }
+    try {
+      const saved = JSON.parse(Store.read(this.KEY) || '{}');
+      this.best = saved.best || {};
+      this.learned = saved.learned || {};
+    } catch (_) { this.best = {}; this.learned = {}; }
     for (const button of $$('[data-gtab]')) button.addEventListener('click', () => this.tab(button.dataset.gtab));
-    $('#gram-lessons').addEventListener('click', event => {
-      const button = event.target.closest('[data-say]');
-      if (button) this.say(button.dataset.say);
-    });
     $('#gram-practice').addEventListener('click', event => this.practiceClick(event));
+    $('#gram-unit').addEventListener('click', event => this.unitClick(event));
     $('#gram-novel').addEventListener('click', event => this.novelClick(event));
   },
-  /* "#grammar" lists the topics, "#grammar/cj" opens one, "#grammar/write" the stories. */
+  save() { Store.write(this.KEY, JSON.stringify({ best: this.best, learned: this.learned })); },
+  /* "#grammar" lists the topics, "#grammar/pv" opens a topic's learning path,
+     "#grammar/pv/3" its fourth unit, "#grammar/write" the stories. */
   onShow() {
-    const id = location.hash.split('/')[1] || '';
+    const [, id = '', step = ''] = location.hash.split('/');
     const topic = this.topics.find(item => item.id === id) || null;
     const mode = id === 'write' ? 'write' : topic ? 'topic' : 'home';
     if (mode !== this.mode || topic !== this.topic) this.open(mode, topic);
-    else if (mode === 'topic' && !$('#gram-practice').hidden && !this.run) this.renderSets();
+    if (mode === 'topic') this.showUnit(/^\d+$/.test(step) ? Number(step) : null);
     if (mode === 'home') this.renderTopics();
     this.heading();
   },
@@ -4356,15 +4441,13 @@ const Grammar = {
     this.mode = mode;
     this.topic = topic;
     this.run = null;
+    this.unit = undefined;
+    this.tabName = 'lessons';
     $('#gram-topics').hidden = mode !== 'home';
     $('#gram-rc').hidden = mode !== 'topic';
     $('#gram-write').hidden = mode !== 'write';
     $('#gram-back').hidden = mode === 'home';
-    if (mode === 'topic') {
-      $('#gram-novel-tab').hidden = !topic.novel;
-      this.renderLessons();
-      this.tab('lessons');
-    }
+    if (mode === 'topic') $('#gram-novel-tab').hidden = !topic.novel;
     if (mode === 'write') Writer.show();
     if (moved) window.scrollTo(0, 0);
   },
@@ -4372,15 +4455,16 @@ const Grammar = {
     const topic = this.mode === 'topic' ? this.topic : null;
     $('#grammar-title').textContent = topic ? topic.title : t(this.mode === 'write' ? 'grammar.write' : 'grammar.title');
     $('#gram-lead').textContent = topic ? topic.lead : t(this.mode === 'write' ? 'story.lead' : 'grammar.lead');
+    $('#gram-lead').hidden = this.unit != null;
   },
   renderTopics() {
     const cards = this.topics.map(topic => {
-      const done = topic.sets.filter(set => this.best[set.id] != null).length;
-      const questions = topic.sets.reduce((n, set) => n + set.items.length, 0);
-      const info = t('grammar.count', { l: topic.lessons.length, n: questions }) + (done ? ' · ' + t('grammar.setsDone', { d: done, n: topic.sets.length }) : '');
+      const done = topic.units.filter(unit => this.learned[unit.id]).length;
       return h('li', {}, h('a', { class: 'gram-topic', href: '#grammar/' + topic.id },
         h('span', { class: 'gram-badge', lang: 'en', text: topic.badge }),
-        h('div', {}, h('strong', { text: topic.title }), h('span', { text: topic.lead }), h('small', { text: info }))));
+        h('div', {}, h('strong', { text: topic.title }), h('span', { text: topic.lead }),
+          h('small', { text: t('grammar.learned', { d: done, n: topic.units.length }) }),
+          h('span', { class: 'gram-meter' }, h('span', { style: 'width:' + Math.round(done / topic.units.length * 100) + '%' })))));
     });
     const stories = Writer.stories.length;
     cards.push(h('li', {}, h('a', { class: 'gram-topic', href: '#grammar/write' },
@@ -4391,10 +4475,12 @@ const Grammar = {
   },
   say(text) { if (Speech.hasTTS) Speech.speakNow(text); else Speech.speak(text); },
   tab(name) {
+    this.tabName = name;
     for (const button of $$('[data-gtab]')) button.setAttribute('aria-pressed', String(button.dataset.gtab === name));
     $('#gram-lessons').hidden = name !== 'lessons';
     $('#gram-practice').hidden = name !== 'practice';
     $('#gram-novel').hidden = name !== 'novel';
+    if (name === 'lessons') this.renderPath();
     if (name === 'practice' && !this.run) this.renderSets();
     if (name === 'novel') this.renderNovel();
   },
@@ -4415,20 +4501,255 @@ const Grammar = {
     node.append(text.slice(last));
     return node;
   },
-  renderLessons() {
-    $('#gram-lessons').replaceChildren(...this.topic.lessons.map((lesson, index) =>
-      h('details', { class: 'gram-lesson', open: index === 0 ? true : null },
-        h('summary', {}, h('span', { class: 'gram-num', text: index + 1 }), h('span', { text: lesson.title })),
-        h('div', { class: 'gram-lesson-body' },
-          h('p', { lang: 'tr', text: lesson.text }),
-          h('ul', { class: 'gram-examples' }, lesson.examples.map(([en, tr, label]) => h('li', {},
-            h('div', { class: 'gram-ex' },
-              label ? h('span', { class: 'gram-label', lang: 'tr', text: label }) : null,
-              this.marked(en, en.includes('[')),
-              h('span', { class: 'gram-tr', lang: 'tr', text: tr })),
-            h('button', { type: 'button', class: 'icon-button', 'data-say': en.replace(/[[\]]/g, '').replace(/\//g, ' or '), 'aria-label': t('tutor.listen') }, icon('sound')))))))));
+  spoken(text) { return text.replace(/[[\]]/g, '').replace(/\//g, ' or '); },
+  exampleList(examples) {
+    return h('ul', { class: 'gram-examples' }, examples.map(([en, tr, label]) => h('li', {},
+      h('div', { class: 'gram-ex' },
+        label ? h('span', { class: 'gram-label', lang: 'tr', text: label }) : null,
+        this.marked(en, en.includes('[')),
+        h('span', { class: 'gram-tr', lang: 'tr', text: tr })),
+      h('button', { type: 'button', class: 'icon-button', 'data-say': this.spoken(en), 'aria-label': t('tutor.listen') }, icon('sound')))));
   },
-  /* ---- Practice sets */
+  /* ---- Learning path: the topic's units in order; each opens once the one before is learned. */
+  unlocked(index) {
+    const units = this.topic.units;
+    return index === 0 || Boolean(this.learned[units[index].id] || this.learned[units[index - 1].id]);
+  },
+  showUnit(index) {
+    if (index != null && !(index < this.topic.units.length && this.unlocked(index))) {
+      Toast.show(t('grammar.locked'));
+      location.replace('#grammar/' + this.topic.id);
+      return;
+    }
+    if (index === this.unit) return;
+    const was = this.unit;
+    this.unit = index;
+    this.run = null;
+    $('#gram-back').href = '#grammar' + (index == null ? '' : '/' + this.topic.id);
+    $('#gram-rc .gram-tabs').hidden = index != null;
+    $('#gram-progress').hidden = index != null;
+    $('#gram-unit').hidden = index == null;
+    if (index == null) {
+      this.tab(this.tabName);
+      const row = was != null && $('#gram-lessons [data-unit="' + was + '"]');
+      if (row) row.scrollIntoView({ block: 'center' });
+    } else {
+      for (const id of ['#gram-lessons', '#gram-practice', '#gram-novel']) $(id).hidden = true;
+      this.step(1);
+    }
+  },
+  renderPath() {
+    const units = this.topic.units;
+    const done = units.filter(unit => this.learned[unit.id]).length;
+    const next = units.findIndex((unit, index) => !this.learned[unit.id] && this.unlocked(index));
+    $('#gram-progress').replaceChildren(
+      h('div', { class: 'gram-progress-text' },
+        h('strong', { text: t('grammar.learned', { d: done, n: units.length }) }),
+        h('span', { class: 'gram-meter' }, h('span', { style: 'width:' + Math.round(done / units.length * 100) + '%' }))),
+      next >= 0 ? h('a', { class: 'button primary', href: '#grammar/' + this.topic.id + '/' + next, text: t(done ? 'grammar.continue' : 'grammar.start') })
+        : h('span', { class: 'gram-all-done', text: t('grammar.topicDone') }));
+    const chapters = [];
+    units.forEach((unit, index) => {
+      if (!chapters.length || chapters[chapters.length - 1].lesson !== unit.lesson) chapters.push({ lesson: unit.lesson, units: [] });
+      chapters[chapters.length - 1].units.push(index);
+    });
+    $('#gram-lessons').replaceChildren(...chapters.map(chapter => {
+      const lesson = this.topic.lessons[chapter.lesson];
+      return h('section', { class: 'gram-chapter' },
+        lesson.mode === 'items' ? h('h2', { text: lesson.title }) : null,
+        h('ol', { class: 'gram-units' }, chapter.units.map(index => {
+          const unit = units[index];
+          const state = this.learned[unit.id] ? 'done' : index === next ? 'next' : this.unlocked(index) ? 'open' : 'locked';
+          return h('li', {}, h('a', { class: 'gram-unit-row is-' + state, href: '#grammar/' + this.topic.id + '/' + index, 'data-unit': index },
+            h('span', { class: 'gram-dot' }, state === 'done' ? icon('check') : state === 'locked' ? icon('lock') : h('span', { text: index + 1 })),
+            h('span', { class: 'gram-unit-text' },
+              h('strong', { lang: lesson.mode === 'items' ? 'en' : null, text: unit.title }),
+              unit.meaning ? h('span', { lang: 'tr', text: unit.meaning }) : null),
+            unit.book.length ? h('span', { class: 'gram-book-tag', title: t('grammar.bookTag'), 'aria-label': t('grammar.bookTag') }, icon('book')) : null));
+        })));
+    }));
+  },
+  /* A unit in three steps: 1 learn (rule and examples), 2 sentences from the novels, 3 a short test. */
+  step(n) {
+    const unit = this.topic.units[this.unit];
+    const lesson = this.topic.lessons[unit.lesson];
+    const hasBook = unit.book.length > 0;
+    const labels = ['grammar.stepLearn', hasBook ? 'grammar.stepBook' : null, 'grammar.stepTest'].filter(Boolean);
+    const at = n === 1 ? 0 : n === 2 ? 1 : labels.length - 1;
+    const items = lesson.mode === 'items';
+    const body = n === 1 ? this.learnStep(unit, lesson, hasBook) : n === 2 ? this.bookStep(unit) : h('div', { class: 'gram-unit-test' });
+    $('#gram-unit').replaceChildren(
+      h('ol', { class: 'gram-steps', 'aria-label': t('grammar.steps') }, labels.map((label, i) =>
+        h('li', { class: i < at ? 'is-done' : i === at ? 'is-now' : null, 'aria-current': i === at ? 'step' : null }, h('span', { text: i + 1 }), t(label)))),
+      h('div', { class: 'gram-unit-head' },
+        h('p', { class: 'gram-unit-of', text: t('grammar.unitOf', { i: this.unit + 1, n: this.topic.units.length }) + (items ? ' · ' + lesson.title : '') }),
+        h('h2', { lang: items ? 'en' : null, text: unit.title }),
+        unit.meaning ? h('p', { class: 'gram-meaning', lang: 'tr', text: unit.meaning }) : null),
+      body);
+    if (n === 3) this.startTest(unit, body);
+    window.scrollTo(0, 0);
+  },
+  learnStep(unit, lesson, hasBook) {
+    const items = lesson.mode === 'items';
+    const firstOfLesson = this.topic.units.findIndex(u => u.lesson === unit.lesson) === this.unit;
+    return h('div', { class: 'gram-step' },
+      items
+        ? h('details', { class: 'gram-rule', open: firstOfLesson ? true : null }, h('summary', { text: t('grammar.rule', { title: lesson.title }) }), h('p', { lang: 'tr', text: lesson.text }))
+        : h('p', { class: 'gram-rule-text', lang: 'tr', text: lesson.text }),
+      h('h3', { text: t('grammar.examples') }),
+      this.exampleList(unit.examples),
+      h('div', { class: 'gram-actions' }, h('button', { type: 'button', class: 'button primary', 'data-step': hasBook ? 2 : 3 },
+        h('span', { text: t(hasBook ? 'grammar.toBook' : 'grammar.toTest') }), icon('next'))));
+  },
+  bookTitle(file) {
+    const title = $$('#novel-shelf [data-novel]').find(card => card.dataset.novel === file);
+    return title ? title.querySelector('.novel-book-title').textContent : file.replace(/^.*\//, '').replace(/\.pdf$/i, '');
+  },
+  bookStep(unit) {
+    return h('div', { class: 'gram-step' },
+      h('p', { class: 'hint', text: t('grammar.bookIntro') }),
+      ...unit.book.map(([en, tr, file, page, sense], index) => h('div', { class: 'gram-quote', 'data-book': index },
+        h('p', {}, this.marked(en, true)),
+        h('p', { class: 'gram-tr-line', lang: 'tr', hidden: true }, sense ? h('strong', { text: sense + ': ' }) : null, tr),
+        h('div', { class: 'gram-quote-tools' },
+          h('span', { class: 'gram-source', lang: 'en' }, icon('book'), this.bookTitle(file)),
+          h('button', { type: 'button', 'data-act': 'say', text: t('tutor.listen') }),
+          h('button', { type: 'button', 'data-act': 'tr', text: t('tutor.turkish') }),
+          h('button', { type: 'button', 'data-act': 'open', text: t('grammar.inBook') })))),
+      h('div', { class: 'gram-actions' }, h('button', { type: 'button', class: 'button primary', 'data-step': 3 },
+        h('span', { text: t('grammar.toTest') }), icon('next'))));
+  },
+  unitClick(event) {
+    const target = event.target.closest('button');
+    if (!target) return;
+    if (target.dataset.step) { this.step(Number(target.dataset.step)); return; }
+    const quote = target.closest('.gram-quote');
+    if (quote) {
+      const [en, , file, page] = this.topic.units[this.unit].book[Number(quote.dataset.book)];
+      if (target.dataset.act === 'say') this.say(this.spoken(en));
+      if (target.dataset.act === 'tr') {
+        const line = quote.querySelector('.gram-tr-line');
+        line.hidden = !line.hidden;
+      }
+      if (target.dataset.act === 'open') {
+        Novel.openAt(file, page);
+        location.hash = '#novel';
+      }
+      return;
+    }
+    this.quizClick(target);
+  },
+  /* ---- Unit tests: three questions, made anew each time */
+  startTest(unit, box) {
+    this.run = { box, unit, set: { id: null, hint: '' }, items: this.unitQuiz(unit), at: 0, score: 0, answered: false };
+    this.renderQuestion();
+  },
+  unitQuiz(unit) {
+    const lesson = this.topic.lessons[unit.lesson];
+    const spec = lesson.quiz;
+    if (spec && typeof spec === 'object') {
+      const set = this.topic.sets.find(s => s.id === spec.set);
+      const fits = shuffle(set.items.filter(item => !spec.answers || spec.answers.includes(item.answer)));
+      const rest = shuffle(set.items.filter(item => !fits.includes(item)));
+      return fits.concat(rest).slice(0, 3).map(item => Object.assign({ hint: set.hint, trOptions: set.trOptions, type: set.type }, item));
+    }
+    if (spec === 'sense') return this.senseQuiz(unit);
+    if (lesson.mode === 'items') return this.itemQuiz(unit);
+    return this.gapQuiz(unit);
+  },
+  /* Up to n values from the list, none equal to another or to `not` (ignoring case). */
+  pick(list, n, not) {
+    const seen = new Set([].concat(not || []).map(value => value.toLowerCase()));
+    const out = [];
+    for (const value of shuffle(list.slice())) {
+      if (out.length === n) break;
+      if (!seen.has(value.toLowerCase())) { seen.add(value.toLowerCase()); out.push(value); }
+    }
+    return out;
+  },
+  /* "I [get up] at seven." -> q "I ___ at seven.", answer "get up" ("so … that" for two gaps). */
+  gap(en) {
+    const parts = [...en.matchAll(/\[([^\]]+)\]/g)].map(match => match[1]);
+    return { q: en.replace(/\[[^\]]+\]/g, '___'), answer: parts.join(' … '), count: parts.length };
+  },
+  /* An option starts with a capital when the answer does: "Although" -> "Even though". */
+  sameCase(value, answer) {
+    if (/^[A-Z]/.test(answer)) return value[0].toUpperCase() + value.slice(1);
+    return /^[A-Z][a-z]/.test(value) ? value[0].toLowerCase() + value.slice(1) : value;
+  },
+  gapItem([en, tr], others, why) {
+    const { q, answer } = this.gap(en);
+    const options = [answer, ...this.pick(others.map(other => this.sameCase(other, answer)), 3, answer)];
+    return { q, tr, options, answer, why, hint: t('grammar.gapHint') };
+  },
+  /* Wrong answers come from units whose meaning shares no word with this one (so they are
+     really wrong); in topics whose lessons group synonyms, from other lessons only. */
+  distractors(unit) {
+    const words = meaning => meaning.toLowerCase().replace(/\(.*?\)/g, ' ').split(/[\s,/…=+]+/).map(word => word.replace(/^-/, '')).filter(word => word.length > 2);
+    const mine = new Set(words(unit.meaning));
+    const term = this.gap(unit.examples[0][0]).answer.toLowerCase();
+    return this.topic.units.filter(other => other !== unit && this.topic.lessons[other.lesson].mode === 'items'
+      && !(this.topic.lessonsGroupSynonyms && other.lesson === unit.lesson)
+      && this.gap(other.examples[0][0]).answer.toLowerCase() !== term
+      && !words(other.meaning).some(word => mine.has(word)));
+  },
+  term(unit) { return /[+/]/.test(unit.title) ? this.gap(unit.examples[0][0]).answer.toLowerCase() : unit.title; },
+  itemQuiz(unit) {
+    const others = this.distractors(unit);
+    const why = this.term(unit) + ' = ' + unit.meaning;
+    const [book1, book2] = shuffle(unit.book.slice());
+    const own = unit.examples[0];
+    const first = book1 || own;
+    const sameGaps = example => others.map(other => this.gap(other.examples[0][0])).filter(g => g.count === this.gap(example[0]).count).map(g => g.answer);
+    const reverse = { q: unit.meaning, lang: 'tr', options: [this.term(unit), ...this.pick(others.map(other => this.term(other)), 3, this.term(unit))],
+      answer: this.term(unit), why: this.spoken(own[0]), hint: t('grammar.reverseHint') };
+    const items = [
+      { q: first[0], options: [unit.meaning, ...this.pick(others.map(other => other.meaning), 3, unit.meaning)], answer: unit.meaning,
+        why: first[1], hint: t('grammar.meaningHint', { term: this.term(unit) }), trOptions: true },
+      this.gapItem(own, sameGaps(own), why),
+      book2 ? this.gapItem(book2, sameGaps(book2), why) : reverse
+    ];
+    /* A gap with too few look-alike answers (three gaps in one sentence) is asked the other way round. */
+    return items.map(item => item.options.length >= 3 ? item : reverse);
+  },
+  /* Verbs: which of the verb's meanings a sentence uses. */
+  senseQuiz(unit) {
+    const sentences = shuffle(unit.book.map(([en, tr, , , label]) => ({ en, tr, label })))
+      .concat(shuffle(unit.examples.map(([en, tr, label]) => ({ en, tr, label }))));
+    const labels = [...new Set(unit.examples.map(example => example[2]))];
+    const chosen = [];
+    for (const sentence of sentences) if (chosen.length < 3 && !chosen.some(c => c.label === sentence.label)) chosen.push(sentence);
+    return chosen.map(({ en, tr, label }) => ({ q: en, options: [label, ...this.pick(labels, 3, label)], answer: label, why: tr,
+      hint: t('grammar.senseHint', { verb: unit.title.toLowerCase() }), trOptions: true }));
+  },
+  /* A lesson taught as one unit: fill the gaps of three of its sentences. */
+  gapQuiz(unit) {
+    const sentences = unit.examples.concat(unit.book).filter(example => example[0].includes('['));
+    return shuffle(sentences.slice()).slice(0, 3).map(example => {
+      const count = this.gap(example[0]).count;
+      const others = sentences.map(other => this.gap(other[0])).filter(g => g.count === count).map(g => g.answer);
+      return this.gapItem(example, others, this.spoken(example[0]));
+    });
+  },
+  unitResult() {
+    const run = this.run;
+    const units = this.topic.units;
+    const total = run.items.length;
+    const passed = run.score >= Math.ceil(total * 2 / 3);
+    if (passed && !this.learned[run.unit.id]) { this.learned[run.unit.id] = 1; this.save(); }
+    const next = this.unit + 1 < units.length ? this.unit + 1 : null;
+    for (const item of $$('#gram-unit .gram-steps li')) { item.className = 'is-done'; item.removeAttribute('aria-current'); }
+    run.box.replaceChildren(h('div', { class: 'gram-card gram-done' },
+      h('p', { class: 'gram-score', text: run.score + ' / ' + total }),
+      h('p', { text: t(!passed ? 'grammar.unitFailed' : next == null ? 'grammar.topicDone' : 'grammar.unitPassed') }),
+      h('div', { class: 'gram-actions' },
+        passed ? h('a', { class: 'button', href: '#grammar/' + this.topic.id, text: t('grammar.path') })
+          : h('button', { type: 'button', class: 'button', 'data-step': 1, text: t('grammar.reread') }),
+        passed && next != null ? h('a', { class: 'button primary', href: '#grammar/' + this.topic.id + '/' + next }, h('span', { text: t('grammar.nextUnit') }), icon('next')) : null,
+        passed ? null : h('button', { type: 'button', class: 'button primary', 'data-step': 3, text: t('grammar.retry') }))));
+    this.run = null;
+  },
+  /* ---- Review: the topic's exercise sets */
   renderSets() {
     this.run = null;
     $('#gram-practice').replaceChildren(h('div', { class: 'gram-sets' }, this.topic.sets.map(set => {
@@ -4441,30 +4762,31 @@ const Grammar = {
   start(id) {
     const set = this.topic.sets.find(s => s.id === id);
     if (!set) return;
-    this.run = { set, items: shuffle(set.items.slice()), at: 0, score: 0, answered: false };
+    this.run = { box: $('#gram-practice'), set, items: shuffle(set.items.slice()), at: 0, score: 0, answered: false };
     this.renderQuestion();
   },
   renderQuestion() {
     const run = this.run;
     const item = run.items[run.at];
-    const write = run.set.type === 'write';
-    const question = h('p', { class: 'gram-q', lang: 'en' });
-    const parts = item.q.split('___');
-    question.append(parts[0]);
-    if (parts.length > 1) question.append(h('span', { class: 'gap', text: '…' }), parts[1]);
+    const write = (item.type || run.set.type) === 'write';
+    const trOptions = item.trOptions ?? run.set.trOptions;
+    const question = h('p', { class: 'gram-q', lang: item.lang || 'en' });
+    if (item.q.includes('[')) question.append(this.marked(item.q, true));
+    else item.q.split('___').forEach((part, index) => { if (index) question.append(h('span', { class: 'gap', text: '…' })); question.append(part); });
     const card = h('div', { class: 'gram-card' },
       h('div', { class: 'gram-card-top' }, h('span', { text: (run.at + 1) + ' / ' + run.items.length }),
         h('span', { class: 'gram-bar' }, h('span', { style: 'width:' + Math.round(run.at / run.items.length * 100) + '%' })),
-        h('button', { type: 'button', class: 'link-button', 'data-act': 'sets', text: t('grammar.allSets') })),
-      h('p', { class: 'gram-hint', text: run.set.hint }),
-      question,
+        run.unit ? null : h('button', { type: 'button', class: 'link-button', 'data-act': 'sets', text: t('grammar.allSets') })),
+      h('p', { class: 'gram-hint', text: item.hint || run.set.hint }),
+      item.q ? question : null,
+      item.tr ? h('p', { class: 'gram-q-tr', lang: 'tr', text: item.tr }) : null,
       write
-        ? h('textarea', { class: 'gram-write-input', id: 'gram-answer', lang: 'en', rows: 3, spellcheck: 'false', placeholder: t('grammar.writePh') })
+        ? h('textarea', { class: 'gram-write-input', lang: 'en', rows: 3, spellcheck: 'false', placeholder: t('grammar.writePh'), 'aria-label': t('grammar.writePh') })
         : h('div', { class: 'gram-options' }, shuffle(item.options.slice()).map(option =>
-          h('button', { type: 'button', class: 'gram-option' + (option.length > 25 && !run.set.trOptions ? ' is-long' : ''), 'data-option': option, lang: option === '–' ? null : run.set.trOptions ? 'tr' : 'en', text: option === '–' ? t('grammar.none') : option }))),
+          h('button', { type: 'button', class: 'gram-option' + (option.length > 25 && !trOptions ? ' is-long' : ''), 'data-option': option, lang: option === '–' ? null : trOptions ? 'tr' : 'en', text: option === '–' ? t('grammar.none') : option }))),
       h('div', { class: 'gram-feedback-slot' }),
       h('div', { class: 'gram-actions' }, write ? h('button', { type: 'button', class: 'button primary', 'data-act': 'check', text: t('grammar.check') }) : null));
-    $('#gram-practice').replaceChildren(card);
+    run.box.replaceChildren(card);
     run.answered = false;
   },
   /* Answers compared without case, punctuation and extra spaces; "that is" = "that's". */
@@ -4475,35 +4797,39 @@ const Grammar = {
     const run = this.run;
     if (!run || run.answered) return;
     const item = run.items[run.at];
-    const write = run.set.type === 'write';
+    const write = (item.type || run.set.type) === 'write';
     const right = write ? item.answers.some(a => this.normal(a) === this.normal(choice)) : choice === item.answer;
     run.answered = true;
     if (right) run.score++;
+    const fills = write || item.answer === '–' ? [''] : item.answer.split(' … ');
     if (!write) {
-      for (const button of $$('#gram-practice .gram-option')) {
+      for (const button of run.box.querySelectorAll('.gram-option')) {
         button.disabled = true;
         if (button.dataset.option === item.answer) button.classList.add('is-right');
         else if (button.dataset.option === choice) button.classList.add('is-wrong');
       }
-      const gap = $('#gram-practice .gap');
-      if (gap) gap.textContent = item.answer === '–' ? '∅' : item.answer;
-    } else $('#gram-answer').readOnly = true;
-    const model = write ? item.answers[0] : (item.q.includes('___') ? item.q.replace('___', item.answer === '–' ? '' : item.answer).replace(/\s+/g, ' ') : null);
-    $('#gram-practice .gram-feedback-slot').replaceChildren(h('div', { class: 'gram-feedback ' + (right ? 'is-right' : 'is-wrong') },
-      h('p', { text: t(right ? 'grammar.right' : 'grammar.wrong') }),
+      run.box.querySelectorAll('.gap').forEach((gap, index) => { gap.textContent = item.answer === '–' ? '∅' : fills[Math.min(index, fills.length - 1)]; });
+    } else run.box.querySelector('.gram-write-input').readOnly = true;
+    let gapIndex = 0;
+    const model = write ? item.answers[0]
+      : item.q.includes('___') ? item.q.replace(/___/g, () => fills[Math.min(gapIndex++, fills.length - 1)]).replace(/\s+/g, ' ')
+      : item.q.includes('[') ? item.q.replace(/[[\]]/g, '') : null;
+    run.box.querySelector('.gram-feedback-slot').replaceChildren(h('div', { class: 'gram-feedback ' + (right ? 'is-right' : 'is-wrong') },
+      h('p', { text: right ? t('grammar.right') : item.q.includes('___') || write ? t('grammar.wrong') : t('grammar.wrongIs', { answer: item.answer }) }),
       model ? h('p', { class: 'gram-model', lang: 'en', text: model }) : null,
-      h('p', { class: 'gram-why', lang: 'tr', text: item.why })));
+      h('p', { class: 'gram-why', lang: item.lang === 'tr' ? 'en' : 'tr', text: item.why })));
     const last = run.at === run.items.length - 1;
-    $('#gram-practice .gram-actions').replaceChildren(
+    run.box.querySelector('.gram-actions').replaceChildren(
       model ? h('button', { type: 'button', class: 'button', 'data-say': model }, icon('sound'), h('span', { text: t('tutor.listen') })) : null,
       h('button', { type: 'button', class: 'button primary', 'data-act': 'next', text: t(last ? 'grammar.finish' : 'grammar.next') }));
   },
   finish() {
     const run = this.run;
+    if (run.unit) { this.unitResult(); return; }
     const total = run.items.length;
     if (this.best[run.set.id] == null || run.score > this.best[run.set.id]) this.best[run.set.id] = run.score;
-    Store.write(this.KEY, JSON.stringify({ best: this.best }));
-    $('#gram-practice').replaceChildren(h('div', { class: 'gram-card gram-done' },
+    this.save();
+    run.box.replaceChildren(h('div', { class: 'gram-card gram-done' },
       h('p', { class: 'gram-score', text: run.score + ' / ' + total }),
       h('p', { text: t(run.score === total ? 'grammar.perfect' : run.score >= total * 0.7 ? 'grammar.good' : 'grammar.again') }),
       h('div', { class: 'gram-actions' },
@@ -4511,15 +4837,18 @@ const Grammar = {
         h('button', { type: 'button', class: 'button primary', 'data-set': run.set.id, text: t('grammar.retry') }))));
     this.run = null;
   },
+  quizClick(target) {
+    if (target.dataset.option) this.answer(target.dataset.option);
+    else if (target.dataset.say) this.say(target.dataset.say);
+    else if (target.dataset.act === 'check') { const value = this.run.box.querySelector('.gram-write-input').value.trim(); if (value) this.answer(value); }
+    else if (target.dataset.act === 'next') { if (this.run.at === this.run.items.length - 1) this.finish(); else { this.run.at++; this.renderQuestion(); } }
+  },
   practiceClick(event) {
     const target = event.target.closest('button');
     if (!target) return;
     if (target.dataset.set) this.start(target.dataset.set);
-    else if (target.dataset.option) this.answer(target.dataset.option);
-    else if (target.dataset.say) this.say(target.dataset.say);
-    else if (target.dataset.act === 'check') { const value = $('#gram-answer').value.trim(); if (value) this.answer(value); }
-    else if (target.dataset.act === 'next') { if (this.run.at === this.run.items.length - 1) this.finish(); else { this.run.at++; this.renderQuestion(); } }
     else if (target.dataset.act === 'sets') this.renderSets();
+    else this.quizClick(target);
   },
   /* ---- Relative clauses in the novel the learner is reading */
   async renderNovel() {

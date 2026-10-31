@@ -16,7 +16,8 @@
         ["I [got] a cold last week.", "Geçen hafta soğuk algınlığına yakalandım.", "(hastalığa) yakalanmak"],
         ["They [got] married in June.", "Haziranda evlendiler.", "get married = evlenmek"],
         ["I need to [get] my hair cut.", "Saçımı kestirmem lazım.", "get + şey + V3 = yaptırmak"]
-      ]
+      ],
+      "quiz": "sense"
     },
     {
       "title": "TAKE",
@@ -32,7 +33,8 @@
         ["She [took] an English exam yesterday.", "Dün bir İngilizce sınavına girdi.", "(sınava) girmek"],
         ["Someone [took] my wallet!", "Biri cüzdanımı aldı (çaldı)!", "alıp götürmek, çalmak"],
         ["It [takes] courage to say no.", "Hayır demek cesaret ister.", "gerektirmek"]
-      ]
+      ],
+      "quiz": "sense"
     },
     {
       "title": "MAKE",
@@ -48,7 +50,8 @@
         ["Two and two [make] four.", "İki iki daha dört eder.", "etmek (toplam)"],
         ["Did you [make] the train?", "Trene yetişebildin mi?", "yetişmek (konuşma dili)"],
         ["I'll [make] a phone call.", "Bir telefon edeceğim.", "make a call / a plan / friends"]
-      ]
+      ],
+      "quiz": "sense"
     },
     {
       "title": "DO",
@@ -63,7 +66,8 @@
         ["Ten euros will [do].", "On avro yeter.", "yetmek, iş görmek"],
         ["I [do] like this song!", "Bu şarkıyı gerçekten seviyorum!", "vurgu: gerçekten"],
         ["This medicine will [do] you good.", "Bu ilaç sana iyi gelecek.", "do good / harm = iyi gelmek / zarar vermek"]
-      ]
+      ],
+      "quiz": "sense"
     },
     {
       "title": "Make mi, do mu?",
@@ -77,7 +81,10 @@
         ["The storm [did] a lot of damage.", "Fırtına büyük hasar verdi.", "do damage"],
         ["You are [making] good progress.", "İyi ilerleme kaydediyorsun.", "make progress"],
         ["I [do] exercise three times a week.", "Haftada üç kez egzersiz yaparım.", "do exercise"]
-      ]
+      ],
+      "quiz": {
+        "set": "vb-makedo"
+      }
     },
     {
       "title": "SET",
@@ -93,7 +100,8 @@
         ["He [set] a new world record.", "Yeni bir dünya rekoru kırdı.", "set a record = rekor kırmak"],
         ["They [set] the prisoner free.", "Mahkûmu serbest bıraktılar.", "set free = serbest bırakmak"],
         ["The house was [set] on fire.", "Ev ateşe verildi.", "set on fire = ateşe vermek"]
-      ]
+      ],
+      "quiz": "sense"
     },
     {
       "title": "PUT",
@@ -107,7 +115,8 @@
         ["[Put] your name at the top of the page.", "Adını sayfanın en üstüne yaz.", "yazmak"],
         ["I [put] a lot of time into this project.", "Bu projeye çok zaman harcadım.", "put into = (emek, zaman) harcamak"],
         ["The news [put] her in a good mood.", "Haber onu neşelendirdi.", "put in a mood = bir ruh haline sokmak"]
-      ]
+      ],
+      "quiz": "sense"
     },
     {
       "title": "GO",
@@ -123,7 +132,8 @@
         ["Does this red tie [go] with my shirt?", "Bu kırmızı kravat gömleğime uyar mı?", "go with = uymak, yakışmak"],
         ["The dog [goes] \"woof\".", "Köpek \"hav\" der.", "(ses) çıkarmak, demek"],
         ["Where do the cups [go]?", "Fincanlar nereye konuyor?", "(bir yere) ait olmak, konmak"]
-      ]
+      ],
+      "quiz": "sense"
     },
     {
       "title": "COME",
@@ -138,7 +148,8 @@
         ["The door [came] open.", "Kapı açıldı.", "come + sıfat = hale gelmek: come open / loose"],
         ["I'm [coming]!", "Geliyorum!", "(karşıdakine doğru) gelmek"],
         ["Christmas [comes] once a year.", "Noel yılda bir gelir.", "(zaman, olay) gelmek"]
-      ]
+      ],
+      "quiz": "sense"
     },
     {
       "title": "TURN",
@@ -152,7 +163,8 @@
         ["The frog [turned] into a prince.", "Kurbağa bir prense dönüştü.", "turn into = dönüşmek"],
         ["My son [turns] ten next week.", "Oğlum gelecek hafta on yaşına giriyor.", "(yaşa) girmek"],
         ["It's your [turn].", "Sıra sende.", "isim: sıra"]
-      ]
+      ],
+      "quiz": "sense"
     },
     {
       "title": "RUN",
@@ -167,7 +179,8 @@
         ["The film [runs] for two hours.", "Film iki saat sürüyor.", "sürmek, devam etmek"],
         ["He is [running] for president.", "Başkanlığa aday.", "run for = aday olmak"],
         ["This app [runs] on any phone.", "Bu uygulama her telefonda çalışır.", "(program) çalışmak"]
-      ]
+      ],
+      "quiz": "sense"
     },
     {
       "title": "BREAK",
@@ -182,7 +195,8 @@
         ["She [broke] the news to her parents.", "Haberi ailesine verdi (açıkladı).", "break the news = (kötü) haberi vermek"],
         ["Can you [break] a 50-lira note?", "50 liralık bozabilir misin?", "(para) bozmak"],
         ["He [broke] the world record.", "Dünya rekorunu kırdı.", "break a record = rekor kırmak"]
-      ]
+      ],
+      "quiz": "sense"
     },
     {
       "title": "HOLD",
@@ -196,7 +210,8 @@
         ["Can you [hold] the door for me?", "Kapıyı benim için tutar mısın?", "(açık) tutmak"],
         ["He [holds] the world record.", "Dünya rekoru onda.", "(unvan, rekor) sahibi olmak"],
         ["[Hold] your breath.", "Nefesini tut.", "hold your breath = nefesini tutmak"]
-      ]
+      ],
+      "quiz": "sense"
     },
     {
       "title": "KEEP",
@@ -211,7 +226,8 @@
         ["Sorry to [keep] you waiting.", "Seni beklettiğim için üzgünüm.", "keep someone waiting = bekletmek"],
         ["Where do you [keep] the sugar?", "Şekeri nerede saklıyorsun?", "(bir yerde) saklamak, bulundurmak"],
         ["Milk doesn't [keep] long in summer.", "Süt yazın uzun dayanmaz.", "(bozulmadan) dayanmak"]
-      ]
+      ],
+      "quiz": "sense"
     },
     {
       "title": "CARRY",
@@ -224,7 +240,8 @@
         ["Does this shop [carry] English books?", "Bu dükkânda İngilizce kitap var mı?", "(ürün) satmak, bulundurmak"],
         ["Her voice [carried] across the room.", "Sesi odanın öbür ucuna kadar ulaştı.", "(ses) ulaşmak, yayılmak"],
         ["[Carry] on, please.", "Devam et, lütfen.", "carry on = devam etmek"]
-      ]
+      ],
+      "quiz": "sense"
     },
     {
       "title": "BRING",
@@ -237,7 +254,8 @@
         ["The song [brought] tears to my eyes.", "Şarkı gözlerimi yaşarttı.", "bring tears = gözleri yaşartmak"],
         ["What [brings] you here?", "Seni buraya hangi rüzgâr attı?", "buraya getirmek (neden)"],
         ["I couldn't [bring] myself to tell her.", "Ona söylemeye bir türlü cesaret edemedim.", "bring oneself to = (zor bir şeyi) yapmaya kendini ikna etmek"]
-      ]
+      ],
+      "quiz": "sense"
     }
   ],
   "sets": [
