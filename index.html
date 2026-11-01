@@ -848,9 +848,6 @@ body.novel-focus .site-footer { display: none; }
 .novel-tr-note { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; margin: 0 0 1.2em; padding: .6em .8em; border-radius: 10px; background: var(--paper-tr-bg); color: var(--paper-tr); font: .8em/1.45 var(--font); }
 .novel-tr[hidden] { display: none; }
 .novel-image { display: block; width: 100%; height: auto; margin: 0 auto; border-radius: 4px; background: #fff; }
-.novel-turn { display: flex; align-items: center; justify-content: center; gap: 6px; width: min(100%, 36em); margin: 0 auto var(--space-4); min-height: 52px; border: 1px solid var(--paper-line); border-radius: var(--radius); background: transparent; color: inherit; font: inherit; font-weight: 600; cursor: pointer; }
-.novel-turn[hidden] { display: none; }
-.novel-turn .icon { width: 20px; height: 20px; }
 
 /* Bottom bar */
 .novel-dock { position: fixed; left: 0; right: 0; bottom: 0; z-index: 40; background: var(--paper-bg); border-top: 1px solid var(--paper-line); padding-bottom: env(safe-area-inset-bottom); color: var(--paper-text); }
@@ -4063,7 +4060,6 @@ body.novel-focus .novel-pop-sentence i { color: var(--paper-text); }
         </form>
       </div>
       <article class="novel-text" id="novel-text" lang="en"></article>
-      <button type="button" class="novel-turn" id="novel-next2"><span data-i18n="novel.nextText">Sonraki sayfa</span><svg class="icon" aria-hidden="true"><use href="#i-next"/></svg></button>
       <div class="novel-dock">
         <div class="novel-progress" aria-hidden="true"><span id="novel-progress-bar"></span></div>
         <div class="novel-dock-row">
@@ -4710,7 +4706,7 @@ const STRINGS = {
     'novel.choose': 'Choose another PDF', 'novel.hint': 'The book is read on this device only; it is not uploaded anywhere. After the first time it opens straight from this browser.',
     'novel.loading': 'Reading the PDF…', 'novel.progress': 'Reading page {i} of {n}…', 'novel.ready': 'Ready: {n} pages. The book is saved in this browser.',
     'novel.readyNoStore': 'Ready: {n} pages. This browser could not save the book, so choose the file again next time.', 'novel.error': 'This file could not be read as a PDF.',
-    'novel.prev': 'Previous page', 'novel.next': 'Next page', 'novel.prevText': '‹ Previous', 'novel.nextText': 'Next page', 'novel.page': 'Page', 'novel.library': 'Books', 'novel.settings': 'Reading settings', 'novel.trPage': 'Turkish sentence by sentence',
+    'novel.prev': 'Previous page', 'novel.next': 'Next page', 'novel.prevText': '‹ Previous', 'novel.page': 'Page', 'novel.library': 'Books', 'novel.settings': 'Reading settings', 'novel.trPage': 'Turkish sentence by sentence',
     'novel.trOn': 'Each sentence gets its Turkish under it (Google Translate, needs internet). Translated pages also open offline.',
     'novel.trOffline': 'No internet: sentences not translated yet are hidden.', 'novel.trBusy': 'The translation service is not answering right now (maybe too many requests). Try again in a little while.', 'novel.trLoading': 'Translating…',
     'novel.textSize': 'Text size', 'novel.paper': 'Page colour', 'novel.paperLight': 'Light', 'novel.paperSepia': 'Sepia', 'novel.paperDark': 'Dark',
@@ -4921,7 +4917,7 @@ const STRINGS = {
     'novel.choose': 'Başka PDF seç', 'novel.hint': 'Kitap yalnızca bu cihazda okunur, hiçbir yere yüklenmez. İlk açılıştan sonra doğrudan bu tarayıcıdan açılır.',
     'novel.loading': 'PDF okunuyor…', 'novel.progress': 'Sayfa {i} / {n} okunuyor…', 'novel.ready': 'Hazır: {n} sayfa. Kitap bu tarayıcıya kaydedildi.',
     'novel.readyNoStore': 'Hazır: {n} sayfa. Bu tarayıcı kitabı kaydedemedi; bir dahaki sefere dosyayı yeniden seç.', 'novel.error': 'Bu dosya PDF olarak okunamadı.',
-    'novel.prev': 'Önceki sayfa', 'novel.next': 'Sonraki sayfa', 'novel.prevText': '‹ Önceki', 'novel.nextText': 'Sonraki sayfa', 'novel.page': 'Sayfa', 'novel.library': 'Kitaplar', 'novel.settings': 'Okuma ayarları', 'novel.trPage': 'Cümle cümle Türkçe',
+    'novel.prev': 'Önceki sayfa', 'novel.next': 'Sonraki sayfa', 'novel.prevText': '‹ Önceki', 'novel.page': 'Sayfa', 'novel.library': 'Kitaplar', 'novel.settings': 'Okuma ayarları', 'novel.trPage': 'Cümle cümle Türkçe',
     'novel.trOn': 'Her cümlenin altında Türkçesi görünür (Google Çeviri, internet gerekir). Çevrilen sayfalar internetsiz de açılır.',
     'novel.trOffline': 'İnternet yok: henüz çevrilmemiş cümlelerin Türkçesi gösterilemiyor.', 'novel.trBusy': 'Çeviri servisi şu an cevap vermiyor (çok fazla istek olabilir). Biraz sonra tekrar dene.', 'novel.trLoading': 'Çevriliyor…',
     'novel.textSize': 'Yazı boyutu', 'novel.paper': 'Sayfa rengi', 'novel.paperLight': 'Açık', 'novel.paperSepia': 'Sepya', 'novel.paperDark': 'Koyu',
@@ -5874,7 +5870,7 @@ const Novel = {
       event.target.value = '';
       if (file) this.openFile(file);
     });
-    for (const [id, step] of [['#novel-prev', -1], ['#novel-next', 1], ['#novel-next2', 1]]) {
+    for (const [id, step] of [['#novel-prev', -1], ['#novel-next', 1]]) {
       $(id).addEventListener('click', () => this.go(this.page + step, true));
     }
     $('#novel-page').addEventListener('change', event => this.go((parseInt(event.target.value, 10) || 1) - 1, true));
@@ -6412,7 +6408,6 @@ const Novel = {
     $('#novel-page').value = this.page + 1;
     $('#novel-prev').disabled = this.page === 0;
     $('#novel-next').disabled = this.page === total - 1;
-    $('#novel-next2').hidden = this.page === total - 1;
     $('#novel-progress-bar').style.width = ((this.page + 1) / total * 100) + '%';
     $('#novel-book-place').textContent = this.textless ? t('novel.scanned') : this.chapters[this.page];
     const paragraphs = this.book.pages[this.page];
@@ -10086,7 +10081,7 @@ const MODULES = { home: Home, review: Review, practice: Games, rankings: Ranking
    The page asks for version.json, never from the cache, when it opens and
    whenever it comes back to the screen, and offers to load the new build. */
 const Updater = {
-  build: '41e1fdfe4e40',
+  build: 'd65c98d3ec86',
   checked: 0,
   init() {
     if (!/^https?:$/.test(location.protocol) || this.build.length !== 12) return;
