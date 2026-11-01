@@ -1496,6 +1496,48 @@ body.novel-focus .novel-pop-sentence i { color: var(--paper-text); }
   .ai-tr { padding-top: 0 !important; background: transparent; }
   .ai-row.is-prompt .ai-tr { background: transparent; }
 }
+
+.pron-sheet { z-index: 70; }
+.pron-box { max-height: 88dvh; overflow-y: auto; }
+.pron-head { display: flex; align-items: center; justify-content: space-between; gap: var(--space-2); margin-bottom: var(--space-2); }
+.pron-head h2 { margin: 0; font: 800 1.1rem/1.2 var(--font-display); color: var(--text); }
+@media (min-width: 768px) { .pron-sheet { align-items: center; justify-content: center; } .pron-box { width: min(560px, 92vw); border-radius: 22px; padding: var(--space-4) var(--space-5) var(--space-5); } }
+.pron-panel { display: grid; gap: var(--space-3); }
+.pron-text { margin: 0; font: 700 1.3rem/1.5 var(--font-display); overflow-wrap: anywhere; }
+.pron-tr { margin: -6px 0 0; color: var(--muted); font-size: .92rem; }
+.pron-word { border-radius: 5px; transition: background .2s; }
+.pron-word.is-ok { color: var(--accent-text); background: var(--primary-soft); }
+.pron-word.is-near { color: var(--warn); background: var(--warn-soft); }
+.pron-word.is-miss { color: var(--error); background: var(--error-soft); text-decoration: underline wavy 1.5px; text-underline-offset: 3px; }
+.pron-word.is-name { color: var(--muted); }
+.pron-preview { display: block; font-style: normal; line-height: 1.6; }
+.pron-preview b { font-weight: 700; }
+.pron-actions { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-2); }
+.pron-actions > :only-child { grid-column: 1 / -1; }
+.pron-mic.is-listening { background: var(--error); border-color: var(--error); color: #fff; animation: pron-pulse 1.2s ease-in-out infinite; }
+@keyframes pron-pulse { 50% { opacity: .75; } }
+@media (prefers-reduced-motion: reduce) { .pron-mic.is-listening { animation: none; } }
+.pron-live { margin: 0; color: var(--muted); font-style: italic; }
+.pron-result { display: grid; gap: var(--space-2); }
+.pron-result:empty { display: none; }
+.pron-score { display: flex; align-items: center; gap: var(--space-3); padding: 10px var(--space-3); border-radius: 14px; background: var(--surface-2); }
+.pron-score strong { flex: none; font: 800 1.6rem/1 var(--font-display); }
+.pron-score.is-high { background: var(--primary-soft); } .pron-score.is-high strong { color: var(--accent-text); }
+.pron-score.is-mid { background: var(--warn-soft); } .pron-score.is-mid strong { color: var(--warn); }
+.pron-score.is-low { background: var(--error-soft); } .pron-score.is-low strong { color: var(--error); }
+.pron-heard { margin: 0; font-size: .92rem; overflow-wrap: anywhere; }
+.pron-issues { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
+.pron-issues li { display: flex; align-items: center; gap: var(--space-2); flex-wrap: wrap; color: var(--muted); font-size: .88rem; }
+.pron-issue-word { display: inline-flex; align-items: center; gap: 6px; min-height: 36px; padding: 2px 10px; border: 1px solid var(--line); border-radius: 999px; background: transparent; color: var(--text); font: 700 .92rem/1.2 var(--font); cursor: pointer; }
+.pron-issue-word .icon { width: 15px; height: 15px; color: var(--secondary); }
+.is-miss > .pron-issue-word { border-color: var(--error); } .is-near > .pron-issue-word { border-color: var(--warn); }
+.pron-problem { margin: 0; padding: 10px var(--space-3); border-radius: 12px; background: var(--warn-soft); color: var(--warn); font-size: .92rem; }
+.pron-note { margin: 0; color: var(--muted); font-size: .78rem; }
+.pron-next { width: 100%; margin-top: var(--space-3); }
+.novel-pop-read { grid-column: 1 / -1; }
+.ai-pron { display: grid; place-items: center; flex: none; width: 26px; height: 26px; margin-top: 1px; padding: 0; border: 0; border-radius: 50%; background: var(--secondary-soft); color: var(--secondary); cursor: pointer; }
+.ai-pron .icon { width: 14px; height: 14px; }
+.tutor-tools .tutor-pron { border: 0; padding: 6px 0; min-height: 0; color: var(--muted); font: 600 .85rem/1.2 var(--font); }
 </style>
 </head>
 <body>
@@ -1590,6 +1632,16 @@ body.novel-focus .novel-pop-sentence i { color: var(--paper-text); }
     <a href="#speak" data-route="speak"><svg class="icon" aria-hidden="true"><use href="#i-mic"/></svg><span data-i18n="nav.speak">Speaking</span></a>
     <a href="#rankings" data-route="rankings"><svg class="icon" aria-hidden="true"><use href="#i-chart"/></svg><span data-i18n="nav.rankings">Rankings</span></a>
 </nav>
+<div class="more-sheet pron-sheet" id="pron-sheet" hidden>
+  <div class="more-backdrop" data-close></div>
+  <div class="more-panel pron-box" role="dialog" aria-modal="true" aria-labelledby="pron-title">
+    <div class="pron-head">
+      <h2 id="pron-title" data-i18n="pron.title">Pronunciation check</h2>
+      <button type="button" class="icon-button" data-close aria-label="Close" data-i18n-aria="novel.close"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
+    </div>
+    <div id="pron-body"></div>
+  </div>
+</div>
 <div class="more-sheet" id="more-sheet" hidden>
   <div class="more-backdrop" data-close></div>
   <div class="more-panel" role="dialog" aria-modal="true" aria-labelledby="more-title">
@@ -1953,6 +2005,7 @@ body.novel-focus .novel-pop-sentence i { color: var(--paper-text); }
       <div class="novel-pop-actions">
         <button type="button" class="button primary novel-pop-save" id="novel-pop-save" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="#i-cards"/></svg><span id="novel-pop-save-label">Add to deck</span></button>
         <button type="button" class="button" id="novel-pop-say"><svg class="icon" aria-hidden="true"><use href="#i-sound"/></svg><span data-i18n="novel.sayLine">Listen to the sentence</span></button>
+        <button type="button" class="button novel-pop-read" id="novel-pop-read"><svg class="icon" aria-hidden="true"><use href="#i-mic"/></svg><span data-i18n="pron.readLine">Read it aloud and check</span></button>
       </div>
     </div>
   </section>
@@ -2410,6 +2463,7 @@ const STRINGS = {
     'story.notFound': 'That part of the story has changed; check again.',
     'home.writeTag': 'Writing', 'home.writeTitle': 'Write a story', 'home.writeGo': 'Write', 'home.writeNote': '{n} stories · Ms. Emma checks the grammar', 'home.writeEmpty': 'Write in English; Ms. Emma checks the grammar.',
     'deck.novel': 'My words from the novel', 'deck.novelTag': 'Novel & teacher', 'deck.wordsN': '{n} words', 'deck.novelNote': 'Words you added from the novel and the teacher, with their sentences.', 'deck.novelEmpty': 'Tap a word in your novel and choose “Add to deck”; it will appear here.', 'deck.seeList': 'See the list', 'deck.novelListNote': '{n} words, with the sentence each came from.', 'deck.dueNow': 'due today', 'deck.dueIn': 'in {n} d', 'deck.remove': 'Remove “{w}” from the deck',
+    'pron.title': 'Pronunciation check', 'pron.read': 'Read', 'pron.again': 'Read again', 'pron.try': 'Read it aloud and check', 'pron.readLine': 'Read it aloud and check', 'pron.listening': 'Listening… read the sentence', 'pron.heard': 'Heard:', 'pron.heardAs': 'heard “{w}”', 'pron.missed': 'not heard', 'pron.great': 'Great, every word was clear.', 'pron.good': 'Good. Listen to the coloured words and try again.', 'pron.retry': 'Listen once more, then read it slowly.', 'pron.note': 'The site compares the words it heard. It does not measure stress or intonation, and names in a sentence do not count.', 'pron.noSpeech': 'I didn\'t hear anything. Tap Read and try again.', 'pron.noRecognition': 'This browser cannot turn speech into text. Use Chrome, Edge or Safari.', 'pron.noReply': 'Start the lesson first; then you can read the teacher\'s answer aloud.', 'game.pron': 'Pronunciation', 'game.pronText': 'Read sentences aloud: words that were heard turn green, the others red.', 'game.bestPron': 'Best: {n}%', 'game.resultPron': 'Average: {p}%', 'game.skip': 'Skip',
     'home.eyebrow': 'Daily goal', 'home.titleReview': 'Time to review! ✨', 'home.titleMorning': 'Good morning! ☀️', 'home.titleDay': 'Let’s learn! ✨', 'home.titleEvening': 'Good evening! 🌙',
     'home.goalChip': '{p}% done', 'home.goalStart': 'Let’s get started!', 'home.goalGoing': 'You’re doing great!', 'home.goalDone': 'Goal reached! 🎉',
     'home.goalLeft': 'Only {n} cards to your goal. Keep the rhythm!', 'home.goalDoneNote': 'Anything more today is a bonus.',
@@ -2620,6 +2674,7 @@ const STRINGS = {
     'story.notFound': 'Hikâyenin o kısmı değişmiş; tekrar denetle.',
     'home.writeTag': 'Yazma', 'home.writeTitle': 'Hikâye yaz', 'home.writeGo': 'Yaz', 'home.writeNote': '{n} hikâye · dilbilgisini Ms. Emma denetler', 'home.writeEmpty': 'İngilizce yaz; dilbilgisini Ms. Emma denetlesin.',
     'deck.novel': 'Romandan kelimelerim', 'deck.novelTag': 'Roman ve hoca', 'deck.wordsN': '{n} kelime', 'deck.novelNote': 'Romandan ve hocadan eklediğin kelimeler, cümleleriyle birlikte.', 'deck.novelEmpty': 'Romanda bir kelimeye dokunup “Desteye ekle” de; burada görünür.', 'deck.seeList': 'Listeyi gör', 'deck.novelListNote': '{n} kelime, geldiği cümleyle birlikte.', 'deck.dueNow': 'bugün', 'deck.dueIn': '{n} gün sonra', 'deck.remove': '“{w}” kelimesini desteden çıkar',
+    'pron.title': 'Telaffuz denetimi', 'pron.read': 'Oku', 'pron.again': 'Tekrar oku', 'pron.try': 'Okuyarak dene', 'pron.readLine': 'Okuyarak dene', 'pron.listening': 'Dinliyorum… cümleyi oku', 'pron.heard': 'Duyulan:', 'pron.heardAs': '“{w}” duyuldu', 'pron.missed': 'duyulmadı', 'pron.great': 'Harika, her kelime anlaşıldı.', 'pron.good': 'İyi. Renkli kelimeleri dinleyip tekrar dene.', 'pron.retry': 'Bir kez daha dinle, sonra yavaşça oku.', 'pron.note': 'Site duyduğu kelimeleri karşılaştırır. Vurgu ve tonlamayı ölçmez, cümle içindeki özel isimler puana girmez.', 'pron.noSpeech': 'Bir şey duyamadım. Oku\'ya dokunup tekrar dene.', 'pron.noRecognition': 'Bu tarayıcı konuşmayı yazıya çeviremiyor. Chrome, Edge ya da Safari kullan.', 'pron.noReply': 'Önce derse başla; sonra hocanın cevabını okuyarak deneyebilirsin.', 'game.pron': 'Telaffuz', 'game.pronText': 'Cümleleri sesli oku: duyulan kelimeler yeşil, duyulmayanlar kırmızı olur.', 'game.bestPron': 'En iyi: %{n}', 'game.resultPron': 'Ortalama: %{p}', 'game.skip': 'Geç',
     'home.eyebrow': 'Günlük hedef', 'home.titleReview': 'Tekrar zamanı! ✨', 'home.titleMorning': 'Günaydın! ☀️', 'home.titleDay': 'Hadi öğrenelim! ✨', 'home.titleEvening': 'İyi akşamlar! 🌙',
     'home.goalChip': '%{p} tamamlandı', 'home.goalStart': 'Hadi başlayalım!', 'home.goalGoing': 'Harika gidiyorsun!', 'home.goalDone': 'Hedef tamam! 🎉',
     'home.goalLeft': 'Hedefe sadece {n} kart kaldı. Ritmini koru!', 'home.goalDoneNote': 'Bugün yapacağın her şey artık bonus.',
@@ -3359,7 +3414,7 @@ const Router = {
       row.scrollLeft += tab.getBoundingClientRect().left - row.getBoundingClientRect().left - (row.clientWidth - tab.offsetWidth) / 2;
     }
     document.title = t('nav.' + name) + ' · WordFlow';
-    if (changed) { Speech.stop(); Tutor.pause(); Games.stop(); }
+    if (changed) { Speech.stop(); Tutor.pause(); Games.stop(); Pron.close(); }
     Novel.focusMode();
     Tutor.focusMode();
     const module = MODULES[name];
@@ -3718,6 +3773,7 @@ const Novel = {
     $('#novel-pop-close').addEventListener('click', () => this.closePop());
     $('#novel-pop-speak').addEventListener('click', () => { if (this.current) this.say(this.current.word); });
     $('#novel-pop-say').addEventListener('click', () => { if (this.current && this.current.sentence) this.say(this.current.sentence); });
+    $('#novel-pop-read').addEventListener('click', () => { if (this.current) Pron.open(this.current.sentence || this.current.word); });
     $('#novel-shelf').addEventListener('click', event => {
       const button = event.target.closest('[data-novel]');
       if (button) this.openUrl(button.dataset.novel);
@@ -4543,6 +4599,7 @@ const Novel = {
     this.syncSave();
     $('#novel-pop-speak').hidden = !Speech.supported;
     $('#novel-pop-say').hidden = !Speech.supported;
+    $('#novel-pop-read').hidden = !Pron.Recognition;
     $('#novel-pop').hidden = false;
   },
   syncSave() {
@@ -5400,7 +5457,11 @@ const Tutor = {
       $('#tutor-input').value = '';
       this.send(text);
     });
-    $('#tutor-repeat').addEventListener('click', () => { this.unlock(); if (this.lastReply) this.say(this.lastReply); });
+    $('#tutor-repeat').addEventListener('click', () => {
+      if (!Pron.Recognition) Toast.show(t('pron.noRecognition'));
+      else if (this.lastReply) Pron.open(this.lastReply);
+      else Toast.show(t('pron.noReply'));
+    });
     $('#tutor-restart').addEventListener('click', () => { this.started = Date.now(); this.lessonXp = 0; this.tickLesson(); $('#tutor-new').click(); });
     $('#tutor-speed').addEventListener('click', () => {
       const speeds = [0.8, 1, 1.2];
@@ -5605,7 +5666,7 @@ const Tutor = {
         say,
         h('p', { class: 'tutor-tr', lang: 'tr', hidden: true }),
         word,
-        h('div', { class: 'tutor-tools' }, listen, translate))));
+        h('div', { class: 'tutor-tools' }, listen, Pron.button(data.reply, 'tutor-pron', t('pron.read')), translate))));
   },
   async translate(message) {
     const line = message.querySelector('.tutor-tr');
@@ -6807,6 +6868,7 @@ const Review = {
           h('div', { class: 'saved-word' },
             h('strong', { lang: 'en', text: content.front }),
             Speech.supported ? h('button', { type: 'button', class: 'audio-button', 'data-say': content.say, 'aria-label': t('tutor.listen') }, icon('sound')) : null,
+            Pron.button(content.sentence || content.front, 'audio-button'),
             h('span', { class: 'saved-due', text: card[0] <= this.today() ? t('deck.dueNow') : t('deck.dueIn', { n: card[0] - this.today() }) }),
             h('button', { type: 'button', class: 'icon-button saved-remove', 'data-remove': id, 'aria-label': t('deck.remove', { w: content.front }) }, icon('close'))),
           h('p', { class: 'saved-tr', lang: 'tr', text: content.back }),
@@ -6856,7 +6918,8 @@ const Review = {
         content.kind === 'novel' && sentence ? h('p', { class: 'review-sentence' }, sentence) : null,
         h('div', { class: 'flash-sound' },
           content.pron ? h('span', { class: 'review-pron', text: content.pron }) : null,
-          Speech.supported ? h('button', { type: 'button', class: 'audio-button big', 'data-say': content.say, 'aria-label': t('tutor.listen') }, icon('sound')) : null),
+          Speech.supported ? h('button', { type: 'button', class: 'audio-button big', 'data-say': content.say, 'aria-label': t('tutor.listen') }, icon('sound')) : null,
+          Pron.button(content.say, 'audio-button big')),
         this.shown
           ? h('div', { class: 'review-back' },
             h('p', { class: 'review-meaning', lang: 'tr', text: content.back }),
@@ -7117,7 +7180,7 @@ const Games = {
   onShow() {
     this.stop();
     const id = location.hash.split('/')[1] || '';
-    if (['match', 'listen', 'gap', 'survive'].includes(id)) this.start(id); else this.hub();
+    if (['match', 'listen', 'pron', 'gap', 'survive'].includes(id)) this.start(id); else this.hub();
   },
   stop() { clearInterval(this.timer); this.timer = null; this.game = null; },
   quest() {
@@ -7156,7 +7219,7 @@ const Games = {
         h('span', { class: 'quest-bar' }, h('span', { style: 'width:' + Math.round(value / quest.goal * 100) + '%' })),
         h('div', { class: 'quest-foot' }, h('span', { text: value >= quest.goal ? t('quest.done') : t('quest.left', { t: clock }) }),
           value >= quest.goal ? null : h('a', { class: 'button quest-go', href: quest.href }, h('span', { text: t('quest.go') }), icon('next')))),
-      h('div', { class: 'section-row' }, h('div', {}, h('h2', { text: t('game.title') }), h('p', { class: 'hint', text: t('game.lead') })), h('span', { class: 'game-count', text: t('game.modes', { n: 5 }) })),
+      h('div', { class: 'section-row' }, h('div', {}, h('h2', { text: t('game.title') }), h('p', { class: 'hint', text: t('game.lead') })), h('span', { class: 'game-count', text: t('game.modes', { n: 6 }) })),
       h('div', { class: 'games' },
         game('match', 'timer', 'amber', t('game.match'), t('game.matchText'),
           h('div', { class: 'game-preview' }, h('span', { lang: 'en', text: 'Ubiquitous 🇬🇧' }), h('span', { lang: 'tr', text: 'Her yerde bulunan 🇹🇷' })),
@@ -7164,6 +7227,9 @@ const Games = {
         game('listen', 'sound', 'violet', t('game.listen'), t('game.listenText'),
           h('div', { class: 'game-preview is-wave' }, icon('sound'), h('span', { class: 'wave', 'aria-hidden': 'true' }, h('i'), h('i'), h('i'), h('i'), h('i')), h('span', { text: t('game.listenHint') })),
           this.best.listen != null ? t('game.bestScore', { n: this.best.listen }) : t('game.noBest'), 'violet'),
+        game('pron', 'mic', 'mint', t('game.pron'), t('game.pronText'),
+          h('div', { class: 'game-preview is-quote pron-preview', lang: 'en' }, h('b', { class: 'pron-word is-ok', text: 'I want to ' }), h('b', { class: 'pron-word is-near', text: 'achieve' }), h('b', { class: 'pron-word is-ok', text: ' my ' }), h('b', { class: 'pron-word is-miss', text: 'goals' })),
+          this.best.pron != null ? t('game.bestPron', { n: this.best.pron }) : t('game.noBest'), 'primary'),
         game('gap', 'pen', 'blue', t('game.gap'), t('game.gapText'),
           h('div', { class: 'game-preview is-quote' }, h('span', { lang: 'en', text: '“The new solar breakthrough will significantly [ _____ ] carbon emissions.”' })),
           this.best.gap != null ? t('game.bestScore', { n: this.best.gap }) : t('game.noBest'), 'soft'),
@@ -7195,6 +7261,7 @@ const Games = {
       this.gapQuestion();
     }
     if (id === 'survive') { this.game = { id, lives: 3, streak: 0, limit: 10 }; this.surviveQuestion(); }
+    if (id === 'pron') { this.game = { id, items: this.pronItems(), at: 0, scores: [] }; this.pronQuestion(); }
   },
   frame(title, ...body) {
     const game = this.game;
@@ -7212,6 +7279,7 @@ const Games = {
     if (!game || !node) return;
     if (game.id === 'match') node.textContent = '⏱ ' + Math.max(0, Math.ceil((game.ends - Date.now()) / 1000)) + ' sn · ' + game.score;
     if (game.id === 'listen' || game.id === 'gap') node.textContent = Math.min(game.at + 1, 10) + ' / ' + (game.words || game.items).length + ' · ✓ ' + game.score;
+    if (game.id === 'pron') node.textContent = Math.min(game.at + 1, game.items.length) + ' / ' + game.items.length + (game.scores.length ? ' · %' + this.pronAverage() : '');
     if (game.id === 'survive') node.textContent = '❤️'.repeat(game.lives) + '🤍'.repeat(3 - game.lives) + ' · ' + game.streak;
   },
   tick() {
@@ -7260,6 +7328,33 @@ const Games = {
       button.classList.add('is-wrong');
       setTimeout(() => button.classList.remove('is-wrong'), 400);
     }
+  },
+  /* Pronunciation: read sentences aloud, from your own deck and stories, the books and the word list. */
+  pronItems() {
+    const short = en => { const size = en.split(/\s+/).length; return size >= 3 && size <= 16; };
+    const saved = shuffle(Review.saved().map(id => Review.content(id).sentence || '').filter(short)).slice(0, 3).map(en => ({ en, tr: '' }));
+    const stories = shuffle(AiStory.stories.flatMap(story => story.lines.map(line => ({ en: AiStory.spoken(line), tr: AiStory.spoken(story.tr[line] || '') })))).filter(item => short(item.en)).slice(0, 2);
+    const books = shuffle(Grammar.topics.flatMap(topic => topic.units.flatMap(unit => unit.book.map(([en, tr]) => ({ en: en.replace(/[[\]]/g, ''), tr }))))).filter(item => short(item.en)).slice(0, 3);
+    const entries = this.pool(40, false).filter(entry => entry.example && short(entry.example));
+    const items = [...saved, ...stories, ...books];
+    const words = entries.slice(0, Math.max(0, 8 - items.length));
+    this.remember(words);
+    const seen = new Set();
+    return shuffle(items.concat(words.map(entry => ({ en: entry.example, tr: entry.exampleTr || '' })))).filter(item => !seen.has(item.en) && seen.add(item.en));
+  },
+  pronAverage() { const { scores } = this.game; const tried = scores.filter(score => score != null); return tried.length ? Math.round(tried.reduce((sum, score) => sum + score, 0) / tried.length) : 0; },
+  pronQuestion() {
+    const game = this.game;
+    const item = game.items[game.at];
+    if (!item) { this.over(); return; }
+    const at = game.at;
+    const next = h('button', { type: 'button', class: 'button pron-next', 'data-act': 'next', text: t('game.skip') });
+    this.frame(t('game.pron'), h('div', { class: 'gram-card' }, Pron.panel(item.en, { tr: item.tr, onResult: score => {
+      game.scores[at] = Math.max(game.scores[at] || 0, score);
+      next.textContent = t('grammar.next');
+      next.classList.add('primary');
+      this.stat();
+    } }), next));
   },
   /* Listening: hear a word, type it with some letters shown. */
   listenQuestion() {
@@ -7366,6 +7461,7 @@ const Games = {
     if (game.id === 'listen') { result = t('game.resultScore', { n: game.score, total: game.words.length }); record = this.saveBest('listen', game.score); }
     if (game.id === 'gap') { result = t('game.resultScore', { n: game.score, total: game.items.length }); record = this.saveBest('gap', game.score); }
     if (game.id === 'survive') { result = t('game.resultStreak', { n: game.streak }); record = this.saveBest('survive', game.streak); }
+    if (game.id === 'pron') { const average = this.pronAverage(); result = t('game.resultPron', { p: average }); record = this.saveBest('pron', average); }
     recordActivity();
     persist();
     this.game = { id: game.id, done: true };
@@ -7390,8 +7486,231 @@ const Games = {
     else if (button.dataset.act === 'next') {
       game.at += 1;
       game.answered = false;
-      if (game.id === 'listen') this.listenQuestion(); else this.gapQuestion();
+      if (game.id === 'listen') this.listenQuestion(); else if (game.id === 'pron') this.pronQuestion(); else this.gapQuestion();
     }
+  }
+};
+
+/* ---------- Pron: read a sentence aloud, see which words were heard ----------
+   The browser's speech recognition writes down what it hears; that text is lined up with the
+   sentence word by word. It compares words, it does not measure sounds, stress or intonation. */
+const Pron = {
+  HOMOPHONES: 'there their|to too two|hear here|know no|knew new|write right|see sea|son sun|by buy bye|for four|one won|ate eight|meet meat|week weak|wear where|whole hole|hour our|weather whether|piece peace|mail male|road rode|blue blew|flour flower|sale sail|steal steel|tail tale|wait weight|way weigh|wood would|cent sent scent|aloud allowed|board bored|break brake|night knight|not knot|pair pear|plain plane|red read|rain reign|sight site|some sum|grey gray|ok okay|its it\'s',
+  PRONOUNS: /^(it|he|she|that|there|here|what|who|where|how|when)$/,
+  init() {
+    this.canon = new Map();
+    for (const group of this.HOMOPHONES.split('|')) { const words = group.split(' '); for (const word of words) this.canon.set(word, words[0]); }
+    document.addEventListener('click', event => {
+      const button = event.target.closest('[data-pron]');
+      if (!button) return;
+      event.preventDefault();
+      event.stopPropagation();
+      this.open(button.dataset.pron);
+    }, true);
+    $('#pron-sheet').addEventListener('click', event => { if (event.target.closest('[data-close]')) this.close(); });
+    document.addEventListener('keydown', event => { if (event.key === 'Escape' && !$('#pron-sheet').hidden) this.close(); });
+  },
+  get Recognition() { return window.SpeechRecognition || window.webkitSpeechRecognition; },
+  /* The small microphone button other screens put beside a sentence. */
+  button(text, cls = '', label = '') {
+    if (!this.Recognition || !text) return null;
+    return h('button', { type: 'button', class: 'pron-btn ' + cls, 'data-pron': text, 'aria-label': t('pron.try'), title: t('pron.try') }, icon('mic'), label ? h('span', { text: label }) : null);
+  },
+  open(text) {
+    this.stop();
+    Tutor.pause();
+    Speech.stop();
+    this.back = document.activeElement;
+    $('#pron-body').replaceChildren(this.panel(text));
+    $('#pron-sheet').hidden = false;
+    const mic = $('#pron-body .pron-mic');
+    if (mic) mic.focus();
+  },
+  close() {
+    this.stop();
+    const sheet = $('#pron-sheet');
+    if (sheet.hidden) return;
+    sheet.hidden = true;
+    if (this.back && this.back.isConnected) this.back.focus();
+  },
+  /* ---- Comparing */
+  numberWords(n) {
+    const ones = 'zero one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen'.split(' ');
+    const tens = 'twenty thirty forty fifty sixty seventy eighty ninety'.split(' ');
+    if (n < 20) return [ones[n]];
+    if (n < 100) return [tens[Math.floor(n / 10) - 2], ...(n % 10 ? [ones[n % 10]] : [])];
+    return [ones[Math.floor(n / 100)], 'hundred', ...(n % 100 ? this.numberWords(n % 100) : [])];
+  },
+  /* One written word as the words that are said: "don't" = do not, "7" = seven. */
+  expand(word) {
+    const clean = word.toLowerCase().replace(/’/g, "'").normalize('NFD').replace(/\p{M}/gu, '');
+    if (/^\d{1,3}$/.test(clean)) return this.numberWords(Number(clean));
+    const fixed = { "can't": ['can', 'not'], cannot: ['can', 'not'], "won't": ['will', 'not'], "shan't": ['shall', 'not'], "let's": ['let', 'us'] }[clean];
+    if (fixed) return fixed;
+    let match = clean.match(/^(.+)n't$/);
+    if (match) return [match[1], 'not'];
+    match = clean.match(/^(.+)'(re|ve|ll|m|s|d)$/);
+    if (match) {
+      const [, head, tail] = match;
+      const full = { re: 'are', ve: 'have', ll: 'will', m: 'am' }[tail];
+      if (full) return [head, full];
+      if (tail === 's' && this.PRONOUNS.test(head)) return [head, 'is'];
+      if (tail === 'd' && /^(i|you|he|she|it|we|they)$/.test(head)) return [head, 'would'];
+    }
+    return [clean.replace(/'/g, '')];
+  },
+  /* A spelling both sides share, so British and American spellings and homophones count as the same word. */
+  key(token) {
+    const known = this.canon.get(token);
+    if (known) return known;
+    return token.replace(/our(s|ed|ing)?$/, 'or$1').replace(/tre$/, 'ter').replace(/is(e|ed|es|ing)$/, 'iz$1').replace(/ll(ed|ing)$/, 'l$1');
+  },
+  distance(a, b) {
+    let row = Array.from({ length: b.length + 1 }, (_, i) => i);
+    for (let i = 1; i <= a.length; i++) {
+      const next = [i];
+      for (let j = 1; j <= b.length; j++) next[j] = Math.min(row[j] + 1, next[j - 1] + 1, row[j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
+      row = next;
+    }
+    return row[b.length];
+  },
+  near(a, b) { const size = Math.min(a.length, b.length); return size >= 3 && this.distance(a, b) <= Math.max(1, Math.floor(size / 4)); },
+  tokens(text) { return (text.match(/[\p{L}\p{N}]+(?:['’]\p{L}+)*/gu) || []).flatMap(word => this.expand(word)); },
+  /* Lines up the words of the sentence with the words heard (fewest changes) and gives each
+     word of the sentence: 'ok', 'near' or 'miss', and what was heard in its place. */
+  compare(words, heardText) {
+    const said = [];
+    words.forEach((word, at) => { for (const token of this.expand(word.text)) said.push({ key: this.key(token), at }); });
+    const heard = this.tokens(heardText);
+    const keys = heard.map(token => this.key(token));
+    const cost = (a, b) => (a === b ? 0 : this.near(a, b) ? 0.6 : 1);
+    const table = Array.from({ length: said.length + 1 }, (_, i) => Array.from({ length: keys.length + 1 }, (_, j) => (i ? (j ? 0 : i) : j)));
+    for (let i = 1; i <= said.length; i++) for (let j = 1; j <= keys.length; j++) {
+      table[i][j] = Math.min(table[i - 1][j] + 1, table[i][j - 1] + 1, table[i - 1][j - 1] + cost(said[i - 1].key, keys[j - 1]));
+    }
+    const rank = { ok: 0, near: 1, miss: 2 };
+    const results = words.map(() => ({ state: 'ok', heard: '' }));
+    const mark = (at, state, word) => { const result = results[at]; if (rank[state] >= rank[result.state]) { result.state = state; if (word) result.heard = word; } };
+    let i = said.length, j = keys.length;
+    while (i > 0) {
+      if (j > 0 && table[i][j] === table[i - 1][j - 1] + cost(said[i - 1].key, keys[j - 1])) {
+        const step = cost(said[i - 1].key, keys[j - 1]);
+        mark(said[i - 1].at, step === 0 ? 'ok' : step < 1 ? 'near' : 'miss', step ? heard[j - 1] : '');
+        i--; j--;
+      } else if (j > 0 && table[i][j] === table[i][j - 1] + 1) j--;
+      else { mark(said[i - 1].at, 'miss'); i--; }
+    }
+    /* A name in the middle of a sentence is rarely written down right, so it does not count. */
+    let total = 0, points = 0;
+    results.forEach((result, at) => {
+      if (result.state !== 'ok' && words[at].name) { result.state = 'name'; return; }
+      total += 1;
+      points += result.state === 'ok' ? 1 : result.state === 'near' ? 0.5 : 0;
+    });
+    return { results, score: total ? Math.round(points / total * 100) : 100 };
+  },
+  /* ---- The panel: the sentence, Listen and Read, then the result */
+  panel(text, { tr = '', onResult = null } = {}) {
+    this.stop();
+    const words = [];
+    let starts = true;
+    const line = h('p', { class: 'pron-text', lang: 'en' });
+    for (const part of text.split(/([\p{L}\p{N}]+(?:['’]\p{L}+)*)/u)) {
+      if (!/[\p{L}\p{N}]/u.test(part)) { if (/[.!?:;"“”]/.test(part)) starts = true; if (part) line.append(part); continue; }
+      const node = h('span', { class: 'pron-word', text: part });
+      words.push({ text: part, node, name: !starts && /^\p{Lu}/u.test(part) && !/^I(['’]|$)/.test(part) });
+      starts = false;
+      line.append(node);
+    }
+    const mic = h('button', { type: 'button', class: 'button primary pron-mic' }, icon('mic'), h('span', { class: 'pron-mic-label', text: t('pron.read') }));
+    const live = h('p', { class: 'pron-live', lang: 'en', hidden: true });
+    const result = h('div', { class: 'pron-result', 'aria-live': 'polite' });
+    const node = h('div', { class: 'pron-panel' },
+      line,
+      tr ? h('p', { class: 'pron-tr', lang: 'tr', text: tr }) : null,
+      h('div', { class: 'pron-actions' },
+        Speech.supported ? h('button', { type: 'button', class: 'button pron-hear' }, icon('sound'), h('span', { text: t('tutor.listen') })) : null,
+        mic),
+      live, result,
+      h('p', { class: 'pron-note', text: t('pron.note') }));
+    const view = { text, words, mic, live, result, onResult };
+    this.view = view;
+    if (!this.Recognition) { mic.disabled = true; result.append(h('p', { class: 'pron-problem', text: t('pron.noRecognition') })); }
+    node.addEventListener('click', event => {
+      const button = event.target.closest('button');
+      if (!button) return;
+      if (button === mic) { if (this.rec) this.rec.stop(); else this.listen(view); }
+      else if (button.classList.contains('pron-hear')) { this.stop(); Grammar.say(text); }
+      else if (button.dataset.word) Grammar.say(button.dataset.word);
+    });
+    return node;
+  },
+  listen(view) {
+    Speech.stop();
+    const rec = new this.Recognition();
+    rec.lang = 'en-US';
+    rec.interimResults = true;
+    /* Phones end by themselves at a pause and repeat words when told to go on. */
+    rec.continuous = !/Android|iPhone|iPad/.test(navigator.userAgent);
+    rec.maxAlternatives = 1;
+    let heard = '', problem = '', quiet = 0;
+    rec.onresult = event => {
+      heard = Array.from(event.results, result => result[0].transcript).join(' ').trim();
+      view.live.textContent = heard;
+      clearTimeout(quiet);
+      quiet = setTimeout(() => { try { rec.stop(); } catch (_) {} }, 1800);
+    };
+    rec.onerror = event => { problem = event.error; };
+    rec.onend = () => {
+      clearTimeout(quiet);
+      if (this.rec !== rec) return;
+      this.rec = null;
+      this.micUi(view, false);
+      if (heard) this.show(view, heard); else this.problem(view, problem);
+    };
+    this.rec = rec;
+    this.micUi(view, true);
+    view.result.replaceChildren();
+    for (const word of view.words) word.node.className = 'pron-word';
+    try { rec.start(); } catch (_) { this.rec = null; this.micUi(view, false); this.problem(view, 'audio-capture'); }
+  },
+  stop() {
+    const rec = this.rec, view = this.view;
+    this.rec = null;
+    if (rec) { try { rec.abort(); } catch (_) {} }
+    if (rec && view) this.micUi(view, false);
+  },
+  micUi(view, on) {
+    view.mic.classList.toggle('is-listening', on);
+    view.mic.querySelector('.pron-mic-label').textContent = t(on ? 'tutor.stop' : view.tried ? 'pron.again' : 'pron.read');
+    view.live.hidden = !on;
+    view.live.textContent = on ? t('pron.listening') : '';
+  },
+  problem(view, code) {
+    const key = code === 'not-allowed' || code === 'service-not-allowed' ? 'tutor.micDenied' : code === 'network' ? 'tutor.err.network' : code === 'audio-capture' ? 'speak.noMic' : code === 'aborted' ? '' : 'pron.noSpeech';
+    view.result.replaceChildren(...(key ? [h('p', { class: 'pron-problem', text: t(key) })] : []));
+  },
+  show(view, heard) {
+    const { results, score } = this.compare(view.words, heard);
+    view.tried = true;
+    view.mic.querySelector('.pron-mic-label').textContent = t('pron.again');
+    results.forEach((result, at) => { view.words[at].node.className = 'pron-word is-' + result.state; });
+    const wrong = results.map((result, at) => ({ ...result, word: view.words[at].text })).filter(result => result.state === 'near' || result.state === 'miss');
+    view.result.replaceChildren(...[
+      h('div', { class: 'pron-score is-' + (score >= 90 ? 'high' : score >= 60 ? 'mid' : 'low') },
+        h('strong', { text: '%' + score }),
+        h('span', { text: t(score >= 90 ? 'pron.great' : score >= 60 ? 'pron.good' : 'pron.retry') })),
+      h('p', { class: 'pron-heard' }, h('b', { text: t('pron.heard') + ' ' }), h('span', { lang: 'en', text: heard })),
+      wrong.length ? h('ul', { class: 'pron-issues' }, wrong.slice(0, 6).map(item => h('li', { class: 'is-' + item.state },
+        h('button', { type: 'button', class: 'pron-issue-word', 'data-word': item.word, 'aria-label': t('card.listenTo', { w: item.word }) }, icon('sound'), h('span', { lang: 'en', text: item.word })),
+        h('span', { text: item.heard ? t('pron.heardAs', { w: item.heard }) : t('pron.missed') })))) : null
+    ].filter(Boolean));
+    /* XP once per sentence in a visit, so reading the same line again does not farm points. */
+    this.paid = this.paid || new Set();
+    if (score >= 70 && !this.paid.has(view.text)) { this.paid.add(view.text); XP.add(10); }
+    recordActivity();
+    persist();
+    if (view.onResult) view.onResult(score);
   }
 };
 
@@ -7536,6 +7855,7 @@ const AiStory = {
     const row = (en, tr, kind) => h('div', { class: 'ai-row' + (kind ? ' is-' + kind : '') },
       h('div', { class: 'ai-en' },
         kind === 'prompt' ? null : h('button', { type: 'button', class: 'ai-play', 'data-say': this.spoken(en), 'aria-label': t('tutor.listen') }, icon('play')),
+        kind === 'prompt' ? null : Pron.button(this.spoken(en), 'ai-pron'),
         kind === 'prompt' ? h('span', { lang: 'en', text: en }) : this.marked(en, story.words)),
       h('div', { class: 'ai-tr', lang: 'tr', 'data-tr-for': en, text: tr || '…' }));
     $('#ai-output').replaceChildren(
@@ -7630,7 +7950,7 @@ function init() {
   applyTheme();
   applyTurkishVisibility();
   prepareCards();
-  XP.init(); Home.init(); Words.init(); Phrases.init(); Grammar.init(); Review.init(); Today.init(); Nav.init(); Games.init(); Writer.init(); AiStory.init(); Speak.init(); Tutor.init(); Novel.init(); Quiz.init(); Settings.init(); Updater.init();
+  XP.init(); Home.init(); Words.init(); Phrases.init(); Grammar.init(); Review.init(); Today.init(); Nav.init(); Games.init(); Writer.init(); AiStory.init(); Pron.init(); Speak.init(); Tutor.init(); Novel.init(); Quiz.init(); Settings.init(); Updater.init();
   if (!Store.usable) Banner.show(t(Store.simulated ? 'storage.simulated' : 'storage.off'));
   else if (loaded.notice) Banner.show(t(loaded.notice, { n: loaded.count || 0 }));
   if (loaded.migrated) persist();
