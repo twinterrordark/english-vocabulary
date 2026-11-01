@@ -214,7 +214,7 @@ body.novel-focus .toast, body.tutor-focus .toast, body.speak-focus .toast { bott
 /* ---------- Navigation: sidebar on wide screens, bottom bar on phones ---------- */
 .nav-group, .nav-end, .side-toggle, .bottom-nav, .topbar { display: none; }
 .nav-badge { min-width: 20px; height: 20px; padding: 0 6px; border-radius: 999px; background: var(--focus); color: #1c1300; font-size: .72rem; font-weight: 800; line-height: 20px; text-align: center; }
-.view.is-active { animation: view-in .22s ease-out both; }
+.view.is-active { animation: view-in .22s ease-out backwards; }
 @keyframes view-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
 @media (prefers-reduced-motion: reduce) { .view.is-active { animation: none; } }
 @media (min-width: 1024px) {
@@ -484,11 +484,7 @@ mark.vocab { background: var(--mark); color: inherit; padding: 0 2px; border-rad
 .speak-lobby { display: grid; gap: var(--space-3); max-width: 560px; }
 .speak-box { display: grid; gap: var(--space-2); margin: 0; }
 .speak-box .hint { margin: 0; }
-.speak-big { min-height: 56px; font-size: 1.08rem; }
 .speak-label { margin: 0; font-weight: 700; }
-.speak-join-row { display: flex; gap: var(--space-2); }
-.speak-join-row input { flex: 1; min-width: 0; min-height: var(--tap); font-size: 1.2rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; }
-#speak-join.is-invited { border-color: var(--primary); box-shadow: 0 0 0 3px var(--primary-soft), var(--shadow); }
 .speak-note { margin: 0; }
 @media (max-width: 760px) { .view.in-room .view-head { display: none; } }
 .speak-room { display: grid; gap: var(--space-3); max-width: 560px; margin: 0 auto; padding-bottom: calc(96px + env(safe-area-inset-bottom)); }
@@ -501,10 +497,6 @@ mark.vocab { background: var(--mark); color: inherit; padding: 0 2px; border-rad
 @keyframes speak-pulse { 50% { opacity: .3; } }
 @media (prefers-reduced-motion: reduce) { .speak-dot { animation: none !important; } }
 .speak-timer { font-variant-numeric: tabular-nums; color: var(--muted); font-size: .9rem; }
-.speak-invite { display: grid; gap: var(--space-2); justify-items: center; text-align: center; margin: 0; }
-.speak-invite[hidden] { display: none; }
-.speak-code { margin: 0; font: 800 2rem/1.1 var(--font); letter-spacing: .22em; color: var(--accent-text); }
-.speak-invite-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-2); }
 .speak-cards-toggle { display: flex; align-items: center; gap: var(--space-2); min-height: 48px; padding: 8px 14px; border: 1px solid var(--line); border-radius: 14px; background: var(--surface); color: var(--text); font: 600 .95rem/1.2 var(--font); cursor: pointer; text-align: left; }
 .speak-cards-toggle span { flex: 1; }
 .speak-cards-toggle .icon { color: var(--accent-text); }
@@ -527,8 +519,6 @@ mark.vocab { background: var(--mark); color: inherit; padding: 0 2px; border-rad
 .speak-tr { color: var(--muted); font-size: .88rem; }
 .speak-next { min-height: 52px; font-size: 1.02rem; }
 .speak-next .icon { width: 20px; height: 20px; }
-.speak-textonly { display: flex; align-items: center; gap: var(--space-2); font-size: .92rem; cursor: pointer; }
-.speak-textonly input { width: 20px; height: 20px; accent-color: var(--primary); }
 .speak-chat { display: grid; gap: var(--space-2); padding: var(--space-4); border-radius: var(--radius-l); background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow); }
 .speak-chat-title { margin: 0; font-size: 1.05rem; }
 .speak-chat .hint { margin: 0; }
@@ -712,7 +702,6 @@ mark.gram-rel { background: var(--primary-soft); color: var(--accent-text); padd
 body.tutor-focus .site-footer, body.speak-focus .site-footer { display: none; }
 body.tutor-focus main { padding-top: 0; }
 @media (max-width: 760px) { body.tutor-focus .app-header, body.tutor-focus .banner { display: none; } }
-.speak-section { margin: var(--space-3) 0 0; font-size: 1rem; color: var(--muted); }
 .tutor-card-head { display: flex; gap: var(--space-3); align-items: flex-start; }
 .tutor-card-head .hint { margin: 2px 0 0; }
 .tutor-avatar { flex: none; display: grid; place-items: center; width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, #2bb3a3, #1d6f8f); color: #fff; font: 700 1.25rem/1 Georgia, serif; }
@@ -1535,6 +1524,41 @@ body.novel-focus .novel-pop-sentence i { color: var(--paper-text); }
 .ai-pron { display: grid; place-items: center; flex: none; width: 26px; height: 26px; margin-top: 1px; padding: 0; border: 0; border-radius: 50%; background: var(--secondary-soft); color: var(--secondary); cursor: pointer; }
 .ai-pron .icon { width: 14px; height: 14px; }
 .tutor-tools .tutor-pron { border: 0; padding: 6px 0; min-height: 0; color: var(--muted); font: 600 .85rem/1.2 var(--font); }
+
+.chat-invites { max-width: 560px; margin: 0 auto; display: grid; gap: var(--space-2); }
+.chat-invites:has(.chat-invite:not([hidden])) { margin-bottom: var(--space-3); }
+.chat-invite { display: grid; gap: var(--space-2); margin: 0; border: 1.5px solid var(--primary); }
+.chat-invite[hidden] { display: none; }
+.chat-invite p { margin: 0; font-weight: 700; }
+.chat-invite-actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2); }
+.chat-block { margin-left: auto; color: var(--error); }
+.speak-lobby { margin: 0 auto; }
+.chat-profile { display: grid; gap: var(--space-2); margin: 0; }
+.chat-profile[hidden], .chat-list[hidden] { display: none; }
+.chat-profile h2 { margin: 0 0 var(--space-1); font-size: 1.15rem; }
+.chat-profile input, .chat-profile select { min-height: var(--tap); }
+.chat-warning { margin: var(--space-1) 0; padding: 10px var(--space-3); border-radius: 12px; background: var(--warn-soft); color: var(--warn); font-size: .9rem; }
+.chat-list { display: grid; gap: var(--space-3); }
+.chat-people { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-2); }
+.chat-people:empty { display: none; }
+.chat-person { display: flex; align-items: center; gap: var(--space-3); padding: 10px var(--space-3); border-radius: 16px; background: var(--surface); box-shadow: var(--shadow); }
+.chat-face { display: grid; place-items: center; flex: none; width: 42px; height: 42px; border-radius: 50%; background: var(--secondary-soft); color: var(--secondary); font: 800 1.1rem/1 var(--font-display); }
+.chat-who { display: grid; flex: 1; min-width: 0; }
+.chat-who strong { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.chat-who small { color: var(--muted); }
+.chat-person .button { flex: none; }
+.chat-empty { margin: 0; color: var(--muted); text-align: center; }
+.chat-mine { display: grid; gap: var(--space-2); margin: 0; }
+.chat-mine-row { display: flex; align-items: center; justify-content: space-between; gap: var(--space-2); }
+.chat-hide { display: flex; align-items: center; gap: var(--space-2); font-size: .92rem; cursor: pointer; }
+.chat-hide input { width: 20px; height: 20px; accent-color: var(--primary); }
+#chat-unblock { justify-self: start; }
+#chat-unblock[hidden], #chat-retry[hidden] { display: none; }
+.speak-controls { gap: var(--space-2); }
+.speak-round { min-width: 64px; }
+.speak-round[hidden] { display: none; }
+.speak-round.danger#speak-voice .icon { background: var(--error); color: #fff; }
+.is-violet .game-icon { background: var(--secondary-soft); color: var(--secondary); }
 </style>
 </head>
 <body>
@@ -2078,30 +2102,99 @@ body.novel-focus .novel-pop-sentence i { color: var(--paper-text); }
       <h1 id="speak-title" tabindex="-1" data-i18n="speak.title">Speaking room</h1>
       <p class="lead" data-i18n="speak.lead">Talk or write in English with a friend: open a room, send them the link and use the topic cards together. Your messages are checked for grammar.</p>
     </div>
-    <div class="speak-lobby js-only" id="speak-lobby">
-      <div class="panel speak-box tutor-card">
-        <div class="tutor-card-head">
-          <span class="tutor-avatar" aria-hidden="true">E</span>
-          <div><strong data-i18n="tutor.title">Talk with the teacher</strong><p class="hint" data-i18n="tutor.cardHint">Ms. Emma listens, answers and corrects your mistakes. No friend needed.</p></div>
+    <div class="js-only chat-invites" aria-live="polite">
+      <div class="panel chat-invite" id="chat-asked" hidden>
+        <p id="chat-asked-text"></p>
+        <div class="chat-invite-actions">
+          <button type="button" class="button primary" id="chat-accept" data-i18n="chat.accept">Accept</button>
+          <button type="button" class="button" id="chat-decline" data-i18n="chat.decline">No thanks</button>
+          <button type="button" class="link-button chat-block" id="chat-block-invite" data-i18n="chat.block">Block</button>
         </div>
-        <button type="button" class="button primary speak-big" id="tutor-open"><svg class="icon" aria-hidden="true"><use href="#i-chat"/></svg><span data-i18n="tutor.start">Start a lesson</span></button>
       </div>
-      <h2 class="speak-section" data-i18n="speak.withFriend">With a friend</h2>
-      <div class="panel speak-box">
-        <button type="button" class="button primary speak-big" id="speak-create"><svg class="icon" aria-hidden="true"><use href="#i-mic"/></svg><span data-i18n="speak.create">Open a room</span></button>
-        <p class="hint" data-i18n="speak.createHint">You get a link to send to your friend. When they open it, you are connected.</p>
+      <div class="panel chat-invite" id="chat-asking" hidden>
+        <p id="chat-asking-text"></p>
+        <div class="chat-invite-actions"><button type="button" class="button" id="chat-cancel" data-i18n="chat.cancel">Cancel</button></div>
       </div>
-      <form class="panel speak-box" id="speak-join">
-        <label for="speak-code" class="speak-label" data-i18n="speak.joinLabel">Join with a code</label>
-        <div class="speak-join-row">
-          <input id="speak-code" type="text" autocomplete="off" autocapitalize="characters" spellcheck="false" maxlength="6" placeholder="ABC123">
-          <button type="submit" class="button primary" data-i18n="speak.join">Join</button>
-        </div>
-      </form>
-      <label class="speak-textonly"><input type="checkbox" id="speak-text-only"><span data-i18n="speak.textOnly">Without a microphone: only write messages</span></label>
-      <p class="hint speak-note" data-i18n="speak.privacy">Your voice goes straight between the two phones and is not recorded. A free PeerJS server only helps the two phones find each other.</p>
-      <p class="error-text" id="speak-error" role="alert" hidden></p>
     </div>
+    <div class="speak-lobby js-only" id="speak-lobby">
+      <form class="panel chat-profile" id="chat-profile" hidden>
+        <h2 data-i18n="chat.profileTitle">How should others see you?</h2>
+        <label for="chat-name" class="speak-label" data-i18n="chat.nick">Nickname</label>
+        <input id="chat-name" type="text" maxlength="20" autocomplete="off" autocapitalize="words" spellcheck="false" placeholder="Nickname" data-i18n-placeholder="chat.nick">
+        <label for="chat-level" class="speak-label" data-i18n="chat.level">Your English level</label>
+        <select id="chat-level"></select>
+        <p class="chat-warning" data-i18n="chat.warning">Use a nickname, not your real name. Do not share your phone number, address or other personal details with people you meet here.</p>
+        <button type="submit" class="button primary" data-i18n="chat.goOnline">Go online</button>
+      </form>
+      <div class="chat-list" id="chat-list" hidden>
+        <div class="speak-bar">
+          <span class="speak-dot" id="chat-dot" data-state="connecting" aria-hidden="true"></span>
+          <strong id="chat-state" aria-live="polite"></strong>
+          <button type="button" class="link-button" id="chat-retry" data-i18n="chat.retry" hidden>Try again</button>
+        </div>
+        <ul class="chat-people" id="chat-people"></ul>
+        <p class="panel chat-empty" id="chat-empty" data-i18n="chat.empty" hidden>Nobody else is online right now. Keep this tab open, or come back later.</p>
+        <div class="panel chat-mine">
+          <div class="chat-mine-row"><span><span data-i18n="chat.you">You:</span> <strong id="chat-me"></strong></span><button type="button" class="link-button" id="chat-edit" data-i18n="chat.edit">Change</button></div>
+          <label class="chat-hide"><input type="checkbox" id="chat-hidden"><span data-i18n="chat.hide">Do not show me on the list</span></label>
+          <button type="button" class="link-button" id="chat-unblock" data-i18n="chat.unblock" hidden>Clear my blocked list</button>
+        </div>
+        <p class="hint speak-note" data-i18n="chat.privacy">Messages and voice go straight between the two devices and are not saved; a free PeerJS service introduces you and can relay the connection when a direct one fails. The other person may be able to see your IP address. Your own sentences are sent to the grammar checker.</p>
+      </div>
+    </div>
+    <div class="speak-room js-only" id="speak-room" hidden>
+      <div class="speak-bar">
+        <span class="speak-dot" id="speak-dot" data-state="waiting" aria-hidden="true"></span>
+        <strong id="speak-state" aria-live="polite"></strong>
+        <span class="speak-timer" id="speak-timer">00:00</span>
+      </div>
+      <div class="panel chat-invite" id="chat-voice-ask" hidden>
+        <p id="chat-voice-text"></p>
+        <div class="chat-invite-actions">
+          <button type="button" class="button primary" id="chat-voice-yes" data-i18n="chat.accept">Accept</button>
+          <button type="button" class="button" id="chat-voice-no" data-i18n="chat.decline">No thanks</button>
+        </div>
+      </div>
+      <!-- Topic questions only when wanted: they take room from the messages. -->
+      <button type="button" class="speak-cards-toggle" id="speak-cards-toggle" aria-expanded="false" aria-controls="speak-card"><svg class="icon" aria-hidden="true"><use href="#i-chat"/></svg><span id="speak-cards-label">Show topic questions</span><svg class="icon speak-cards-arrow" aria-hidden="true"><use href="#i-next"/></svg></button>
+      <article class="speak-card" id="speak-card" aria-labelledby="speak-q" hidden>
+        <div class="speak-card-top">
+          <label class="visually-hidden" for="speak-topic" data-i18n="speak.topic">Topic</label>
+          <select id="speak-topic"></select>
+          <span class="speak-count" id="speak-count"></span>
+        </div>
+        <p class="speak-turn" id="speak-turn"></p>
+        <h2 class="speak-q" id="speak-q" lang="en"></h2>
+        <button type="button" class="link-button speak-listen" id="speak-listen"><svg class="icon" aria-hidden="true"><use href="#i-sound"/></svg><span data-i18n="speak.listen">Listen to the question</span></button>
+        <details class="speak-help">
+          <summary data-i18n="speak.help">Helpful phrases</summary>
+          <ul id="speak-phrases"></ul>
+        </details>
+        <button type="button" class="button primary speak-next" id="speak-next"><span data-i18n="speak.next">Next question</span><svg class="icon" aria-hidden="true"><use href="#i-next"/></svg></button>
+      </article>
+      <!-- Messages between the two: each side's sentences are checked, and only the writer sees the correction. -->
+      <section class="speak-chat" aria-labelledby="speak-chat-title">
+        <h2 class="speak-chat-title" id="speak-chat-title" data-i18n="speak.chat">Messages</h2>
+        <p class="hint" data-i18n="speak.chatHint">Write in English. Ms. Emma checks each of your sentences; only you see your corrections.</p>
+        <ol class="speak-messages" id="speak-messages" aria-live="polite"></ol>
+        <form class="speak-chat-form" id="speak-chat-form">
+          <label for="speak-chat-input" class="visually-hidden" data-i18n="speak.chatLabel">Message</label>
+          <textarea id="speak-chat-input" rows="1" lang="en" maxlength="400" autocomplete="off" spellcheck="false" enterkeyhint="send" placeholder="Write in English…" data-i18n-placeholder="speak.chatPh"></textarea>
+          <button type="submit" class="button primary speak-send" aria-label="Send" data-i18n-aria="speak.send"><svg class="icon" aria-hidden="true"><use href="#i-next"/></svg></button>
+        </form>
+      </section>
+      <div class="speak-controls">
+        <button type="button" class="speak-round" id="speak-voice"><svg class="icon" aria-hidden="true"><use href="#i-voice"/></svg><span id="speak-voice-label" data-i18n="chat.voiceStart">Voice</span></button>
+        <button type="button" class="speak-round" id="speak-mute" aria-pressed="false" hidden><svg class="icon" aria-hidden="true"><use id="speak-mute-icon" href="#i-mic"/></svg><span id="speak-mute-label" data-i18n="speak.mute">Mute</span></button>
+        <button type="button" class="speak-round" id="speak-block"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg><span data-i18n="chat.block">Block</span></button>
+        <button type="button" class="speak-round danger" id="speak-leave"><svg class="icon" aria-hidden="true"><use href="#i-prev"/></svg><span data-i18n="speak.leave">Leave</span></button>
+      </div>
+      <audio id="speak-audio" autoplay playsinline></audio>
+    </div>
+  </section>
+
+  <!-- Ms. Emma, opened from Practice. -->
+  <section class="view" data-view="tutor" aria-label="Ms. Emma">
     <!-- Teacher: an AI English teacher (Gemini, through the speakenglish Cloudflare Worker) listens and answers. -->
     <div class="tutor js-only" id="tutor" hidden>
       <div class="tutor-top">
@@ -2145,54 +2238,6 @@ body.novel-focus .novel-pop-sentence i { color: var(--paper-text); }
           <button type="button" class="tutor-side" id="tutor-repeat"><span class="tutor-side-icon"><svg class="icon" aria-hidden="true"><use href="#i-voice"/></svg></span><span data-i18n="tutor.pron">Pronunciation</span></button>
         </div>
       </div>
-    </div>
-    <div class="speak-room js-only" id="speak-room" hidden>
-      <div class="speak-bar">
-        <span class="speak-dot" id="speak-dot" data-state="waiting" aria-hidden="true"></span>
-        <strong id="speak-state" aria-live="polite"></strong>
-        <span class="speak-timer" id="speak-timer">00:00</span>
-      </div>
-      <div class="panel speak-invite" id="speak-invite" hidden>
-        <p class="speak-label" data-i18n="speak.roomCode">Room code</p>
-        <p class="speak-code" id="speak-room-code" lang="en"></p>
-        <div class="speak-invite-actions">
-          <button type="button" class="button primary" id="speak-share"><svg class="icon" aria-hidden="true"><use href="#i-share"/></svg><span data-i18n="speak.share">Send the link</span></button>
-          <button type="button" class="button" id="speak-copy"><svg class="icon" aria-hidden="true"><use href="#i-copy"/></svg><span data-i18n="speak.copy">Copy</span></button>
-        </div>
-      </div>
-      <!-- Topic questions only when wanted: they take room from the messages. -->
-      <button type="button" class="speak-cards-toggle" id="speak-cards-toggle" aria-expanded="false" aria-controls="speak-card"><svg class="icon" aria-hidden="true"><use href="#i-chat"/></svg><span id="speak-cards-label">Show topic questions</span><svg class="icon speak-cards-arrow" aria-hidden="true"><use href="#i-next"/></svg></button>
-      <article class="speak-card" id="speak-card" aria-labelledby="speak-q" hidden>
-        <div class="speak-card-top">
-          <label class="visually-hidden" for="speak-topic" data-i18n="speak.topic">Topic</label>
-          <select id="speak-topic"></select>
-          <span class="speak-count" id="speak-count"></span>
-        </div>
-        <p class="speak-turn" id="speak-turn"></p>
-        <h2 class="speak-q" id="speak-q" lang="en"></h2>
-        <button type="button" class="link-button speak-listen" id="speak-listen"><svg class="icon" aria-hidden="true"><use href="#i-sound"/></svg><span data-i18n="speak.listen">Listen to the question</span></button>
-        <details class="speak-help">
-          <summary data-i18n="speak.help">Helpful phrases</summary>
-          <ul id="speak-phrases"></ul>
-        </details>
-        <button type="button" class="button primary speak-next" id="speak-next"><span data-i18n="speak.next">Next question</span><svg class="icon" aria-hidden="true"><use href="#i-next"/></svg></button>
-      </article>
-      <!-- Messages between the two: each side's sentences are checked, and only the writer sees the correction. -->
-      <section class="speak-chat" aria-labelledby="speak-chat-title">
-        <h2 class="speak-chat-title" id="speak-chat-title" data-i18n="speak.chat">Messages</h2>
-        <p class="hint" data-i18n="speak.chatHint">Write in English. Ms. Emma checks each of your sentences; only you see your corrections.</p>
-        <ol class="speak-messages" id="speak-messages" aria-live="polite"></ol>
-        <form class="speak-chat-form" id="speak-chat-form">
-          <label for="speak-chat-input" class="visually-hidden" data-i18n="speak.chatLabel">Message</label>
-          <textarea id="speak-chat-input" rows="1" lang="en" maxlength="400" autocomplete="off" spellcheck="false" enterkeyhint="send" placeholder="Write in English…" data-i18n-placeholder="speak.chatPh"></textarea>
-          <button type="submit" class="button primary speak-send" aria-label="Send" data-i18n-aria="speak.send"><svg class="icon" aria-hidden="true"><use href="#i-next"/></svg></button>
-        </form>
-      </section>
-      <div class="speak-controls">
-        <button type="button" class="speak-round" id="speak-mute" aria-pressed="false"><svg class="icon" aria-hidden="true"><use id="speak-mute-icon" href="#i-mic"/></svg><span id="speak-mute-label" data-i18n="speak.mute">Mute</span></button>
-        <button type="button" class="speak-round danger" id="speak-leave"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg><span data-i18n="speak.leave">Leave</span></button>
-      </div>
-      <audio id="speak-audio" autoplay playsinline></audio>
     </div>
   </section>
 
@@ -2423,7 +2468,7 @@ const STRINGS = {
     'continue.learn': 'Open the word list, read the sentences and tap the cards of the words you know.',
     skip: 'Skip to content', 'brand.sub': 'A2–C1 vocabulary and practice', 'nav.label': 'Main',
         'nav.phrases': 'Phrases',
-    'speak.withFriend': 'With a friend', 'tutor.title': 'Talk with the teacher', 'tutor.cardHint': 'Ms. Emma listens, answers and corrects your mistakes. No friend needed.',
+ 'tutor.title': 'Talk with the teacher', 'tutor.cardHint': 'Ms. Emma listens, answers and corrects your mistakes. No friend needed.',
     'tutor.start': 'Start a lesson', 'tutor.back': 'Back', 'tutor.settings': 'Lesson settings', 'tutor.topic': 'Topic', 'tutor.level': 'Level', 'tutor.new': 'New lesson',
     'tutor.free': 'Free conversation', 'tutor.privacy': 'What you say is turned into text and sent to the lesson server, which asks Google Gemini for the teacher\'s answer. Nothing is saved there.',
     'tutor.typeLabel': 'Your answer', 'tutor.typePh': 'Type in English…', 'tutor.send': 'Send', 'tutor.keyboard': 'Answer by typing', 'tutor.talk': 'Speak', 'tutor.stop': 'Done',
@@ -2460,6 +2505,7 @@ const STRINGS = {
     'home.writeTag': 'Writing', 'home.writeTitle': 'Write a story', 'home.writeGo': 'Write', 'home.writeNote': '{n} stories · Ms. Emma checks the grammar', 'home.writeEmpty': 'Write in English; Ms. Emma checks the grammar.',
     'deck.novel': 'My words from the novel', 'deck.novelTag': 'Novel & teacher', 'deck.wordsN': '{n} words', 'deck.novelNote': 'Words you added from the novel and the teacher, with their sentences.', 'deck.novelEmpty': 'Tap a word in your novel and choose “Add to deck”; it will appear here.', 'deck.seeList': 'See the list', 'deck.novelListNote': '{n} words, with the sentence each came from.', 'deck.dueNow': 'due today', 'deck.dueIn': 'in {n} d', 'deck.remove': 'Remove “{w}” from the deck',
     'pron.title': 'Pronunciation check', 'pron.read': 'Read', 'pron.again': 'Read again', 'pron.try': 'Read it aloud and check', 'pron.readLine': 'Read it aloud and check', 'pron.listening': 'Listening… read the sentence', 'pron.heard': 'Heard:', 'pron.heardAs': 'heard “{w}”', 'pron.missed': 'not heard', 'pron.great': 'Great, every word was clear.', 'pron.good': 'Good. Listen to the coloured words and try again.', 'pron.retry': 'Listen once more, then read it slowly.', 'pron.note': 'The site compares the words it heard. It does not measure stress or intonation, and names in a sentence do not count.', 'pron.noSpeech': 'I didn\'t hear anything. Tap Read and try again.', 'pron.noRecognition': 'This browser cannot turn speech into text. Use Chrome, Edge or Safari.', 'pron.noReply': 'Start the lesson first; then you can read the teacher\'s answer aloud.', 'game.pron': 'Pronunciation', 'game.pronText': 'Read sentences aloud: words that were heard turn green, the others red.', 'game.bestPron': 'Best: {n}%', 'game.resultPron': 'Average: {p}%', 'game.skip': 'Skip',
+    'nav.tutor': 'Ms. Emma', 'chat.profileTitle': 'How should others see you?', 'chat.nick': 'Nickname', 'chat.level': 'Your English level', 'chat.warning': 'Use a nickname, not your real name. Do not share your phone number, address or other personal details with people you meet here.', 'chat.goOnline': 'Go online', 'chat.nameShort': 'Your nickname needs at least 2 characters.', 'chat.onlineN': 'Online: {n} people', 'chat.state.searching': 'Looking for people online…', 'chat.state.problem': 'Could not reach the list; trying again…', 'chat.state.off': 'You are offline', 'chat.state.dup': 'This chat is open in another tab of this device', 'chat.state.on': 'Online', 'chat.retry': 'Try again', 'chat.empty': 'Nobody else is online right now. Keep this tab open, or come back later.', 'chat.you': 'You:', 'chat.edit': 'Change', 'chat.hide': 'Do not show me on the list', 'chat.unblock': 'Clear my blocked list', 'chat.unblocked': 'Your blocked list was cleared.', 'chat.privacy': 'Messages and voice go straight between the two devices and are not saved; a free PeerJS service introduces you and can relay the connection when a direct one fails. The other person may be able to see your IP address. Your own sentences are sent to the grammar checker.', 'chat.invite': 'Chat', 'chat.inviteTo': 'Invite {name} to chat', 'chat.busyNow': 'In a chat', 'chat.asksYou': '{name} wants to chat with you.', 'chat.waiting': 'Waiting for {name} to answer…', 'chat.accept': 'Accept', 'chat.decline': 'No thanks', 'chat.block': 'Block', 'chat.cancel': 'Cancel', 'chat.blocked': '{name} is blocked.', 'chat.declined': '{name} did not accept.', 'chat.busyToast': '{name} is busy right now.', 'chat.gone': 'That person is no longer online.', 'chat.noAnswer': 'No answer.', 'chat.cantConnect': 'The connection could not be made. Your networks may not allow it.', 'chat.with': 'Chatting with {name}', 'chat.partnerLeft': '{name} left the chat', 'chat.voiceStart': 'Voice', 'chat.voiceEnd': 'End voice', 'chat.voiceWaiting': 'Waiting…', 'chat.voiceAsk': '{name} wants to talk by voice.', 'chat.voiceNo': '{name} did not start voice.',
     'home.eyebrow': 'Daily goal', 'home.titleReview': 'Time to review! ✨', 'home.titleMorning': 'Good morning! ☀️', 'home.titleDay': 'Let’s learn! ✨', 'home.titleEvening': 'Good evening! 🌙',
     'home.goalChip': '{p}% done', 'home.goalStart': 'Let’s get started!', 'home.goalGoing': 'You’re doing great!', 'home.goalDone': 'Goal reached! 🎉',
     'home.goalLeft': 'Only {n} cards to your goal. Keep the rhythm!', 'home.goalDoneNote': 'Anything more today is a bonus.',
@@ -2514,27 +2560,27 @@ const STRINGS = {
     'today.weekLabel': 'Cards reviewed in the last seven days', 'today.weekDay': '{n} cards', 'today.grammar': 'Grammar · {topic}', 'today.grammarNext': 'Next: {title}',
     'today.words': '{n} of {total} words learned', 'novel.save': 'Add to deck', 'novel.saved': 'In your deck ✓', 'novel.meaning': 'Turkish meaning', 'novel.context': 'Context:', 'novel.tabNow': 'Reading now', 'novel.tabShelf': 'Library', 'novel.goal': 'Today’s reading goal', 'novel.goalText': '{d}/{n} pages read · {m} min this week', 'novel.noBook': 'Pick a book from the library to start.', 'novel.classic': 'Novel', 'novel.savedWords': '{n} words saved to your deck', 'novel.progress2': 'Reading progress', 'novel.progressOf': '{p}% (page {n} / {total})', 'novel.continue': 'Continue reading',
     'update.text': 'A new version of the app is ready.', 'update.reload': 'Reload',
-    'nav.speak': 'Speaking', 'mode.speak': 'Talk in English with a friend in a voice room, with topic cards to guide you.',
+    'nav.speak': 'Speaking', 'mode.speak': 'Write or talk in English with people who are online now, with topic cards to guide you.',
     'tutor.live': 'Live & listening', 'tutor.levelNote': 'Native speaker · {l} fluency level', 'tutor.role': 'Role: {r}', 'tutor.speed': 'Voice speed',
     'tutor.suggest': 'Suggested answers (tap to hear and say):', 'tutor.help': 'Help', 'tutor.minutes': '{n} min', 'tutor.ready': 'Ready to talk', 'tutor.listening': 'Listening…',
     'tutor.readyHint': 'Tap the microphone and say your answer in English.', 'tutor.byTyping': 'Typing', 'tutor.pron': 'Pronunciation', 'tutor.showTr': 'Show the Turkish',
     'tutor.accuracy': '{p}% accuracy', 'tutor.xpAdded': '+10 XP added to your vocabulary!', 'tutor.great': 'Great sentence!', 'tutor.kept': '“{w}” was added to your deck.', 'speak.showCards': 'Show topic questions', 'speak.hideCards': 'Hide topic questions', 'speak.chat': 'Messages', 'speak.chatHint': 'Write in English. Ms. Emma checks each of your sentences; only you see your corrections.',
-    'speak.chatLabel': 'Message', 'speak.chatPh': 'Write in English…', 'speak.send': 'Send', 'speak.textOnly': 'Without a microphone: only write messages',
-    'speak.micText': 'No microphone: you can still write messages.', 'speak.checking': 'Checking…', 'speak.correct': '✓ Correct English', 'speak.okSimple': '✓ No mistakes in a simple check (the teacher was not available)',
+    'speak.chatLabel': 'Message', 'speak.chatPh': 'Write in English…', 'speak.send': 'Send',
+ 'speak.checking': 'Checking…', 'speak.correct': '✓ Correct English', 'speak.okSimple': '✓ No mistakes in a simple check (the teacher was not available)',
     'speak.better': 'Better', 'speak.checkFailed': 'Could not check this sentence.', 'speak.notConnected': 'Wait until your friend is connected.',
-    'speak.title': 'Speaking room', 'speak.lead': 'Talk or write in English with a friend: open a room, send them the link and use the topic cards together. Your messages are checked for grammar.',
-    'speak.create': 'Open a room', 'speak.createHint': 'You get a link to send to your friend. When they open it, you are connected.',
-    'speak.joinLabel': 'Join with a code', 'speak.join': 'Join', 'speak.roomCode': 'Room code', 'speak.share': 'Send the link', 'speak.copy': 'Copy',
-    'speak.privacy': 'Your voice goes straight between the two phones and is not recorded. A free PeerJS server only helps the two phones find each other.',
+    'speak.title': 'Chat', 'speak.lead': 'Write or talk in English with people who are online now. Your sentences are checked for grammar.',
+
+
+
     'speak.topic': 'Topic', 'speak.listen': 'Listen to the question', 'speak.help': 'Helpful phrases', 'speak.next': 'Next question',
     'speak.mute': 'Mute', 'speak.unmute': 'Unmute', 'speak.leave': 'Leave', 'speak.count': '{n} / {total}',
     'speak.youAsk': 'Your turn: you ask, your friend answers', 'speak.friendAsks': 'Your friend asks, you answer',
-    'speak.state.connecting': 'Connecting…', 'speak.state.waiting': 'Waiting for your friend…', 'speak.state.connected': 'Connected — start talking!',
-    'speak.state.left': 'Your friend left. They can join again with the same link.', 'speak.state.lost': 'The connection was lost. Leave and join again.',
-    'speak.badCode': 'The room code has 6 letters and numbers.', 'speak.noRoom': 'No open room with this code. Ask your friend to open the room first.',
+
+
+
     'speak.micDenied': 'The microphone is blocked. Allow it in the browser settings for this site and try again.', 'speak.noMic': 'No microphone was found on this device.',
-    'speak.connError': 'Could not connect. Check the internet connection and try again (Wi-Fi works best).',
-    'speak.shareText': 'Let\'s practise English! Join my speaking room (code {code}):', 'speak.copied': 'Link copied — send it to your friend.',
+
+
     'nav.novel': 'Novel', 'mode.novel': 'Read an English novel and tap any word for its Turkish meaning.',
     'novel.title': 'Read a novel', 'novel.lead': 'Open an English novel as a PDF file and tap any word to see its Turkish meaning.',
     'novel.choose': 'Choose another PDF', 'novel.hint': 'The book is read on this device only; it is not uploaded anywhere. After the first time it opens straight from this browser.',
@@ -2634,7 +2680,7 @@ const STRINGS = {
   },
   tr: {
         'nav.phrases': 'İfadeler',
-    'speak.withFriend': 'Arkadaşla', 'tutor.title': 'Hoca ile konuş', 'tutor.cardHint': 'Ms. Emma seni dinler, cevap verir ve hatalarını düzeltir. Arkadaş gerekmez.',
+ 'tutor.title': 'Hoca ile konuş', 'tutor.cardHint': 'Ms. Emma seni dinler, cevap verir ve hatalarını düzeltir. Arkadaş gerekmez.',
     'tutor.start': 'Derse başla', 'tutor.back': 'Geri', 'tutor.settings': 'Ders ayarları', 'tutor.topic': 'Konu', 'tutor.level': 'Seviye', 'tutor.new': 'Yeni ders',
     'tutor.free': 'Serbest sohbet', 'tutor.privacy': 'Söylediklerin yazıya çevrilip ders sunucusuna gönderilir; sunucu hocanın cevabını Google Gemini\'den alır. Orada hiçbir şey saklanmaz.',
     'tutor.typeLabel': 'Cevabın', 'tutor.typePh': 'İngilizce yaz…', 'tutor.send': 'Gönder', 'tutor.keyboard': 'Yazarak cevap ver', 'tutor.talk': 'Konuş', 'tutor.stop': 'Bitti',
@@ -2671,6 +2717,7 @@ const STRINGS = {
     'home.writeTag': 'Yazma', 'home.writeTitle': 'Hikâye yaz', 'home.writeGo': 'Yaz', 'home.writeNote': '{n} hikâye · dilbilgisini Ms. Emma denetler', 'home.writeEmpty': 'İngilizce yaz; dilbilgisini Ms. Emma denetlesin.',
     'deck.novel': 'Romandan kelimelerim', 'deck.novelTag': 'Roman ve hoca', 'deck.wordsN': '{n} kelime', 'deck.novelNote': 'Romandan ve hocadan eklediğin kelimeler, cümleleriyle birlikte.', 'deck.novelEmpty': 'Romanda bir kelimeye dokunup “Desteye ekle” de; burada görünür.', 'deck.seeList': 'Listeyi gör', 'deck.novelListNote': '{n} kelime, geldiği cümleyle birlikte.', 'deck.dueNow': 'bugün', 'deck.dueIn': '{n} gün sonra', 'deck.remove': '“{w}” kelimesini desteden çıkar',
     'pron.title': 'Telaffuz denetimi', 'pron.read': 'Oku', 'pron.again': 'Tekrar oku', 'pron.try': 'Okuyarak dene', 'pron.readLine': 'Okuyarak dene', 'pron.listening': 'Dinliyorum… cümleyi oku', 'pron.heard': 'Duyulan:', 'pron.heardAs': '“{w}” duyuldu', 'pron.missed': 'duyulmadı', 'pron.great': 'Harika, her kelime anlaşıldı.', 'pron.good': 'İyi. Renkli kelimeleri dinleyip tekrar dene.', 'pron.retry': 'Bir kez daha dinle, sonra yavaşça oku.', 'pron.note': 'Site duyduğu kelimeleri karşılaştırır. Vurgu ve tonlamayı ölçmez, cümle içindeki özel isimler puana girmez.', 'pron.noSpeech': 'Bir şey duyamadım. Oku\'ya dokunup tekrar dene.', 'pron.noRecognition': 'Bu tarayıcı konuşmayı yazıya çeviremiyor. Chrome, Edge ya da Safari kullan.', 'pron.noReply': 'Önce derse başla; sonra hocanın cevabını okuyarak deneyebilirsin.', 'game.pron': 'Telaffuz', 'game.pronText': 'Cümleleri sesli oku: duyulan kelimeler yeşil, duyulmayanlar kırmızı olur.', 'game.bestPron': 'En iyi: %{n}', 'game.resultPron': 'Ortalama: %{p}', 'game.skip': 'Geç',
+    'nav.tutor': 'Ms. Emma', 'chat.profileTitle': 'Seni nasıl görsünler?', 'chat.nick': 'Takma ad', 'chat.level': 'İngilizce seviyen', 'chat.warning': 'Gerçek adını değil, takma ad kullan. Burada tanıştığın kişilerle telefonunu, adresini ya da başka kişisel bilgilerini paylaşma.', 'chat.goOnline': 'Çevrimiçi ol', 'chat.nameShort': 'Takma adın en az 2 karakter olmalı.', 'chat.onlineN': 'Çevrimiçi: {n} kişi', 'chat.state.searching': 'Çevrimiçi kişiler aranıyor…', 'chat.state.problem': 'Listeye ulaşılamadı; yeniden deniyorum…', 'chat.state.off': 'Çevrimdışısın', 'chat.state.dup': 'Sohbet bu cihazda başka bir sekmede açık', 'chat.state.on': 'Çevrimiçi', 'chat.retry': 'Tekrar dene', 'chat.empty': 'Şu an başka kimse çevrimiçi değil. Bu sekmeyi açık tut ya da sonra tekrar bak.', 'chat.you': 'Sen:', 'chat.edit': 'Değiştir', 'chat.hide': 'Beni listede gösterme', 'chat.unblock': 'Engellediklerimi temizle', 'chat.unblocked': 'Engellediklerin temizlendi.', 'chat.privacy': 'Mesajlar ve ses iki cihaz arasında doğrudan gider, saklanmaz; ücretsiz PeerJS servisi sizi tanıştırır, doğrudan bağlantı olmazsa bağlantıyı aktarabilir. Karşı taraf IP adresini görebilir. Kendi cümlelerin dilbilgisi denetimine gönderilir.', 'chat.invite': 'Yazış', 'chat.inviteTo': '{name} ile yazışmak için davet et', 'chat.busyNow': 'Sohbette', 'chat.asksYou': '{name} seninle yazışmak istiyor.', 'chat.waiting': '{name} yanıtlayana kadar bekleniyor…', 'chat.accept': 'Kabul et', 'chat.decline': 'Hayır', 'chat.block': 'Engelle', 'chat.cancel': 'Vazgeç', 'chat.blocked': '{name} engellendi.', 'chat.declined': '{name} kabul etmedi.', 'chat.busyToast': '{name} şu an meşgul.', 'chat.gone': 'Bu kişi artık çevrimiçi değil.', 'chat.noAnswer': 'Yanıt gelmedi.', 'chat.cantConnect': 'Bağlantı kurulamadı. Ağlarınız buna izin vermiyor olabilir.', 'chat.with': '{name} ile sohbettesin', 'chat.partnerLeft': '{name} sohbetten ayrıldı', 'chat.voiceStart': 'Sesli', 'chat.voiceEnd': 'Sesi kapat', 'chat.voiceWaiting': 'Bekleniyor…', 'chat.voiceAsk': '{name} sesli konuşmak istiyor.', 'chat.voiceNo': '{name} sesli görüşmeyi başlatmadı.',
     'home.eyebrow': 'Günlük hedef', 'home.titleReview': 'Tekrar zamanı! ✨', 'home.titleMorning': 'Günaydın! ☀️', 'home.titleDay': 'Hadi öğrenelim! ✨', 'home.titleEvening': 'İyi akşamlar! 🌙',
     'home.goalChip': '%{p} tamamlandı', 'home.goalStart': 'Hadi başlayalım!', 'home.goalGoing': 'Harika gidiyorsun!', 'home.goalDone': 'Hedef tamam! 🎉',
     'home.goalLeft': 'Hedefe sadece {n} kart kaldı. Ritmini koru!', 'home.goalDoneNote': 'Bugün yapacağın her şey artık bonus.',
@@ -2725,27 +2772,27 @@ const STRINGS = {
     'today.weekLabel': 'Son yedi günde tekrar edilen kartlar', 'today.weekDay': '{n} kart', 'today.grammar': 'Gramer · {topic}', 'today.grammarNext': 'Sıradaki: {title}',
     'today.words': '{total} kelimeden {n} tanesi öğrenildi', 'novel.save': 'Desteye ekle', 'novel.saved': 'Destede ✓', 'novel.meaning': 'Türkçe anlamı', 'novel.context': 'Bağlam:', 'novel.tabNow': 'Şu an okuyorum', 'novel.tabShelf': 'Kütüphane', 'novel.goal': 'Günün okuma hedefi', 'novel.goalText': '{d}/{n} sayfa okundu · bu hafta {m} dk', 'novel.noBook': 'Başlamak için kütüphaneden bir kitap seç.', 'novel.classic': 'Roman', 'novel.savedWords': 'Desteye {n} kelime ekledin', 'novel.progress2': 'Okuma ilerlemesi', 'novel.progressOf': '%{p} (sayfa {n} / {total})', 'novel.continue': 'Okumaya devam et',
     'update.text': 'Uygulamanın yeni sürümü hazır.', 'update.reload': 'Yenile',
-    'nav.speak': 'Konuşma', 'mode.speak': 'Bir arkadaşınla sesli odada İngilizce konuş; konu kartları sana yol göstersin.',
+    'nav.speak': 'Konuşma', 'mode.speak': 'Çevrimiçi kişilerle İngilizce yazış ya da sesli konuş; konu kartları sana yol göstersin.',
     'tutor.live': 'Canlı & dinliyor', 'tutor.levelNote': 'Native Speaker · {l} akıcılık seviyesi', 'tutor.role': 'Rol: {r}', 'tutor.speed': 'Ses hızı',
     'tutor.suggest': 'Önerilen cevaplar (dokun ve dinle/söyle):', 'tutor.help': 'Yardım', 'tutor.minutes': '{n} dk', 'tutor.ready': 'Konuşmaya hazır', 'tutor.listening': 'Dinleniyor…',
     'tutor.readyHint': 'Mikrofon butonuna dokunup cevabını İngilizce seslendir.', 'tutor.byTyping': 'Yazarak', 'tutor.pron': 'Telaffuz', 'tutor.showTr': 'Türkçe anlamı göster',
     'tutor.accuracy': '%{p} doğruluk', 'tutor.xpAdded': 'Kelime haznene +10 XP eklendi!', 'tutor.great': 'Harika cümle kurulumu!', 'tutor.kept': '“{w}” desteye eklendi.', 'speak.showCards': 'Konu sorularını göster', 'speak.hideCards': 'Konu sorularını gizle', 'speak.chat': 'Mesajlar', 'speak.chatHint': 'İngilizce yaz. Ms. Emma her cümleni denetler; düzeltmelerini yalnızca sen görürsün.',
-    'speak.chatLabel': 'Mesaj', 'speak.chatPh': 'İngilizce yaz…', 'speak.send': 'Gönder', 'speak.textOnly': 'Mikrofonsuz: sadece yazışayım',
-    'speak.micText': 'Mikrofon yok: yine de yazışabilirsin.', 'speak.checking': 'Denetleniyor…', 'speak.correct': '✓ Doğru İngilizce', 'speak.okSimple': '✓ Basit denetimde hata bulunmadı (hocaya ulaşılamadı)',
+    'speak.chatLabel': 'Mesaj', 'speak.chatPh': 'İngilizce yaz…', 'speak.send': 'Gönder',
+ 'speak.checking': 'Denetleniyor…', 'speak.correct': '✓ Doğru İngilizce', 'speak.okSimple': '✓ Basit denetimde hata bulunmadı (hocaya ulaşılamadı)',
     'speak.better': 'Doğrusu', 'speak.checkFailed': 'Bu cümle denetlenemedi.', 'speak.notConnected': 'Arkadaşın bağlanana kadar bekle.',
-    'speak.title': 'Konuşma odası', 'speak.lead': 'Bir arkadaşınla İngilizce konuş ya da yazış: oda aç, linki gönder, konu kartlarını birlikte kullanın. Mesajlarının dilbilgisi denetlenir.',
-    'speak.create': 'Oda aç', 'speak.createHint': 'Arkadaşına göndereceğin bir link oluşur. Linki açtığında bağlanırsınız.',
-    'speak.joinLabel': 'Kodla odaya katıl', 'speak.join': 'Katıl', 'speak.roomCode': 'Oda kodu', 'speak.share': 'Linki gönder', 'speak.copy': 'Kopyala',
-    'speak.privacy': 'Sesin doğrudan iki telefon arasında gider, kaydedilmez. Ücretsiz PeerJS sunucusu yalnızca iki telefonun birbirini bulmasını sağlar.',
+    'speak.title': 'Sohbet', 'speak.lead': 'Şu an çevrimiçi olan kişilerle İngilizce yazış ya da sesli konuş. Cümlelerinin dilbilgisi denetlenir.',
+
+
+
     'speak.topic': 'Konu', 'speak.listen': 'Soruyu dinle', 'speak.help': 'İşine yarayacak ifadeler', 'speak.next': 'Sonraki soru',
     'speak.mute': 'Sessiz', 'speak.unmute': 'Sesi aç', 'speak.leave': 'Ayrıl', 'speak.count': '{n} / {total}',
     'speak.youAsk': 'Sıra sende: sen sor, arkadaşın cevaplasın', 'speak.friendAsks': 'Arkadaşın sorsun, sen cevapla',
-    'speak.state.connecting': 'Bağlanıyor…', 'speak.state.waiting': 'Arkadaşın bekleniyor…', 'speak.state.connected': 'Bağlandınız — konuşmaya başlayın!',
-    'speak.state.left': 'Arkadaşın ayrıldı. Aynı linkle tekrar katılabilir.', 'speak.state.lost': 'Bağlantı koptu. Ayrılıp tekrar katıl.',
-    'speak.badCode': 'Oda kodu 6 harf ve rakamdan oluşur.', 'speak.noRoom': 'Bu kodla açık bir oda yok. Önce arkadaşın odayı açsın.',
+
+
+
     'speak.micDenied': 'Mikrofon izni kapalı. Tarayıcı ayarlarından bu site için mikrofona izin ver ve tekrar dene.', 'speak.noMic': 'Bu cihazda mikrofon bulunamadı.',
-    'speak.connError': 'Bağlanılamadı. İnternet bağlantını kontrol edip tekrar dene (Wi-Fi en iyisi).',
-    'speak.shareText': 'Hadi İngilizce konuşalım! Konuşma odama katıl (kod {code}):', 'speak.copied': 'Link kopyalandı — arkadaşına gönder.',
+
+
     'nav.novel': 'Roman', 'mode.novel': 'İngilizce roman oku, istediğin kelimeye dokun, Türkçesini gör.',
     'novel.title': 'Roman oku', 'novel.lead': 'İngilizce bir romanı PDF olarak aç ve herhangi bir kelimeye dokunarak Türkçe anlamını gör.',
     'novel.choose': 'Başka PDF seç', 'novel.hint': 'Kitap yalnızca bu cihazda okunur, hiçbir yere yüklenmez. İlk açılıştan sonra doğrudan bu tarayıcıdan açılır.',
@@ -3389,11 +3436,10 @@ function relabelCards() {
 }
 
 /* ---------- 7i. Navigation ---------- */
-const ROUTES = ['home', 'review', 'practice', 'rankings', 'words', 'phrases', 'grammar', 'speak', 'novel', 'quiz', 'reading', 'settings'];
+const ROUTES = ['home', 'review', 'practice', 'rankings', 'words', 'phrases', 'grammar', 'speak', 'tutor', 'novel', 'quiz', 'reading', 'settings'];
 const Router = {
   current: null,
   /* Non-route hashes (e.g. the skip link's #main) keep the current view. */
-  /* "#speak/ABC123" opens the Speaking view with a room code. */
   route() { const name = location.hash.replace(/^#\/?/, '').split('/')[0]; return ROUTES.includes(name) ? name : (this.current || 'home'); },
   show(moveFocus) {
     const name = this.route();
@@ -3410,7 +3456,7 @@ const Router = {
       row.scrollLeft += tab.getBoundingClientRect().left - row.getBoundingClientRect().left - (row.clientWidth - tab.offsetWidth) / 2;
     }
     document.title = t('nav.' + name) + ' · WordFlow';
-    if (changed) { Speech.stop(); Tutor.pause(); Games.stop(); Pron.close(); }
+    if (changed) { Speech.stop(); Tutor.pause(); Games.stop(); Pron.close(); Speak.away(); }
     Novel.focusMode();
     Tutor.focusMode();
     const module = MODULES[name];
@@ -5091,61 +5137,101 @@ function setLanguage(next) {
   Router.show(false);
 }
 
-/* ---------- Speaking room ----------
-   Two people talk with their own voices. PeerJS (WebRTC) carries the sound
-   straight between the two browsers; its free public server only introduces
-   them. The room's topic card is shared: a change on one phone shows on both. */
+/* ---------- Chat with people online ----------
+   Two people write or talk. PeerJS (WebRTC) carries messages and sound straight
+   between the two browsers; its free public service only introduces them. The
+   topic card is shared: a change on one phone shows on both. */
 const Speak = {
-  PREFIX: 'english-study-room-',
+  /* There is no server of ours. Whoever claims this fixed PeerJS name first keeps the list of
+     people online; the others connect to them. When that person goes, someone else claims it. */
+  LOBBY_ID: 'english-study-lobby-v1',
+  KEY: 'english-study-chat.v1',
+  LEVELS: ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'],
+  MAX_PEOPLE: 64,
   topics: [],
-  peer: null,
+  profile: { uid: '', name: '', level: 'B1', hidden: false, blocked: [] },
+  me: null,
+  hub: null,
+  claim: null,
+  member: null,
+  role: '',
+  wanted: false,
+  online: [],
+  attempts: 0,
+  lobbyState: 'off',
+  people: new Map(),
+  snoozed: new Map(),
+  incoming: null,
+  outgoing: null,
   conn: null,
   call: null,
+  partner: null,
   stream: null,
   host: false,
-  code: '',
   status: 'idle',
   state: { topic: 0, q: 0, v: 0 },
   timer: null,
   wakeLock: null,
   init() {
     this.topics = readJsonScript('speak-topics') || [];
-    $('#speak-create').addEventListener('click', () => this.start(true, this.newCode()));
-    $('#speak-join').addEventListener('submit', event => {
-      event.preventDefault();
-      const code = $('#speak-code').value.toUpperCase().replace(/[^A-Z0-9]/g, '');
-      if (code.length !== 6) this.error('speak.badCode');
-      else this.start(false, code);
+    let saved = null;
+    try { saved = JSON.parse(Store.read(this.KEY) || 'null'); } catch (_) {}
+    if (saved && typeof saved === 'object') {
+      this.profile = { ...this.profile, uid: String(saved.uid || ''), name: this.cleanName(saved.name), level: this.LEVELS.includes(saved.level) ? saved.level : 'B1', hidden: saved.hidden === true, blocked: Array.isArray(saved.blocked) ? saved.blocked.map(String).slice(0, 200) : [] };
+    }
+    $('#chat-level').replaceChildren(...this.LEVELS.map(level => h('option', { value: level, text: level })));
+    $('#chat-profile').addEventListener('submit', event => { event.preventDefault(); this.saveProfile(); });
+    $('#chat-edit').addEventListener('click', () => this.editProfile());
+    $('#chat-hidden').addEventListener('change', event => { this.profile.hidden = event.target.checked; this.saveState(); this.announce(); });
+    $('#chat-unblock').addEventListener('click', () => { this.profile.blocked = []; this.saveState(); this.renderLobby(); Toast.show(t('chat.unblocked')); });
+    $('#chat-retry').addEventListener('click', () => { this.leaveLobby(); this.join(); });
+    $('#chat-people').addEventListener('click', event => {
+      const button = event.target.closest('[data-invite]');
+      if (button) this.invite(button.dataset.invite);
     });
-    $('#speak-code').addEventListener('input', event => { event.target.value = event.target.value.toUpperCase().replace(/[^A-Z0-9]/g, ''); });
-    $('#speak-share').addEventListener('click', () => this.share());
-    $('#speak-copy').addEventListener('click', () => this.copy());
+    $('#chat-cancel').addEventListener('click', () => this.cancelOutgoing());
+    $('#chat-accept').addEventListener('click', () => this.acceptInvite());
+    $('#chat-decline').addEventListener('click', () => this.declineInvite(false));
+    $('#chat-block-invite').addEventListener('click', () => this.declineInvite(true));
     $('#speak-next').addEventListener('click', () => this.setCard(this.state.topic, this.state.q + 1));
     $('#speak-topic').addEventListener('change', event => this.setCard(parseInt(event.target.value, 10) || 0, 0));
     $('#speak-listen').addEventListener('click', () => {
       const question = $('#speak-q').textContent;
       if (Speech.hasTTS) Speech.speakNow(question); else Speech.speak(question);
     });
+    $('#speak-voice').addEventListener('click', () => this.toggleVoice());
+    $('#chat-voice-yes').addEventListener('click', () => this.answerVoice(true));
+    $('#chat-voice-no').addEventListener('click', () => this.answerVoice(false));
     $('#speak-mute').addEventListener('click', () => this.setMuted(!this.muted));
-    $('#speak-leave').addEventListener('click', () => this.leave());
+    $('#speak-block').addEventListener('click', () => this.blockPartner());
+    $('#speak-leave').addEventListener('click', () => this.leaveRoom());
     $('#speak-cards-toggle').addEventListener('click', () => this.showCards($('#speak-card').hidden, true));
     $('#speak-chat-form').addEventListener('submit', event => { event.preventDefault(); this.sendMessage(); });
     $('#speak-chat-input').addEventListener('keydown', event => {
       if (event.key === 'Enter' && !event.shiftKey && !event.isComposing) { event.preventDefault(); this.sendMessage(); }
     });
     $('#speak-chat-input').addEventListener('input', event => { event.target.style.height = 'auto'; event.target.style.height = event.target.scrollHeight + 'px'; });
-    window.addEventListener('pagehide', () => { if (this.peer) this.leave(true); });
+    window.addEventListener('pagehide', () => this.shutdown());
+    /* A closed phone screen or a forgotten tab should not look available. */
+    document.addEventListener('visibilitychange', () => {
+      clearTimeout(this.hiddenTimer);
+      if (document.hidden) this.hiddenTimer = setTimeout(() => { if (!this.conn) this.leaveLobby(); }, 60000);
+      else if (Router.current === 'speak' && this.profile.name && !this.wanted && !this.conn && this.lobbyState !== 'dup') this.join();
+    });
   },
-  /* "#speak/ABC123" (the link a friend sent) fills in the code; joining needs a
-     tap, because the browser asks for the microphone and plays sound only then. */
   onShow() {
+    if (location.hash.startsWith('#speak/')) history.replaceState(null, '', '#speak');
     this.renderTopics();
     this.render();
-    const code = (location.hash.split('/')[1] || '').toUpperCase().replace(/[^A-Z0-9]/g, '');
-    if (code && !this.peer) {
-      $('#speak-code').value = code;
-      $('#speak-join').classList.add('is-invited');
-    }
+    this.renderLobby();
+    if (this.profile.name && !this.wanted && !this.conn) this.join();
+  },
+  /* Leaving the tab takes you off the list, unless you are in a chat. */
+  away() {
+    if (Router.current === 'speak') return;
+    if (this.outgoing) this.cancelOutgoing();
+    if (this.incoming) this.declineInvite(false);
+    if (!this.conn) { if (!$('#speak-room').hidden) this.closeRoomView(); this.leaveLobby(); }
   },
   renderTopics() {
     const select = $('#speak-topic');
@@ -5153,15 +5239,27 @@ const Speak = {
     select.dataset.lang = lang;
     select.replaceChildren(...this.topics.map((topic, index) => h('option', { value: index, text: lang === 'tr' ? topic.tr : topic.topic })));
   },
-  newCode() {
-    const letters = 'ABCDEFGHJKMNPQRSTUVWXYZ23456789';
-    return Array.from(crypto.getRandomValues(new Uint8Array(6)), n => letters[n % letters.length]).join('');
+  /* ---- Your name on the list */
+  cleanName(value) { return String(value == null ? '' : value).replace(/\p{C}/gu, '').replace(/\s+/g, ' ').trim().slice(0, 20); },
+  saveState() { Store.write(this.KEY, JSON.stringify(this.profile)); },
+  saveProfile() {
+    const name = this.cleanName($('#chat-name').value);
+    if (name.length < 2) { $('#chat-name').focus(); Toast.show(t('chat.nameShort')); return; }
+    if (!this.profile.uid) this.profile.uid = Array.from(crypto.getRandomValues(new Uint8Array(12)), n => n.toString(16).padStart(2, '0')).join('');
+    this.profile.name = name;
+    this.profile.level = this.LEVELS.includes($('#chat-level').value) ? $('#chat-level').value : 'B1';
+    this.saveState();
+    this.editing = false;
+    this.renderLobby();
+    if (this.wanted) this.announce(); else this.join();
   },
-  link() { return location.origin + location.pathname + '#speak/' + this.code; },
-  error(key) {
-    $('#speak-error').textContent = t(key);
-    $('#speak-error').hidden = false;
+  editProfile() { this.editing = true; this.renderLobby(); $('#chat-name').focus(); },
+  isBlocked(uid) { return this.profile.blocked.includes(uid); },
+  block(uid) {
+    if (uid && !this.isBlocked(uid)) { this.profile.blocked.push(uid); this.saveState(); }
+    this.renderLobby();
   },
+  /* ---- Getting on the list */
   async loadPeer() {
     if (window.Peer) return window.Peer;
     const url = URL.createObjectURL(new Blob([$('#peerjs-src').textContent], { type: 'text/javascript' }));
@@ -5174,83 +5272,357 @@ const Speak = {
     });
     return window.Peer;
   },
-  async start(host, code) {
-    $('#speak-error').hidden = true;
-    let Peer;
-    /* Without a microphone (none, blocked, or the box ticked) the room is for messages only. */
-    if (!this.stream && !$('#speak-text-only').checked) {
-      try {
-        if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) throw new Error('no microphone');
-        this.stream = await navigator.mediaDevices.getUserMedia({ audio: { echoCancellation: true, noiseSuppression: true, autoGainControl: true } });
-      } catch (err) {
-        Toast.show(t(err && err.name === 'NotAllowedError' ? 'speak.micDenied' : 'speak.micText'));
-      }
+  async join() {
+    if (this.wanted) return;
+    this.wanted = true;
+    this.attempts = 0;
+    this.setLobby('searching');
+    try { await this.loadPeer(); } catch (_) { this.setLobby('problem'); this.retry(); return; }
+    if (this.wanted) this.openMe();
+  },
+  /* Your own connection: the list, invitations and voice all come through it. */
+  openMe() {
+    if (this.me && !this.me.destroyed) {
+      if (this.me.open) this.tryLobby();
+      else if (this.me.disconnected) this.me.reconnect();
+      return;
     }
-    $('#speak-mute').hidden = !this.stream;
-    try { Peer = await this.loadPeer(); } catch (_) { this.leave(true); this.error('speak.connError'); return; }
-    this.host = host;
-    this.code = code;
-    this.showRoom(true);
-    this.setMuted(false);
-    this.setStatus('connecting');
-    const peer = this.peer = host ? new Peer(this.PREFIX + code.toLowerCase()) : new Peer();
-    peer.on('open', () => {
-      if (this.peer !== peer) return;
-      if (host) {
-        this.setStatus('waiting');
-        history.replaceState(null, '', '#speak/' + code);
+    const me = this.me = new window.Peer();
+    me.on('open', () => { if (this.me === me && this.wanted && !this.role) this.tryLobby(); });
+    me.on('connection', conn => this.incomingConn(conn));
+    me.on('call', call => this.incomingCall(call));
+    me.on('disconnected', () => { if (this.me === me && !me.destroyed) me.reconnect(); });
+    me.on('error', err => {
+      if (this.me !== me) return;
+      if (err && err.type === 'peer-unavailable') {
+        if (String(err.message).includes(this.LOBBY_ID)) { if (!this.role) this.lobbyFailed(); }
+        else if (this.outgoing) this.outgoingFailed('chat.gone');
         return;
       }
-      const target = this.PREFIX + code.toLowerCase();
-      this.bindConn(peer.connect(target, { reliable: true }));
-      if (this.stream) this.bindCall(peer.call(target, this.stream));
-    });
-    /* A room is for two: a third person is turned away. */
-    peer.on('connection', conn => { if (this.conn) conn.close(); else this.bindConn(conn); });
-    peer.on('call', call => {
-      if (this.call) { call.close(); return; }
-      call.answer(this.stream || undefined);
-      this.bindCall(call);
-    });
-    peer.on('disconnected', () => { if (this.peer === peer && !peer.destroyed) peer.reconnect(); });
-    peer.on('error', err => {
-      if (this.peer !== peer) return;
-      const type = err && err.type;
-      if (type === 'unavailable-id' && host) { this.close(); this.start(true, this.newCode()); }
-      else if (type === 'peer-unavailable') { this.leave(true); this.error('speak.noRoom'); }
-      else if (this.status === 'connected') { /* the call itself goes on without the server */ }
-      else { this.leave(true); this.error('speak.connError'); }
+      if (this.outgoing) this.outgoingFailed('chat.cantConnect');
+      if (this.wanted && !this.role) this.lobbyFailed();
     });
   },
-  bindCall(call) {
-    if (!call) return;
-    this.call = call;
-    call.on('stream', remote => {
-      const audio = $('#speak-audio');
-      audio.srcObject = remote;
-      audio.play().catch(() => {});
-      this.connected();
+  /* Claim the list; when it is taken, connect to whoever holds it. */
+  tryLobby() {
+    clearTimeout(this.retryTimer);
+    if (this.role || this.claim || this.member) return;
+    const hub = this.claim = new window.Peer(this.LOBBY_ID);
+    hub.on('open', () => {
+      if (this.claim !== hub) return;
+      this.claim = null;
+      this.becomeHub(hub);
     });
-    call.on('close', () => { if (this.call === call) { this.call = null; this.friendLeft(); } });
-    call.on('error', () => {});
+    hub.on('connection', conn => this.hubAccept(conn));
+    hub.on('disconnected', () => { if (this.hub === hub && !hub.destroyed) hub.reconnect(); });
+    hub.on('error', err => {
+      const taken = err && err.type === 'unavailable-id';
+      if (this.hub === hub) { if (taken) { this.standDown(); this.retry(true); } return; }
+      if (this.claim !== hub) return;
+      this.claim = null;
+      try { hub.destroy(); } catch (_) {}
+      if (taken) this.connectHub(); else this.lobbyFailed();
+    });
   },
-  bindConn(conn) {
-    if (!conn) return;
-    this.conn = conn;
+  connectHub() {
+    if (!this.wanted || !this.me || !this.me.open) { this.lobbyFailed(); return; }
+    const conn = this.member = this.me.connect(this.LOBBY_ID, { reliable: true, metadata: { kind: 'lobby' } });
+    const timer = setTimeout(() => { if (this.member === conn && !this.role) { this.member = null; try { conn.close(); } catch (_) {} this.lobbyFailed(); } }, 12000);
     conn.on('open', () => {
-      this.send({ type: 'card', host: this.host, ...this.state });
-      this.connected();
+      clearTimeout(timer);
+      if (this.member !== conn) { conn.close(); return; }
+      this.role = 'member';
+      this.attempts = 0;
+      this.lastHub = Date.now();
+      this.startBeat();
+      this.announce();
     });
-    conn.on('data', data => this.receive(data));
-    conn.on('close', () => { if (this.conn === conn) { this.conn = null; this.friendLeft(); } });
+    conn.on('data', data => {
+      if (this.member !== conn || !data || typeof data !== 'object') return;
+      this.lastHub = Date.now();
+      if (data.type === 'list') { this.setOnline(data.people); this.setLobby('on'); }
+      if (data.type === 'dup') this.duplicate();
+    });
+    conn.on('close', () => {
+      clearTimeout(timer);
+      if (this.member !== conn) return;
+      this.member = null;
+      this.role = '';
+      clearInterval(this.beat);
+      if (this.wanted) { this.setLobby('searching'); this.retry(true); }
+    });
     conn.on('error', () => {});
   },
+  lobbyFailed() {
+    this.attempts += 1;
+    if (this.attempts >= 3) this.setLobby('problem');
+    this.retry();
+  },
+  retry(fast) {
+    clearTimeout(this.retryTimer);
+    if (!this.wanted) return;
+    /* Soon after the list's keeper left, everyone tries at once: spread them out. */
+    const delay = fast ? 300 + Math.random() * 1700 : Math.min(15000, 2000 * 2 ** this.attempts) + Math.random() * 1000;
+    this.retryTimer = setTimeout(() => { if (this.wanted && !this.role) this.openMe(); }, delay);
+  },
+  startBeat() {
+    clearInterval(this.beat);
+    this.beat = setInterval(() => {
+      if (this.role === 'hub') this.hubTick();
+      if (this.role === 'member') {
+        if (Date.now() - this.lastHub > 45000) { const conn = this.member; this.member = null; this.role = ''; clearInterval(this.beat); try { conn.close(); } catch (_) {} this.retry(true); return; }
+        this.announce();
+      }
+    }, 15000);
+  },
+  /* What the keeper of the list is told about you. */
+  self() { return { id: this.me ? this.me.id : '', uid: this.profile.uid, name: this.profile.name, level: this.profile.level, busy: !!this.conn, hidden: this.profile.hidden }; },
+  announce() {
+    if (this.role === 'hub') this.hubPublish();
+    if (this.role === 'member' && this.member && this.member.open) this.member.send({ type: 'hello', ...this.self() });
+  },
+  duplicate() {
+    this.leaveLobby();
+    this.setLobby('dup');
+  },
+  leaveLobby() {
+    this.wanted = false;
+    clearTimeout(this.retryTimer);
+    clearInterval(this.beat);
+    if (this.member) { const conn = this.member; this.member = null; try { conn.close(); } catch (_) {} }
+    this.standDown();
+    if (this.claim) { try { this.claim.destroy(); } catch (_) {} this.claim = null; }
+    this.role = '';
+    this.online = [];
+    if (!this.conn && this.me) { try { this.me.destroy(); } catch (_) {} this.me = null; }
+    this.setLobby('off');
+  },
+  shutdown() {
+    this.send({ type: 'bye' });
+    this.leaveLobby();
+    if (this.me) { try { this.me.destroy(); } catch (_) {} this.me = null; }
+  },
+  /* ---- Keeping the list, when it is your turn */
+  becomeHub(hub) {
+    this.hub = hub;
+    this.role = 'hub';
+    this.attempts = 0;
+    this.people = new Map();
+    this.startBeat();
+    this.hubPublish();
+    this.setLobby('on');
+  },
+  standDown() {
+    if (!this.hub) return;
+    const hub = this.hub;
+    this.hub = null;
+    if (this.role === 'hub') this.role = '';
+    this.people = new Map();
+    try { hub.destroy(); } catch (_) {}
+  },
+  hubAccept(conn) {
+    if ((conn.metadata || {}).kind !== 'lobby') { conn.close(); return; }
+    let times = [];
+    conn.on('data', data => {
+      const now = Date.now();
+      times = times.filter(time => now - time < 10000);
+      times.push(now);
+      if (times.length > 20) { conn.close(); return; }
+      if (this.hub && data && data.type === 'hello') this.hubHello(conn, data);
+    });
+    conn.on('close', () => { if (this.hub && this.people.has(conn.peer)) { this.people.delete(conn.peer); this.hubPublish(); } });
+    conn.on('error', () => {});
+  },
+  hubHello(conn, data) {
+    const uid = String(data.uid || '').slice(0, 40);
+    const name = this.cleanName(data.name);
+    if (!uid || name.length < 2) { conn.close(); return; }
+    /* One person, one place on the list: the same device's newest tab stays. */
+    const dup = () => { conn.send({ type: 'dup' }); setTimeout(() => { try { conn.close(); } catch (_) {} }, 300); };
+    if (uid === this.profile.uid) { dup(); return; }
+    for (const [id, person] of this.people) {
+      if (person.uid === uid && id !== conn.peer) {
+        person.conn.send({ type: 'dup' });
+        this.people.delete(id);
+        setTimeout(() => { try { person.conn.close(); } catch (_) {} }, 300);
+      }
+    }
+    if (!this.people.has(conn.peer) && this.people.size >= this.MAX_PEOPLE) { conn.close(); return; }
+    const entry = { id: conn.peer, uid, name, level: this.LEVELS.includes(data.level) ? data.level : '', busy: data.busy === true, hidden: data.hidden === true };
+    const old = this.people.get(conn.peer);
+    const changed = !old || ['name', 'level', 'busy', 'hidden'].some(key => old[key] !== entry[key]);
+    this.people.set(conn.peer, { ...entry, conn, seen: Date.now() });
+    if (changed) this.hubPublish(); else conn.send({ type: 'list', people: this.hubList() });
+  },
+  hubList() {
+    return [this.self(), ...this.people.values()].filter(person => !person.hidden).map(({ id, uid, name, level, busy }) => ({ id, uid, name, level, busy }));
+  },
+  hubPublish() {
+    const people = this.hubList();
+    this.setOnline(people);
+    for (const person of this.people.values()) { if (person.conn.open) person.conn.send({ type: 'list', people }); }
+  },
+  hubTick() {
+    for (const [id, person] of this.people) {
+      if (Date.now() - person.seen > 45000) { this.people.delete(id); try { person.conn.close(); } catch (_) {} }
+    }
+    this.hubPublish();
+  },
+  /* The list comes from another visitor's browser, so nothing in it is taken on trust. */
+  setOnline(people) {
+    if (!Array.isArray(people)) return;
+    this.online = people.slice(0, this.MAX_PEOPLE + 1).map(person => ({
+      id: String(person && person.id || '').slice(0, 80), uid: String(person && person.uid || '').slice(0, 40), name: this.cleanName(person && person.name),
+      level: this.LEVELS.includes(person && person.level) ? person.level : '', busy: !!(person && person.busy)
+    })).filter(person => person.id && person.uid && person.name);
+    this.renderLobby();
+  },
+  setLobby(state) { this.lobbyState = state; this.renderLobby(); },
+  renderLobby() {
+    const { name, level, hidden, blocked } = this.profile;
+    const asking = !name || this.editing;
+    $('#chat-profile').hidden = !asking;
+    $('#chat-list').hidden = asking;
+    if (asking) { $('#chat-name').value = name; $('#chat-level').value = level; return; }
+    $('#chat-me').textContent = name + ' · ' + level;
+    $('#chat-hidden').checked = hidden;
+    $('#chat-unblock').hidden = !blocked.length;
+    const others = this.online.filter(person => person.uid !== this.profile.uid && !this.isBlocked(person.uid));
+    const state = this.lobbyState;
+    $('#chat-dot').dataset.state = state === 'on' ? 'connected' : state === 'searching' ? 'connecting' : 'lost';
+    $('#chat-state').textContent = state === 'on' ? t('chat.onlineN', { n: others.length }) : t('chat.state.' + state);
+    $('#chat-retry').hidden = !(state === 'problem' || state === 'dup' || state === 'off');
+    $('#chat-people').replaceChildren(...(state === 'on' ? others : []).map(person => h('li', { class: 'chat-person' },
+      h('span', { class: 'chat-face', 'aria-hidden': 'true', text: [...person.name][0].toUpperCase() }),
+      h('span', { class: 'chat-who' }, h('strong', { text: person.name }), h('small', { text: person.busy ? t('chat.busyNow') : person.level })),
+      h('button', { type: 'button', class: 'button primary small', 'data-invite': person.id, disabled: person.busy ? 'disabled' : null, 'aria-label': t('chat.inviteTo', { name: person.name }), text: t('chat.invite') }))));
+    $('#chat-empty').hidden = !(state === 'on' && !others.length);
+  },
+  /* ---- Invitations: nothing starts until the other person accepts */
+  invite(id) {
+    const person = this.online.find(item => item.id === id);
+    if (!person || !this.me || !this.me.open || this.outgoing || this.conn) return;
+    const conn = this.me.connect(id, { reliable: true, metadata: { kind: 'chat', uid: this.profile.uid, name: this.profile.name, level: this.profile.level } });
+    this.outgoing = { conn, who: person, timer: setTimeout(() => this.outgoingFailed('chat.noAnswer'), 35000) };
+    this.watch(conn);
+    this.renderInvites();
+  },
+  /* Every chat connection, in both directions, reports here. */
+  watch(conn) {
+    conn.on('data', data => {
+      if (!data || typeof data !== 'object') return;
+      if (conn === this.conn) this.receive(data);
+      else if (this.outgoing && this.outgoing.conn === conn) {
+        if (data.type === 'accept') { const { who, timer } = this.outgoing; clearTimeout(timer); this.outgoing = null; this.renderInvites(); this.enterRoom(conn, who, true); }
+        if (data.type === 'decline') this.outgoingFailed('chat.declined', { name: this.outgoing.who.name });
+        if (data.type === 'busy') this.outgoingFailed('chat.busyToast', { name: this.outgoing.who.name });
+      }
+    });
+    conn.on('close', () => {
+      if (conn === this.conn) { this.conn = null; this.partnerLeft(); }
+      else if (this.outgoing && this.outgoing.conn === conn) this.outgoingFailed('chat.gone');
+      else if (this.incoming && this.incoming.conn === conn) this.clearIncoming();
+    });
+    conn.on('error', () => {});
+  },
+  outgoingFailed(key, vars) {
+    if (!this.outgoing) return;
+    const { conn, timer } = this.outgoing;
+    clearTimeout(timer);
+    this.outgoing = null;
+    try { conn.close(); } catch (_) {}
+    this.renderInvites();
+    Toast.show(t(key, vars));
+  },
+  cancelOutgoing() {
+    if (!this.outgoing) return;
+    const { conn, timer } = this.outgoing;
+    clearTimeout(timer);
+    this.outgoing = null;
+    try { conn.close(); } catch (_) {}
+    this.renderInvites();
+  },
+  incomingConn(conn) {
+    const meta = conn.metadata || {};
+    const who = { id: conn.peer, uid: String(meta.uid || '').slice(0, 40), name: this.cleanName(meta.name), level: this.LEVELS.includes(meta.level) ? meta.level : '' };
+    if (meta.kind !== 'chat' || !who.uid || who.name.length < 2) { conn.close(); return; }
+    conn.on('open', () => {
+      const answer = type => { conn.send({ type }); setTimeout(() => { try { conn.close(); } catch (_) {} }, 300); };
+      if (this.isBlocked(who.uid) || (this.snoozed.get(who.uid) || 0) > Date.now()) { answer('decline'); return; }
+      if (this.conn || this.incoming || this.outgoing || Router.current !== 'speak') { answer('busy'); return; }
+      this.incoming = { conn, who, timer: setTimeout(() => this.declineInvite(false), 30000) };
+      this.watch(conn);
+      this.renderInvites();
+    });
+    conn.on('error', () => {});
+  },
+  clearIncoming() {
+    if (this.incoming) clearTimeout(this.incoming.timer);
+    this.incoming = null;
+    this.renderInvites();
+  },
+  acceptInvite() {
+    if (!this.incoming) return;
+    const { conn, who } = this.incoming;
+    this.clearIncoming();
+    conn.send({ type: 'accept' });
+    this.enterRoom(conn, who, false);
+  },
+  /* After a "no" the same person cannot ask again for two minutes. */
+  declineInvite(blocked) {
+    if (!this.incoming) return;
+    const { conn, who } = this.incoming;
+    this.clearIncoming();
+    this.snoozed.set(who.uid, Date.now() + 120000);
+    if (blocked) { this.block(who.uid); Toast.show(t('chat.blocked', { name: who.name })); }
+    if (conn.open) conn.send({ type: 'decline' });
+    setTimeout(() => { try { conn.close(); } catch (_) {} }, 300);
+  },
+  renderInvites() {
+    const asked = this.incoming, asking = this.outgoing;
+    $('#chat-asked').hidden = !asked;
+    $('#chat-asking').hidden = !asking;
+    if (asked) $('#chat-asked-text').textContent = t('chat.asksYou', { name: asked.who.name + (asked.who.level ? ' (' + asked.who.level + ')' : '') });
+    if (asking) $('#chat-asking-text').textContent = t('chat.waiting', { name: asking.who.name });
+  },
+  /* ---- The chat */
+  enterRoom(conn, who, host) {
+    this.conn = conn;
+    this.partner = who;
+    this.host = host;
+    this.state = { topic: this.state.topic, q: 0, v: 0 };
+    this.received = [];
+    $('#speak-messages').replaceChildren();
+    $('#speak-chat-input').disabled = false;
+    this.showRoom(true);
+    this.setStatus('connected');
+    this.announce();
+    this.send({ type: 'card', host, ...this.state });
+    const started = Date.now();
+    clearInterval(this.timer);
+    const tick = () => {
+      const seconds = Math.floor((Date.now() - started) / 1000);
+      $('#speak-timer').textContent = String(Math.floor(seconds / 60)).padStart(2, '0') + ':' + String(seconds % 60).padStart(2, '0');
+    };
+    tick();
+    this.timer = setInterval(tick, 1000);
+    /* Keep the phone screen on while talking. */
+    if (navigator.wakeLock) navigator.wakeLock.request('screen').then(lock => { this.wakeLock = lock; }).catch(() => {});
+  },
   send(message) { if (this.conn && this.conn.open) this.conn.send(message); },
-  /* The newest card wins; when both changed it at once, the room owner's card does. */
+  /* The newest card wins; when both changed it at once, the inviter's card does. */
   receive(data) {
-    if (!data || typeof data !== 'object') return;
-    if (data.type === 'bye') { this.friendLeft(); return; }
-    if (data.type === 'msg' && typeof data.text === 'string' && data.text.trim()) { this.addMessage(data.text.trim().slice(0, 400), false); return; }
+    if (data.type === 'bye') { const conn = this.conn; this.conn = null; try { conn.close(); } catch (_) {} this.partnerLeft(); return; }
+    if (data.type === 'voice-ask') { if (!this.call) { $('#chat-voice-ask').hidden = false; $('#chat-voice-text').textContent = t('chat.voiceAsk', { name: this.partner.name }); } return; }
+    if (data.type === 'voice-no') { this.endVoice(); Toast.show(t('chat.voiceNo', { name: this.partner.name })); return; }
+    if (data.type === 'voice-end') { this.endVoice(); return; }
+    if (data.type === 'msg' && typeof data.text === 'string' && data.text.trim()) {
+      const now = Date.now();
+      this.received = this.received.filter(time => now - time < 10000);
+      this.received.push(now);
+      if (this.received.length <= 30) this.addMessage(data.text.trim().slice(0, 400), false);
+      return;
+    }
     if (data.type !== 'card') return;
     const topic = this.topics[data.topic | 0];
     const v = data.v | 0;
@@ -5271,8 +5643,8 @@ const Speak = {
     $('#speak-topic').value = String(this.state.topic);
     $('#speak-count').textContent = t('speak.count', { n: this.state.q + 1, total: topic.questions.length });
     $('#speak-q').textContent = topic.questions[this.state.q];
-    /* Turns swap with every question: the room owner starts. */
-    const mine = (this.state.q % 2 === 0) === (this.host || !this.peer);
+    /* Turns swap with every question: the inviter starts. */
+    const mine = (this.state.q % 2 === 0) === this.host;
     $('#speak-turn').textContent = t(mine ? 'speak.youAsk' : 'speak.friendAsks');
     $('#speak-turn').classList.toggle('is-mine', mine);
     $('#speak-phrases').replaceChildren(...topic.phrases.map(([en, tr]) =>
@@ -5281,41 +5653,87 @@ const Speak = {
   showRoom(on) {
     $('#speak-lobby').hidden = on;
     $('#speak-room').hidden = !on;
-    $('#speak-join').classList.remove('is-invited');
     $('.view[data-view="speak"]').classList.toggle('in-room', on);
     Tutor.focusMode();
     if (on) { this.renderTopics(); this.render(); this.showCards(Store.read('english-study-speak-cards') === '1'); window.scrollTo(0, 0); }
   },
   setStatus(status) {
     this.status = status;
+    const name = this.partner ? this.partner.name : '';
     $('#speak-dot').dataset.state = status;
-    $('#speak-state').textContent = t('speak.state.' + status);
-    $('#speak-room-code').textContent = this.code;
-    $('#speak-invite').hidden = !(this.host && (status === 'waiting' || status === 'left'));
+    $('#speak-state').textContent = t(status === 'connected' ? 'chat.with' : 'chat.partnerLeft', { name: name + (this.partner && this.partner.level && status === 'connected' ? ' · ' + this.partner.level : '') });
+    this.voiceUi();
   },
-  connected() {
-    if (this.status === 'connected') return;
-    this.setStatus('connected');
-    this.render();
-    const started = Date.now();
+  partnerLeft() {
+    const name = this.partner ? this.partner.name : '';
     clearInterval(this.timer);
-    const tick = () => {
-      const seconds = Math.floor((Date.now() - started) / 1000);
-      $('#speak-timer').textContent = String(Math.floor(seconds / 60)).padStart(2, '0') + ':' + String(seconds % 60).padStart(2, '0');
-    };
-    tick();
-    this.timer = setInterval(tick, 1000);
-    /* Keep the phone screen on while talking. */
-    if (navigator.wakeLock) navigator.wakeLock.request('screen').then(lock => { this.wakeLock = lock; }).catch(() => {});
+    this.endVoice();
+    $('#chat-voice-ask').hidden = true;
+    $('#speak-chat-input').disabled = true;
+    if (this.wakeLock) { this.wakeLock.release().catch(() => {}); this.wakeLock = null; }
+    this.setStatus('left');
+    this.announce();
+    if (Router.current !== 'speak') { Toast.show(t('chat.partnerLeft', { name })); this.closeRoomView(); this.leaveLobby(); }
   },
-  friendLeft() {
-    if (!this.peer || this.status === 'left' || this.status === 'lost') return;
-    clearInterval(this.timer);
+  /* ---- Voice, only when both agree */
+  voiceUi() {
+    const button = $('#speak-voice');
+    button.hidden = this.status !== 'connected';
+    $('#speak-voice-label').textContent = t(this.call ? 'chat.voiceEnd' : this.voiceAsked ? 'chat.voiceWaiting' : 'chat.voiceStart');
+    button.classList.toggle('danger', !!this.call);
+    $('#speak-mute').hidden = !this.call;
+  },
+  async getMic() {
+    if (this.stream) return true;
+    try {
+      if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) throw new Error('no microphone');
+      this.stream = await navigator.mediaDevices.getUserMedia({ audio: { echoCancellation: true, noiseSuppression: true, autoGainControl: true } });
+      this.setMuted(false);
+      return true;
+    } catch (err) {
+      Toast.show(t(err && err.name === 'NotAllowedError' ? 'speak.micDenied' : 'speak.noMic'));
+      return false;
+    }
+  },
+  async toggleVoice() {
+    if (this.call || this.voiceAsked) { this.send({ type: 'voice-end' }); this.endVoice(); return; }
+    if (!(await this.getMic()) || !this.conn) { this.endVoice(); return; }
+    this.voiceAsked = true;
+    this.send({ type: 'voice-ask' });
+    this.voiceUi();
+  },
+  async answerVoice(yes) {
+    $('#chat-voice-ask').hidden = true;
+    if (!yes || !(await this.getMic()) || !this.conn || !this.me) { this.send({ type: 'voice-no' }); this.endVoice(); return; }
+    this.bindCall(this.me.call(this.conn.peer, this.stream));
+  },
+  /* A call is answered only from the person you are chatting with, after you asked them. */
+  incomingCall(call) {
+    if (!this.conn || call.peer !== this.conn.peer || !this.voiceAsked || !this.stream) { call.close(); return; }
+    call.answer(this.stream);
+    this.bindCall(call);
+  },
+  bindCall(call) {
+    if (!call) return;
+    this.call = call;
+    this.voiceAsked = false;
+    this.voiceUi();
+    call.on('stream', remote => {
+      const audio = $('#speak-audio');
+      audio.srcObject = remote;
+      audio.play().catch(() => {});
+    });
+    call.on('close', () => { if (this.call === call) this.endVoice(); });
+    call.on('error', () => {});
+  },
+  endVoice() {
+    const call = this.call;
+    this.call = null;
+    this.voiceAsked = false;
+    if (call) { try { call.close(); } catch (_) {} }
     $('#speak-audio').srcObject = null;
-    if (this.call) { try { this.call.close(); } catch (_) {} this.call = null; }
-    if (this.conn) { try { this.conn.close(); } catch (_) {} this.conn = null; }
-    /* The owner keeps the room open for the friend to come back. */
-    this.setStatus(this.host ? 'left' : 'lost');
+    if (this.stream) { for (const track of this.stream.getTracks()) track.stop(); this.stream = null; }
+    this.voiceUi();
   },
   setMuted(muted) {
     this.muted = muted;
@@ -5323,29 +5741,6 @@ const Speak = {
     $('#speak-mute').setAttribute('aria-pressed', String(muted));
     $('#speak-mute-icon').setAttribute('href', muted ? '#i-mic-off' : '#i-mic');
     $('#speak-mute-label').textContent = t(muted ? 'speak.unmute' : 'speak.mute');
-  },
-  async share() {
-    const url = this.link();
-    if (navigator.share) {
-      try { await navigator.share({ title: 'English Study', text: t('speak.shareText', { code: this.code }), url }); return; }
-      catch (err) { if (err && err.name === 'AbortError') return; }
-    }
-    this.copy();
-  },
-  async copy() {
-    try { await navigator.clipboard.writeText(this.link()); Toast.show(t('speak.copied')); }
-    catch (_) { Toast.show(this.link()); }
-  },
-  /* Ends the call and frees the microphone. */
-  close() {
-    this.send({ type: 'bye' });
-    for (const part of [this.call, this.conn]) { try { if (part) part.close(); } catch (_) {} }
-    try { if (this.peer) this.peer.destroy(); } catch (_) {}
-    this.peer = this.conn = this.call = null;
-    clearInterval(this.timer);
-    $('#speak-timer').textContent = '00:00';
-    $('#speak-audio').srcObject = null;
-    if (this.wakeLock) { this.wakeLock.release().catch(() => {}); this.wakeLock = null; }
   },
   /* The topic card is closed unless asked for; the choice is remembered. */
   showCards(on, remember) {
@@ -5397,14 +5792,34 @@ const Speak = {
     const list = $('#speak-messages');
     list.scrollTop = list.scrollHeight;
   },
-  leave(quiet) {
-    this.close();
+  blockPartner() {
+    if (!this.partner) return;
+    const { uid, name } = this.partner;
+    this.block(uid);
+    this.leaveRoom();
+    Toast.show(t('chat.blocked', { name }));
+  },
+  /* Back to the list. Nothing of the chat is kept. */
+  leaveRoom() {
+    this.send({ type: 'bye' });
+    const conn = this.conn;
+    this.conn = null;
+    this.endVoice();
+    if (conn) setTimeout(() => { try { conn.close(); } catch (_) {} }, 300);
+    this.closeRoomView();
+    this.announce();
+    if (Router.current === 'speak') { if (!this.wanted) this.join(); } else this.leaveLobby();
+  },
+  closeRoomView() {
+    clearInterval(this.timer);
+    $('#speak-timer').textContent = '00:00';
     $('#speak-messages').replaceChildren();
-    if (this.stream) { for (const track of this.stream.getTracks()) track.stop(); this.stream = null; }
+    $('#chat-voice-ask').hidden = true;
+    if (this.wakeLock) { this.wakeLock.release().catch(() => {}); this.wakeLock = null; }
+    this.partner = null;
     this.status = 'idle';
     this.showRoom(false);
-    if (location.hash.startsWith('#speak/')) history.replaceState(null, '', '#speak');
-    if (!quiet) $('#speak-code').value = '';
+    this.renderLobby();
   }
 };
 
@@ -5427,8 +5842,9 @@ const Tutor = {
   init() {
     try { Object.assign(this.settings, JSON.parse(Store.read(this.KEY) || '{}')); } catch (_) { /* defaults */ }
     if (!Array.isArray(this.settings.review)) this.settings.review = [];
-    $('#tutor-open').addEventListener('click', () => this.open());
-    $('#tutor-back').addEventListener('click', () => this.close());
+    /* Phones play sound only after a tap: the tap on the card in Practice counts. */
+    document.addEventListener('click', event => { if (event.target.closest('a[href="#tutor"]')) this.unlock(); });
+    $('#tutor-back').addEventListener('click', () => { location.hash = '#practice'; });
     $('#tutor-settings').addEventListener('click', () => {
       const open = $('#tutor-panel').hidden;
       $('#tutor-panel').hidden = !open;
@@ -5490,11 +5906,8 @@ const Tutor = {
     });
   },
   save() { Store.write(this.KEY, JSON.stringify(this.settings)); },
-  open() {
-    this.unlock();
-    $('#speak-lobby').hidden = true;
+  onShow() {
     $('#tutor').hidden = false;
-    $('.view[data-view="speak"]').classList.add('in-room');
     if (!this.started) this.started = Date.now();
     clearInterval(this.lessonTimer);
     this.lessonTimer = setInterval(() => this.tickLesson(), 20000);
@@ -5505,16 +5918,9 @@ const Tutor = {
     if (!(window.SpeechRecognition || window.webkitSpeechRecognition)) this.showTyping(true);
     window.scrollTo(0, 0);
   },
-  close() {
-    this.pause();
-    $('#tutor').hidden = true;
-    $('#speak-lobby').hidden = false;
-    $('.view[data-view="speak"]').classList.remove('in-room');
-    this.focusMode();
-  },
   /* A lesson fills the screen: no footer, and on phones no app header (the back arrow leads out). */
   focusMode() {
-    const lesson = Router.current === 'speak' && !$('#tutor').hidden;
+    const lesson = Router.current === 'tutor';
     document.body.classList.toggle('tutor-focus', lesson);
     document.body.classList.toggle('speak-focus', Router.current === 'speak' && !$('#speak-room').hidden);
   },
@@ -7214,7 +7620,7 @@ const Games = {
         h('span', { class: 'quest-bar' }, h('span', { style: 'width:' + Math.round(value / quest.goal * 100) + '%' })),
         h('div', { class: 'quest-foot' }, h('span', { text: value >= quest.goal ? t('quest.done') : t('quest.left', { t: clock }) }),
           value >= quest.goal ? null : h('a', { class: 'button quest-go', href: quest.href }, h('span', { text: t('quest.go') }), icon('next')))),
-      h('div', { class: 'section-row' }, h('div', {}, h('h2', { text: t('game.title') }), h('p', { class: 'hint', text: t('game.lead') })), h('span', { class: 'game-count', text: t('game.modes', { n: 6 }) })),
+      h('div', { class: 'section-row' }, h('div', {}, h('h2', { text: t('game.title') }), h('p', { class: 'hint', text: t('game.lead') })), h('span', { class: 'game-count', text: t('game.modes', { n: 7 }) })),
       h('div', { class: 'games' },
         game('match', 'timer', 'amber', t('game.match'), t('game.matchText'),
           h('div', { class: 'game-preview' }, h('span', { lang: 'en', text: 'Ubiquitous 🇬🇧' }), h('span', { lang: 'tr', text: 'Her yerde bulunan 🇹🇷' })),
@@ -7231,6 +7637,9 @@ const Games = {
         game('survive', 'heart', 'red', t('game.survive'), t('game.surviveText'),
           h('div', { class: 'game-preview is-row' }, h('span', { text: t('game.level') }), h('span', { class: 'game-tag', text: t('game.tempo') })),
           this.best.survive != null ? t('game.bestStreak', { n: this.best.survive }) : t('game.noBest'), 'danger'),
+        h('article', { class: 'game-card is-violet' },
+          h('div', { class: 'game-card-head' }, h('span', { class: 'game-icon' }, icon('bot')), h('div', {}, h('h3', { text: t('tutor.title') }), h('p', { text: t('tutor.cardHint') }))),
+          h('a', { class: 'button violet game-wide', href: '#tutor' }, icon('chat'), h('span', { text: t('tutor.start') }))),
         h('article', { class: 'game-card is-mint' },
           h('div', { class: 'game-card-head' }, h('span', { class: 'game-icon' }, icon('repeat')),
             h('div', {}, h('h3', { text: t('game.mistakes') }), h('p', { text: t('game.mistakesText') })),
@@ -7904,7 +8313,7 @@ const AiStory = {
   }
 };
 
-const MODULES = { home: Home, review: Review, practice: Games, rankings: Rankings, words: Words, phrases: Phrases, grammar: Grammar, speak: Speak, novel: Novel, quiz: Quiz, reading: Reading, settings: Settings };
+const MODULES = { home: Home, review: Review, practice: Games, rankings: Rankings, words: Words, phrases: Phrases, grammar: Grammar, speak: Speak, tutor: Tutor, novel: Novel, quiz: Quiz, reading: Reading, settings: Settings };
 
 /* ======================================================================
    8. INITIALIZATION (single entry point)
