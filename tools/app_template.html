@@ -868,50 +868,9 @@ body.novel-focus .novel-pop-base, body.novel-focus .novel-pop-sentence { color: 
 .link-button { background: none; border: 0; padding: 0; color: var(--primary); font: inherit; text-decoration: underline; cursor: pointer; }
 
 /* ---------- Phrases (Everyday Conversation) ---------- */
-.phrases-container { display: flex; flex-direction: column; gap: var(--space-5); margin-top: var(--space-3); }
-.phrase-topic-section { display: flex; flex-direction: column; gap: var(--space-3); scroll-margin-top: 80px; }
-.phrase-topic-header { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: var(--space-2); padding-bottom: var(--space-2); border-bottom: 2px solid var(--primary); }
-.phrase-topic-header h2 { font-size: 1.25rem; margin: 0; color: var(--primary); }
-.phrase-topic-header .topic-sub { color: var(--muted); font-size: .9rem; font-weight: 500; }
-.phrase-topic-header .topic-badge { font-size: .75rem; font-weight: 700; padding: 2px 8px; border-radius: 999px; background: var(--primary-soft); color: var(--primary); }
-.phrases-grid { display: grid; grid-template-columns: 1fr; gap: var(--space-3); }
 @media (min-width: 768px) { .phrases-grid { grid-template-columns: 1fr 1fr; } }
-.phrase-item { display: flex; flex-direction: column; gap: var(--space-2); padding: var(--space-4); background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); transition: transform .15s ease, border-color .15s ease; }
-.phrase-item:hover { border-color: var(--primary); }
-.phrase-item-top { display: flex; justify-content: space-between; align-items: flex-start; gap: var(--space-2); }
-.phrase-en { font-size: 1.05rem; font-weight: 600; color: var(--text); line-height: 1.4; flex: 1; }
-.phrase-speak-btn { flex-shrink: 0; color: var(--primary); background: var(--primary-soft); border: none; border-radius: 50%; width: 34px; height: 34px; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; transition: background .15s ease, transform .1s ease; }
-.phrase-speak-btn:hover { background: var(--primary); color: #fff; transform: scale(1.08); }
-.phrase-speak-btn svg { width: 18px; height: 18px; }
-.phrase-example { display: grid; gap: 2px; padding: var(--space-2) var(--space-3); border-radius: var(--radius-s); background: var(--success-soft); border-left: 3px solid var(--success); }
-.phrase-example-label { font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: var(--success); }
-.phrase-example-en { margin: 0; font-weight: 600; color: var(--text); }
-.phrase-example-tr { margin: 0; color: var(--muted); font-size: .92rem; }
-.phrase-subheading { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px var(--space-2); margin: var(--space-2) 0 0; font-size: 1rem; color: var(--text); }
-.phrase-subheading-tr { color: var(--muted); font-size: .88rem; font-weight: 500; }
-.phrase-resources { padding: var(--space-3) var(--space-4); background: var(--surface-2); border: 1px solid var(--line); border-radius: var(--radius); }
-.phrase-resources-title { margin: 0 0 var(--space-2); font-size: .95rem; }
-.phrase-resources ul { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-2); }
-.phrase-resources a { display: grid; gap: 2px; padding: var(--space-2) var(--space-3); min-height: 44px; border-radius: var(--radius-s); background: var(--surface); border: 1px solid var(--line); color: var(--text); text-decoration: none; }
-.phrase-resources a:hover, .phrase-resources a:focus-visible { border-color: var(--primary); }
 .phrase-res-kind { font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: var(--primary); }
-.phrase-res-en { font-weight: 600; overflow-wrap: anywhere; }
-.phrase-res-tr { color: var(--muted); font-size: .88rem; }
-.phrase-tr { font-size: .95rem; color: #b71c1c; font-weight: 500; margin: 0; line-height: 1.4; }
 [data-theme="dark"] .phrase-tr { color: #ef9a9a; }
-.phrase-recip { font-size: .88rem; color: var(--accent-text); background: var(--primary-soft); padding: var(--space-2) var(--space-3); border-radius: var(--radius-s); font-weight: 500; }
-.phrase-answers { display: flex; flex-direction: column; gap: 6px; margin-top: var(--space-1); padding-top: var(--space-2); border-top: 1px dashed var(--line); }
-.phrase-answer-item { display: grid; grid-template-columns: 24px 1fr; gap: 6px; padding: 6px 10px; border-radius: var(--radius-s); font-size: .88rem; }
-.phrase-answer-item.positive { background: var(--success-soft); border-left: 3px solid var(--success); }
-.phrase-answer-item.negative { background: var(--error-soft); border-left: 3px solid var(--error); }
-.phrase-answer-item.neutral { background: var(--surface-2); border-left: 3px solid var(--muted); }
-.phrase-ans-sign { font-weight: 900; font-size: 1.05rem; text-align: center; }
-.phrase-answer-item.positive .phrase-ans-sign { color: var(--success); }
-.phrase-answer-item.negative .phrase-ans-sign { color: var(--error); }
-.phrase-answer-item.neutral .phrase-ans-sign { color: var(--muted); }
-.phrase-ans-content { display: flex; flex-direction: column; gap: 2px; }
-.phrase-ans-en { font-weight: 600; color: var(--text); }
-.phrase-ans-tr { color: var(--muted); font-size: .82rem; }
 
 
 /* ======================================================================
@@ -1636,6 +1595,79 @@ body.novel-focus .novel-pop:not(.is-inline) .novel-pop-actions { background: var
 .saved-pic { flex: none; width: 36px; height: 36px; }
 
 .review-rate.is-two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+.phr-search input { width: 100%; min-height: 48px; }
+.phr-total { margin: var(--space-2) 0 var(--space-3); color: var(--muted); font-size: .88rem; }
+.phr-cat { margin-bottom: var(--space-4); }
+.phr-cat h2 { margin: 0 0 var(--space-2); font: 800 1.05rem/1.2 var(--font-display); }
+.phr-tiles { display: grid; gap: var(--space-2); grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr)); }
+.phr-tile { display: flex; align-items: center; gap: var(--space-3); padding: 10px var(--space-3); border-radius: 16px; background: var(--surface); box-shadow: var(--shadow); color: var(--text); text-decoration: none; min-width: 0; }
+.phr-tile:hover { outline: 2px solid var(--primary-soft); }
+.phr-emoji { flex: none; font-size: 1.6rem; line-height: 1; }
+.phr-emoji.big { font-size: 2.2rem; }
+.phr-tile-text { display: grid; gap: 2px; flex: 1; min-width: 0; }
+.phr-tile-text strong { font-weight: 700; line-height: 1.25; }
+.phr-tile-text small { color: var(--muted); font-size: .78rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.phr-tile-text .gram-meter { height: 4px; margin-top: 3px; }
+.phr-tile-count { flex: none; color: var(--muted); font-size: .8rem; font-weight: 700; }
+.phr-head { display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-3); }
+.phr-head h1 { margin: 0; font: 800 1.35rem/1.2 var(--font-display); }
+.phr-head p { margin: 0; color: var(--muted); font-size: .88rem; }
+.phr-progress { display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-3); }
+.phr-progress .gram-meter { flex: 1; height: 8px; }
+.phr-progress-text { flex: none; color: var(--muted); font-size: .82rem; font-weight: 700; }
+.phr-study { width: 100%; margin-bottom: var(--space-3); }
+.phr-tip { margin: 0 0 var(--space-3); padding: 10px var(--space-3); border-radius: 14px; background: var(--warn-soft); color: var(--text); font-size: .92rem; line-height: 1.4; }
+.phr-section-head { display: flex; align-items: center; justify-content: space-between; gap: var(--space-2); margin-bottom: var(--space-2); }
+.phr-dialog { display: grid; gap: var(--space-2); margin-bottom: var(--space-4); padding: var(--space-3); border-radius: 18px; background: var(--surface); box-shadow: var(--shadow); }
+.phr-dialog h2, .phr-group h2 { margin: 0; font: 800 1.05rem/1.2 var(--font-display); }
+.phr-group { margin-bottom: var(--space-4); }
+.phr-group h2 { display: grid; gap: 1px; margin-bottom: var(--space-2); }
+.phr-group h2 small { color: var(--muted); font: 500 .82rem/1.2 var(--font); }
+.phr-bubble { justify-self: start; max-width: 88%; padding: 8px 12px; border-radius: 14px 14px 14px 4px; background: var(--surface-2); }
+.phr-bubble.is-right { justify-self: end; border-radius: 14px 14px 4px 14px; background: var(--primary-soft); }
+.phr-bubble p, .phr-about p { margin: 0; line-height: 1.35; }
+.phr-bubble-tr { color: var(--muted); font-size: .84rem; }
+.phr-list { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-2); }
+.phr-row { display: flex; align-items: flex-start; gap: var(--space-2); padding: 10px var(--space-3); border-radius: 14px; background: var(--surface); box-shadow: var(--shadow); }
+.phr-row.is-learned { box-shadow: inset 3px 0 0 var(--primary), var(--shadow); }
+.phr-row-main { flex: 1; min-width: 0; }
+.phr-row-main p { margin: 0; }
+.phr-en { font-weight: 700; line-height: 1.35; overflow-wrap: anywhere; }
+.phr-tr { color: var(--muted); font-size: .9rem; line-height: 1.3; }
+.phr-ex { margin-top: 4px !important; font-size: .92rem; font-style: italic; }
+.phr-ex-tr { color: var(--muted); font-size: .84rem; }
+.phr-from { display: inline-block; margin-top: 4px; font-size: .78rem; font-weight: 700; color: var(--secondary-text); text-decoration: none; }
+.phr-row-tools { display: flex; flex: none; align-items: center; gap: 4px; }
+.phr-row-tools .audio-button { width: 34px; height: 34px; }
+.phr-check { display: grid; place-items: center; width: 34px; height: 34px; border: 1.5px solid var(--line); border-radius: 50%; background: transparent; color: var(--muted); cursor: pointer; padding: 0; }
+.phr-check .icon { width: 16px; height: 16px; }
+.phr-check[aria-pressed="true"] { background: var(--primary); border-color: var(--primary); color: #fff; }
+.phr-answers { margin-top: 6px; }
+.phr-answers summary, .phr-more summary { cursor: pointer; font-weight: 700; font-size: .85rem; color: var(--secondary-text); min-height: 28px; }
+.phr-answer { display: flex; align-items: flex-start; gap: 8px; margin-top: 6px; padding: 6px 8px; border-radius: 10px; background: var(--surface-2); font-size: .9rem; }
+.phr-answer > div { flex: 1; min-width: 0; }
+.phr-answer .audio-button { width: 30px; height: 30px; }
+.phr-answer.is-positive > span { color: var(--success); font-weight: 800; }
+.phr-answer.is-negative > span { color: var(--error); font-weight: 800; }
+.phr-more { margin-bottom: var(--space-2); padding: 10px var(--space-3); border-radius: 14px; background: var(--surface-2); }
+.phr-about { margin-top: var(--space-2); font-size: .9rem; }
+.phr-links { list-style: none; margin: var(--space-2) 0 0; padding: 0; display: grid; gap: var(--space-2); }
+.phr-links a { display: grid; gap: 2px; font-size: .9rem; overflow-wrap: anywhere; }
+.phr-links small { color: var(--muted); }
+.phr-study-bar { height: 8px; margin-bottom: var(--space-3); }
+.phr-card { display: grid; gap: var(--space-3); justify-items: center; min-height: 240px; align-content: center; padding: var(--space-4); margin-bottom: var(--space-3); border-radius: 20px; background: var(--surface); box-shadow: var(--shadow); text-align: center; }
+.phr-card[role="button"] { cursor: pointer; }
+.phr-card-tr { margin: 0; font: 700 1.25rem/1.35 var(--font-display); }
+.phr-card-en { margin: 0; font: 800 1.35rem/1.3 var(--font-display); color: var(--accent-text); }
+.phr-card-back { display: grid; gap: var(--space-2); justify-items: center; }
+.phr-card .phr-row-tools { flex: initial; }
+
+@media (max-width: 560px) {
+  .phr-row { flex-wrap: wrap; }
+  .phr-row-main { flex-basis: 100%; }
+  .phr-row > .phr-row-tools { width: 100%; justify-content: flex-end; }
+}
 </style>
 </head>
 <body>
@@ -1936,28 +1968,10 @@ body.novel-focus .novel-pop:not(.is-inline) .novel-pop-actions { background: var
   <!-- Phrases / Daily Conversation -->
   <section class="view" data-view="phrases" aria-labelledby="phrases-title">
     <div class="view-head">
-      <h1 id="phrases-title" tabindex="-1" data-i18n="phrases.title">Daily Phrases</h1>
-      <p class="lead" data-i18n="phrases.lead">40 günlük yaşam konusu, 719 pratik İngilizce ifade ve B1 cevap örnekleri.</p>
+      <h1 id="phrases-title" tabindex="-1" data-i18n="phrases.title">Phrases</h1>
+      <p class="lead" data-i18n="phrases.lead">Choose a topic: learn what to say, read a short dialogue and practise with cards.</p>
     </div>
-    <div class="panel toolbar js-only" role="search">
-      <div class="field search-field">
-        <label for="phrase-search" data-i18n="phrases.search">Search Phrases</label>
-        <input id="phrase-search" type="search" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="search" placeholder="İfade veya Türkçe anlam ara…" data-i18n-placeholder="phrases.searchPh">
-      </div>
-      <div class="field status-field">
-        <label for="phrase-topic-select" data-i18n="phrases.topicLabel">Topic</label>
-        <select id="phrase-topic-select">
-          <option value="all" data-i18n="phrases.allTopics">Tüm Konular (40 Konu)</option>
-          <!--@PHRASE_TOPIC_OPTIONS@-->
-        </select>
-      </div>
-    </div>
-    <div class="row js-only">
-      <p id="phrase-count" class="result-count" aria-live="polite"><!--@PHRASE_COUNT@--> ifade gösteriliyor</p>
-    </div>
-    <div id="phrases-list" class="phrases-container">
-      <!--@PHRASES_HTML@-->
-    </div>
+    <div class="js-only" id="phrases-app"></div>
   </section>
 
 
@@ -2437,6 +2451,7 @@ body.novel-focus .novel-pop:not(.is-inline) .novel-pop-actions { background: var
 <!-- Example sentences by word type, written for this app (source: tools/sentences/*.json). -->
 <script type="application/json" id="sentence-data"><!--@SENTENCE_DATA@--></script>
 <!-- English -> Turkish dictionary for the novel reader (source: tools/novel/*.json). -->
+<script type="application/json" id="phrase-data"><!--@PHRASE_DATA@--></script>
 <script type="application/json" id="work-data"><!--@WORK_DATA@--></script>
 <script type="application/json" id="work-pics"><!--@WORK_PICS@--></script>
 <script type="application/json" id="work-moved"><!--@WORK_MOVED@--></script>
@@ -2709,12 +2724,12 @@ const STRINGS = {
     'novel.auto': 'Continue to the next page', 'novel.noVoice': 'This browser has no English voice for reading aloud.',
     'novel.fetchError': 'The book could not be downloaded. Check the connection or choose the PDF yourself.',
     'novel.fileHint': 'The books in novels/ open automatically when the page is opened from its web address. Opened as a file, choose the PDF yourself.',
-    'phrases.title': 'Everyday Conversation Phrases',
-    'phrases.lead': '40 daily life topics, 719 practical English expressions with B1 answers.',
+    'phrases.title': 'Phrases',
+    'phrases.lead': 'Choose a topic: learn what to say, read a short dialogue and practise with cards.',
     'phrases.search': 'Search English or Turkish',
-    'phrases.searchPh': 'Search phrase or Turkish meaning…',
+    'phrases.searchPh': 'Search a phrase, in English or Turkish…',
     'phrases.topicLabel': 'Topic',
-    'phrases.allTopics': 'All Topics (40 Topics)',
+    'phrases.allTopics': 'All topics', 'phrases.total': '{t} topics · {n} phrases · {d} learned', 'phrases.found': '{n} phrases found', 'phrases.cat.people': 'People and small talk', 'phrases.cat.time': 'Time and numbers', 'phrases.cat.life': 'Everyday life', 'phrases.cat.out': 'Out and about', 'phrases.cat.mind': 'Ideas and feelings', 'phrases.progress': '{d} / {n} learned', 'phrases.study': 'Study with cards', 'phrases.studyAgain': 'Study again', 'phrases.dialog': 'Short dialogue', 'phrases.main': 'Phrases', 'phrases.about': 'About this topic', 'phrases.links': 'Videos and links ({n})', 'phrases.video': '▶ Video', 'phrases.source': '↗ Link', 'phrases.answers': 'Sample answers ({n})', 'phrases.learn': 'Mark as learned', 'phrases.studyDone': '{n} phrases done', 'phrases.backTopic': 'Back to the topic', 'phrases.tapHint': 'Say it in English, then tap',
     'mode.phrases': '40 everyday topics and 719 practical conversation patterns.',
     'nav.home': 'Home', 'nav.words': 'Words', 'nav.quiz': 'Quiz', 'nav.reading': 'Reading', 'nav.settings': 'Settings',
     'theme.toDark': 'Switch to dark theme', 'theme.toLight': 'Switch to light theme', 'common.dismiss': 'Dismiss message', 'common.cancel': 'Cancel', 'common.tryAgain': 'Try again',
@@ -2929,12 +2944,12 @@ const STRINGS = {
     'novel.auto': 'Sayfa bitince sonrakine geç', 'novel.noVoice': 'Bu tarayıcıda sesli okuma için İngilizce ses yok.',
     'novel.fetchError': 'Kitap indirilemedi. Bağlantını kontrol et ya da PDF’i kendin seç.',
     'novel.fileHint': 'novels/ klasöründeki kitaplar sayfa internet adresinden açılınca kendiliğinden yüklenir. Sayfayı dosya olarak açtıysan PDF’i kendin seç.',
-    'phrases.title': 'Günlük Konuşma İfadeleri',
-    'phrases.lead': '40 günlük yaşam konusu, 719 pratik İngilizce ifade ve B1 cevap örnekleri.',
+    'phrases.title': 'İfadeler',
+    'phrases.lead': 'Bir konu seç: ne diyeceğini öğren, kısa bir diyalog oku, kartlarla çalış.',
     'phrases.search': 'İfade veya Türkçe ara',
-    'phrases.searchPh': 'İfade veya Türkçe anlam ara…',
+    'phrases.searchPh': 'İngilizce ya da Türkçe ifade ara…',
     'phrases.topicLabel': 'Konu',
-    'phrases.allTopics': 'Tüm Konular (40 Konu)',
+    'phrases.allTopics': 'Tüm konular', 'phrases.total': '{t} konu · {n} ifade · {d} tanesi öğrenildi', 'phrases.found': '{n} ifade bulundu', 'phrases.cat.people': 'İnsanlar ve sohbet', 'phrases.cat.time': 'Zaman ve sayılar', 'phrases.cat.life': 'Günlük hayat', 'phrases.cat.out': 'Dışarıda', 'phrases.cat.mind': 'Fikirler ve duygular', 'phrases.progress': '{d} / {n} öğrenildi', 'phrases.study': 'Kartlarla çalış', 'phrases.studyAgain': 'Yeniden çalış', 'phrases.dialog': 'Kısa diyalog', 'phrases.main': 'İfadeler', 'phrases.about': 'Bu konu hakkında', 'phrases.links': 'Videolar ve bağlantılar ({n})', 'phrases.video': '▶ Video', 'phrases.source': '↗ Bağlantı', 'phrases.answers': 'Cevap örnekleri ({n})', 'phrases.learn': 'Öğrenildi olarak işaretle', 'phrases.studyDone': '{n} ifade tamamlandı', 'phrases.backTopic': 'Konuya dön', 'phrases.tapHint': 'İngilizcesini söyle, sonra dokun',
     'mode.phrases': '40 günlük yaşam konusu ve 719 pratik konuşma kalıbı.',
     'card.photo': 'Görsel',
     'card.learnedBadge': 'Öğrenildi',
@@ -3757,64 +3772,202 @@ const Words = {
 
 /* ---------- 7l. Phrases (Everyday Conversation) ---------- */
 const Phrases = {
-  activeTopic: 'all',
+  KEY: 'english-study-phrases.v1',
+  CATS: ['people', 'time', 'life', 'out', 'mind'],
+  topics: [],
+  learned: {},
   query: '',
   timer: 0,
+  study: null,
   init() {
-    const search = $('#phrase-search');
-    if (search) {
-      search.addEventListener('input', () => {
-        clearTimeout(this.timer);
-        this.timer = setTimeout(() => {
-          this.query = normalize(search.value.trim());
-          this.filter();
-        }, 150);
-      });
-      search.addEventListener('keydown', event => { if (event.key === 'Enter') search.blur(); });
-    }
-    const topicSelect = $('#phrase-topic-select');
-    if (topicSelect) {
-      topicSelect.addEventListener('change', e => {
-        this.activeTopic = e.target.value;
-        this.filter();
-      });
-    }
-    const list = $('#phrases-list');
-    if (list) {
-      list.addEventListener('click', event => {
-        const btn = event.target.closest('[data-action="speak-phrase"]');
-        if (btn) {
-          const text = btn.dataset.text;
-          if (text) Speech.speak(text);
-        }
-      });
-    }
+    this.topics = (readJsonScript('phrase-data') || {}).topics || [];
+    try { this.learned = JSON.parse(Store.read(this.KEY) || '{}') || {}; } catch (_) { this.learned = {}; }
+    const app = $('#phrases-app');
+    app.addEventListener('click', event => this.click(event));
+    app.addEventListener('input', event => {
+      if (event.target.id !== 'phrase-search') return;
+      clearTimeout(this.timer);
+      this.timer = setTimeout(() => { this.query = normalize(event.target.value.trim()); this.renderResults(); }, 150);
+    });
   },
-  onShow() {},
-  filter() {
-    const q = this.query;
-    const topic = this.activeTopic;
-    let visibleCount = 0;
-    const items = $$('#phrases-list .phrase-item');
-    for (const card of items) {
-      const cardTopic = card.dataset.topic;
-      const cardSearch = card.dataset.search || '';
-      const matchTopic = topic === 'all' || cardTopic === topic;
-      const matchQuery = !q || cardSearch.indexOf(q) >= 0;
-      const show = matchTopic && matchQuery;
-      card.hidden = !show;
-      if (show) visibleCount++;
+  save() { Store.write(this.KEY, JSON.stringify(this.learned)); },
+  items(topic) { return topic.groups.flatMap(group => group.items); },
+  done(topic) { return this.items(topic).filter(item => this.learned[item.id]).length; },
+  /* "#phrases" lists the topics, "#phrases/topic-5" opens one, ".../study" studies it with cards. */
+  onShow() {
+    const [, id, mode] = location.hash.split('/');
+    const topic = this.topics.find(item => item.id === id);
+    $('.view[data-view="phrases"] .view-head').hidden = Boolean(topic);
+    if (!topic) this.renderHub();
+    else if (mode === 'study') this.startStudy(topic);
+    else this.renderTopic(topic);
+    window.scrollTo(0, 0);
+  },
+  say(text) { if (text) Grammar.say(text); },
+  listen(text, label) {
+    return Speech.supported ? h('button', { type: 'button', class: 'audio-button', 'data-say': text, 'aria-label': label || t('tutor.listen') }, icon('sound')) : null;
+  },
+  /* ---- All the topics */
+  renderHub() {
+    const all = this.topics.flatMap(topic => this.items(topic));
+    const known = all.filter(item => this.learned[item.id]).length;
+    $('#phrases-app').replaceChildren(
+      h('div', { class: 'phr-search' },
+        h('label', { class: 'visually-hidden', for: 'phrase-search', text: t('phrases.search') }),
+        h('input', { id: 'phrase-search', type: 'search', autocomplete: 'off', autocapitalize: 'off', spellcheck: 'false', enterkeyhint: 'search', placeholder: t('phrases.searchPh'), value: '' })),
+      h('p', { class: 'phr-total', text: t('phrases.total', { t: this.topics.length, n: all.length, d: known }) }),
+      h('div', { id: 'phr-results', hidden: true }),
+      h('div', { id: 'phr-hub' }, this.CATS.map(cat => {
+        const topics = this.topics.filter(topic => topic.cat === cat);
+        return h('section', { class: 'phr-cat' },
+          h('h2', { text: t('phrases.cat.' + cat) }),
+          h('div', { class: 'phr-tiles' }, topics.map(topic => this.tile(topic))));
+      })));
+    this.query = '';
+  },
+  tile(topic) {
+    const total = this.items(topic).length;
+    const share = total ? Math.round(this.done(topic) / total * 100) : 0;
+    return h('a', { class: 'phr-tile', href: '#phrases/' + topic.id },
+      h('span', { class: 'phr-emoji', 'aria-hidden': 'true', text: topic.emoji }),
+      h('span', { class: 'phr-tile-text' },
+        h('strong', { lang: 'tr', text: topic.tr }),
+        h('small', { lang: 'en', text: topic.en }),
+        h('span', { class: 'gram-meter' }, h('span', { style: 'width:' + share + '%' }))),
+      h('span', { class: 'phr-tile-count', text: String(total) }));
+  },
+  /* Search across every topic. */
+  renderResults() {
+    const box = $('#phr-results'), hub = $('#phr-hub');
+    if (!box) return;
+    box.hidden = !this.query;
+    hub.hidden = Boolean(this.query);
+    if (!this.query) { box.replaceChildren(); return; }
+    const found = [];
+    for (const topic of this.topics) for (const item of this.items(topic)) {
+      if (normalize([item.en, item.tr, item.ex ? item.ex.join(' ') : '', topic.tr, topic.en].join(' ')).includes(this.query)) found.push([topic, item]);
     }
-    // Sub-headings and the video/resource links only make sense while a whole topic is shown.
-    for (const el of $$('#phrases-list .phrase-subheading, #phrases-list .phrase-resources')) el.hidden = !!q;
-    for (const sec of $$('#phrases-list .phrase-topic-section')) {
-      const visibleChildren = $$('.phrase-item:not([hidden])', sec);
-      sec.hidden = visibleChildren.length === 0;
+    box.replaceChildren(
+      h('p', { class: 'phr-total', text: t('phrases.found', { n: found.length }) }),
+      h('ul', { class: 'phr-list' }, found.slice(0, 60).map(([topic, item]) => this.row(item, topic))));
+  },
+  /* ---- One topic */
+  renderTopic(topic) {
+    const items = this.items(topic);
+    const left = items.length - this.done(topic);
+    $('#phrases-app').replaceChildren(
+      h('div', { class: 'phr-head' },
+        h('a', { class: 'novel-icon', href: '#phrases', 'aria-label': t('game.back') }, icon('prev')),
+        h('span', { class: 'phr-emoji big', 'aria-hidden': 'true', text: topic.emoji }),
+        h('div', {}, h('h1', { tabindex: '-1', lang: 'tr', text: topic.tr }), h('p', { lang: 'en', text: topic.en }))),
+      h('div', { class: 'phr-progress' },
+        h('span', { class: 'gram-meter' }, h('span', { style: 'width:' + (items.length ? Math.round(this.done(topic) / items.length * 100) : 0) + '%' })),
+        h('span', { class: 'phr-progress-text', text: t('phrases.progress', { d: this.done(topic), n: items.length }) })),
+      h('a', { class: 'button primary phr-study', href: '#phrases/' + topic.id + '/study' }, icon('cards'), h('span', { text: t(left ? 'phrases.study' : 'phrases.studyAgain') })),
+      topic.tip ? h('p', { class: 'phr-tip' }, h('b', { text: '💡 ' }), h('span', { lang: 'tr', text: topic.tip })) : null,
+      topic.dialog.length ? h('section', { class: 'phr-dialog' },
+        h('div', { class: 'phr-section-head' }, h('h2', { text: t('phrases.dialog') }),
+          Speech.supported ? h('button', { type: 'button', class: 'button small', 'data-say': topic.dialog.map(([en]) => en).join(' ') }, icon('sound'), h('span', { text: t('tutor.listen') })) : null),
+        topic.dialog.map(([en, tr], index) => h('div', { class: 'phr-bubble' + (index % 2 ? ' is-right' : '') },
+          h('p', { lang: 'en', text: en }), h('p', { class: 'phr-bubble-tr', lang: 'tr', text: tr })))) : null,
+      ...topic.groups.map(group => h('section', { class: 'phr-group' },
+        group.h ? h('h2', {}, h('span', { lang: 'en', text: group.h[0] }), h('small', { lang: 'tr', text: group.h[1] })) : h('h2', { text: t('phrases.main') }),
+        h('ul', { class: 'phr-list' }, group.items.map(item => this.row(item))))),
+      topic.intro.length ? h('details', { class: 'phr-more' }, h('summary', { text: t('phrases.about') }),
+        topic.intro.map(([en, tr]) => h('div', { class: 'phr-about' }, h('p', { lang: 'en', text: en }), h('p', { class: 'phr-bubble-tr', lang: 'tr', text: tr })))) : null,
+      topic.links.length ? h('details', { class: 'phr-more' }, h('summary', { text: t('phrases.links', { n: topic.links.length }) }),
+        h('ul', { class: 'phr-links' }, topic.links.map(link => h('li', {}, h('a', { href: link.url, target: '_blank', rel: 'noopener noreferrer' },
+          h('span', { class: 'phrase-res-kind', text: link.video ? t('phrases.video') : t('phrases.source') }),
+          h('span', { lang: 'en', text: link.en }), link.tr ? h('small', { lang: 'tr', text: link.tr }) : null))))) : null);
+  },
+  row(item, topic) {
+    const say = item.ex ? item.ex[0] : item.en;
+    return h('li', { class: 'phr-row' + (this.learned[item.id] ? ' is-learned' : ''), 'data-id': item.id },
+      h('div', { class: 'phr-row-main' },
+        h('p', { class: 'phr-en', lang: 'en', text: item.en }),
+        h('p', { class: 'phr-tr', lang: 'tr', text: item.tr }),
+        item.ex ? h('p', { class: 'phr-ex', lang: 'en', text: item.ex[0] }) : null,
+        item.ex ? h('p', { class: 'phr-ex-tr', lang: 'tr', text: item.ex[1] }) : null,
+        topic ? h('a', { class: 'phr-from', href: '#phrases/' + topic.id, text: topic.emoji + ' ' + topic.tr }) : null,
+        item.ans ? h('details', { class: 'phr-answers' }, h('summary', { text: t('phrases.answers', { n: item.ans.length }) }),
+          item.ans.map(([kind, en, tr]) => h('div', { class: 'phr-answer is-' + kind },
+            h('span', { 'aria-hidden': 'true', text: kind === 'positive' ? '+' : kind === 'negative' ? '−' : '•' }),
+            h('div', {}, h('p', { lang: 'en', text: en }), tr ? h('p', { class: 'phr-ex-tr', lang: 'tr', text: tr }) : null),
+            this.listen(en)))) : null),
+      h('div', { class: 'phr-row-tools' },
+        this.listen(say),
+        Pron.button(say, 'audio-button'),
+        h('button', { type: 'button', class: 'phr-check', 'data-learn': item.id, 'aria-pressed': String(Boolean(this.learned[item.id])), 'aria-label': t('phrases.learn') }, icon('check'))));
+  },
+  /* ---- Studying with cards: see the Turkish, remember the English */
+  startStudy(topic) {
+    const items = this.items(topic);
+    const left = items.filter(item => !this.learned[item.id]);
+    this.study = { topic, queue: shuffle(left.length ? left : items), done: 0, shown: false };
+    this.study.total = this.study.queue.length;
+    this.renderStudy();
+  },
+  renderStudy() {
+    const study = this.study;
+    const item = study.queue[0];
+    const app = $('#phrases-app');
+    if (!item) {
+      app.replaceChildren(h('div', { class: 'gram-card gram-done' },
+        h('p', { class: 'review-big', text: study.topic.emoji }),
+        h('p', { class: 'gram-score', text: t('phrases.studyDone', { n: study.done }) }),
+        h('div', { class: 'gram-actions' }, h('a', { class: 'button primary', href: '#phrases/' + study.topic.id, text: t('phrases.backTopic') }), h('a', { class: 'button', href: '#phrases', text: t('phrases.allTopics') }))));
+      return;
     }
-    const countEl = $('#phrase-count');
-    if (countEl) {
-      countEl.textContent = (lang === 'tr' ? (visibleCount + ' ifade gösteriliyor') : (visibleCount + ' phrases shown'));
+    const say = item.ex ? item.ex[0] : item.en;
+    app.replaceChildren(
+      h('div', { class: 'phr-head' },
+        h('a', { class: 'novel-icon', href: '#phrases/' + study.topic.id, 'aria-label': t('game.back') }, icon('prev')),
+        h('div', {}, h('strong', { lang: 'tr', text: study.topic.tr }), h('p', { text: t('review.cardOf', { d: study.done, n: study.total }) }))),
+      h('span', { class: 'gram-meter phr-study-bar' }, h('span', { style: 'width:' + Math.round(study.done / study.total * 100) + '%' })),
+      h('div', { class: 'phr-card', role: study.shown ? null : 'button', tabindex: study.shown ? null : '0', 'data-flip': '1' },
+        h('p', { class: 'phr-card-tr', lang: 'tr', text: item.tr || item.en }),
+        study.shown ? h('div', { class: 'phr-card-back' },
+          h('p', { class: 'phr-card-en', lang: 'en', text: item.en }),
+          item.ex ? h('p', { class: 'phr-ex', lang: 'en', text: item.ex[0] }) : null,
+          h('div', { class: 'phr-row-tools' }, this.listen(say), Pron.button(say, 'audio-button')))
+          : h('p', { class: 'flash-hint' }, icon('repeat'), t('phrases.tapHint'))),
+      study.shown ? h('div', { class: 'review-rate is-two' },
+        h('button', { type: 'button', class: 'rate-tile is-again', 'data-study': 'again' }, h('strong', { text: t('review.again') })),
+        h('button', { type: 'button', class: 'rate-tile is-good', 'data-study': 'good' }, h('strong', { text: t('review.learned') }), h('span', { class: 'rate-points', text: '+5 XP' }))) : null);
+    if (study.shown) this.say(say);
+  },
+  click(event) {
+    const say = event.target.closest('[data-say]');
+    if (say) { event.preventDefault(); this.say(say.dataset.say); return; }
+    const check = event.target.closest('[data-learn]');
+    if (check) {
+      const id = check.dataset.learn;
+      if (this.learned[id]) delete this.learned[id];
+      else { this.learned[id] = 1; XP.add(5); }
+      this.save();
+      check.setAttribute('aria-pressed', String(Boolean(this.learned[id])));
+      check.closest('.phr-row').classList.toggle('is-learned', Boolean(this.learned[id]));
+      const topic = this.topics.find(item => item.id === location.hash.split('/')[1]);
+      if (topic) {
+        const items = this.items(topic);
+        $('.phr-progress .gram-meter span').style.width = Math.round(this.done(topic) / items.length * 100) + '%';
+        $('.phr-progress-text').textContent = t('phrases.progress', { d: this.done(topic), n: items.length });
+      }
+      return;
     }
+    const answer = event.target.closest('[data-study]');
+    if (answer && this.study) {
+      const item = this.study.queue.shift();
+      if (answer.dataset.study === 'again') this.study.queue.splice(Math.min(3, this.study.queue.length), 0, item);
+      else {
+        this.study.done += 1;
+        if (!this.learned[item.id]) { this.learned[item.id] = 1; XP.add(5); this.save(); }
+      }
+      this.study.shown = false;
+      this.renderStudy();
+      return;
+    }
+    if (this.study && !this.study.shown && event.target.closest('[data-flip]')) { this.study.shown = true; this.renderStudy(); }
   }
 };
 
@@ -5483,7 +5636,7 @@ const Settings = {
   exportProgress() {
     try {
       const data = JSON.stringify({ app: 'english-study', exportedAt: new Date().toISOString(), ...progress, learned: [...learnedSet],
-        review: Review.state, grammar: { best: Grammar.best, learned: Grammar.learned, last: Grammar.lastTopic }, xp: XP.state }, null, 2);
+        review: Review.state, grammar: { best: Grammar.best, learned: Grammar.learned, last: Grammar.lastTopic }, xp: XP.state, phrases: Phrases.learned }, null, 2);
       const url = URL.createObjectURL(new Blob([data], { type: 'application/json' }));
       const link = h('a', { href: url, download: 'english-study-progress-' + dateKey(new Date()) + '.json' });
       document.body.append(link);
@@ -5522,6 +5675,10 @@ const Settings = {
     replaceProgress(imported);
     if (review) { Review.state = review; Review.queue = []; Review.save(); }
     if (xp) { XP.state = xp; XP.save(); XP.pills(); }
+    if (parsed.phrases && typeof parsed.phrases === 'object' && !Array.isArray(parsed.phrases)) {
+      Phrases.learned = Object.fromEntries(Object.keys(parsed.phrases).filter(id => /^p\d{1,5}$/.test(id)).map(id => [id, 1]));
+      Phrases.save();
+    }
     if (grammar) { Object.assign(Grammar, { best: grammar.best, learned: grammar.learned, lastTopic: grammar.last, mode: null }); Grammar.save(); }
     status.textContent = t('import.done');
   },

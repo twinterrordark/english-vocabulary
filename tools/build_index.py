@@ -18,7 +18,7 @@ import sys
 from pathlib import Path
 
 from PIL import Image
-from build_phrases_component import build_phrases
+from build_phrases_component import build_phrases, build_phrase_data
 
 ROOT = Path(__file__).resolve().parent.parent
 SOURCE = ROOT / "b1-b2-kelimeler-responsive.html"
@@ -499,6 +499,7 @@ def main() -> None:
     # ---- Phrases (Everyday Conversation from 650-english file) -----------------
     print("building phrases component…")
     phrase_topic_options, phrases_html, phrase_total, phrase_filled, phrase_links, phrase_topics = build_phrases()
+    phrase_data = build_phrase_data()
     print(f"phrases         {phrase_total} phrase cards in {phrase_topics} topics, {phrase_filled} completed, {phrase_links} video/resource links")
 
     work_words = load_work_words(entries)
@@ -555,9 +556,7 @@ def main() -> None:
               .replace("/*@MEANING_GROUPS@*/", extract_meaning_groups(source))
               .replace("<!--@SENTENCE_DATA@-->", json_for_script(sentences))
               .replace("<!--@WORD_CARDS@-->", "\n".join(cards))
-              .replace("<!--@PHRASE_TOPIC_OPTIONS@-->", phrase_topic_options)
-              .replace("<!--@PHRASES_HTML@-->", phrases_html)
-              .replace("<!--@PHRASE_COUNT@-->", str(phrase_total))
+              .replace("<!--@PHRASE_DATA@-->", json_for_script(phrase_data))
               .replace("<!--@NOVEL_DICT@-->", json_for_script(novel_dict))
               .replace("<!--@NOVEL_SHELF@-->", novel_shelf())
               .replace("<!--@SPEAK_TOPICS@-->", json_for_script(speak_topics))

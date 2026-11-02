@@ -14,6 +14,7 @@ Before rendering, each topic is cleaned:
     "I like…" get a full example (phrase_examples.py).
 """
 import html
+import json
 import re
 from pathlib import Path
 
@@ -219,6 +220,56 @@ def render_card(block, number, topic_id, title_tr, title_en):
             f'<svg class="icon" aria-hidden="true"><use href="#i-sound"/></svg></button></div>'
             f'<p class="phrase-tr" lang="tr">{esc(tr)}</p>{example}{answers}</article>')
     return card, filled
+
+
+def is_prose(block) -> bool:
+    """A sentence explaining the topic, not something to say: long, and has no answers."""
+    return not block["answers"] and len(block["en"].split()) >= 15 and block["en"] not in STARTER_EXAMPLES
+
+
+def phrase_item(block, number) -> dict:
+    item = {"id": f"p{number}", "en": block["en"], "tr": block["tr"]}
+    starter = STARTER_EXAMPLES.get(block["en"])
+    if starter:
+        item["tr"], example_en, example_tr = starter
+        item["ex"] = [example_en, example_tr]
+    if block["answers"]:
+        item["ans"] = [[kind, en, tr] for kind, en, tr in block["answers"]]
+    return item
+
+
+def build_phrase_data() -> dict:
+    """Everything the Phrases tab shows: topics with their groups of phrases, and links."""
+    extras = json.loads((HERE / "phrases_extra.json").read_text(encoding="utf-8"))
+    text = SOURCE.read_text(encoding="utf-8")
+    topics = []
+    number = 0
+    for topic_id, t_html in re.findall(r'<section class="topic" id="(topic-\d+)">(.*?)</section>', text, re.S):
+        heading = re.search(r'<div class="topic-heading"><p>(.*?)</p><h2>(.*?)</h2>(?:<span>(.*?)</span>)?</div>', t_html)
+        items = []
+        for p_html in re.findall(r'<li class="phrase"[^>]*>(.*?)</li>', t_html, re.S):
+            en = re.search(r'<div class="english"[^>]*>(.*?)</div>', p_html, re.S)
+            tr = re.search(r'<div class="turkish"[^>]*>(.*?)</div>', p_html, re.S)
+            items.append({"en": clean(en.group(1)) if en else "", "tr": clean(tr.group(1)) if tr else "", "answers": parse_answers(p_html)})
+        if not items:
+            continue
+        resources = [(clean(a).replace("↗", "").strip(), url) for url, a in re.findall(r'<a class="resource" href="([^"]+)"[^>]*>(.*?)</a>', t_html, re.S)]
+        blocks, links = clean_topic(items, resources)
+        intro, groups = [], [{"h": None, "items": []}]
+        for block in blocks:
+            if block["type"] == "heading":
+                groups.append({"h": [block["en"], block["tr"]], "items": []})
+                continue
+            number += 1
+            if is_prose(block):
+                intro.append([block["en"], block["tr"]])
+            else:
+                groups[-1]["items"].append(phrase_item(block, number))
+        extra = extras.get(topic_id, {})
+        topics.append({"id": topic_id, "tr": clean(heading.group(2)) if heading else "", "en": clean(heading.group(3)) if heading and heading.group(3) else "",
+                       "cat": extra.get("cat", "life"), "emoji": extra.get("emoji", "💬"), "tip": extra.get("tip", ""), "dialog": extra.get("dialog", []),
+                       "intro": intro, "groups": [group for group in groups if group["items"]], "links": links})
+    return {"topics": topics}
 
 
 def build_phrases():
