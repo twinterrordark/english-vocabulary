@@ -9932,7 +9932,7 @@ const Review = {
         learnedSet.add(now);
       }
       /* These decks' words were not kept as learned on reload for a while; their cards show they were. */
-      for (const id of Object.keys(this.state.cards)) if (/^w:(?:wk-|my-)/.test(id)) learnedSet.add(id.slice(2));
+      for (const id of Object.keys(this.state.cards)) if (/^w:(?:wk-|my-)/.test(id) && this.state.cards[id][3] > 0) learnedSet.add(id.slice(2));
       if (learnedSet.size !== before) persist();
     }
     if (!this.state || typeof this.state !== 'object' || typeof this.state.cards !== 'object') this.state = { goal: 20, cards: {}, saved: {}, log: {} };
@@ -10049,11 +10049,11 @@ const Review = {
     if (this.mode === 'list') { this.renderDeck(); return; }
     $('.review-progress').hidden = false;
     if (this.mode === 'novel') {
-      this.queue = shuffle(this.saved()).slice(0, 20);
+      this.queue = shuffle(this.saved().filter(id => this.notPostponed(id))).slice(0, 20);
     } else if (this.mode === 'mistakes') {
-      this.queue = Object.entries(this.state.cards).filter(([id, card]) => card[4] > 0 && this.content(id)).sort((a, b) => b[1][4] - a[1][4]).slice(0, 15).map(([id]) => id);
+      this.queue = Object.entries(this.state.cards).filter(([id, card]) => card[4] > 0 && this.content(id) && this.notPostponed(id)).sort((a, b) => b[1][4] - a[1][4]).slice(0, 15).map(([id]) => id);
     } else if (this.mode === 'learn') {
-      this.queue = wordsOfLevel(this.level).filter(entry => !learnedSet.has(entry.id)).slice(0, 10).map(entry => 'w:' + entry.id);
+      this.queue = this.newWords(this.level).slice(0, 10).map(entry => 'w:' + entry.id);
     } else this.queue = this.due();
     this.total = this.queue.length;
     this.doneNow = 0;
@@ -10089,8 +10089,13 @@ const Review = {
   },
   /* A new word in a deck: "Didn't know" and "Hard" bring it back in this session;
      "Good" and "Easy" mark it learned and give it a review card. */
+  /* New words of a deck: not learned yet and not waiting for a later day after "Again". */
+  newWords(level) { return wordsOfLevel(level).filter(entry => !learnedSet.has(entry.id) && !this.state.cards['w:' + entry.id]); },
+  /* A word marked "Again" stays away until its day has come. */
+  notPostponed(id) { const card = this.state.cards[id]; return !(card && card[3] === 0 && card[0] > this.today()); },
   learnRate(id, answer) {
-    if (answer === 'again' || answer === 'hard') { this.queue.splice(Math.min(answer === 'again' ? 3 : 6, this.queue.length), 0, id); return; }
+    if (answer === 'again') { this.state.cards[id] = [this.today() + 1, 0, 230, 0, 1]; return; }
+    if (answer === 'hard') { this.queue.splice(Math.min(6, this.queue.length), 0, id); return; }
     const entry = BY_ID.get(id.slice(2));
     learnedSet.add(entry.id);
     persist();
@@ -10111,9 +10116,17 @@ const Review = {
       if (answer === 'again') { card[2] = Math.max(130, card[2] - 20); card[3] = 0; card[4] += 1; }
       else { if (answer === 'hard') card[2] = Math.max(130, card[2] - 15); if (answer === 'easy') card[2] = Math.min(330, card[2] + 15); card[3] += 1; }
       card[1] = days;
-      card[0] = this.today() + days;
-      /* A card you did not know comes back after a few others. */
-      if (answer === 'again') this.queue.splice(Math.min(3, this.queue.length), 0, id);
+      const isWord = !id.startsWith('g:');
+      card[0] = this.today() + (answer === 'again' && isWord ? 1 : days);
+      /* A grammar card you did not know comes back after a few others; a word waits for tomorrow. */
+      if (answer === 'again' && !isWord) this.queue.splice(Math.min(3, this.queue.length), 0, id);
+      /* A word first marked "Again" counts as learned once you know it. */
+      if (answer !== 'again' && id.startsWith('w:') && !learnedSet.has(id.slice(2))) {
+        learnedSet.add(id.slice(2));
+        persist();
+        syncWordControls(id.slice(2));
+        Words.dirty = true;
+      }
     }
     this.state.log[key] = (this.state.log[key] || 0) + 1;
     const recall = this.state.recall[key] || [0, 0];
@@ -10165,7 +10178,7 @@ const Review = {
   /* All the words of a work deck, with their sentences. */
   renderDeck() {
     const words = wordsOfLevel(this.level);
-    const left = words.filter(entry => !learnedSet.has(entry.id)).length;
+    const left = this.newWords(this.level).length;
     $('#review-title').textContent = Today.deckName(this.level);
     $('.review-progress').hidden = true;
     $('#review-card').replaceChildren(
@@ -10192,7 +10205,7 @@ const Review = {
       h('p', { class: 'hint', text: decks.length ? t('mine.decksNote', { n: decks.reduce((sum, deck) => sum + deck.words.length, 0) }) : t('mine.decksEmpty') }),
       h('ul', { class: 'saved-list' }, decks.map(deck => {
         const words = wordsOfLevel(deck.id);
-        const left = words.filter(entry => !learnedSet.has(entry.id)).length;
+        const left = this.newWords(deck.id).length;
         return h('li', { class: 'saved-item my-deck' },
           h('div', { class: 'saved-word' }, h('strong', { text: deck.title }),
             h('button', { type: 'button', class: 'icon-button saved-remove', 'data-remove-deck': deck.id, 'aria-label': t('deck.remove', { w: deck.title }) }, icon('close'))),
@@ -10239,7 +10252,7 @@ const Review = {
     if (!this.queue.length) {
       const waiting = Object.keys(this.state.cards).length;
       const finished = this.total > 0;
-      const more = learn && wordsOfLevel(this.level).some(entry => !learnedSet.has(entry.id));
+      const more = learn && this.newWords(this.level).length > 0;
       box.replaceChildren(h('div', { class: 'review-empty' },
         h('p', { class: 'review-big', text: finished || waiting ? '🎉' : '🗂️' }),
         h('h2', { text: t(finished ? 'review.sessionDone' : waiting ? 'review.allDone' : 'review.noCards') }),
@@ -10282,7 +10295,7 @@ const Review = {
       /* Words have two answers: again, or learned. Grammar keeps the finer scale. */
       h('div', { class: 'review-rate' + (this.shown ? '' : ' is-waiting') + (content.kind === 'grammar' ? '' : ' is-two') }, (content.kind === 'grammar' ? [['again', 'review.again', 5], ['hard', 'review.hard', 10], ['good', 'review.good', 20], ['easy', 'review.easy', 30]] : [['again', 'review.again', 5], ['good', 'review.learned', 20]]).map(([answer, label, xp], index) =>
         h('button', { type: 'button', class: 'rate-tile is-' + answer, 'data-rate': answer, 'aria-keyshortcuts': String(index + 1) },
-          h('small', { text: intervals[answer] }), h('strong', { text: t(label) }), h('span', { class: 'rate-points', text: '+' + xp + ' XP' }))))
+          h('small', { text: answer === 'again' && content.kind !== 'grammar' ? this.when(1) : intervals[answer] }), h('strong', { text: t(label) }), h('span', { class: 'rate-points', text: '+' + xp + ' XP' }))))
     ].filter(Boolean));
   }
 };
@@ -11514,7 +11527,7 @@ const MODULES = { home: Home, review: Review, practice: Games, rankings: Ranking
    The page asks for version.json, never from the cache, when it opens and
    whenever it comes back to the screen, and offers to load the new build. */
 const Updater = {
-  build: '8d152103fa0e',
+  build: '7706c12429cd',
   checked: 0,
   init() {
     if (!/^https?:$/.test(location.protocol) || this.build.length !== 12) return;
