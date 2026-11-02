@@ -1632,6 +1632,8 @@ body.novel-focus .novel-pop:not(.is-inline) .novel-pop-actions { background: var
 .type-sentence p { margin: 0; font-size: .95rem; line-height: 1.4; }
 .type-sentence .type-tr { color: var(--muted); font-size: .86rem; }
 .type-more summary { cursor: pointer; font-weight: 700; font-size: .88rem; color: var(--secondary-text); min-height: 32px; }
+
+.saved-pic { flex: none; width: 36px; height: 36px; }
 </style>
 </head>
 <body>
@@ -2403,6 +2405,7 @@ body.novel-focus .novel-pop:not(.is-inline) .novel-pop-actions { background: var
 
 <footer class="site-footer">
   <p data-i18n="footer.text">Works offline. Progress is stored only in this browser on this device.</p>
+  <p>İş ve sınav kelimelerinin resimleri de Twemoji'dir; birçoğu kelimeyi temsilen seçildi.</p>
   <p>Örnek cümlelerin bir bölümü: <a href="https://tatoeba.org" target="_blank" rel="noopener">Tatoeba</a> (<a href="https://creativecommons.org/licenses/by/2.0/fr/" target="_blank" rel="noopener">CC BY 2.0 FR</a>), <a href="https://www.manythings.org/anki/" target="_blank" rel="noopener">manythings.org</a> derlemesinden; cümleler kelimelere ve türlere göre seçildi.</p>
   <p>Fotoğraflar: Wikimedia Commons (yazar ve lisans kartlarda). Simgeler: <a href="https://github.com/jdecked/twemoji" target="_blank" rel="noopener">Twemoji</a>, CC BY 4.0. PDF okuma: <a href="https://mozilla.github.io/pdf.js/" target="_blank" rel="noopener">pdf.js</a> (Mozilla, Apache-2.0). Yazı tipleri: Outfit ve Plus Jakarta Sans (SIL Open Font License).</p>
   <p>English Study · v@APP_VERSION@</p>
@@ -2433,6 +2436,7 @@ body.novel-focus .novel-pop:not(.is-inline) .novel-pop-actions { background: var
 <script type="application/json" id="sentence-data"><!--@SENTENCE_DATA@--></script>
 <!-- English -> Turkish dictionary for the novel reader (source: tools/novel/*.json). -->
 <script type="application/json" id="work-data"><!--@WORK_DATA@--></script>
+<script type="application/json" id="work-pics"><!--@WORK_PICS@--></script>
 <script type="application/json" id="novel-dict"><!--@NOVEL_DICT@--></script>
 <!-- pdf.js 3.11.174 (Mozilla, Apache-2.0), loaded only when a PDF is opened in the novel reader. -->
 <script type="text/plain" id="pdfjs-src"><!--@PDFJS_LIB@--></script>
@@ -3147,6 +3151,7 @@ function readJsonScript(id) {
 const VOCAB = readJsonScript('vocab-data').filter(e => e && typeof e.id === 'string' && e.word && e.meaning);
 /* Work English decks: studied like the other words, but not part of the level path or its counts. */
 const WORK = readJsonScript('work-data') || [];
+const WORK_PICS = readJsonScript('work-pics') || {};
 const BY_ID = new Map(WORK.map(entry => [entry.id, entry]));
 const wordsOfLevel = level => (WORK.some(entry => entry.level === level) ? WORK : VOCAB).filter(entry => entry.level === level);
 VOCAB.forEach((entry, index) => {
@@ -7677,7 +7682,7 @@ const Review = {
     const entry = BY_ID.get(id.slice(2));
     const image = $('.word-card[data-id="' + entry.id + '"] .word-media img');
     const types = sentencesFor(entry);
-    return { level: entry.level, types: types.map(([pos]) => t('pos.' + pos)), image: image ? image.getAttribute('src') : '' };
+    return { level: entry.level, types: types.map(([pos]) => t('pos.' + pos)), image: image ? image.getAttribute('src') : WORK_PICS[entry.pic] || '' };
   },
   /* How the word is used: example sentences under each of its types (noun, verb…). */
   typeExamples(content) {
@@ -7702,6 +7707,7 @@ const Review = {
         left ? h('a', { class: 'button primary', href: '#review/learn/' + encodeURIComponent(this.level) }, icon('play'), h('span', { text: t('deck.start') })) : null),
       h('ul', { class: 'saved-list' }, words.map(entry => h('li', { class: 'saved-item' + (learnedSet.has(entry.id) ? ' is-learned' : '') },
         h('div', { class: 'saved-word' },
+          WORK_PICS[entry.pic] ? h('img', { class: 'saved-pic', src: WORK_PICS[entry.pic], alt: '', loading: 'lazy', width: '36', height: '36' }) : null,
           h('strong', { lang: 'en', text: entry.word }),
           Speech.supported ? h('button', { type: 'button', class: 'audio-button', 'data-say': entry.word, 'aria-label': t('card.listenTo', { w: entry.word }) }, icon('sound')) : null,
           Pron.button(entry.example || entry.word, 'audio-button')),

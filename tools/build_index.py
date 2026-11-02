@@ -152,6 +152,20 @@ def load_novel_dictionary() -> dict:
     return {"words": words, "forms": {f: w for f, w in forms.items() if w in words}, "irregular": irregular, "phrasal": phrasal}
 
 
+def load_work_pictures(words: list) -> dict:
+    """One Twemoji picture per work word: each entry names its picture, each picture is stored once."""
+    from fetch_emoji import twemoji_name
+    chosen = json.loads((HERE / "work" / "work_emoji.json").read_text(encoding="utf-8"))
+    pictures = {}
+    for entry in words:
+        emoji = chosen.get(entry["word"].strip().lower())
+        svg = HERE / "emoji" / "svg" / f"{twemoji_name(emoji)}.svg" if emoji else None
+        if svg and svg.exists():
+            entry["pic"] = emoji
+            pictures.setdefault(emoji, "data:image/svg+xml;base64," + base64.b64encode(svg.read_bytes()).decode())
+    return pictures
+
+
 def load_work_words(main: list) -> list:
     """Work English decks (tools/work/*.txt): word | Turkish | example | Turkish example."""
     words = []
@@ -447,6 +461,9 @@ def main() -> None:
     phrase_topic_options, phrases_html, phrase_total, phrase_filled, phrase_links, phrase_topics = build_phrases()
     print(f"phrases         {phrase_total} phrase cards in {phrase_topics} topics, {phrase_filled} completed, {phrase_links} video/resource links")
 
+    work_words = load_work_words(entries)
+    work_pictures = load_work_pictures(work_words)
+    print(f"work words      {len(work_words)} words, {len(work_pictures)} pictures")
     novel_dict = load_novel_dictionary()
     print(f"novel reader    {len(novel_dict['words'])} dictionary words, {len(novel_dict['forms'])} inflected forms")
     # pdf.js (Apache-2.0) reads the PDF the learner opens; kept as text and loaded only when needed.
@@ -492,7 +509,8 @@ def main() -> None:
     template = turkish_static_text(TEMPLATE.read_text(encoding="utf-8"), counts)
     output = (template
               .replace("<!--@VOCAB_DATA@-->", json_for_script(entries))
-              .replace("<!--@WORK_DATA@-->", json_for_script(load_work_words(entries)))
+              .replace("<!--@WORK_DATA@-->", json_for_script(work_words))
+              .replace("<!--@WORK_PICS@-->", json_for_script(work_pictures))
               .replace("/*@MEANING_GROUPS@*/", extract_meaning_groups(source))
               .replace("<!--@SENTENCE_DATA@-->", json_for_script(sentences))
               .replace("<!--@WORD_CARDS@-->", "\n".join(cards))

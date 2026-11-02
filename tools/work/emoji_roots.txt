@@ -1,0 +1,141 @@
+# Illustrations for work and exam words (Twemoji). Emoji: beginnings of the words it fits; "=word" means that exact word.
+🚫: abandon abolish abolit abort prohibit ban =not restrict restrain curtail forbid obstruct hinder hindrance deter barrier obstacle inaccessib unwanted withhold
+😠: abus anger fury resent hostil irritat frustrat aggress outrag grumble provo
+👮: arrest detention jail police criminal raider seiz inquest evade confiscat
+🕵️: accus suspic deceit decept deceiv falsif false betray secret hide hiding disguise investigat trace uncover detect
+💪: able =able abil strong strength robust endur hardy hardi harden force effort exert strive powerful =power tough overcome
+📈: abundan accumul increas rise =rise grow expan enlarg boom surplus prosper progress enorm tremendous huge substantial considerabl profit revenue magnif amplif amplifier widen sizeable
+📉: decreas declin decline deficit shrink reduc fall =fall drop recession depletion slowdown lessen
+🔢: quantit =number =amount =quantity =half count digit proportion percent rate =rate calculation equation mathematic statistic measur data dataset query token latency throughput
+🌈: divers variety varied varying variation various differ distinct differentiat mix hybrid blend palette color colour
+🧽: absorb absorption soak uptake intake sponge
+🚀: accelerat speed =speed sprint rapid fast launch deploy startup high
+🤝: accept agree consensus collaborat cooperat compromise partner join unite integrat together comply conform negotiat deal contract treaty mutual merge peace
+🏆: accomplish achiev win =win winner success attain prize award best victory outstanding exceptional remarkable
+🧳: acquisit travel trip cargo freight ship shipping transit goods packing waybill belongings possess carrier
+🏃: active run =run runner race movement athletic exercise fitness
+🔧: adapt adjust fix repair maint patch workaround tool tooling upgrade refactor debug remed reinstat restor rebuild
+➕: add =add addit plus includ inclus incorporat supplement extra more
+🧪: additive chemi experiment laboratory test =test acid solvent compound reactive reaction sample drill catalyst
+🏠: address home house housing dwelling habit inhabit populat resident settlement occupy neighbour shelter roof
+🧴: adhes glue seal soap lotion cleans clean coating
+📝: adjective adverb noun verb grammar syntax sentence antonym synonym abbreviat article write =writing writer draft note record report transcri manuscript script questionnaire survey label form document handout
+🎟️: admission admit ticket enrol enrollment entry coupon access
+👶: adopt baby infan newborn birth childbirth breastfeed pregnan maternity stillbirth miscarr formula uterus child =children kid babysitter day-care
+🧑: adult person =people human individual mankind humanity member personal personnel self- population populous
+📣: advert announc promot marketer marketing =market slogan billboard publish media broadcast press public publicly reporter newspaper proclaim
+🎨: aesthetic art =art artist artisan creativ design sketch render paint draw =draw colour illustrat mood portray depict texture sensual style
+💗: affection love =love lover care caring kind =kind kindly compassion generos gentle beloved
+😨: afraid scare scary fear fright horror panic alarm dread terrible astonish shock apprehens anxiet anxious worry worri nervous stress =stress
+🎂: age =age ageing aging old elderly life =life lifespan lifestyle born adulthood anniversary annual yearly =year
+🎯: aim target goal purpose focus objective precis accura specific point =point key main major primary milestone
+🫁: airway breath respirat bronchus windpipe lung asthma inhal exhale oxygen
+🌿: algae moss plant grass vegetat leaf leafy rainforest forest timber biodivers biotic organic garden ecosystem natural pollinator seed bloom cultivat fertil harvest crop
+⚙️: algorithm system process pipeline engine machine mechanism function functional configur automat compress accumulator workforce operation structur module processor
+🤖: artificial robot agent neural inference embedding prompt model hallucination overfitting training learning machine-learning
+💻: api backend back-end =back-end frontend front codebase computer software code backup cache cloud runtime server endpoint repository online network website browser user usability digital broadband connectivity interface tech deprecated legacy stack loop source
+📊: benchmark chart graph analysis evaluat assess estimat tendency trend pattern correlat statistic demographic predict forecast indicat rating
+🦠: germ bacteria virus viral infect disease illness sick malaria plague pneumonia flu contagious epidemic outbreak malady cancer malignant tumour unhealthy cough sneeze vomit diarrhoea
+💉: vaccin immun inject transplant surgery surgical operate anesthe therap curable cure curative treat
+💊: drug medic pill prescri pharma dosage painkiller remedy vitamin laxative diuretic stimulant
+🩺: doctor diagnos symptom physician clinic hospital nurse patient health healing heal recover dietitian
+🩸: blood vein artery capillary vessel bleed clot circulation
+🫀: heart cardio palpitat rate
+🦴: bone skeleton skull rib spine fracture
+🧠: brain mind memory neuron intellect intelligen think thought reason logic mental idea concept psycho consciou subconscious instinct intuit understand
+💡: invent innovat suggest solution idea insight ingenious discover enlighten illuminat light
+👁️: observ watch view visib visual see look perceiv percept sight eye eyebrow examin inspect monitor notice
+🔍: research search seek study investigat explor evidence explain explanat identify identif clue quest analy resolve find
+❓: ambig uncertain doubt question dilemma indecis hesitan unclear mystery unknown query problem issue
+⚖️: law legal lawyer court judge jury verdict justice legitim sue lawsuit fair balance impartial liab regulat rule attorney right ethic trial
+🏛️: ancient roman empire emperor king queen ruler civiliz colon histor heritage tradition ancestr era monument antiqu legend culture mediterranean primitive
+🗳️: ballot vote election parliament politic government democra minister president statesman governance policy
+🎖️: army soldier troop warrior military artillery war =war battle conquer conquest invad invasion attack combat defen fight enemy weapon
+💣: explos explod blow destruct destroy disaster disastrous catastroph ruin damage collapse fatal lethal deadly danger hazard risk threat harm jeopard vulnerab detriment
+⚡: electric energy power voltage amplifier battery charge fuel conduct
+☀️: sun solar heat =heat warm temperature hot climate summer weather desert drought daytime springtime season
+🌧️: rain wet humid irrigat flood storm wind tornado cloud monsoon
+❄️: cold cool freez ice icy snow winter frost
+🌋: erupt volcano earthquake avalanche landslide natural
+🌍: earth world global globe international continent ocean equator hemisphere peninsula region area territory province geograph environment ecolog planet
+🌫️: pollut contamin emission emit smoke fume noxious dust dirty waste greenhouse carbon
+🏭: industr factory manufact production product mass produce refine refinery plant casting mould moulding weld injection machining forge tradesman
+🏗️: build construct architect engineer tower scaffold prototype mock assembly excavat mortar establish foundation
+🧱: material aluminium steel plastic foam clay stone stony brittle rigid durable hardness flexib composite wood lightweight density dense metal
+📐: dimension size =size geometry angle tolerance width breadth length contour curvature symmetry shape wall thickness section ergonomic scale proportion
+🔩: hinge screw component joint fastener part =part spare particle element
+🖨️: print 3d cnc cad gpu scanner
+📦: batch delivery order stock supply supplier merchandise container storage store retail item commodity product distribut contain
+💰: cash money finance fund budget bank capital invest econom cost costly price pricey cheap bargain expend credit debit deposit loan lend wealth asset salary wage bonus premium refund pay payable payee payer overdraft currency insur reinsure rich afford valuable priceless owed
+🛒: buy buyer sale sell shop customer consumer client purchase commerce trade trader salesman salesgirl outlet
+🧾: invoice bill receipt tax accounting accountant
+💼: business job work =work worker working career employ occupation office manager managerial company enterprise firm headquarters workload overtime resign vacancy recruit interview hire trainee consultant consultancy staff
+📅: schedule reschedule deadline calendar date period time =time timely timeline timing duration interval temporary delay postpone lead sign-off month daily morning =night
+⏳: wait patience eventual gradual slow =slow lengthy long tail ongoing progressively
+🎓: education educat school scholar learn teach student university exam course class degree literacy trainer instructor
+📚: book library read reading literature bibliography reference appendix citation fiction story topic subject
+💬: talk speak language communicat discuss comment convers express language dialogue statement say saying word meaning interpret
+🗣️: argue arguable persuasi assert claim debate plead denounce condemn complain
+🙏: apolog worship pray religio deity belief church pastor ritual ceremony spiritual mystical sacred faith hope
+😊: happy pleasant pleasurable enjoy satisf comfort charming playful laugh smile delight appreciat
+😢: grief sad suffer despair sorrow regret cry hopeless depress disappoint dissatisf miserable lonely pain =painful
+😴: sleep asleep rest restful tired exhaust fatigue bed awake sleepwalk dream calm serenity
+🍽️: food eat meat vegetable meal diet nutri hungry starv famine appetite calorie edible chew stomach bowel intestine digest cooking delicious feed pork candy cereal grain cinnamon chickpea rusk malnutrition
+🐾: animal species predator predatory wild monkey rabbit rat elephant whale calf chick nest mate gibbon krill pigeon seabird rook beetle spider wasp scorpion insect caterpillar burrow migrat extinct endangered habitat
+🧬: gene genetic dna inherit cell cellular unicellular multicellular tissue evolve evolution organism hormone cloning
+🚗: car vehicle truck drive traffic road motor transport navigation navigate accident
+✈️: fly abroad airport flight distant migrant foreign cross-border border
+🌊: water river sea lake swim swimmer swimming dive flow quay
+🔥: fire burn flame heater boil =smoke tobacco smoking cigarette
+🔇: noise sound silent microphone loud audio
+📞: call =call caller phone conference receiver
+👥: group team society social community party family audience crowd public population ethnic race racial nation neighbourhood mob guest visit visitor host interact relationship friend
+🧭: guide guidance direction advise advice recommend counsel navigator lead mentor consult
+🏁: start finish end =end ending complete commence begin conclu final last =last first initial
+🔄: change transform repeat recur rotate cycle convert conversion replace reversal reverse reform alter shift switch exchange turn transmi transfer transition modify rollback regression iteration
+⛓️: depend reliance reliant link connect chain tie attach bond interconnect associate cohes coherence relat
+✅: accept approve confirm valid correct right sure certain assur proven verify reliab credibility credible safe secure safeguard protect guard shield prevent precaution encryption authentication authorization credentials
+❌: fail failure wrong incorrect mistake error defect bug outage downtime dysfunction refuse refusal deny denial reject object disobed violat
+🔑: key solution unlock open reveal revealing clue
+⭐: great excellent famous notable prominent special quality value important significant distinguish reput repute crucial critical essential necessary need require requisite
+📏: standard level degree general normal regular usual common typical
+🧩: as also and because but since besides while with without about although however moreover therefore thus nonetheless consequently accordingly addition regarding other than rather likely case fact even still so or on up to in at
+🏙️: city urban town capital municipal
+☠️: kill killer murder death die =die dying
+🍔: =fat obes overweight underweight high-fat
+🔮: future anticipat foresee foreseeable destiny prospect unpredict
+🎮: control controller controll manage govern command dominan dominat
+🛑: quit stop cease prevent resign withdraw withdrawal halt
+🔀: option choice choose prefer select alternat preferab pick
+🧘: emotion feeling sense sensation sensib sensitiv
+🗺️: locate location site place =place area map
+📍: position exception except isolate isolat extremity
+🕳️: pit cavity hole nook gap
+🌙: crescent moon
+📢: influen recogni popular prevalent frequent
+🧲: attract tempt allure inviting
+🔗: entail implicate belong adherent attach alien
+♻️: recycl renew sustain reus conservation
+🧷: apply applic utiliz usage =use usable useful utility
+🧍: stand stay wait
+🫥: disappear vanish absent invisible
+🌱: thrive develop stimulat grow origin emerge sprout
+🧯: emergency rescue safety
+🏅: decisive determin competitive compete competit contest match
+📜: essence principle rule contract spirit document charter specification specify
+🙈: overlook ignore ignorance indifferen
+🧊: harsh severe extreme drastic
+🕊️: unrestrict free liberty independen voluntary release
+🤲: confide trust offer give =give share provide donate generous help =helpful assist
+🔒: confin lock prison restrain isolation
+🚶: movable move moveable walk step go =go come =come get =get
+🥇: mostly mainly predominant primarily
+🏷️: name title brand trademark discount
+💧: drop =drop liquid swell swelling dissolve
+🦶: foot leg thigh body =body limb bodily
+🤚: touch hand skin =skin itchy
+🌡️: fever temperature
+👃: smell scent nose
+👂: hear listen ear
+🧑‍🏫: tutor mentor professor educator
+🧑‍⚖️: arbitrat executor assessor
