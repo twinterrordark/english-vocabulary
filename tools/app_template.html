@@ -1634,6 +1634,8 @@ body.novel-focus .novel-pop:not(.is-inline) .novel-pop-actions { background: var
 .type-more summary { cursor: pointer; font-weight: 700; font-size: .88rem; color: var(--secondary-text); min-height: 32px; }
 
 .saved-pic { flex: none; width: 36px; height: 36px; }
+
+.review-rate.is-two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 </style>
 </head>
 <body>
@@ -2611,6 +2613,7 @@ const STRINGS = {
     'mine.extract': 'Make word decks from my PDFs', 'mine.seeDecks': 'See my {n} word decks', 'mine.reading': 'Looking for word lists: {i} of {n}…', 'mine.decksMade': '{d} word decks made, {n} words.', 'mine.decksTitle': 'Words from my PDFs', 'mine.decksNote': '{n} words. They are kept on this device only.', 'mine.decksEmpty': 'No decks yet. Add your PDFs under Read → My PDFs.', 'deck.mine': 'My PDFs', 'deck.mineNote': '{n} decks from the word lists in your PDFs, on this device only.',
     'deck.exam': 'YDS & YÖKDİL', 'deck.workEXAM': 'Exam words', 'deck.workEXAMNote': 'Words for YDS and YÖKDİL. Meanings are from the dictionary and machine translation, so a few may be off.',
     'deck.usage': 'How it is used',
+    'review.wordChoice': 'Did you know this word?', 'review.learned': 'Learned',
     'home.eyebrow': 'Daily goal', 'home.titleReview': 'Time to review! ✨', 'home.titleMorning': 'Good morning! ☀️', 'home.titleDay': 'Let’s learn! ✨', 'home.titleEvening': 'Good evening! 🌙',
     'home.goalChip': '{p}% done', 'home.goalStart': 'Let’s get started!', 'home.goalGoing': 'You’re doing great!', 'home.goalDone': 'Goal reached! 🎉',
     'home.goalLeft': 'Only {n} cards to your goal. Keep the rhythm!', 'home.goalDoneNote': 'Anything more today is a bonus.',
@@ -2621,7 +2624,7 @@ const STRINGS = {
     'deck.A2': 'A2 Everyday Basics', 'deck.A2note': 'The words you need first, for daily life.', 'deck.B1': 'B1 Daily Communication', 'deck.B1note': 'Talk about work, travel, plans and feelings with ease.',
     'deck.B2': 'B2 Advanced Daily Vocab', 'deck.B2note': 'Strategic words for fluent work and social English.', 'deck.C1': 'C1 Academic Words', 'deck.C1note': 'Words for articles, essays and serious talk.',
     'deck.C1plus': 'C1+ Advanced Extras', 'deck.C1plusNote': 'Rare, precise words beyond the Oxford 5000.',
-    'review.learnTitle': 'New words · {l}', 'review.learnLead': 'Flip each card. “Good” or “Easy” adds the word to your learned words and your review.',
+    'review.learnTitle': 'New words · {l}', 'review.learnLead': 'Flip each card. “Learned” adds the word to your learned words and your review; “Again” brings it back soon.',
     'review.cardOf': '{d} / {n} cards', 'review.combo': '🔥 {n}x combo', 'review.tapHint': 'Tap to flip the card', 'review.recallLevel': 'How well did you know it?', 'review.instantXp': 'Instant XP',
     'review.easy': 'Easy', 'review.later': 'later', 'review.sessionDone': 'Session complete!', 'review.sessionText': '{n} cards done · +{xp} XP', 'review.moreWords': 'Learn 10 more',
     'nav.learn': 'Learn', 'nav.practice': 'Practice', 'nav.rankings': 'Rankings', 'practice.title': 'Practice', 'practice.lead': 'Quick games with the words you know, for points and records.',
@@ -2830,6 +2833,7 @@ const STRINGS = {
     'mine.extract': 'PDF\'lerimden kelime destesi yap', 'mine.seeDecks': '{n} kelime destemi gör', 'mine.reading': 'Kelime listeleri aranıyor: {n} PDF\'ten {i}.…', 'mine.decksMade': '{d} kelime destesi yapıldı, {n} kelime.', 'mine.decksTitle': 'PDF kelimelerim', 'mine.decksNote': '{n} kelime. Yalnızca bu cihazda saklanır.', 'mine.decksEmpty': 'Henüz deste yok. Roman Oku → PDF\'lerim bölümünden PDF\'lerini ekle.', 'deck.mine': 'PDF\'lerim', 'deck.mineNote': 'PDF\'lerindeki kelime listelerinden {n} deste, yalnızca bu cihazda.',
     'deck.exam': 'YDS ve YÖKDİL', 'deck.workEXAM': 'Sınav kelimeleri', 'deck.workEXAMNote': 'YDS ve YÖKDİL için kelimeler. Anlamlar sözlükten ve makine çevirisinden geldiği için bazıları hatalı olabilir.',
     'deck.usage': 'Nasıl kullanılır?',
+    'review.wordChoice': 'Bu kelimeyi biliyor muydun?', 'review.learned': 'Öğrenildi',
     'home.eyebrow': 'Günlük hedef', 'home.titleReview': 'Tekrar zamanı! ✨', 'home.titleMorning': 'Günaydın! ☀️', 'home.titleDay': 'Hadi öğrenelim! ✨', 'home.titleEvening': 'İyi akşamlar! 🌙',
     'home.goalChip': '%{p} tamamlandı', 'home.goalStart': 'Hadi başlayalım!', 'home.goalGoing': 'Harika gidiyorsun!', 'home.goalDone': 'Hedef tamam! 🎉',
     'home.goalLeft': 'Hedefe sadece {n} kart kaldı. Ritmini koru!', 'home.goalDoneNote': 'Bugün yapacağın her şey artık bonus.',
@@ -2840,7 +2844,7 @@ const STRINGS = {
     'deck.A2': 'A2 Günlük Temel Kelimeler', 'deck.A2note': 'Günlük hayatta ilk gereken kelimeler.', 'deck.B1': 'B1 Günlük İletişim', 'deck.B1note': 'İş, seyahat, planlar ve duygular hakkında rahat konuş.',
     'deck.B2': 'B2 İleri Günlük Kelimeler', 'deck.B2note': 'İş ve sosyal hayatta akıcılık için stratejik kelimeler.', 'deck.C1': 'C1 Akademik Kelimeler', 'deck.C1note': 'Makale, kompozisyon ve ciddi konuşmalar için.',
     'deck.C1plus': 'C1+ İleri Seviye', 'deck.C1plusNote': 'Oxford 5000 dışındaki nadir ve kesin anlamlı kelimeler.',
-    'review.learnTitle': 'Yeni kelimeler · {l}', 'review.learnLead': 'Her kartı çevir. “İyi” ya da “Kolay” dersen kelime öğrendiklerine ve tekrara eklenir.',
+    'review.learnTitle': 'Yeni kelimeler · {l}', 'review.learnLead': 'Her kartı çevir. “Öğrenildi” dersen kelime öğrendiklerine ve tekrara eklenir; “Tekrar” dersen kısa süre sonra yine gelir.',
     'review.cardOf': '{d} / {n} kart', 'review.combo': '🔥 {n}x seri', 'review.tapHint': 'Kartı çevirmek için dokun', 'review.recallLevel': 'Hatırlama düzeyi', 'review.instantXp': 'Anında XP',
     'review.easy': 'Kolay', 'review.later': 'sonra', 'review.sessionDone': 'Seans tamam!', 'review.sessionText': '{n} kart bitti · +{xp} XP', 'review.moreWords': '10 kelime daha',
     'nav.learn': 'Öğren', 'nav.practice': 'Pratik', 'nav.rankings': 'Sıralama', 'practice.title': 'Pratik', 'practice.lead': 'Bildiğin kelimelerle kısa oyunlar: puan topla, rekor kır.',
@@ -7479,7 +7483,10 @@ const Review = {
     document.addEventListener('keydown', event => {
       if (Router.current !== 'review' || event.target.closest('input, select, textarea') || !this.queue.length) return;
       if ((event.key === ' ' || event.key === 'Enter') && !this.shown) { event.preventDefault(); this.flip(); }
-      else if (this.shown && ['1', '2', '3', '4'].includes(event.key)) this.rate(['again', 'hard', 'good', 'easy'][Number(event.key) - 1]);
+      else if (this.shown && ['1', '2', '3', '4'].includes(event.key)) {
+        const tile = $$('#review-card [data-rate]')[Number(event.key) - 1];
+        if (tile) this.rate(tile.dataset.rate);
+      }
     });
   },
   save() { Store.write(this.KEY, JSON.stringify(this.state)); },
@@ -7810,9 +7817,10 @@ const Review = {
             content.sentenceTr ? h('p', { class: 'review-example-tr', lang: 'tr', text: content.sentenceTr }) : null,
             this.typeExamples(content))
           : h('p', { class: 'flash-hint' }, icon('repeat'), t('review.tapHint'))),
-      h('div', { class: 'rate-head' }, h('span', { text: t('review.recallLevel') }), h('span', { class: 'rate-xp', text: t('review.instantXp') })),
+      h('div', { class: 'rate-head' }, h('span', { text: t(content.kind === 'grammar' ? 'review.recallLevel' : 'review.wordChoice') }), h('span', { class: 'rate-xp', text: t('review.instantXp') })),
       /* Always in sight as in the design; before the card is turned they are dimmed and turn it first. */
-      h('div', { class: 'review-rate' + (this.shown ? '' : ' is-waiting') }, [['again', 'review.again', 5], ['hard', 'review.hard', 10], ['good', 'review.good', 20], ['easy', 'review.easy', 30]].map(([answer, label, xp], index) =>
+      /* Words have two answers: again, or learned. Grammar keeps the finer scale. */
+      h('div', { class: 'review-rate' + (this.shown ? '' : ' is-waiting') + (content.kind === 'grammar' ? '' : ' is-two') }, (content.kind === 'grammar' ? [['again', 'review.again', 5], ['hard', 'review.hard', 10], ['good', 'review.good', 20], ['easy', 'review.easy', 30]] : [['again', 'review.again', 5], ['good', 'review.learned', 20]]).map(([answer, label, xp], index) =>
         h('button', { type: 'button', class: 'rate-tile is-' + answer, 'data-rate': answer, 'aria-keyshortcuts': String(index + 1) },
           h('small', { text: intervals[answer] }), h('strong', { text: t(label) }), h('span', { class: 'rate-points', text: '+' + xp + ' XP' }))))
     ].filter(Boolean));
