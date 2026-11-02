@@ -2439,6 +2439,7 @@ body.novel-focus .novel-pop:not(.is-inline) .novel-pop-actions { background: var
 <!-- English -> Turkish dictionary for the novel reader (source: tools/novel/*.json). -->
 <script type="application/json" id="work-data"><!--@WORK_DATA@--></script>
 <script type="application/json" id="work-pics"><!--@WORK_PICS@--></script>
+<script type="application/json" id="work-moved"><!--@WORK_MOVED@--></script>
 <script type="application/json" id="novel-dict"><!--@NOVEL_DICT@--></script>
 <!-- pdf.js 3.11.174 (Mozilla, Apache-2.0), loaded only when a PDF is opened in the novel reader. -->
 <script type="text/plain" id="pdfjs-src"><!--@PDFJS_LIB@--></script>
@@ -2607,7 +2608,7 @@ const STRINGS = {
     'pron.title': 'Pronunciation check', 'pron.read': 'Read', 'pron.again': 'Read again', 'pron.try': 'Read it aloud and check', 'pron.readLine': 'Read it aloud and check', 'pron.listening': 'Listening… read the sentence', 'pron.heard': 'Heard:', 'pron.heardAs': 'heard “{w}”', 'pron.missed': 'not heard', 'pron.great': 'Great, every word was clear.', 'pron.good': 'Good. Listen to the coloured words and try again.', 'pron.retry': 'Listen once more, then read it slowly.', 'pron.note': 'The site compares the words it heard. It does not measure stress or intonation, and names in a sentence do not count.', 'pron.noSpeech': 'I didn\'t hear anything. Tap Read and try again.', 'pron.noRecognition': 'This browser cannot turn speech into text. Use Chrome, Edge or Safari.', 'pron.noReply': 'Start the lesson first; then you can read the teacher\'s answer aloud.', 'game.pron': 'Pronunciation', 'game.pronText': 'Read sentences aloud: words that were heard turn green, the others red.', 'game.bestPron': 'Best: {n}%', 'game.resultPron': 'Average: {p}%', 'game.skip': 'Skip',
     'nav.tutor': 'Ms. Emma', 'chat.profileTitle': 'How should others see you?', 'chat.nick': 'Nickname', 'chat.level': 'Your English level', 'chat.warning': 'Use a nickname, not your real name. Do not share your phone number, address or other personal details with people you meet here.', 'chat.goOnline': 'Go online', 'chat.nameShort': 'Your nickname needs at least 2 characters.', 'chat.onlineN': 'Online: {n} people', 'chat.state.searching': 'Looking for people online…', 'chat.state.problem': 'Could not reach the list; trying again…', 'chat.state.off': 'You are offline', 'chat.state.dup': 'This chat is open in another tab of this device', 'chat.state.on': 'Online', 'chat.retry': 'Try again', 'chat.empty': 'Nobody else is online right now. Keep this tab open, or come back later.', 'chat.you': 'You:', 'chat.edit': 'Change', 'chat.hide': 'Do not show me on the list', 'chat.unblock': 'Clear my blocked list', 'chat.unblocked': 'Your blocked list was cleared.', 'chat.privacy': 'Messages and voice go straight between the two devices and are not saved; a free PeerJS service introduces you and can relay the connection when a direct one fails. The other person may be able to see your IP address. Your own sentences are sent to the grammar checker.', 'chat.invite': 'Chat', 'chat.inviteTo': 'Invite {name} to chat', 'chat.busyNow': 'In a chat', 'chat.asksYou': '{name} wants to chat with you.', 'chat.waiting': 'Waiting for {name} to answer…', 'chat.accept': 'Accept', 'chat.decline': 'No thanks', 'chat.block': 'Block', 'chat.cancel': 'Cancel', 'chat.blocked': '{name} is blocked.', 'chat.declined': '{name} did not accept.', 'chat.busyToast': '{name} is busy right now.', 'chat.gone': 'That person is no longer online.', 'chat.noAnswer': 'No answer.', 'chat.cantConnect': 'The connection could not be made. Your networks may not allow it.', 'chat.with': 'Chatting with {name}', 'chat.partnerLeft': '{name} left the chat', 'chat.voiceStart': 'Voice', 'chat.voiceEnd': 'End voice', 'chat.voiceWaiting': 'Waiting…', 'chat.voiceAsk': '{name} wants to talk by voice.', 'chat.voiceNo': '{name} did not start voice.',
     'novel.phrase': 'Phrase', 'novel.inSentence': 'In this sentence', 'novel.inText': 'in the text: “{w}”', 'novel.otherSenses': 'Other meanings: {tr}',
-    'deck.work': 'Work English', 'deck.workAI': 'AI, software and IT', 'deck.workAINote': 'Models, code, servers and the words of a software team.', 'deck.workDES': 'Industrial design', 'deck.workDESNote': 'From sketch to factory: materials, prototypes and production.', 'deck.workBIZ': 'Office and business', 'deck.workBIZNote': 'Meetings, emails and everyday words for any job.', 'deck.listNote': '{n} words, {d} learned.',
+    'deck.listNote': '{n} words, {d} learned.',
     'novel.tabMine': 'My PDFs', 'mine.private': 'Only on this device.', 'mine.note': 'Your PDFs stay in this browser and are not uploaded anywhere, so each device needs its own copy. Clearing the browser\'s site data removes them.', 'mine.choose': 'Choose PDFs', 'mine.folder': 'Choose a folder', 'mine.search': 'Search my PDFs', 'mine.clear': 'Remove all', 'mine.empty': 'No PDFs yet. Add the ones you study from; tap one to read it with the word card, translation and listening.', 'mine.adding': 'Adding {i} of {n}…', 'mine.added': '{n} PDFs added, {s} already here or copies.', 'mine.noPdf': 'There was no PDF among those files.', 'mine.full': 'The browser\'s storage is full. {n} PDFs were added before it stopped.', 'mine.failed': 'Adding stopped after {n} PDFs. Try again.', 'mine.noStore': 'This browser cannot keep PDFs (a private window, for example).', 'mine.size': '{n} PDFs · {mb} MB', 'mine.page': 'p. {p} / {n}', 'mine.remove': 'Remove {w}', 'mine.removeTitle': 'Remove this PDF?', 'mine.clearTitle': 'Remove these {n} PDFs?', 'mine.removeMsg': 'They are removed from this device only. Your files stay where they are.', 'mine.removeOk': 'Remove',
     'novel.garbled': 'The text of this PDF cannot be read: pages shown as pictures',
     'mine.extract': 'Make word decks from my PDFs', 'mine.seeDecks': 'See my {n} word decks', 'mine.reading': 'Looking for word lists: {i} of {n}…', 'mine.decksMade': '{d} word decks made, {n} words.', 'mine.decksTitle': 'Words from my PDFs', 'mine.decksNote': '{n} words. They are kept on this device only.', 'mine.decksEmpty': 'No decks yet. Add your PDFs under Read → My PDFs.', 'deck.mine': 'My PDFs', 'deck.mineNote': '{n} decks from the word lists in your PDFs, on this device only.',
@@ -2827,7 +2828,7 @@ const STRINGS = {
     'pron.title': 'Telaffuz denetimi', 'pron.read': 'Oku', 'pron.again': 'Tekrar oku', 'pron.try': 'Okuyarak dene', 'pron.readLine': 'Okuyarak dene', 'pron.listening': 'Dinliyorum… cümleyi oku', 'pron.heard': 'Duyulan:', 'pron.heardAs': '“{w}” duyuldu', 'pron.missed': 'duyulmadı', 'pron.great': 'Harika, her kelime anlaşıldı.', 'pron.good': 'İyi. Renkli kelimeleri dinleyip tekrar dene.', 'pron.retry': 'Bir kez daha dinle, sonra yavaşça oku.', 'pron.note': 'Site duyduğu kelimeleri karşılaştırır. Vurgu ve tonlamayı ölçmez, cümle içindeki özel isimler puana girmez.', 'pron.noSpeech': 'Bir şey duyamadım. Oku\'ya dokunup tekrar dene.', 'pron.noRecognition': 'Bu tarayıcı konuşmayı yazıya çeviremiyor. Chrome, Edge ya da Safari kullan.', 'pron.noReply': 'Önce derse başla; sonra hocanın cevabını okuyarak deneyebilirsin.', 'game.pron': 'Telaffuz', 'game.pronText': 'Cümleleri sesli oku: duyulan kelimeler yeşil, duyulmayanlar kırmızı olur.', 'game.bestPron': 'En iyi: %{n}', 'game.resultPron': 'Ortalama: %{p}', 'game.skip': 'Geç',
     'nav.tutor': 'Ms. Emma', 'chat.profileTitle': 'Seni nasıl görsünler?', 'chat.nick': 'Takma ad', 'chat.level': 'İngilizce seviyen', 'chat.warning': 'Gerçek adını değil, takma ad kullan. Burada tanıştığın kişilerle telefonunu, adresini ya da başka kişisel bilgilerini paylaşma.', 'chat.goOnline': 'Çevrimiçi ol', 'chat.nameShort': 'Takma adın en az 2 karakter olmalı.', 'chat.onlineN': 'Çevrimiçi: {n} kişi', 'chat.state.searching': 'Çevrimiçi kişiler aranıyor…', 'chat.state.problem': 'Listeye ulaşılamadı; yeniden deniyorum…', 'chat.state.off': 'Çevrimdışısın', 'chat.state.dup': 'Sohbet bu cihazda başka bir sekmede açık', 'chat.state.on': 'Çevrimiçi', 'chat.retry': 'Tekrar dene', 'chat.empty': 'Şu an başka kimse çevrimiçi değil. Bu sekmeyi açık tut ya da sonra tekrar bak.', 'chat.you': 'Sen:', 'chat.edit': 'Değiştir', 'chat.hide': 'Beni listede gösterme', 'chat.unblock': 'Engellediklerimi temizle', 'chat.unblocked': 'Engellediklerin temizlendi.', 'chat.privacy': 'Mesajlar ve ses iki cihaz arasında doğrudan gider, saklanmaz; ücretsiz PeerJS servisi sizi tanıştırır, doğrudan bağlantı olmazsa bağlantıyı aktarabilir. Karşı taraf IP adresini görebilir. Kendi cümlelerin dilbilgisi denetimine gönderilir.', 'chat.invite': 'Yazış', 'chat.inviteTo': '{name} ile yazışmak için davet et', 'chat.busyNow': 'Sohbette', 'chat.asksYou': '{name} seninle yazışmak istiyor.', 'chat.waiting': '{name} yanıtlayana kadar bekleniyor…', 'chat.accept': 'Kabul et', 'chat.decline': 'Hayır', 'chat.block': 'Engelle', 'chat.cancel': 'Vazgeç', 'chat.blocked': '{name} engellendi.', 'chat.declined': '{name} kabul etmedi.', 'chat.busyToast': '{name} şu an meşgul.', 'chat.gone': 'Bu kişi artık çevrimiçi değil.', 'chat.noAnswer': 'Yanıt gelmedi.', 'chat.cantConnect': 'Bağlantı kurulamadı. Ağlarınız buna izin vermiyor olabilir.', 'chat.with': '{name} ile sohbettesin', 'chat.partnerLeft': '{name} sohbetten ayrıldı', 'chat.voiceStart': 'Sesli', 'chat.voiceEnd': 'Sesi kapat', 'chat.voiceWaiting': 'Bekleniyor…', 'chat.voiceAsk': '{name} sesli konuşmak istiyor.', 'chat.voiceNo': '{name} sesli görüşmeyi başlatmadı.',
     'novel.phrase': 'Kalıp', 'novel.inSentence': 'Bu cümlede', 'novel.inText': 'metinde: “{w}”', 'novel.otherSenses': 'Diğer anlamları: {tr}',
-    'deck.work': 'İş İngilizcesi', 'deck.workAI': 'Yapay zekâ, yazılım ve BT', 'deck.workAINote': 'Modeller, kod, sunucular ve yazılım ekibinin kelimeleri.', 'deck.workDES': 'Endüstriyel tasarım', 'deck.workDESNote': 'Eskizden fabrikaya: malzeme, prototip ve üretim.', 'deck.workBIZ': 'Ofis ve iş hayatı', 'deck.workBIZNote': 'Her meslek için toplantı, e-posta ve günlük iş kelimeleri.', 'deck.listNote': '{n} kelime, {d} tanesi öğrenildi.',
+    'deck.listNote': '{n} kelime, {d} tanesi öğrenildi.',
     'novel.tabMine': 'PDF\'lerim', 'mine.private': 'Yalnızca bu cihazda.', 'mine.note': 'PDF\'lerin bu tarayıcıda kalır, hiçbir yere yüklenmez; bu yüzden her cihaza ayrı eklemen gerekir. Tarayıcının site verilerini silersen bunlar da silinir.', 'mine.choose': 'PDF seç', 'mine.folder': 'Klasör seç', 'mine.search': 'PDF\'lerimde ara', 'mine.clear': 'Hepsini kaldır', 'mine.empty': 'Henüz PDF yok. Çalıştığın PDF\'leri ekle; birine dokununca kelime kartı, çeviri ve dinlemeyle okursun.', 'mine.adding': '{n} PDF\'ten {i}. ekleniyor…', 'mine.added': '{n} PDF eklendi, {s} tanesi zaten vardı ya da kopyaydı.', 'mine.noPdf': 'Seçilen dosyalarda PDF yoktu.', 'mine.full': 'Tarayıcının depolama alanı doldu. Durmadan önce {n} PDF eklendi.', 'mine.failed': '{n} PDF eklendikten sonra işlem durdu. Tekrar dene.', 'mine.noStore': 'Bu tarayıcı PDF saklayamıyor (örneğin gizli pencere).', 'mine.size': '{n} PDF · {mb} MB', 'mine.page': 's. {p} / {n}', 'mine.remove': '{w} dosyasını kaldır', 'mine.removeTitle': 'Bu PDF kaldırılsın mı?', 'mine.clearTitle': 'Bu {n} PDF kaldırılsın mı?', 'mine.removeMsg': 'Yalnızca bu cihazdan kaldırılır. Dosyaların bulundukları yerde kalır.', 'mine.removeOk': 'Kaldır',
     'novel.garbled': 'Bu PDF metni okunamıyor: sayfalar resim olarak',
     'mine.extract': 'PDF\'lerimden kelime destesi yap', 'mine.seeDecks': '{n} kelime destemi gör', 'mine.reading': 'Kelime listeleri aranıyor: {n} PDF\'ten {i}.…', 'mine.decksMade': '{d} kelime destesi yapıldı, {n} kelime.', 'mine.decksTitle': 'PDF kelimelerim', 'mine.decksNote': '{n} kelime. Yalnızca bu cihazda saklanır.', 'mine.decksEmpty': 'Henüz deste yok. Roman Oku → PDF\'lerim bölümünden PDF\'lerini ekle.', 'deck.mine': 'PDF\'lerim', 'deck.mineNote': 'PDF\'lerindeki kelime listelerinden {n} deste, yalnızca bu cihazda.',
@@ -3156,6 +3157,8 @@ const VOCAB = readJsonScript('vocab-data').filter(e => e && typeof e.id === 'str
 /* Work English decks: studied like the other words, but not part of the level path or its counts. */
 const WORK = readJsonScript('work-data') || [];
 const WORK_PICS = readJsonScript('work-pics') || {};
+/* Words whose id changed when the work decks joined the level decks: their progress follows them. */
+const WORK_MOVED = readJsonScript('work-moved') || {};
 const BY_ID = new Map(WORK.map(entry => [entry.id, entry]));
 const wordsOfLevel = level => (WORK.some(entry => entry.level === level) ? WORK : VOCAB).filter(entry => entry.level === level);
 VOCAB.forEach((entry, index) => {
@@ -3183,7 +3186,7 @@ function createEmptyProgress(settings) {
     settings: { ...DEFAULT_SETTINGS, ...(settings || {}) }, updatedAt: null
   };
 }
-const ID_PATTERN = /^w\d{1,6}$/;
+const ID_PATTERN = /^(?:w\d{1,6}|wk-[a-z]+-[a-z0-9]+|my-[a-z0-9_-]{1,160})$/;
 const toCount = v => (Number.isInteger(v) && v >= 0 ? v : 0);
 
 /* Validates untrusted data (localStorage or an imported file). Throws on a wrong shape. */
@@ -3226,7 +3229,7 @@ function loadProgress() {
 
 const loaded = loadProgress();
 let progress = loaded.progress;
-let learnedSet = new Set(progress.learned);
+let learnedSet = new Set(progress.learned.map(id => WORK_MOVED[id] || id));
 
 /* Saves only after meaningful changes. A failed write keeps the in-memory state. */
 function persist() {
@@ -7475,6 +7478,19 @@ const Review = {
   shown: false,
   init() {
     try { this.state = JSON.parse(Store.read(this.KEY) || 'null'); } catch (_) { this.state = null; }
+    if (this.state && this.state.cards) {
+      const before = learnedSet.size;
+      for (const [old, now] of Object.entries(WORK_MOVED)) {
+        const card = this.state.cards['w:' + old];
+        if (!card) continue;
+        if (!this.state.cards['w:' + now]) this.state.cards['w:' + now] = card;
+        delete this.state.cards['w:' + old];
+        learnedSet.add(now);
+      }
+      /* These decks' words were not kept as learned on reload for a while; their cards show they were. */
+      for (const id of Object.keys(this.state.cards)) if (/^w:(?:wk-|my-)/.test(id)) learnedSet.add(id.slice(2));
+      if (learnedSet.size !== before) persist();
+    }
     if (!this.state || typeof this.state !== 'object' || typeof this.state.cards !== 'object') this.state = { goal: 20, cards: {}, saved: {}, log: {} };
     for (const key of ['cards', 'saved', 'log', 'recall']) if (!this.state[key] || typeof this.state[key] !== 'object') this.state[key] = {};
     if (!this.GOALS.includes(this.state.goal)) this.state.goal = 20;
@@ -7837,7 +7853,7 @@ const Today = {
     { level: 'C1', tag: 'Oxford 5000', title: 'deck.C1', note: 'deck.C1note' },
     { level: 'C1+', tag: 'C2', title: 'deck.C1plus', note: 'deck.C1plusNote' }
   ],
-  WORK_DECKS: ['EXAM', 'AI', 'DES', 'BIZ'],
+  WORK_DECKS: ['EXAM'],
   deckName(level) { const mine = MyDecks.find(level); return mine ? mine.title : this.WORK_DECKS.includes(level) ? t('deck.work' + level) : level; },
   init() {
     $('#today-goal').addEventListener('change', event => {
@@ -7925,7 +7941,7 @@ const Today = {
       const learned = words.filter(entry => learnedSet.has(entry.id)).length;
       const sample = words.find(entry => !learnedSet.has(entry.id)) || words[0];
       cards.splice(workAt++, 0, this.deckCard({
-        chips: [[t(level === 'EXAM' ? 'deck.exam' : 'deck.work'), 'amber'], [t('deck.words', { d: learned, n: words.length }), '']], title: t('deck.work' + level), note: t('deck.work' + level + 'Note'),
+        chips: [[t('deck.exam'), 'amber'], [t('deck.words', { d: learned, n: words.length }), '']], title: t('deck.work' + level), note: t('deck.work' + level + 'Note'),
         share: Math.round(learned / words.length * 100), list: '#review/list/' + level, href: '#review/learn/' + level, say: sample.word, primary: false, color: 'emerald'
       }));
     }

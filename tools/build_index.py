@@ -166,15 +166,54 @@ def load_work_pictures(words: list) -> dict:
     return pictures
 
 
-def load_work_words(main: list) -> list:
-    """Work English decks (tools/work/*.txt): word | Turkish | example | Turkish example."""
-    words = []
-    for level, name in (("AI", "ai_it"), ("DES", "industrial_design"), ("BIZ", "business")):
-        lines = (HERE / "work" / f"{name}.txt").read_text(encoding="utf-8").splitlines()
-        rows = [line for line in lines if line.strip() and not line.startswith("#")]
-        for number, line in enumerate(rows, 1):
+def add_work_words(entries: list, emoji: dict) -> dict:
+    """The work word lists (tools/work/*.txt: word | Turkish | example | Turkish example) join the level
+    decks: each word takes its Oxford level, a phrase its hardest known word, anything else C1+.
+    Returns old id -> id for words the main list already has, so their progress moves with them."""
+    from cefr_levels import load_oxford, variants
+    from fetch_emoji import twemoji_name
+    order = ["A2", "B1", "B2", "C1", "C1+"]
+    oxford = load_oxford()
+    def level_of(word: str) -> str:
+        found = []
+        for part in re.findall(r"[a-z]+", word.lower()):
+            level = next((oxford[v] for v in variants(part) if v in oxford), None)
+            if level:
+                found.append("A2" if level == "A1" else level)
+        if not found:
+            return "C1+"
+        hardest = max(found, key=order.index)
+        return order[max(order.index(hardest), 2)] if re.search(r"[ -]", word) else hardest
+    pictures = json.loads((HERE / "work" / "work_emoji.json").read_text(encoding="utf-8"))
+    by_word = {entry["word"].strip().lower(): entry["id"] for entry in entries}
+    moved = {}
+    number = max(entry["n"] for entry in entries)
+    for prefix, name in (("ai", "ai_it"), ("des", "industrial_design"), ("biz", "business")):
+        rows = [line for line in (HERE / "work" / f"{name}.txt").read_text(encoding="utf-8").splitlines() if line.strip() and not line.startswith("#")]
+        for index, line in enumerate(rows, 1):
             word, meaning, example, turkish = (part.strip() for part in line.split("|"))
-            words.append({"id": f"wk-{level.lower()}-{number}", "word": word, "meaning": meaning, "pron": "", "level": level, "example": example, "exampleTr": turkish})
+            key = word.lower()
+            old = f"wk-{prefix}-{index}"
+            if key in by_word:
+                moved[old] = by_word[key]
+                continue
+            number += 1
+            by_word[key] = old
+            entries.append({"id": old, "n": number, "word": word, "meaning": meaning, "pron": "", "level": level_of(word), "example": example, "exampleTr": turkish})
+            svg = HERE / "emoji" / "svg" / f"{twemoji_name(pictures[key])}.svg"
+            emoji[key] = "data:image/svg+xml;base64," + base64.b64encode(svg.read_bytes()).decode()
+    # Exam words that are now in the main list leave the exam deck, and their progress moves too.
+    for line in (HERE / "work" / "exam_words.txt").read_text(encoding="utf-8").splitlines():
+        if " | " in line and not line.startswith("#"):
+            word = line.split(" | ")[0]
+            if word in by_word:
+                moved[f"wk-exam-{hashlib.sha1(word.encode()).hexdigest()[:10]}"] = by_word[word]
+    return moved
+
+
+def load_work_words(main: list) -> list:
+    """The exam deck."""
+    words = []
     # Exam words: English words with this site's own Turkish (tools/work/exam_words.py). Words the
     # main list already has are left out; the fixed shuffle keeps a study round from being alphabetical.
     have = {entry["word"].strip().lower() for entry in main}
@@ -393,6 +432,7 @@ def main() -> None:
     if failed:
         sys.exit("Validation failed; index.html was not written.")
 
+    moved_words = add_work_words(entries, emoji)
     sentences = load_sentences({e["word"].strip().lower() for e in entries})
     # Tatoeba sentences (CC BY) for the types a word had no sentence for; see tools/work/extra_sentences.py.
     for word, groups in json.loads((HERE / "work" / "extra_sentences.json").read_text(encoding="utf-8")).items():
@@ -511,6 +551,7 @@ def main() -> None:
               .replace("<!--@VOCAB_DATA@-->", json_for_script(entries))
               .replace("<!--@WORK_DATA@-->", json_for_script(work_words))
               .replace("<!--@WORK_PICS@-->", json_for_script(work_pictures))
+              .replace("<!--@WORK_MOVED@-->", json_for_script(moved_words))
               .replace("/*@MEANING_GROUPS@*/", extract_meaning_groups(source))
               .replace("<!--@SENTENCE_DATA@-->", json_for_script(sentences))
               .replace("<!--@WORD_CARDS@-->", "\n".join(cards))
