@@ -1,0 +1,468 @@
+# Example sentences written for this app: word | type | English | Turkish
+daily activity | phr | Walking is my main daily activity. | Yürümek ana günlük etkinliğimdir.
+damage severely | phr | Strong winds can severely damage the roof. | Şiddetli rüzgârlar çatıya ağır hasar verebilir.
+dangerousness | n | Few people understood the dangerousness of the road. | Yolun ne kadar tehlikeli olduğunu çok az kişi anladı.
+day-care | n | Their son goes to day-care in the morning. | Oğulları sabahları kreşe gidiyor.
+deceit | n | The scandal was full of lies and deceit. | Skandal yalan ve hileyle doluydu.
+deception | n | He got the money by deception. | Parayı aldatmacayla elde etti.
+decisively | adv | The government acted decisively. | Hükümet kararlı bir şekilde hareket etti.
+decline dramatically | phr | Sales decline dramatically in winter. | Satışlar kışın çarpıcı biçimde düşer.
+decline gradually | phr | Memory can decline gradually with age. | Hafıza yaşla birlikte giderek zayıflayabilir.
+decline politely | phr | She chose to decline politely. | Kibarca reddetmeyi seçti.
+decline rapidly | phr | The bird's numbers decline rapidly each year. | Kuşun sayısı her yıl hızla azalıyor.
+declining health | phr | He retired because of declining health. | Kötüleşen sağlığı yüzünden emekli oldu.
+declining profit | phr | The firm closed two shops due to declining profit. | Şirket azalan kâr nedeniyle iki mağaza kapattı.
+deduce | v | From the marks, we can deduce what happened. | İzlerden ne olduğunu çıkarabiliriz.
+deduct | v | The bank will deduct the fee from your account. | Banka ücreti hesabından düşecek.
+deduction | n | There is a small deduction from every salary. | Her maaştan küçük bir kesinti yapılır.
+deductive | adj | Math relies on deductive reasoning. | Matematik tümdengelimli akıl yürütmeye dayanır.
+defence to | phr | Ignorance is no defence to the charge. | Bilgisizlik bu suçlamaya karşı savunma değildir.
+defenceless | adj | The young bird is defenceless without its mother. | Yavru kuş annesi olmadan savunmasızdır.
+defend against | phr | Our team must defend against fast attacks. | Takımımız hızlı hücumlara karşı savunma yapmalı.
+defensibility | n | Lawyers doubted the defensibility of the decision. | Avukatlar kararın savunulabilirliğinden şüphe etti.
+defensible | adj | His position is morally defensible. | Tutumu ahlaki olarak savunulabilir.
+deficiency | n | Iron deficiency can make you tired. | Demir eksikliği seni yorgun düşürebilir.
+definable | adj | Success is not easily definable. | Başarı kolayca tanımlanamaz.
+defining | adj | It was the defining moment of her career. | Kariyerinin belirleyici anıydı.
+deity | n | The temple was built for an ancient deity. | Tapınak eski bir tanrı için yapıldı.
+delete permanently | phr | This button will permanently delete all your files. | Bu düğme tüm dosyalarını kalıcı olarak siler.
+delivery room | phr | Her husband stayed with her in the delivery room. | Kocası doğum odasında onunla kaldı.
+demographics | n | The demographics of the town are changing. | Kasabanın nüfus yapısı değişiyor.
+demonstrable | adj | The training brought demonstrable results. | Eğitim gösterilebilir sonuçlar getirdi.
+demonstrably | adv | The new method is demonstrably faster. | Yeni yöntem açıkça daha hızlı.
+denial | n | She met the accusation with a flat denial. | Suçlamayı kesin bir inkârla karşıladı.
+departmental | adj | We have a departmental meeting on Friday. | Cuma günü bölüm toplantımız var.
+dependability | n | People buy this car for its dependability. | İnsanlar bu arabayı güvenilirliği için alıyor.
+dependant | n | You can add a dependant to your insurance. | Sigortana bakmakla yükümlü olduğun birini ekleyebilirsin.
+dependency | n | The clinic treats drug dependency. | Klinik uyuşturucu bağımlılığını tedavi ediyor.
+depiction | n | The film offers a realistic depiction of war. | Film savaşın gerçekçi bir tasvirini sunuyor.
+deplete resource | phr | Overfishing can deplete a natural resource. | Aşırı balıkçılık doğal bir kaynağı tüketebilir.
+depletion | n | Ozone depletion is a global problem. | Ozon tabakasının incelmesi küresel bir sorundur.
+depressive | adj | He went through a depressive period. | Depresif bir dönem geçirdi.
+derivation | n | The derivation of this word is unclear. | Bu kelimenin türeyişi belirsiz.
+derivative | adj | Critics called the film dull and derivative. | Eleştirmenler filmi sıkıcı ve taklit olarak nitelendirdi.
+describe accurately | phr | She could accurately describe what she saw. | Gördüğünü doğru bir şekilde anlatabildi.
+describe briefly | phr | Please briefly describe your last job. | Lütfen son işini kısaca anlat.
+describe experience | phr | Let visitors describe the experience in their own words. | Ziyaretçiler deneyimi kendi sözleriyle anlatsın.
+descriptive | adj | The writer's style is very descriptive. | Yazarın üslubu çok betimleyicidir.
+deserter | n | The deserter was caught near the border. | Asker kaçağı sınırın yakınında yakalandı.
+deserve certainly | phr | You certainly deserve a long holiday. | Uzun bir tatili kesinlikle hak ediyorsun.
+deservedly | adv | She was deservedly proud of her work. | İşiyle haklı olarak gurur duyuyordu.
+desirable behaviour | phr | Teachers should reward desirable behaviour. | Öğretmenler istenen davranışı ödüllendirmeli.
+despair | n | He looked at the ruins in despair. | Yıkıntılara umutsuzlukla baktı.
+destroy evidence | phr | The thief tried to destroy the evidence. | Hırsız delilleri yok etmeye çalıştı.
+destruct | v | The message will destruct after one minute. | Mesaj bir dakika sonra kendini imha edecek.
+destructively | adv | The storm moved destructively along the coast. | Fırtına kıyı boyunca yıkıcı şekilde ilerledi.
+detectable | adj | The change is barely detectable. | Değişiklik zar zor fark edilebilir.
+determinant | n | Income is an important determinant of health. | Gelir sağlığın önemli bir belirleyicisidir.
+determinative | adj | Age was a determinative factor in the study. | Yaş çalışmada belirleyici bir etkendi.
+determine future | phr | These years will determine your future. | Bu yıllar geleceğini belirleyecek.
+determine outcome | phr | Small details can determine the outcome of a game. | Küçük ayrıntılar bir maçın sonucunu belirleyebilir.
+determine precisely | phr | It is hard to determine precisely when he died. | Ne zaman öldüğünü tam olarak belirlemek zor.
+determined effort | phr | She made a determined effort to stop smoking. | Sigarayı bırakmak için kararlı bir çaba gösterdi.
+deterrence | n | Heavy fines work as a deterrence. | Ağır cezalar caydırıcılık işlevi görür.
+deterrent | n | Cameras act as a deterrent to thieves. | Kameralar hırsızlar için caydırıcı olur.
+detriment | n | He worked long hours to the detriment of his health. | Sağlığına zarar verecek kadar uzun saatler çalıştı.
+develop a disease | phr | Smokers are more likely to develop a disease of the lungs. | Sigara içenlerde akciğer hastalığı gelişme olasılığı daha yüksektir.
+develop asthma | phr | Children in polluted cities may develop asthma. | Kirli şehirlerdeki çocuklarda astım gelişebilir.
+develop cure | phr | Scientists hope to develop a cure within ten years. | Bilim insanları on yıl içinde tedavi geliştirmeyi umuyor.
+develop disorder | phr | Some teenagers develop an eating disorder. | Bazı gençlerde yeme bozukluğu gelişiyor.
+develop vaccine | phr | It can take years to develop a vaccine for a new virus. | Yeni bir virüse aşı geliştirmek yıllar alabilir.
+developed country | phr | A developed country usually has good hospitals. | Gelişmiş bir ülkenin genellikle iyi hastaneleri vardır.
+developing world | phr | Clean water is a problem in the developing world. | Gelişmekte olan dünyada temiz su bir sorundur.
+developmentally | adv | The game is developmentally right for toddlers. | Oyun gelişim açısından küçük çocuklar için uygun.
+diagnose a disease | phr | This test can diagnose a disease in minutes. | Bu test bir hastalığı dakikalar içinde teşhis edebilir.
+diagnose disease | phr | Doctors use blood tests to diagnose disease. | Doktorlar hastalığı teşhis etmek için kan testleri kullanır.
+diagnostic | adj | The hospital bought new diagnostic equipment. | Hastane yeni teşhis cihazları aldı.
+diarrhoea | n | Dirty water causes diarrhoea in children. | Kirli su çocuklarda ishale neden olur.
+dietary supplement | phr | She takes a dietary supplement every morning. | Her sabah bir besin takviyesi alıyor.
+dietitian | n | The dietitian gave me a meal plan. | Diyetisyen bana bir beslenme planı verdi.
+different form | phr | Water can take a different form when it freezes. | Su donunca farklı bir biçim alabilir.
+different part | phr | Each student read a different part of the book. | Her öğrenci kitabın farklı bir bölümünü okudu.
+differential | adj | The study found differential effects by age. | Çalışma yaşa göre farklı etkiler buldu.
+differentially | adv | The drug acts differentially on men and women. | İlaç kadın ve erkeklerde farklı etki gösteriyor.
+differentiation | n | Price differentiation helps small shops survive. | Fiyat farklılaştırması küçük dükkânların ayakta kalmasına yardım eder.
+digital divide | phr | The digital divide affects poor families most. | Dijital uçurum en çok yoksul aileleri etkiliyor.
+directive | n | The office received a new directive from the ministry. | Ofis bakanlıktan yeni bir yönerge aldı.
+disadvantageous | adj | The contract is disadvantageous for small firms. | Sözleşme küçük firmalar için dezavantajlı.
+disagree completely | phr | I disagree completely with that idea. | O fikre tamamen karşıyım.
+disappointingly | adv | The results were disappointingly low. | Sonuçlar hayal kırıklığı yaratacak kadar düşüktü.
+disastrous failure | phr | The launch was a disastrous failure. | Lansman feci bir başarısızlıktı.
+disastrous impact | phr | The drought had a disastrous impact on farmers. | Kuraklığın çiftçiler üzerinde feci bir etkisi oldu.
+disastrous result | phr | One small mistake led to a disastrous result. | Küçük bir hata feci bir sonuca yol açtı.
+disastrously | adv | The plan went disastrously wrong. | Plan felaket şekilde ters gitti.
+discharge a patient | phr | The hospital will discharge a patient only after tests. | Hastane bir hastayı ancak testlerden sonra taburcu eder.
+discourage use | phr | High taxes discourage the use of tobacco. | Yüksek vergiler tütün kullanımını caydırır.
+discouragement | n | She continued in spite of discouragement. | Cesaret kırıcı sözlere rağmen devam etti.
+discover accidentally | phr | Scientists sometimes discover new drugs accidentally. | Bilim insanları bazen yeni ilaçları tesadüfen keşfeder.
+discriminatory | adj | The court said the rule was discriminatory. | Mahkeme kuralın ayrımcı olduğunu söyledi.
+disease may spread | phr | Without clean water, disease may spread quickly. | Temiz su olmazsa hastalık hızla yayılabilir.
+disguise from | phr | She could not disguise from him how angry she was. | Ne kadar kızgın olduğunu ondan gizleyemedi.
+disobedience | n | The child was punished for disobedience. | Çocuk itaatsizlik yüzünden cezalandırıldı.
+dispersion | n | Wind helps the dispersion of seeds. | Rüzgâr tohumların yayılmasına yardım eder.
+disputable | adj | The second claim is disputable. | İkinci iddia tartışmalı.
+disruption | n | The strike caused major disruption to trains. | Grev trenlerde büyük aksamaya neden oldu.
+disruptive | adj | One disruptive student can ruin a lesson. | Dersi bozan bir öğrenci tüm dersi mahvedebilir.
+distinctively | adv | The cheese has a distinctively strong taste. | Peynirin kendine özgü güçlü bir tadı var.
+distinctly | adv | I distinctly remember locking the door. | Kapıyı kilitlediğimi açıkça hatırlıyorum.
+distinguishable | adj | The twins are hardly distinguishable. | İkizler neredeyse ayırt edilemiyor.
+distributor | n | The local distributor delivered the books. | Yerel dağıtımcı kitapları teslim etti.
+disturbingly | adv | The number is disturbingly high. | Sayı rahatsız edici derecede yüksek.
+diuretic | n | Coffee acts as a mild diuretic. | Kahve hafif bir idrar söktürücü gibi etki eder.
+diverse population | phr | The city has a very diverse population. | Şehrin çok çeşitli bir nüfusu var.
+diversely | adv | The group was diversely talented. | Grup çeşitli yeteneklere sahipti.
+diversify | v | Farmers diversify to reduce their risk. | Çiftçiler risklerini azaltmak için çeşitlendirmeye gider.
+divisional manager | phr | The divisional manager visited our office. | Bölüm yöneticisi ofisimizi ziyaret etti.
+domestication | n | The domestication of horses changed human history. | Atların evcilleştirilmesi insanlık tarihini değiştirdi.
+dominance | n | The company's dominance of the market is ending. | Şirketin piyasadaki hâkimiyeti sona eriyor.
+domination | n | The team's domination of the league continued. | Takımın ligdeki üstünlüğü devam etti.
+double-page spread | phr | The magazine gave her a double-page spread. | Dergi ona çift sayfalık yer ayırdı.
+doubtfully | adv | She looked at the map doubtfully. | Haritaya kuşkuyla baktı.
+downstream | adv | The boat drifted downstream. | Tekne akıntı yönünde sürüklendi.
+draw on experience | phr | Good teachers draw on experience in class. | İyi öğretmenler derste deneyimlerinden yararlanır.
+drop rapidly | phr | Temperatures drop rapidly after sunset. | Gün batımından sonra sıcaklıklar hızla düşer.
+drug treatment | phr | The patient started drug treatment last week. | Hasta geçen hafta ilaç tedavisine başladı.
+dry climate | phr | Olive trees grow well in a dry climate. | Zeytin ağaçları kuru iklimde iyi yetişir.
+duration | n | Please remain seated for the duration of the flight. | Lütfen uçuş süresince yerinizde oturun.
+dysfunction | n | The tests revealed a kidney dysfunction. | Testler bir böbrek işlev bozukluğunu ortaya çıkardı.
+early ancestor | phr | This fossil is an early ancestor of the horse. | Bu fosil atın erken bir atasıdır.
+early diagnosis | phr | Early diagnosis can save your life. | Erken teşhis hayatını kurtarabilir.
+early stage | phr | The project is still at an early stage. | Proje hâlâ erken bir aşamada.
+earthly | adj | She had given away all her earthly possessions. | Dünyevi tüm mal varlığını dağıtmıştı.
+earthy | adj | The mushrooms have an earthy smell. | Mantarların toprak gibi bir kokusu var.
+ease symptom | phr | This tea can ease the symptoms of a cold. | Bu çay soğuk algınlığının belirtilerini hafifletebilir.
+eat healthily | phr | It is not expensive to eat healthily. | Sağlıklı beslenmek pahalı değildir.
+economic decline | phr | The town suffered years of economic decline. | Kasaba yıllarca ekonomik gerileme yaşadı.
+economic stability | phr | Investors want economic stability. | Yatırımcılar ekonomik istikrar istiyor.
+educating | n | Educating girls benefits the whole community. | Kızları eğitmek tüm topluma fayda sağlar.
+education about | phr | Children need education about healthy food. | Çocukların sağlıklı beslenme konusunda eğitime ihtiyacı var.
+educationalist | n | A well-known educationalist spoke at the school. | Tanınmış bir eğitimci okulda konuşma yaptı.
+effectiveness | n | The study tested the effectiveness of the vaccine. | Çalışma aşının etkinliğini test etti.
+efficiency | n | New machines increased the efficiency of the factory. | Yeni makineler fabrikanın verimliliğini artırdı.
+emergence | n | The emergence of new viruses worries doctors. | Yeni virüslerin ortaya çıkışı doktorları endişelendiriyor.
+emergent | adj | The emergent technology is still expensive. | Yeni ortaya çıkan teknoloji hâlâ pahalı.
+emerging | adj | Emerging markets are growing quickly. | Gelişmekte olan piyasalar hızla büyüyor.
+emit | v | The sun can emit huge amounts of energy. | Güneş çok büyük miktarda enerji yayabilir.
+emit heat | phr | Old light bulbs emit heat as well as light. | Eski ampuller ışığın yanı sıra ısı da yayar.
+emit light | phr | Some sea animals emit light in the dark. | Bazı deniz canlıları karanlıkta ışık yayar.
+emit noise | phr | These machines emit noise all day. | Bu makineler bütün gün gürültü çıkarıyor.
+emit radiation | phr | Phones emit radiation at very low levels. | Telefonlar çok düşük seviyede radyasyon yayar.
+emit smoke/fumes | phr | Old buses emit smoke in the city centre. | Eski otobüsler şehir merkezinde duman yayıyor.
+emit/release pollutant | phr | Factories emit pollutant gases into the air. | Fabrikalar havaya kirletici gazlar salıyor.
+emitter | n | China is a large emitter of carbon. | Çin büyük bir karbon salıcısıdır.
+employ a method | phr | Researchers employ a method used in biology. | Araştırmacılar biyolojide kullanılan bir yöntem kullanıyor.
+employ an approach | phr | We employ an approach based on games. | Oyunlara dayalı bir yaklaşım kullanıyoruz.
+employ labourer | phr | The farm will employ a labourer at harvest time. | Çiftlik hasat zamanı bir işçi çalıştıracak.
+empty space | phr | There is an empty space on the shelf. | Rafta boş bir yer var.
+encourage creativity | phr | Good schools encourage creativity. | İyi okullar yaratıcılığı teşvik eder.
+end-user | n | The software must be simple for the end-user. | Yazılım son kullanıcı için basit olmalı.
+endeavour | n | We wish you success in your new endeavour. | Yeni girişiminde başarılar dileriz.
+endurable | adj | The pain was barely endurable. | Ağrı zar zor dayanılabilir durumdaydı.
+energy source | phr | Solar power is a clean energy source. | Güneş enerjisi temiz bir enerji kaynağıdır.
+enlarged heart | phr | The scan showed an enlarged heart. | Tarama büyümüş bir kalp gösterdi.
+entirely predictable | phr | His reaction was entirely predictable. | Tepkisi tamamen tahmin edilebilirdi.
+entirely preventable | phr | Most of these accidents are entirely preventable. | Bu kazaların çoğu tamamen önlenebilir.
+environment threat | phr | Plastic is a serious environment threat. | Plastik ciddi bir çevre tehdididir.
+environmental consciousness | phr | Environmental consciousness is growing among young people. | Gençler arasında çevre bilinci artıyor.
+environmental hazard | phr | Old batteries are an environmental hazard. | Eski piller bir çevre tehlikesidir.
+environmental impact | phr | The new road will have a large environmental impact. | Yeni yolun büyük bir çevresel etkisi olacak.
+environmentalism | n | Environmentalism became popular in the 1970s. | Çevrecilik 1970'lerde yaygınlaştı.
+environmentally damaging | phr | Some farming methods are environmentally damaging. | Bazı tarım yöntemleri çevreye zarar veriyor.
+episodic | adj | The pain is episodic and comes at night. | Ağrı nöbetler hâlinde ve gece geliyor.
+eradication | n | The eradication of smallpox was a great success. | Çiçek hastalığının yok edilmesi büyük bir başarıydı.
+establish colony | phr | Settlers tried to establish a colony on the coast. | Yerleşimciler kıyıda bir koloni kurmaya çalıştı.
+estimation | n | In my estimation, the job will take a week. | Tahminimce iş bir hafta sürecek.
+ethnic tension | phr | Ethnic tension rose after the election. | Seçimden sonra etnik gerilim arttı.
+ethologist | n | An ethologist studies how animals behave. | Etolog hayvanların nasıl davrandığını inceler.
+eventful | adj | It was an eventful year for the family. | Aile için olaylı bir yıldı.
+eventual | adj | Nobody expected his eventual success. | Sonunda gelen başarısını kimse beklemiyordu.
+ever-increasing | adj | The city faces ever-increasing traffic. | Şehir sürekli artan trafikle karşı karşıya.
+evidence for | phr | There is strong evidence for this theory. | Bu teori için güçlü kanıt var.
+evidence from | phr | Evidence from the study supports the idea. | Çalışmadan elde edilen kanıt fikri destekliyor.
+evidence may suggest | phr | New evidence may suggest a different cause. | Yeni kanıtlar farklı bir nedene işaret edebilir.
+evidence that svo | phr | There is evidence that sleep improves memory. | Uykunun hafızayı güçlendirdiğine dair kanıt var.
+examine an issue | phr | The committee will examine an issue raised by parents. | Komite ebeveynlerin gündeme getirdiği bir konuyu inceleyecek.
+examine thoroughly | phr | Doctors will thoroughly examine every patient. | Doktorlar her hastayı baştan aşağı muayene edecek.
+excavate | v | Archaeologists plan to excavate the site. | Arkeologlar alanda kazı yapmayı planlıyor.
+exceed budget | phr | The project will exceed the budget by ten percent. | Proje bütçeyi yüzde on aşacak.
+excellent for | phr | This cream is excellent for dry skin. | Bu krem kuru cilt için mükemmeldir.
+except | prep | Everyone came except my brother. | Kardeşim dışında herkes geldi.
+excess | n | Avoid an excess of salt. | Aşırı tuzdan kaçının.
+excessive consumption | phr | Excessive consumption of sugar causes problems. | Aşırı şeker tüketimi sorunlara yol açar.
+excessive expenditure | phr | The report criticised excessive expenditure on cars. | Rapor arabalara yapılan aşırı harcamayı eleştirdi.
+excessive exposure | phr | Excessive exposure to noise can harm hearing. | Gürültüye aşırı maruz kalmak duymaya zarar verebilir.
+excessive violence | phr | The police were accused of excessive violence. | Polis aşırı şiddet kullanmakla suçlandı.
+excessively | adv | She worries excessively about small things. | Küçük şeyler için aşırı endişeleniyor.
+excessively long | phr | The speech was excessively long. | Konuşma aşırı uzundu.
+exclusion | n | His exclusion from the team surprised us. | Takımdan çıkarılması bizi şaşırttı.
+executor | n | She is the executor of her father's will. | Babasının vasiyetinin vasisi o.
+exertion | n | He was out of breath after the exertion. | Efordan sonra nefes nefese kaldı.
+exhale | v | Breathe in, hold it, and slowly exhale. | Nefes al, tut ve yavaşça ver.
+existentialism | n | Existentialism deals with freedom and choice. | Varoluşçuluk özgürlük ve seçimle ilgilenir.
+expanse | n | The ship sailed across a vast expanse of water. | Gemi uçsuz bucaksız suyun üzerinde ilerledi.
+expansion | n | The expansion of the airport took five years. | Havaalanının genişletilmesi beş yıl sürdü.
+expansionist | adj | The empire followed an expansionist policy. | İmparatorluk yayılmacı bir politika izledi.
+expansive | adj | The house has an expansive garden. | Evin geniş bir bahçesi var.
+expectancy | n | Life expectancy has risen in most countries. | Çoğu ülkede ortalama yaşam süresi arttı.
+expectant | adj | The expectant mother went to the clinic. | Hamile anne kliniğe gitti.
+expected result | phr | The test gave the expected result. | Test beklenen sonucu verdi.
+expend | v | Don't expend all your energy at the start. | Tüm enerjini başlangıçta harcama.
+experience illness | phr | Many people experience illness after the trip. | Birçok kişi yolculuktan sonra hastalanıyor.
+experience shortage | phr | Hospitals often experience a shortage of nurses. | Hastaneler sık sık hemşire sıkıntısı yaşıyor.
+experience stress | phr | Students experience stress before exams. | Öğrenciler sınavlardan önce stres yaşar.
+experimental | adj | The treatment is still experimental. | Tedavi hâlâ deneysel.
+experimental research | phr | The university funds experimental research. | Üniversite deneysel araştırmayı finanse ediyor.
+experimental work | phr | Her experimental work won a prize. | Deneysel çalışması ödül kazandı.
+experimentally | adv | The theory was tested experimentally. | Teori deneysel olarak sınandı.
+experimenter | n | The experimenter wrote down the results. | Deneyi yapan kişi sonuçları not etti.
+expert/specialist advice | phr | You need expert advice on your tax. | Vergin konusunda uzman tavsiyesine ihtiyacın var.
+explanatory | adj | Read the explanatory notes at the back of the book. | Kitabın arkasındaki açıklayıcı notları oku.
+exploitative | adj | The workers left the exploitative company. | İşçiler sömürücü şirketten ayrıldı.
+exploited | adj | Exploited workers often earn very little. | Sömürülen işçiler genellikle çok az kazanıyor.
+exploratory | adj | The doctor recommended exploratory surgery. | Doktor araştırma amaçlı ameliyat önerdi.
+explosively | adv | The population grew explosively. | Nüfus patlarcasına arttı.
+expose corruption | phr | Journalists work hard to expose corruption. | Gazeteciler yolsuzluğu ortaya çıkarmak için çok çalışıyor.
+expose sth to sth | phr | Don't expose the film to light. | Filmi ışığa maruz bırakma.
+expose truth | phr | The report may expose the truth about the accident. | Rapor kazayla ilgili gerçeği ortaya çıkarabilir.
+exposure to sth | phr | Exposure to sunlight gives you vitamin D. | Güneş ışığına maruz kalmak sana D vitamini sağlar.
+extend to | phr | The rule does not extend to children. | Kural çocukları kapsamıyor.
+extinct volcano | phr | The village lies at the foot of an extinct volcano. | Köy sönmüş bir yanardağın eteğinde.
+extraction | n | Coal extraction has damaged the land. | Kömür çıkarımı araziye zarar verdi.
+extremely common | phr | This mistake is extremely common. | Bu hata son derece yaygındır.
+extremism | n | Poverty can feed extremism. | Yoksulluk aşırılığı besleyebilir.
+extremity | n | Cold affects the fingers first because each is an extremity. | Soğuk önce parmakları etkiler çünkü her biri vücudun uç noktasıdır.
+face hardship | phr | Many families face hardship in winter. | Birçok aile kışın zorlukla karşılaşıyor.
+facial muscle | phr | Smiling uses more than one facial muscle. | Gülümsemek birden fazla yüz kası kullanır.
+factually | adv | The article is factually wrong. | Makale gerçekler açısından yanlış.
+fail to do sth | phr | Many people fail to do their homework on time. | Birçok kişi ödevini zamanında yapamıyor.
+fairness | n | Children have a strong sense of fairness. | Çocukların güçlü bir adalet duygusu vardır.
+falsehood | n | He was accused of telling a falsehood. | Yalan söylemekle suçlandı.
+familiar face | phr | I was glad to see a familiar face. | Tanıdık bir yüz gördüğüme sevindim.
+familiarity with | phr | The job requires familiarity with computers. | İş bilgisayarlara aşinalık gerektiriyor.
+familiarize | v | Take time to familiarize yourself with the rules. | Kurallara alışmak için zaman ayır.
+far-reaching effect | phr | The decision had a far-reaching effect. | Kararın geniş kapsamlı bir etkisi oldu.
+fatal disease | phr | Rabies is a fatal disease if not treated. | Kuduz tedavi edilmezse ölümcül bir hastalıktır.
+favourite food | phr | Pizza is my son's favourite food. | Pizza oğlumun en sevdiği yiyecektir.
+fertility | n | The soil's fertility has improved. | Toprağın verimliliği arttı.
+fertilize | v | Farmers fertilize the fields in spring. | Çiftçiler tarlaları ilkbaharda gübreler.
+fight off an illness | phr | Sleep helps the body fight off an illness. | Uyku vücudun bir hastalıkla savaşmasına yardım eder.
+fight off bacteria | phr | White cells fight off bacteria. | Akyuvarlar bakterilere karşı savaşır.
+find out identity | phr | Police want to find out the identity of the driver. | Polis sürücünün kimliğini öğrenmek istiyor.
+find out reason | phr | We must find out the reason for the delay. | Gecikmenin nedenini bulmalıyız.
+fine adjustment | phr | This screw is for a fine adjustment. | Bu vida ince ayar içindir.
+finite resource | phr | Oil is a finite resource. | Petrol sınırlı bir kaynaktır.
+fire employee | phr | The manager had to fire an employee last week. | Yönetici geçen hafta bir çalışanı işten çıkarmak zorunda kaldı.
+fire hazard | phr | These old curtains are a fire hazard. | Bu eski perdeler yangın tehlikesi oluşturuyor.
+fire may break out | phr | In dry weather, a fire may break out easily. | Kuru havada kolayca yangın çıkabilir.
+flip chart | phr | The trainer wrote the plan on a flip chart. | Eğitmen planı döner tahtaya yazdı.
+fluctuation | n | Small fluctuation in price is normal. | Fiyattaki küçük dalgalanma normaldir.
+folk tradition | phr | This dance comes from a folk tradition. | Bu dans halk geleneğinden geliyor.
+for the purpose of | phr | The land was bought for the purpose of farming. | Arazi tarım amacıyla satın alındı.
+forcefully | adv | She argued forcefully against the plan. | Plana karşı güçlü bir şekilde karşı çıktı.
+forcible | adj | The police made a forcible entry. | Polis zorla giriş yaptı.
+forego | v | I had to forego lunch to finish on time. | Zamanında bitirmek için öğle yemeğinden vazgeçmek zorunda kaldım.
+foreign intervention | phr | The war ended after foreign intervention. | Savaş dış müdahaleden sonra sona erdi.
+foreign investor | phr | A foreign investor bought the factory. | Yabancı bir yatırımcı fabrikayı satın aldı.
+foreign power | phr | The island was ruled by a foreign power. | Ada yabancı bir güç tarafından yönetiliyordu.
+foreseeable | adj | Prices won't fall in the foreseeable future. | Yakın gelecekte fiyatlar düşmeyecek.
+formation | n | The formation of clouds depends on moisture. | Bulutların oluşumu neme bağlıdır.
+former member | phr | He is a former member of the team. | Takımın eski bir üyesi.
+former president | phr | The former president wrote a book. | Eski başkan bir kitap yazdı.
+former prime minister | phr | The former prime minister gave a speech. | Eski başbakan bir konuşma yaptı.
+formula feeding | phr | Some mothers choose formula feeding. | Bazı anneler bebeğini mamayla beslemeyi seçiyor.
+founding | n | The founding of the city dates back to Roman times. | Şehrin kuruluşu Roma dönemine uzanır.
+from habit | phr | I still turn left from habit. | Alışkanlıktan hâlâ sola dönüyorum.
+fulfillment | n | She found fulfillment in teaching. | Öğretmenlikte tatmin buldu.
+full stomach | phr | Don't swim on a full stomach. | Tok karnına yüzme.
+full/complete recovery | phr | The doctor expects a full recovery. | Doktor tam iyileşme bekliyor.
+fullness | n | Fibre gives a feeling of fullness. | Lif tokluk hissi verir.
+functionalism | n | Functionalism shaped modern architecture. | İşlevselcilik modern mimariyi şekillendirdi.
+functionality | n | The update adds new functionality to the app. | Güncelleme uygulamaya yeni işlevsellik ekliyor.
+functionally | adv | The two machines are functionally the same. | İki makine işlev olarak aynı.
+fundamentalism | n | The book discusses the rise of fundamentalism. | Kitap köktenciliğin yükselişini tartışıyor.
+gain familiarity | phr | Practice helps you gain familiarity with the test. | Alıştırma sınava aşinalık kazanmana yardım eder.
+gain mass | phr | The star will gain mass over time. | Yıldız zamanla kütle kazanacak.
+gather evidence | phr | Detectives gather evidence at the scene. | Dedektifler olay yerinde delil topluyor.
+gender gap | phr | The gender gap in pay is closing slowly. | Ücretlerdeki cinsiyet farkı yavaşça kapanıyor.
+generalize | v | It is unwise to generalize from one case. | Tek bir örnekten genelleme yapmak akıllıca değil.
+genetic component | phr | Many illnesses have a genetic component. | Birçok hastalığın genetik bir bileşeni vardır.
+genetic predisposition | phr | She has a genetic predisposition to diabetes. | Diyabete genetik yatkınlığı var.
+get aid | phr | Flood victims will get aid from the state. | Sel mağdurları devletten yardım alacak.
+get oxygen | phr | Fish get oxygen from the water. | Balıklar oksijeni sudan alır.
+get vaccination | phr | Travellers should get vaccination before the trip. | Yolcular seyahatten önce aşı olmalı.
+get/become pregnant | phr | She was happy to get pregnant at last. | Sonunda hamile kaldığına sevindi.
+gibbon | n | A gibbon swung through the trees. | Bir jibon ağaçlar arasında sallandı.
+give outline | phr | Let me give an outline of the plan. | Planın ana hatlarını vereyim.
+give treatment | phr | Nurses give treatment at the local clinic. | Hemşireler yerel klinikte tedavi veriyor.
+give up habit | phr | It is hard to give up a habit after so many years. | Bunca yıldan sonra bir alışkanlığı bırakmak zordur.
+global commodity | phr | Coffee is a global commodity. | Kahve küresel bir emtiadır.
+global scale | phr | The virus spread on a global scale. | Virüs küresel ölçekte yayıldı.
+go extinct | phr | Many species may go extinct this century. | Birçok türün nesli bu yüzyılda tükenebilir.
+go through a crisis | phr | Many young couples go through a crisis. | Birçok genç çift bir krizden geçiyor.
+go through a process | phr | All applicants must go through a process of checks. | Tüm başvuru sahipleri bir kontrol sürecinden geçmeli.
+go through a stage | phr | All teenagers go through a stage of rebellion. | Tüm gençler bir isyan döneminden geçer.
+goods in transit | phr | The policy covers goods in transit. | Poliçe taşınmakta olan malları kapsıyor.
+governance | n | Good governance needs honest leaders. | İyi yönetişim dürüst liderler gerektirir.
+grassland | n | Horses grazed on the open grassland. | Atlar açık otlakta otladı.
+greenhouse gas emission | phr | Trees can offset some greenhouse gas emission. | Ağaçlar sera gazı salımının bir kısmını dengeleyebilir.
+grow crop | phr | They grow a different crop each year. | Her yıl farklı bir ürün yetiştiriyorlar.
+growth hormone | phr | Children produce growth hormone during sleep. | Çocuklar uykuda büyüme hormonu üretir.
+habitable | adj | The house is no longer habitable. | Ev artık oturulabilir durumda değil.
+habitation | n | There was no sign of human habitation. | İnsan yerleşimine dair hiçbir iz yoktu.
+habitual behaviour | phr | Biting your nails is a habitual behaviour. | Tırnak yemek alışkanlık hâline gelmiş bir davranıştır.
+habitual drinker | phr | A habitual drinker can damage his liver. | Sürekli içki içen biri karaciğerine zarar verebilir.
+hard currency | phr | The country badly needs hard currency. | Ülkenin döviz olarak güçlü paraya çok ihtiyacı var.
+hard surface | phr | Glass breaks when it hits a hard surface. | Cam sert bir yüzeye çarpınca kırılır.
+hardiness | n | This plant is known for its hardiness. | Bu bitki dayanıklılığıyla bilinir.
+hardly likely | phr | It is hardly likely that he will agree. | Kabul etmesi pek olası değil.
+hardly sufficient | phr | One day is hardly sufficient for this city. | Bu şehir için bir gün pek yeterli değil.
+hardly visible | phr | The scar is now hardly visible. | Yara izi artık neredeyse görünmüyor.
+hardness | n | Diamonds are famous for their hardness. | Elmaslar sertlikleriyle ünlüdür.
+hardy | adj | Hardy plants survive the winter here. | Dayanıklı bitkiler burada kışı atlatır.
+harmfully | adv | Too much sun can affect the skin harmfully. | Aşırı güneş cildi zararlı biçimde etkileyebilir.
+have determination | phr | You have determination, so you will succeed. | Kararlısın, o yüzden başaracaksın.
+have miscarriage | phr | Some women have a miscarriage without knowing the cause. | Bazı kadınlar nedenini bilmeden düşük yapıyor.
+hazardous chemical | phr | Keep the hazardous chemical away from children. | Tehlikeli kimyasalı çocuklardan uzak tut.
+hazardous journey | phr | Crossing the desert was a hazardous journey. | Çölü geçmek tehlikeli bir yolculuktu.
+hazardous pollutant | phr | Lead is a hazardous pollutant. | Kurşun tehlikeli bir kirleticidir.
+hazardous to | phr | Smoking is hazardous to your health. | Sigara sağlığına zararlıdır.
+hazardously | adv | The wall leaned hazardously over the road. | Duvar yola doğru tehlikeli biçimde eğilmişti.
+health hazard | phr | Dirty water is a major health hazard. | Kirli su büyük bir sağlık tehlikesidir.
+health service | phr | The health service needs more doctors. | Sağlık hizmetinin daha fazla doktora ihtiyacı var.
+healthy body | phr | A healthy body needs regular exercise. | Sağlıklı bir beden düzenli egzersiz gerektirir.
+heart palpitation | phr | Too much coffee gave her a heart palpitation. | Fazla kahve onda kalp çarpıntısı yaptı.
+heart rate | phr | Exercise raises your heart rate. | Egzersiz kalp atış hızını artırır.
+heavily contaminated | phr | The land was heavily contaminated with oil. | Arazi petrolle ağır biçimde kirlenmişti.
+heavily polluted | phr | The river is heavily polluted. | Nehir çok kirli.
+heaviness | n | She felt a heaviness in her legs. | Bacaklarında bir ağırlık hissetti.
+heavy toll | phr | The war took a heavy toll on the country. | Savaş ülkeye ağır bir bedel ödetti.
+helper | n | She is a volunteer helper at the school. | Okulda gönüllü yardımcı olarak çalışıyor.
+helpfully | adv | He helpfully showed us the way. | Yardımseverlikle bize yolu gösterdi.
+helpfulness | n | We thanked the staff for their helpfulness. | Yardımseverlikleri için çalışanlara teşekkür ettik.
+hierarchical structure | phr | The army has a hierarchical structure. | Ordunun hiyerarşik bir yapısı vardır.
+high rainfall | phr | The region is known for high rainfall. | Bölge yüksek yağışıyla bilinir.
+high tax | phr | People complain about the high tax on fuel. | İnsanlar yakıttaki yüksek vergiden şikâyet ediyor.
+high-fat food | phr | Doctors warned him about high-fat food. | Doktorlar onu yağlı yiyecekler konusunda uyardı.
+highly contagious | phr | The new virus is highly contagious. | Yeni virüs son derece bulaşıcı.
+hindrance | n | Bad weather was a hindrance to the rescue. | Kötü hava kurtarma çalışmalarına engel oldu.
+hire employee | phr | Small firms cannot easily hire a new employee. | Küçük firmalar kolayca yeni çalışan alamaz.
+hold an election | phr | The country will hold an election in May. | Ülke mayısta seçim yapacak.
+hold belief | phr | Many people hold the belief that numbers bring luck. | Birçok insan sayıların şans getirdiğine inanıyor.
+hopelessness | n | A feeling of hopelessness spread through the town. | Kasabaya bir umutsuzluk duygusu yayıldı.
+hot desert | phr | Few animals can live in a hot desert. | Sıcak bir çölde çok az hayvan yaşayabilir.
+human affair | phr | Love is a very complicated human affair. | Aşk çok karmaşık bir insan meselesidir.
+human civilization | phr | Writing changed human civilization. | Yazı insan uygarlığını değiştirdi.
+human interaction | phr | Babies need human interaction to develop. | Bebeklerin gelişmek için insan etkileşimine ihtiyacı vardır.
+human progress | phr | Science is a key part of human progress. | Bilim insanlığın ilerlemesinin önemli bir parçasıdır.
+human settlement | phr | The river attracted human settlement early on. | Nehir insan yerleşimini erken dönemde çekti.
+human society | phr | Language is at the heart of human society. | Dil insan toplumunun merkezindedir.
+humanism | n | The Renaissance was shaped by humanism. | Rönesans hümanizmle şekillendi.
+humanistic | adj | The school takes a humanistic view of education. | Okul eğitime hümanist bir açıdan bakıyor.
+hunter-gatherer | n | A hunter-gatherer moved with the seasons. | Avcı toplayıcı mevsimlere göre yer değiştirirdi.
+icy | adj | Be careful on the icy road. | Buzlu yolda dikkatli ol.
+identical copy | phr | The machine produces an identical copy of the key. | Makine anahtarın birebir kopyasını yapıyor.
+identifiable | adj | The cause of the fire is not identifiable. | Yangının nedeni belirlenemiyor.
+ignore symptom | phr | Never ignore a symptom of heart trouble. | Kalp sorununun belirtisini asla görmezden gelme.
+ill health | phr | He left his job because of ill health. | Sağlıksızlık yüzünden işinden ayrıldı.
+illusory | adj | The peace proved illusory. | Barışın bir yanılsama olduğu anlaşıldı.
+illustrative | adj | This example is purely illustrative. | Bu örnek yalnızca açıklama amaçlıdır.
+illustrator | n | The illustrator drew all the animals in the book. | Çizer kitaptaki tüm hayvanları çizdi.
+immunity | n | The vaccine gives long-term immunity. | Aşı uzun süreli bağışıklık sağlar.
+impair permanently | phr | Loud noise can permanently impair your hearing. | Yüksek ses duymanı kalıcı olarak bozabilir.
+impairment | n | She has a hearing impairment. | Duyma bozukluğu var.
+impartiality | n | A judge's impartiality is essential. | Hâkimin tarafsızlığı çok önemlidir.
+implementation | n | The implementation of the plan begins next month. | Planın uygulanması gelecek ay başlıyor.
+importantly | adv | More importantly, nobody was hurt. | Daha önemlisi kimse yaralanmadı.
+impossibly | adv | The task seemed impossibly difficult. | Görev imkânsız derecede zor görünüyordu.
+impressively | adv | She handled the crisis impressively. | Krizi etkileyici biçimde yönetti.
+improve dramatically | phr | His English began to improve dramatically. | İngilizcesi çarpıcı biçimde gelişmeye başladı.
+impulsively | adv | He bought the car impulsively. | Arabayı düşünmeden aldı.
+in association with | phr | The event is held in association with the museum. | Etkinlik müzeyle iş birliği içinde düzenleniyor.
+in combination with | phr | The drug works best in combination with diet. | İlaç en iyi diyetle birlikte etki eder.
+in competition with | phr | We are in competition with three firms. | Üç firmayla rekabet hâlindeyiz.
+in contrast to | phr | In contrast to last year, sales are high. | Geçen yılın aksine satışlar yüksek.
+in decline | phr | The town's population is in decline. | Kasabanın nüfusu düşüşte.
+in distress | phr | The ship sent a signal that it was in distress. | Gemi zor durumda olduğuna dair sinyal gönderdi.
+in excess | phr | Sugar is harmful in excess. | Şeker aşırısı zararlıdır.
+in excess of | phr | The bill was in excess of a thousand dollars. | Fatura bin doları aşıyordu.
+in favour of | phr | Most members are in favour of the plan. | Üyelerin çoğu planın lehinde.
+in layers | phr | Dress in layers when it is cold. | Soğukta kat kat giyin.
+in maintenance | phr | The lift is in maintenance today. | Asansör bugün bakımda.
+in operation | phr | The new line has been in operation since May. | Yeni hat mayıstan beri çalışıyor.
+in reference to | phr | I'm writing in reference to your letter. | Mektubunuzla ilgili yazıyorum.
+in the event of | phr | In the event of fire, use the stairs. | Yangın durumunda merdivenleri kullanın.
+in the form of | phr | The medicine comes in the form of a tablet. | İlaç tablet şeklinde geliyor.
+in the neighbourhood | phr | There are two schools in the neighbourhood. | Mahallede iki okul var.
+in the region of | phr | The price is in the region of fifty dollars. | Fiyat elli dolar civarında.
+in view of | phr | In view of the weather, we stayed home. | Havayı göz önünde bulundurarak evde kaldık.
+inability | n | His inability to swim worried me. | Yüzememesi beni endişelendirdi.
+inadequacy | n | The storm showed the inadequacy of the drains. | Fırtına kanalizasyonun yetersizliğini gösterdi.
+inadequately | adv | The workers were inadequately trained. | İşçiler yetersiz eğitilmişti.
+incidence | n | The incidence of flu rises in winter. | Grip görülme sıklığı kışın artar.
+inclusion | n | Her inclusion in the team surprised nobody. | Takıma dahil edilmesi kimseyi şaşırtmadı.
+inclusive | adj | The price is inclusive of breakfast. | Fiyata kahvaltı dahildir.
+income may increase | phr | With more training, your income may increase. | Daha fazla eğitimle gelirin artabilir.
+incorporate | v | We will incorporate your ideas in the plan. | Fikirlerini plana dahil edeceğiz.
+incorporated | adj | The incorporated firm has its own legal status. | Şirketleşmiş firmanın kendi yasal statüsü vardır.
+incorporation | n | The incorporation of new ideas improved the book. | Yeni fikirlerin eklenmesi kitabı iyileştirdi.
+increase appetite | phr | Some drugs increase appetite. | Bazı ilaçlar iştahı artırır.
+indefinite | adj | The strike continued for an indefinite period. | Grev belirsiz bir süre devam etti.
+indicative | adj | The high fever is indicative of an infection. | Yüksek ateş enfeksiyona işaret eder.
+indifferently | adv | She shrugged indifferently. | Kayıtsızca omuz silkti.
+individualism | n | American culture values individualism. | Amerikan kültürü bireyciliğe değer verir.
+individualist | n | She has always been an individualist. | Her zaman bireyci biri oldu.
+individually | adv | The teacher talked to each student individually. | Öğretmen her öğrenciyle ayrı ayrı konuştu.
+industrial use | phr | This water is only for industrial use. | Bu su yalnızca endüstriyel kullanım içindir.
+industrialisation | n | Industrialisation changed the city quickly. | Sanayileşme şehri hızla değiştirdi.
+industrialism | n | The book describes the rise of industrialism. | Kitap sanayiciliğin yükselişini anlatıyor.
+industrialist | n | A rich industrialist paid for the new hospital. | Zengin bir sanayici yeni hastanenin parasını ödedi.
+industrially | adv | The chemical is produced industrially. | Kimyasal endüstriyel olarak üretiliyor.
+inevitable result | phr | Weight gain was the inevitable result. | Kilo almak kaçınılmaz sonuçtu.
+infancy | n | The technology is still in its infancy. | Teknoloji hâlâ emekleme aşamasında.
+infer from | phr | What can we infer from these numbers? | Bu sayılardan ne sonuç çıkarabiliriz?
+infertility | n | The clinic treats infertility. | Klinik kısırlığı tedavi ediyor.
+infirm | adj | The home cares for old and infirm people. | Bakımevi yaşlı ve güçsüz insanlara bakıyor.
+inherent disadvantage | phr | Small towns have an inherent disadvantage. | Küçük kasabaların doğal bir dezavantajı var.
+inhibitor | n | This drug is a growth inhibitor. | Bu ilaç bir büyüme baskılayıcısıdır.
+injured soldier | phr | They carried the injured soldier to safety. | Yaralı askeri güvenli bir yere taşıdılar.
+innovate | v | Companies must innovate to survive. | Şirketler ayakta kalmak için yenilik yapmalı.
+innovation | n | The award celebrates innovation in medicine. | Ödül tıptaki yeniliği kutluyor.
+inquisition | n | The interview felt like an inquisition. | Görüşme sorgu gibi hissettirdi.
+insistence | n | She came at her mother's insistence. | Annesinin ısrarı üzerine geldi.
+instant message | phr | He sent me an instant message. | Bana anlık mesaj gönderdi.
+insurance broker | phr | The insurance broker found me a cheaper policy. | Sigorta acentesi bana daha ucuz bir poliçe buldu.
+integral component | phr | Practice is an integral component of the course. | Uygulama kursun ayrılmaz bir parçasıdır.
+integration | n | The integration of the two systems took months. | İki sistemin bütünleştirilmesi aylar sürdü.
+interactive | adj | The museum has interactive displays for children. | Müzede çocuklar için etkileşimli sergiler var.
+interconnect | v | These tunnels interconnect under the city. | Bu tüneller şehrin altında birbirine bağlanıyor.
+interestingly | adv | Interestingly, older people slept better. | İlginç bir şekilde yaşlı insanlar daha iyi uyudu.
+international attention | phr | The discovery drew international attention. | Keşif uluslararası ilgi çekti.
+international competition | phr | Local firms face international competition. | Yerel firmalar uluslararası rekabetle karşı karşıya.
+introductory | adj | I took an introductory course in French. | Fransızca başlangıç kursu aldım.
+invasive | adj | This plant is an invasive species. | Bu bitki istilacı bir türdür.
+invent an excuse | phr | He tried to invent an excuse for being late. | Geç kalmasına bir bahane uydurmaya çalıştı.
+inventiveness | n | Her inventiveness saved the project. | Yaratıcılığı projeyi kurtardı.
+inverse | adj | There is an inverse relationship between price and demand. | Fiyat ve talep arasında ters bir ilişki var.
+inversely | adv | Price and demand are inversely related. | Fiyat ve talep ters orantılıdır.
+invest capital | phr | Banks invest capital in new companies. | Bankalar yeni şirketlere sermaye yatırır.
+invest effort | phr | You must invest effort to learn a language. | Bir dil öğrenmek için çaba göstermelisin.
+irreparable | adj | The fire did irreparable damage. | Yangın onarılamaz hasar verdi.
+irreparable harm | phr | The lie caused irreparable harm to his name. | Yalan adına onarılamaz zarar verdi.
+irrevocable | adj | Her decision was final and irrevocable. | Kararı kesin ve geri dönülmezdi.
+irrigate | v | Farmers irrigate their fields from the river. | Çiftçiler tarlalarını nehirden sular.
+irrigation | n | Irrigation made farming possible in the desert. | Sulama çölde tarımı mümkün kıldı.
+irritation | n | The soap caused skin irritation. | Sabun ciltte tahrişe neden oldu.
+isolated area | phr | Their farm is in an isolated area. | Çiftlikleri ıssız bir bölgede.
+itchy skin | phr | Dry air can cause itchy skin. | Kuru hava cildin kaşınmasına neden olabilir.
+jeopardy | n | The strike put thousands of jobs in jeopardy. | Grev binlerce işi tehlikeye attı.
+jobless | adj | He has been jobless for a year. | Bir yıldır işsiz.
+justifiable | adj | Her anger was completely justifiable. | Kızgınlığı tamamen haklıydı.
+justification | n | There is no justification for violence. | Şiddetin hiçbir haklı gerekçesi yoktur.
+keen observation | phr | Good drawing needs keen observation. | İyi çizim keskin gözlem gerektirir.
+keep in with | phr | He tries to keep in with his boss. | Patronuyla arasını iyi tutmaya çalışıyor.
+keep sth strong | phr | Exercise will keep your heart strong. | Egzersiz kalbini güçlü tutar.
+key component | phr | Trust is a key component of friendship. | Güven arkadaşlığın temel bileşenidir.
+key feature | phr | Speed is the key feature of this phone. | Hız bu telefonun temel özelliğidir.
+kill | v | Frost can kill young plants. | Don genç bitkileri öldürebilir.
+killer | n | Heart disease is the biggest killer in many countries. | Kalp hastalığı birçok ülkede en büyük ölüm nedenidir.
+krill | n | Whales feed on tiny krill. | Balinalar minik kril ile beslenir.

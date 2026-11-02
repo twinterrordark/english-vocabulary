@@ -1623,6 +1623,15 @@ body.novel-focus .novel-pop:not(.is-inline) .novel-pop-actions { background: var
 #mine-extract[hidden], #mine-decks[hidden] { display: none; }
 #mine-extract { justify-self: start; }
 #mine-decks { justify-self: start; }
+
+.type-examples { display: grid; gap: var(--space-3); margin-top: var(--space-3); text-align: left; }
+.type-group { display: grid; gap: var(--space-2); }
+.type-group h4 { margin: 0; justify-self: start; padding: 2px 10px; border-radius: 999px; background: var(--secondary-soft); color: var(--secondary-text); font-size: .78rem; font-weight: 800; }
+.type-sentence { display: flex; align-items: flex-start; gap: var(--space-2); }
+.type-sentence .audio-button { width: 34px; height: 34px; }
+.type-sentence p { margin: 0; font-size: .95rem; line-height: 1.4; }
+.type-sentence .type-tr { color: var(--muted); font-size: .86rem; }
+.type-more summary { cursor: pointer; font-weight: 700; font-size: .88rem; color: var(--secondary-text); min-height: 32px; }
 </style>
 </head>
 <body>
@@ -2394,6 +2403,7 @@ body.novel-focus .novel-pop:not(.is-inline) .novel-pop-actions { background: var
 
 <footer class="site-footer">
   <p data-i18n="footer.text">Works offline. Progress is stored only in this browser on this device.</p>
+  <p>Örnek cümlelerin bir bölümü: <a href="https://tatoeba.org" target="_blank" rel="noopener">Tatoeba</a> (<a href="https://creativecommons.org/licenses/by/2.0/fr/" target="_blank" rel="noopener">CC BY 2.0 FR</a>), <a href="https://www.manythings.org/anki/" target="_blank" rel="noopener">manythings.org</a> derlemesinden; cümleler kelimelere ve türlere göre seçildi.</p>
   <p>Fotoğraflar: Wikimedia Commons (yazar ve lisans kartlarda). Simgeler: <a href="https://github.com/jdecked/twemoji" target="_blank" rel="noopener">Twemoji</a>, CC BY 4.0. PDF okuma: <a href="https://mozilla.github.io/pdf.js/" target="_blank" rel="noopener">pdf.js</a> (Mozilla, Apache-2.0). Yazı tipleri: Outfit ve Plus Jakarta Sans (SIL Open Font License).</p>
   <p>English Study · v@APP_VERSION@</p>
 </footer>
@@ -2595,6 +2605,8 @@ const STRINGS = {
     'novel.tabMine': 'My PDFs', 'mine.private': 'Only on this device.', 'mine.note': 'Your PDFs stay in this browser and are not uploaded anywhere, so each device needs its own copy. Clearing the browser\'s site data removes them.', 'mine.choose': 'Choose PDFs', 'mine.folder': 'Choose a folder', 'mine.search': 'Search my PDFs', 'mine.clear': 'Remove all', 'mine.empty': 'No PDFs yet. Add the ones you study from; tap one to read it with the word card, translation and listening.', 'mine.adding': 'Adding {i} of {n}…', 'mine.added': '{n} PDFs added, {s} already here or copies.', 'mine.noPdf': 'There was no PDF among those files.', 'mine.full': 'The browser\'s storage is full. {n} PDFs were added before it stopped.', 'mine.failed': 'Adding stopped after {n} PDFs. Try again.', 'mine.noStore': 'This browser cannot keep PDFs (a private window, for example).', 'mine.size': '{n} PDFs · {mb} MB', 'mine.page': 'p. {p} / {n}', 'mine.remove': 'Remove {w}', 'mine.removeTitle': 'Remove this PDF?', 'mine.clearTitle': 'Remove these {n} PDFs?', 'mine.removeMsg': 'They are removed from this device only. Your files stay where they are.', 'mine.removeOk': 'Remove',
     'novel.garbled': 'The text of this PDF cannot be read: pages shown as pictures',
     'mine.extract': 'Make word decks from my PDFs', 'mine.seeDecks': 'See my {n} word decks', 'mine.reading': 'Looking for word lists: {i} of {n}…', 'mine.decksMade': '{d} word decks made, {n} words.', 'mine.decksTitle': 'Words from my PDFs', 'mine.decksNote': '{n} words. They are kept on this device only.', 'mine.decksEmpty': 'No decks yet. Add your PDFs under Read → My PDFs.', 'deck.mine': 'My PDFs', 'deck.mineNote': '{n} decks from the word lists in your PDFs, on this device only.',
+    'deck.exam': 'YDS & YÖKDİL', 'deck.workEXAM': 'Exam words', 'deck.workEXAMNote': 'Words for YDS and YÖKDİL. Meanings are from the dictionary and machine translation, so a few may be off.',
+    'deck.usage': 'How it is used',
     'home.eyebrow': 'Daily goal', 'home.titleReview': 'Time to review! ✨', 'home.titleMorning': 'Good morning! ☀️', 'home.titleDay': 'Let’s learn! ✨', 'home.titleEvening': 'Good evening! 🌙',
     'home.goalChip': '{p}% done', 'home.goalStart': 'Let’s get started!', 'home.goalGoing': 'You’re doing great!', 'home.goalDone': 'Goal reached! 🎉',
     'home.goalLeft': 'Only {n} cards to your goal. Keep the rhythm!', 'home.goalDoneNote': 'Anything more today is a bonus.',
@@ -2758,7 +2770,7 @@ const STRINGS = {
     'settings.data': 'Your progress data', 'settings.export': 'Export progress (JSON)', 'settings.import': 'Import progress', 'settings.reset': 'Reset all progress',
     'settings.resetHint': 'Reset removes learned marks, quiz statistics, study days and review cards. Display settings are kept.',
     'settings.about': 'About this app', 'settings.aboutText': 'Version {v}. {n} vocabulary entries ({s} with sentences by word type), {i} embedded images, {r} reading texts.',
-    'settings.aboutContent': 'Meanings, pronunciation notes and original examples come from the original page. Photos come from Wikimedia Commons (free licences; the author and licence are shown on each card). Illustrations that the original page made for a specific word are kept. Words without a fitting photo show a Twemoji illustration chosen for that word (Twemoji by Twitter and contributors, CC BY 4.0). The example sentences grouped by word type were written for this app.',
+    'settings.aboutContent': 'Part of the example sentences come from Tatoeba (tatoeba.org, CC BY 2.0 FR) through manythings.org/anki, selected by word and word type. Meanings, pronunciation notes and original examples come from the original page. Photos come from Wikimedia Commons (free licences; the author and licence are shown on each card). Illustrations that the original page made for a specific word are kept. Words without a fitting photo show a Twemoji illustration chosen for that word (Twemoji by Twitter and contributors, CC BY 4.0). The example sentences grouped by word type were written for this app.',
     'reset.title': 'Reset all progress?', 'reset.msg': 'Learned marks, quiz statistics and study days will be deleted. Consider exporting a backup first.', 'reset.ok': 'Reset progress', 'reset.done': 'Progress has been reset.',
     'import.title': 'Replace your current progress?', 'import.msg': 'The file contains {l} learned words and {a} quiz answers. Your current progress will be replaced.', 'import.ok': 'Replace progress', 'import.msgMore': 'It also has {c} review cards and {g} grammar steps learned.',
     'import.done': 'Progress imported.', 'import.cancelled': 'Import cancelled. Nothing was changed.', 'import.tooBig': 'This file is too large to be a progress export.',
@@ -2812,6 +2824,8 @@ const STRINGS = {
     'novel.tabMine': 'PDF\'lerim', 'mine.private': 'Yalnızca bu cihazda.', 'mine.note': 'PDF\'lerin bu tarayıcıda kalır, hiçbir yere yüklenmez; bu yüzden her cihaza ayrı eklemen gerekir. Tarayıcının site verilerini silersen bunlar da silinir.', 'mine.choose': 'PDF seç', 'mine.folder': 'Klasör seç', 'mine.search': 'PDF\'lerimde ara', 'mine.clear': 'Hepsini kaldır', 'mine.empty': 'Henüz PDF yok. Çalıştığın PDF\'leri ekle; birine dokununca kelime kartı, çeviri ve dinlemeyle okursun.', 'mine.adding': '{n} PDF\'ten {i}. ekleniyor…', 'mine.added': '{n} PDF eklendi, {s} tanesi zaten vardı ya da kopyaydı.', 'mine.noPdf': 'Seçilen dosyalarda PDF yoktu.', 'mine.full': 'Tarayıcının depolama alanı doldu. Durmadan önce {n} PDF eklendi.', 'mine.failed': '{n} PDF eklendikten sonra işlem durdu. Tekrar dene.', 'mine.noStore': 'Bu tarayıcı PDF saklayamıyor (örneğin gizli pencere).', 'mine.size': '{n} PDF · {mb} MB', 'mine.page': 's. {p} / {n}', 'mine.remove': '{w} dosyasını kaldır', 'mine.removeTitle': 'Bu PDF kaldırılsın mı?', 'mine.clearTitle': 'Bu {n} PDF kaldırılsın mı?', 'mine.removeMsg': 'Yalnızca bu cihazdan kaldırılır. Dosyaların bulundukları yerde kalır.', 'mine.removeOk': 'Kaldır',
     'novel.garbled': 'Bu PDF metni okunamıyor: sayfalar resim olarak',
     'mine.extract': 'PDF\'lerimden kelime destesi yap', 'mine.seeDecks': '{n} kelime destemi gör', 'mine.reading': 'Kelime listeleri aranıyor: {n} PDF\'ten {i}.…', 'mine.decksMade': '{d} kelime destesi yapıldı, {n} kelime.', 'mine.decksTitle': 'PDF kelimelerim', 'mine.decksNote': '{n} kelime. Yalnızca bu cihazda saklanır.', 'mine.decksEmpty': 'Henüz deste yok. Roman Oku → PDF\'lerim bölümünden PDF\'lerini ekle.', 'deck.mine': 'PDF\'lerim', 'deck.mineNote': 'PDF\'lerindeki kelime listelerinden {n} deste, yalnızca bu cihazda.',
+    'deck.exam': 'YDS ve YÖKDİL', 'deck.workEXAM': 'Sınav kelimeleri', 'deck.workEXAMNote': 'YDS ve YÖKDİL için kelimeler. Anlamlar sözlükten ve makine çevirisinden geldiği için bazıları hatalı olabilir.',
+    'deck.usage': 'Nasıl kullanılır?',
     'home.eyebrow': 'Günlük hedef', 'home.titleReview': 'Tekrar zamanı! ✨', 'home.titleMorning': 'Günaydın! ☀️', 'home.titleDay': 'Hadi öğrenelim! ✨', 'home.titleEvening': 'İyi akşamlar! 🌙',
     'home.goalChip': '%{p} tamamlandı', 'home.goalStart': 'Hadi başlayalım!', 'home.goalGoing': 'Harika gidiyorsun!', 'home.goalDone': 'Hedef tamam! 🎉',
     'home.goalLeft': 'Hedefe sadece {n} kart kaldı. Ritmini koru!', 'home.goalDoneNote': 'Bugün yapacağın her şey artık bonus.',
@@ -3006,7 +3020,7 @@ const STRINGS = {
     'settings.data': 'İlerleme verilerin', 'settings.export': 'İlerlemeyi dışa aktar (JSON)', 'settings.import': 'İlerlemeyi içe aktar', 'settings.reset': 'Tüm ilerlemeyi sıfırla',
     'settings.resetHint': 'Sıfırlama; öğrenildi işaretlerini, test istatistiklerini, çalışma günlerini ve tekrar kartlarını siler. Görünüm ayarları korunur.',
     'settings.about': 'Uygulama hakkında', 'settings.aboutText': 'Sürüm {v}. {n} kelime ({s} tanesinde türlere göre cümle var), {i} gömülü görsel, {r} okuma metni.',
-    'settings.aboutContent': 'Anlamlar, okunuşlar ve özgün örnekler özgün sayfadan alınmıştır. Fotoğraflar Wikimedia Commons’tan gelir (özgür lisanslı; her kartta yazar ve lisans gösterilir). Özgün sayfanın belirli bir kelime için hazırladığı çizimler korunmuştur. Uygun fotoğrafı olmayan kelimelerde o kelime için seçilmiş bir Twemoji çizimi gösterilir (Twemoji: Twitter ve katkıda bulunanlar, CC BY 4.0). Kelime türlerine göre gruplanan örnek cümleler bu uygulama için yazılmıştır.',
+    'settings.aboutContent': 'Örnek cümlelerin bir bölümü Tatoeba\'dan (tatoeba.org, CC BY 2.0 FR) manythings.org/anki derlemesiyle alındı, kelimeye ve türe göre seçildi. Anlamlar, okunuşlar ve özgün örnekler özgün sayfadan alınmıştır. Fotoğraflar Wikimedia Commons’tan gelir (özgür lisanslı; her kartta yazar ve lisans gösterilir). Özgün sayfanın belirli bir kelime için hazırladığı çizimler korunmuştur. Uygun fotoğrafı olmayan kelimelerde o kelime için seçilmiş bir Twemoji çizimi gösterilir (Twemoji: Twitter ve katkıda bulunanlar, CC BY 4.0). Kelime türlerine göre gruplanan örnek cümleler bu uygulama için yazılmıştır.',
     'reset.title': 'Tüm ilerleme sıfırlansın mı?', 'reset.msg': 'Öğrenildi işaretleri, test istatistikleri ve çalışma günleri silinecek. Önce yedek almayı düşün.', 'reset.ok': 'İlerlemeyi sıfırla', 'reset.done': 'İlerleme sıfırlandı.',
     'import.title': 'Mevcut ilerleme değiştirilsin mi?', 'import.msg': 'Dosyada {l} öğrenilmiş kelime ve {a} test cevabı var. Mevcut ilerlemenin yerine geçecek.', 'import.ok': 'İlerlemeyi değiştir', 'import.msgMore': 'Ayrıca {c} tekrar kartı ve öğrenilmiş {g} gramer adımı var.',
     'import.done': 'İlerleme içe aktarıldı.', 'import.cancelled': 'İçe aktarma iptal edildi. Hiçbir şey değişmedi.', 'import.tooBig': 'Bu dosya bir ilerleme dosyası olamayacak kadar büyük.',
@@ -7663,7 +7677,18 @@ const Review = {
     const entry = BY_ID.get(id.slice(2));
     const image = $('.word-card[data-id="' + entry.id + '"] .word-media img');
     const types = sentencesFor(entry);
-    return { level: entry.level, pos: types.length ? t('pos.' + types[0][0]) : '', image: image ? image.getAttribute('src') : '' };
+    return { level: entry.level, types: types.map(([pos]) => t('pos.' + pos)), image: image ? image.getAttribute('src') : '' };
+  },
+  /* How the word is used: example sentences under each of its types (noun, verb…). */
+  typeExamples(content) {
+    if (content.kind === 'grammar') return null;
+    const groups = sentencesFor({ word: content.front });
+    if (!groups.length) return null;
+    return h('div', { class: 'type-examples' }, groups.map(([pos, list]) => h('section', { class: 'type-group' },
+      h('h4', { text: t('pos.' + pos) }),
+      list.filter(([en]) => en !== content.sentence).slice(0, 2).map(([en, tr]) => h('div', { class: 'type-sentence' },
+        Speech.supported ? h('button', { type: 'button', class: 'audio-button', 'data-say': en, 'aria-label': t('tutor.listen') }, icon('sound')) : null,
+        h('div', {}, h('p', { lang: 'en', text: en }), h('p', { class: 'type-tr', lang: 'tr', text: tr })))))));
   },
   /* All the words of a work deck, with their sentences. */
   renderDeck() {
@@ -7682,7 +7707,8 @@ const Review = {
           Pron.button(entry.example || entry.word, 'audio-button')),
         h('p', { class: 'saved-tr', lang: 'tr', text: entry.meaning }),
         entry.example ? h('p', { class: 'saved-sentence', lang: 'en', text: entry.example }) : null,
-        entry.exampleTr ? h('p', { class: 'saved-sentence-tr', lang: 'tr', text: entry.exampleTr }) : null))));
+        entry.exampleTr ? h('p', { class: 'saved-sentence-tr', lang: 'tr', text: entry.exampleTr }) : null,
+        sentencesFor(entry).length ? h('details', { class: 'type-more' }, h('summary', { text: t('deck.usage') }), this.typeExamples({ kind: 'word', front: entry.word, sentence: entry.example })) : null))));
   },
   /* The decks made from the learner's own PDFs. */
   renderMyDecks() {
@@ -7756,14 +7782,14 @@ const Review = {
     const { content, details } = this.open;
     const card = this.state.cards[id] || [0, 0, 250, 0, 0];
     const sentence = this.english(content);
-    const kinds = { word: details ? t('deck.level', { l: details.level }) : t('review.kindWord'), novel: t('review.kindNovel'), grammar: content.topic };
+    const kinds = { word: details ? (BY_ID.get(id.slice(2)) && WORK.includes(BY_ID.get(id.slice(2))) ? Today.deckName(details.level) : t('deck.level', { l: details.level })) : t('review.kindWord'), novel: t('review.kindNovel'), grammar: content.topic };
     const intervals = learn ? { again: t('review.soon'), hard: t('review.later'), good: this.when(1), easy: this.when(4) }
       : Object.fromEntries(['again', 'hard', 'good', 'easy'].map(answer => [answer, this.when(this.next(card, answer))]));
     box.replaceChildren(...[
       h('div', { class: 'flash-card' + (this.shown ? ' is-flipped' : ''), role: this.shown ? null : 'button', tabindex: this.shown ? null : '0', 'aria-label': this.shown ? null : t('review.show') },
         h('div', { class: 'flash-chips' },
           h('span', { class: 'flash-chip is-level', text: kinds[content.kind] }),
-          details && details.pos ? h('span', { class: 'flash-chip', text: details.pos }) : null),
+          ...(details ? details.types : []).map(type => h('span', { class: 'flash-chip', text: type }))),
         details && details.image ? h('img', { class: 'flash-image', src: details.image, alt: '' }) : null,
         content.kind === 'grammar' ? h('p', { class: 'review-sentence is-main' }, sentence) : h('p', { class: 'review-word', lang: 'en', text: content.front }),
         content.kind === 'novel' && sentence ? h('p', { class: 'review-sentence' }, sentence) : null,
@@ -7775,7 +7801,8 @@ const Review = {
           ? h('div', { class: 'review-back' },
             h('p', { class: 'review-meaning', lang: 'tr', text: content.back }),
             content.kind === 'word' && content.sentence ? h('p', { class: 'review-example', lang: 'en', text: content.sentence }) : null,
-            content.sentenceTr ? h('p', { class: 'review-example-tr', lang: 'tr', text: content.sentenceTr }) : null)
+            content.sentenceTr ? h('p', { class: 'review-example-tr', lang: 'tr', text: content.sentenceTr }) : null,
+            this.typeExamples(content))
           : h('p', { class: 'flash-hint' }, icon('repeat'), t('review.tapHint'))),
       h('div', { class: 'rate-head' }, h('span', { text: t('review.recallLevel') }), h('span', { class: 'rate-xp', text: t('review.instantXp') })),
       /* Always in sight as in the design; before the card is turned they are dimmed and turn it first. */
@@ -7796,7 +7823,7 @@ const Today = {
     { level: 'C1', tag: 'Oxford 5000', title: 'deck.C1', note: 'deck.C1note' },
     { level: 'C1+', tag: 'C2', title: 'deck.C1plus', note: 'deck.C1plusNote' }
   ],
-  WORK_DECKS: ['AI', 'DES', 'BIZ'],
+  WORK_DECKS: ['EXAM', 'AI', 'DES', 'BIZ'],
   deckName(level) { const mine = MyDecks.find(level); return mine ? mine.title : this.WORK_DECKS.includes(level) ? t('deck.work' + level) : level; },
   init() {
     $('#today-goal').addEventListener('change', event => {
@@ -7884,7 +7911,7 @@ const Today = {
       const learned = words.filter(entry => learnedSet.has(entry.id)).length;
       const sample = words.find(entry => !learnedSet.has(entry.id)) || words[0];
       cards.splice(workAt++, 0, this.deckCard({
-        chips: [[t('deck.work'), 'amber'], [t('deck.words', { d: learned, n: words.length }), '']], title: t('deck.work' + level), note: t('deck.work' + level + 'Note'),
+        chips: [[t(level === 'EXAM' ? 'deck.exam' : 'deck.work'), 'amber'], [t('deck.words', { d: learned, n: words.length }), '']], title: t('deck.work' + level), note: t('deck.work' + level + 'Note'),
         share: Math.round(learned / words.length * 100), list: '#review/list/' + level, href: '#review/learn/' + level, say: sample.word, primary: false, color: 'emerald'
       }));
     }

@@ -1,0 +1,666 @@
+# Example sentences written for this app: word | type | English | Turkish
+lack completely | phr | Some towns completely lack public transport. | Bazı kasabalarda toplu taşıma tamamen yok.
+lack of appetite | phr | Lack of appetite is a sign of illness. | İştahsızlık hastalık belirtisidir.
+large bowel/intestine | phr | Water is absorbed in the large bowel. | Su kalın bağırsakta emilir.
+large capacity | phr | This fridge has a large capacity. | Bu buzdolabının kapasitesi büyük.
+large empire | phr | The king ruled a large empire. | Kral büyük bir imparatorluğu yönetti.
+laughable | adj | The idea is simply laughable. | Fikir düpedüz gülünç.
+laughably | adv | The price was laughably low. | Fiyat gülünç derecede düşüktü.
+lawfully | adv | He was lawfully arrested. | Yasalara uygun şekilde tutuklandı.
+lawless | adj | The border was a lawless area. | Sınır, yasanın işlemediği bir bölgeydi.
+lawlessly | adv | The gang acted lawlessly for years. | Çete yıllarca yasa tanımadan hareket etti.
+lawlessness | n | Lawlessness spread after the war. | Savaştan sonra kanunsuzluk yayıldı.
+laxative | n | The doctor prescribed a mild laxative. | Doktor hafif bir müshil yazdı.
+lay off employee | phr | The firm had to lay off an employee this month. | Şirket bu ay bir çalışanı işten çıkarmak zorunda kaldı.
+layered | adj | She made a layered cake for the party. | Parti için katlı bir pasta yaptı.
+lead to death | phr | Untreated infections can lead to death. | Tedavi edilmeyen enfeksiyonlar ölüme yol açabilir.
+lead to decrease | phr | Better roads lead to a decrease in accidents. | Daha iyi yollar kazalarda azalmaya yol açar.
+lead to disaster | phr | One bad decision can lead to disaster. | Kötü bir karar felakete yol açabilir.
+lead to extinction | phr | Hunting may lead to extinction of the species. | Avlanma türün yok olmasına yol açabilir.
+leafy green | phr | Spinach is a leafy green. | Ispanak yeşil yapraklı bir sebzedir.
+leave sth bare | phr | Don't leave your arms bare in this cold. | Bu soğukta kollarını açıkta bırakma.
+legal question | phr | The lawyer answered my legal question. | Avukat hukuki sorumu yanıtladı.
+legality | n | They questioned the legality of the contract. | Sözleşmenin yasallığını sorguladılar.
+legitimacy | n | The opposition denied the legitimacy of the election. | Muhalefet seçimin meşruiyetini reddetti.
+letter of credit | phr | The bank issued a letter of credit. | Banka bir akreditif düzenledi.
+life-threatening disease | phr | Cancer can be a life-threatening disease. | Kanser hayatı tehdit eden bir hastalık olabilir.
+lifestyle change | phr | A lifestyle change can lower blood pressure. | Yaşam tarzı değişikliği tansiyonu düşürebilir.
+light gas | phr | Helium is a very light gas. | Helyum çok hafif bir gazdır.
+limit access | phr | Parents can limit access to some websites. | Ebeveynler bazı sitelere erişimi kısıtlayabilir.
+linkage | n | Scientists studied the linkage between diet and disease. | Bilim insanları beslenme ve hastalık arasındaki bağlantıyı inceledi.
+literacy | n | Adult literacy has improved in the region. | Bölgede yetişkin okuryazarlığı arttı.
+liver fattening | phr | Too much sugar can cause liver fattening. | Aşırı şeker karaciğer yağlanmasına yol açabilir.
+local people | phr | Local people welcomed the visitors. | Yerel halk ziyaretçileri karşıladı.
+long-term stability | phr | The treaty brought long-term stability. | Antlaşma uzun vadeli istikrar getirdi.
+look after health | phr | You should look after your health as you get older. | Yaşlandıkça sağlığına dikkat etmelisin.
+look for employment | phr | Many graduates look for employment abroad. | Birçok mezun yurt dışında iş arıyor.
+loss adjuster | phr | The loss adjuster inspected the damage. | Hasar eksperi zararı inceledi.
+magnification | n | The microscope offers strong magnification. | Mikroskop güçlü büyütme sağlıyor.
+main challenge | phr | The main challenge is finding money. | Asıl zorluk para bulmak.
+main function | phr | The main function of the heart is to pump blood. | Kalbin ana işlevi kan pompalamaktır.
+maintain control | phr | The pilot managed to maintain control of the plane. | Pilot uçağın kontrolünü korumayı başardı.
+maintain family | phr | He works two jobs to maintain his family. | Ailesini geçindirmek için iki işte çalışıyor.
+maintain health | phr | A good diet helps maintain health. | İyi beslenme sağlığı korumaya yardım eder.
+major component | phr | Fat is a major component of butter. | Yağ tereyağının ana bileşenidir.
+make diagnosis | phr | Doctors need tests to make a diagnosis. | Doktorların teşhis koymak için teste ihtiyacı var.
+make recommendation | phr | The panel will make a recommendation next month. | Kurul gelecek ay tavsiyede bulunacak.
+make redundant | phr | The factory may make fifty workers redundant. | Fabrika elli işçiyi işten çıkarabilir.
+make repair | phr | It took a week to make a repair to the roof. | Çatıyı onarmak bir hafta sürdü.
+make sb aggressive | phr | Lack of sleep can make you aggressive. | Uykusuzluk seni saldırganlaştırabilir.
+make sb fat | phr | Eating late can make you fat. | Geç yemek seni şişmanlatabilir.
+make sb hungry | phr | The smell of bread will make you hungry. | Ekmek kokusu seni acıktırır.
+make sb sure | phr | This check will make you sure of the answer. | Bu kontrol seni cevaptan emin kılacak.
+make sth clear | phr | Please make the rules clear to everyone. | Lütfen kuralları herkese açıkça belirt.
+make sth dangerous | phr | Ice can make the road dangerous. | Buz yolu tehlikeli hale getirebilir.
+make sth difficult | phr | Noise can make learning difficult. | Gürültü öğrenmeyi zorlaştırabilir.
+make sth hard | phr | Long hours make family life hard. | Uzun çalışma saatleri aile hayatını zorlaştırıyor.
+make-up | n | The make-up of the team has changed. | Ekibin yapısı değişti.
+malady | n | Loneliness is a common malady of modern life. | Yalnızlık modern hayatın yaygın bir derdidir.
+malignant | adj | The tumour was malignant. | Tümör kötü huyluydu.
+malnutrition | n | Malnutrition affects millions of children. | Yetersiz beslenme milyonlarca çocuğu etkiliyor.
+manage effectively | phr | Good leaders manage effectively under pressure. | İyi liderler baskı altında etkili yönetir.
+manage properly | phr | You must manage your money properly. | Paranı düzgün yönetmelisin.
+manageable | adj | The class is small and manageable. | Sınıf küçük ve idare edilebilir.
+manageress | n | The manageress greeted us at the door. | Kadın müdür bizi kapıda karşıladı.
+managerial | adj | She has strong managerial skills. | Güçlü yönetim becerileri var.
+manifest | v | Stress can manifest as headaches. | Stres baş ağrısı olarak kendini gösterebilir.
+manifestation | n | Fever is a manifestation of infection. | Ateş enfeksiyonun bir belirtisidir.
+manifestly | adv | The decision was manifestly unfair. | Karar açıkça adaletsizdi.
+manual labour | phr | Manual labour is hard in the summer heat. | Yaz sıcağında beden işçiliği zordur.
+marginality | n | The book studies the marginality of the poor. | Kitap yoksulların toplum dışına itilmesini inceliyor.
+mass communication | phr | Television is a form of mass communication. | Televizyon bir kitle iletişim biçimidir.
+mass destruction | phr | Nuclear bombs are weapons of mass destruction. | Nükleer bombalar kitle imha silahlarıdır.
+mass extinction | phr | A mass extinction ended the age of dinosaurs. | Bir kitlesel yok oluş dinozorlar çağını sona erdirdi.
+matters arising | phr | We will discuss matters arising first. | Önce gündemden doğan konuları görüşeceğiz.
+maturation | n | The wine needs years of maturation. | Şarabın yıllarca olgunlaşması gerekir.
+maximum speed | phr | The maximum speed on this road is fifty. | Bu yoldaki en yüksek hız elli.
+meagre | adj | He lived on a meagre salary. | Kıt bir maaşla geçindi.
+measurable | adj | The new plan brought measurable results. | Yeni plan ölçülebilir sonuçlar getirdi.
+measure carefully | phr | Measure carefully before you cut the wood. | Tahtayı kesmeden önce dikkatlice ölç.
+measure mass | phr | We use a balance to measure mass. | Kütleyi ölçmek için terazi kullanırız.
+medical condition | phr | He has a serious medical condition. | Ciddi bir sağlık sorunu var.
+medical prescription | phr | You need a medical prescription for this drug. | Bu ilaç için tıbbi reçete gerekir.
+mediterranean | adj | The Mediterranean climate has hot, dry summers. | Akdeniz ikliminde yazlar sıcak ve kurudur.
+mental decline | phr | Exercise may slow mental decline in old age. | Egzersiz yaşlılıkta zihinsel gerilemeyi yavaşlatabilir.
+mental effort | phr | Chess takes a lot of mental effort. | Satranç çok fazla zihinsel çaba gerektirir.
+mental state | phr | Doctors asked about her mental state. | Doktorlar ruh hâlini sordu.
+migration | n | The migration of birds begins in autumn. | Kuşların göçü sonbaharda başlar.
+migratory | adj | Storks are migratory birds. | Leylekler göçmen kuşlardır.
+minimally | adv | The room was minimally furnished. | Oda çok az eşyayla döşenmişti.
+miscarriage | n | She had a miscarriage last year. | Geçen yıl düşük yaptı.
+miscarry | v | Women with this illness are more likely to miscarry. | Bu hastalığı olan kadınların düşük yapma olasılığı daha yüksektir.
+mistrust | n | There is deep mistrust between the two sides. | İki taraf arasında derin bir güvensizlik var.
+misuse | n | The misuse of drugs is a growing problem. | İlaçların kötüye kullanımı büyüyen bir sorun.
+modern invention | phr | The smartphone is a modern invention. | Akıllı telefon modern bir icattır.
+modernism | n | Modernism changed painting and literature. | Modernizm resmi ve edebiyatı değiştirdi.
+modernity | n | The old town resists modernity. | Eski kasaba modernliğe direniyor.
+modifiable | adj | Diet is a modifiable risk factor. | Beslenme değiştirilebilir bir risk etkenidir.
+monopoly on | phr | No company has a monopoly on good ideas. | Hiçbir şirketin iyi fikirler üzerinde tekeli yoktur.
+moreover | adv | The car is cheap; moreover, it uses little fuel. | Araba ucuz; üstelik az yakıt tüketiyor.
+mortar | n | The workers mixed mortar for the bricks. | İşçiler tuğlalar için harç karıştırdı.
+motor vehicle | phr | You need a licence to drive a motor vehicle. | Motorlu taşıt kullanmak için ehliyet gerekir.
+movable | adj | The table has movable parts. | Masanın hareketli parçaları var.
+moveable | adj | The shelves are moveable. | Raflar taşınabilir.
+multicellular | adj | Humans are multicellular organisms. | İnsanlar çok hücreli canlılardır.
+muscle contraction | phr | Calcium is needed for muscle contraction. | Kas kasılması için kalsiyum gerekir.
+nationalist | adj | A nationalist party won the election. | Milliyetçi bir parti seçimi kazandı.
+nationally | adv | The show is broadcast nationally. | Program ülke çapında yayınlanıyor.
+natural disaster | phr | The flood was a natural disaster. | Sel bir doğal afetti.
+natural wonder | phr | The canyon is a natural wonder. | Kanyon doğal bir harikadır.
+navigate | v | Sailors used the stars to navigate. | Denizciler yön bulmak için yıldızları kullanırdı.
+navigator | n | The navigator checked the map. | Yön bulucu haritayı kontrol etti.
+necessitate | v | The injury may necessitate surgery. | Yaralanma ameliyatı gerektirebilir.
+negative effect | phr | Noise has a negative effect on learning. | Gürültünün öğrenme üzerinde olumsuz etkisi var.
+negligent | adj | The doctor was found negligent. | Doktor ihmalkâr bulundu.
+neighbouring | adj | They moved to a neighbouring village. | Komşu bir köye taşındılar.
+neuron | n | A neuron sends signals through the brain. | Nöron beyinde sinyal iletir.
+newborn infant | phr | A newborn infant sleeps most of the day. | Yeni doğan bebek günün çoğunu uyuyarak geçirir.
+non-prescription drug/medicine | phr | Aspirin is a non-prescription drug. | Aspirin reçetesiz bir ilaçtır.
+non-renewable | adj | Coal is a non-renewable energy source. | Kömür yenilenemeyen bir enerji kaynağıdır.
+nonetheless | adv | It was raining; nonetheless, we went out. | Yağmur yağıyordu; yine de dışarı çıktık.
+nook | n | She read in a quiet nook of the library. | Kütüphanenin sessiz bir köşesinde okudu.
+normal practice | phr | It is normal practice to wear a uniform here. | Burada üniforma giymek olağan bir uygulamadır.
+noticeable improvement | phr | There has been a noticeable improvement in her health. | Sağlığında gözle görülür bir iyileşme oldu.
+noxious fumes | phr | The burning plastic gave off noxious fumes. | Yanan plastik zehirli dumanlar çıkardı.
+nutritional benefit | phr | Fresh fruit has a clear nutritional benefit. | Taze meyvenin belirgin bir besinsel faydası var.
+objectionable | adj | Viewers found the language objectionable. | İzleyiciler dili sakıncalı buldu.
+objectivity | n | Journalists should aim for objectivity. | Gazeteciler nesnelliği hedeflemeli.
+observable | adj | There were no observable side effects. | Gözlemlenebilir yan etki yoktu.
+observation of | phr | Her observation of birds lasted years. | Kuşları gözlemlemesi yıllar sürdü.
+observe galaxy | phr | Telescopes let us observe a distant galaxy. | Teleskoplar uzak bir galaksiyi gözlemlememizi sağlar.
+observer | n | An observer watched the election. | Bir gözlemci seçimi izledi.
+obstruction | n | The fallen tree caused an obstruction on the road. | Devrilen ağaç yolda bir engel oluşturdu.
+obstructive | adj | He was being deliberately obstructive. | Kasıtlı olarak engel çıkarıyordu.
+obtain from | phr | You can obtain a new form from the office. | Ofisten yeni bir form alabilirsin.
+obtainable | adj | The book is obtainable from most shops. | Kitap çoğu dükkândan temin edilebilir.
+obvious difference | phr | There is an obvious difference in price. | Fiyatta açık bir fark var.
+obvious similarity | phr | There is an obvious similarity between the two songs. | İki şarkı arasında bariz bir benzerlik var.
+obviously related | phr | The two events are obviously related. | İki olay açıkça birbiriyle ilişkili.
+obviously true | phr | What he said was obviously true. | Söylediği açıkça doğruydu.
+occur commonly | phr | These errors occur commonly in beginners. | Bu hatalar yeni başlayanlarda sık görülür.
+occur rapidly | phr | The changes occur rapidly in spring. | Değişiklikler ilkbaharda hızla gerçekleşir.
+offensive behaviour | phr | Offensive behaviour will not be accepted. | Saldırgan davranış kabul edilmeyecek.
+offer employment | phr | Tourism can offer employment to young people. | Turizm gençlere istihdam sağlayabilir.
+offer/provide protection | phr | Helmets offer protection in an accident. | Kasklar kazada koruma sağlar.
+on | prep | The book is on the table. | Kitap masanın üstünde.
+on condition that | phr | You can go on condition that you return by ten. | Saat ona kadar dönmen koşuluyla gidebilirsin.
+on the contrary | phr | He isn't lazy; on the contrary, he works hard. | Tembel değil; aksine çok çalışıyor.
+on the decline | phr | Print newspapers are on the decline. | Basılı gazeteler düşüşte.
+on the improve | phr | Her health is on the improve. | Sağlığı iyileşiyor.
+on the other hand | phr | It is cheap; on the other hand, it is slow. | Ucuz; öte yandan yavaş.
+online shopping | phr | Online shopping is popular with young people. | Çevrimiçi alışveriş gençler arasında popüler.
+open space | phr | Children need open space to play. | Çocukların oynamak için açık alana ihtiyacı var.
+optimize | v | We need to optimize the website for phones. | Siteyi telefonlar için en uygun hale getirmeliyiz.
+or | conj | Would you like tea or coffee? | Çay mı kahve mi istersin?
+orderly | adj | The crowd left in an orderly way. | Kalabalık düzenli bir şekilde ayrıldı.
+organisation chart | phr | Your name is on the organisation chart. | Adın organizasyon şemasında var.
+organizational | adj | She has excellent organizational skills. | Mükemmel organizasyon becerileri var.
+original purpose | phr | The building has lost its original purpose. | Bina asıl amacını yitirdi.
+out of employment | phr | He has been out of employment for months. | Aylardır işsiz.
+outer layer | phr | The outer layer of the skin protects us. | Cildin dış tabakası bizi korur.
+overall health | phr | Sleep affects your overall health. | Uyku genel sağlığını etkiler.
+overdraft | n | He has a large overdraft at the bank. | Bankada büyük bir ek hesap borcu var.
+overexposure | n | Overexposure can damage the skin. | Aşırı maruz kalma cilde zarar verebilir.
+overexposure to sth | phr | Overexposure to sunlight causes burns. | Güneş ışığına aşırı maruz kalmak yanıklara neden olur.
+overhead projector | phr | The teacher used an overhead projector. | Öğretmen tepegöz kullandı.
+overuse | n | The overuse of antibiotics is dangerous. | Antibiyotiklerin aşırı kullanımı tehlikelidir.
+packing list | phr | The packing list was inside the box. | Paket listesi kutunun içindeydi.
+painful death | phr | The poison causes a painful death. | Zehir acılı bir ölüme neden olur.
+painful illness | phr | Arthritis is a painful illness. | Artrit acı veren bir hastalıktır.
+parliamentary election | phr | The parliamentary election is next spring. | Parlamento seçimi gelecek ilkbaharda.
+part-time | adj | She has a part-time job at a café. | Bir kafede yarı zamanlı işi var.
+partially accurate | phr | The report is only partially accurate. | Rapor yalnızca kısmen doğru.
+participatory | adj | The class uses a participatory teaching style. | Sınıf katılımcı bir öğretim tarzı kullanıyor.
+particular region | phr | This wine comes from a particular region. | Bu şarap belirli bir bölgeden geliyor.
+patience may run out | phr | If you keep being late, her patience may run out. | Geç kalmaya devam edersen sabrı tükenebilir.
+pay maintenance | phr | He has to pay maintenance for his children. | Çocukları için nafaka ödemek zorunda.
+payee | n | Write the name of the payee on the cheque. | Çeke lehtarın adını yaz.
+payer | n | The tax payer funds the service. | Hizmeti vergi ödeyen finanse ediyor.
+paying-in slip | phr | Fill in the paying-in slip at the bank. | Bankada para yatırma fişini doldur.
+peace agreement | phr | The two sides signed a peace agreement. | İki taraf bir barış anlaşması imzaladı.
+peaceable | adj | They are a quiet and peaceable family. | Sessiz ve barışçıl bir aile.
+peaceably | adv | The crowd went home peaceably. | Kalabalık evine barış içinde gitti.
+peaceful surroundings | phr | The hotel is set in peaceful surroundings. | Otel huzurlu bir çevrede.
+pee/pass a kidney stone | phr | It is very painful to pass a kidney stone. | Böbrek taşı düşürmek çok acı vericidir.
+perceptible | adj | There was a barely perceptible change in her voice. | Sesinde zar zor fark edilen bir değişiklik vardı.
+perform function | phr | Each organ must perform its function properly. | Her organ işlevini düzgün yerine getirmeli.
+periodical | n | The article appeared in a medical periodical. | Makale tıbbi bir süreli yayında çıktı.
+periodically | adv | Check the tyres periodically. | Lastikleri belirli aralıklarla kontrol et.
+permanence | n | Nothing in life has permanence. | Hayatta hiçbir şeyin kalıcılığı yoktur.
+permanent dwelling | phr | They have no permanent dwelling. | Kalıcı bir evleri yok.
+permanent effect | phr | The drug has no permanent effect. | İlacın kalıcı bir etkisi yok.
+permanent scar | phr | The burn left a permanent scar. | Yanık kalıcı bir yara izi bıraktı.
+permanently injured | phr | He was permanently injured in the crash. | Kazada kalıcı olarak yaralandı.
+permissible | adj | Parking is not permissible here. | Burada park etmek serbest değil.
+personal property | phr | Keep your personal property with you. | Kişisel eşyalarını yanında tut.
+personnel officer | phr | The personnel officer read my application. | Personel görevlisi başvurumu okudu.
+persuade consumer | phr | Adverts try to persuade the consumer to buy. | Reklamlar tüketiciyi satın almaya ikna etmeye çalışır.
+persuasively | adv | She spoke persuasively about the plan. | Plan hakkında ikna edici konuştu.
+pertain | v | These rules pertain to all students. | Bu kurallar tüm öğrencilerle ilgilidir.
+pesticide contamination | phr | Pesticide contamination was found in the well. | Kuyuda böcek ilacı kirliliği bulundu.
+pharmaceutical | adj | She works for a pharmaceutical company. | Bir ilaç şirketinde çalışıyor.
+physical state | phr | Water changes its physical state when heated. | Su ısıtılınca fiziksel hâlini değiştirir.
+pick from | phr | You can pick from three colours. | Üç renk arasından seçebilirsin.
+placement | n | Students do a work placement in the third year. | Öğrenciler üçüncü yılda staj yapıyor.
+plant species | phr | The island has many rare plant species. | Adada birçok nadir bitki türü var.
+play a part | phr | Genes play a part in height. | Boy uzunluğunda genlerin de payı vardır.
+play role in sth | phr | Diet can play a role in this disease. | Beslenme bu hastalıkta rol oynayabilir.
+pleasurably | adv | We were pleasurably surprised by the meal. | Yemek bizi hoş bir şekilde şaşırttı.
+point of sale | phr | Pay at the point of sale. | Ödemeyi satış noktasında yap.
+poisonous spider | phr | A poisonous spider bit him on the hand. | Zehirli bir örümcek onu elinden ısırdı.
+policyholder | n | The policyholder must report the accident. | Poliçe sahibi kazayı bildirmelidir.
+political disagreement | phr | Political disagreement divided the family. | Siyasi anlaşmazlık aileyi böldü.
+political landscape | phr | The election changed the political landscape. | Seçim siyasi ortamı değiştirdi.
+political strife | phr | Years of political strife hurt the economy. | Yıllar süren siyasi çekişme ekonomiye zarar verdi.
+political tension | phr | Political tension is rising in the capital. | Başkentte siyasi gerilim artıyor.
+politically stable | phr | Investors prefer politically stable countries. | Yatırımcılar siyasi olarak istikrarlı ülkeleri tercih eder.
+pollinator | n | The bee is an important pollinator. | Arı önemli bir tozlayıcıdır.
+pollutant | n | Carbon monoxide is a dangerous pollutant. | Karbon monoksit tehlikeli bir kirleticidir.
+pollute air/water/atmosphere etc | phr | Old factories pollute air in the region. | Eski fabrikalar bölgedeki havayı kirletiyor.
+polluted water | phr | Polluted water can make you very sick. | Kirli su seni çok hasta edebilir.
+poor access | phr | Villagers have poor access to clean water. | Köylülerin temiz suya erişimi zayıf.
+poor management | phr | The firm failed because of poor management. | Şirket kötü yönetim yüzünden battı.
+poor region | phr | Few doctors work in this poor region. | Bu yoksul bölgede çok az doktor çalışıyor.
+popular choice | phr | Pasta is a popular choice for students. | Makarna öğrenciler için popüler bir seçimdir.
+popularization | n | The popularization of science helps everyone. | Bilimin yaygınlaştırılması herkese yardım eder.
+populated | adj | This is the most populated part of the country. | Burası ülkenin en kalabalık bölgesi.
+population may increase | phr | The population may increase by ten percent. | Nüfus yüzde on artabilir.
+portray | v | The film will portray him as a hero. | Film onu bir kahraman olarak gösterecek.
+portrayal | n | Her portrayal of the queen won awards. | Kraliçeyi canlandırışı ödüller kazandı.
+pose a hazard | phr | Broken glass can pose a hazard. | Kırık cam tehlike oluşturabilir.
+positive impact | phr | The new park had a positive impact on the area. | Yeni parkın bölge üzerinde olumlu etkisi oldu.
+positive trend | phr | Sales show a positive trend this year. | Satışlar bu yıl olumlu bir eğilim gösteriyor.
+possible danger | phr | Tell the children about the possible danger. | Çocuklara olası tehlikeyi anlat.
+potentially hazardous | phr | These fumes are potentially hazardous. | Bu dumanlar tehlikeli olabilir.
+practise | v | You must practise every day to improve. | Gelişmek için her gün pratik yapmalısın.
+precautionary | adj | He stayed in hospital as a precautionary measure. | Önlem olarak hastanede kaldı.
+precise calculation | phr | Landing the plane needs precise calculation. | Uçağı indirmek hassas hesap gerektirir.
+precise definition | phr | There is no precise definition of happiness. | Mutluluğun kesin bir tanımı yok.
+precisely equal | phr | The two lines are precisely equal. | İki çizgi tamamen eşit.
+predict easily | phr | Nobody can easily predict the price of oil. | Petrol fiyatını kimse kolayca tahmin edemez.
+predict precisely | phr | Scientists can precisely predict the next eclipse. | Bilim insanları bir sonraki tutulmayı tam olarak tahmin edebilir.
+predictably | adv | Predictably, the train was late. | Tahmin edildiği gibi tren geç kaldı.
+predictive | adj | The phone has predictive text. | Telefonda otomatik metin tamamlama var.
+predictor | n | Past results are a good predictor of success. | Geçmiş sonuçlar başarının iyi bir göstergesidir.
+predominant | adj | Green is the predominant colour of the room. | Odanın baskın rengi yeşil.
+preparatory | adj | We attended a preparatory course. | Hazırlık kursuna katıldık.
+prescribe drug/medicine | phr | Only doctors can prescribe this drug. | Bu ilacı yalnızca doktorlar yazabilir.
+prescription drug | phr | This is a prescription drug. | Bu reçeteli bir ilaçtır.
+prescription drug/medicine | phr | Keep any prescription drug away from children. | Reçeteli ilaçları çocuklardan uzak tut.
+prescription for | phr | The doctor wrote a prescription for antibiotics. | Doktor antibiyotik için reçete yazdı.
+preservationist | n | A preservationist fought to save the building. | Koruma savunucusu binayı kurtarmak için mücadele etti.
+preservative | n | This bread contains no preservative. | Bu ekmek koruyucu madde içermiyor.
+preserve diversity | phr | Parks help preserve the diversity of wildlife. | Parklar yaban hayatı çeşitliliğini korumaya yardım eder.
+pressure may build up | phr | If the valve is closed, pressure may build up. | Vana kapalıysa basınç artabilir.
+pretension | n | He speaks without any pretension. | Hiç iddiasız konuşuyor.
+prevailing | adj | The prevailing wind here is from the west. | Buradaki hâkim rüzgâr batıdan eser.
+prevalence | n | The prevalence of obesity is rising. | Obezite yaygınlığı artıyor.
+prevalence of a disease | phr | Researchers measured the prevalence of a disease in the area. | Araştırmacılar bölgedeki bir hastalığın yaygınlığını ölçtü.
+prevent disaster | phr | Quick action helped prevent disaster. | Hızlı müdahale felaketi önlemeye yardım etti.
+prevent illness | phr | Washing your hands can prevent illness. | Elleri yıkamak hastalığı önleyebilir.
+prevention measures | phr | The school took prevention measures against flu. | Okul gribe karşı önleme tedbirleri aldı.
+preventive medicine | phr | Vaccines are part of preventive medicine. | Aşılar koruyucu hekimliğin parçasıdır.
+previous research | phr | Previous research supports this result. | Önceki araştırmalar bu sonucu destekliyor.
+previous/former employer | phr | My previous employer gave me a reference. | Önceki işverenim bana referans verdi.
+price may increase | phr | The price may increase next month. | Fiyat gelecek ay artabilir.
+primary focus | phr | Safety is our primary focus. | Güvenlik birincil odağımızdır.
+private company | phr | She works for a private company. | Özel bir şirkette çalışıyor.
+problematic | adj | The new rule is problematic for small shops. | Yeni kural küçük dükkânlar için sorunlu.
+problematical | adj | Getting the money will be problematical. | Parayı bulmak sorunlu olacak.
+proceed rapidly | phr | The work will proceed rapidly in good weather. | İş iyi havada hızla ilerleyecek.
+processing | n | The processing of your request takes three days. | Talebinin işlenmesi üç gün sürüyor.
+proclaim | v | The two countries will proclaim peace tomorrow. | İki ülke yarın barış ilan edecek.
+produce artificially | phr | Scientists can artificially produce this vitamin. | Bilim insanları bu vitamini yapay olarak üretebilir.
+produce energy | phr | Cells produce energy from food. | Hücreler besinden enerji üretir.
+produce light | phr | These insects produce light at night. | Bu böcekler geceleri ışık üretir.
+produce solution | phr | The team must produce a solution within a week. | Ekip bir hafta içinde çözüm üretmeli.
+profitability | n | Lower costs improved profitability. | Düşük maliyetler kârlılığı artırdı.
+prohibitively | adv | Houses in the city are prohibitively expensive. | Şehirdeki evler alınamayacak kadar pahalı.
+projectile | n | The ancient machine threw a heavy projectile. | Eski makine ağır bir mermi fırlatıyordu.
+prominence | n | She rose to prominence as a writer. | Yazar olarak ün kazandı.
+prominently | adv | The photo was prominently displayed in the hall. | Fotoğraf salonda göze çarpacak şekilde sergilendi.
+promising result | phr | The first test showed a promising result. | İlk test umut verici bir sonuç gösterdi.
+promoter | n | The concert promoter sold all the tickets. | Konser organizatörü tüm biletleri sattı.
+proportional | adj | Your pay is proportional to your hours. | Ücretin çalışma saatlerinle orantılıdır.
+proportionally | adv | Costs rose proportionally. | Maliyetler orantılı olarak arttı.
+proportionate | adj | The punishment should be proportionate to the crime. | Ceza suçla orantılı olmalı.
+protect effectively | phr | This cream can protect effectively against the sun. | Bu krem güneşe karşı etkili koruma sağlar.
+protect from infection | phr | Clean bandages protect from infection. | Temiz bandajlar enfeksiyondan korur.
+protective glove | phr | Wear a protective glove when you use chemicals. | Kimyasal kullanırken koruyucu eldiven tak.
+protective layer | phr | Ozone forms a protective layer around the Earth. | Ozon Dünya'nın çevresinde koruyucu bir tabaka oluşturur.
+protectively | adv | He put his arm protectively around her. | Kolunu korurcasına ona doladı.
+prove claim | phr | You must show receipts to prove your claim. | İddianı kanıtlamak için makbuz göstermelisin.
+provide access | phr | The ramp will provide access for wheelchairs. | Rampa tekerlekli sandalyeler için erişim sağlayacak.
+provide benefit | phr | Short walks provide a real benefit to older people. | Kısa yürüyüşler yaşlılara gerçek bir fayda sağlar.
+provide help | phr | Volunteers provide help after a disaster. | Gönüllüler afet sonrası yardım sağlar.
+provide resource | phr | The library can provide a useful resource. | Kütüphane faydalı bir kaynak sağlayabilir.
+provocation | n | He attacked without provocation. | Hiçbir kışkırtma olmadan saldırdı.
+proxy vote | phr | She cast a proxy vote for her sister. | Kız kardeşi adına vekâleten oy kullandı.
+public liability | phr | The shop has public liability insurance. | Dükkânın üçüncü şahıs sorumluluk sigortası var.
+purge | v | The new leader tried to purge his rivals. | Yeni lider rakiplerini tasfiye etmeye çalıştı.
+purposeful | adj | She walked with purposeful steps. | Kararlı adımlarla yürüdü.
+purposefully | adv | He walked purposefully to the door. | Kararlı bir şekilde kapıya yürüdü.
+put forward argument | phr | She will put forward a strong argument. | Güçlü bir sav öne sürecek.
+put reliance on | phr | Don't put reliance on one source. | Tek bir kaynağa güvenme.
+quantifiable | adj | The benefits are not easily quantifiable. | Faydalar kolayca ölçülemez.
+quantify | v | It is hard to quantify the damage. | Hasarı ölçmek zor.
+quay | n | The boat is tied up at the quay. | Tekne rıhtıma bağlı.
+racially | adv | The attack was racially motivated. | Saldırı ırkçı saiklerle yapıldı.
+racially diverse | phr | The school is racially diverse. | Okul ırksal olarak çeşitli.
+radical transformation | phr | The company went through a radical transformation. | Şirket köklü bir dönüşüm geçirdi.
+raider | n | The raider took gold from the village. | Akıncı köyden altın aldı.
+randomly | adv | The computer randomly chooses the winner. | Bilgisayar kazananı rastgele seçer.
+randomness | n | The game has an element of randomness. | Oyunda bir rastlantısallık unsuru var.
+rapidity | n | The rapidity of the change surprised us. | Değişimin hızı bizi şaşırttı.
+raw resources | phr | The country exports raw resources. | Ülke ham kaynak ihraç ediyor.
+reachable | adj | The village is only reachable by boat. | Köye yalnızca tekneyle ulaşılabilir.
+react adversely | phr | Some patients react adversely to the drug. | Bazı hastalar ilaca olumsuz tepki veriyor.
+reaction with | phr | The reaction with water produces heat. | Suyla tepkime ısı üretir.
+reactive | adj | This metal is highly reactive. | Bu metal oldukça tepkimelidir.
+readable | adj | The book is short and very readable. | Kitap kısa ve çok okunaklı.
+realization | n | The realization that he was lost scared him. | Kaybolduğunu fark etmek onu korkuttu.
+reassessment | n | The accident led to a reassessment of the rules. | Kaza kuralların yeniden değerlendirilmesine yol açtı.
+reclaim | v | You can reclaim the tax at the airport. | Vergiyi havaalanında geri alabilirsin.
+recognizably | adv | The child was recognizably his son. | Çocuğun onun oğlu olduğu açıkça belliydi.
+recommended dosage | phr | Do not exceed the recommended dosage. | Önerilen dozu aşmayın.
+recommended treatment | phr | Rest is the recommended treatment. | Önerilen tedavi dinlenmedir.
+recover gradually | phr | Most patients recover gradually. | Çoğu hasta yavaş yavaş iyileşir.
+recovery from | phr | Her recovery from the operation was quick. | Ameliyattan sonra hızlı iyileşti.
+recreate | v | The museum tried to recreate an old street. | Müze eski bir sokağı yeniden yaratmaya çalıştı.
+recurrence | n | The drug prevents recurrence of the disease. | İlaç hastalığın tekrarlamasını önlüyor.
+recurrent | adj | She has a recurrent back problem. | Tekrarlayan bir bel sorunu var.
+recurrent pain | phr | He sees a doctor for recurrent pain. | Tekrarlayan ağrı nedeniyle doktora gidiyor.
+red/white blood cell | phr | A red blood cell carries oxygen. | Kırmızı kan hücresi oksijen taşır.
+reduce emission | phr | New engines reduce emission levels. | Yeni motorlar salım seviyelerini düşürüyor.
+reduce risk | phr | Seat belts reduce the risk of injury. | Emniyet kemerleri yaralanma riskini azaltır.
+reduce sharply | phr | The firm had to sharply reduce its costs. | Şirket maliyetlerini keskin biçimde azaltmak zorunda kaldı.
+reduce strain | phr | Good chairs reduce the strain on your back. | İyi sandalyeler sırtındaki yükü azaltır.
+redundancy | n | Redundancy can be hard for older workers. | İşten çıkarılma yaşlı çalışanlar için zor olabilir.
+redundant | adj | Hundreds of workers were made redundant. | Yüzlerce işçi işten çıkarıldı.
+refinery | n | The oil refinery employs many people. | Petrol rafinerisi çok kişi çalıştırıyor.
+reflective | adj | Cyclists wear reflective jackets at night. | Bisikletliler geceleri yansıtıcı ceket giyer.
+regional distribution | phr | The map shows the regional distribution of rainfall. | Harita yağışın bölgesel dağılımını gösteriyor.
+regional government | phr | The regional government built a new road. | Bölgesel yönetim yeni bir yol yaptı.
+regional scale | phr | The study works on a regional scale. | Çalışma bölgesel ölçekte yürütülüyor.
+regionally | adv | The problem is regionally limited. | Sorun bölgesel olarak sınırlı.
+regularity | n | Trains arrive with great regularity. | Trenler büyük bir düzenlilikle geliyor.
+regulator | n | The energy regulator fined the company. | Enerji düzenleyicisi şirkete ceza verdi.
+regulatory | adj | The drug passed all regulatory tests. | İlaç tüm düzenleyici testleri geçti.
+reinstatement | n | The workers demanded his reinstatement. | İşçiler onun işe iadesini talep etti.
+reinsure | v | Large firms reinsure their biggest risks. | Büyük firmalar en büyük risklerini reasüre ettirir.
+relax muscle | phr | A warm bath can relax a tired muscle. | Sıcak banyo yorgun bir kası gevşetebilir.
+release chemical | phr | Damaged cells release a chemical signal. | Hasarlı hücreler kimyasal bir sinyal salar.
+reliable measure | phr | Weight alone is not a reliable measure of health. | Tek başına kilo sağlığın güvenilir bir ölçüsü değildir.
+reliable result | phr | A large sample gives a reliable result. | Büyük bir örneklem güvenilir sonuç verir.
+reliably | adv | The old car still runs reliably. | Eski araba hâlâ güvenilir şekilde çalışıyor.
+reliance | n | Our reliance on oil is a problem. | Petrole bağımlılığımız bir sorun.
+relieve tension | phr | Deep breathing can relieve tension. | Derin nefes almak gerginliği azaltabilir.
+religious authority | phr | People asked the religious authority for advice. | İnsanlar dini otoriteden tavsiye istedi.
+religious belief | phr | Everyone has the right to a religious belief. | Herkesin dini inanç hakkı vardır.
+religious ceremony | phr | They held a small religious ceremony. | Küçük bir dini tören düzenlediler.
+religious practice | phr | Fasting is a religious practice. | Oruç tutmak dini bir uygulamadır.
+rely on aid | phr | Many refugees rely on aid. | Birçok mülteci yardıma bağımlı.
+rely on instinct | phr | Young birds rely on instinct. | Genç kuşlar içgüdülerine güvenir.
+remarkable improvement | phr | The patient showed a remarkable improvement. | Hasta dikkat çekici bir iyileşme gösterdi.
+remediation | n | Soil remediation took several years. | Toprağın iyileştirilmesi birkaç yıl sürdü.
+remember certainly | phr | I certainly remember closing the door. | Kapıyı kapattığımı kesinlikle hatırlıyorum.
+remember hardly | phr | I hardly remember anything of that day. | O günden neredeyse hiçbir şey hatırlamıyorum.
+remover | n | I need a stain remover for this shirt. | Bu gömlek için leke çıkarıcıya ihtiyacım var.
+renewable resource | phr | Wood is a renewable resource. | Odun yenilenebilir bir kaynaktır.
+repair properly | phr | It costs more to repair the roof properly. | Çatıyı düzgün onarmak daha pahalıya mal olur.
+reparation | n | The victims asked for reparation. | Mağdurlar tazminat istedi.
+repeatable | adj | A good experiment should be repeatable. | İyi bir deney tekrarlanabilir olmalı.
+report may state | phr | The report may state the cause of the fire. | Rapor yangının nedenini belirtebilir.
+representation | n | Women need more representation in parliament. | Kadınların parlamentoda daha fazla temsile ihtiyacı var.
+require explanation | phr | These results require an explanation. | Bu sonuçlar açıklama gerektiriyor.
+require protection | phr | Young trees require protection from wind. | Genç ağaçlar rüzgârdan korunmaya ihtiyaç duyar.
+require treatment | phr | Most patients require treatment for a week. | Çoğu hasta bir hafta tedavi görmeli.
+required standard | phr | The work must reach the required standard. | İş gerekli standarda ulaşmalı.
+requisite | adj | She has the requisite experience for the job. | İş için gerekli deneyime sahip.
+research into | phr | More research into the disease is needed. | Hastalık üzerine daha fazla araştırma gerekiyor.
+research may show | phr | Further research may show a different result. | İleri araştırmalar farklı bir sonuç gösterebilir.
+research may suggest | phr | New research may suggest better treatments. | Yeni araştırmalar daha iyi tedavilere işaret edebilir.
+research purpose | phr | The data is used only for research purpose. | Veriler yalnızca araştırma amacıyla kullanılır.
+resentful | adj | He felt resentful about the decision. | Karardan dolayı içerlemiş hissetti.
+resentment | n | The low pay caused resentment among staff. | Düşük maaş çalışanlar arasında kırgınlığa neden oldu.
+reshape | v | The internet will reshape education. | İnternet eğitimi yeniden şekillendirecek.
+respective | adj | They went back to their respective homes. | Kendi evlerine döndüler.
+respiration | n | Plants need oxygen for respiration. | Bitkilerin solunum için oksijene ihtiyacı var.
+respiratory | adj | Smoke can cause respiratory problems. | Duman solunum sorunlarına yol açabilir.
+respiratory system | phr | The lungs are part of the respiratory system. | Akciğerler solunum sisteminin parçasıdır.
+respond adversely | phr | Some plants respond adversely to cold. | Bazı bitkiler soğuğa olumsuz tepki verir.
+respondent | n | Each respondent answered ten questions. | Her katılımcı on soru yanıtladı.
+responsibly | adv | Please drink responsibly. | Lütfen sorumlu şekilde tüketin.
+restoration | n | The restoration of the palace took years. | Sarayın restorasyonu yıllar sürdü.
+restricting | adj | The tight coat felt restricting. | Dar palto kısıtlayıcı hissettirdi.
+restructuring | n | The restructuring cost many jobs. | Yeniden yapılanma birçok işe mal oldu.
+resultant | adj | The storm and resultant floods killed many animals. | Fırtına ve ardından gelen seller birçok hayvanı öldürdü.
+revealing | adj | It was a very revealing interview. | Çok şey ortaya koyan bir röportajdı.
+reversal | n | The decision was a complete reversal of policy. | Karar politikanın tamamen tersine çevrilmesiydi.
+reversible | adj | The damage is fortunately reversible. | Hasar neyse ki geri döndürülebilir.
+rigidity | n | The rigidity of the rules annoyed the staff. | Kuralların katılığı çalışanları rahatsız etti.
+rigidly | adv | The rules are rigidly enforced. | Kurallar katı biçimde uygulanıyor.
+risk factor | phr | Smoking is a major risk factor. | Sigara önemli bir risk etkenidir.
+risk for | phr | Old age is a risk for falls. | Yaşlılık düşmeler için bir risktir.
+risky investment | phr | Buying that land was a risky investment. | O araziyi almak riskli bir yatırımdı.
+robotic | adj | The factory uses a robotic arm. | Fabrika robotik bir kol kullanıyor.
+rook | n | A rook sat on the old tower. | Bir ekin kargası eski kulenin üstüne kondu.
+rotation | n | The rotation of the Earth causes day and night. | Dünya'nın dönüşü gece ve gündüzü oluşturur.
+run out of supply | phr | The hospital may run out of supplies this week. | Hastanenin malzemesi bu hafta tükenebilir.
+rural region | phr | Few buses serve this rural region. | Bu kırsal bölgeye çok az otobüs gidiyor.
+rusk | n | The baby chewed on a rusk. | Bebek bir peksimeti çiğnedi.
+safeguard | n | The law is a safeguard against abuse. | Yasa kötüye kullanıma karşı bir güvencedir.
+salivary gland | phr | The salivary gland makes saliva. | Tükürük bezi tükürük üretir.
+sanitation | n | Poor sanitation spreads disease. | Kötü sanitasyon hastalığı yayar.
+satisfactorily | adv | The machine works satisfactorily. | Makine tatmin edici şekilde çalışıyor.
+satisfactory result | phr | The test gave a satisfactory result. | Test tatmin edici bir sonuç verdi.
+satisfying | adj | It was a satisfying meal. | Doyurucu bir yemekti.
+scarcely distinguishable | phr | The two colours are scarcely distinguishable. | İki renk neredeyse ayırt edilemiyor.
+scarcely surprising | phr | It is scarcely surprising that he failed. | Başarısız olması pek şaşırtıcı değil.
+scarcity | n | The scarcity of water is a serious problem. | Su kıtlığı ciddi bir sorun.
+scholarly | adj | She wrote a scholarly book on history. | Tarih üzerine bilimsel bir kitap yazdı.
+schooling | n | He had little formal schooling. | Çok az örgün eğitim aldı.
+seabird | n | A seabird landed on the boat. | Bir deniz kuşu tekneye kondu.
+secondly | adv | Firstly it is cheap; secondly, it is fast. | Birincisi ucuz; ikincisi hızlı.
+secrete | v | Glands secrete substances into the blood. | Bezler kana madde salgılar.
+secrete hormone | phr | These cells secrete a hormone during stress. | Bu hücreler stres sırasında bir hormon salgılar.
+secrete saliva | phr | Dogs secrete saliva when they smell food. | Köpekler yemek kokusu alınca tükürük salgılar.
+sectional | adj | The sofa is sectional and easy to move. | Kanepe parçalı ve kolay taşınıyor.
+see also | phr | For details, see also chapter five. | Ayrıntılar için beşinci bölüme de bakınız.
+seeker | n | The job seeker sent many applications. | İş arayan kişi birçok başvuru gönderdi.
+selectively | adv | She reads selectively. | Seçerek okur.
+selectivity | n | The university is famous for its selectivity. | Üniversite seçiciliğiyle ünlüdür.
+self-awareness | n | Good leaders have self-awareness. | İyi liderlerin öz farkındalığı vardır.
+self-denial | n | A strict diet requires self-denial. | Sıkı bir diyet kendini mahrum bırakmayı gerektirir.
+send observer | phr | The union will send an observer to the vote. | Birlik oylamaya bir gözlemci gönderecek.
+sensibility | n | The poem shows great sensibility. | Şiir büyük bir duyarlılık gösteriyor.
+sensibly | adv | Dress sensibly for the mountains. | Dağlar için mantıklı giyin.
+sensitively | adv | The matter was handled sensitively. | Konu hassas bir şekilde ele alındı.
+serenity | n | The garden has an air of serenity. | Bahçede bir huzur havası var.
+serious hazard | phr | The loose wire is a serious hazard. | Gevşek kablo ciddi bir tehlike.
+settle argument | phr | This book will settle the argument about the date. | Bu kitap tarihle ilgili tartışmayı bitirecek.
+severe burn | phr | He suffered a severe burn on his arm. | Kolunda ağır bir yanık oluştu.
+severe disease | phr | This virus can cause severe disease. | Bu virüs ağır hastalığa neden olabilir.
+severe injury | phr | The driver had a severe injury to his leg. | Sürücünün bacağında ağır bir yaralanma vardı.
+severe side effect | phr | The drug had one severe side effect. | İlacın ağır bir yan etkisi vardı.
+severity of an illness | phr | Age affects the severity of an illness. | Yaş bir hastalığın şiddetini etkiler.
+shady spot | phr | We ate lunch in a shady spot. | Öğle yemeğini gölgeli bir yerde yedik.
+shake violently | phr | The walls began to shake violently. | Duvarlar şiddetle sallanmaya başladı.
+share ancestor | phr | Humans and apes share an ancestor. | İnsanlar ve maymunlar ortak bir ataya sahiptir.
+sharp claw | phr | The cat has a sharp claw on each toe. | Kedinin her parmağında keskin bir pençe var.
+sharp increase | phr | There was a sharp increase in prices. | Fiyatlarda keskin bir artış oldu.
+shipping agent | phr | The shipping agent sent the invoice. | Nakliye acentesi faturayı gönderdi.
+short space | phr | So much changed in a short space of time. | Kısa sürede çok şey değişti.
+show difference | phr | The two tests show a difference in results. | İki test sonuçlarda farklılık gösteriyor.
+show fear | phr | Try not to show fear in front of the dog. | Köpeğin önünde korku göstermemeye çalış.
+show of hands | phr | They voted by a show of hands. | El kaldırarak oy kullandılar.
+shrink steadily | phr | Glaciers shrink steadily every year. | Buzullar her yıl giderek küçülüyor.
+shrinkage | n | Shrinkage of the lake worries farmers. | Gölün küçülmesi çiftçileri endişelendiriyor.
+sighted | adj | Blind and sighted children study together. | Görme engelli ve gören çocuklar birlikte okuyor.
+similarity between | phr | There is a similarity between the two languages. | İki dil arasında bir benzerlik var.
+simplification | n | This chart is a simplification of the process. | Bu şema sürecin basitleştirilmiş hâlidir.
+since | conj | We stayed home since it was snowing. | Kar yağdığı için evde kaldık.
+sleepwalking | n | Sleepwalking is common among young children. | Uyurgezerlik küçük çocuklar arasında yaygındır.
+small bowel/intestine | phr | Most food is absorbed in the small intestine. | Besinlerin çoğu ince bağırsakta emilir.
+smoking habit | phr | He finally gave up his smoking habit. | Sonunda sigara alışkanlığını bıraktı.
+so as to | phr | She left early so as to catch the bus. | Otobüse yetişmek için erken çıktı.
+social issue | phr | Homelessness is a major social issue. | Evsizlik önemli bir toplumsal sorundur.
+social network | phr | She joined a social network for writers. | Yazarlar için bir sosyal ağa katıldı.
+social order | phr | The revolution changed the social order. | Devrim toplumsal düzeni değiştirdi.
+socialism | n | The party supports democratic socialism. | Parti demokratik sosyalizmi destekliyor.
+socialization | n | School plays a big role in socialization. | Okul toplumsallaşmada büyük rol oynar.
+soft currency | phr | Few traders accept a soft currency. | Çok az tüccar zayıf para birimi kabul ediyor.
+solar panel | phr | We put a solar panel on the roof. | Çatıya güneş paneli koyduk.
+solid evidence | phr | The police have solid evidence. | Polisin sağlam kanıtı var.
+solid matter | phr | Rocks are solid matter. | Kayalar katı maddedir.
+solidarity | n | The workers showed solidarity during the strike. | İşçiler grev sırasında dayanışma gösterdi.
+solidify | v | The liquid will solidify as it cools. | Sıvı soğudukça katılaşacak.
+solvent | n | Water is a common solvent. | Su yaygın bir çözücüdür.
+species may die out | phr | Without forests, a species may die out. | Ormanlar olmadan bir tür yok olabilir.
+spread a disease | phr | Mosquitoes can spread a disease quickly. | Sivrisinekler bir hastalığı hızla yayabilir.
+spread by | phr | The virus is spread by touch. | Virüs temasla yayılır.
+spread widely | phr | News can spread widely within minutes. | Haberler dakikalar içinde geniş çapta yayılabilir.
+standing order | phr | I pay the rent by standing order. | Kirayı düzenli ödeme talimatıyla ödüyorum.
+staple crop | phr | Rice is the staple crop of the area. | Pirinç bölgenin temel ürünüdür.
+state accurately | phr | It is hard to state accurately how many died. | Kaç kişinin öldüğünü doğru olarak söylemek zor.
+stiff competition | phr | The shop faces stiff competition. | Dükkân sıkı bir rekabetle karşı karşıya.
+stillbirth | n | The couple were heartbroken after the stillbirth. | Çift ölü doğumdan sonra çok üzüldü.
+stimulant | n | Caffeine is a mild stimulant. | Kafein hafif bir uyarıcıdır.
+stimulate growth | phr | Low taxes may stimulate growth. | Düşük vergiler büyümeyi teşvik edebilir.
+stipulation | n | The contract has one stipulation about pets. | Sözleşmede evcil hayvanlarla ilgili bir şart var.
+stockpile | n | The country has a large stockpile of food. | Ülkenin büyük bir gıda stoku var.
+stony | adj | We walked along a stony path. | Taşlı bir patikada yürüdük.
+strain on | phr | The new rules put a strain on staff. | Yeni kurallar çalışanlara yük bindiriyor.
+strategic plan | phr | The board approved a new strategic plan. | Yönetim kurulu yeni bir stratejik planı onayladı.
+strategy for | phr | We need a strategy for the winter. | Kış için bir stratejiye ihtiyacımız var.
+stressor | n | Moving house is a big stressor. | Taşınmak büyük bir stres kaynağıdır.
+stretch muscle | phr | Athletes stretch each muscle before running. | Sporcular koşmadan önce her kası esnetir.
+strife | n | The country has known years of strife. | Ülke yıllarca çekişme yaşadı.
+structural adjustment | phr | The loan required structural adjustment. | Kredi yapısal uyum gerektiriyordu.
+structural change | phr | The economy is going through structural change. | Ekonomi yapısal değişimden geçiyor.
+study may show | phr | A larger study may show a clear result. | Daha büyük bir çalışma net bir sonuç gösterebilir.
+subconscious | adj | Fear is often subconscious. | Korku çoğunlukla bilinçaltıdır.
+subjectivity | n | The review contains some subjectivity. | Değerlendirme bir miktar öznellik içeriyor.
+subsequent research | phr | Subsequent research confirmed the result. | Sonraki araştırmalar sonucu doğruladı.
+sudden decline | phr | There was a sudden decline in sales. | Satışlarda ani bir düşüş oldu.
+sudden spasm | phr | A sudden spasm stopped him running. | Ani bir kasılma koşmasını durdurdu.
+suffer from a disease | phr | Millions suffer from a disease of the heart. | Milyonlarca kişi bir kalp hastalığından muzdarip.
+suffer from an illness | phr | He began to suffer from an illness last year. | Geçen yıl bir hastalıktan muzdarip olmaya başladı.
+suffer/have heart attack | phr | Stress can cause you to have a heart attack. | Stres kalp krizi geçirmene yol açabilir.
+sufficiency | n | The country aims for food sufficiency. | Ülke gıdada yeterliliği hedefliyor.
+suitability | n | They tested her suitability for the job. | İşe uygunluğunu test ettiler.
+suitably | adv | Come suitably dressed for the rain. | Yağmura uygun giyinerek gel.
+sun may come up | phr | Tomorrow the sun may come up after six. | Yarın güneş altıdan sonra doğabilir.
+superficiality | n | Critics attacked the superficiality of the film. | Eleştirmenler filmin yüzeyselliğine saldırdı.
+supplemental | adj | Students get supplemental lessons in math. | Öğrenciler matematikte ek ders alıyor.
+supplementary | adj | The hospital needs supplementary funding. | Hastanenin ek fona ihtiyacı var.
+supply chain | phr | The strike broke the supply chain. | Grev tedarik zincirini kırdı.
+surgically | adv | The stone was surgically removed. | Taş ameliyatla çıkarıldı.
+surrounding region | phr | The river waters the surrounding region. | Nehir çevredeki bölgeyi suluyor.
+surrounding tissue | phr | The cancer has not reached surrounding tissue. | Kanser çevredeki dokuya ulaşmadı.
+surveyor | n | A surveyor checked the house before we bought it. | Almadan önce bir ölçüm uzmanı evi kontrol etti.
+survive disaster | phr | Few villages survive a disaster of this size. | Bu büyüklükte bir felaketi çok az köy atlatır.
+susceptibility | n | Stress increases susceptibility to illness. | Stres hastalıklara yatkınlığı artırır.
+sustain growth | phr | The country cannot sustain growth forever. | Ülke büyümeyi sonsuza dek sürdüremez.
+sustain life | phr | Water is needed to sustain life. | Yaşamı sürdürmek için su gereklidir.
+sustainability | n | The company cares about sustainability. | Şirket sürdürülebilirliği önemsiyor.
+sustainable economy | phr | We need a sustainable economy. | Sürdürülebilir bir ekonomiye ihtiyacımız var.
+sustainable energy sources | phr | The town uses sustainable energy sources. | Kasaba sürdürülebilir enerji kaynakları kullanıyor.
+sustainable production | phr | Sustainable production protects the soil. | Sürdürülebilir üretim toprağı korur.
+systematic | adj | We need a systematic approach. | Sistemli bir yaklaşıma ihtiyacımız var.
+systematize | v | We must systematize the filing. | Dosyalamayı sistemleştirmeliyiz.
+take a pill | phr | I take a pill every morning. | Her sabah bir hap alıyorum.
+take supplement | phr | Older people often take a daily supplement. | Yaşlı insanlar genellikle günlük takviye alır.
+take toll | phr | Long nights will take a toll on your health. | Uzun geceler sağlığına zarar verir.
+take vitamin | phr | Do you take vitamin D in winter? | Kışın D vitamini alıyor musun?
+take/sit examination | phr | Students take an examination in June. | Öğrenciler haziranda sınava girer.
+temperate | adj | The country has a temperate climate. | Ülkenin ılıman bir iklimi var.
+temperature may drop | phr | At night the temperature may drop quickly. | Geceleyin sıcaklık hızla düşebilir.
+temporary employment | phr | Many students find temporary employment in summer. | Birçok öğrenci yazın geçici iş buluyor.
+terminal illness | phr | He was told he had a terminal illness. | Ölümcül bir hastalığı olduğu söylendi.
+that is why | phr | I was sick; that is why I didn't come. | Hastaydım; bu yüzden gelmedim.
+the number of | phr | The number of students has doubled. | Öğrenci sayısı iki katına çıktı.
+therapeutic | adj | Gardening can be therapeutic. | Bahçe işleri iyileştirici olabilir.
+thick layer | phr | A thick layer of snow covered the road. | Yolu kalın bir kar tabakası kapladı.
+thigh | n | He pulled a muscle in his thigh. | Uyluğundaki bir kası zorladı.
+thin layer | phr | Spread a thin layer of butter on the bread. | Ekmeğe ince bir tabaka tereyağı sür.
+thoughtlessly | adv | He spoke thoughtlessly and hurt her. | Düşüncesizce konuştu ve onu incitti.
+threaten health | phr | Dirty air can threaten your health. | Kirli hava sağlığını tehdit edebilir.
+threatened species | phr | The panda is a threatened species. | Panda tehdit altındaki bir türdür.
+thriving | adj | The town has a thriving market. | Kasabanın gelişen bir pazarı var.
+throughout history | phr | Throughout history, people have traded goods. | Tarih boyunca insanlar mal ticareti yaptı.
+throughout the year | phr | The shop is open throughout the year. | Dükkân yıl boyunca açık.
+timber | n | The house is built of timber. | Ev keresteden yapılmış.
+timely | adj | Her timely help saved us. | Zamanında yardımı bizi kurtardı.
+tiny fraction | phr | Only a tiny fraction of the sea has been explored. | Denizin yalnızca çok küçük bir kısmı keşfedildi.
+to be caused by | phr | The fire seems to be caused by a cigarette. | Yangının bir sigaradan çıktığı anlaşılıyor.
+to be characterized by | phr | The illness seems to be characterized by high fever. | Hastalık yüksek ateşle karakterize görünüyor.
+to be diagnosed with | phr | It was a shock to be diagnosed with diabetes. | Diyabet teşhisi konması şok ediciydi.
+total product | phr | The total product rose last year. | Toplam ürün geçen yıl arttı.
+totally inaccessible | phr | The village was totally inaccessible in winter. | Köye kışın ulaşmak tamamen imkânsızdı.
+traceable | adj | The problem is traceable to a bad cable. | Sorun kötü bir kabloya dayandırılabilir.
+trademark | n | The red logo is their trademark. | Kırmızı logo onların ticari markasıdır.
+tradesman | n | A tradesman came to fix the door. | Kapıyı onarmak için bir esnaf geldi.
+traditional agriculture | phr | Traditional agriculture uses little machinery. | Geleneksel tarım çok az makine kullanır.
+traditional costume | phr | The dancers wore traditional costume. | Dansçılar geleneksel kıyafet giydi.
+traditional form | phr | The poem keeps a traditional form. | Şiir geleneksel bir biçimi koruyor.
+traditional society | phr | In a traditional society, elders have great power. | Geleneksel bir toplumda yaşlıların büyük gücü vardır.
+traditional view | phr | The traditional view is now being questioned. | Geleneksel görüş artık sorgulanıyor.
+train soldier | phr | It takes months to train a soldier. | Bir askeri eğitmek aylar alır.
+transcend | v | Great art can transcend borders. | Büyük sanat sınırları aşabilir.
+transfer between | phr | You can transfer between accounts online. | Hesaplar arasında çevrimiçi aktarım yapabilirsin.
+transform industry | phr | Robots will transform the industry. | Robotlar sanayiyi dönüştürecek.
+transform into | phr | Caterpillars transform into butterflies. | Tırtıllar kelebeğe dönüşür.
+transform radically | phr | The internet can radically transform how we work. | İnternet çalışma şeklimizi köklü biçimde dönüştürebilir.
+transform system | phr | New leaders want to transform the education system. | Yeni liderler eğitim sistemini dönüştürmek istiyor.
+transformable | adj | The sofa is transformable into a bed. | Kanepe yatağa dönüştürülebilir.
+transformation from | phr | His transformation from clerk to writer took years. | Memurdan yazara dönüşümü yıllar sürdü.
+transformation into | phr | The factory's transformation into a museum was costly. | Fabrikanın müzeye dönüştürülmesi pahalıya mal oldu.
+transmittable | adj | The disease is transmittable through blood. | Hastalık kan yoluyla bulaşabilir.
+traumatic event | phr | The fire was a traumatic event for her. | Yangın onun için travmatik bir olaydı.
+treat effectively | phr | Antibiotics can effectively treat this infection. | Antibiyotikler bu enfeksiyonu etkili şekilde tedavi edebilir.
+treat equally | phr | Teachers should treat all students equally. | Öğretmenler tüm öğrencilere eşit davranmalı.
+treat symptom | phr | This drug can only treat a symptom, not the cause. | Bu ilaç nedeni değil, yalnızca belirtiyi tedavi eder.
+treatment option | phr | Surgery is one treatment option. | Ameliyat tedavi seçeneklerinden biridir.
+tribute | n | The concert was a tribute to the singer. | Konser şarkıcıya bir saygı duruşuydu.
+unanticipated | adj | There were some unanticipated problems. | Bazı öngörülmemiş sorunlar vardı.
+uncertain future | phr | The workers face an uncertain future. | İşçileri belirsiz bir gelecek bekliyor.
+uncontrolled | adj | Uncontrolled diabetes damages the eyes. | Kontrolsüz diyabet gözlere zarar verir.
+under examination | phr | The matter is under examination. | Konu inceleniyor.
+under/beneath a layer | phr | The town lay under a layer of ash. | Kasaba bir kül tabakasının altında kaldı.
+underdeveloped | adj | The region is poor and underdeveloped. | Bölge yoksul ve az gelişmiş.
+underdevelopment | n | Underdevelopment keeps many people poor. | Az gelişmişlik birçok insanı yoksul bırakıyor.
+undergo repair | phr | The bridge will undergo repair next year. | Köprü gelecek yıl onarılacak.
+undergo transformation | phr | Cities undergo transformation over time. | Şehirler zamanla dönüşüm geçirir.
+underweight | adj | The baby was slightly underweight at birth. | Bebek doğumda biraz düşük kiloluydu.
+undesirable | adj | The drug has some undesirable effects. | İlacın bazı istenmeyen etkileri var.
+undiscovered | adj | Many species remain undiscovered. | Birçok tür keşfedilmemiş durumda.
+unearth | v | Workers may unearth old coins here. | İşçiler burada eski paralar çıkarabilir.
+uneducated | adj | He was poor and uneducated. | Yoksul ve eğitimsizdi.
+unemployment among | phr | Unemployment among young people is high. | Gençler arasında işsizlik yüksek.
+unemployment benefit | phr | He received unemployment benefit for a year. | Bir yıl işsizlik maaşı aldı.
+unfamiliar environment | phr | Children can feel afraid in an unfamiliar environment. | Çocuklar tanımadıkları bir ortamda korkabilir.
+unfavourable | adj | The weather was unfavourable for flying. | Hava uçuş için elverişsizdi.
+unicellular | adj | Bacteria are unicellular organisms. | Bakteriler tek hücreli canlılardır.
+uniqueness | n | The uniqueness of the design attracted buyers. | Tasarımın benzersizliği alıcıları çekti.
+unite | v | Sport can unite people. | Spor insanları birleştirebilir.
+unreliable weather | phr | Unreliable weather made the trip difficult. | Değişken hava yolculuğu zorlaştırdı.
+unrestricted | adj | Members have unrestricted access to the pool. | Üyelerin havuza sınırsız erişimi var.
+unwanted | adj | Sell your unwanted furniture online. | İstemediğin mobilyaları internetten sat.
+unwashed hand | phr | Never touch food with unwashed hands. | Yıkanmamış elle yiyeceğe asla dokunma.
+upgrade | v | We need to upgrade the software. | Yazılımı yükseltmemiz gerekiyor.
+urban region | phr | Most jobs are in the urban region. | İşlerin çoğu kentsel bölgede.
+urban society | phr | Urban society changes very quickly. | Kent toplumu çok hızlı değişiyor.
+urban sprawl | phr | Urban sprawl has destroyed the farmland. | Kentsel yayılma tarım arazisini yok etti.
+urbanized | adj | The country has become highly urbanized. | Ülke son derece kentleşmiş hale geldi.
+usability | n | The update improves usability. | Güncelleme kullanılabilirliği artırıyor.
+use interchangeably | phr | People often use these two words interchangeably. | İnsanlar bu iki kelimeyi çoğu zaman birbirinin yerine kullanır.
+use service | phr | Millions use the service every day. | Milyonlar her gün hizmeti kullanıyor.
+use sound | phr | Bats use sound to find food. | Yarasalar yiyecek bulmak için ses kullanır.
+usefully | adv | You could usefully spend the time reading. | Bu vakti faydalı biçimde okuyarak geçirebilirsin.
+usefulness | n | Nobody doubts the usefulness of the tool. | Aletin yararlılığından kimse şüphe etmiyor.
+uterus | n | The baby grows in the uterus. | Bebek rahimde büyür.
+utilization | n | Better utilization of space saved us money. | Alanın daha iyi kullanımı bize para kazandırdı.
+vaccinate child | phr | Parents should vaccinate their child on time. | Ebeveynler çocuklarını zamanında aşılatmalı.
+vaccination against | phr | Vaccination against measles is free. | Kızamığa karşı aşı ücretsiz.
+vaccine against | phr | Scientists found a vaccine against the virus. | Bilim insanları virüse karşı aşı buldu.
+validate | v | Please validate your email address. | Lütfen e-posta adresini doğrula.
+validity | n | Researchers question the validity of the test. | Araştırmacılar testin geçerliliğini sorguluyor.
+variable | adj | The weather is highly variable in April. | Nisanda hava çok değişkendir.
+variation | n | There is little variation in price. | Fiyatta çok az değişiklik var.
+vegetation cover | phr | Fires destroyed the vegetation cover. | Yangınlar bitki örtüsünü yok etti.
+violate agreement | phr | Both sides accused each other of trying to violate the agreement. | Her iki taraf da birbirini anlaşmayı ihlal etmeye çalışmakla suçladı.
+violent behaviour | phr | Violent behaviour is not allowed at school. | Okulda şiddet içeren davranışa izin verilmez.
+violent conflict | phr | Years of violent conflict destroyed the region. | Yıllar süren şiddetli çatışma bölgeyi yıktı.
+viral infection | phr | Antibiotics don't help a viral infection. | Antibiyotikler viral enfeksiyona iyi gelmez.
+visibility | n | Fog reduced visibility on the road. | Sis yolda görüş mesafesini azalttı.
+visual aids | phr | Teachers use visual aids in class. | Öğretmenler derste görsel araçlar kullanır.
+vulnerable species | phr | The turtle is a vulnerable species. | Kaplumbağa hassas durumda bir türdür.
+warm colour | phr | Orange is a warm colour. | Turuncu sıcak bir renktir.
+warning sign | phr | Chest pain is a warning sign. | Göğüs ağrısı bir uyarı işaretidir.
+wash hand | phr | Always wash your hands before cooking. | Yemek yapmadan önce mutlaka ellerini yıka.
+waste product | phr | Carbon dioxide is a waste product of cells. | Karbondioksit hücrelerin atık ürünüdür.
+waybill | n | The driver showed the waybill at the border. | Sürücü sınırda sevk irsaliyesini gösterdi.
+well-known for | phr | The city is well-known for its food. | Şehir yemekleriyle tanınır.
+widely believed | phr | It is widely believed that he will win. | Kazanacağına yaygın olarak inanılıyor.
+widespread poverty | phr | The country suffers from widespread poverty. | Ülke yaygın yoksulluktan muzdarip.
+windpipe | n | Air reaches the lungs through the windpipe. | Hava akciğerlere soluk borusundan ulaşır.
+with | prep | I went to the cinema with my sister. | Kız kardeşimle sinemaya gittim.
+with a disease | phr | Few people live long with a disease like this. | Bu tür bir hastalıkla çok az kişi uzun yaşar.
+with a view to | phr | He bought the land with a view to building a house. | Araziyi ev yapmak amacıyla aldı.
+with certainty | phr | I can't say with certainty who did it. | Bunu kimin yaptığını kesin olarak söyleyemem.
+with precision | phr | The surgeon works with precision. | Cerrah hassasiyetle çalışır.
+with reference | phr | I'm writing with reference to your order. | Siparişinizle ilgili yazıyorum.
+with the aid of | phr | She walks with the aid of a stick. | Baston yardımıyla yürüyor.
+with the exception of | phr | All came with the exception of Tom. | Tom dışında herkes geldi.
+with the help of | phr | He finished with the help of a friend. | Bir arkadaşının yardımıyla bitirdi.
+without the help of | phr | I could not do it without the help of my team. | Ekibimin yardımı olmadan bunu yapamazdım.
+work effectively | phr | People work effectively when they are rested. | İnsanlar dinlenmişken etkili çalışır.
+workable | adj | We need a workable plan. | Uygulanabilir bir plana ihtiyacımız var.
+workforce | n | Half of the workforce are women. | İş gücünün yarısı kadın.
+worldliness | n | Her worldliness surprised the younger students. | Dünyayı bilmişliği genç öğrencileri şaşırttı.
+worldly | adj | He gave away all his worldly goods. | Tüm dünyevi mallarını dağıttı.
+worrier | n | My mother has always been a worrier. | Annem her zaman kaygılı biri olmuştur.
+worrisome | adj | The new numbers are worrisome. | Yeni rakamlar endişe verici.
+worshipper | n | A worshipper entered the quiet temple. | Bir ibadet eden kişi sessiz tapınağa girdi.
+yield result | phr | The new method began to yield a result quickly. | Yeni yöntem hızla sonuç vermeye başladı.

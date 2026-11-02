@@ -152,7 +152,7 @@ def load_novel_dictionary() -> dict:
     return {"words": words, "forms": {f: w for f, w in forms.items() if w in words}, "irregular": irregular, "phrasal": phrasal}
 
 
-def load_work_words() -> list:
+def load_work_words(main: list) -> list:
     """Work English decks (tools/work/*.txt): word | Turkish | example | Turkish example."""
     words = []
     for level, name in (("AI", "ai_it"), ("DES", "industrial_design"), ("BIZ", "business")):
@@ -161,6 +161,14 @@ def load_work_words() -> list:
         for number, line in enumerate(rows, 1):
             word, meaning, example, turkish = (part.strip() for part in line.split("|"))
             words.append({"id": f"wk-{level.lower()}-{number}", "word": word, "meaning": meaning, "pron": "", "level": level, "example": example, "exampleTr": turkish})
+    # Exam words: English words with this site's own Turkish (tools/work/exam_words.py). Words the
+    # main list already has are left out; the fixed shuffle keeps a study round from being alphabetical.
+    have = {entry["word"].strip().lower() for entry in main}
+    rows = [line for line in (HERE / "work" / "exam_words.txt").read_text(encoding="utf-8").splitlines() if " | " in line and not line.startswith("#")]
+    for number, line in enumerate(sorted(rows, key=lambda row: hashlib.sha1(row.split(" | ")[0].encode()).hexdigest()), 1):
+        word, meaning = line.split(" | ", 1)
+        if word not in have:
+            words.append({"id": f"wk-exam-{hashlib.sha1(word.encode()).hexdigest()[:10]}", "word": word, "meaning": meaning, "pron": "", "level": "EXAM"})
     return words
 
 
@@ -371,6 +379,15 @@ def main() -> None:
         sys.exit("Validation failed; index.html was not written.")
 
     sentences = load_sentences({e["word"].strip().lower() for e in entries})
+    # Tatoeba sentences (CC BY) for the types a word had no sentence for; see tools/work/extra_sentences.py.
+    for word, groups in json.loads((HERE / "work" / "extra_sentences.json").read_text(encoding="utf-8")).items():
+        sentences.setdefault(word, {}).update(groups)
+    # Sentences written for this app, for the exam words Tatoeba had none for.
+    for path in sorted((HERE / "work").glob("written_sentences_*.txt")):
+        for line in path.read_text(encoding="utf-8").splitlines():
+            if " | " in line and not line.startswith("#"):
+                word, kind, english, turkish = (part.strip() for part in line.split(" | "))
+                sentences.setdefault(word.lower(), {}).setdefault(kind, []).append([english, turkish])
     covered = sum(e["word"].strip().lower() in sentences for e in entries)
     print(f"sentences       {covered} of {len(entries)} entries have example sentences by word type")
 
@@ -474,7 +491,7 @@ def main() -> None:
     template = turkish_static_text(TEMPLATE.read_text(encoding="utf-8"), counts)
     output = (template
               .replace("<!--@VOCAB_DATA@-->", json_for_script(entries))
-              .replace("<!--@WORK_DATA@-->", json_for_script(load_work_words()))
+              .replace("<!--@WORK_DATA@-->", json_for_script(load_work_words(entries)))
               .replace("/*@MEANING_GROUPS@*/", extract_meaning_groups(source))
               .replace("<!--@SENTENCE_DATA@-->", json_for_script(sentences))
               .replace("<!--@WORD_CARDS@-->", "\n".join(cards))
