@@ -1,0 +1,94 @@
+# Work English: industrial design. Written for this app.
+# word | Turkish meaning | example | Turkish example
+industrial design | endüstriyel tasarım | She studied industrial design in Milan. | Milano'da endüstriyel tasarım okudu.
+product design | ürün tasarımı | Good product design starts with the user. | İyi ürün tasarımı kullanıcıyla başlar.
+design brief | tasarım özeti, tasarım talimatı | The client sent us the design brief yesterday. | Müşteri tasarım özetini dün bize gönderdi.
+concept | konsept, ana fikir | We presented three concepts to the client. | Müşteriye üç konsept sunduk.
+sketch | eskiz; eskiz çizmek | I made a quick sketch of the handle. | Sapın hızlı bir eskizini çizdim.
+rendering | görselleştirme, render | The rendering looks almost like a photo. | Görselleştirme neredeyse fotoğraf gibi görünüyor.
+technical drawing | teknik çizim | The factory needs a technical drawing with all dimensions. | Fabrikanın tüm ölçüleri içeren bir teknik çizime ihtiyacı var.
+CAD model | bilgisayar destekli tasarım modeli | I'll send you the CAD model this afternoon. | CAD modelini bu öğleden sonra sana göndereceğim.
+prototype | prototip, ilk örnek | The first prototype broke during the test. | İlk prototip test sırasında kırıldı.
+mock-up | maket, görünüm modeli | We built a foam mock-up to check the size. | Boyutu kontrol etmek için köpükten bir maket yaptık.
+scale model | ölçekli model | A scale model helps the client see the shape. | Ölçekli model müşterinin biçimi görmesine yardım eder.
+iteration | yineleme, tasarım turu | After five iterations the grip felt right. | Beş turdan sonra tutuş doğru hissettirdi.
+ergonomics | ergonomi | The ergonomics of this chair are excellent. | Bu sandalyenin ergonomisi mükemmel.
+user research | kullanıcı araştırması | User research showed that the button was too small. | Kullanıcı araştırması düğmenin çok küçük olduğunu gösterdi.
+usability | kullanılabilirlik | We ran a usability test with twenty people. | Yirmi kişiyle kullanılabilirlik testi yaptık.
+human factors | insan faktörleri | Human factors matter a lot in medical devices. | Tıbbi cihazlarda insan faktörleri çok önemlidir.
+aesthetics | estetik | The client cares more about aesthetics than cost. | Müşteri maliyetten çok estetiği önemsiyor.
+form | biçim, form | Form should follow function. | Biçim işlevi izlemelidir.
+function | işlev | The function of this part is to hold the lid. | Bu parçanın işlevi kapağı tutmaktır.
+proportion | oran, orantı | The proportions of the lamp look wrong. | Lambanın oranları yanlış görünüyor.
+symmetry | simetri | The product has perfect symmetry from the front. | Ürün önden bakıldığında tam simetrik.
+contour | dış hat, kontur | The soft contour fits the hand well. | Yumuşak kontur ele iyi oturuyor.
+curvature | eğrilik, kavis | Reduce the curvature of the top surface. | Üst yüzeyin eğriliğini azalt.
+surface | yüzey | The surface needs to be smoother. | Yüzeyin daha pürüzsüz olması gerekiyor.
+texture | doku | A rough texture hides fingerprints. | Pürüzlü doku parmak izlerini gizler.
+finish | yüzey bitişi, son işlem | The matte finish scratches easily. | Mat yüzey kolayca çiziliyor.
+matte | mat | We chose a matte black for the body. | Gövde için mat siyah seçtik.
+glossy | parlak | A glossy surface shows every mark. | Parlak yüzey her izi gösterir.
+color palette | renk paleti | The color palette has only three tones. | Renk paletinde yalnızca üç ton var.
+material | malzeme | We need a lighter material for the frame. | Çerçeve için daha hafif bir malzemeye ihtiyacımız var.
+aluminium | alüminyum | The body is made of recycled aluminium. | Gövde geri dönüştürülmüş alüminyumdan yapıldı.
+stainless steel | paslanmaz çelik | The blade is stainless steel. | Bıçak paslanmaz çelikten.
+plastic | plastik | This plastic becomes brittle in the cold. | Bu plastik soğukta kırılganlaşır.
+composite | kompozit malzeme | A composite is lighter but costs more. | Kompozit daha hafif ama daha pahalı.
+foam | köpük | The inside is lined with soft foam. | İçi yumuşak köpükle kaplı.
+durable | dayanıklı | The case has to be durable and light. | Kasa dayanıklı ve hafif olmalı.
+brittle | kırılgan, gevrek | The material is too brittle for this part. | Malzeme bu parça için fazla kırılgan.
+rigid | sert, eğilmez | A rigid frame keeps the shape stable. | Sert çerçeve biçimi sabit tutar.
+flexible | esnek | The cable cover must stay flexible. | Kablo kılıfı esnek kalmalı.
+lightweight | hafif | Customers want a lightweight bag. | Müşteriler hafif bir çanta istiyor.
+sustainable | sürdürülebilir | We are looking for a more sustainable material. | Daha sürdürülebilir bir malzeme arıyoruz.
+recyclable | geri dönüştürülebilir | All the packaging is recyclable. | Ambalajın tamamı geri dönüştürülebilir.
+life cycle | yaşam döngüsü | We studied the whole life cycle of the product. | Ürünün tüm yaşam döngüsünü inceledik.
+manufacturing | üretim, imalat | Manufacturing starts in March. | İmalat martta başlıyor.
+mass production | seri üretim | The design has to work for mass production. | Tasarım seri üretime uygun olmalı.
+injection moulding | plastik enjeksiyon kalıplama | Injection moulding is cheap at high volumes. | Plastik enjeksiyon yüksek adetlerde ucuzdur.
+mould | kalıp | A new mould costs a lot of money. | Yeni bir kalıp çok pahalıya mal olur.
+3D printing | üç boyutlu baskı | We use 3D printing for quick tests. | Hızlı testler için üç boyutlu baskı kullanıyoruz.
+CNC machining | CNC ile işleme | The part is made by CNC machining. | Parça CNC ile işlenerek yapılıyor.
+casting | döküm | Metal casting left marks on the surface. | Metal döküm yüzeyde izler bıraktı.
+welding | kaynak (metal) | The welding is visible on the back. | Kaynak arka tarafta görünüyor.
+assembly | montaj | The assembly takes less than a minute. | Montaj bir dakikadan kısa sürüyor.
+component | bileşen, parça | One component is two weeks late. | Bir bileşen iki hafta gecikti.
+joint | birleşim yeri, eklem | This joint is the weakest point. | Bu birleşim yeri en zayıf nokta.
+hinge | menteşe | The hinge broke after a thousand openings. | Menteşe bin açılıştan sonra kırıldı.
+fastener | bağlantı elemanı | Fewer fasteners make assembly faster. | Daha az bağlantı elemanı montajı hızlandırır.
+screw | vida | The screws are hidden under the cover. | Vidalar kapağın altında gizli.
+housing | dış gövde, muhafaza | The housing protects the electronics. | Dış gövde elektroniği korur.
+enclosure | kasa, muhafaza | The enclosure must be waterproof. | Kasa su geçirmez olmalı.
+dimension | boyut, ölçü | Check all the dimensions on the drawing. | Çizimdeki tüm ölçüleri kontrol et.
+tolerance | tolerans | The tolerance on this hole is very tight. | Bu deliğin toleransı çok dar.
+wall thickness | et kalınlığı | Increase the wall thickness to two millimetres. | Et kalınlığını iki milimetreye çıkar.
+draft angle | kalıp çıkma açısı | The part won't leave the mould without a draft angle. | Kalıp çıkma açısı olmadan parça kalıptan çıkmaz.
+cross-section | kesit | The cross-section shows the inner ribs. | Kesit iç kaburgaları gösteriyor.
+exploded view | patlatılmış görünüm | The exploded view shows how the parts fit together. | Patlatılmış görünüm parçaların nasıl birleştiğini gösteriyor.
+specification | teknik şartname | The specification lists every material. | Şartname her malzemeyi listeliyor.
+bill of materials | malzeme listesi | Please update the bill of materials. | Lütfen malzeme listesini güncelle.
+unit cost | birim maliyet | The new finish raises the unit cost. | Yeni yüzey işlemi birim maliyeti artırıyor.
+tooling | kalıp ve takım hazırlığı | Tooling takes about eight weeks. | Kalıp hazırlığı yaklaşık sekiz hafta sürüyor.
+supplier | tedarikçi | Our supplier can't deliver this colour. | Tedarikçimiz bu rengi sağlayamıyor.
+lead time | teslim süresi | The lead time for this part is six weeks. | Bu parçanın teslim süresi altı hafta.
+sample | numune | The factory sent us three samples. | Fabrika bize üç numune gönderdi.
+quality control | kalite kontrol | Quality control rejected the whole batch. | Kalite kontrol tüm partiyi reddetti.
+defect | kusur, üretim hatası | The defect appears only on the first units. | Kusur yalnızca ilk ürünlerde görülüyor.
+batch | parti, üretim partisi | The next batch will ship in May. | Sonraki parti mayısta gönderilecek.
+packaging | ambalaj | The packaging should be easy to open. | Ambalaj kolay açılmalı.
+stress test | dayanıklılık testi | The handle failed the stress test. | Sap dayanıklılık testini geçemedi.
+drop test | düşürme testi | It survived the drop test from two metres. | İki metreden düşürme testini atlattı.
+wear and tear | aşınma ve yıpranma | The coating shows wear and tear after a year. | Kaplama bir yıl sonra aşınma gösteriyor.
+coating | kaplama | The coating protects the metal from rust. | Kaplama metali paslanmaya karşı korur.
+intuitive | sezgisel, kolay anlaşılır | The controls are intuitive for new users. | Kontroller yeni kullanıcılar için sezgisel.
+affordance | kullanımı çağrıştıran özellik | The shape of the handle is a clear affordance. | Sapın biçimi nasıl kullanılacağını açıkça çağrıştırıyor.
+user experience | kullanıcı deneyimi | Unboxing is part of the user experience. | Kutudan çıkarma kullanıcı deneyiminin bir parçasıdır.
+target user | hedef kullanıcı | Our target user is over sixty years old. | Hedef kullanıcımız altmış yaşın üstünde.
+competitor analysis | rakip analizi | The competitor analysis shows a gap in the market. | Rakip analizi pazarda bir boşluk gösteriyor.
+mood board | ilham panosu | I made a mood board for the new collection. | Yeni koleksiyon için bir ilham panosu hazırladım.
+design language | tasarım dili | All our products share one design language. | Tüm ürünlerimiz tek bir tasarım dilini paylaşıyor.
+feasibility | yapılabilirlik | Engineers are checking the feasibility of this shape. | Mühendisler bu biçimin yapılabilirliğini kontrol ediyor.
+patent | patent | We applied for a patent on the mechanism. | Mekanizma için patent başvurusu yaptık.
+portfolio | portfolyo | Her portfolio includes furniture and medical products. | Portfolyosunda mobilya ve tıbbi ürünler var.
+design review | tasarım değerlendirme toplantısı | The design review is on Thursday morning. | Tasarım değerlendirme toplantısı perşembe sabahı.
+sign-off | son onay | We need the client's sign-off before tooling. | Kalıp hazırlığından önce müşterinin son onayı gerekiyor.

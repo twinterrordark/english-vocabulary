@@ -1,0 +1,113 @@
+# Work English: AI, computer engineering and IT. Written for this app.
+# word | Turkish meaning | example | Turkish example
+algorithm | algoritma | This algorithm sorts the list in linear time. | Bu algoritma listeyi doğrusal zamanda sıralar.
+artificial intelligence | yapay zekâ | Artificial intelligence now helps us review code. | Yapay zekâ artık kodu incelememize yardım ediyor.
+machine learning | makine öğrenmesi | We use machine learning to detect fraud. | Dolandırıcılığı tespit etmek için makine öğrenmesi kullanıyoruz.
+deep learning | derin öğrenme | Deep learning needs a lot of training data. | Derin öğrenme çok fazla eğitim verisi gerektirir.
+neural network | sinir ağı | The neural network has twelve hidden layers. | Sinir ağının on iki gizli katmanı var.
+large language model | büyük dil modeli | A large language model generated the first draft. | İlk taslağı büyük bir dil modeli üretti.
+prompt | istem, komut metni | A clear prompt usually gives a better answer. | Açık bir istem genellikle daha iyi bir yanıt verir.
+token | jeton (modelin metin birimi) | The request used four thousand tokens. | İstek dört bin jeton kullandı.
+embedding | gömme, vektör temsili | We store an embedding for every document. | Her belge için bir gömme vektörü saklıyoruz.
+inference | çıkarım (modeli çalıştırma) | Inference takes less than a second on this server. | Bu sunucuda çıkarım bir saniyeden kısa sürüyor.
+training data | eğitim verisi | Bad training data leads to bad predictions. | Kötü eğitim verisi kötü tahminlere yol açar.
+dataset | veri kümesi | The dataset contains two million images. | Veri kümesi iki milyon görsel içeriyor.
+label | etiket; etiketlemek | Two people label each image by hand. | Her görseli iki kişi elle etiketliyor.
+feature | özellik, işlev | The new feature ships next week. | Yeni özellik gelecek hafta yayına çıkıyor.
+accuracy | doğruluk oranı | The accuracy of the model dropped after the update. | Güncellemeden sonra modelin doğruluk oranı düştü.
+overfitting | aşırı öğrenme | The gap between the two scores suggests overfitting. | İki skor arasındaki fark aşırı öğrenmeye işaret ediyor.
+bias | yanlılık, önyargı | We tested the system for gender bias. | Sistemi cinsiyet yanlılığı açısından test ettik.
+hallucination | halüsinasyon (modelin uydurması) | That reference does not exist; it is a hallucination. | O kaynak yok; bu bir halüsinasyon.
+benchmark | kıyaslama testi | The new model beat the old one on every benchmark. | Yeni model her kıyaslama testinde eskisini geçti.
+evaluation | değerlendirme | Run the evaluation before you change the prompt. | İstemi değiştirmeden önce değerlendirmeyi çalıştır.
+pipeline | işlem hattı | The data pipeline runs every night. | Veri işlem hattı her gece çalışır.
+agent | yapay zekâ aracısı, ajan | The agent can read files and run tests. | Aracı dosyaları okuyabilir ve testleri çalıştırabilir.
+fine-tune | ince ayar yapmak | We fine-tuned the model on our own documents. | Modele kendi belgelerimizle ince ayar yaptık.
+source code | kaynak kod | The source code is on our internal server. | Kaynak kod şirket içi sunucumuzda.
+codebase | kod tabanı | It took me a month to learn the codebase. | Kod tabanını öğrenmem bir ay sürdü.
+repository | kod deposu | Clone the repository and run the tests. | Kod deposunu klonla ve testleri çalıştır.
+branch | dal (kod dalı) | I fixed it on a separate branch. | Onu ayrı bir dalda düzelttim.
+commit | değişikliği kaydetmek; kayıt | Please commit your changes before lunch. | Lütfen değişikliklerini öğleden önce kaydet.
+merge | birleştirmek | We can merge this once the tests pass. | Testler geçince bunu birleştirebiliriz.
+merge conflict | birleştirme çakışması | Two people edited the same line, so we have a merge conflict. | İki kişi aynı satırı değiştirdi, bu yüzden birleştirme çakışması var.
+pull request | değişiklik isteği | Could you review my pull request today? | Bugün değişiklik isteğimi inceleyebilir misin?
+code review | kod incelemesi | The code review found two serious bugs. | Kod incelemesi iki ciddi hata buldu.
+bug | yazılım hatası | This bug only appears on older phones. | Bu hata yalnızca eski telefonlarda görülüyor.
+debug | hata ayıklamak | I spent all morning debugging the login page. | Bütün sabah giriş sayfasında hata ayıkladım.
+fix | düzeltmek; düzeltme | The fix is small, but we need to test it. | Düzeltme küçük ama test etmemiz gerekiyor.
+workaround | geçici çözüm | There is a workaround until the patch is ready. | Yama hazır olana kadar geçici bir çözüm var.
+patch | yama | The security patch went out last night. | Güvenlik yaması dün gece yayınlandı.
+refactor | kodu yeniden düzenlemek | We should refactor this module before adding more. | Daha fazla ekleme yapmadan bu modülü yeniden düzenlemeliyiz.
+technical debt | teknik borç | Fast releases left us with a lot of technical debt. | Hızlı sürümler bize çok fazla teknik borç bıraktı.
+legacy code | eski kod, miras kod | Nobody wants to touch the legacy code. | Eski koda kimse dokunmak istemiyor.
+deprecated | kullanımdan kaldırılmış | This function is deprecated, so use the new one. | Bu fonksiyon kullanımdan kaldırıldı, yenisini kullan.
+dependency | bağımlılık | Updating that dependency broke the build. | O bağımlılığı güncellemek derlemeyi bozdu.
+library | yazılım kütüphanesi | We use an open-source library for charts. | Grafikler için açık kaynaklı bir kütüphane kullanıyoruz.
+framework | yazılım çatısı | Which framework did you choose for the front end? | Ön yüz için hangi çatıyı seçtiniz?
+open source | açık kaynak | The project is open source, so anyone can contribute. | Proje açık kaynak, bu yüzden herkes katkıda bulunabilir.
+variable | değişken | Give this variable a clearer name. | Bu değişkene daha açık bir ad ver.
+function | fonksiyon, işlev | This function returns the user's name. | Bu fonksiyon kullanıcının adını döndürür.
+class | sınıf (programlama) | Each class should do one thing well. | Her sınıf tek bir işi iyi yapmalı.
+loop | döngü | The loop never ends because of a small mistake. | Küçük bir hata yüzünden döngü hiç bitmiyor.
+syntax | sözdizimi | A syntax error stopped the script. | Bir sözdizimi hatası betiği durdurdu.
+compile | derlemek | The project takes ten minutes to compile. | Projenin derlenmesi on dakika sürüyor.
+runtime | çalışma zamanı | The error only happens at runtime. | Hata yalnızca çalışma zamanında oluşuyor.
+exception | istisna, hata durumu | The app crashes on an unhandled exception. | Uygulama yakalanmayan bir hata yüzünden kapanıyor.
+stack trace | hata izi, çağrı yığını dökümü | Please send me the full stack trace. | Lütfen bana hata izinin tamamını gönder.
+memory leak | bellek sızıntısı | A memory leak slowly slows the server down. | Bellek sızıntısı sunucuyu yavaş yavaş yavaşlatıyor.
+unit test | birim testi | Every new function needs a unit test. | Her yeni fonksiyonun bir birim testi olmalı.
+test coverage | test kapsamı | Our test coverage is around eighty percent. | Test kapsamımız yüzde seksen civarında.
+regression | gerileme (eski hatanın geri gelmesi) | The update caused a regression in the search page. | Güncelleme arama sayfasında bir gerilemeye yol açtı.
+edge case | uç durum | Empty files are an edge case we forgot. | Boş dosyalar unuttuğumuz bir uç durum.
+reproduce | (hatayı) yeniden oluşturmak | I can't reproduce the bug on my computer. | Hatayı kendi bilgisayarımda yeniden oluşturamıyorum.
+root cause | kök neden | We still have not found the root cause. | Kök nedeni hâlâ bulamadık.
+back end | arka uç, sunucu tarafı | The back end is written in Python. | Arka uç Python ile yazıldı.
+front end | ön yüz | She works on the front end of the app. | Uygulamanın ön yüzünde çalışıyor.
+full-stack | hem ön hem arka uç | We are hiring a full-stack developer. | Hem ön hem arka uçta çalışacak bir geliştirici arıyoruz.
+API | uygulama programlama arayüzü | The API returns the results as JSON. | API sonuçları JSON olarak döndürür.
+endpoint | uç nokta | This endpoint needs an access key. | Bu uç nokta bir erişim anahtarı gerektirir.
+request | istek | The server handles a thousand requests per second. | Sunucu saniyede bin istek işliyor.
+response | yanıt | The response took too long to arrive. | Yanıtın gelmesi çok uzun sürdü.
+latency | gecikme süresi | Users notice latency above two hundred milliseconds. | Kullanıcılar iki yüz milisaniyenin üstündeki gecikmeyi fark eder.
+throughput | iş hacmi, birim zamanda işlenen miktar | The new queue doubled our throughput. | Yeni kuyruk iş hacmimizi ikiye katladı.
+scalable | ölçeklenebilir | The design must be scalable from day one. | Tasarım ilk günden ölçeklenebilir olmalı.
+bottleneck | darboğaz | The database is the main bottleneck. | Asıl darboğaz veritabanı.
+cache | önbellek | Clearing the cache solved the problem. | Önbelleği temizlemek sorunu çözdü.
+database | veritabanı | The database is backed up every hour. | Veritabanı her saat yedekleniyor.
+query | sorgu | This query is slow because it has no index. | Bu sorgu dizini olmadığı için yavaş.
+schema | şema, veri yapısı | We changed the schema without any downtime. | Şemayı hiç kesinti olmadan değiştirdik.
+server | sunucu | The server restarted during the night. | Sunucu gece yeniden başladı.
+cloud | bulut | We moved all our services to the cloud. | Tüm hizmetlerimizi buluta taşıdık.
+container | kapsayıcı | Each service runs in its own container. | Her hizmet kendi kapsayıcısında çalışıyor.
+virtual machine | sanal makine | The tests run on a virtual machine. | Testler sanal makinede çalışıyor.
+GPU | grafik işlemci | Training stopped because we ran out of GPU memory. | GPU belleği bittiği için eğitim durdu.
+deploy | yayına almak, dağıtmak | We deploy to production every Tuesday. | Her salı canlı ortama yayın yapıyoruz.
+deployment | dağıtım, yayına alma | The deployment failed halfway through. | Dağıtım yarıda başarısız oldu.
+production | canlı ortam; üretim | Never test new code in production. | Yeni kodu asla canlı ortamda test etme.
+staging | hazırlık ortamı | Check it on staging before you release it. | Yayınlamadan önce hazırlık ortamında kontrol et.
+release | sürüm; yayınlamak | The next release includes the new search. | Sonraki sürüm yeni aramayı içeriyor.
+rollback | geri alma; önceki sürüme dönme | We did a rollback after the error rate jumped. | Hata oranı fırlayınca önceki sürüme döndük.
+downtime | kesinti süresi | The update caused ten minutes of downtime. | Güncelleme on dakikalık kesintiye yol açtı.
+outage | hizmet kesintisi | The outage affected users in Europe. | Kesinti Avrupa'daki kullanıcıları etkiledi.
+on-call | nöbetçi | I am on call this weekend. | Bu hafta sonu nöbetçiyim.
+incident | olay, arıza | We wrote a report about last week's incident. | Geçen haftaki arıza hakkında rapor yazdık.
+monitoring | izleme | Monitoring alerted us before users complained. | Kullanıcılar şikâyet etmeden izleme sistemi bizi uyardı.
+log | kayıt, günlük | Check the logs to see what happened. | Ne olduğunu görmek için kayıtlara bak.
+backup | yedek | Do we have a recent backup? | Yakın tarihli bir yedeğimiz var mı?
+authentication | kimlik doğrulama | Authentication failed because the key expired. | Anahtarın süresi dolduğu için kimlik doğrulama başarısız oldu.
+authorization | yetkilendirme | Authorization decides what each user can see. | Yetkilendirme her kullanıcının neyi görebileceğini belirler.
+encryption | şifreleme | All customer data is protected by encryption. | Tüm müşteri verileri şifrelemeyle korunuyor.
+vulnerability | güvenlik açığı | The scan found a serious vulnerability. | Tarama ciddi bir güvenlik açığı buldu.
+access | erişim; erişmek | Can you give me access to the repository? | Bana kod deposuna erişim verebilir misin?
+credentials | giriş bilgileri | Never put credentials in the source code. | Giriş bilgilerini asla kaynak koda koyma.
+sprint | kısa çalışma dönemi | This task won't fit into the current sprint. | Bu görev mevcut döneme sığmaz.
+backlog | iş listesi, bekleyen işler | Add it to the backlog for now. | Şimdilik bekleyen işler listesine ekle.
+ticket | iş kaydı, destek kaydı | Please open a ticket for this problem. | Lütfen bu sorun için bir kayıt aç.
+stand-up | kısa günlük toplantı | Let's discuss it after the stand-up. | Bunu günlük toplantıdan sonra konuşalım.
+requirement | gereksinim | The requirements changed again this week. | Gereksinimler bu hafta yine değişti.
+specification | teknik şartname | The specification does not mention this case. | Şartname bu durumdan bahsetmiyor.
+proof of concept | kavram kanıtı | Let's build a proof of concept first. | Önce bir kavram kanıtı yapalım.
+trade-off | ödünleşim, artı-eksi dengesi | The trade-off here is speed against accuracy. | Buradaki ödünleşim hıza karşı doğruluk.
+stakeholder | paydaş | We need to update the stakeholders on the delay. | Gecikme hakkında paydaşları bilgilendirmemiz gerekiyor.
+user interface | kullanıcı arayüzü | The user interface is clear on small screens too. | Kullanıcı arayüzü küçük ekranlarda da anlaşılır.
+tech stack | teknoloji yığını | What is your current tech stack? | Şu anki teknoloji yığınınız nedir?

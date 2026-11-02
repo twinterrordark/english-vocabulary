@@ -1,0 +1,71 @@
+# Work English: everyday office English, for any job. Written for this app.
+# word | Turkish meaning | example | Turkish example
+meeting | toplantı | Can we move the meeting to Friday? | Toplantıyı cumaya alabilir miyiz?
+agenda | gündem | Please send the agenda before the meeting. | Lütfen toplantıdan önce gündemi gönder.
+deadline | son teslim tarihi | We can't miss this deadline. | Bu son teslim tarihini kaçıramayız.
+schedule | program; planlamak | Let's schedule a call for next week. | Gelecek hafta için bir görüşme planlayalım.
+reschedule | yeniden planlamak | Could we reschedule to the afternoon? | Öğleden sonraya alabilir miyiz?
+follow up | takip etmek | I'll follow up with the client tomorrow. | Yarın müşteriyle konuyu takip edeceğim.
+touch base | kısaca görüşmek | Let's touch base after your trip. | Seyahatinden sonra kısaca görüşelim.
+loop in | konuya dahil etmek | Please loop in the design team. | Lütfen tasarım ekibini de konuya dahil et.
+heads-up | önceden haber verme | Just a quick heads-up: the client is coming at two. | Haberin olsun: müşteri saat ikide geliyor.
+feedback | geri bildirim | Thanks for your feedback on the draft. | Taslak hakkındaki geri bildirimin için teşekkürler.
+draft | taslak | I'll share the first draft by Monday. | İlk taslağı pazartesiye kadar paylaşırım.
+attachment | e-posta eki | Please see the attachment for details. | Ayrıntılar için lütfen eke bakın.
+regarding | ile ilgili olarak | I'm writing regarding your last order. | Son siparişiniz ile ilgili yazıyorum.
+on behalf of | adına | I'm writing on behalf of our manager. | Yöneticimiz adına yazıyorum.
+as soon as possible | en kısa sürede | Please reply as soon as possible. | Lütfen en kısa sürede yanıt verin.
+in advance | önceden | Thanks in advance for your help. | Yardımınız için şimdiden teşekkürler.
+apologize | özür dilemek | We apologize for the delay. | Gecikme için özür dileriz.
+confirm | onaylamak, teyit etmek | Could you confirm the date? | Tarihi teyit edebilir misin?
+approve | onaylamak | The manager approved the budget. | Yönetici bütçeyi onayladı.
+postpone | ertelemek | They postponed the launch until May. | Lansmanı mayısa ertelediler.
+cancel | iptal etmek | We had to cancel the meeting. | Toplantıyı iptal etmek zorunda kaldık.
+delay | gecikme; geciktirmek | The delay was caused by a supplier. | Gecikmeye bir tedarikçi neden oldu.
+priority | öncelik | This is our top priority this week. | Bu, bu haftaki en büyük önceliğimiz.
+task | görev | I finished all my tasks for today. | Bugünkü tüm görevlerimi bitirdim.
+assign | görev vermek, atamak | Who is this task assigned to? | Bu görev kime atandı?
+responsible for | -den sorumlu | She is responsible for the budget. | Bütçeden o sorumlu.
+progress | ilerleme | How much progress have you made? | Ne kadar ilerleme kaydettin?
+update | güncelleme; güncellemek | I'll send you an update tonight. | Bu akşam sana bir güncelleme gönderirim.
+milestone | önemli aşama, kilometre taşı | We reached the first milestone on time. | İlk aşamaya zamanında ulaştık.
+goal | hedef | Our goal is to finish by June. | Hedefimiz hazirana kadar bitirmek.
+budget | bütçe | The project is over budget. | Proje bütçeyi aştı.
+cost | maliyet | We need to reduce the cost of delivery. | Teslimat maliyetini düşürmemiz gerekiyor.
+invoice | fatura | I sent the invoice last week. | Faturayı geçen hafta gönderdim.
+quote | fiyat teklifi | Can you send me a quote? | Bana bir fiyat teklifi gönderebilir misin?
+contract | sözleşme | We signed the contract this morning. | Sözleşmeyi bu sabah imzaladık.
+negotiate | pazarlık etmek, müzakere etmek | We negotiated a lower price. | Daha düşük bir fiyat için pazarlık yaptık.
+client | müşteri | Our client wants a shorter version. | Müşterimiz daha kısa bir sürüm istiyor.
+colleague | iş arkadaşı | A colleague helped me with the report. | Rapor konusunda bir iş arkadaşım bana yardım etti.
+manager | yönetici | I report to the project manager. | Proje yöneticisine bağlı çalışıyorum.
+team lead | ekip lideri | Ask your team lead for approval. | Onay için ekip liderine sor.
+department | departman | She moved to another department. | Başka bir departmana geçti.
+workload | iş yükü | My workload is very heavy this month. | Bu ay iş yüküm çok fazla.
+overtime | fazla mesai | We worked overtime to finish it. | Bitirmek için fazla mesai yaptık.
+remote work | uzaktan çalışma | Our company allows remote work twice a week. | Şirketimiz haftada iki gün uzaktan çalışmaya izin veriyor.
+job interview | iş görüşmesi | I have a job interview on Tuesday. | Salı günü iş görüşmem var.
+resume | özgeçmiş | I updated my resume last night. | Dün gece özgeçmişimi güncelledim.
+experience | deneyim | I have five years of experience in this field. | Bu alanda beş yıllık deneyimim var.
+skill | beceri | Communication is a very useful skill. | İletişim çok faydalı bir beceridir.
+salary | maaş | They offered a higher salary. | Daha yüksek bir maaş teklif ettiler.
+promotion | terfi | She got a promotion after two years. | İki yıl sonra terfi aldı.
+presentation | sunum | My presentation lasts fifteen minutes. | Sunumum on beş dakika sürüyor.
+slide | sunum sayfası, slayt | Let's go back to the previous slide. | Bir önceki slayta dönelim.
+summarize | özetlemek | Let me summarize the main points. | Ana noktaları özetleyeyim.
+point out | belirtmek | I'd like to point out one risk. | Bir riski belirtmek isterim.
+agree | katılmak, aynı fikirde olmak | I completely agree with you. | Sana tamamen katılıyorum.
+disagree | katılmamak | I'm afraid I disagree on that point. | Korkarım bu konuda katılmıyorum.
+suggest | önermek | I suggest we start with the smaller version. | Küçük sürümle başlamamızı öneririm.
+solution | çözüm | We need a faster solution. | Daha hızlı bir çözüme ihtiyacımız var.
+issue | sorun, konu | We have an issue with the delivery. | Teslimatla ilgili bir sorunumuz var.
+risk | risk | What is the biggest risk in this plan? | Bu plandaki en büyük risk nedir?
+decision | karar | We will make a decision on Friday. | Cuma günü karar vereceğiz.
+launch | lansman; piyasaya sürmek | The product launch is in September. | Ürün lansmanı eylülde.
+market | pazar | This market is growing quickly. | Bu pazar hızla büyüyor.
+customer | müşteri, tüketici | Customer complaints fell by half. | Müşteri şikâyetleri yarı yarıya azaldı.
+revenue | gelir, ciro | Our revenue rose last quarter. | Gelirimiz geçen çeyrekte arttı.
+profit | kâr | The company made a small profit this year. | Şirket bu yıl küçük bir kâr etti.
+out of office | ofis dışında | I'll be out of office until Monday. | Pazartesiye kadar ofis dışında olacağım.
+business trip | iş seyahati | She is on a business trip to Germany. | Almanya'ya iş seyahatinde.
+Kind regards | Saygılarımla | Kind regards, Ayşe | Saygılarımla, Ayşe

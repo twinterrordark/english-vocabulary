@@ -1590,6 +1590,33 @@ body.novel-focus .novel-pop:not(.is-inline) .novel-pop-actions { background: var
   .novel-pop:not(.is-inline) #novel-pop-say span, .novel-pop:not(.is-inline) #novel-pop-read span { display: none; }
   .novel-pop:not(.is-inline) .novel-pop-read { grid-column: auto; }
 }
+
+.saved-sentence-tr { margin: 0; color: var(--muted); font-size: .85rem; }
+.saved-item.is-learned { box-shadow: inset 3px 0 0 var(--primary), var(--shadow); }
+
+.lib-mine { display: grid; gap: var(--space-3); max-width: 720px; }
+.lib-mine[hidden] { display: none; }
+.mine-note { margin: 0; padding: 10px var(--space-3); border-radius: 12px; background: var(--primary-soft); color: var(--accent-text); font-size: .9rem; }
+.mine-add { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+.mine-add .button[hidden] { display: none; }
+.lib-mine > .hint { margin: 0; }
+.lib-mine > .hint:empty { display: none; }
+.mine-tools { display: grid; gap: var(--space-2); }
+.mine-tools[hidden] { display: none; }
+.mine-tools input { min-height: var(--tap); }
+.mine-tools-row { display: flex; align-items: center; justify-content: space-between; gap: var(--space-2); color: var(--muted); font-size: .88rem; }
+.mine-empty { margin: 0; color: var(--muted); }
+.mine-empty[hidden] { display: none; }
+.mine-list { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-2); }
+.mine-list:empty { display: none; }
+.mine-item { display: flex; align-items: center; gap: var(--space-1); padding-right: 6px; border-radius: 14px; background: var(--surface); box-shadow: var(--shadow); }
+.mine-item.is-open { box-shadow: inset 3px 0 0 var(--primary), var(--shadow); }
+.mine-open { display: flex; flex: 1; min-width: 0; align-items: center; gap: var(--space-3); min-height: 56px; padding: 8px var(--space-3); border: 0; background: transparent; color: var(--text); font: inherit; text-align: left; cursor: pointer; }
+.mine-open > .icon { flex: none; color: var(--secondary); }
+.mine-open > span { display: grid; min-width: 0; }
+.mine-open strong { font-size: .95rem; font-weight: 700; line-height: 1.25; overflow-wrap: anywhere; }
+.mine-open small { color: var(--muted); font-size: .8rem; }
+.mine-item .icon-button { flex: none; color: var(--muted); }
 </style>
 </head>
 <body>
@@ -1986,14 +2013,31 @@ body.novel-focus .novel-pop:not(.is-inline) .novel-pop-actions { background: var
       <div class="lib-tabs js-only">
         <button type="button" class="lib-tab" data-libtab="now" aria-pressed="true"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg><span data-i18n="novel.tabNow">Reading now</span></button>
         <button type="button" class="lib-tab" data-libtab="shelf" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="#i-cards"/></svg><span data-i18n="novel.tabShelf2">Graded library</span></button>
+        <button type="button" class="lib-tab" data-libtab="mine" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="#i-upload"/></svg><span data-i18n="novel.tabMine">My PDFs</span></button>
       </div>
       <div class="lib-now js-only" id="lib-now"></div>
+      <div class="lib-mine js-only" id="lib-mine" hidden>
+        <p class="mine-note"><strong data-i18n="mine.private">Only on this device.</strong> <span data-i18n="mine.note">Your PDFs stay in this browser and are not uploaded anywhere, so each device needs its own copy. Clearing the browser's site data removes them.</span></p>
+        <div class="mine-add">
+          <label class="button primary" for="novel-file"><svg class="icon" aria-hidden="true"><use href="#i-upload"/></svg><span data-i18n="mine.choose">Choose PDFs</span></label>
+          <label class="button" id="mine-folder-label" for="mine-folder"><svg class="icon" aria-hidden="true"><use href="#i-cards"/></svg><span data-i18n="mine.folder">Choose a folder</span></label>
+          <input id="mine-folder" class="visually-hidden" type="file" webkitdirectory multiple>
+        </div>
+        <p class="hint" id="mine-status" role="status"></p>
+        <div class="mine-tools" id="mine-tools" hidden>
+          <label for="mine-search" class="visually-hidden" data-i18n="mine.search">Search my PDFs</label>
+          <input id="mine-search" type="search" autocomplete="off" placeholder="Search my PDFs" data-i18n-placeholder="mine.search">
+          <div class="mine-tools-row"><span id="mine-size"></span><button type="button" class="link-button" id="mine-clear" data-i18n="mine.clear">Remove all</button></div>
+        </div>
+        <p class="panel mine-empty" id="mine-empty" data-i18n="mine.empty">No PDFs yet. Add the ones you study from; tap one to read it with the word card, translation and listening.</p>
+        <ul class="mine-list" id="mine-list"></ul>
+      </div>
       <div class="lib-shelf" id="lib-shelf">
       <div class="lib-filter js-only"><div class="lib-filter-head"><h3 data-i18n="novel.filter">Level &amp; category</h3><span id="lib-count"></span></div><div class="lib-chips" id="lib-chips"></div></div>
       <div class="novel-shelf js-only" id="novel-shelf"><!--@NOVEL_SHELF@--></div>
       <div class="novel-lib-foot js-only">
         <label class="button small ghost" for="novel-file"><svg class="icon" aria-hidden="true"><use href="#i-upload"/></svg><span data-i18n="novel.choose">Choose a PDF</span></label>
-        <input id="novel-file" class="visually-hidden" type="file" accept="application/pdf,.pdf">
+        <input id="novel-file" class="visually-hidden" type="file" accept="application/pdf,.pdf" multiple>
         <p class="hint" id="novel-status" aria-live="polite" data-i18n="novel.hint">The book is read on this device only; it is not uploaded anywhere. After the first time it opens straight from this browser.</p>
       </div>
       </div>
@@ -2370,6 +2414,7 @@ body.novel-focus .novel-pop:not(.is-inline) .novel-pop-actions { background: var
 <!-- Example sentences by word type, written for this app (source: tools/sentences/*.json). -->
 <script type="application/json" id="sentence-data"><!--@SENTENCE_DATA@--></script>
 <!-- English -> Turkish dictionary for the novel reader (source: tools/novel/*.json). -->
+<script type="application/json" id="work-data"><!--@WORK_DATA@--></script>
 <script type="application/json" id="novel-dict"><!--@NOVEL_DICT@--></script>
 <!-- pdf.js 3.11.174 (Mozilla, Apache-2.0), loaded only when a PDF is opened in the novel reader. -->
 <script type="text/plain" id="pdfjs-src"><!--@PDFJS_LIB@--></script>
@@ -2538,6 +2583,9 @@ const STRINGS = {
     'pron.title': 'Pronunciation check', 'pron.read': 'Read', 'pron.again': 'Read again', 'pron.try': 'Read it aloud and check', 'pron.readLine': 'Read it aloud and check', 'pron.listening': 'Listening… read the sentence', 'pron.heard': 'Heard:', 'pron.heardAs': 'heard “{w}”', 'pron.missed': 'not heard', 'pron.great': 'Great, every word was clear.', 'pron.good': 'Good. Listen to the coloured words and try again.', 'pron.retry': 'Listen once more, then read it slowly.', 'pron.note': 'The site compares the words it heard. It does not measure stress or intonation, and names in a sentence do not count.', 'pron.noSpeech': 'I didn\'t hear anything. Tap Read and try again.', 'pron.noRecognition': 'This browser cannot turn speech into text. Use Chrome, Edge or Safari.', 'pron.noReply': 'Start the lesson first; then you can read the teacher\'s answer aloud.', 'game.pron': 'Pronunciation', 'game.pronText': 'Read sentences aloud: words that were heard turn green, the others red.', 'game.bestPron': 'Best: {n}%', 'game.resultPron': 'Average: {p}%', 'game.skip': 'Skip',
     'nav.tutor': 'Ms. Emma', 'chat.profileTitle': 'How should others see you?', 'chat.nick': 'Nickname', 'chat.level': 'Your English level', 'chat.warning': 'Use a nickname, not your real name. Do not share your phone number, address or other personal details with people you meet here.', 'chat.goOnline': 'Go online', 'chat.nameShort': 'Your nickname needs at least 2 characters.', 'chat.onlineN': 'Online: {n} people', 'chat.state.searching': 'Looking for people online…', 'chat.state.problem': 'Could not reach the list; trying again…', 'chat.state.off': 'You are offline', 'chat.state.dup': 'This chat is open in another tab of this device', 'chat.state.on': 'Online', 'chat.retry': 'Try again', 'chat.empty': 'Nobody else is online right now. Keep this tab open, or come back later.', 'chat.you': 'You:', 'chat.edit': 'Change', 'chat.hide': 'Do not show me on the list', 'chat.unblock': 'Clear my blocked list', 'chat.unblocked': 'Your blocked list was cleared.', 'chat.privacy': 'Messages and voice go straight between the two devices and are not saved; a free PeerJS service introduces you and can relay the connection when a direct one fails. The other person may be able to see your IP address. Your own sentences are sent to the grammar checker.', 'chat.invite': 'Chat', 'chat.inviteTo': 'Invite {name} to chat', 'chat.busyNow': 'In a chat', 'chat.asksYou': '{name} wants to chat with you.', 'chat.waiting': 'Waiting for {name} to answer…', 'chat.accept': 'Accept', 'chat.decline': 'No thanks', 'chat.block': 'Block', 'chat.cancel': 'Cancel', 'chat.blocked': '{name} is blocked.', 'chat.declined': '{name} did not accept.', 'chat.busyToast': '{name} is busy right now.', 'chat.gone': 'That person is no longer online.', 'chat.noAnswer': 'No answer.', 'chat.cantConnect': 'The connection could not be made. Your networks may not allow it.', 'chat.with': 'Chatting with {name}', 'chat.partnerLeft': '{name} left the chat', 'chat.voiceStart': 'Voice', 'chat.voiceEnd': 'End voice', 'chat.voiceWaiting': 'Waiting…', 'chat.voiceAsk': '{name} wants to talk by voice.', 'chat.voiceNo': '{name} did not start voice.',
     'novel.phrase': 'Phrase', 'novel.inSentence': 'In this sentence', 'novel.inText': 'in the text: “{w}”', 'novel.otherSenses': 'Other meanings: {tr}',
+    'deck.work': 'Work English', 'deck.workAI': 'AI, software and IT', 'deck.workAINote': 'Models, code, servers and the words of a software team.', 'deck.workDES': 'Industrial design', 'deck.workDESNote': 'From sketch to factory: materials, prototypes and production.', 'deck.workBIZ': 'Office and business', 'deck.workBIZNote': 'Meetings, emails and everyday words for any job.', 'deck.listNote': '{n} words, {d} learned.',
+    'novel.tabMine': 'My PDFs', 'mine.private': 'Only on this device.', 'mine.note': 'Your PDFs stay in this browser and are not uploaded anywhere, so each device needs its own copy. Clearing the browser\'s site data removes them.', 'mine.choose': 'Choose PDFs', 'mine.folder': 'Choose a folder', 'mine.search': 'Search my PDFs', 'mine.clear': 'Remove all', 'mine.empty': 'No PDFs yet. Add the ones you study from; tap one to read it with the word card, translation and listening.', 'mine.adding': 'Adding {i} of {n}…', 'mine.added': '{n} PDFs added, {s} already here or copies.', 'mine.noPdf': 'There was no PDF among those files.', 'mine.full': 'The browser\'s storage is full. {n} PDFs were added before it stopped.', 'mine.failed': 'Adding stopped after {n} PDFs. Try again.', 'mine.noStore': 'This browser cannot keep PDFs (a private window, for example).', 'mine.size': '{n} PDFs · {mb} MB', 'mine.page': 'p. {p} / {n}', 'mine.remove': 'Remove {w}', 'mine.removeTitle': 'Remove this PDF?', 'mine.clearTitle': 'Remove these {n} PDFs?', 'mine.removeMsg': 'They are removed from this device only. Your files stay where they are.', 'mine.removeOk': 'Remove',
+    'novel.garbled': 'The text of this PDF cannot be read: pages shown as pictures',
     'home.eyebrow': 'Daily goal', 'home.titleReview': 'Time to review! ✨', 'home.titleMorning': 'Good morning! ☀️', 'home.titleDay': 'Let’s learn! ✨', 'home.titleEvening': 'Good evening! 🌙',
     'home.goalChip': '{p}% done', 'home.goalStart': 'Let’s get started!', 'home.goalGoing': 'You’re doing great!', 'home.goalDone': 'Goal reached! 🎉',
     'home.goalLeft': 'Only {n} cards to your goal. Keep the rhythm!', 'home.goalDoneNote': 'Anything more today is a bonus.',
@@ -2751,6 +2799,9 @@ const STRINGS = {
     'pron.title': 'Telaffuz denetimi', 'pron.read': 'Oku', 'pron.again': 'Tekrar oku', 'pron.try': 'Okuyarak dene', 'pron.readLine': 'Okuyarak dene', 'pron.listening': 'Dinliyorum… cümleyi oku', 'pron.heard': 'Duyulan:', 'pron.heardAs': '“{w}” duyuldu', 'pron.missed': 'duyulmadı', 'pron.great': 'Harika, her kelime anlaşıldı.', 'pron.good': 'İyi. Renkli kelimeleri dinleyip tekrar dene.', 'pron.retry': 'Bir kez daha dinle, sonra yavaşça oku.', 'pron.note': 'Site duyduğu kelimeleri karşılaştırır. Vurgu ve tonlamayı ölçmez, cümle içindeki özel isimler puana girmez.', 'pron.noSpeech': 'Bir şey duyamadım. Oku\'ya dokunup tekrar dene.', 'pron.noRecognition': 'Bu tarayıcı konuşmayı yazıya çeviremiyor. Chrome, Edge ya da Safari kullan.', 'pron.noReply': 'Önce derse başla; sonra hocanın cevabını okuyarak deneyebilirsin.', 'game.pron': 'Telaffuz', 'game.pronText': 'Cümleleri sesli oku: duyulan kelimeler yeşil, duyulmayanlar kırmızı olur.', 'game.bestPron': 'En iyi: %{n}', 'game.resultPron': 'Ortalama: %{p}', 'game.skip': 'Geç',
     'nav.tutor': 'Ms. Emma', 'chat.profileTitle': 'Seni nasıl görsünler?', 'chat.nick': 'Takma ad', 'chat.level': 'İngilizce seviyen', 'chat.warning': 'Gerçek adını değil, takma ad kullan. Burada tanıştığın kişilerle telefonunu, adresini ya da başka kişisel bilgilerini paylaşma.', 'chat.goOnline': 'Çevrimiçi ol', 'chat.nameShort': 'Takma adın en az 2 karakter olmalı.', 'chat.onlineN': 'Çevrimiçi: {n} kişi', 'chat.state.searching': 'Çevrimiçi kişiler aranıyor…', 'chat.state.problem': 'Listeye ulaşılamadı; yeniden deniyorum…', 'chat.state.off': 'Çevrimdışısın', 'chat.state.dup': 'Sohbet bu cihazda başka bir sekmede açık', 'chat.state.on': 'Çevrimiçi', 'chat.retry': 'Tekrar dene', 'chat.empty': 'Şu an başka kimse çevrimiçi değil. Bu sekmeyi açık tut ya da sonra tekrar bak.', 'chat.you': 'Sen:', 'chat.edit': 'Değiştir', 'chat.hide': 'Beni listede gösterme', 'chat.unblock': 'Engellediklerimi temizle', 'chat.unblocked': 'Engellediklerin temizlendi.', 'chat.privacy': 'Mesajlar ve ses iki cihaz arasında doğrudan gider, saklanmaz; ücretsiz PeerJS servisi sizi tanıştırır, doğrudan bağlantı olmazsa bağlantıyı aktarabilir. Karşı taraf IP adresini görebilir. Kendi cümlelerin dilbilgisi denetimine gönderilir.', 'chat.invite': 'Yazış', 'chat.inviteTo': '{name} ile yazışmak için davet et', 'chat.busyNow': 'Sohbette', 'chat.asksYou': '{name} seninle yazışmak istiyor.', 'chat.waiting': '{name} yanıtlayana kadar bekleniyor…', 'chat.accept': 'Kabul et', 'chat.decline': 'Hayır', 'chat.block': 'Engelle', 'chat.cancel': 'Vazgeç', 'chat.blocked': '{name} engellendi.', 'chat.declined': '{name} kabul etmedi.', 'chat.busyToast': '{name} şu an meşgul.', 'chat.gone': 'Bu kişi artık çevrimiçi değil.', 'chat.noAnswer': 'Yanıt gelmedi.', 'chat.cantConnect': 'Bağlantı kurulamadı. Ağlarınız buna izin vermiyor olabilir.', 'chat.with': '{name} ile sohbettesin', 'chat.partnerLeft': '{name} sohbetten ayrıldı', 'chat.voiceStart': 'Sesli', 'chat.voiceEnd': 'Sesi kapat', 'chat.voiceWaiting': 'Bekleniyor…', 'chat.voiceAsk': '{name} sesli konuşmak istiyor.', 'chat.voiceNo': '{name} sesli görüşmeyi başlatmadı.',
     'novel.phrase': 'Kalıp', 'novel.inSentence': 'Bu cümlede', 'novel.inText': 'metinde: “{w}”', 'novel.otherSenses': 'Diğer anlamları: {tr}',
+    'deck.work': 'İş İngilizcesi', 'deck.workAI': 'Yapay zekâ, yazılım ve BT', 'deck.workAINote': 'Modeller, kod, sunucular ve yazılım ekibinin kelimeleri.', 'deck.workDES': 'Endüstriyel tasarım', 'deck.workDESNote': 'Eskizden fabrikaya: malzeme, prototip ve üretim.', 'deck.workBIZ': 'Ofis ve iş hayatı', 'deck.workBIZNote': 'Her meslek için toplantı, e-posta ve günlük iş kelimeleri.', 'deck.listNote': '{n} kelime, {d} tanesi öğrenildi.',
+    'novel.tabMine': 'PDF\'lerim', 'mine.private': 'Yalnızca bu cihazda.', 'mine.note': 'PDF\'lerin bu tarayıcıda kalır, hiçbir yere yüklenmez; bu yüzden her cihaza ayrı eklemen gerekir. Tarayıcının site verilerini silersen bunlar da silinir.', 'mine.choose': 'PDF seç', 'mine.folder': 'Klasör seç', 'mine.search': 'PDF\'lerimde ara', 'mine.clear': 'Hepsini kaldır', 'mine.empty': 'Henüz PDF yok. Çalıştığın PDF\'leri ekle; birine dokununca kelime kartı, çeviri ve dinlemeyle okursun.', 'mine.adding': '{n} PDF\'ten {i}. ekleniyor…', 'mine.added': '{n} PDF eklendi, {s} tanesi zaten vardı ya da kopyaydı.', 'mine.noPdf': 'Seçilen dosyalarda PDF yoktu.', 'mine.full': 'Tarayıcının depolama alanı doldu. Durmadan önce {n} PDF eklendi.', 'mine.failed': '{n} PDF eklendikten sonra işlem durdu. Tekrar dene.', 'mine.noStore': 'Bu tarayıcı PDF saklayamıyor (örneğin gizli pencere).', 'mine.size': '{n} PDF · {mb} MB', 'mine.page': 's. {p} / {n}', 'mine.remove': '{w} dosyasını kaldır', 'mine.removeTitle': 'Bu PDF kaldırılsın mı?', 'mine.clearTitle': 'Bu {n} PDF kaldırılsın mı?', 'mine.removeMsg': 'Yalnızca bu cihazdan kaldırılır. Dosyaların bulundukları yerde kalır.', 'mine.removeOk': 'Kaldır',
+    'novel.garbled': 'Bu PDF metni okunamıyor: sayfalar resim olarak',
     'home.eyebrow': 'Günlük hedef', 'home.titleReview': 'Tekrar zamanı! ✨', 'home.titleMorning': 'Günaydın! ☀️', 'home.titleDay': 'Hadi öğrenelim! ✨', 'home.titleEvening': 'İyi akşamlar! 🌙',
     'home.goalChip': '%{p} tamamlandı', 'home.goalStart': 'Hadi başlayalım!', 'home.goalGoing': 'Harika gidiyorsun!', 'home.goalDone': 'Hedef tamam! 🎉',
     'home.goalLeft': 'Hedefe sadece {n} kart kaldı. Ritmini koru!', 'home.goalDoneNote': 'Bugün yapacağın her şey artık bonus.',
@@ -3070,7 +3121,10 @@ function readJsonScript(id) {
   return JSON.parse(node.textContent);
 }
 const VOCAB = readJsonScript('vocab-data').filter(e => e && typeof e.id === 'string' && e.word && e.meaning);
-const BY_ID = new Map();
+/* Work English decks: studied like the other words, but not part of the level path or its counts. */
+const WORK = readJsonScript('work-data') || [];
+const BY_ID = new Map(WORK.map(entry => [entry.id, entry]));
+const wordsOfLevel = level => (WORK.some(entry => entry.level === level) ? WORK : VOCAB).filter(entry => entry.level === level);
 VOCAB.forEach((entry, index) => {
   entry.order = index;
   entry.key = normalize(entry.word);
@@ -3734,12 +3788,59 @@ const Phrases = {
    book opens again without the file. Nothing is uploaded. */
 const BookStore = {
   open() {
-    return new Promise((resolve, reject) => {
+    if (!this.opening) this.opening = new Promise((resolve, reject) => {
       if (!window.indexedDB) { reject(new Error('no indexedDB')); return; }
-      const request = indexedDB.open('english-study-books', 1);
-      request.onupgradeneeded = () => request.result.createObjectStore('books');
-      request.onsuccess = () => resolve(request.result);
+      const request = indexedDB.open('english-study-books', 2);
+      request.onupgradeneeded = () => {
+        const db = request.result;
+        for (const store of ['books', 'mine', 'mineMeta']) if (!db.objectStoreNames.contains(store)) db.createObjectStore(store);
+      };
+      /* A tab with the older version still open must not leave this one waiting. */
+      request.onblocked = () => reject(new Error('blocked'));
+      request.onsuccess = () => {
+        const db = request.result;
+        db.onversionchange = () => { db.close(); this.opening = null; };
+        resolve(db);
+      };
       request.onerror = () => reject(request.error);
+    }).catch(err => { this.opening = null; throw err; });
+    return this.opening;
+  },
+  /* ---- The learner's own PDFs: kept only in this browser, never sent anywhere. */
+  async mineList() {
+    const db = await this.open();
+    return new Promise((resolve, reject) => {
+      const request = db.transaction('mineMeta').objectStore('mineMeta').getAll();
+      request.onsuccess = () => resolve(request.result || []);
+      request.onerror = () => reject(request.error);
+    });
+  },
+  async mineAdd(meta, file) {
+    const db = await this.open();
+    return new Promise((resolve, reject) => {
+      const tx = db.transaction(['mine', 'mineMeta'], 'readwrite');
+      tx.objectStore('mine').put(file, meta.name);
+      tx.objectStore('mineMeta').put(meta, meta.name);
+      tx.oncomplete = () => resolve();
+      tx.onabort = () => reject(tx.error);
+      tx.onerror = () => reject(tx.error);
+    });
+  },
+  async mineGet(name) {
+    const db = await this.open();
+    return new Promise((resolve, reject) => {
+      const request = db.transaction('mine').objectStore('mine').get(name);
+      request.onsuccess = () => resolve(request.result || null);
+      request.onerror = () => reject(request.error);
+    });
+  },
+  async mineRemove(names) {
+    const db = await this.open();
+    return new Promise((resolve, reject) => {
+      const tx = db.transaction(['mine', 'mineMeta'], 'readwrite');
+      for (const name of names) { tx.objectStore('mine').delete(name); tx.objectStore('mineMeta').delete(name); }
+      tx.oncomplete = () => resolve();
+      tx.onabort = () => reject(tx.error);
     });
   },
   async get() {
@@ -3779,10 +3880,15 @@ const Novel = {
   LIGATURES: { 'ɹ': 'fi', 'ʃ': 'ff', 'ɻ': 'fl', 'ɽ': 'ffi', 'ʀ': 'ffl', 'ﬁ': 'fi', 'ﬂ': 'fl', 'ﬀ': 'ff', 'ﬃ': 'ffi', 'ﬄ': 'ffl', '\u00a0': ' ' },
   init() {
     $('#novel-file').addEventListener('change', event => {
-      const file = event.target.files && event.target.files[0];
+      const files = [...event.target.files];
       event.target.value = '';
-      if (file) this.openFile(file);
+      if (!files.length) return;
+      this.libTab('mine');
+      this.showLibrary(true);
+      this.libTab('mine');
+      this.addMine(files, true);
     });
+    this.initMine();
     for (const [id, step] of [['#novel-prev', -1], ['#novel-next', 1]]) {
       $(id).addEventListener('click', () => this.go(this.page + step, true));
     }
@@ -3890,7 +3996,9 @@ const Novel = {
     if (name === 'shelf') this.filterShelf(this.shelfLevel || 'all');
     $('#lib-now').hidden = name !== 'now';
     $('#lib-shelf').hidden = name !== 'shelf';
+    $('#lib-mine').hidden = name !== 'mine';
     if (name === 'now') this.renderNow();
+    if (name === 'mine') this.loadMine();
   },
   renderNow() {
     const saved = this.readState();
@@ -3961,12 +4069,13 @@ const Novel = {
   },
   continueBook(name) {
     if (this.book && this.book.name === name) { this.showLibrary(false); this.go(this.page, true); }
+    else if (name.startsWith(this.MINE)) this.openMine(name);
     else this.openUrl(name);
   },
   showLibrary(show) {
     $('#novel-lib').hidden = !show;
     $('#novel-reader').hidden = show;
-    if (show) { this.stopReading(); this.closePop(); this.placePop(false); window.scrollTo(0, 0); this.libTab($('[data-libtab="shelf"]').getAttribute('aria-pressed') === 'true' ? 'shelf' : 'now'); }
+    if (show) { this.stopReading(); this.closePop(); this.placePop(false); window.scrollTo(0, 0); this.libTab(($('[data-libtab][aria-pressed="true"]') || {}).dataset?.libtab || 'now'); }
     this.focusMode();
   },
   colorCard(card) {
@@ -4149,7 +4258,7 @@ const Novel = {
       meta.querySelector('.novel-meter span').style.width = total ? Math.round((page + 1) / total * 100) + '%' : '0';
     }
   },
-  status(text) { $('#novel-status').textContent = text; },
+  status(text) { $('#novel-status').textContent = text; $('#mine-status').textContent = text; },
   async loadPdfjs() {
     if (window.pdfjsLib) return window.pdfjsLib;
     const blobUrl = id => URL.createObjectURL(new Blob([$(id).textContent], { type: 'text/javascript' }));
@@ -4163,10 +4272,94 @@ const Novel = {
     window.pdfjsLib.GlobalWorkerOptions.workerSrc = blobUrl('#pdfjs-worker-src');
     return window.pdfjsLib;
   },
-  async openFile(file) {
+  /* ---- "My PDFs": any number of the learner's PDFs, on this device only */
+  MINE: 'mine/',
+  initMine() {
+    $('#mine-list').addEventListener('click', event => {
+      const remove = event.target.closest('[data-mine-remove]');
+      if (remove) { this.removeMine([remove.dataset.mineRemove]); return; }
+      const open = event.target.closest('[data-mine]');
+      if (open) this.openMine(open.dataset.mine);
+    });
+    $('#mine-search').addEventListener('input', () => this.renderMine());
+    $('#mine-clear').addEventListener('click', () => this.removeMine(this.mine.map(item => item.name)));
+    $('#mine-folder').addEventListener('change', event => {
+      const files = [...event.target.files];
+      event.target.value = '';
+      if (files.length) this.addMine(files);
+    });
+    /* Phones have no folder picker to speak of. */
+    if (!('webkitdirectory' in $('#mine-folder')) || /Android|iPhone|iPad/.test(navigator.userAgent)) $('#mine-folder-label').hidden = true;
+  },
+  /* Saves the PDFs among these files. Copies ("Book (1).pdf") and books already here are skipped. */
+  async addMine(files, openSingle) {
+    const pdfs = files.filter(file => /\.pdf$/i.test(file.name));
+    const known = new Map((await BookStore.mineList().catch(() => [])).map(item => [item.name, item.size]));
+    let added = 0, skipped = 0, last = '';
+    for (let i = 0; i < pdfs.length; i++) {
+      const file = pdfs[i];
+      const name = this.MINE + file.name;
+      const original = this.MINE + file.name.replace(/ \(\d+\)(\.pdf)$/i, '$1');
+      if (known.get(name) === file.size || known.get(original) === file.size) { skipped++; last = name; continue; }
+      $('#mine-status').textContent = t('mine.adding', { i: i + 1, n: pdfs.length });
+      try {
+        await BookStore.mineAdd({ name, size: file.size, at: Date.now() }, file);
+      } catch (err) {
+        $('#mine-status').textContent = t(err && err.name === 'QuotaExceededError' ? 'mine.full' : 'mine.failed', { n: added });
+        this.loadMine();
+        return;
+      }
+      known.set(name, file.size);
+      added++;
+      last = name;
+    }
+    /* Asks the browser not to clear these when space runs low. */
+    if (added && navigator.storage && navigator.storage.persist) navigator.storage.persist().catch(() => {});
+    $('#mine-status').textContent = pdfs.length ? t('mine.added', { n: added, s: skipped }) : t('mine.noPdf');
+    await this.loadMine();
+    if (openSingle && pdfs.length === 1 && last) this.openMine(last);
+  },
+  async loadMine() {
+    try { this.mine = await BookStore.mineList(); }
+    catch (_) { this.mine = []; $('#mine-status').textContent = t('mine.noStore'); }
+    this.mine.sort((a, b) => a.name.localeCompare(b.name, 'tr'));
+    this.renderMine();
+    if (this.mine.length && navigator.storage && navigator.storage.estimate) {
+      const size = this.mine.reduce((sum, item) => sum + item.size, 0);
+      $('#mine-size').textContent = t('mine.size', { n: this.mine.length, mb: Math.max(1, Math.round(size / 1048576)) });
+    } else $('#mine-size').textContent = '';
+  },
+  renderMine() {
+    const list = this.mine || [];
+    const search = normalize($('#mine-search').value || '');
+    const saved = this.readState();
+    const shown = list.filter(item => !search || normalize(item.name).includes(search));
+    $('#mine-tools').hidden = list.length < 2;
+    $('#mine-empty').hidden = list.length > 0;
+    $('#mine-list').replaceChildren(...shown.map(item => {
+      const mark = saved && saved.totals[item.name] ? t('mine.page', { p: (saved.marks[item.name] || 0) + 1, n: saved.totals[item.name] }) : '';
+      const title = item.name.slice(this.MINE.length).replace(/\.pdf$/i, '');
+      return h('li', { class: 'mine-item' + (this.book && this.book.name === item.name ? ' is-open' : '') },
+        h('button', { type: 'button', class: 'mine-open', 'data-mine': item.name },
+          icon('book'),
+          h('span', {}, h('strong', { text: title }), h('small', { text: [Math.max(1, Math.round(item.size / 104857.6)) / 10 + ' MB', mark].filter(Boolean).join(' · ') }))),
+        h('button', { type: 'button', class: 'icon-button', 'data-mine-remove': item.name, 'aria-label': t('mine.remove', { w: title }) }, icon('close')));
+    }));
+  },
+  async removeMine(names) {
+    if (!names.length) return;
+    const title = names.length > 1 ? t('mine.clearTitle', { n: names.length }) : t('mine.removeTitle');
+    if (!(await confirmDialog({ title, message: t('mine.removeMsg'), confirmLabel: t('mine.removeOk') }))) return;
+    await BookStore.mineRemove(names).catch(() => {});
+    this.loadMine();
+  },
+  async openMine(name) {
+    if (this.book && this.book.name === name) { this.showLibrary(false); this.go(this.page, true); return; }
     this.status(t('novel.loading'));
     try {
-      await this.openData(file.name, await file.arrayBuffer());
+      const file = await BookStore.mineGet(name);
+      if (!file) throw new Error('missing');
+      await this.openData(name, await file.arrayBuffer());
     } catch (_) {
       this.status(t('novel.error'));
     }
@@ -4176,7 +4369,7 @@ const Novel = {
     const data = buffer.slice(0);  /* pdf.js takes over `buffer`; this copy is kept for page pictures */
     const pdf = await lib.getDocument({ data: new Uint8Array(buffer), isEvalSupported: false, disableFontFace: true }).promise;
     let title = '';
-    try { title = ((await pdf.getMetadata()).info.Title || '').trim(); } catch (_) { /* no metadata */ }
+    if (!name.startsWith(this.MINE)) try { title = ((await pdf.getMetadata()).info.Title || '').trim(); } catch (_) { /* no metadata */ }
     const pages = [];
     for (let number = 1; number <= pdf.numPages; number++) {
       const page = await pdf.getPage(number);
@@ -4284,6 +4477,8 @@ const Novel = {
     book = this.book;
     /* Most pages without text: the book was scanned, its pages are shown as pictures. */
     this.textless = book.pages.filter(paragraphs => paragraphs.length).length < book.pages.length * 0.25;
+    this.garbled = !this.textless && this.looksGarbled(book.pages);
+    if (this.garbled) this.textless = true;
     /* The chapter each page belongs to, for the title bar. */
     let chapter = '';
     this.chapters = book.pages.map(paragraphs => {
@@ -4313,10 +4508,10 @@ const Novel = {
     $('#novel-prev').disabled = this.page === 0;
     $('#novel-next').disabled = this.page === total - 1;
     $('#novel-progress-bar').style.width = ((this.page + 1) / total * 100) + '%';
-    $('#novel-book-place').textContent = this.textless ? t('novel.scanned') : this.chapters[this.page];
+    $('#novel-book-place').textContent = this.garbled ? t('novel.garbled') : this.textless ? t('novel.scanned') : this.chapters[this.page];
     const paragraphs = this.book.pages[this.page];
     const article = $('#novel-text');
-    if (paragraphs.length) {
+    if (paragraphs.length && !this.garbled) {
       article.replaceChildren(...(this.translated ? this.sentenceBlocks(paragraphs) : paragraphs.map(text => this.paragraph(text))));
       if (this.translated) this.fillTranslations();
     }
@@ -4766,6 +4961,13 @@ const Novel = {
     $('#novel-pop-dict').textContent = t('novel.otherSenses', { tr: others.join(', ') });
     if (this.current.review) { this.current.review.tr = meant; this.syncSave(); }
   },
+  /* Some PDFs store letters under wrong codes ("fQJLOL]FH" for "İngilizce"): their text cannot be
+     used, so their pages are shown as pictures, like a scanned book's. */
+  looksGarbled(pages) {
+    const words = pages.slice(0, 60).flat().map(paragraph => (typeof paragraph === 'string' ? paragraph : paragraph.text || '')).join(' ').split(/\s+/).filter(Boolean);
+    const broken = words.filter(word => /[a-zçğıöşü][A-ZÇĞİÖŞÜ]|[\u0000-\u001f]|[\]\[\\^`]|\d[A-Za-z]|[A-Za-z]\d/.test(word)).length;
+    return words.length > 30 && broken / words.length > 0.2;
+  },
   /* The tapped word stays in sight above the card. */
   keepInSight(node) {
     const pop = $('#novel-pop');
@@ -4919,7 +5121,7 @@ const Quiz = {
     const keyField = field === 'meaning' ? 'meaningKey' : 'key';
     const used = new Set([entry[keyField], entry.meaningKey, entry.key]);
     const out = [];
-    const sameLevel = shuffle(VOCAB.filter(e => e.level === entry.level));
+    const sameLevel = shuffle(wordsOfLevel(entry.level));
     const anyLevel = shuffle(VOCAB);
     for (const candidate of [...sameLevel, ...anyLevel]) {
       if (out.length >= count) break;
@@ -7331,15 +7533,16 @@ const Review = {
     const [, mode, level] = location.hash.split('/');
     this.mode = mode === 'learn' ? 'learn' : 'review';
     this.level = decodeURIComponent(level || '');
-    if (['mistakes', 'novel', 'words'].includes(mode)) this.mode = mode;
+    if (['mistakes', 'novel', 'words', 'list'].includes(mode)) this.mode = mode;
     if (this.mode === 'words') { this.renderWords(); return; }
+    if (this.mode === 'list') { this.renderDeck(); return; }
     $('.review-progress').hidden = false;
     if (this.mode === 'novel') {
       this.queue = shuffle(this.saved()).slice(0, 20);
     } else if (this.mode === 'mistakes') {
       this.queue = Object.entries(this.state.cards).filter(([id, card]) => card[4] > 0 && this.content(id)).sort((a, b) => b[1][4] - a[1][4]).slice(0, 15).map(([id]) => id);
     } else if (this.mode === 'learn') {
-      this.queue = VOCAB.filter(entry => entry.level === this.level && !learnedSet.has(entry.id)).slice(0, 10).map(entry => 'w:' + entry.id);
+      this.queue = wordsOfLevel(this.level).filter(entry => !learnedSet.has(entry.id)).slice(0, 10).map(entry => 'w:' + entry.id);
     } else this.queue = this.due();
     this.total = this.queue.length;
     this.doneNow = 0;
@@ -7432,6 +7635,25 @@ const Review = {
     const types = sentencesFor(entry);
     return { level: entry.level, pos: types.length ? t('pos.' + types[0][0]) : '', image: image ? image.getAttribute('src') : '' };
   },
+  /* All the words of a work deck, with their sentences. */
+  renderDeck() {
+    const words = wordsOfLevel(this.level);
+    const left = words.filter(entry => !learnedSet.has(entry.id)).length;
+    $('#review-title').textContent = Today.deckName(this.level);
+    $('.review-progress').hidden = true;
+    $('#review-card').replaceChildren(
+      h('div', { class: 'saved-head' },
+        h('p', { text: t('deck.listNote', { n: words.length, d: words.length - left }) }),
+        left ? h('a', { class: 'button primary', href: '#review/learn/' + encodeURIComponent(this.level) }, icon('play'), h('span', { text: t('deck.start') })) : null),
+      h('ul', { class: 'saved-list' }, words.map(entry => h('li', { class: 'saved-item' + (learnedSet.has(entry.id) ? ' is-learned' : '') },
+        h('div', { class: 'saved-word' },
+          h('strong', { lang: 'en', text: entry.word }),
+          Speech.supported ? h('button', { type: 'button', class: 'audio-button', 'data-say': entry.word, 'aria-label': t('card.listenTo', { w: entry.word }) }, icon('sound')) : null,
+          Pron.button(entry.example, 'audio-button')),
+        h('p', { class: 'saved-tr', lang: 'tr', text: entry.meaning }),
+        h('p', { class: 'saved-sentence', lang: 'en', text: entry.example }),
+        h('p', { class: 'saved-sentence-tr', lang: 'tr', text: entry.exampleTr })))));
+  },
   /* The words saved from the novel and the teacher, newest first, each with its sentence. */
   renderWords() {
     const ids = this.saved().sort((a, b) => this.state.cards[b][0] - this.state.cards[a][0] || a.localeCompare(b));
@@ -7458,7 +7680,7 @@ const Review = {
   render() {
     const box = $('#review-card');
     const learn = this.mode === 'learn';
-    $('#review-title').textContent = learn ? t('review.learnTitle', { l: this.level }) : t(this.mode === 'mistakes' ? 'game.mistakes' : this.mode === 'novel' ? 'deck.novel' : 'review.title');
+    $('#review-title').textContent = learn ? t('review.learnTitle', { l: Today.deckName(this.level) }) : t(this.mode === 'mistakes' ? 'game.mistakes' : this.mode === 'novel' ? 'deck.novel' : 'review.title');
     $('#review-lead').textContent = t(learn ? 'review.learnLead' : 'review.lead');
     const done = this.doneToday();
     const goal = this.state.goal;
@@ -7469,7 +7691,7 @@ const Review = {
     if (!this.queue.length) {
       const waiting = Object.keys(this.state.cards).length;
       const finished = this.total > 0;
-      const more = learn && VOCAB.some(entry => entry.level === this.level && !learnedSet.has(entry.id));
+      const more = learn && wordsOfLevel(this.level).some(entry => !learnedSet.has(entry.id));
       box.replaceChildren(h('div', { class: 'review-empty' },
         h('p', { class: 'review-big', text: finished || waiting ? '🎉' : '🗂️' }),
         h('h2', { text: t(finished ? 'review.sessionDone' : waiting ? 'review.allDone' : 'review.noCards') }),
@@ -7525,6 +7747,8 @@ const Today = {
     { level: 'C1', tag: 'Oxford 5000', title: 'deck.C1', note: 'deck.C1note' },
     { level: 'C1+', tag: 'C2', title: 'deck.C1plus', note: 'deck.C1plusNote' }
   ],
+  WORK_DECKS: ['AI', 'DES', 'BIZ'],
+  deckName(level) { return this.WORK_DECKS.includes(level) ? t('deck.work' + level) : level; },
   init() {
     $('#today-goal').addEventListener('change', event => {
       Review.state.goal = Number(event.target.value);
@@ -7596,6 +7820,17 @@ const Today = {
         primary: isNext, color: 'emerald'
       }));
     }
+    /* Right after your own words: easy to find among the many decks. */
+    let workAt = 1;
+    for (const level of this.WORK_DECKS) {
+      const words = wordsOfLevel(level);
+      const learned = words.filter(entry => learnedSet.has(entry.id)).length;
+      const sample = words.find(entry => !learnedSet.has(entry.id)) || words[0];
+      cards.splice(workAt++, 0, this.deckCard({
+        chips: [[t('deck.work'), 'amber'], [t('deck.words', { d: learned, n: words.length }), '']], title: t('deck.work' + level), note: t('deck.work' + level + 'Note'),
+        share: Math.round(learned / words.length * 100), list: '#review/list/' + level, href: '#review/learn/' + level, say: sample.word, primary: false, color: 'emerald'
+      }));
+    }
     for (const topic of Grammar.topics) {
       const done = topic.units.filter(unit => Grammar.learned[unit.id]).length;
       cards.push(this.deckCard({
@@ -7607,7 +7842,7 @@ const Today = {
     $('#decks').replaceChildren(...cards);
     $('#deck-count').textContent = t('home.deckCount', { n: cards.length });
   },
-  deckCard({ chips, title, note, share, count, href, say, primary, color }) {
+  deckCard({ chips, title, note, share, count, list, href, say, primary, color }) {
     return h('article', { class: 'deck is-' + color },
       h('div', { class: 'deck-top' },
         h('div', { class: 'deck-chips' }, chips.map(([text, tone]) => h('span', { class: 'deck-chip' + (tone ? ' is-' + tone : ''), text }))),
@@ -7616,7 +7851,7 @@ const Today = {
       h('p', { class: 'deck-note', text: note }),
       h('div', { class: 'deck-bar' }, h('span', { class: 'gram-meter' }, h('span', { style: 'width:' + share + '%' })), h('span', { class: 'deck-share', text: '★ %' + share })),
       h('div', { class: 'deck-foot' },
-        h('span', { class: 'deck-count' }, icon('cards'), count),
+        list ? h('a', { class: 'deck-list-link', href: list }, icon('cards'), t('deck.seeList')) : h('span', { class: 'deck-count' }, icon('cards'), count),
         h('a', { class: 'button' + (primary ? ' primary' : color === 'violet' ? ' violet-soft' : ''), href }, h('span', { text: t('deck.start') }), icon('next'))));
   },
   /* Where each study area was left: the next grammar step, the book's page, the words. */
@@ -7740,7 +7975,7 @@ const Games = {
   pool(count, remember = true) {
     if (!this.recent) { try { this.recent = JSON.parse(Store.read(this.RECENT_KEY) || '[]'); } catch (_) { this.recent = []; } if (!Array.isArray(this.recent)) this.recent = []; }
     const recent = new Set(this.recent);
-    const learned = VOCAB.filter(entry => learnedSet.has(entry.id));
+    const learned = [...VOCAB, ...WORK].filter(entry => learnedSet.has(entry.id));
     const others = VOCAB.filter(entry => inPath(entry) && !learnedSet.has(entry.id));
     let known = shuffle(learned.filter(entry => !recent.has(entry.id)));
     let fresh = shuffle(others.filter(entry => !recent.has(entry.id)));
@@ -7981,7 +8216,7 @@ const Games = {
     const game = this.game;
     const item = game.items[game.at];
     if (!item) { this.over(); return; }
-    const others = shuffle(VOCAB.filter(e => e.level === item.entry.level && e !== item.entry && !/\s/.test(e.word.trim()))).slice(0, 3);
+    const others = shuffle(wordsOfLevel(item.entry.level).filter(e => e !== item.entry && !/\s/.test(e.word.trim()))).slice(0, 3);
     const options = shuffle([item.entry, ...others]).map(e => e.word.trim().toLowerCase());
     const [before, after] = item.blank.sentence.split('_____');
     this.frame(t('game.gap'),

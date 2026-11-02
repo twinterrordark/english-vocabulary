@@ -152,6 +152,18 @@ def load_novel_dictionary() -> dict:
     return {"words": words, "forms": {f: w for f, w in forms.items() if w in words}, "irregular": irregular, "phrasal": phrasal}
 
 
+def load_work_words() -> list:
+    """Work English decks (tools/work/*.txt): word | Turkish | example | Turkish example."""
+    words = []
+    for level, name in (("AI", "ai_it"), ("DES", "industrial_design"), ("BIZ", "business")):
+        lines = (HERE / "work" / f"{name}.txt").read_text(encoding="utf-8").splitlines()
+        rows = [line for line in lines if line.strip() and not line.startswith("#")]
+        for number, line in enumerate(rows, 1):
+            word, meaning, example, turkish = (part.strip() for part in line.split("|"))
+            words.append({"id": f"wk-{level.lower()}-{number}", "word": word, "meaning": meaning, "pron": "", "level": level, "example": example, "exampleTr": turkish})
+    return words
+
+
 def novel_card(path: str, title: str, author: str, level: str = "") -> str:
     """A book card on the shelf; the reader script builds the same card for books it finds itself."""
     level_attr = f' data-level="{esc(level)}"' if level else ""
@@ -462,6 +474,7 @@ def main() -> None:
     template = turkish_static_text(TEMPLATE.read_text(encoding="utf-8"), counts)
     output = (template
               .replace("<!--@VOCAB_DATA@-->", json_for_script(entries))
+              .replace("<!--@WORK_DATA@-->", json_for_script(load_work_words()))
               .replace("/*@MEANING_GROUPS@*/", extract_meaning_groups(source))
               .replace("<!--@SENTENCE_DATA@-->", json_for_script(sentences))
               .replace("<!--@WORD_CARDS@-->", "\n".join(cards))
