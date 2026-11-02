@@ -1617,6 +1617,12 @@ body.novel-focus .novel-pop:not(.is-inline) .novel-pop-actions { background: var
 .mine-open strong { font-size: .95rem; font-weight: 700; line-height: 1.25; overflow-wrap: anywhere; }
 .mine-open small { color: var(--muted); font-size: .8rem; }
 .mine-item .icon-button { flex: none; color: var(--muted); }
+
+.my-deck-actions { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-1); }
+.my-deck .saved-remove { margin-left: auto; }
+#mine-extract[hidden], #mine-decks[hidden] { display: none; }
+#mine-extract { justify-self: start; }
+#mine-decks { justify-self: start; }
 </style>
 </head>
 <body>
@@ -2023,6 +2029,8 @@ body.novel-focus .novel-pop:not(.is-inline) .novel-pop-actions { background: var
           <label class="button" id="mine-folder-label" for="mine-folder"><svg class="icon" aria-hidden="true"><use href="#i-cards"/></svg><span data-i18n="mine.folder">Choose a folder</span></label>
           <input id="mine-folder" class="visually-hidden" type="file" webkitdirectory multiple>
         </div>
+        <button type="button" class="button violet" id="mine-extract"><svg class="icon" aria-hidden="true"><use href="#i-cards"/></svg><span data-i18n="mine.extract">Make word decks from my PDFs</span></button>
+        <a class="link-button" id="mine-decks" href="#review/mine" hidden></a>
         <p class="hint" id="mine-status" role="status"></p>
         <div class="mine-tools" id="mine-tools" hidden>
           <label for="mine-search" class="visually-hidden" data-i18n="mine.search">Search my PDFs</label>
@@ -2586,6 +2594,7 @@ const STRINGS = {
     'deck.work': 'Work English', 'deck.workAI': 'AI, software and IT', 'deck.workAINote': 'Models, code, servers and the words of a software team.', 'deck.workDES': 'Industrial design', 'deck.workDESNote': 'From sketch to factory: materials, prototypes and production.', 'deck.workBIZ': 'Office and business', 'deck.workBIZNote': 'Meetings, emails and everyday words for any job.', 'deck.listNote': '{n} words, {d} learned.',
     'novel.tabMine': 'My PDFs', 'mine.private': 'Only on this device.', 'mine.note': 'Your PDFs stay in this browser and are not uploaded anywhere, so each device needs its own copy. Clearing the browser\'s site data removes them.', 'mine.choose': 'Choose PDFs', 'mine.folder': 'Choose a folder', 'mine.search': 'Search my PDFs', 'mine.clear': 'Remove all', 'mine.empty': 'No PDFs yet. Add the ones you study from; tap one to read it with the word card, translation and listening.', 'mine.adding': 'Adding {i} of {n}…', 'mine.added': '{n} PDFs added, {s} already here or copies.', 'mine.noPdf': 'There was no PDF among those files.', 'mine.full': 'The browser\'s storage is full. {n} PDFs were added before it stopped.', 'mine.failed': 'Adding stopped after {n} PDFs. Try again.', 'mine.noStore': 'This browser cannot keep PDFs (a private window, for example).', 'mine.size': '{n} PDFs · {mb} MB', 'mine.page': 'p. {p} / {n}', 'mine.remove': 'Remove {w}', 'mine.removeTitle': 'Remove this PDF?', 'mine.clearTitle': 'Remove these {n} PDFs?', 'mine.removeMsg': 'They are removed from this device only. Your files stay where they are.', 'mine.removeOk': 'Remove',
     'novel.garbled': 'The text of this PDF cannot be read: pages shown as pictures',
+    'mine.extract': 'Make word decks from my PDFs', 'mine.seeDecks': 'See my {n} word decks', 'mine.reading': 'Looking for word lists: {i} of {n}…', 'mine.decksMade': '{d} word decks made, {n} words.', 'mine.decksTitle': 'Words from my PDFs', 'mine.decksNote': '{n} words. They are kept on this device only.', 'mine.decksEmpty': 'No decks yet. Add your PDFs under Read → My PDFs.', 'deck.mine': 'My PDFs', 'deck.mineNote': '{n} decks from the word lists in your PDFs, on this device only.',
     'home.eyebrow': 'Daily goal', 'home.titleReview': 'Time to review! ✨', 'home.titleMorning': 'Good morning! ☀️', 'home.titleDay': 'Let’s learn! ✨', 'home.titleEvening': 'Good evening! 🌙',
     'home.goalChip': '{p}% done', 'home.goalStart': 'Let’s get started!', 'home.goalGoing': 'You’re doing great!', 'home.goalDone': 'Goal reached! 🎉',
     'home.goalLeft': 'Only {n} cards to your goal. Keep the rhythm!', 'home.goalDoneNote': 'Anything more today is a bonus.',
@@ -2802,6 +2811,7 @@ const STRINGS = {
     'deck.work': 'İş İngilizcesi', 'deck.workAI': 'Yapay zekâ, yazılım ve BT', 'deck.workAINote': 'Modeller, kod, sunucular ve yazılım ekibinin kelimeleri.', 'deck.workDES': 'Endüstriyel tasarım', 'deck.workDESNote': 'Eskizden fabrikaya: malzeme, prototip ve üretim.', 'deck.workBIZ': 'Ofis ve iş hayatı', 'deck.workBIZNote': 'Her meslek için toplantı, e-posta ve günlük iş kelimeleri.', 'deck.listNote': '{n} kelime, {d} tanesi öğrenildi.',
     'novel.tabMine': 'PDF\'lerim', 'mine.private': 'Yalnızca bu cihazda.', 'mine.note': 'PDF\'lerin bu tarayıcıda kalır, hiçbir yere yüklenmez; bu yüzden her cihaza ayrı eklemen gerekir. Tarayıcının site verilerini silersen bunlar da silinir.', 'mine.choose': 'PDF seç', 'mine.folder': 'Klasör seç', 'mine.search': 'PDF\'lerimde ara', 'mine.clear': 'Hepsini kaldır', 'mine.empty': 'Henüz PDF yok. Çalıştığın PDF\'leri ekle; birine dokununca kelime kartı, çeviri ve dinlemeyle okursun.', 'mine.adding': '{n} PDF\'ten {i}. ekleniyor…', 'mine.added': '{n} PDF eklendi, {s} tanesi zaten vardı ya da kopyaydı.', 'mine.noPdf': 'Seçilen dosyalarda PDF yoktu.', 'mine.full': 'Tarayıcının depolama alanı doldu. Durmadan önce {n} PDF eklendi.', 'mine.failed': '{n} PDF eklendikten sonra işlem durdu. Tekrar dene.', 'mine.noStore': 'Bu tarayıcı PDF saklayamıyor (örneğin gizli pencere).', 'mine.size': '{n} PDF · {mb} MB', 'mine.page': 's. {p} / {n}', 'mine.remove': '{w} dosyasını kaldır', 'mine.removeTitle': 'Bu PDF kaldırılsın mı?', 'mine.clearTitle': 'Bu {n} PDF kaldırılsın mı?', 'mine.removeMsg': 'Yalnızca bu cihazdan kaldırılır. Dosyaların bulundukları yerde kalır.', 'mine.removeOk': 'Kaldır',
     'novel.garbled': 'Bu PDF metni okunamıyor: sayfalar resim olarak',
+    'mine.extract': 'PDF\'lerimden kelime destesi yap', 'mine.seeDecks': '{n} kelime destemi gör', 'mine.reading': 'Kelime listeleri aranıyor: {n} PDF\'ten {i}.…', 'mine.decksMade': '{d} kelime destesi yapıldı, {n} kelime.', 'mine.decksTitle': 'PDF kelimelerim', 'mine.decksNote': '{n} kelime. Yalnızca bu cihazda saklanır.', 'mine.decksEmpty': 'Henüz deste yok. Roman Oku → PDF\'lerim bölümünden PDF\'lerini ekle.', 'deck.mine': 'PDF\'lerim', 'deck.mineNote': 'PDF\'lerindeki kelime listelerinden {n} deste, yalnızca bu cihazda.',
     'home.eyebrow': 'Günlük hedef', 'home.titleReview': 'Tekrar zamanı! ✨', 'home.titleMorning': 'Günaydın! ☀️', 'home.titleDay': 'Hadi öğrenelim! ✨', 'home.titleEvening': 'İyi akşamlar! 🌙',
     'home.goalChip': '%{p} tamamlandı', 'home.goalStart': 'Hadi başlayalım!', 'home.goalGoing': 'Harika gidiyorsun!', 'home.goalDone': 'Hedef tamam! 🎉',
     'home.goalLeft': 'Hedefe sadece {n} kart kaldı. Ritmini koru!', 'home.goalDoneNote': 'Bugün yapacağın her şey artık bonus.',
@@ -4282,6 +4292,7 @@ const Novel = {
       if (open) this.openMine(open.dataset.mine);
     });
     $('#mine-search').addEventListener('input', () => this.renderMine());
+    $('#mine-extract').addEventListener('click', () => this.extractDecks());
     $('#mine-clear').addEventListener('click', () => this.removeMine(this.mine.map(item => item.name)));
     $('#mine-folder').addEventListener('change', event => {
       const files = [...event.target.files];
@@ -4294,13 +4305,13 @@ const Novel = {
   /* Saves the PDFs among these files. Copies ("Book (1).pdf") and books already here are skipped. */
   async addMine(files, openSingle) {
     const pdfs = files.filter(file => /\.pdf$/i.test(file.name));
-    const known = new Map((await BookStore.mineList().catch(() => [])).map(item => [item.name, item.size]));
+    const plain = name => name.replace(/ \(\d+\)(\.pdf)$/i, '$1');
+    const known = new Map((await BookStore.mineList().catch(() => [])).map(item => [plain(item.name), item.size]));
     let added = 0, skipped = 0, last = '';
     for (let i = 0; i < pdfs.length; i++) {
       const file = pdfs[i];
       const name = this.MINE + file.name;
-      const original = this.MINE + file.name.replace(/ \(\d+\)(\.pdf)$/i, '$1');
-      if (known.get(name) === file.size || known.get(original) === file.size) { skipped++; last = name; continue; }
+      if (known.get(plain(name)) === file.size) { skipped++; last = name; continue; }
       $('#mine-status').textContent = t('mine.adding', { i: i + 1, n: pdfs.length });
       try {
         await BookStore.mineAdd({ name, size: file.size, at: Date.now() }, file);
@@ -4309,7 +4320,7 @@ const Novel = {
         this.loadMine();
         return;
       }
-      known.set(name, file.size);
+      known.set(plain(name), file.size);
       added++;
       last = name;
     }
@@ -4317,7 +4328,17 @@ const Novel = {
     if (added && navigator.storage && navigator.storage.persist) navigator.storage.persist().catch(() => {});
     $('#mine-status').textContent = pdfs.length ? t('mine.added', { n: added, s: skipped }) : t('mine.noPdf');
     await this.loadMine();
-    if (openSingle && pdfs.length === 1 && last) this.openMine(last);
+    if (openSingle && pdfs.length === 1 && last) { this.openMine(last); return; }
+    if (added) this.extractDecks();
+  },
+  async extractDecks() {
+    const button = $('#mine-extract');
+    button.disabled = true;
+    try { await MyDecks.build(text => { $('#mine-status').textContent = text; }); }
+    catch (_) { $('#mine-status').textContent = t('mine.noStore'); }
+    button.disabled = false;
+    this.renderMine();
+    Nav.counts();
   },
   async loadMine() {
     try { this.mine = await BookStore.mineList(); }
@@ -4335,6 +4356,9 @@ const Novel = {
     const saved = this.readState();
     const shown = list.filter(item => !search || normalize(item.name).includes(search));
     $('#mine-tools').hidden = list.length < 2;
+    $('#mine-extract').hidden = !list.length;
+    $('#mine-decks').hidden = !MyDecks.decks.length;
+    $('#mine-decks').textContent = t('mine.seeDecks', { n: MyDecks.decks.length });
     $('#mine-empty').hidden = list.length > 0;
     $('#mine-list').replaceChildren(...shown.map(item => {
       const mark = saved && saved.totals[item.name] ? t('mine.page', { p: (saved.marks[item.name] || 0) + 1, n: saved.totals[item.name] }) : '';
@@ -7533,7 +7557,8 @@ const Review = {
     const [, mode, level] = location.hash.split('/');
     this.mode = mode === 'learn' ? 'learn' : 'review';
     this.level = decodeURIComponent(level || '');
-    if (['mistakes', 'novel', 'words', 'list'].includes(mode)) this.mode = mode;
+    if (['mistakes', 'novel', 'words', 'list', 'mine'].includes(mode)) this.mode = mode;
+    if (this.mode === 'mine') { this.renderMyDecks(); return; }
     if (this.mode === 'words') { this.renderWords(); return; }
     if (this.mode === 'list') { this.renderDeck(); return; }
     $('.review-progress').hidden = false;
@@ -7556,6 +7581,11 @@ const Review = {
     if (button && button.dataset.say) { event.stopPropagation(); Grammar.say(button.dataset.say); return; }
     if (button && button.dataset.rate) { if (this.shown) this.rate(button.dataset.rate); else this.flip(); return; }
     if (button && button.dataset.act === 'more') { this.onShow(); return; }
+    if (button && button.dataset.removeDeck) {
+      MyDecks.remove(button.dataset.removeDeck);
+      this.renderMyDecks();
+      return;
+    }
     if (button && button.dataset.remove) {
       this.remove(button.dataset.remove);
       button.closest('.saved-item').remove();
@@ -7649,10 +7679,29 @@ const Review = {
         h('div', { class: 'saved-word' },
           h('strong', { lang: 'en', text: entry.word }),
           Speech.supported ? h('button', { type: 'button', class: 'audio-button', 'data-say': entry.word, 'aria-label': t('card.listenTo', { w: entry.word }) }, icon('sound')) : null,
-          Pron.button(entry.example, 'audio-button')),
+          Pron.button(entry.example || entry.word, 'audio-button')),
         h('p', { class: 'saved-tr', lang: 'tr', text: entry.meaning }),
-        h('p', { class: 'saved-sentence', lang: 'en', text: entry.example }),
-        h('p', { class: 'saved-sentence-tr', lang: 'tr', text: entry.exampleTr })))));
+        entry.example ? h('p', { class: 'saved-sentence', lang: 'en', text: entry.example }) : null,
+        entry.exampleTr ? h('p', { class: 'saved-sentence-tr', lang: 'tr', text: entry.exampleTr }) : null))));
+  },
+  /* The decks made from the learner's own PDFs. */
+  renderMyDecks() {
+    const decks = MyDecks.decks;
+    $('#review-title').textContent = t('mine.decksTitle');
+    $('.review-progress').hidden = true;
+    $('#review-card').replaceChildren(
+      h('p', { class: 'hint', text: decks.length ? t('mine.decksNote', { n: decks.reduce((sum, deck) => sum + deck.words.length, 0) }) : t('mine.decksEmpty') }),
+      h('ul', { class: 'saved-list' }, decks.map(deck => {
+        const words = wordsOfLevel(deck.id);
+        const left = words.filter(entry => !learnedSet.has(entry.id)).length;
+        return h('li', { class: 'saved-item my-deck' },
+          h('div', { class: 'saved-word' }, h('strong', { text: deck.title }),
+            h('button', { type: 'button', class: 'icon-button saved-remove', 'data-remove-deck': deck.id, 'aria-label': t('deck.remove', { w: deck.title }) }, icon('close'))),
+          h('p', { class: 'saved-tr', text: t('deck.words', { d: words.length - left, n: words.length }) }),
+          h('div', { class: 'my-deck-actions' },
+            h('a', { class: 'button small', href: '#review/list/' + deck.id, text: t('deck.seeList') }),
+            left ? h('a', { class: 'button primary small', href: '#review/learn/' + deck.id, text: t('deck.start') }) : null));
+      })));
   },
   /* The words saved from the novel and the teacher, newest first, each with its sentence. */
   renderWords() {
@@ -7748,7 +7797,7 @@ const Today = {
     { level: 'C1+', tag: 'C2', title: 'deck.C1plus', note: 'deck.C1plusNote' }
   ],
   WORK_DECKS: ['AI', 'DES', 'BIZ'],
-  deckName(level) { return this.WORK_DECKS.includes(level) ? t('deck.work' + level) : level; },
+  deckName(level) { const mine = MyDecks.find(level); return mine ? mine.title : this.WORK_DECKS.includes(level) ? t('deck.work' + level) : level; },
   init() {
     $('#today-goal').addEventListener('change', event => {
       Review.state.goal = Number(event.target.value);
@@ -7822,6 +7871,14 @@ const Today = {
     }
     /* Right after your own words: easy to find among the many decks. */
     let workAt = 1;
+    if (MyDecks.decks.length) {
+      const words = MyDecks.decks.flatMap(deck => wordsOfLevel(deck.id));
+      const learned = words.filter(entry => learnedSet.has(entry.id)).length;
+      cards.splice(workAt++, 0, this.deckCard({
+        chips: [[t('deck.mine'), 'amber'], [t('deck.words', { d: learned, n: words.length }), '']], title: t('mine.decksTitle'), note: t('deck.mineNote', { n: MyDecks.decks.length }),
+        share: Math.round(learned / words.length * 100), count: '', list: '#review/mine', href: '#review/mine', primary: false, color: 'emerald'
+      }));
+    }
     for (const level of this.WORK_DECKS) {
       const words = wordsOfLevel(level);
       const learned = words.filter(entry => learnedSet.has(entry.id)).length;
@@ -8532,6 +8589,224 @@ const Pron = {
   }
 };
 
+/* ---------- MyDecks: word decks made from the learner's own PDFs ----------
+   The word lists are read in this browser and saved here only, like the PDFs themselves. */
+const MyDecks = {
+  KEY: 'english-study-mydecks.v1',
+  TYPE: /^(fiil|isim|sıfat|zarf|edat|bağlaç|ünlem|zamir|p\.? ?verb|phrasal( verb)?|prep\.?( phrase)?|phrase|deyim|kalıp)$/i,
+  HEAD: /^(ingilizce|türkçe|tür|diğer yapıları|eş anlamlıları|eş anlamlılar|collocation|preposition|synonyms)$/i,
+  ENGLISH: /^[A-Za-z][A-Za-z' \/.()-]{0,45}$/,
+  decks: [],
+  load() {
+    try { this.decks = JSON.parse(Store.read(this.KEY) || '[]'); } catch (_) { this.decks = []; }
+    if (!Array.isArray(this.decks)) this.decks = [];
+    for (const deck of this.decks) this.register(deck);
+  },
+  entries(deck) {
+    return deck.words.map(([word, meaning]) => ({ id: deck.id + '-' + word.toLowerCase().replace(/[^a-z0-9]+/g, '_'), word, meaning, pron: '', level: deck.id }));
+  },
+  register(deck) { for (const entry of this.entries(deck)) { WORK.push(entry); BY_ID.set(entry.id, entry); } },
+  find(id) { return this.decks.find(deck => deck.id === id); },
+  /* A deck per PDF that holds a word list; the same PDF read again replaces its deck. */
+  save(title, words) {
+    const id = 'my-' + normalize(title).replace(/[^a-z0-9]+/g, '');
+    const old = this.find(id);
+    const deck = { id, title, words };
+    if (old) this.remove(id, true);
+    this.decks.push(deck);
+    this.decks.sort((a, b) => a.title.localeCompare(b.title, 'tr'));
+    this.register(deck);
+    this.write();
+  },
+  write() { Store.write(this.KEY, JSON.stringify(this.decks)); },
+  remove(id, quiet) {
+    this.decks = this.decks.filter(deck => deck.id !== id);
+    for (let i = WORK.length - 1; i >= 0; i--) if (WORK[i].level === id) { BY_ID.delete(WORK[i].id); WORK.splice(i, 1); }
+    if (!quiet) this.write();
+  },
+  /* ---- Fonts that store letters under wrong codes: ASCII sits 29 places away ("fQJLOL]FH"),
+     Turkish letters are worked out from the Turkish words the app already knows. */
+  turkishWords() {
+    if (this.known) return this.known;
+    this.known = new Set();
+    const add = text => { for (const word of String(text).toLocaleLowerCase('tr').match(/\p{L}+/gu) || []) this.known.add(word); };
+    for (const entry of VOCAB) add(entry.meaning);
+    for (const value of Object.values(Novel.dictionary().words)) add(value);
+    return this.known;
+  },
+  isBroken(strings) {
+    const words = strings.join(' ').split(/[\s\u0003]+/).filter(Boolean);
+    const broken = words.filter(word => /[a-zçğıöşü][A-ZÇĞİÖŞÜ]|[\u0000-\u001f]|[\]\[\\^`]/.test(word)).length;
+    return words.length >= 5 && broken / words.length > 0.25;
+  },
+  shift(code) { return code === 32 ? ' ' : code + 29 >= 32 && code + 29 <= 122 ? String.fromCharCode(code + 29) : null; },
+  decoder(strings) {
+    const known = this.turkishWords();
+    const letters = [...'çğıöşüİÇŞÖÜ'];
+    const map = new Map();
+    const unknown = new Set();
+    for (const text of strings) for (const ch of text) if (this.shift(ch.codePointAt(0)) === null) unknown.add(ch);
+    const decode = text => [...text].map(ch => this.shift(ch.codePointAt(0)) ?? map.get(ch) ?? '?').join('');
+    const score = () => {
+      let hits = 0;
+      for (const text of strings) for (const word of decode(text).toLocaleLowerCase('tr').match(/[\p{L}?]+/gu) || []) if (known.has(word)) hits++;
+      return hits;
+    };
+    for (let pass = 0; pass < 2; pass++) {
+      for (const ch of unknown) {
+        let best = map.get(ch) || letters[0], top = -1;
+        for (const letter of letters) {
+          map.set(ch, letter);
+          const value = score();
+          if (value > top) { top = value; best = letter; }
+        }
+        map.set(ch, best);
+      }
+    }
+    return decode;
+  },
+  /* ---- Reading the lists */
+  async pageLines(pdf, decoders) {
+    const out = [];
+    for (let number = 1; number <= pdf.numPages; number++) {
+      const page = await pdf.getPage(number);
+      const items = (await page.getTextContent()).items.filter(item => item.str && item.str.trim());
+      const rows = [];
+      for (const item of items) {
+        const [, , , , x, y] = item.transform;
+        const decode = decoders.get(item.fontName);
+        const text = (decode ? decode(item.str) : item.str).replace(/\s+/g, ' ');
+        let row = rows.find(line => Math.abs(line.y - y) < 2);
+        if (!row) rows.push(row = { y, parts: [] });
+        row.parts.push({ x, width: item.width, text });
+      }
+      rows.sort((a, b) => b.y - a.y);
+      for (const row of rows) {
+        row.parts.sort((a, b) => a.x - b.x);
+        const cells = [];
+        for (const part of row.parts) {
+          const last = cells[cells.length - 1];
+          const apart = this.TYPE.test(part.text.trim()) || /^\d+\.?$/.test(part.text.trim()) || (last && this.TYPE.test(last.text.trim()));
+          if (last && !apart && part.x - last.end < 3) { last.text += (part.x - last.end > 1 ? ' ' : '') + part.text; last.end = part.x + part.width; }
+          else cells.push({ x: part.x, end: part.x + part.width, text: part.text });
+        }
+        for (const cell of cells) cell.text = cell.text.trim();
+        out.push({ page: number, y: row.y, cells: cells.filter(cell => cell.text) });
+      }
+    }
+    return out;
+  },
+  parse(lines) {
+    const words = new Map();
+    /* The rows still open in each column, for meanings that go on to the next line. */
+    let open = [];
+    const columns = [];
+    const inColumn = x => columns.some(column => Math.abs(column - x) < 4);
+    const add = (word, meaning, x, line) => {
+      const clean = word.replace(/^\d+\.?\s+/, '').trim();
+      if (!this.ENGLISH.test(clean) || !meaning || this.HEAD.test(clean) || this.HEAD.test(meaning) || /[\u0000-\u001f]/.test(clean + meaning)) return;
+      const key = clean.toLowerCase();
+      if (!words.has(key)) words.set(key, [clean, meaning]);
+      if (x) open.push({ entry: words.get(key), x, page: line.page, y: line.y });
+    };
+    for (const line of lines) {
+      open = open.filter(item => item.page === line.page && item.y - line.y < 16);
+      const cells = line.cells.filter(cell => !/^\d+\.?$/.test(cell.text));
+      if (!cells.length) continue;
+      /* Table: English | Turkish | type, sometimes two tables side by side. */
+      if (cells.some(cell => this.TYPE.test(cell.text))) {
+        let row = [];
+        for (const cell of cells) {
+          if (!this.TYPE.test(cell.text)) { row.push(cell); continue; }
+          if (row.length >= 2) {
+            if (!inColumn(row[1].x)) columns.push(row[1].x);
+            add(row[0].text, row.slice(1).map(item => item.text).join(' '), row[1].x, line);
+          }
+          row = [];
+        }
+        continue;
+      }
+      /* "ad  abbr.  advertisement" (English definitions) */
+      const type = cells[1] && cells[1].text.match(/^(n|v|adj|adv|abbr|phr|prep|conj)\.(?:\s+(.*))?$/);
+      if (type) {
+        add(cells[0].text, [type[2], ...cells.slice(2).map(cell => cell.text)].filter(Boolean).join(' '), cells[cells.length - 1].x, line);
+        continue;
+      }
+      /* "drug (n): ilaç" or "research into: ...hakkında araştırma", in one or two columns. */
+      const groups = [];
+      cells.forEach((cell, index) => {
+        if (index && cell.x - cells[index - 1].end > 20) groups.push([cell]);
+        else if (index) groups[groups.length - 1].push(cell);
+        else groups.push([cell]);
+      });
+      let matched = false;
+      for (const group of groups) {
+        const text = group.map(cell => cell.text).join(' ').replace(/\s+/g, ' ');
+        const pair = text.match(/^([A-Za-z][A-Za-z' \/-]{1,40}?)\s*(?:\((?:n|v|adj|adv|prep|conj|phr)[^)]*\))?\s*:\s*(.{2,120})$/);
+        if (pair) { add(pair[1], pair[2].replace(/^\.+\s*/, '… ').trim(), 0, line); matched = true; }
+      }
+      if (matched) continue;
+      cells.forEach((cell, index) => {
+        const before = cells[index - 1];
+        /* A table row without a type: the meaning is in its column, the word just left of it. */
+        if (before && inColumn(cell.x) && cell.x - before.x < 120) { add(before.text, cell.text, cell.x, line); return; }
+        /* A long meaning goes on in the same column on the next line. */
+        const row = open.find(item => Math.abs(item.x - cell.x) < 4);
+        if (row && !before && !this.HEAD.test(cell.text)) { row.entry[1] += ' ' + cell.text; row.y = line.y; }
+        else if (row && before && cell.x - before.x >= 120 && !this.HEAD.test(cell.text)) { row.entry[1] += ' ' + cell.text; row.y = line.y; }
+      });
+    }
+    return [...words.values()];
+  },
+  /* Is this a word list? Exam texts and stories also have lines with a colon in them. */
+  isList(words) {
+    if (words.length < 20) return false;
+    const known = this.turkishWords();
+    const turkish = words.filter(([, meaning]) => (meaning.toLocaleLowerCase('tr').match(/\p{L}+/gu) || []).some(word => /[çğıöşü]/.test(word) || (word.length > 3 && known.has(word)))).length;
+    return turkish / words.length > 0.5 || words.length >= 100;
+  },
+  async fromPdf(file) {
+    const lib = await Novel.loadPdfjs();
+    const pdf = await lib.getDocument({ data: new Uint8Array(await file.arrayBuffer()), isEvalSupported: false, disableFontFace: true }).promise;
+    /* Word lists are short; big books are not read through for nothing. */
+    if (pdf.numPages > 120) return [];
+    const byFont = new Map();
+    for (let number = 1; number <= pdf.numPages; number++) {
+      for (const item of (await (await pdf.getPage(number)).getTextContent()).items) {
+        if (!item.str) continue;
+        if (!byFont.has(item.fontName)) byFont.set(item.fontName, []);
+        byFont.get(item.fontName).push(item.str);
+      }
+    }
+    const decoders = new Map();
+    for (const [font, strings] of byFont) if (this.isBroken(strings)) decoders.set(font, this.decoder(strings.slice(0, 4000)));
+    const lines = await this.pageLines(pdf, decoders);
+    /* Files named only with numbers take their title from the first line. */
+    this.heading = ((lines.find(line => line.cells.some(cell => /\p{L}{3}/u.test(cell.text))) || { cells: [] }).cells[0] || {}).text || '';
+    return this.parse(lines);
+  },
+  /* Reads every PDF on the shelf and makes a deck of each one that is a word list. */
+  async build(status) {
+    const list = await BookStore.mineList();
+    let made = 0, total = 0;
+    for (let i = 0; i < list.length; i++) {
+      status(t('mine.reading', { i: i + 1, n: list.length }));
+      try {
+        const file = await BookStore.mineGet(list[i].name);
+        const words = file ? await this.fromPdf(file) : [];
+        if (this.isList(words)) {
+          const title = list[i].name.slice(Novel.MINE.length).replace(/( \(\d+\))?\.pdf$/i, '');
+          this.save(/^[\d-]+$/.test(title) ? this.heading || title : title, words);
+          made++;
+          total += words.length;
+        }
+      } catch (_) { /* a PDF that cannot be read makes no deck */ }
+    }
+    status(t('mine.decksMade', { d: made, n: total }));
+    return made;
+  }
+};
+
 /* ---------- Rankings: this week against your own past weeks ----------
    There are no other players: the league is made of your own weeks, ranked by XP. */
 const Rankings = {
@@ -8768,6 +9043,7 @@ function init() {
   applyTheme();
   applyTurkishVisibility();
   prepareCards();
+  MyDecks.load();
   XP.init(); Home.init(); Words.init(); Phrases.init(); Grammar.init(); Review.init(); Today.init(); Nav.init(); Games.init(); Writer.init(); AiStory.init(); Pron.init(); Speak.init(); Tutor.init(); Novel.init(); Quiz.init(); Settings.init(); Updater.init();
   if (!Store.usable) Banner.show(t(Store.simulated ? 'storage.simulated' : 'storage.off'));
   else if (loaded.notice) Banner.show(t(loaded.notice, { n: loaded.count || 0 }));
