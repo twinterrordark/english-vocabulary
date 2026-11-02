@@ -1,0 +1,18 @@
+{
+"What do you do?":[["positive","I'm a nurse at a local hospital.","Yerel bir hastanede hemşireyim."],["negative","I'm between jobs at the moment.","Şu anda iş arıyorum."]],
+"What do you do for work?":[["positive","I work as an accountant.","Muhasebeci olarak çalışıyorum."],["negative","I don't work right now; I'm a student.","Şu anda çalışmıyorum, öğrenciyim."]],
+"What kind of work do you do?":[["positive","I work in sales for a small company.","Küçük bir şirkette satışta çalışıyorum."],["neutral","I do a bit of everything in the office.","Ofiste biraz her işi yapıyorum."]],
+"Where do you work?":[["positive","I work at a bank in the city centre.","Şehir merkezinde bir bankada çalışıyorum."],["neutral","I mostly work from home.","Çoğunlukla evden çalışıyorum."]],
+"Do you like your job?":[["positive","Yes, I love it. My colleagues are great.","Evet, çok seviyorum. İş arkadaşlarım harika."],["negative","Not really. The hours are very long.","Pek değil. Çalışma saatleri çok uzun."]],
+"Isn't it beautiful today?":[["positive","Yes, it's lovely! Let's go for a walk.","Evet, çok güzel! Hadi yürüyüşe çıkalım."],["negative","It's nice, but a bit too hot for me.","Güzel ama bana biraz fazla sıcak."]],
+"Excuse me, where is":[["positive","It's just around the corner, on your left.","Hemen köşeyi dönünce, solunuzda."],["negative","Sorry, I'm not from around here.","Üzgünüm, buralı değilim."]],
+"Would you please wake me up at 7am?":[["positive","Sure, I'll wake you up at seven.","Tabii, seni yedide uyandırırım."],["negative","Sorry, I'm leaving at six tomorrow.","Üzgünüm, yarın altıda çıkıyorum."]],
+"Could you please fill out this form?":[["positive","Of course. Do you have a pen?","Tabii. Kaleminiz var mı?"],["neutral","Can I do it later? I'm in a hurry.","Sonra yapabilir miyim? Acelem var."]],
+"Would you please bring us two cups of coffee":[["positive","Certainly. I'll be right back.","Elbette. Hemen geliyorum."],["negative","I'm sorry, the coffee machine is broken.","Üzgünüm, kahve makinesi bozuk."]],
+"Would you please call Mr. Peterson":[["positive","Yes, I'll call him right now.","Evet, onu hemen arıyorum."],["negative","He's in a meeting. I'll try again later.","Toplantıda. Sonra yine denerim."]],
+"Can you please give me another drink?":[["positive","Of course. The same again?","Tabii. Aynısından mı?"],["negative","I'm sorry, we're about to close.","Üzgünüm, kapatmak üzereyiz."]],
+"Could you please say that again?":[["positive","Sure. I said the meeting is at three.","Tabii. Toplantının saat üçte olduğunu söyledim."],["neutral","Of course. Let me say it more slowly.","Tabii. Daha yavaş söyleyeyim."]],
+"Are you ready to order lunch?":[["positive","Yes, I'll have the chicken salad, please.","Evet, tavuklu salata alayım lütfen."],["negative","Not yet. Could we have a few more minutes?","Henüz değil. Birkaç dakika daha alabilir miyiz?"]],
+"Do you speak English during the day?":[["positive","Yes, I use it at work every day.","Evet, her gün işte kullanıyorum."],["negative","Not much. I only speak it in class.","Pek değil. Sadece derste konuşuyorum."]],
+"Did you receive my email yesterday?":[["positive","Yes, I did. I'll reply today.","Evet, aldım. Bugün yanıtlayacağım."],["negative","No, I didn't. Could you send it again?","Hayır, almadım. Yeniden gönderebilir misin?"]]
+}

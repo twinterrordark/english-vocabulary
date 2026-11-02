@@ -70,7 +70,8 @@ def parse_answers(p_html):
     answers = []
     for cls, a_html in re.findall(r'<div class="answer-example\s*([^"]*)">(.*?)</div>\s*</div>', p_html, re.S):
         en = re.search(r'<div class="answer-en"[^>]*>(.*?)</div>', a_html, re.S)
-        tr = re.search(r'<div class="answer-tr"[^>]*>(.*?)</div>', a_html, re.S)
+        # The match above stops before this div's end, so its closing tag may be missing.
+        tr = re.search(r'<div class="answer-tr"[^>]*>(.*?)(?:</div>|$)', a_html, re.S)
         if en and clean(en.group(1)):
             kind = "negative" if "negative" in cls else ("neutral" if "neutral" in cls else "positive")
             answers.append((kind, clean(en.group(1)), clean(tr.group(1)) if tr else ""))
@@ -227,8 +228,17 @@ def is_prose(block) -> bool:
     return not block["answers"] and len(block["en"].split()) >= 15 and block["en"] not in STARTER_EXAMPLES
 
 
-def phrase_item(block, number) -> dict:
+def written_answers() -> list:
+    """Sample answers written for this app, for questions the source left without any."""
+    data = json.loads((HERE / "phrases_answers.json").read_text(encoding="utf-8"))
+    return [(key.replace("’", "'"), value) for key, value in data.items()]
+
+
+def phrase_item(block, number, written=()) -> dict:
     item = {"id": f"p{number}", "en": block["en"], "tr": block["tr"]}
+    if not block["answers"]:
+        text = block["en"].replace("’", "'")
+        block = dict(block, answers=next(([tuple(a) for a in value] for key, value in written if text.startswith(key)), []))
     starter = STARTER_EXAMPLES.get(block["en"])
     if starter:
         item["tr"], example_en, example_tr = starter
@@ -241,6 +251,7 @@ def phrase_item(block, number) -> dict:
 def build_phrase_data() -> dict:
     """Everything the Phrases tab shows: topics with their groups of phrases, and links."""
     extras = json.loads((HERE / "phrases_extra.json").read_text(encoding="utf-8"))
+    written = written_answers()
     text = SOURCE.read_text(encoding="utf-8")
     topics = []
     number = 0
@@ -264,11 +275,25 @@ def build_phrase_data() -> dict:
             if is_prose(block):
                 intro.append([block["en"], block["tr"]])
             else:
-                groups[-1]["items"].append(phrase_item(block, number))
+                groups[-1]["items"].append(phrase_item(block, number, written))
         extra = extras.get(topic_id, {})
         topics.append({"id": topic_id, "tr": clean(heading.group(2)) if heading else "", "en": clean(heading.group(3)) if heading and heading.group(3) else "",
                        "cat": extra.get("cat", "life"), "emoji": extra.get("emoji", "💬"), "tip": extra.get("tip", ""), "dialog": extra.get("dialog", []),
                        "intro": intro, "groups": [group for group in groups if group["items"]], "links": links})
+    # Topics written for this app. Their phrase ids start at 9000 and only grow, so progress stays attached.
+    next_id = 9000
+    for topic in json.loads((HERE / "phrases_new.json").read_text(encoding="utf-8")):
+        groups = []
+        for group in topic.pop("groups"):
+            items = []
+            for row in group["items"]:
+                next_id += 1
+                item = {"id": f"p{next_id}", "en": row[0], "tr": row[1]}
+                if len(row) > 2:
+                    item["ans"] = row[2]
+                items.append(item)
+            groups.append({"h": group["h"], "items": items})
+        topics.append({**topic, "intro": [], "groups": groups, "links": []})
     return {"topics": topics}
 
 
