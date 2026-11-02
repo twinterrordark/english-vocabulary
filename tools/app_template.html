@@ -1559,6 +1559,37 @@ body.novel-focus .novel-pop-sentence i { color: var(--paper-text); }
 .speak-round[hidden] { display: none; }
 .speak-round.danger#speak-voice .icon { background: var(--error); color: #fff; }
 .is-violet .game-icon { background: var(--secondary-soft); color: var(--secondary); }
+
+.novel-pop-dict { color: var(--muted); font-size: .84rem; }
+.novel-pop-dict[hidden] { display: none; }
+.novel-pop-line mark { background: var(--focus); color: #fff; border-radius: 3px; padding: 0 2px; }
+.novel-text .nw.is-on, .lib-excerpt .nw.is-on { color: #fff; }
+body.novel-focus .novel-pop-dict { color: var(--paper-muted); }
+.novel-pop:not(.is-inline) { max-height: min(46dvh, 420px); overflow-y: auto; overscroll-behavior: contain; }
+.novel-pop-actions { position: sticky; bottom: calc(-1 * var(--space-4)); margin-bottom: calc(-1 * var(--space-4)); padding: var(--space-2) 0 var(--space-3); background: inherit; }
+.novel-pop:not(.is-inline) .novel-pop-actions { background: var(--surface); }
+body.novel-focus .novel-pop:not(.is-inline) .novel-pop-actions { background: var(--paper-card); }
+.novel-pop.is-inline .novel-pop-actions { position: static; margin: 0; padding: 0; }
+/* Phones: the book is what you are reading, so the card stays small. */
+@media (max-width: 760px) {
+  .novel-pop:not(.is-inline) { width: 100%; left: 0; transform: none; bottom: calc(68px + env(safe-area-inset-bottom)); gap: 6px; padding: 10px var(--space-3) 0; border-radius: 18px 18px 0 0; border-width: 1px 0 0; max-height: min(42dvh, 340px); }
+  .novel-pop:not(.is-inline) .novel-pop-head { gap: 6px; }
+  .novel-pop:not(.is-inline) .novel-pop-head strong { font-size: 1.25rem; }
+  .novel-pop:not(.is-inline) .novel-pop-head .audio-button { width: 34px; height: 34px; }
+  .novel-pop:not(.is-inline) .novel-pop-head .icon-button { width: 36px; height: 36px; min-height: 36px; }
+  .novel-pop:not(.is-inline) p { margin: 0; }
+  .novel-pop:not(.is-inline) .novel-pop-base { font-size: .8rem; }
+  .novel-pop:not(.is-inline) .novel-pop-box { padding: 0; background: none; }
+  .novel-pop:not(.is-inline) .novel-pop-box .eyebrow { margin: 0; font-size: .68rem; }
+  .novel-pop:not(.is-inline) .novel-pop-tr { font-size: 1rem; line-height: 1.3; }
+  .novel-pop:not(.is-inline) .novel-pop-verb { padding: 2px 8px; font-size: .8rem; }
+  .novel-pop:not(.is-inline) .novel-pop-sentence { display: none; }
+  .novel-pop:not(.is-inline) .novel-pop-line { padding: 6px 8px; font-size: .86rem; line-height: 1.35; }
+  .novel-pop:not(.is-inline) .novel-pop-actions { grid-template-columns: 1fr 44px 44px; bottom: 0; margin: 0; padding: 6px 0 8px; }
+  .novel-pop:not(.is-inline) .novel-pop-actions .button { min-height: 42px; padding: 6px 8px; font-size: .88rem; }
+  .novel-pop:not(.is-inline) #novel-pop-say span, .novel-pop:not(.is-inline) #novel-pop-read span { display: none; }
+  .novel-pop:not(.is-inline) .novel-pop-read { grid-column: auto; }
+}
 </style>
 </head>
 <body>
@@ -2018,14 +2049,14 @@ body.novel-focus .novel-pop-sentence i { color: var(--paper-text); }
         <button type="button" class="icon-button" id="novel-pop-close" aria-label="Close" data-i18n-aria="novel.close"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
       </div>
       <p class="novel-pop-base" id="novel-pop-base"></p>
-      <div class="novel-pop-box"><span class="eyebrow" data-i18n="novel.meaning">Turkish meaning</span><p class="novel-pop-tr" id="novel-pop-tr" lang="tr"></p></div>
+      <div class="novel-pop-box"><span class="eyebrow" id="novel-pop-label" data-i18n="novel.meaning">Turkish meaning</span><p class="novel-pop-tr" id="novel-pop-tr" lang="tr"></p><p class="novel-pop-dict" id="novel-pop-dict" lang="tr" hidden></p></div>
       <p class="novel-pop-verb" id="novel-pop-verb" hidden></p>
-      <div class="novel-pop-sentence" id="novel-pop-sentence"><b data-i18n="novel.context">Context:</b> <i id="novel-pop-context" lang="en"></i> <a id="novel-pop-gt" href="#" target="_blank" rel="noopener noreferrer" data-i18n="novel.translateLine">Translate the sentence (online)</a></div>
+      <div class="novel-pop-sentence" id="novel-pop-sentence"><b data-i18n="novel.context">Context:</b> <i id="novel-pop-context" lang="en"></i></div>
       <p class="novel-pop-line" id="novel-pop-line" lang="tr" hidden></p>
       <div class="novel-pop-actions">
         <button type="button" class="button primary novel-pop-save" id="novel-pop-save" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="#i-cards"/></svg><span id="novel-pop-save-label">Add to deck</span></button>
-        <button type="button" class="button" id="novel-pop-say"><svg class="icon" aria-hidden="true"><use href="#i-sound"/></svg><span data-i18n="novel.sayLine">Listen to the sentence</span></button>
-        <button type="button" class="button novel-pop-read" id="novel-pop-read"><svg class="icon" aria-hidden="true"><use href="#i-mic"/></svg><span data-i18n="pron.readLine">Read it aloud and check</span></button>
+        <button type="button" class="button" id="novel-pop-say" aria-label="Listen to the sentence" data-i18n-aria="novel.sayLine"><svg class="icon" aria-hidden="true"><use href="#i-sound"/></svg><span data-i18n="novel.sayLine">Listen to the sentence</span></button>
+        <button type="button" class="button novel-pop-read" id="novel-pop-read" aria-label="Read it aloud and check" data-i18n-aria="pron.readLine"><svg class="icon" aria-hidden="true"><use href="#i-mic"/></svg><span data-i18n="pron.readLine">Read it aloud and check</span></button>
       </div>
     </div>
   </section>
@@ -2506,6 +2537,7 @@ const STRINGS = {
     'deck.novel': 'My words from the novel', 'deck.novelTag': 'Novel & teacher', 'deck.wordsN': '{n} words', 'deck.novelNote': 'Words you added from the novel and the teacher, with their sentences.', 'deck.novelEmpty': 'Tap a word in your novel and choose “Add to deck”; it will appear here.', 'deck.seeList': 'See the list', 'deck.novelListNote': '{n} words, with the sentence each came from.', 'deck.dueNow': 'due today', 'deck.dueIn': 'in {n} d', 'deck.remove': 'Remove “{w}” from the deck',
     'pron.title': 'Pronunciation check', 'pron.read': 'Read', 'pron.again': 'Read again', 'pron.try': 'Read it aloud and check', 'pron.readLine': 'Read it aloud and check', 'pron.listening': 'Listening… read the sentence', 'pron.heard': 'Heard:', 'pron.heardAs': 'heard “{w}”', 'pron.missed': 'not heard', 'pron.great': 'Great, every word was clear.', 'pron.good': 'Good. Listen to the coloured words and try again.', 'pron.retry': 'Listen once more, then read it slowly.', 'pron.note': 'The site compares the words it heard. It does not measure stress or intonation, and names in a sentence do not count.', 'pron.noSpeech': 'I didn\'t hear anything. Tap Read and try again.', 'pron.noRecognition': 'This browser cannot turn speech into text. Use Chrome, Edge or Safari.', 'pron.noReply': 'Start the lesson first; then you can read the teacher\'s answer aloud.', 'game.pron': 'Pronunciation', 'game.pronText': 'Read sentences aloud: words that were heard turn green, the others red.', 'game.bestPron': 'Best: {n}%', 'game.resultPron': 'Average: {p}%', 'game.skip': 'Skip',
     'nav.tutor': 'Ms. Emma', 'chat.profileTitle': 'How should others see you?', 'chat.nick': 'Nickname', 'chat.level': 'Your English level', 'chat.warning': 'Use a nickname, not your real name. Do not share your phone number, address or other personal details with people you meet here.', 'chat.goOnline': 'Go online', 'chat.nameShort': 'Your nickname needs at least 2 characters.', 'chat.onlineN': 'Online: {n} people', 'chat.state.searching': 'Looking for people online…', 'chat.state.problem': 'Could not reach the list; trying again…', 'chat.state.off': 'You are offline', 'chat.state.dup': 'This chat is open in another tab of this device', 'chat.state.on': 'Online', 'chat.retry': 'Try again', 'chat.empty': 'Nobody else is online right now. Keep this tab open, or come back later.', 'chat.you': 'You:', 'chat.edit': 'Change', 'chat.hide': 'Do not show me on the list', 'chat.unblock': 'Clear my blocked list', 'chat.unblocked': 'Your blocked list was cleared.', 'chat.privacy': 'Messages and voice go straight between the two devices and are not saved; a free PeerJS service introduces you and can relay the connection when a direct one fails. The other person may be able to see your IP address. Your own sentences are sent to the grammar checker.', 'chat.invite': 'Chat', 'chat.inviteTo': 'Invite {name} to chat', 'chat.busyNow': 'In a chat', 'chat.asksYou': '{name} wants to chat with you.', 'chat.waiting': 'Waiting for {name} to answer…', 'chat.accept': 'Accept', 'chat.decline': 'No thanks', 'chat.block': 'Block', 'chat.cancel': 'Cancel', 'chat.blocked': '{name} is blocked.', 'chat.declined': '{name} did not accept.', 'chat.busyToast': '{name} is busy right now.', 'chat.gone': 'That person is no longer online.', 'chat.noAnswer': 'No answer.', 'chat.cantConnect': 'The connection could not be made. Your networks may not allow it.', 'chat.with': 'Chatting with {name}', 'chat.partnerLeft': '{name} left the chat', 'chat.voiceStart': 'Voice', 'chat.voiceEnd': 'End voice', 'chat.voiceWaiting': 'Waiting…', 'chat.voiceAsk': '{name} wants to talk by voice.', 'chat.voiceNo': '{name} did not start voice.',
+    'novel.phrase': 'Phrase', 'novel.inSentence': 'In this sentence', 'novel.inText': 'in the text: “{w}”', 'novel.otherSenses': 'Other meanings: {tr}',
     'home.eyebrow': 'Daily goal', 'home.titleReview': 'Time to review! ✨', 'home.titleMorning': 'Good morning! ☀️', 'home.titleDay': 'Let’s learn! ✨', 'home.titleEvening': 'Good evening! 🌙',
     'home.goalChip': '{p}% done', 'home.goalStart': 'Let’s get started!', 'home.goalGoing': 'You’re doing great!', 'home.goalDone': 'Goal reached! 🎉',
     'home.goalLeft': 'Only {n} cards to your goal. Keep the rhythm!', 'home.goalDoneNote': 'Anything more today is a bonus.',
@@ -2718,6 +2750,7 @@ const STRINGS = {
     'deck.novel': 'Romandan kelimelerim', 'deck.novelTag': 'Roman ve hoca', 'deck.wordsN': '{n} kelime', 'deck.novelNote': 'Romandan ve hocadan eklediğin kelimeler, cümleleriyle birlikte.', 'deck.novelEmpty': 'Romanda bir kelimeye dokunup “Desteye ekle” de; burada görünür.', 'deck.seeList': 'Listeyi gör', 'deck.novelListNote': '{n} kelime, geldiği cümleyle birlikte.', 'deck.dueNow': 'bugün', 'deck.dueIn': '{n} gün sonra', 'deck.remove': '“{w}” kelimesini desteden çıkar',
     'pron.title': 'Telaffuz denetimi', 'pron.read': 'Oku', 'pron.again': 'Tekrar oku', 'pron.try': 'Okuyarak dene', 'pron.readLine': 'Okuyarak dene', 'pron.listening': 'Dinliyorum… cümleyi oku', 'pron.heard': 'Duyulan:', 'pron.heardAs': '“{w}” duyuldu', 'pron.missed': 'duyulmadı', 'pron.great': 'Harika, her kelime anlaşıldı.', 'pron.good': 'İyi. Renkli kelimeleri dinleyip tekrar dene.', 'pron.retry': 'Bir kez daha dinle, sonra yavaşça oku.', 'pron.note': 'Site duyduğu kelimeleri karşılaştırır. Vurgu ve tonlamayı ölçmez, cümle içindeki özel isimler puana girmez.', 'pron.noSpeech': 'Bir şey duyamadım. Oku\'ya dokunup tekrar dene.', 'pron.noRecognition': 'Bu tarayıcı konuşmayı yazıya çeviremiyor. Chrome, Edge ya da Safari kullan.', 'pron.noReply': 'Önce derse başla; sonra hocanın cevabını okuyarak deneyebilirsin.', 'game.pron': 'Telaffuz', 'game.pronText': 'Cümleleri sesli oku: duyulan kelimeler yeşil, duyulmayanlar kırmızı olur.', 'game.bestPron': 'En iyi: %{n}', 'game.resultPron': 'Ortalama: %{p}', 'game.skip': 'Geç',
     'nav.tutor': 'Ms. Emma', 'chat.profileTitle': 'Seni nasıl görsünler?', 'chat.nick': 'Takma ad', 'chat.level': 'İngilizce seviyen', 'chat.warning': 'Gerçek adını değil, takma ad kullan. Burada tanıştığın kişilerle telefonunu, adresini ya da başka kişisel bilgilerini paylaşma.', 'chat.goOnline': 'Çevrimiçi ol', 'chat.nameShort': 'Takma adın en az 2 karakter olmalı.', 'chat.onlineN': 'Çevrimiçi: {n} kişi', 'chat.state.searching': 'Çevrimiçi kişiler aranıyor…', 'chat.state.problem': 'Listeye ulaşılamadı; yeniden deniyorum…', 'chat.state.off': 'Çevrimdışısın', 'chat.state.dup': 'Sohbet bu cihazda başka bir sekmede açık', 'chat.state.on': 'Çevrimiçi', 'chat.retry': 'Tekrar dene', 'chat.empty': 'Şu an başka kimse çevrimiçi değil. Bu sekmeyi açık tut ya da sonra tekrar bak.', 'chat.you': 'Sen:', 'chat.edit': 'Değiştir', 'chat.hide': 'Beni listede gösterme', 'chat.unblock': 'Engellediklerimi temizle', 'chat.unblocked': 'Engellediklerin temizlendi.', 'chat.privacy': 'Mesajlar ve ses iki cihaz arasında doğrudan gider, saklanmaz; ücretsiz PeerJS servisi sizi tanıştırır, doğrudan bağlantı olmazsa bağlantıyı aktarabilir. Karşı taraf IP adresini görebilir. Kendi cümlelerin dilbilgisi denetimine gönderilir.', 'chat.invite': 'Yazış', 'chat.inviteTo': '{name} ile yazışmak için davet et', 'chat.busyNow': 'Sohbette', 'chat.asksYou': '{name} seninle yazışmak istiyor.', 'chat.waiting': '{name} yanıtlayana kadar bekleniyor…', 'chat.accept': 'Kabul et', 'chat.decline': 'Hayır', 'chat.block': 'Engelle', 'chat.cancel': 'Vazgeç', 'chat.blocked': '{name} engellendi.', 'chat.declined': '{name} kabul etmedi.', 'chat.busyToast': '{name} şu an meşgul.', 'chat.gone': 'Bu kişi artık çevrimiçi değil.', 'chat.noAnswer': 'Yanıt gelmedi.', 'chat.cantConnect': 'Bağlantı kurulamadı. Ağlarınız buna izin vermiyor olabilir.', 'chat.with': '{name} ile sohbettesin', 'chat.partnerLeft': '{name} sohbetten ayrıldı', 'chat.voiceStart': 'Sesli', 'chat.voiceEnd': 'Sesi kapat', 'chat.voiceWaiting': 'Bekleniyor…', 'chat.voiceAsk': '{name} sesli konuşmak istiyor.', 'chat.voiceNo': '{name} sesli görüşmeyi başlatmadı.',
+    'novel.phrase': 'Kalıp', 'novel.inSentence': 'Bu cümlede', 'novel.inText': 'metinde: “{w}”', 'novel.otherSenses': 'Diğer anlamları: {tr}',
     'home.eyebrow': 'Günlük hedef', 'home.titleReview': 'Tekrar zamanı! ✨', 'home.titleMorning': 'Günaydın! ☀️', 'home.titleDay': 'Hadi öğrenelim! ✨', 'home.titleEvening': 'İyi akşamlar! 🌙',
     'home.goalChip': '%{p} tamamlandı', 'home.goalStart': 'Hadi başlayalım!', 'home.goalGoing': 'Harika gidiyorsun!', 'home.goalDone': 'Hedef tamam! 🎉',
     'home.goalLeft': 'Hedefe sadece {n} kart kaldı. Ritmini koru!', 'home.goalDoneNote': 'Bugün yapacağın her şey artık bonus.',
@@ -3770,15 +3803,6 @@ const Novel = {
     });
     $('#lib-continue').addEventListener('click', () => { const saved = this.readState(); const name = (this.book && this.book.name) || (saved && saved.name); if (name) this.continueBook(name); });
     $('#lib-chips').addEventListener('click', event => { const chip = event.target.closest('[data-level]'); if (chip) this.filterShelf(chip.dataset.level); });
-    $('#novel-pop-gt').addEventListener('click', async event => {
-      if (!this.current || !this.current.sentence) return;
-      event.preventDefault();
-      const line = $('#novel-pop-line');
-      line.hidden = false;
-      line.textContent = t('novel.trLoading');
-      try { line.textContent = await this.translate(this.current.sentence); }
-      catch (_) { line.hidden = true; window.open($('#novel-pop-gt').href, '_blank', 'noopener'); }
-    });
     $('#novel-aa').addEventListener('click', () => {
       const open = $('#novel-panel').hidden;
       $('#novel-panel').hidden = !open;
@@ -4598,15 +4622,156 @@ const Novel = {
     if (!verb) verb = Object.keys(irregular).find(v => irregular[v].join('/').split('/').includes(word));
     return verb ? [verb, ...irregular[verb]].join(' – ') : '';
   },
-  sentenceAround(node) {
-    if (!node) return '';
+  sentenceAround(node) { return this.sentenceSpan(node).text; },
+  sentenceSpan(node) {
+    if (!node) return { text: '', start: 0, offset: 0 };
     const text = node.parentNode.textContent;
     let offset = 0;
     for (const child of node.parentNode.childNodes) { if (child === node) break; offset += child.textContent.length; }
     const start = Math.max(text.lastIndexOf('. ', offset), text.lastIndexOf('? ', offset), text.lastIndexOf('! ', offset), text.lastIndexOf('” ', offset));
     const ends = ['. ', '? ', '! '].map(mark => text.indexOf(mark, offset)).filter(i => i >= 0);
     const end = ends.length ? Math.min(...ends) + 1 : text.length;
-    return text.slice(start < 0 ? 0 : start + 2, end).trim();
+    const from = start < 0 ? 0 : start + 2;
+    const part = text.slice(from, end);
+    return { text: part.trim(), start: from + part.length - part.trimStart().length, offset };
+  },
+  /* ---- Words that belong together: "took off", "put the phone down", "ran out of" */
+  phrasalIndex() {
+    if (this.phrasalMap) return this.phrasalMap;
+    const { phrasal = {}, irregular = {} } = this.dictionary();
+    this.phrasalMap = new Map();
+    for (const phrase of Object.keys(phrasal).sort((a, b) => b.length - a.length)) {
+      const [verb, ...rest] = phrase.split(' ');
+      if (!this.phrasalMap.has(verb)) this.phrasalMap.set(verb, []);
+      this.phrasalMap.get(verb).push({ phrase, rest, split: phrasal[phrase][0] === 1, tr: phrasal[phrase][1] });
+    }
+    this.pastForms = new Map();
+    for (const [verb, forms] of Object.entries(irregular)) for (const form of forms.join('/').split('/')) this.pastForms.set(form, verb);
+    return this.phrasalMap;
+  },
+  /* The verbs a written word can be a form of. */
+  verbBases(word) {
+    this.phrasalIndex();
+    const lower = word.toLowerCase();
+    const found = this.lookup(lower);
+    return new Set([lower, this.pastForms.get(lower), found && found.base, lower.replace(/(?:s|es)$/, ''), lower.replace(/ies$/, 'y'), lower.replace(/ied$/, 'y'),
+      lower.replace(/ed$/, ''), lower.replace(/d$/, ''), lower.replace(/(.)\1ed$/, '$1'), lower.replace(/ing$/, ''), lower.replace(/ing$/, 'e'), lower.replace(/(.)\1ing$/, '$1')].filter(Boolean));
+  },
+  /* Words and punctuation of a sentence, with where each starts. */
+  phraseTokens(sentence) {
+    return Array.from(sentence.matchAll(/[\p{L}\p{N}]+(?:['’][\p{L}]+)*|[^\s\p{L}\p{N}]+/gu), match => ({ text: match[0], lower: match[0].toLowerCase(), at: match.index, word: /[\p{L}\p{N}]/u.test(match[0]) }));
+  },
+  /* Finds the words of `rest` after token `from`. Something may stand between the verb and
+     its particle only when the phrase allows it, and "put the cup on the table" is not "put on". */
+  particles(tokens, from, rest, split) {
+    const places = [];
+    let at = from + 1;
+    for (let k = 0; k < rest.length; k++) {
+      let gap = 0;
+      while (k === 0 && split && gap < 4 && at < tokens.length && tokens[at].word && tokens[at].lower !== rest[0]) { at++; gap++; }
+      if (at >= tokens.length || tokens[at].lower !== rest[k]) return null;
+      if (k === 0 && gap && /^(the|a|an|his|her|my|your|their|our|its|this|that|these|those)$/.test((tokens[at + 1] || {}).lower || '')) return null;
+      places.push(at++);
+    }
+    return places;
+  },
+  /* The longest phrase in the sentence that the tapped word (token `tapped`) is part of. */
+  findPhrase(tokens, tapped) {
+    const index = this.phrasalIndex();
+    let best = null;
+    tokens.forEach((token, from) => {
+      if (!token.word || from > tapped) return;
+      for (const base of this.verbBases(token.text)) {
+        for (const entry of index.get(base) || []) {
+          const places = this.particles(tokens, from, entry.rest, entry.split);
+          if (!places || !(from === tapped || places.includes(tapped))) continue;
+          if (!best || entry.phrase.length > best.phrase.length) best = { ...entry, places: [from, ...places] };
+        }
+      }
+    });
+    return best;
+  },
+  /* Marks these tokens of the sentence in the page. */
+  markTokens(node, sentenceStart, tokens, places) {
+    const wanted = new Set(places.map(place => sentenceStart + tokens[place].at));
+    let offset = 0;
+    for (const child of node.parentNode.childNodes) {
+      if (child.classList && child.classList.contains('nw') && wanted.has(offset)) child.classList.add('is-on');
+      offset += child.textContent.length;
+    }
+  },
+  /* ---- The meaning in this sentence: the sentence is translated whole, and the dictionary
+     sense that shows up in that translation is the one meant ("çıkardı" = "(giysi) çıkarmak"). */
+  async sentenceVersions(sentence) {
+    this.versionCache = this.versionCache || new Map();
+    if (this.versionCache.has(sentence)) return this.versionCache.get(sentence);
+    let versions = null;
+    try {
+      const response = await fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=tr&dt=t&dt=at&q=' + encodeURIComponent(sentence));
+      const data = response.ok ? await response.json() : null;
+      const main = data && Array.isArray(data[0]) ? data[0].map(part => part[0] || '').join('').trim() : '';
+      /* Google's other wordings help when the first one uses another word. */
+      if (main) versions = [main, ...(data[5] || []).flatMap(part => (part[2] || []).map(other => other[0])).filter(Boolean)];
+    } catch (_) {}
+    if (!versions) versions = [await this.translate(sentence)];
+    else this.remember(sentence, versions[0]);
+    this.versionCache.set(sentence, versions);
+    return versions;
+  },
+  /* The beginnings a Turkish word can have: "çıkarmak" = çıkar-, "gitmek" = git-, gid-. */
+  senseStems(word) {
+    const stem = word.replace(/m[ae]k$/, '');
+    const stems = [stem];
+    const soft = { k: 'ğ', t: 'd', p: 'b', ç: 'c' }[stem.slice(-1)];
+    if (soft) stems.push(stem.slice(0, -1) + soft);
+    if (/[ae]$/.test(stem) && word !== stem && stem.length >= 4) stems.push(stem.slice(0, -1));
+    return stems.filter(item => item.length >= 3);
+  },
+  /* Which word of the translation carries this sense, if any. Every real word of the sense must
+     be there ("iptal etmek" needs "iptal"; "başını kaldırıp bakmak" is more than a "baktı"). */
+  senseWord(sense, turkish) {
+    const parts = sense.toLocaleLowerCase('tr').replace(/\([^)]*\)/g, ' ').split(/\s+/).filter(part => part && !part.startsWith('-') && !/^(etmek|olmak|yapmak|kılmak)$/.test(part));
+    const words = turkish.match(/[\p{L}]+/gu) || [];
+    let found = '';
+    for (const part of parts) {
+      const stems = this.senseStems(part);
+      found = words.find(word => { const lower = word.toLocaleLowerCase('tr'); return stems.some(stem => lower.startsWith(stem)); });
+      if (!found) return '';
+    }
+    return found;
+  },
+  async showSense(token, sentence, senseText) {
+    const line = $('#novel-pop-line');
+    let versions;
+    try { versions = await this.sentenceVersions(sentence); }
+    catch (_) { if (token === this.popToken) line.hidden = true; return; }
+    if (token !== this.popToken) return;
+    const [main] = versions;
+    line.textContent = main;
+    const senses = senseText.split(/[;,]/).map(sense => sense.trim()).filter(Boolean);
+    let meant = '', word = '';
+    for (const version of versions) {
+      meant = senses.find(sense => this.senseWord(sense, version)) || '';
+      if (meant) { if (version === main) word = this.senseWord(meant, main); break; }
+    }
+    if (!meant) return;
+    if (word) {
+      const at = main.indexOf(word);
+      line.replaceChildren(main.slice(0, at), h('mark', { text: word }), main.slice(at + word.length));
+    }
+    $('#novel-pop-label').textContent = t('novel.inSentence');
+    $('#novel-pop-tr').textContent = meant;
+    const others = senses.filter(sense => sense !== meant);
+    $('#novel-pop-dict').hidden = !others.length;
+    $('#novel-pop-dict').textContent = t('novel.otherSenses', { tr: others.join(', ') });
+    if (this.current.review) { this.current.review.tr = meant; this.syncSave(); }
+  },
+  /* The tapped word stays in sight above the card. */
+  keepInSight(node) {
+    const pop = $('#novel-pop');
+    if (!node || pop.classList.contains('is-inline')) return;
+    const covered = node.getBoundingClientRect().bottom + 12 - pop.getBoundingClientRect().top;
+    if (covered > 0) window.scrollBy({ top: covered, behavior: 'smooth' });
   },
   /* The word card sits under the text in the library's reading area, at the bottom in the reader. */
   placePop(inline) {
@@ -4619,29 +4784,42 @@ const Novel = {
   showWord(raw, node) {
     this.placePop(Boolean(node && node.closest('#lib-now')));
     if (this.reading && !this.reading.paused) this.pauseReading();
-    for (const on of $$('#novel-text .nw.is-on')) on.classList.remove('is-on');
+    for (const on of $$('.nw.is-on')) on.classList.remove('is-on');
     if (node) node.classList.add('is-on');
+    const token = this.popToken = (this.popToken || 0) + 1;
     const found = this.lookup(raw);
     const capital = /^[A-Z]/.test(raw);
-    const sentence = this.sentenceAround(node);
-    this.current = { word: raw, sentence };
-    $('#novel-pop-word').textContent = raw;
-    $('#novel-pop-base').textContent = found && found.base !== raw.toLowerCase().replace(/’/g, "'") ? t('novel.base', { w: found.base }) : '';
-    $('#novel-pop-tr').textContent = found ? found.tr : (capital ? t('novel.name') : t('novel.unknown'));
-    const verb = this.irregularVerb(raw, found);
+    const { text: sentence, start, offset } = this.sentenceSpan(node);
+    const tokens = this.phraseTokens(sentence);
+    const tapped = tokens.findIndex(item => start + item.at === offset);
+    const typed = /\s/.test(raw.trim()) && this.dictionary().phrasal[raw.trim().toLowerCase()];
+    const phrase = tapped >= 0 ? this.findPhrase(tokens, tapped) : typed ? { phrase: raw.trim().toLowerCase(), tr: typed[1] } : null;
+    if (phrase && phrase.places) this.markTokens(node, start, tokens, phrase.places);
+    this.current = { word: phrase ? phrase.phrase : raw, sentence };
+    $('#novel-pop-word').textContent = this.current.word;
+    $('#novel-pop-label').textContent = t(phrase ? 'novel.phrase' : 'novel.meaning');
+    $('#novel-pop-base').textContent = phrase && phrase.places ? t('novel.inText', { w: phrase.places.map(place => tokens[place].text).join(' ') })
+      : found && found.base !== raw.toLowerCase().replace(/’/g, "'") ? t('novel.base', { w: found.base }) : '';
+    $('#novel-pop-tr').textContent = phrase ? phrase.tr : found ? found.tr : (capital ? t('novel.name') : t('novel.unknown'));
+    const verb = phrase ? '' : this.irregularVerb(raw, found);
     $('#novel-pop-verb').hidden = !verb;
     $('#novel-pop-verb').textContent = verb ? t('novel.verb', { forms: verb }) : '';
     $('#novel-pop-sentence').hidden = !sentence;
     $('#novel-pop-context').textContent = sentence;
-    $('#novel-pop-gt').href = 'https://translate.google.com/?sl=en&tl=tr&op=translate&text=' + encodeURIComponent(sentence);
-    $('#novel-pop-line').hidden = true;
-    this.current.review = found ? { id: 'n:' + found.base, w: found.base, tr: found.tr, s: sentence } : null;
-    $('#novel-pop-save').hidden = !found;
+    const line = $('#novel-pop-line');
+    line.hidden = !sentence;
+    line.textContent = t('novel.trLoading');
+    $('#novel-pop-dict').hidden = true;
+    this.current.review = phrase ? { id: 'n:' + phrase.phrase, w: phrase.phrase, tr: phrase.tr.split(';')[0].trim(), s: sentence } : found ? { id: 'n:' + found.base, w: found.base, tr: found.tr, s: sentence } : null;
+    $('#novel-pop-save').hidden = !this.current.review;
     this.syncSave();
     $('#novel-pop-speak').hidden = !Speech.supported;
     $('#novel-pop-say').hidden = !Speech.supported;
     $('#novel-pop-read').hidden = !Pron.Recognition;
     $('#novel-pop').hidden = false;
+    $('#novel-pop').scrollTop = 0;
+    this.keepInSight(node);
+    if (sentence) this.showSense(token, sentence, phrase ? phrase.tr : found ? found.tr : '');
   },
   syncSave() {
     const saved = Boolean(this.current && this.current.review && Review.has(this.current.review.id));
@@ -4658,8 +4836,9 @@ const Novel = {
     for (const span of $$('#novel-text .nw')) if (span.textContent.toLowerCase() === word.w.toLowerCase() || span.textContent === this.current.word) span.classList.toggle('is-saved', on);
   },
   closePop() {
+    this.popToken = (this.popToken || 0) + 1;
     $('#novel-pop').hidden = true;
-    for (const on of $$('#novel-text .nw.is-on')) on.classList.remove('is-on');
+    for (const on of $$('.nw.is-on')) on.classList.remove('is-on');
   }
 };
 

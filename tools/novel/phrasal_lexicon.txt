@@ -1,0 +1,437 @@
+# Phrasal verbs and fixed verb phrases for the novel reader.
+# "verb particle | Turkish senses". A * after the phrase: the object can stand in between ("take your coat off").
+ask for | istemek
+ask out* | çıkma teklif etmek
+back away | geri çekilmek
+back down | geri adım atmak
+back off | geri çekilmek, üstüne gelmemek
+back up* | desteklemek; geri gitmek
+be up to | bir iş çevirmek, -e bağlı olmak
+bear with | sabretmek, katlanmak
+blow out* | üfleyip söndürmek
+blow up* | patlamak, havaya uçurmak
+break down* | bozulmak; yıkılmak, ağlamaya başlamak
+break in | zorla girmek; söze karışmak
+break into | zorla girmek, birden -e başlamak
+break off* | koparmak; aniden kesmek
+break out | patlak vermek; kaçmak
+break up* | ayrılmak; dağılmak, parçalamak
+bring about* | neden olmak, yol açmak
+bring back* | geri getirmek; hatırlatmak
+bring down* | düşürmek, yıkmak
+bring in* | içeri getirmek
+bring out* | ortaya çıkarmak
+bring up* | büyütmek, yetiştirmek; konuyu açmak
+brush off* | silkelemek; önemsememek
+burn down* | yanıp kül olmak, yakıp yıkmak
+burst into | birden -e başlamak; aniden içeri dalmak
+burst out | birden patlamak, -e başlamak
+call back* | geri aramak
+call for | gerektirmek; gidip almak
+call off* | iptal etmek
+call on | ziyaret etmek; çağrıda bulunmak
+call out* | seslenmek, bağırmak
+call up* | telefonla aramak; askere çağırmak
+calm down* | sakinleşmek, sakinleştirmek
+care for | bakmak, ilgilenmek; sevmek
+carry on | devam etmek
+carry out* | yerine getirmek, gerçekleştirmek
+catch on | anlamak; yaygınlaşmak
+catch up | yetişmek, aradaki farkı kapatmak
+catch up with | yetişmek, -e ulaşmak
+check in | giriş yapmak, kayıt yaptırmak
+check out* | çıkış yapmak; incelemek
+cheer up* | neşelenmek, neşelendirmek
+chop off* | kesip koparmak
+clean up* | temizlemek, toplamak
+clear away* | ortalığı toplamak, kaldırmak
+clear off | çekip gitmek
+clear up* | açıklığa kavuşturmak; (hava) açmak
+climb up | tırmanmak
+close down* | kapanmak, kapatmak
+come across | rastlamak, tesadüfen bulmak
+come along | birlikte gelmek; ilerlemek
+come apart | parçalanmak, dağılmak
+come back | geri dönmek
+come by | uğramak; elde etmek
+come down | aşağı inmek; düşmek
+come forward | öne çıkmak, ortaya çıkmak
+come from | -den gelmek, -li olmak
+come in | içeri girmek
+come off | çıkmak, kopmak; başarılı olmak
+come on | haydi; ilerlemek; başlamak
+come out | ortaya çıkmak, dışarı çıkmak; yayımlanmak
+come over | uğramak, gelmek; (his) -i kaplamak
+come round | uğramak; ayılmak; ikna olmak
+come through | atlatmak; ulaşmak
+come to | ayılmak, kendine gelmek; -e varmak
+come up | yaklaşmak; gündeme gelmek; ortaya çıkmak
+come up with | (fikir) bulmak, ortaya atmak
+cool down* | serinlemek; sakinleşmek
+count on | güvenmek, -e bel bağlamak
+cover up* | örtmek; gizlemek, örtbas etmek
+cross out* | üzerini çizmek
+cry out* | haykırmak, bağırmak
+cut down* | kesip devirmek; azaltmak
+cut down on | azaltmak
+cut in | söze karışmak
+cut off* | kesmek, koparmak; bağlantısını kesmek
+cut out* | kesip çıkarmak; bırakmak
+cut up* | parçalara ayırmak, doğramak
+deal with | ile ilgilenmek, başa çıkmak
+die away | yavaş yavaş yok olmak, kesilmek
+die down | azalmak, dinmek
+die out | nesli tükenmek, yok olmak
+dig up* | kazıp çıkarmak
+do away with | ortadan kaldırmak
+do up* | ilikle(mek), bağlamak; onarmak
+do without | -siz idare etmek
+drag on | uzayıp gitmek
+draw back* | geri çekilmek
+draw up* | hazırlamak, düzenlemek; yanaşıp durmak
+dress up* | şık giyinmek; kılık değiştirmek
+drink up* | içip bitirmek
+drive away* | uzaklaşmak; kovmak
+drive off* | arabayla uzaklaşmak; kovmak
+drop by | uğramak
+drop in | uğramak
+drop off* | bırakmak; uyuyakalmak
+drop out | bırakmak, ayrılmak
+dry up* | kurumak, kurulamak
+eat up* | yiyip bitirmek
+end up | sonunda bir yere ya da duruma varmak
+fall apart | parçalanmak, dağılmak
+fall asleep | uyuyakalmak
+fall back | geri çekilmek
+fall behind | geride kalmak
+fall down | yere düşmek, yıkılmak
+fall for | aşık olmak; (oyuna) kanmak
+fall off | düşmek; azalmak
+fall out | dökülmek; bozuşmak
+fall over | devrilmek, düşmek
+fall through | suya düşmek
+feel like | canı istemek; gibi hissetmek
+figure out* | anlamak, çözmek
+fill in* | doldurmak
+fill out* | (form) doldurmak
+fill up* | ağzına kadar doldurmak
+find out* | öğrenmek, ortaya çıkarmak
+finish off* | bitirmek
+fit in | uyum sağlamak, ayak uydurmak
+fix up* | onarmak; ayarlamak
+follow up* | takip etmek, üzerine gitmek
+get across* | anlatmak; karşıya geçmek
+get along | geçinmek, anlaşmak
+get along with | ile iyi geçinmek
+get at | ulaşmak; ima etmek
+get away | kaçmak, uzaklaşmak
+get away with | yanına kâr kalmak
+get back* | geri dönmek; geri almak
+get by | idare etmek, geçinip gitmek
+get down* | inmek, eğilmek; moralini bozmak
+get in | girmek, binmek
+get into | girmek; bulaşmak
+get off* | inmek; kurtulmak
+get on | binmek; iyi geçinmek; devam etmek
+get on with | ile iyi geçinmek; işine devam etmek
+get out* | çıkmak, dışarı çıkarmak
+get out of | -den çıkmak, -den kurtulmak
+get over | atlatmak, üstesinden gelmek
+get rid of | -den kurtulmak
+get round | atlatmak; dolaşmak
+get through | atlatmak; ulaşmak; bitirmek
+get to | -e varmak; etkilemek
+get together | bir araya gelmek
+get up | kalkmak, ayağa kalkmak
+give away* | bedava vermek; ele vermek
+give back* | geri vermek
+give in | pes etmek, boyun eğmek
+give off | (koku, ışık) yaymak
+give out* | dağıtmak; tükenmek
+give up* | vazgeçmek, bırakmak
+go about | ile uğraşmak; dolaşmak
+go after | peşinden gitmek
+go ahead | devam etmek, buyurmak
+go along | ilerlemek; katılmak
+go along with | kabul etmek, -e uymak
+go away | gitmek, uzaklaşmak
+go back | geri dönmek
+go by | geçmek
+go down | inmek; batmak; azalmak
+go for | saldırmak; tercih etmek; -e gitmek
+go in | içeri girmek
+go into | girmek; ayrıntısına girmek
+go off | patlamak; çalmak; bozulmak; gitmek
+go on | devam etmek; olmak
+go out | dışarı çıkmak; sönmek
+go over | gözden geçirmek; yanına gitmek
+go round | dolaşmak; yetmek
+go through | yaşamak, geçirmek; gözden geçirmek
+go up | çıkmak; artmak
+go with | ile uyumlu olmak; ile gitmek
+go without | -siz idare etmek
+grow up | büyümek
+hand in* | teslim etmek
+hand out* | dağıtmak
+hand over* | teslim etmek, devretmek
+hang about | oyalanmak, ortalıkta dolaşmak
+hang around | oyalanmak, takılmak
+hang on | beklemek; sıkı tutunmak
+hang out | takılmak, vakit geçirmek
+hang up* | telefonu kapatmak; asmak
+have on* | giymiş olmak; üzerinde olmak
+head for | -e doğru gitmek
+hear from | -den haber almak
+hear of | -i duymak
+help out* | yardım etmek
+hit on | (fikir) bulmak; asılmak
+hold back* | tutmak, engellemek; kendini tutmak
+hold on | beklemek; sıkı tutunmak
+hold on to | -e sımsıkı tutunmak
+hold out* | uzatmak; dayanmak
+hold up* | geciktirmek; kaldırmak; soymak
+hurry up | acele etmek
+join in | katılmak
+jump up | ayağa fırlamak
+keep away* | uzak durmak, uzak tutmak
+keep back* | geride durmak; saklamak
+keep down* | düşük tutmak; alçakta tutmak
+keep from | -den alıkoymak
+keep off* | uzak durmak
+keep on | devam etmek, sürdürmek
+keep out* | girmemek, içeri sokmamak
+keep up* | sürdürmek; ayak uydurmak
+keep up with | -e ayak uydurmak
+kick out* | kapı dışarı etmek
+knock down* | devirmek, yıkmak
+knock off* | düşürmek; paydos etmek
+knock out* | bayıltmak, nakavt etmek
+knock over* | devirmek
+lay down* | yere koymak, bırakmak; yatırmak
+lay off* | işten çıkarmak
+lay out* | sermek; düzenlemek
+lead to | yol açmak, -e götürmek
+lean back | arkaya yaslanmak
+lean over | eğilmek
+leave behind* | geride bırakmak
+leave off* | kesmek, bırakmak
+leave out* | dışarıda bırakmak, atlamak
+let down* | hayal kırıklığına uğratmak
+let in* | içeri almak
+let go | bırakmak, salmak
+let go of | -i bırakmak
+let off* | serbest bırakmak; patlatmak
+let out* | dışarı salmak; (ses) çıkarmak
+lie down | uzanmak
+lift up* | kaldırmak
+line up* | sıraya girmek, sıralamak
+live on | ile geçinmek; yaşamaya devam etmek
+lock up* | kilitlemek; hapsetmek
+look after | bakmak, ilgilenmek
+look ahead | ileriye bakmak
+look around | etrafına bakmak
+look at | -e bakmak
+look away | başka yere bakmak
+look back | geriye bakmak; geçmişi hatırlamak
+look down | aşağı bakmak
+look down on | küçümsemek
+look for | aramak
+look forward to | dört gözle beklemek
+look in | uğramak
+look into | araştırmak, incelemek
+look like | -e benzemek
+look on | seyirci kalmak
+look out | dikkat etmek; dışarı bakmak
+look over* | gözden geçirmek
+look round | etrafına bakmak
+look through | gözden geçirmek; -in içinden bakmak
+look up* | (sözlükte) aramak; başını kaldırıp bakmak
+look up to | saygı duymak, örnek almak
+make for | -e doğru gitmek
+make of | -den anlamak
+make off | kaçıp gitmek
+make out* | seçmek, anlamak; (belge) düzenlemek
+make up* | uydurmak; oluşturmak; barışmak
+make up for | telafi etmek
+mess up* | berbat etmek, dağıtmak
+miss out | kaçırmak, -den mahrum kalmak
+mix up* | karıştırmak
+move away | uzaklaşmak, taşınmak
+move in | eve taşınmak
+move on | yoluna devam etmek
+move out | evden taşınmak
+pass away | vefat etmek
+pass by | yanından geçmek
+pass on* | iletmek, aktarmak
+pass out | bayılmak
+pass over* | atlamak, görmezden gelmek
+pass through | -den geçmek
+pay back* | geri ödemek; öcünü almak
+pay for | ödemek; bedelini ödemek
+pay off* | borcu kapatmak; karşılığını vermek
+pick out* | seçmek
+pick up* | yerden almak, kaldırmak; arabayla almak; kapmak
+pile up* | yığılmak, biriktirmek
+point out* | belirtmek, işaret etmek
+pull away | uzaklaşmak, çekilmek
+pull back* | geri çekmek, geri çekilmek
+pull down* | yıkmak; aşağı çekmek
+pull in | (araç) yanaşmak
+pull off* | başarmak; çekip çıkarmak
+pull on* | çekip giymek
+pull out* | çekip çıkarmak; çekilmek
+pull over* | kenara çekmek
+pull up* | durmak; yukarı çekmek
+push away* | itip uzaklaştırmak
+push back* | geri itmek; ertelemek
+put aside* | bir kenara koymak; biriktirmek
+put away* | yerine kaldırmak
+put back* | yerine koymak; ertelemek
+put down* | yere koymak; bastırmak; küçük düşürmek
+put forward* | öne sürmek
+put in* | koymak, yerleştirmek
+put off* | ertelemek; soğutmak
+put on* | giymek; açmak; (kilo) almak
+put out* | söndürmek; dışarı çıkarmak
+put through* | (telefon) bağlamak
+put together* | bir araya getirmek
+put up* | kaldırmak; asmak; misafir etmek
+put up with | katlanmak
+reach out* | (el) uzatmak
+rely on | güvenmek, -e dayanmak
+ring up* | telefonla aramak
+rip off* | kazıklamak; yırtıp çıkarmak
+rub out* | silmek
+rule out* | olasılık dışı bırakmak
+run across | rastlamak
+run after | peşinden koşmak
+run along | gitmek, uzaklaşmak
+run away | kaçmak
+run down* | ezmek; yıpranmak; kötülemek
+run into | çarpmak; rastlamak
+run off | kaçıp gitmek
+run out | tükenmek, bitmek
+run out of | tükenmek, bitmek
+run over* | ezmek; gözden geçirmek
+run through | gözden geçirmek
+run up | koşarak gelmek
+rush off | aceleyle gitmek
+see off* | yolcu etmek
+see through | gerçek yüzünü görmek
+see to | ilgilenmek
+sell out* | tükenmek; ihanet etmek
+send away* | uzağa göndermek
+send back* | geri göndermek
+send for | çağırtmak, getirtmek
+send off* | postalamak; yollamak
+set about | -e koyulmak
+set aside* | ayırmak, bir kenara koymak
+set back* | geciktirmek
+set down* | yere koymak; yazıya dökmek
+set off* | yola çıkmak; patlatmak, başlatmak
+set out | yola çıkmak; niyetlenmek
+set up* | kurmak, düzenlemek
+settle down | yerleşmek; sakinleşmek
+shake off* | silkip atmak, kurtulmak
+shoot down* | vurup düşürmek
+show off* | hava atmak, gösteriş yapmak
+show up* | ortaya çıkmak, gelmek
+shut down* | kapatmak, kapanmak
+shut off* | kapatmak, kesmek
+shut up* | susmak, susturmak
+sit back | arkaya yaslanmak; rahatına bakmak
+sit down | oturmak
+sit up | doğrulmak, dik oturmak
+slip away | sıvışmak
+slow down* | yavaşlamak, yavaşlatmak
+sort out* | çözmek, halletmek; ayırmak
+speak up | yüksek sesle konuşmak; fikrini söylemek
+speed up* | hızlanmak, hızlandırmak
+spread out* | yayılmak, sermek
+stand back | geri çekilmek
+stand by | yanında olmak; hazır beklemek
+stand for | anlamına gelmek; desteklemek
+stand out | göze çarpmak
+stand up | ayağa kalkmak
+stand up for | savunmak
+stare at | -e dik dik bakmak
+start off* | başlamak
+start out | başlamak, yola çıkmak
+stay away | uzak durmak
+stay in | evde kalmak
+stay out | dışarıda kalmak
+stay up | geç yatmak, uyumamak
+step back | geri adım atmak
+step in | içeri girmek; müdahale etmek
+stick out* | dışarı çıkarmak, sarkmak
+stick to | -e bağlı kalmak
+stick up for | savunmak
+stop by | uğramak
+sum up* | özetlemek
+take after | -e çekmek, benzemek
+take apart* | parçalarına ayırmak, sökmek
+take away* | alıp götürmek
+take back* | geri almak
+take care of | ile ilgilenmek, bakmak
+take down* | indirmek; not almak
+take in* | anlamak, kavramak; içeri almak; kandırmak
+take off* | havalanmak, kalkmak; (giysi) çıkarmak; izin almak
+take on* | üstlenmek; işe almak
+take out* | dışarı çıkarmak
+take over* | devralmak, kontrolü ele geçirmek
+take part in | -e katılmak
+take place | gerçekleşmek, olmak
+take to | -e alışmak, -i sevmek
+take up* | başlamak; yer kaplamak; yukarı götürmek
+talk about | hakkında konuşmak
+talk over* | enine boyuna konuşmak
+tear apart* | parçalamak
+tear down* | yıkmak
+tear off* | yırtıp koparmak
+tear up* | yırtmak
+tell off* | azarlamak
+think about | hakkında düşünmek
+think of | düşünmek, aklına gelmek
+think over* | iyice düşünmek
+throw away* | çöpe atmak
+throw off* | üzerinden atmak; kurtulmak
+throw out* | atmak, kovmak
+throw up* | kusmak
+tidy up* | toparlamak
+tie up* | bağlamak
+touch on | -e değinmek
+track down* | izini bulmak
+try on* | (giysi) denemek
+try out* | denemek
+turn around* | arkasını dönmek; dönmek
+turn away* | yüzünü çevirmek; geri çevirmek
+turn back* | geri dönmek
+turn down* | reddetmek; (ses) kısmak
+turn in* | teslim etmek; yatmaya gitmek
+turn into | -e dönüşmek
+turn off* | kapatmak; yoldan sapmak
+turn on* | açmak; birden saldırmak
+turn out* | çıkmak, anlaşılmak; kapatmak
+turn over* | ters çevirmek, devretmek
+turn round* | arkasını dönmek
+turn to | -e dönmek; başvurmak
+turn up* | ortaya çıkmak, gelmek; (ses) açmak
+use up* | tüketmek
+wake up* | uyanmak, uyandırmak
+walk away | yürüyüp gitmek
+walk out | çekip gitmek
+walk up | yürüyerek yaklaşmak
+warm up* | ısınmak, ısıtmak
+wash up* | bulaşık yıkamak; kıyıya vurmak
+watch out | dikkat etmek
+wave away* | el sallayarak uzaklaştırmak
+wear off | geçmek, etkisi azalmak
+wear out* | eskitmek; çok yormak
+wipe out* | yok etmek; silip süpürmek
+work on | üzerinde çalışmak
+work out* | anlamak, çözmek; spor yapmak; yolunda gitmek
+worry about | için endişelenmek
+wrap up* | sarmak, paketlemek; bitirmek
+write down* | not etmek, yazmak
+write off* | gözden çıkarmak
+zip up* | fermuarını çekmek

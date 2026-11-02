@@ -143,7 +143,13 @@ def load_novel_dictionary() -> dict:
         for form in (past + "/" + participle).split("/"):
             if verb in words and form not in words:
                 forms.setdefault(form, verb)
-    return {"words": words, "forms": {f: w for f, w in forms.items() if w in words}, "irregular": irregular}
+    # "take off*": [1, "Turkish"]; 1 means the object can stand in between.
+    phrasal = {}
+    for line in (HERE / "novel" / "phrasal_lexicon.txt").read_text(encoding="utf-8").splitlines():
+        if line.strip() and not line.startswith("#"):
+            phrase, turkish = (part.strip() for part in line.split("|", 1))
+            phrasal[phrase.rstrip("*")] = [1 if phrase.endswith("*") else 0, turkish]
+    return {"words": words, "forms": {f: w for f, w in forms.items() if w in words}, "irregular": irregular, "phrasal": phrasal}
 
 
 def novel_card(path: str, title: str, author: str, level: str = "") -> str:
