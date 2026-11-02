@@ -1,0 +1,662 @@
+# Corrected Turkish meanings for exam words: these replace machine translations in exam_words.txt.
+# word | Turkish meaning
+a diversity of | çeşitli, çok çeşitli
+a number of | birkaç, bir miktar
+a range of | çeşitli
+a wide range of | çok çeşitli
+able to | -ebilmek, -abilmek
+abort pregnancy | gebeliği sonlandırmak
+about | hakkında; yaklaşık
+abundantly | bol bol; fazlasıyla
+abuser | kötüye kullanan, istismarcı
+abusively | hakaret ederek, kötü davranarak
+accelerator | gaz pedalı; hızlandırıcı
+accepted | kabul görmüş, kabul edilen
+accident and emergency | acil servis
+account for | açıklamak; oluşturmak
+accused | sanık; suçlanan
+accuser | suçlayan kişi
+acquirer | satın alan taraf
+acquisitive | mal hırsı olan
+adamantly | kesin bir dille, ısrarla
+adaption | uyarlama
+adaptive | uyum sağlayan
+adjust to | -e uyum sağlamak
+adjustment | ayarlama; uyum sağlama
+admiring | hayran, hayranlık dolu
+adopted | evlatlık; benimsenmiş
+adoptive | evlat edinen
+advent | ortaya çıkış, geliş
+adverse condition | olumsuz koşul
+advisability | akıllıca oluş, uygunluk
+advise on | konusunda tavsiye vermek
+affect barely | çok az etkilemek
+affecting | dokunaklı; etkileyen
+after-sales service | satış sonrası hizmet
+agree about | konusunda anlaşmak
+agree on | üzerinde anlaşmak
+agree reluctantly | gönülsüzce kabul etmek
+agree to | kabul etmek
+agree with | ile aynı fikirde olmak
+agreement about | hakkında uzlaşma
+agreement among | arasında uzlaşma
+ahead of | önünde; -den önce
+aim at | -i hedeflemek
+all over the world | dünyanın her yerinde
+allow access | erişime izin vermek
+allow time | zaman tanımak
+allusion | gönderme, ima
+allusive | imalı
+almost extinct | nesli neredeyse tükenmiş
+almost forget | neredeyse unutmak
+amplification | yükseltme, güçlendirme
+amplifier | yükseltici, amfi
+amplify | yükseltmek, güçlendirmek
+ancient time | eski çağ
+apologetic | özür diler gibi, mahcup
+apologies | özür
+approachable | cana yakın, kolay ulaşılan
+approved | onaylı, onaylanmış
+approving | onaylayan
+artillery | topçu; top silahları
+as a result of | sonucunda, yüzünden
+as of | -den itibaren
+as regards | ile ilgili olarak, -e gelince
+as well | de, da; ayrıca
+as well as | -in yanı sıra
+assertively | kendinden emin, atılgan biçimde
+assertiveness | kendine güven, atılganlık
+assessor | eksper, değerlendirici
+attentiveness | özen, dikkatlilik
+attribution | atıf, bir şeyi birine dayandırma
+attributive | niteleyici
+attributively | niteleyici olarak, isim önünde
+audience rapport | dinleyiciyle kurulan bağ
+avidity | büyük istek, hırs
+avoid overexposure | aşırı maruz kalmaktan kaçınmak
+back up claim | iddiayı desteklemek
+ban on | yasak
+battery may run out | pil bitebilir
+be absorbed in | -e dalmak
+behave oneself | uslu durmak
+beloved | çok sevilen, sevgili
+benefit of | -in faydası
+beyond belief | inanılmaz
+beyond recovery | kurtarılamaz, iyileşmesi imkânsız
+beyond repair | onarılamaz
+biotic | canlılara ait, biyotik
+blood stream | kan dolaşımı
+boiling | kaynayan; kaynama
+boom | ani artış, patlama; gümbürtü
+bordering | sınır komşusu
+brief exposure | kısa süreli maruz kalma
+brutalize | vahşileştirmek; vahşice davranmak
+build up defence | savunma geliştirmek
+build up resistance | direnç geliştirmek
+build up strength | güç kazanmak
+built | build fiilinin geçmişi: inşa etti
+call for precision | hassasiyet gerektirmek
+carry out exploration | keşif yapmak, arama yapmak
+casting vote | belirleyici oy
+catch disease | hastalık kapmak
+causative | neden olan
+caused by | -in neden olduğu, -den kaynaklanan
+certain about | -den emin
+certificate of origin | menşe şahadetnamesi
+challenge to | -e meydan okuma
+chick | civciv
+citation | alıntı, atıf
+claim citizenship | vatandaşlık talep etmek
+claim life | can almak
+claim right | hak talep etmek
+clear description | net bir tarif
+cohesive | uyumlu, birbirine bağlı; yapışkan
+combat | mücadele etmek; çarpışma
+come close | yaklaşmak
+commercially available | piyasada satılan
+common in | -de yaygın
+commonness | yaygınlık
+communicative | iletişim kuran, konuşkan
+compete for | için rekabet etmek
+composite | kompozit, bileşik
+comprise | -den oluşmak, kapsamak
+concentrated | yoğun, yoğunlaştırılmış
+conditioning | şartlanma; koşullandırma
+conducting | iletken; yürütme
+confidentially | gizli olarak
+confirmed | doğrulanmış, teyitli
+conformation | yapı, biçim
+consequent | ardından gelen, sonucu olan
+consequential loss | dolaylı zarar
+conservationist | doğa koruma savunucusu
+considerately | düşünceli biçimde
+consistence | kıvam, yoğunluk
+consolidate | birleştirmek; güçlendirmek
+consolidation | birleştirme; güçlendirme
+consumable | sarf malzemesi; tüketilebilir
+contained | içerilen; kontrol altında
+containment | kontrol altına alma
+contract a disease | hastalığa yakalanmak
+controller | kontrolör, denetleyici
+cooperative | iş birliğine dayalı; kooperatif
+correlate | ilişkili olmak
+counterpart | muadil, karşılığı olan kişi
+crowded with | ile dolu
+cruise | deniz gezisi
+cultivator | toprak işleme aleti; yetiştirici
+cure sb of sth | birini bir şeyden kurtarmak
+curtail | kısıtlamak, azaltmak
+cut back on | -i azaltmak
+day-care | kreş, gündüz bakımı
+debit | borç, hesaptan çekilen tutar
+decided | kesin, belirgin
+decline gradually | giderek azalmak
+decline rapidly | hızla azalmak
+deduct | düşmek, kesinti yapmak
+defender | savunan kişi; defans oyuncusu
+defensive | savunmacı; savunma amaçlı
+defining | belirleyici
+demographics | nüfus yapısı, demografi
+demonstrable | gösterilebilir, kanıtlanabilir
+departmental | bölüm ile ilgili
+depend on | -e bağlı olmak
+dependant | bakmakla yükümlü olunan kişi
+depress | moralini bozmak; bastırmak
+derivation | türeyiş, köken
+derivative | türev; taklit
+describe accurately | doğru bir şekilde anlatmak
+describe experience | deneyimi anlatmak
+descriptive | betimleyici
+deserve certainly | kesinlikle hak etmek
+destruct | imha etmek
+develop a disease | hastalığa yakalanmak
+develop asthma | astım olmak
+develop disorder | bozukluk gelişmek
+different part | farklı bölüm
+differential | farklı, ayırıcı
+differentially | farklı şekilde
+digital divide | dijital uçurum
+directive | yönerge
+director | müdür; yönetmen
+disable | devre dışı bırakmak; sakat bırakmak
+disagree completely | tamamen karşı olmak
+discharge | taburcu etmek; boşaltmak
+discharge from | -den taburcu etmek
+discouragement | cesaret kırma
+disguise | gizlemek; kılık değiştirmek
+disguise from | -den gizlemek
+disorder | bozukluk; düzensizlik
+dispersion | yayılma, dağılma
+disposal | atma, elden çıkarma
+dispose | atmak, elden çıkarmak
+disruption | aksama, kesinti
+disruptive | düzeni bozan, aksatan
+distraction | dikkat dağıtan şey
+distributor | dağıtımcı
+diversely | çeşitli biçimlerde
+divisional manager | bölüm yöneticisi
+domestically | ülke içinde
+double-page spread | çift sayfalık yayın
+doubtfully | kuşkuyla
+drug abuse | uyuşturucu bağımlılığı
+drug against | -e karşı ilaç
+earthy | toprak gibi
+ease symptom | belirtiyi hafifletmek
+eat healthily | sağlıklı beslenmek
+educating | eğitim, eğitme
+embark on | -e başlamak
+emergent | yeni ortaya çıkan
+emerging | gelişmekte olan, yeni ortaya çıkan
+emit noise | gürültü çıkarmak
+emit/release pollutant | kirletici madde salmak
+emitter | salan, yayan kaynak
+enact | yasalaştırmak; canlandırmak
+endeavour | girişim, çaba
+endurable | katlanılabilir
+enduring | kalıcı, uzun süren
+enforcement | uygulama, yaptırım
+engaged in | ile uğraşan
+enormously | son derece, çok büyük ölçüde
+enterprise | girişim; işletme
+enthusiast | meraklı, hevesli kişi
+environmentally | çevre açısından
+episodic | nöbetler hâlinde, aralıklı
+evidence against | aleyhine kanıt
+evidence may suggest | kanıtlar gösterebilir
+evident | açık, belli
+evolve | evrimleşmek, gelişmek
+examine thoroughly | baştan aşağı incelemek
+examiner | sınav görevlisi; denetçi
+exceeding | aşan
+exceptionally | son derece; istisnai olarak
+excess | aşırılık, fazlalık
+excess of | -in fazlası
+execution | uygulama; idam
+exert | uygulamak, sarf etmek
+expectancy | beklenti; ömür beklentisi
+expectant | hamile; bekleyen
+experience illness | hastalanmak
+experience shortage | sıkıntı yaşamak, eksiklik yaşamak
+explosively | patlarcasına
+exposed to | -e maruz kalan
+express opinion | fikrini söylemek
+extend to | -i kapsamak; -e kadar uzanmak
+extract from | -den çıkarmak
+face hardship | zorlukla karşılaşmak
+facial | yüze ait
+factor in | hesaba katmak
+factual | gerçeklere dayalı
+factually | gerçekler açısından
+fail to do sth | bir şeyi yapamamak
+familiarize | alıştırmak, aşina etmek
+favourite food | en sevilen yiyecek
+fertility | verimlilik; doğurganlık
+fertilize | gübrelemek; döllemek
+fight off an illness | hastalığı yenmek
+find out reason | nedenini öğrenmek
+follow advice | tavsiyeye uymak
+following | sonraki; ardından gelen
+forcefully | güçlü biçimde, zorla
+formal agreement | resmî anlaşma
+fulfillment | tatmin; yerine getirme
+full stomach | tok karın
+full/complete recovery | tam iyileşme
+fullness | tokluk; dolgunluk
+function properly | düzgün çalışmak
+gap between | arasındaki fark
+get big | büyümek
+get snow | kar yağmak
+get vaccination | aşı olmak
+gibbon | jibon (bir maymun türü)
+give up habit | alışkanlığı bırakmak
+good chance | yüksek olasılık
+governmental | hükümete ait
+greenhouse gas emission | sera gazı salımı
+growing | artan, büyüyen
+handout | ders notu, dağıtılan kâğıt; yardım
+hard currency | güçlü para birimi, döviz
+hardly visible | zar zor görünen
+have determination | kararlı olmak
+hazardous to | için zararlı
+health care | sağlık hizmeti
+heated | hararetli; ısıtmalı
+heavy toll | ağır bedel
+hoarding | reklam panosu; istifleme
+hold an election | seçim yapmak
+hold belief | inanmak
+home to | -e ev sahipliği yapan
+human being | insan
+identifiable | tanımlanabilir, belirlenebilir
+identification | kimlik; tanımlama
+illusory | hayali, yanılsama olan
+illustrator | kitap çizeri, illüstratör
+impairment | bozukluk, kayıp
+important part | önemli bölüm
+improve | gelişmek; iyileştirmek
+improvement in | -de iyileşme
+in association with | ile iş birliği içinde
+in case of | durumunda
+in combination with | ile birlikte
+in competition with | ile rekabet içinde
+in excess of | -den fazla
+in layers | kat kat
+in operation | faaliyette
+in reference to | ile ilgili olarak
+in the region of | yaklaşık, civarında
+in view of | göz önünde bulundurularak
+inability | yapamama, -ememe
+inclined | eğilimli; eğimli
+inclusion | dahil etme
+inclusive | dahil; kapsayıcı
+incorporated | şirketleşmiş; dahil edilmiş
+incorporation | dahil etme; şirketleşme
+increase appetite | iştahı artırmak
+indicated | belirtilen
+indication | belirti, işaret
+indicative | işaret eden, belirten
+industrially | endüstriyel olarak
+infancy | bebeklik; emekleme dönemi
+infect | enfekte etmek, bulaştırmak
+infirm | güçsüz, hasta
+inhabited | yerleşim olan, içinde yaşanan
+inhibitor | baskılayıcı, önleyici
+inquisition | sorgulama; engizisyon
+insurance broker | sigorta acentesi
+intake | alım
+integral component | ayrılmaz parça
+interested | ilgili, ilgilenen
+interested in | -e ilgi duyan
+interfere | müdahale etmek, karışmak
+interference | müdahale
+interpreting | sözlü çeviri
+introductory | başlangıç düzeyi, giriş
+inversely | ters orantılı olarak
+invest effort | çaba göstermek
+inviting | çekici, davetkâr
+irrespective of | -e bakılmaksızın
+isolated area | ıssız bölge
+jointly | birlikte, ortaklaşa
+keep in with | ile arasını iyi tutmak
+keep sth strong | bir şeyi güçlü tutmak
+killer | katil; öldürücü şey
+know about | hakkında bilgi sahibi olmak
+krill | kril (küçük deniz canlısı)
+lack completely | tamamen yoksun olmak
+lack experience | deneyimsiz olmak
+lack in | -den yoksun olmak
+lack of | eksiklik, yokluk
+laughing | gülme; gülen
+layer of | tabaka
+lead | yol açmak; önderlik etmek; kurşun
+leading article | başyazı
+lie on | üzerinde uzanmak
+localize | belli bir yerle sınırlamak; yerelleştirmek
+locate on | üzerinde bulunmak
+look for cure | tedavi aramak
+made from | -den yapılmış
+mail order | postayla sipariş
+maintain control | kontrolü korumak
+maintain family | aileyi geçindirmek
+make face | yüzünü buruşturmak
+make redundant | işten çıkarmak
+make sb aggressive | birini saldırganlaştırmak
+make sb sure | birini emin kılmak
+make sth clear | bir şeyi açıklığa kavuşturmak
+make sth dangerous | bir şeyi tehlikeli hale getirmek
+make-up | yapı, bileşim; makyaj
+malady | dert, hastalık
+managerial | yönetimsel
+manifest | açıkça göstermek; açık
+manual labour | beden işçiliği
+marginality | toplum dışına itilmişlik
+medical condition | sağlık sorunu
+mental state | ruh hâli
+minutes | toplantı tutanağı; dakikalar
+moderately | orta derecede
+moderation | ölçülülük
+motor vehicle | motorlu taşıt
+navigator | yön bulucu, seyrüsefer görevlisi
+new form | yeni biçim
+northern part | kuzey kesimi
+nutritional | besinsel
+objectivity | nesnellik
+observation of | gözlemlenmesi, gözlem
+obstruction | engel, tıkanıklık
+obtain from | -den elde etmek
+occur commonly | sık görülmek
+occur rapidly | hızla gerçekleşmek
+offer employment | iş imkânı sunmak
+offering to | -e sunulan
+on condition that | şartıyla, koşuluyla
+on earth | yeryüzünde
+on examination | incelendiğinde
+on the improve | iyileşmekte
+or else | yoksa
+originate in | -den kaynaklanmak
+other than | -den başka
+out of habit | alışkanlıktan
+out of sight | gözden uzak
+outlet | satış noktası; priz; çıkış
+over the years | yıllar içinde
+overdraft | ek hesap borcu
+owing to | yüzünden, nedeniyle
+payable | ödenebilir, ödenecek
+payee | lehtar, parayı alan kişi
+paying-in slip | para yatırma fişi
+per year | yılda, yıllık
+perform function | işlevini yerine getirmek
+performer | sanatçı, gösteri yapan kişi
+periodical | süreli yayın, dergi
+perk | yan hak, ek imkân
+permanent dwelling | kalıcı ev
+personal property | kişisel eşya
+personnel officer | personel görevlisi
+placement | staj; yerleştirme
+play a part | payı olmak, rol oynamak
+plunder | yağmalamak
+pointer | ipucu; işaretçi
+political landscape | siyasi ortam
+popularization | yaygınlaştırma
+populate | yerleşmek; nüfus oluşturmak
+populated | nüfuslu, kalabalık
+portray | tasvir etmek; canlandırmak
+practise | pratik yapmak; uygulamak
+precautionary | önlem amaçlı
+precise | kesin, tam
+predictive | tahmine dayalı
+predictor | gösterge, öngörücü
+presently | şu anda; birazdan
+pressure may build up | basınç artabilir
+prevail | galip gelmek; yaygın olmak
+prevailing | hâkim, yaygın
+proclamation | ilan, bildiri
+prohibitively | alınamayacak kadar, aşırı derecede
+prominence | ün, önem
+promote health | sağlığı geliştirmek
+promoter | organizatör; destekçi
+promotion | terfi; tanıtım
+prospects | gelecek olanakları
+protect effectively | etkili bir şekilde korumak
+protectively | korurcasına
+provided | sağlanan; -mek şartıyla
+provider | sağlayıcı
+providing | -mek şartıyla; sağlayan
+province | il, eyalet
+provision | sağlama; hüküm
+provocation | kışkırtma
+proxy vote | vekâleten oy
+publicly | herkesin önünde, açıkça
+pull through | iyileşmek, atlatmak
+purposeful | kararlı, amaçlı
+purposefully | kararlı bir şekilde
+pursuit | peşinde koşma, uğraş
+quay | rıhtım
+raise army | ordu kurmak
+rapid progress | hızlı ilerleme
+rate | oran; hız
+raw resources | ham kaynaklar
+reaction with | ile tepkime
+reactive | tepkimeye giren; tepkisel
+readable | okunaklı, okunması kolay
+realization | fark etme
+recent survey | yakın tarihli anket
+recognizably | açıkça, tanınacak şekilde
+recorder | kayıt cihazı
+recover from | -den iyileşmek
+recovery from | -den iyileşme
+reduce emission | salımı azaltmak
+redundancy | işten çıkarılma; fazlalık
+redundant | işten çıkarılan; gereksiz
+reflecting | yansıtan
+regional distribution | bölgesel dağılım
+regional government | bölgesel yönetim
+regulator | düzenleyici kurum
+reinstate | eski görevine iade etmek
+reinsure | reasüre etmek
+release chemical | kimyasal salmak
+relevance | ilgililik, önem
+reliance | bağımlılık, güvenme
+rely on aid | yardıma bağımlı olmak
+remarkable improvement | dikkat çekici iyileşme
+remember hardly | zar zor hatırlamak
+removal | çıkarma, kaldırma
+replacement | yerine geçen; değiştirme
+repute | ün, itibar
+require protection | korunmaya ihtiyaç duymak
+require treatment | tedavi gerektirmek
+requirement for | için gereklilik
+research may suggest | araştırmalar gösterebilir
+reservoir | baraj gölü, su deposu
+resistant | dirençli, dayanıklı
+respective | kendi, ayrı ayrı
+restrain | tutmak, engellemek
+result from | -den kaynaklanmak
+resultant | sonucunda oluşan
+resulting | ortaya çıkan
+revealing | çok şey ortaya koyan
+reversal | tersine çevirme
+rise in | -de artış
+rook | ekin kargası; satrançta kale
+rotation | dönme, dönüş
+run | koşmak; işletmek
+run ad | ilan yayımlamak
+run out of money | parası bitmek
+run out of time | zamanı tükenmek
+saying | atasözü, deyiş
+scarcely | neredeyse hiç
+scarcely distinguishable | neredeyse ayırt edilemez
+schooling | okul eğitimi
+searching | arama; araştıran
+sectional | parçalı, kesitli
+seeker | arayan kişi
+seeking | arayan
+self-denial | kendini mahrum bırakma
+serving | porsiyon; servis
+settle argument | tartışmayı bitirmek
+settlement | yerleşim yeri; anlaşma
+severity of an illness | hastalığın şiddeti
+shady spot | gölgeli yer
+share ancestor | ortak ataya sahip olmak
+shift to | -e geçiş
+short space | kısa süre
+show of hands | el kaldırarak oylama
+showing | gösterim
+shrinkage | küçülme, çekme
+sighted | gören, görme yetisi olan
+since | -den beri; çünkü
+sleep soundly | deliksiz uyumak
+slot | yuva; zaman aralığı
+so as to | -mek için
+so long as | -dığı sürece
+species may die out | tür yok olabilir
+spoil | bozmak; şımartmak
+spread over | -e yayılmış
+spread throughout | -in her yanına yayılmış
+stand | ayakta durmak; dayanmak
+state accurately | doğru olarak söylemek
+stay straight | dik durmak
+stimulation | uyarım
+strain on | üzerindeki yük
+stressor | stres kaynağı
+stretch muscle | kası esnetmek
+striker | grevci; forvet
+submission | teslim etme; boyun eğme
+such as | gibi
+sue | dava etmek
+sufferer | hasta, acı çeken kişi
+supply to | -e tedarik etmek
+support claim | iddiayı desteklemek
+surveyor | ölçüm uzmanı, eksper
+survive disaster | felaketten sağ çıkmak
+susceptibility | yatkınlık
+suspension | uzaklaştırma; askıya alma; süspansiyon
+tackle | ele almak, üstesinden gelmeye çalışmak
+take toll | zarar vermek, bedel ödetmek
+therapeutic | iyileştirici
+think up | bulmak, uydurmak
+threatened species | tehdit altındaki tür
+through the nose | burundan; (pay through the nose) kazıklanmak
+tick | işaretlemek; tik işareti
+tightness | sıkılık
+timeless | zamansız, eskimeyen
+tiny fraction | çok küçük bir kısım
+to be caused by | -den kaynaklanmak
+to be characterized by | ile karakterize olmak
+to be diagnosed with | teşhisi konmak
+to excess | aşırı derecede
+totally inaccessible | ulaşılması tamamen imkânsız
+traceable | dayandırılabilir, izlenebilir
+tract | sistem, yol (sindirim yolu gibi); arazi parçası
+traditional costume | geleneksel kıyafet
+traditional view | geleneksel görüş
+transform into | -e dönüşmek
+transmission | aktarım; bulaşma; yayın
+transmittable | bulaşıcı, aktarılabilir
+treat with | ile tedavi etmek
+tribute | saygı ifadesi; haraç
+under examination | inceleniyor
+under repair | onarımda
+undergo repair | onarılmak
+undergo transformation | dönüşüm geçirmek
+underweight | düşük kilolu
+unearthly | doğaüstü, ürkütücü
+unfamiliar | yabancı, alışılmadık
+up to | -e kadar; -e bağlı
+uptake | emilim, alım
+used to | -e alışkın; eskiden yapardı
+utility | fayda; su, elektrik gibi temel hizmet
+vaccination against | -e karşı aşı
+verse | dize, şiir
+visibility | görüş mesafesi; görünürlük
+visual aids | görsel araçlar
+vulnerable species | hassas tür
+war may break out | savaş çıkabilir
+warrant | gerektirmek; tutuklama emri
+watch for | -i gözlemek, dikkat etmek
+well-known for | ile tanınan
+wet season | yağışlı mevsim
+what is more | üstelik
+while | -iken; süre
+with | ile
+with certainty | kesin olarak
+with exception | istisna olarak
+with reference | ile ilgili
+with regard to | ile ilgili olarak
+withdrawal | geri çekme; para çekme
+withhold | vermemek, alıkoymak
+work experience | iş deneyimi
+worldliness | dünyayı bilmişlik
+worrier | kaygılı kişi
+wrong with | -in nesi var
+abolished | kaldırılmış
+accusing | suçlayıcı
+added | ek, eklenmiş
+admitted | kabul edilmiş; itiraf edilmiş
+aroused | uyanmış, uyarılmış
+building | bina; inşa etme
+changing | değişen
+concerned for | için endişeli
+decreased | azalmış
+destroyed | yıkılmış, yok edilmiş
+disagree | katılmamak, aynı fikirde olmamak
+joined | birleşmiş, katılmış
+know exactly | tam olarak bilmek
+repeated | tekrarlanan
+run out of supply | stoğu tükenmek
+spread by | ile yayılmak
+spread quickly | hızla yayılmak
+spread rapidly | hızla yayılmak
+widely believed | yaygın olarak inanılan
+working | çalışan; işleyen
+avoid excess | aşırılıktan kaçınmak
+find out identity | kimliğini öğrenmek
+find out secret | sırrı öğrenmek
+get advice | tavsiye almak
+get oxygen | oksijen almak
+give food | yemek vermek
+give information | bilgi vermek
+give time | zaman tanımak
+keep away from | -den uzak durmak
+look after health | sağlığına dikkat etmek
+look for food | yiyecek aramak
+make sth hard | bir şeyi zorlaştırmak
+measure carefully | dikkatlice ölçmek
+offer/provide protection | koruma sağlamak
+repair properly | düzgün onarmak
+require explanation | açıklama gerektirmek
+take a pill | hap almak
+take a shower | duş almak
+take bath | banyo yapmak
+take control | kontrolü ele almak
+take drug | ilaç almak; uyuşturucu kullanmak
+take vitamin | vitamin almak
+transform system | sistemi dönüştürmek
+treat equally | eşit davranmak
+treat fairly | adil davranmak
+treat like | gibi davranmak
+use as | olarak kullanmak
+use service | hizmeti kullanmak
+use soap | sabun kullanmak
+use sound | ses kullanmak
+wash hand | el yıkamak
+yield result | sonuç vermek

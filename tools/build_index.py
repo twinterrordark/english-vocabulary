@@ -165,10 +165,11 @@ def load_work_words(main: list) -> list:
     # main list already has are left out; the fixed shuffle keeps a study round from being alphabetical.
     have = {entry["word"].strip().lower() for entry in main}
     rows = [line for line in (HERE / "work" / "exam_words.txt").read_text(encoding="utf-8").splitlines() if " | " in line and not line.startswith("#")]
+    fixed = dict(line.split(" | ", 1) for line in (HERE / "work" / "exam_meanings.txt").read_text(encoding="utf-8").splitlines() if " | " in line and not line.startswith("#"))
     for number, line in enumerate(sorted(rows, key=lambda row: hashlib.sha1(row.split(" | ")[0].encode()).hexdigest()), 1):
         word, meaning = line.split(" | ", 1)
         if word not in have:
-            words.append({"id": f"wk-exam-{hashlib.sha1(word.encode()).hexdigest()[:10]}", "word": word, "meaning": meaning, "pron": "", "level": "EXAM"})
+            words.append({"id": f"wk-exam-{hashlib.sha1(word.encode()).hexdigest()[:10]}", "word": word, "meaning": fixed.get(word, meaning), "pron": "", "level": "EXAM"})
     return words
 
 
