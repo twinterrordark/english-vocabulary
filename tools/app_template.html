@@ -3810,6 +3810,8 @@ const Phrases = {
     });
   },
   save() { Store.write(this.KEY, JSON.stringify(this.learned)); },
+  /* replaceChildren would print a null as the word "null". */
+  fill(...nodes) { $('#phrases-app').replaceChildren(...nodes.filter(Boolean)); },
   items(topic) { return topic.groups.flatMap(group => group.items); },
   done(topic) { return this.items(topic).filter(item => this.learned[item.id]).length; },
   /* "#phrases" lists the topics, "#phrases/topic-5" opens one, ".../study" studies it with cards. */
@@ -3830,7 +3832,7 @@ const Phrases = {
   renderHub() {
     const all = this.topics.flatMap(topic => this.items(topic));
     const known = all.filter(item => this.learned[item.id]).length;
-    $('#phrases-app').replaceChildren(
+    this.fill(
       h('div', { class: 'phr-search' },
         h('label', { class: 'visually-hidden', for: 'phrase-search', text: t('phrases.search') }),
         h('input', { id: 'phrase-search', type: 'search', autocomplete: 'off', autocapitalize: 'off', spellcheck: 'false', enterkeyhint: 'search', placeholder: t('phrases.searchPh'), value: '' })),
@@ -3888,7 +3890,7 @@ const Phrases = {
   renderTopic(topic) {
     const items = this.items(topic);
     const left = items.length - this.done(topic);
-    $('#phrases-app').replaceChildren(
+    this.fill(
       h('div', { class: 'phr-head' },
         h('a', { class: 'novel-icon', href: '#phrases', 'aria-label': t('game.back') }, icon('prev')),
         h('span', { class: 'phr-emoji big', 'aria-hidden': 'true', text: topic.emoji }),
@@ -3953,14 +3955,14 @@ const Phrases = {
     const item = study.queue[0];
     const app = $('#phrases-app');
     if (!item) {
-      app.replaceChildren(h('div', { class: 'gram-card gram-done' },
+      this.fill(h('div', { class: 'gram-card gram-done' },
         h('p', { class: 'review-big', text: study.topic.emoji }),
         h('p', { class: 'gram-score', text: t('phrases.studyDone', { n: study.done }) }),
         h('div', { class: 'gram-actions' }, h('a', { class: 'button primary', href: '#phrases/' + study.topic.id, text: t('phrases.backTopic') }), h('a', { class: 'button', href: '#phrases', text: t('phrases.allTopics') }))));
       return;
     }
     const say = item.ex ? item.ex[0] : item.en;
-    app.replaceChildren(
+    this.fill(
       h('div', { class: 'phr-head' },
         h('a', { class: 'novel-icon', href: '#phrases/' + study.topic.id, 'aria-label': t('game.back') }, icon('prev')),
         h('div', {}, h('strong', { lang: 'tr', text: study.topic.tr }), h('p', { text: t('review.cardOf', { d: study.done, n: study.total }) }))),
