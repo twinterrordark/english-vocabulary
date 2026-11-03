@@ -282,7 +282,9 @@ def build_phrase_data() -> dict:
                        "intro": intro, "groups": [group for group in groups if group["items"]], "links": links})
     # Topics written for this app. Their phrase ids start at 9000 and only grow, so progress stays attached.
     next_id = 9000
-    for topic in json.loads((HERE / "phrases_new.json").read_text(encoding="utf-8")):
+    # New files go at the end of this list.
+    written_topics = [topic for name in ("phrases_new.json", "phrases_street.json") for topic in json.loads((HERE / name).read_text(encoding="utf-8"))]
+    for topic in written_topics:
         groups = []
         for group in topic.pop("groups"):
             items = []
