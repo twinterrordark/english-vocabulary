@@ -1,0 +1,57 @@
+# Fixed expressions and open compounds. Match adjacent words, never arbitrary neighbours.
+a little | biraz
+a lot of | çok sayıda, çok miktarda
+according to | göre
+all of a sudden | birdenbire
+as a matter of fact | aslında, işin doğrusu
+as if | sanki
+as long as | sürece
+as soon as | olur olmaz
+as well as | yanı sıra
+at first | ilk başta
+at last | sonunda
+at least | en azından
+at once | hemen, derhal
+at the same time | aynı zamanda
+because of | yüzünden, nedeniyle
+by accident | kazara
+by the way | bu arada
+coffee table | sehpa
+dining room | yemek odası
+due to | nedeniyle
+each other | birbirini, birbirine
+even though | rağmen
+ever since | o zamandan beri
+every now and then | ara sıra
+fairy tale | peri masalı
+far away | çok uzakta
+fire station | itfaiye istasyonu
+for a while | bir süre
+for example | örneğin
+for instance | örneğin
+front door | ön kapı
+high school | lise
+ice cream | dondurma
+in fact | aslında
+in front of | önünde
+in order to | amacıyla, için
+in spite of | rağmen
+instead of | yerine
+living room | oturma odası
+long ago | uzun zaman önce
+no longer | artık değil
+of course | elbette
+on purpose | bilerek, kasten
+on the other hand | öte yandan
+once upon a time | bir zamanlar
+one another | birbirini, birbirine
+out of breath | nefes nefese
+out of the blue | hiç beklenmedik bir anda
+police officer | polis memuru
+post office | postane
+right away | hemen
+so far | şimdiye kadar
+such as | gibi, örneğin
+swimming pool | yüzme havuzu
+traffic light | trafik lambası
+upside down | baş aşağı

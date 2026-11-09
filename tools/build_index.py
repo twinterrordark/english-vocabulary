@@ -27,7 +27,7 @@ SENTENCE_DIR = Path(__file__).resolve().parent / "sentences"
 HERE = Path(__file__).resolve().parent
 IMAGE_DIR = HERE / "images"
 OUTPUT = ROOT / "index.html"
-APP_VERSION = "2.5.0"
+APP_VERSION = "2.5.1"
 
 
 def plain_text(fragment: str) -> str:
@@ -149,7 +149,12 @@ def load_novel_dictionary() -> dict:
         if line.strip() and not line.startswith("#"):
             phrase, turkish = (part.strip() for part in line.split("|", 1))
             phrasal[phrase.rstrip("*")] = [1 if phrase.endswith("*") else 0, turkish]
-    return {"words": words, "forms": {f: w for f, w in forms.items() if w in words}, "irregular": irregular, "phrasal": phrasal}
+    fixed = {}
+    for line in (HERE / "novel" / "fixed_lexicon.txt").read_text(encoding="utf-8").splitlines():
+        if line.strip() and not line.startswith("#"):
+            phrase, turkish = (part.strip() for part in line.split("|", 1))
+            fixed[phrase] = turkish
+    return {"words": words, "forms": {f: w for f, w in forms.items() if w in words}, "irregular": irregular, "phrasal": phrasal, "fixed": fixed}
 
 
 def load_work_pictures(words: list) -> dict:
