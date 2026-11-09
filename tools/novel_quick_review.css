@@ -1,0 +1,27 @@
+.novel-quick-review { max-width: 42rem; margin: 1.5rem auto 1rem; padding: 1rem; display: grid; gap: .8rem; border: 1px solid var(--paper-line, var(--line)); border-radius: 14px; background: var(--paper-soft, var(--surface-2)); color: var(--paper-text, var(--text)); font: 1rem/1.55 var(--font); }
+.novel-quick-review[hidden] { display: none; }
+.novel-quick-review h3, .novel-quick-review p { margin: 0; }
+.novel-quick-review h3 { font: 700 1rem/1.4 var(--font); }
+.nqr-launch-copy { display: grid; gap: .3rem; }
+.nqr-launch-copy p, .nqr-help { font-size: .86rem; color: var(--paper-muted, var(--muted)); }
+.nqr-question-head { display: flex; justify-content: space-between; align-items: start; gap: 1rem; }
+.nqr-question-head span { flex: none; font-variant-numeric: tabular-nums; }
+.nqr-sentence { font: 1.13rem/1.65 Georgia, serif; overflow-wrap: anywhere; }
+.nqr-gap { font-weight: 700; color: var(--paper-tr, var(--accent-text)); white-space: nowrap; }
+.nqr-sentence mark { padding: 0 .15em; border-radius: 3px; background: #fde68a; color: #382800; }
+.nqr-meaning { padding: .4rem .65rem; border-radius: 7px; background: var(--paper-tr-bg, var(--primary-soft)); color: var(--paper-tr, var(--accent-text)); font-size: .93rem; }
+.nqr-form { display: grid; gap: .6rem; }
+.nqr-form label { font-weight: 600; }
+.nqr-form input { width: 100%; box-sizing: border-box; min-height: 46px; padding: .65rem .75rem; border: 1px solid var(--paper-line, var(--line)); border-radius: 8px; background: var(--paper-bg, var(--surface)); color: inherit; font: 1rem/1.4 var(--font); }
+.nqr-form input[readonly] { opacity: .8; }
+.nqr-actions { display: flex; flex-wrap: wrap; gap: .6rem; }
+.nqr-model { flex-basis: 100%; display: grid; gap: .35rem; padding: .6rem 0; }
+.nqr-button { min-height: 44px; padding: .55rem .9rem; border: 1px solid var(--paper-line, var(--line)); border-radius: 9px; background: var(--paper-bg, var(--surface)); color: inherit; font: 600 .94rem/1.4 var(--font); cursor: pointer; }
+.nqr-button.is-primary { background: var(--primary); border-color: var(--primary); color: var(--on-primary); }
+.nqr-button:disabled { cursor: default; opacity: .6; }
+.nqr-button:focus-visible, .nqr-form input:focus-visible { outline: 3px solid var(--focus, var(--primary)); outline-offset: 3px; }
+.nqr-feedback:empty { display: none; }
+.nqr-feedback { font-size: .93rem; }
+.nqr-feedback.is-correct { font-weight: 700; }
+.nqr-result { font-weight: 600; }
+@media (max-width: 480px) { .novel-quick-review { margin: 1rem 0; padding: .85rem; } .nqr-actions .nqr-button { flex: 1 1 130px; } }

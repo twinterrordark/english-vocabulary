@@ -552,6 +552,7 @@ mark.vocab { background: var(--mark); color: inherit; padding: 0 2px; border-rad
 .gram-top .novel-icon[hidden], .chip-button[hidden] { display: none; }
 .gram-topics { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-3); max-width: 760px; }
 .gram-topics[hidden] { display: none; }
+/*@INTERACTIVE_CSS@*/
 .gram-filters { display: grid; grid-template-columns: minmax(0, 1fr) minmax(120px, 180px); gap: var(--space-3); max-width: 760px; margin-bottom: var(--space-3); }
 .gram-filters[hidden] { display: none; }
 .gram-filters label { display: grid; gap: 6px; font-size: .85rem; font-weight: 600; }
@@ -3616,6 +3617,7 @@ function syncAllCards() {
 }
 /* Re-label the static card texts after a language change. */
 function relabelCards() {
+  VisualScenes.relabel(lang);
   for (const node of $$('#word-list [data-pos]')) node.textContent = t('pos.' + node.dataset.pos);
   for (const node of $$('#word-list summary[data-types]')) {
     node.textContent = t('card.sentences', { types: node.dataset.types.split(',').map(p => t('pos.' + p).toLocaleLowerCase(lang)).join(', ') });
@@ -3815,6 +3817,11 @@ const Words = {
       if (label && label !== this.lastGroup) { fragment.append(h('h2', { class: 'group-title', text: label })); this.lastGroup = label; }
       const card = CARD_NODES.get(entry.id);
       if (!card) continue;
+      if (card.dataset.sceneReady !== '1') {
+        const scene = VisualScenes.forWord(entry.word, { lang });
+        if (scene) card.querySelector('.card-actions').before(scene);
+        card.dataset.sceneReady = '1';
+      }
       card.hidden = false;
       fragment.append(card);
     }
@@ -4805,6 +4812,20 @@ const Novel = {
     $('#novel-text').style.fontSize = this.size + 'rem';
     this.saveState();
   },
+  quickReviewMatches(item) {
+    if (!this.book || item.book !== this.book.name || !this.book.pages[item.page]) return false;
+    const text = paragraphs => (paragraphs || []).map(part => part.replace(/^[\u2060\u2061]/, '')).join(' ').replace(/\s+/g, ' ').trim();
+    const before = text(this.book.pages[item.page - 1]);
+    const current = text(this.book.pages[item.page]);
+    const after = text(this.book.pages[item.page + 1]);
+    const prefix = before ? before + ' ' : '';
+    const whole = prefix + current + (after ? ' ' + after : '');
+    const sentence = item.sentence.replace(/\s+/g, ' ').trim();
+    for (let at = whole.indexOf(sentence); at >= 0; at = whole.indexOf(sentence, at + 1)) {
+      if (item.ranges.some(range => at + range.end > prefix.length && at + range.start < prefix.length + current.length)) return true;
+    }
+    return false;
+  },
   go(page, toTop, keepReading) {
     if (!this.book) return;
     if (this.reading && !keepReading) this.stopReading();
@@ -4827,6 +4848,7 @@ const Novel = {
     this.closePop();
     this.saveState();
     XP.readPage(this.book.name, this.page);
+    NovelQuickReview.onPage({ book: this.book.name, page: this.page });
     if (toTop) window.scrollTo(0, 0);
   },
   /* A page without text (a picture, or a scanned book) is shown as the printed page. */
@@ -5415,7 +5437,8 @@ const Novel = {
     $('#novel-pop-verb').textContent = verb ? t('novel.verb', { forms: verb }) : '';
     $('#novel-pop-sentence').hidden = !sentence;
     const selected = phrase && phrase.places ? phrase.places : tapped >= 0 ? [tapped] : [];
-    this.highlightText($('#novel-pop-context'), sentence, selected.map(place => ({ start: tokens[place].at, end: tokens[place].at + tokens[place].text.length })));
+    this.current.ranges = selected.map(place => ({ start: tokens[place].at, end: tokens[place].at + tokens[place].text.length }));
+    this.highlightText($('#novel-pop-context'), sentence, this.current.ranges);
     const line = $('#novel-pop-line');
     line.hidden = !sentence;
     line.textContent = t('novel.trLoading');
@@ -5443,6 +5466,10 @@ const Novel = {
     else { Review.add(word.id, 1, { w: word.w, tr: word.tr, s: word.s }); XP.add(5); }
     this.syncSave();
     const on = Review.has(word.id);
+    if (this.book && this.current.node && this.current.node.closest('#novel-text')) {
+      NovelQuickReview.saved({ book: this.book.name, page: this.page, id: word.id, word: word.w,
+        meaning: word.tr, sentence: this.current.sentence, ranges: this.current.ranges }, on);
+    }
     for (const span of $$('#novel-text .nw')) if (span.textContent.toLowerCase() === word.w.toLowerCase() || span.textContent === this.current.word) span.classList.toggle('is-saved', on);
   },
   closePop() {
@@ -5841,7 +5868,8 @@ const Settings = {
   exportProgress() {
     try {
       const data = JSON.stringify({ app: 'english-study', exportedAt: new Date().toISOString(), ...progress, learned: [...learnedSet],
-        review: Review.state, grammar: { best: Grammar.best, learned: Grammar.learned, last: Grammar.lastTopic }, xp: XP.state, phrases: Phrases.learned }, null, 2);
+        review: Review.state, grammar: { best: Grammar.best, learned: Grammar.learned, last: Grammar.lastTopic }, xp: XP.state, phrases: Phrases.learned,
+        novelQuick: NovelQuickReview.snapshot() }, null, 2);
       const url = URL.createObjectURL(new Blob([data], { type: 'application/json' }));
       const link = h('a', { href: url, download: 'english-study-progress-' + dateKey(new Date()) + '.json' });
       document.body.append(link);
@@ -5879,6 +5907,7 @@ const Settings = {
     if (!ok) { status.textContent = t('import.cancelled'); return; }
     replaceProgress(imported);
     if (review) { Review.state = review; Review.queue = []; Review.save(); }
+    if (Array.isArray(parsed.novelQuick)) NovelQuickReview.restore(parsed.novelQuick);
     if (xp) { XP.state = xp; XP.save(); XP.pills(); }
     if (parsed.phrases && typeof parsed.phrases === 'object' && !Array.isArray(parsed.phrases)) {
       Phrases.learned = Object.fromEntries(Object.keys(parsed.phrases).filter(id => /^p\d{1,5}$/.test(id)).map(id => [id, 1]));
@@ -5892,6 +5921,7 @@ const Settings = {
     if (!ok) return;
     replaceProgress(createEmptyProgress(progress.settings));
     Review.clear();
+    NovelQuickReview.clear();
     Toast.show(t('reset.done'));
   }
 };
@@ -5927,6 +5957,7 @@ function setLanguage(next) {
   relabelCards();
   Words.dirty = true;
   Reading.rendered = null;
+  if (NovelQuickReview.options) NovelQuickReview.onPage(NovelQuickReview.context);
   Router.show(false);
 }
 
@@ -6967,6 +6998,11 @@ const Tutor = {
   }
 };
 
+/* ---------- Small, optional learning interactions ---------- */
+/*@GRAMMAR_TRY_JS@*/
+/*@VISUAL_SCENES_JS@*/
+/*@NOVEL_QUICK_REVIEW_JS@*/
+
 /* ---------- Grammar: relative clauses ---------- */
 const Grammar = {
   KEY: 'english-study-grammar.v1',
@@ -7197,6 +7233,8 @@ const Grammar = {
         ? h('details', { class: 'gram-rule', open: firstOfLesson ? true : null }, h('summary', { text: t('grammar.rule', { title: lesson.title }) }), h('p', { lang: 'tr', text: lesson.text }))
         : h('p', { class: 'gram-rule-text', lang: 'tr', text: lesson.text }),
       lesson.forms ? h('dl', { class: 'gram-forms' }, lesson.forms.map(([label, pattern]) => h('div', {}, h('dt', { text: label }), h('dd', { lang: 'en', text: pattern })))) : null,
+      GrammarTry.create(this.topic.id, unit.lesson),
+      VisualScenes.forGrammar(this.topic.id, unit.lesson, unit, { lang }),
       lesson.sections ? h('details', { class: 'gram-glossary' }, h('summary', { text: t('grammar.glossary') }), h('p', { text: t('grammar.glossaryText') })) : null,
       ...(lesson.sections || []).map((section, index) => h('section', { class: 'gram-explanation', id: 'gram-section-' + index, lang: 'tr' },
         h('h3', { tabindex: '-1', text: section.title }), ...section.paragraphs.map(text => h('p', { text })))),
@@ -7915,7 +7953,9 @@ const Review = {
     const out = { goal: this.GOALS.includes(raw.goal) ? raw.goal : 20, cards: {}, saved: {}, log: {}, recall: {}, seeded: true };
     for (const [day, pair] of Object.entries(raw.recall || {})) if (/^\d{4}-\d{2}-\d{2}$/.test(day) && Array.isArray(pair) && pair.length === 2 && pair.every(Number.isInteger)) out.recall[day] = pair;
     for (const [id, card] of Object.entries(raw.cards)) {
-      if (/^[wng]:[^\s]{1,120}$/.test(id) && Array.isArray(card) && card.length === 5 && card.every(Number.isInteger)) out.cards[id] = card;
+      const validId = /^[wg]:[^\s]{1,120}$/.test(id)
+        || (id.length <= 122 && /^n:[^\s\x00-\x1f\x7f]+(?: [^\s\x00-\x1f\x7f]+)*$/.test(id));
+      if (validId && Array.isArray(card) && card.length === 5 && card.every(Number.isInteger)) out.cards[id] = card;
     }
     for (const [id, saved] of Object.entries(raw.saved || {})) {
       if (out.cards[id] && saved && typeof saved === 'object' && text(saved.w, 60)) out.saved[id] = { w: text(saved.w, 60), tr: text(saved.tr, 300), s: text(saved.s, 500) };
@@ -9517,6 +9557,8 @@ function init() {
   prepareCards();
   MyDecks.load();
   XP.init(); Home.init(); Words.init(); Phrases.init(); Grammar.init(); Review.init(); Today.init(); Nav.init(); Games.init(); Writer.init(); AiStory.init(); Pron.init(); Speak.init(); Tutor.init(); Novel.init(); Quiz.init(); Settings.init(); Updater.init();
+  NovelQuickReview.init({ article: $('#novel-text'), store: Store, language: () => lang, isSaved: id => Review.has(id), matchesPage: item => Novel.quickReviewMatches(item),
+    onOpen: () => { Novel.closePop(); if (Novel.reading && !Novel.reading.paused) Novel.pauseReading(); } });
   if (!Store.usable) Banner.show(t(Store.simulated ? 'storage.simulated' : 'storage.off'));
   else if (loaded.notice) Banner.show(t(loaded.notice, { n: loaded.count || 0 }));
   if (loaded.migrated) persist();

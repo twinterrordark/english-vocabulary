@@ -27,7 +27,7 @@ SENTENCE_DIR = Path(__file__).resolve().parent / "sentences"
 HERE = Path(__file__).resolve().parent
 IMAGE_DIR = HERE / "images"
 OUTPUT = ROOT / "index.html"
-APP_VERSION = "2.6.1"
+APP_VERSION = "2.7.0"
 
 
 def plain_text(fragment: str) -> str:
@@ -558,6 +558,14 @@ def main() -> None:
     grammar = {"topics": topics}
     print(f"speaking room   {len(speak_topics)} topics, {sum(len(t['questions']) for t in speak_topics)} questions")
 
+    interactive_js, interactive_css = {}, []
+    for name in ("grammar_try", "visual_scenes", "novel_quick_review"):
+        js = (HERE / f"{name}.js").read_text(encoding="utf-8")
+        css = (HERE / f"{name}.css").read_text(encoding="utf-8")
+        if "</script" in js.lower() or "</style" in css.lower():
+            sys.exit(f"{name}: source cannot be inlined safely")
+        interactive_js[name] = js
+        interactive_css.append(css)
     template = turkish_static_text(TEMPLATE.read_text(encoding="utf-8"), counts)
     output = (template
               .replace("<!--@VOCAB_DATA@-->", json_for_script(entries))
@@ -572,6 +580,10 @@ def main() -> None:
               .replace("<!--@NOVEL_SHELF@-->", novel_shelf())
               .replace("<!--@SPEAK_TOPICS@-->", json_for_script(speak_topics))
               .replace("<!--@GRAMMAR_DATA@-->", json_for_script(grammar))
+              .replace("/*@INTERACTIVE_CSS@*/", "\n".join(interactive_css))
+              .replace("/*@GRAMMAR_TRY_JS@*/", interactive_js["grammar_try"])
+              .replace("/*@VISUAL_SCENES_JS@*/", interactive_js["visual_scenes"])
+              .replace("/*@NOVEL_QUICK_REVIEW_JS@*/", interactive_js["novel_quick_review"])
               .replace("/*@FONT_FACES@*/", font_faces())
               .replace("@APP_VERSION@", APP_VERSION)
               .replace("<!--@PDFJS_LIB@-->", pdfjs_lib)
