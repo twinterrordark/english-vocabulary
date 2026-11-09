@@ -3,7 +3,7 @@
 <head>
 <!-- ======================================================================
   1. DOCUMENT METADATA AND THEME
-  English Study · version 2.5.1
+  English Study · version 2.5.2
   Generated from b1-b2-kelimeler-responsive.html by tools/build_index.py.
   Runs directly from this one file: no server, build step or network needed.
 ====================================================================== -->
@@ -1523,7 +1523,7 @@ body.novel-focus .novel-pop-sentence i { color: var(--paper-text); }
 
 .novel-pop-dict { color: var(--muted); font-size: .84rem; }
 .novel-pop-dict[hidden] { display: none; }
-.novel-pop-line mark { background: var(--focus); color: #fff; border-radius: 3px; padding: 0 2px; }
+.novel-pop mark.novel-hit { background: #fde68a; color: #382800; border-radius: 4px; padding: 0 .14em; font-style: normal; font-weight: 700; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
 .novel-text .nw.is-on, .lib-excerpt .nw.is-on { color: #fff; }
 body.novel-focus .novel-pop-dict { color: var(--paper-muted); }
 .novel-pop:not(.is-inline) { max-height: min(46dvh, 420px); overflow-y: auto; overscroll-behavior: contain; }
@@ -4648,7 +4648,7 @@ body.novel-focus .novel-pop:not(.is-inline) .novel-pop-actions { background: var
   <p>İş ve sınav kelimelerinin resimleri de Twemoji'dir; birçoğu kelimeyi temsilen seçildi.</p>
   <p>Örnek cümlelerin bir bölümü: <a href="https://tatoeba.org" target="_blank" rel="noopener">Tatoeba</a> (<a href="https://creativecommons.org/licenses/by/2.0/fr/" target="_blank" rel="noopener">CC BY 2.0 FR</a>), <a href="https://www.manythings.org/anki/" target="_blank" rel="noopener">manythings.org</a> derlemesinden; cümleler kelimelere ve türlere göre seçildi.</p>
   <p>Fotoğraflar: Wikimedia Commons (yazar ve lisans kartlarda). Simgeler: <a href="https://github.com/jdecked/twemoji" target="_blank" rel="noopener">Twemoji</a>, CC BY 4.0. PDF okuma: <a href="https://mozilla.github.io/pdf.js/" target="_blank" rel="noopener">pdf.js</a> (Mozilla, Apache-2.0). Yazı tipleri: Outfit ve Plus Jakarta Sans (SIL Open Font License).</p>
-  <p>English Study · v2.5.1</p>
+  <p>English Study · v2.5.2</p>
 </footer>
 
 <div id="toast" class="toast" role="status" aria-live="polite"></div>
@@ -4743,7 +4743,7 @@ body.novel-focus .novel-pop:not(.is-inline) .novel-pop-actions { background: var
 <script>
 (() => {
 'use strict';
-const APP_VERSION = '2.5.1';
+const APP_VERSION = '2.5.2';
 /* Small polyfill so the app also starts on browsers from before 2020. */
 if (!Element.prototype.replaceChildren) {
   Element.prototype.replaceChildren = function () {
@@ -7498,6 +7498,79 @@ const Novel = {
     }
     return found;
   },
+  /* Keep original offsets and text, including repeated words and separated phrasal verbs. */
+  highlightText(element, text, ranges) {
+    const merged = [];
+    for (const range of ranges.filter(range => range.start >= 0 && range.end <= text.length && range.end > range.start).sort((a, b) => a.start - b.start)) {
+      const previous = merged[merged.length - 1];
+      if (previous && (range.start <= previous.end || /^\s*$/.test(text.slice(previous.end, range.start)))) previous.end = Math.max(previous.end, range.end);
+      else merged.push({ ...range });
+    }
+    const parts = [];
+    let from = 0;
+    for (const range of merged) {
+      parts.push(text.slice(from, range.start), h('mark', { class: 'novel-hit', text: text.slice(range.start, range.end) }));
+      from = range.end;
+    }
+    parts.push(text.slice(from));
+    element.replaceChildren(...parts);
+  },
+  /* Turkish suffixes belong to the highlighted word: "postane" -> "postanenin".
+     Require every content word of a multiword meaning in the same local phrase. */
+  senseRanges(sense, turkish) {
+    const parts = (sense.toLocaleLowerCase('tr').replace(/\([^)]*\)/g, ' ').replace(/(^|\s)-\p{L}+/gu, ' ').match(/\p{L}+/gu) || []);
+    const helpers = /^(etmek|olmak|yapmak|kılmak)$/;
+    const core = parts.filter(part => !helpers.test(part));
+    const required = core.length ? core : parts;
+    if (!required.length) return [];
+    const words = [...turkish.matchAll(/\p{L}+(?:['’]\p{L}+)?/gu)].map(match => ({ text: match[0], lower: match[0].toLocaleLowerCase('tr'), start: match.index, end: match.index + match[0].length }));
+    const matches = (part, word) => {
+      if (word.lower === part) return true;
+      const verb = /m[ae]k$/.test(part);
+      const stem = verb ? part.slice(0, -3) : part;
+      if (stem.length < (verb ? 2 : 3)) return false;
+      const stems = [stem];
+      const soft = { k: 'ğ', t: 'd', p: 'b', ç: 'c' }[stem.slice(-1)];
+      if (soft) stems.push(stem.slice(0, -1) + soft);
+      if (verb && /[ae]$/.test(stem)) stems.push(stem.slice(0, -1));
+      if (part === 'demek') stems.push('di');
+      if (part === 'yemek') stems.push('yi');
+      return stems.some(base => {
+        if (!word.lower.startsWith(base)) return false;
+        const suffix = word.lower.slice(base.length).replace(/^['’]/, '');
+        if (verb) return /^(?:[dt][ıiuü]|[ıiuü]?yor|m[ıiuü]ş|[ae]c[ae]k|[aeıiuü]r|m[ae]|[ıiuü]l|[ıiuü]n|[ıiuü]p|[ae]n|s[ae])/.test(suffix);
+        return /^(?:l[ae]r|[ıiuü]|y[ıiuüae]|n[ıiuüae]|[ae]|[dt][ae]n?|[ıiuü]n|n[ıiuü]n|[ıiuü]m|[ıiuü]m[ıiuü]z|[ıiuü]n[ıiuü]z|s[ıiuü]|[dt][ıiuü]r|yl[ae]|l[ae]|y?[dt][ıiuü](?:m|n|k)?){1,3}$/.test(suffix);
+      });
+    };
+    const ranges = [];
+    words.forEach((word, anchor) => {
+      if (!matches(required[0], word)) return;
+      const chosen = [anchor];
+      for (const part of required.slice(1)) {
+        const index = words.map((candidate, i) => ({ candidate, i })).filter(({ candidate, i }) => !chosen.includes(i) && Math.abs(i - anchor) <= required.length + 2 && matches(part, candidate))
+          .sort((a, b) => Math.abs(a.i - anchor) - Math.abs(b.i - anchor))[0]?.i;
+        if (index == null) return;
+        chosen.push(index);
+      }
+      // Include a neighbouring auxiliary in expressions such as "iptal etti".
+      if (core.length) for (const part of parts.filter(part => helpers.test(part))) {
+        const index = words.findIndex((candidate, i) => !chosen.includes(i) && chosen.some(at => Math.abs(i - at) === 1) && matches(part, candidate));
+        if (index >= 0) chosen.push(index);
+      }
+      ranges.push(...chosen.map(index => ({ start: words[index].start, end: words[index].end })));
+    });
+    return ranges;
+  },
+  highlightTranslation() {
+    if (!this.current || !this.current.translation) return;
+    const { translation, meaning } = this.current;
+    const candidates = [...new Set((meaning || '').split(/[;,]/).map(sense => sense.trim()).filter(Boolean))]
+      .map(sense => this.senseRanges(sense, translation)).filter(ranges => ranges.length);
+    // Conflicting senses do not identify a reliable target span.
+    const key = ranges => JSON.stringify([...new Set(ranges.map(range => range.start + ':' + range.end))].sort());
+    const ranges = candidates.length && candidates.every(candidate => key(candidate) === key(candidates[0])) ? candidates[0] : [];
+    this.highlightText($('#novel-pop-line'), translation, ranges);
+  },
   async showSense(token, sentence, senseText) {
     const line = $('#novel-pop-line');
     const failed = err => {
@@ -7510,7 +7583,8 @@ const Novel = {
       try {
         const [main] = await this.sentenceVersions(sentence);
         if (token !== this.popToken) return;
-        line.textContent = main;
+        this.current.translation = main;
+        this.highlightTranslation();
         const senses = senseText.split(/[;,]/).map(sense => sense.trim()).filter(Boolean);
         const matches = senses.filter(sense => this.senseWord(sense, main));
         // Multiple matches are ambiguous: keep the dictionary meanings instead of guessing.
@@ -7530,6 +7604,8 @@ const Novel = {
         const turkish = await this.translate(word);
         if (token !== this.popToken) return;
         $('#novel-pop-tr').textContent = turkish;
+        this.current.meaning = turkish;
+        this.highlightTranslation();
         this.current.review = { id: 'n:' + word.toLowerCase(), w: word, tr: turkish, s: sentence };
         $('#novel-pop-save').hidden = false;
         this.syncSave();
@@ -7574,7 +7650,7 @@ const Novel = {
     const fixed = (this.dictionary().fixed || {})[typedWord];
     const phrase = tapped >= 0 ? this.findPhrase(tokens, tapped) : typed || fixed ? { phrase: typedWord, tr: fixed || typed[1] } : null;
     if (phrase && phrase.places) this.markTokens(node, start, tokens, phrase.places);
-    this.current = { raw, node, word: phrase ? phrase.phrase : raw, sentence };
+    this.current = { raw, node, word: phrase ? phrase.phrase : raw, sentence, meaning: phrase ? phrase.tr : found ? found.tr : '' };
     $('#novel-pop-retry').hidden = true;
     $('#novel-pop-word').textContent = this.current.word;
     $('#novel-pop-label').textContent = t(phrase ? 'novel.phrase' : 'novel.meaning');
@@ -7585,7 +7661,8 @@ const Novel = {
     $('#novel-pop-verb').hidden = !verb;
     $('#novel-pop-verb').textContent = verb ? t('novel.verb', { forms: verb }) : '';
     $('#novel-pop-sentence').hidden = !sentence;
-    $('#novel-pop-context').textContent = sentence;
+    const selected = phrase && phrase.places ? phrase.places : tapped >= 0 ? [tapped] : [];
+    this.highlightText($('#novel-pop-context'), sentence, selected.map(place => ({ start: tokens[place].at, end: tokens[place].at + tokens[place].text.length })));
     const line = $('#novel-pop-line');
     line.hidden = !sentence;
     line.textContent = t('novel.trLoading');
@@ -11615,7 +11692,7 @@ const MODULES = { home: Home, review: Review, practice: Games, rankings: Ranking
    The page asks for version.json, never from the cache, when it opens and
    whenever it comes back to the screen, and offers to load the new build. */
 const Updater = {
-  build: '5b313b032d03',
+  build: 'f5d5d28740a4',
   checked: 0,
   init() {
     if (!/^https?:$/.test(location.protocol) || this.build.length !== 12) return;

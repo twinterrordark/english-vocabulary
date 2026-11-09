@@ -29,6 +29,7 @@ const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
     'She ate ice cream in front of the post office.': 'Postanenin önünde dondurma yedi.',
     'The well-known visitor smiled.': 'Tanınmış ziyaretçi gülümsedi.',
     'We saw a quokka.': 'Bir kısa kuyruklu kanguru gördük.',
+    'She saw a cat near another cat.': 'Bir kedinin yanında başka bir kedi gördü.',
     quokka: 'kısa kuyruklu kanguru',
     'Slow sentence.': 'Yavaş cümle.',
     'Fast sentence.': 'Hızlı cümle.',
@@ -60,21 +61,49 @@ const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
     assert.equal(await page.locator('#novel-pop-word').textContent(), 'take off');
     assert.equal(await page.locator('#novel-pop-context').textContent(), 'Dr. Smith took his coat off.');
     assert.equal(await page.locator('#novel-pop-tr').textContent(), '(giysi) çıkarmak');
+    assert.deepEqual(await page.locator('#novel-pop-context mark').allTextContents(), ['took', 'off']);
+    assert.deepEqual(await page.locator('#novel-pop-line mark').allTextContents(), ['çıkardı']);
     assert.deepEqual(await page.locator('#novel-text .nw.is-on').allTextContents(), ['took', 'off']);
     await click('cream');
     assert.equal(await page.locator('#novel-pop-word').textContent(), 'ice cream');
     assert.equal(await page.locator('#novel-pop-tr').textContent(), 'dondurma');
+    assert.deepEqual(await page.locator('#novel-pop-context mark').allTextContents(), ['ice cream']);
+    await page.waitForFunction(() => document.querySelector('#novel-pop-line mark')?.textContent === 'dondurma');
     await click('front');
     assert.equal(await page.locator('#novel-pop-word').textContent(), 'in front of');
     await click('office');
     assert.equal(await page.locator('#novel-pop-word').textContent(), 'post office');
+    assert.deepEqual(await page.locator('#novel-pop-context mark').allTextContents(), ['post office']);
+    await page.waitForFunction(() => document.querySelector('#novel-pop-line mark')?.textContent === 'Postanenin');
     assert.equal(await page.locator('#novel-text .nw').filter({ hasText: /^well-known$/ }).count(), 1);
     await click('quokka');
     await page.waitForFunction(() => document.querySelector('#novel-pop-tr').textContent === 'kısa kuyruklu kanguru');
     assert.equal(await page.locator('#novel-pop-line').textContent(), 'Bir kısa kuyruklu kanguru gördük.');
+    assert.deepEqual(await page.locator('#novel-pop-context mark').allTextContents(), ['quokka']);
+    assert.deepEqual(await page.locator('#novel-pop-line mark').allTextContents(), ['kısa kuyruklu kanguru']);
     assert(await page.locator('#novel-pop-save').isVisible());
     await page.locator('#novel-pop-save').click();
     assert.equal(await page.locator('#novel-pop-save').getAttribute('aria-pressed'), 'true');
+    await open(['She saw a cat near another cat.']);
+    await page.locator('#novel-text .nw').filter({ hasText: /^cat$/ }).nth(1).click();
+    await page.waitForFunction(() => document.querySelector('#novel-pop-line mark')?.textContent === 'kedinin');
+    assert.deepEqual(await page.locator('#novel-pop-context mark').allTextContents(), ['cat']);
+    assert.equal(await page.locator('#novel-pop-context mark').evaluate(mark => mark.previousSibling.textContent), 'She saw a cat near another ');
+    assert.deepEqual(await page.locator('#novel-pop-line mark').allTextContents(), ['kedinin', 'kedi']);
+    const marking = await page.evaluate(() => {
+      const box = document.createElement('div');
+      Novel.highlightText(box, '<b>cat</b>', [{ start: 3, end: 6 }]);
+      return {
+        literalText: box.textContent, htmlElement: Boolean(box.querySelector('b')), marked: box.querySelector('mark').textContent,
+        noun: Novel.senseRanges('kitap', 'Kitaplık kırıldı.'),
+        auxiliary: Novel.senseRanges('iptal etmek', 'Toplantıyı iptal etti.').map(range => 'Toplantıyı iptal etti.'.slice(range.start, range.end))
+      };
+    });
+    assert.equal(marking.literalText, '<b>cat</b>');
+    assert.equal(marking.htmlElement, false);
+    assert.equal(marking.marked, 'cat');
+    assert.deepEqual(marking.noun, []);
+    assert.deepEqual(marking.auxiliary, ['iptal', 'etti']);
     const pure = await page.evaluate(() => {
       const phrase = (s, word) => {
         const tokens = Novel.phraseTokens(s);
@@ -124,6 +153,8 @@ const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
     await page.waitForFunction(() => document.querySelector('#novel-pop-line').textContent === 'Hızlı cümle.');
     await sleep(250);
     assert.equal(await page.locator('#novel-pop-line').textContent(), 'Hızlı cümle.');
+    assert.deepEqual(await page.locator('#novel-pop-context mark').allTextContents(), ['Fast']);
+    assert(!(await page.locator('#novel-pop-line mark').allTextContents()).includes('Yavaş'));
     await page.locator('#novel-pop-close').click();
     assert(await page.locator('#novel-pop').isHidden());
     // In-flight and persistent caching avoid repeat requests.
@@ -142,7 +173,9 @@ const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
     await click('zzzunknown');
     await page.waitForFunction(() => !document.querySelector('#novel-pop-retry').hidden);
     await page.waitForFunction(() => !document.querySelector('#novel-pop-line').textContent.includes('…'));
+    assert.equal(await page.locator('#novel-pop-line mark').count(), 0);
     assert(await page.locator('#novel-pop-line').isVisible());
+    assert.deepEqual(await page.locator('#novel-pop-context mark').allTextContents(), ['zzzunknown']);
     assert(await page.locator('#novel-pop-save').isHidden());
     failing = false;
     await page.locator('#novel-pop-retry').click();
@@ -160,6 +193,9 @@ const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
     await click('off');
     assert(await page.locator('#novel-pop-sentence').isVisible());
     assert(await page.locator('#novel-pop-line').isVisible());
+    await page.waitForFunction(() => document.querySelector('#novel-pop-line mark')?.textContent === 'çıkardı');
+    assert.deepEqual(await page.locator('#novel-pop-context mark').allTextContents(), ['took', 'off']);
+    assert.deepEqual(await page.locator('#novel-pop-line mark').allTextContents(), ['çıkardı']);
     assert.equal(await page.locator('#novel-tr').count(), 0);
     assert(await page.locator('#novel-aa').isVisible());
     const overflow = await page.evaluate(() => document.documentElement.scrollWidth > innerWidth);
