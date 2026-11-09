@@ -1,0 +1,94 @@
+{
+  "results": [
+    {
+      "name": "Bounded live DOM; all vocabulary retained",
+      "detail": {
+        "nodes": 1570,
+        "cards": 0,
+        "words": 2199
+      }
+    },
+    {
+      "name": "Menu discovery, focus containment, Escape, close and focus return",
+      "detail": "tr"
+    },
+    {
+      "name": "Menu discovery, focus containment, Escape, close and focus return",
+      "detail": "en"
+    },
+    {
+      "name": "Pronunciation sheet focus containment, Escape and focus return"
+    },
+    {
+      "name": "Search, empty state, reset, learned filtering, detached-card translations and persistence"
+    },
+    {
+      "name": "Keyboard-operated PDF picker"
+    },
+    {
+      "name": "Dark theme accessibility",
+      "detail": "home"
+    },
+    {
+      "name": "Dark theme accessibility",
+      "detail": "review"
+    },
+    {
+      "name": "Dark theme accessibility",
+      "detail": "practice"
+    },
+    {
+      "name": "Dark theme accessibility",
+      "detail": "rankings"
+    },
+    {
+      "name": "Dark theme accessibility",
+      "detail": "words"
+    },
+    {
+      "name": "Dark theme accessibility",
+      "detail": "phrases"
+    },
+    {
+      "name": "Dark theme accessibility",
+      "detail": "grammar"
+    },
+    {
+      "name": "Dark theme accessibility",
+      "detail": "quiz"
+    },
+    {
+      "name": "Dark theme accessibility",
+      "detail": "reading"
+    },
+    {
+      "name": "Dark theme accessibility",
+      "detail": "novel"
+    },
+    {
+      "name": "Dark theme accessibility",
+      "detail": "speak"
+    },
+    {
+      "name": "Dark theme accessibility",
+      "detail": "tutor"
+    },
+    {
+      "name": "Dark theme accessibility",
+      "detail": "settings"
+    },
+    {
+      "name": "Storage unavailable: search and learned controls work in memory"
+    },
+    {
+      "name": "Standalone file:// initialization and search"
+    },
+    {
+      "name": "No uncaught JavaScript errors"
+    },
+    {
+      "name": "No JavaScript: all 2,199 original cards remain readable"
+    }
+  ],
+  "errors": []
+}

@@ -1,5 +1,6 @@
 
-tools/__pycache__/
+__pycache__/
+.audit-deps/
 # Study PDFs under their owners' copyright: kept on this computer, not published.
 Language/
 Language.zip

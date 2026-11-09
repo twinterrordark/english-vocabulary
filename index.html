@@ -3,7 +3,7 @@
 <head>
 <!-- ======================================================================
   1. DOCUMENT METADATA AND THEME
-  English Study · version 2.7.0
+  English Study · version 2.7.1
   Generated from b1-b2-kelimeler-responsive.html by tools/build_index.py.
   Runs directly from this one file: no server, build step or network needed.
 ====================================================================== -->
@@ -11,6 +11,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#1c2b4a">
+<meta name="description" content="WordFlow ile A2–C1 İngilizce kelimeleri öğren, aralıklı tekrar ve quizlerle pekiştir; dilbilgisi çalış, roman oku ve konuşma pratiği yap.">
 <title>WordFlow · A2–C1 Kelime Çalışması</title>
 <script>
 /* Mark that scripts run (CSS shows the interactive app only then) and apply a saved
@@ -54,6 +55,7 @@
   --primary-bright: #00855d;
   --accent-text: #00684a;
   --secondary: #712ae2;
+  --on-secondary: #ffffff;
   --secondary-soft: #efe7ff;
   --secondary-text: #5b1fc0;
   --tertiary: #b45309;
@@ -86,7 +88,7 @@
     --bg: #0b1120; --surface: #141c2f; --surface-2: #1b2539; --surface-3: #243049;
     --text: #e9eefb; --muted: #a8b3c8; --line: #283450;
     --primary: #4fd6a2; --primary-hover: #74e4b8; --primary-lip: #1d8c63; --on-primary: #002a1b; --primary-soft: #113a2c; --primary-bright: #4fd6a2; --accent-text: #74e4b8;
-    --secondary: #b794ff; --secondary-soft: #2b2149; --secondary-text: #cdb6ff; --tertiary: #fbbf24; --tertiary-soft: #3a2b0e;
+    --secondary: #b794ff; --on-secondary: #21113d; --secondary-soft: #2b2149; --secondary-text: #cdb6ff; --tertiary: #fbbf24; --tertiary-soft: #3a2b0e;
     --success: #74e4b8; --success-soft: #113a2c; --error: #ffaaa0; --error-soft: #3d1d1a; --warn: #f5c76b; --warn-soft: #3a2d12;
     --mark: #4a3f12; --header: rgba(11, 17, 32, .9); --on-header: #e9eefb; --on-header-muted: #a8b3c8; --focus: #b794ff;
     --shadow: 0 4px 16px rgba(0, 0, 0, .3); --shadow-lg: 0 12px 28px rgba(0, 0, 0, .4);
@@ -97,7 +99,7 @@
   --bg: #0b1120; --surface: #141c2f; --surface-2: #1b2539; --surface-3: #243049;
   --text: #e9eefb; --muted: #a8b3c8; --line: #283450;
   --primary: #4fd6a2; --primary-hover: #74e4b8; --primary-lip: #1d8c63; --on-primary: #002a1b; --primary-soft: #113a2c; --primary-bright: #4fd6a2; --accent-text: #74e4b8;
-  --secondary: #b794ff; --secondary-soft: #2b2149; --secondary-text: #cdb6ff; --tertiary: #fbbf24; --tertiary-soft: #3a2b0e;
+  --secondary: #b794ff; --on-secondary: #21113d; --secondary-soft: #2b2149; --secondary-text: #cdb6ff; --tertiary: #fbbf24; --tertiary-soft: #3a2b0e;
   --success: #74e4b8; --success-soft: #113a2c; --error: #ffaaa0; --error-soft: #3d1d1a; --warn: #f5c76b; --warn-soft: #3a2d12;
   --mark: #4a3f12; --header: rgba(11, 17, 32, .9); --on-header: #e9eefb; --on-header-muted: #a8b3c8; --focus: #b794ff;
   --shadow: 0 4px 16px rgba(0, 0, 0, .3); --shadow-lg: 0 12px 28px rgba(0, 0, 0, .4);
@@ -268,8 +270,11 @@ body.novel-focus .toast, body.tutor-focus .toast, body.speak-focus .toast { bott
 }
 .more-sheet { position: fixed; inset: 0; z-index: 60; display: flex; align-items: flex-end; }
 .more-sheet[hidden] { display: none; }
+dialog.more-sheet { width: 100%; max-width: none; height: 100%; max-height: none; margin: 0; padding: 0; border: 0; border-radius: 0; background: transparent; color: var(--text); box-shadow: none; }
+dialog.more-sheet::backdrop { background: transparent; }
+html:has(dialog[open]) { overflow: hidden; }
 .more-backdrop { position: absolute; inset: 0; background: rgba(8, 14, 28, .45); animation: fade-in .2s ease-out; }
-.more-panel { position: relative; width: 100%; padding: var(--space-4) var(--gutter) calc(var(--space-5) + env(safe-area-inset-bottom)); border-radius: 22px 22px 0 0; background: var(--surface); box-shadow: 0 -10px 30px rgba(0, 0, 0, .2); animation: sheet-up .24s ease-out; }
+.more-panel { position: relative; width: 100%; max-height: 100%; overflow-y: auto; overscroll-behavior: contain; padding: var(--space-4) var(--gutter) calc(var(--space-5) + env(safe-area-inset-bottom)); border-radius: 22px 22px 0 0; background: var(--surface); box-shadow: 0 -10px 30px rgba(0, 0, 0, .2); animation: sheet-up .24s ease-out; }
 .more-panel h2 { margin: 0 0 var(--space-3); font-size: 1rem; color: var(--muted); }
 .more-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-2); }
 .more-grid a { display: grid; justify-items: center; gap: 6px; padding: 14px 6px; border-radius: 14px; background: var(--surface-2); color: var(--text); text-decoration: none; font-weight: 600; font-size: .88rem; }
@@ -332,7 +337,7 @@ dialog::backdrop { background: rgba(8, 14, 28, .55); }
 .review-rate small { font-weight: 400; font-size: .75rem; opacity: .85; }
 .review-again { border-color: var(--error); color: var(--error); }
 .review-hard { border-color: var(--line); }
-.review-good { background: var(--success); border-color: var(--success); color: #fff; }
+.review-good { background: var(--success); border-color: var(--success); color: var(--on-primary); }
 .review-empty { display: grid; gap: var(--space-2); justify-items: center; text-align: center; padding: var(--space-4) 0; }
 .review-empty h2, .review-empty p { margin: 0; }
 .review-big { font-size: 2.6rem; }
@@ -380,6 +385,7 @@ dialog::backdrop { background: rgba(8, 14, 28, .55); }
 .nojs-note { padding: var(--space-3) var(--space-4); margin: 0 0 var(--space-4); border-radius: var(--radius-s); background: var(--warn-soft); color: var(--text); border-left: 4px solid var(--warn); }
 html.js .view:not(.is-active) { display: none; }
 html:not(.js) .view:not([data-view="words"]), html:not(.js) .tabs, html:not(.js) .js-only, html:not(.js) #theme-quick, html:not(.js) #boot-status { display: none !important; }
+html:not(.js) .bottom-nav, html:not(.js) .profile-button { display: none !important; }
 html.js .nojs-only { display: none !important; }
 .word-body { display: flex; flex-direction: column; gap: var(--space-2); padding: var(--space-4); flex: 1; }
 .word-title { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--space-2); }
@@ -760,7 +766,7 @@ mark.gram-rel { background: var(--primary-soft); color: var(--accent-text); padd
 .gram-unit-row.is-locked { opacity: .5; }
 .gram-dot { flex: none; display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: var(--line); color: var(--muted); font-size: .8rem; font-weight: 700; }
 .gram-dot .icon { width: 16px; height: 16px; }
-.is-done .gram-dot { background: var(--success); color: #fff; }
+.is-done .gram-dot { background: var(--success); color: var(--on-primary); }
 .is-next .gram-dot { background: var(--primary); color: var(--on-primary); }
 .gram-unit-text { display: grid; gap: 1px; min-width: 0; flex: 1; }
 .gram-unit-text strong { font-size: 1rem; overflow-wrap: anywhere; }
@@ -1011,7 +1017,7 @@ body { font-size: 15.5px; }
 .button.primary { background: var(--primary); border-color: var(--primary); color: var(--on-primary); box-shadow: 0 4px 0 var(--primary-lip); }
 .button.primary:active { box-shadow: 0 2px 0 var(--primary-lip); }
 .button.primary:hover { background: var(--primary-hover); border-color: var(--primary-hover); }
-.button.violet { background: var(--secondary); border-color: var(--secondary); color: #fff; box-shadow: 0 4px 0 #4c1aa0; }
+.button.violet { background: var(--secondary); border-color: var(--secondary); color: var(--on-secondary); box-shadow: 0 4px 0 #4c1aa0; }
 .button.danger { box-shadow: 0 4px 0 #7f1d1d; }
 .button.ghost, .link-button { box-shadow: none; }
 .button:disabled { box-shadow: none; }
@@ -1210,7 +1216,7 @@ input:focus-visible, select:focus-visible, textarea:focus-visible { outline: non
 .wave i { display: block; width: 4px; height: 10px; border-radius: 4px; background: var(--secondary); animation: wave 1s ease-in-out infinite; }
 .wave i:nth-child(2) { animation-delay: .1s; height: 18px; } .wave i:nth-child(3) { animation-delay: .2s; } .wave i:nth-child(4) { animation-delay: .3s; height: 16px; } .wave i:nth-child(5) { animation-delay: .4s; }
 @keyframes wave { 50% { transform: scaleY(.5); } }
-.game-tag { padding: 3px 10px; border-radius: 999px; background: #fee2e2; color: #b91c1c; font: 800 .72rem/1.3 var(--font-display); }
+.game-tag { padding: 3px 10px; border-radius: 999px; background: var(--error-soft); color: var(--error); font: 800 .72rem/1.3 var(--font-display); }
 .game-card-foot { display: flex; align-items: center; justify-content: space-between; gap: var(--space-2); }
 .game-best { color: var(--muted); font-size: .85rem; font-weight: 600; }
 .button.soft { background: var(--surface-3); border-color: var(--surface-3); }
@@ -1276,8 +1282,8 @@ input:focus-visible, select:focus-visible, textarea:focus-visible { outline: non
 .rank-me { display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3) var(--space-4); border-radius: var(--radius-l); background: var(--secondary-soft); color: var(--secondary-text); }
 .rank-me > div:nth-child(2) { display: grid; flex: 1; min-width: 0; }
 .rank-me-side { display: grid; justify-items: end; gap: 4px; }
-.rank-me-side small { color: var(--tertiary); font-weight: 700; }
-.rank-pos { display: grid; place-items: center; flex: none; width: 36px; height: 36px; border-radius: 50%; background: var(--secondary); color: #fff; font: 800 1rem/1 var(--font-display); }
+.rank-me-side small { color: var(--text); font-weight: 700; }
+.rank-pos { display: grid; place-items: center; flex: none; width: 36px; height: 36px; border-radius: 50%; background: var(--secondary); color: var(--on-secondary); font: 800 1rem/1 var(--font-display); }
 .rank-list { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-2); }
 .rank-list li { display: flex; align-items: center; gap: var(--space-3); padding: 12px var(--space-4); border-radius: 18px; background: var(--surface); box-shadow: var(--shadow); }
 .rank-list li > div { display: grid; flex: 1; min-width: 0; }
@@ -1351,10 +1357,10 @@ body.novel-focus .novel-pop-sentence i { color: var(--paper-text); }
 .tutor-top-title span::before { content: "● "; color: #22c55e; }
 .tutor-bubble { border: 0; border-radius: 22px 22px 22px 6px; box-shadow: 0 4px 16px rgba(19, 27, 46, .06); padding: 14px 16px; }
 .tutor-say { font: 1.08rem/1.5 var(--font); }
-.from-me .tutor-bubble { background: var(--primary); color: #fff; border-radius: 22px 22px 6px 22px; box-shadow: 0 6px 16px rgba(0, 105, 72, .22); }
+.from-me .tutor-bubble { background: var(--primary); color: var(--on-primary); border-radius: 22px 22px 6px 22px; box-shadow: 0 6px 16px rgba(0, 105, 72, .22); }
 .tutor-hl { background: var(--secondary-soft); color: var(--secondary-text); border-radius: 6px; padding: 0 4px; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
 .tutor-tools { align-items: center; gap: var(--space-3); margin-top: 10px; }
-.tutor-play { display: inline-flex; align-items: center; gap: 6px; min-height: 36px; padding: 0 14px; border: 0; border-radius: 999px; background: var(--primary); color: #fff; font: 700 .85rem/1 var(--font); cursor: pointer; }
+.tutor-play { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 0 14px; border: 0; border-radius: 999px; background: var(--primary); color: var(--on-primary); font: 700 .85rem/1 var(--font); cursor: pointer; }
 .tutor-play .icon { width: 16px; height: 16px; }
 .tutor-play .wave i { background: #85f8c4; height: 8px; }
 .tutor-trbtn { border: 0; background: transparent; color: var(--muted); font: 600 .85rem/1.2 var(--font); cursor: pointer; padding: 6px 0; }
@@ -1364,7 +1370,7 @@ body.novel-focus .novel-pop-sentence i { color: var(--paper-text); }
 .tutor-word strong { font-weight: 800; }
 .tutor-word span { color: var(--text); font-size: .9rem; }
 .tutor-keep { display: grid; place-items: center; flex: none; width: 36px; height: 36px; border: 0; border-radius: 10px; background: var(--surface); color: var(--secondary); cursor: pointer; }
-.tutor-keep[aria-pressed="true"] { background: var(--secondary); color: #fff; }
+.tutor-keep[aria-pressed="true"] { background: var(--secondary); color: var(--on-secondary); }
 .tutor-fix { margin: 8px 0 0 auto; padding: 12px 14px; border-radius: 18px; background: var(--surface); color: var(--text); box-shadow: 0 4px 16px rgba(19, 27, 46, .06); border: 1.5px solid var(--tertiary-soft); text-align: left; }
 .tutor-fix strong { color: var(--tertiary); text-transform: none; letter-spacing: 0; font: 800 .95rem/1.3 var(--font-display); }
 .tutor-fix.is-good { border-color: var(--success-soft); }
@@ -1433,7 +1439,9 @@ body.novel-focus .novel-pop-sentence i { color: var(--paper-text); }
 .brand-mark.small { width: 30px; height: 30px; border-radius: 9px; box-shadow: none; }
 .brand-mark.small svg { width: 20px; height: 20px; }
 .pill.xp { background: var(--secondary-soft); color: var(--secondary-text); box-shadow: 0 0 12px rgba(138, 76, 252, .2); }
-.profile-button { display: grid; place-items: center; flex: none; width: 44px; height: 44px; padding: 0; border: 0; border-radius: 50%; background: transparent; cursor: pointer; }
+.profile-button { display: inline-flex; align-items: center; justify-content: center; gap: 6px; flex: none; min-width: 44px; min-height: 44px; padding: 8px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); color: var(--text); font-weight: 700; font-size: .82rem; cursor: pointer; }
+.profile-button:hover, .profile-button[aria-expanded="true"] { background: var(--primary-soft); border-color: var(--primary); }
+@media (max-width: 374px) { .header-pills .pill.xp { display: none; } .header-inner { gap: 8px; } }
 .profile-face { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: linear-gradient(135deg, #ffddb8, #eaddff); font-size: 1.15rem; box-shadow: 0 0 0 2px var(--surface), 0 0 0 3.5px var(--primary-soft); }
 .profile-face.big { width: 56px; height: 56px; font-size: 1.8rem; }
 .profile-head { display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-4); }
@@ -1466,12 +1474,12 @@ body.novel-focus .novel-pop-sentence i { color: var(--paper-text); }
 .screen-icon:hover { background: var(--surface-2); }
 .lib-filter { display: grid; gap: 8px; margin-bottom: var(--space-3); }
 .lib-filter-head { display: flex; justify-content: space-between; align-items: center; }
-.lib-filter-head h3 { margin: 0; font-size: 1rem; }
+.lib-filter-head h2 { margin: 0; font-size: 1rem; }
 .lib-filter-head span { color: var(--secondary); font-weight: 800; font-size: .82rem; }
 .lib-chips { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; }
 .lib-chips::-webkit-scrollbar { display: none; }
 .lib-chip { flex: none; min-height: 38px; padding: 0 16px; border: 1.5px solid var(--line); border-radius: 999px; background: var(--surface); color: var(--text); font: 700 .85rem/1 var(--font); cursor: pointer; }
-.lib-chip[aria-pressed="true"] { background: var(--primary); border-color: var(--primary); color: #fff; }
+.lib-chip[aria-pressed="true"] { background: var(--primary); border-color: var(--primary); color: var(--on-primary); }
 .novel-shelf { grid-template-columns: 1fr; max-width: 560px; }
 .novel-book { grid-template-columns: 92px 1fr; grid-template-rows: auto auto auto 1fr auto; row-gap: 4px; padding: var(--space-3); border: 0; border-radius: var(--radius-l); box-shadow: var(--shadow); }
 .novel-book[hidden] { display: none; }
@@ -1537,7 +1545,7 @@ body.novel-focus .novel-pop-sentence i { color: var(--paper-text); }
 .ai-story-head p { margin: 2px 0 0; color: var(--muted); font-size: .88rem; }
 .ai-sources { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; }
 .ai-sources::-webkit-scrollbar { display: none; }
-.ai-sources .lib-chip[aria-pressed="true"] { background: var(--secondary); border-color: var(--secondary); color: #fff; }
+.ai-sources .lib-chip[aria-pressed="true"] { background: var(--secondary); border-color: var(--secondary); color: var(--on-secondary); }
 #ai-words { min-height: 64px; font: 1rem/1.5 var(--font); }
 .ai-actions { display: flex; align-items: center; justify-content: space-between; gap: var(--space-2); }
 .ai-level { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; font-size: .88rem; }
@@ -1553,7 +1561,7 @@ body.novel-focus .novel-pop-sentence i { color: var(--paper-text); }
 .ai-tr { color: var(--muted); background: rgba(127, 127, 127, .06); font-size: .95rem; }
 .ai-row.is-prompt { background: #24426f; color: #fff; }
 .ai-row.is-prompt .ai-tr { color: #d5e0f5; background: rgba(255, 255, 255, .06); }
-.ai-play { display: grid; place-items: center; flex: none; width: 26px; height: 26px; margin-top: 1px; border: 0; border-radius: 50%; background: var(--secondary); color: #fff; cursor: pointer; }
+.ai-play { display: grid; place-items: center; flex: none; width: 44px; height: 44px; margin-top: 1px; border: 0; border-radius: 50%; background: var(--secondary); color: var(--on-secondary); cursor: pointer; }
 .ai-play .icon { width: 13px; height: 13px; fill: currentColor; }
 .ai-hit { color: var(--secondary-text); }
 .ai-tools { display: flex; flex-wrap: wrap; gap: var(--space-2); }
@@ -1710,10 +1718,10 @@ body.novel-focus .novel-pop:not(.is-inline) .novel-pop-actions { background: var
 .type-group { display: grid; gap: var(--space-2); }
 .type-group h4 { margin: 0; justify-self: start; padding: 2px 10px; border-radius: 999px; background: var(--secondary-soft); color: var(--secondary-text); font-size: .78rem; font-weight: 800; }
 .type-sentence { display: flex; align-items: flex-start; gap: var(--space-2); }
-.type-sentence .audio-button { width: 34px; height: 34px; }
+.type-sentence .audio-button { width: 44px; height: 44px; }
 .type-sentence p { margin: 0; font-size: .95rem; line-height: 1.4; }
 .type-sentence .type-tr { color: var(--muted); font-size: .86rem; }
-.type-more summary { cursor: pointer; font-weight: 700; font-size: .88rem; color: var(--secondary-text); min-height: 32px; }
+.type-more summary { cursor: pointer; font-weight: 700; font-size: .88rem; color: var(--secondary-text); min-height: 44px; padding-block: 10px; }
 
 .saved-pic { flex: none; width: 36px; height: 36px; }
 
@@ -1762,15 +1770,15 @@ body.novel-focus .novel-pop:not(.is-inline) .novel-pop-actions { background: var
 .phr-ex-tr { color: var(--muted); font-size: .84rem; }
 .phr-from { display: inline-block; margin-top: 4px; font-size: .78rem; font-weight: 700; color: var(--secondary-text); text-decoration: none; }
 .phr-row-tools { display: flex; flex: none; align-items: center; gap: 4px; }
-.phr-row-tools .audio-button { width: 34px; height: 34px; }
-.phr-check { display: grid; place-items: center; width: 34px; height: 34px; border: 1.5px solid var(--line); border-radius: 50%; background: transparent; color: var(--muted); cursor: pointer; padding: 0; }
+.phr-row-tools .audio-button { width: 44px; height: 44px; }
+.phr-check { display: grid; place-items: center; width: 44px; height: 44px; border: 1.5px solid var(--line); border-radius: 50%; background: transparent; color: var(--muted); cursor: pointer; padding: 0; }
 .phr-check .icon { width: 16px; height: 16px; }
-.phr-check[aria-pressed="true"] { background: var(--primary); border-color: var(--primary); color: #fff; }
+.phr-check[aria-pressed="true"] { background: var(--primary); border-color: var(--primary); color: var(--on-primary); }
 .phr-answers { margin-top: 6px; }
-.phr-answers summary, .phr-more summary { cursor: pointer; font-weight: 700; font-size: .85rem; color: var(--secondary-text); min-height: 28px; }
+.phr-answers summary, .phr-more summary { cursor: pointer; font-weight: 700; font-size: .85rem; color: var(--secondary-text); min-height: 44px; padding-block: 10px; }
 .phr-answer { display: flex; align-items: flex-start; gap: 8px; margin-top: 6px; padding: 6px 8px; border-radius: 10px; background: var(--surface-2); font-size: .9rem; }
 .phr-answer > div { flex: 1; min-width: 0; }
-.phr-answer .audio-button { width: 30px; height: 30px; }
+.phr-answer .audio-button { width: 44px; height: 44px; }
 .phr-answer.is-positive > span { color: var(--success); font-weight: 800; }
 .phr-answer.is-negative > span { color: var(--error); font-weight: 800; }
 .phr-more { margin-bottom: var(--space-2); padding: 10px var(--space-3); border-radius: 14px; background: var(--surface-2); }
@@ -1806,7 +1814,11 @@ body.novel-focus .novel-pop:not(.is-inline) .novel-pop-actions { background: var
 .phr-dialog-tools { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: var(--space-1); }
 .phr-role-hint { margin: 0; }
 .phr-bubble-tools { display: flex; gap: 4px; margin-top: 4px; }
-.phr-bubble-tools .audio-button { width: 30px; height: 30px; }
+.phr-bubble-tools .audio-button { width: 44px; height: 44px; }
+/* A consistent touch area for compact actions, including generated cards. */
+.audio-button, .pron-btn, .screen-icon, .tutor-speed { min-width: var(--tap); min-height: var(--tap); }
+select#today-goal, .tutor-scenario select { min-height: var(--tap); }
+.home-path summary { min-height: var(--tap); padding-block: 10px; }
 .phr-dialog.is-role .phr-bubble.is-right { cursor: pointer; }
 .phr-dialog.is-role .phr-bubble.is-right:not(.is-shown) .phr-bubble-en, .phr-dialog.is-role .phr-bubble.is-right:not(.is-shown) .phr-bubble-tools { display: none; }
 .phr-dialog.is-role .phr-bubble.is-right:not(.is-shown) .phr-bubble-tr { color: var(--text); font-size: .95rem; }
@@ -1874,7 +1886,7 @@ body.novel-focus .novel-pop:not(.is-inline) .novel-pop-actions { background: var
       <span><strong>WordFlow</strong><small data-i18n="brand.sub">A2–C1 kelime ve alıştırma</small></span>
     </a>
     <span class="header-pills"><span class="pill streak" id="pill-streak" title="Study streak" data-i18n-title="stat.streak">🔥 0d</span><span class="pill xp" id="pill-xp" title="XP this week" data-i18n-title="xp.week">⚡ 0</span></span>
-    <button type="button" class="profile-button" id="nav-more" aria-expanded="false" aria-controls="more-sheet" aria-label="Profil ve diğer sayfalar" data-i18n-aria="nav.profile"><span class="profile-face" aria-hidden="true">🙂</span></button>
+    <button type="button" class="profile-button" id="nav-more" aria-expanded="false" aria-controls="more-sheet" aria-haspopup="dialog" aria-label="Menü ve profil" data-i18n-aria="nav.profile"><svg class="icon" aria-hidden="true"><use href="#i-grid"/></svg><span data-i18n="nav.menu">Menü</span></button>
   </div>
   <nav class="tabs" aria-label="Ana menü" data-i18n-aria="nav.label">
     <span class="nav-group" data-i18n="nav.groupDaily">Günlük</span>
@@ -1904,23 +1916,24 @@ body.novel-focus .novel-pop:not(.is-inline) .novel-pop-actions { background: var
     <a href="#speak" data-route="speak"><svg class="icon" aria-hidden="true"><use href="#i-mic"/></svg><span data-i18n="nav.speak">Konuşma</span></a>
     <a href="#rankings" data-route="rankings"><svg class="icon" aria-hidden="true"><use href="#i-chart"/></svg><span data-i18n="nav.rankings">Sıralama</span></a>
 </nav>
-<div class="more-sheet pron-sheet" id="pron-sheet" hidden>
+<dialog class="more-sheet pron-sheet" id="pron-sheet" aria-labelledby="pron-title" hidden>
   <div class="more-backdrop" data-close></div>
-  <div class="more-panel pron-box" role="dialog" aria-modal="true" aria-labelledby="pron-title">
+  <div class="more-panel pron-box">
     <div class="pron-head">
       <h2 id="pron-title" data-i18n="pron.title">Telaffuz denetimi</h2>
       <button type="button" class="icon-button" data-close aria-label="Kapat" data-i18n-aria="novel.close"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
     </div>
     <div id="pron-body"></div>
   </div>
-</div>
-<div class="more-sheet" id="more-sheet" hidden>
+</dialog>
+<dialog class="more-sheet" id="more-sheet" aria-labelledby="more-title" hidden>
   <div class="more-backdrop" data-close></div>
-  <div class="more-panel" role="dialog" aria-modal="true" aria-labelledby="more-title">
+  <div class="more-panel">
     <div class="profile-head">
       <span class="profile-face big" aria-hidden="true">🙂</span>
       <div><h2 id="more-title" data-i18n="nav.profileTitle">Profilin</h2><p id="profile-summary"></p></div>
       <button type="button" class="icon-button" id="theme-quick" aria-label="Koyu temaya geç" data-i18n-aria="theme.toDark"><svg class="icon"><use href="#i-moon"/></svg></button>
+      <button type="button" class="icon-button" data-close aria-label="Kapat" data-i18n-aria="novel.close"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
     </div>
     <div class="more-grid">
       <a href="#grammar" data-route="grammar"><svg class="icon" aria-hidden="true"><use href="#i-pen"/></svg><span data-i18n="nav.grammar">Gramer</span></a>
@@ -1932,7 +1945,7 @@ body.novel-focus .novel-pop:not(.is-inline) .novel-pop-actions { background: var
       <a href="#settings" data-route="settings"><svg class="icon" aria-hidden="true"><use href="#i-settings"/></svg><span data-i18n="nav.settings">Ayarlar</span></a>
     </div>
   </div>
-</div>
+</dialog>
 
 <div id="update-bar" class="update-bar" role="status" hidden><span data-i18n="update.text">Uygulamanın yeni sürümü hazır.</span><button type="button" class="button small primary" id="update-reload" data-i18n="update.reload">Yenile</button></div>
 <div id="storage-banner" class="banner" role="status" hidden>
@@ -4384,7 +4397,7 @@ body.novel-focus .novel-pop:not(.is-inline) .novel-pop-actions { background: var
       <div class="screen-top">
         <a class="screen-back" href="#home" aria-label="Geri" data-i18n-aria="tutor.back"><svg class="icon" aria-hidden="true"><use href="#i-arrow-left"/></svg></a>
         <div class="screen-title"><h1 id="novel-title" tabindex="-1" data-i18n="novel.title2">Roman Oku</h1><span data-i18n="novel.sub">Roman &amp; hikâye okuyucu</span></div>
-        <label class="screen-icon" for="novel-file" aria-label="Başka PDF seç" data-i18n-aria="novel.choose"><svg class="icon" aria-hidden="true"><use href="#i-upload"/></svg></label>
+        <button type="button" class="screen-icon" id="novel-choose" aria-label="Başka PDF seç" data-i18n-aria="novel.choose"><svg class="icon" aria-hidden="true"><use href="#i-upload"/></svg></button>
         <button type="button" class="screen-icon" id="lib-continue" aria-label="Okumaya devam et" data-i18n-aria="novel.continue"><svg class="icon" aria-hidden="true"><use href="#i-bookmark"/></svg></button>
       </div>
       <p class="visually-hidden" data-i18n="novel.lead">İngilizce bir romanı PDF olarak aç ve herhangi bir kelimeye dokunarak Türkçe anlamını gör.</p>
@@ -4413,7 +4426,7 @@ body.novel-focus .novel-pop:not(.is-inline) .novel-pop-actions { background: var
         <ul class="mine-list" id="mine-list"></ul>
       </div>
       <div class="lib-shelf" id="lib-shelf">
-      <div class="lib-filter js-only"><div class="lib-filter-head"><h3 data-i18n="novel.filter">Seviye ve kategori filtrele</h3><span id="lib-count"></span></div><div class="lib-chips" id="lib-chips"></div></div>
+      <div class="lib-filter js-only"><div class="lib-filter-head"><h2 data-i18n="novel.filter">Seviye ve kategori filtrele</h2><span id="lib-count"></span></div><div class="lib-chips" id="lib-chips"></div></div>
       <div class="novel-shelf js-only" id="novel-shelf"><button type="button" class="novel-book" data-novel="novels/novel_1.pdf" data-level="A2–B1" aria-pressed="false"><span class="novel-cover" aria-hidden="true"><span class="novel-level">A2–B1</span>H</span><span class="novel-book-author">Louis Sachar</span><span class="novel-book-title" lang="en">Holes</span><span class="novel-book-sub" data-i18n="novel.cardSub">Original English text · tap any word</span><span class="novel-book-meta" hidden><span class="novel-mark"></span><span class="novel-meter"><span></span></span></span><span class="novel-book-go"><span data-i18n="novel.open">Open the book</span><svg class="icon" aria-hidden="true"><use href="#i-next"/></svg></span></button><button type="button" class="novel-book" data-novel="novels/novel_2.pdf" data-level="B2–C1" aria-pressed="false"><span class="novel-cover" aria-hidden="true"><span class="novel-level">B2–C1</span>N</span><span class="novel-book-author">George Orwell</span><span class="novel-book-title" lang="en">Nineteen Eighty-Four</span><span class="novel-book-sub" data-i18n="novel.cardSub">Original English text · tap any word</span><span class="novel-book-meta" hidden><span class="novel-mark"></span><span class="novel-meter"><span></span></span></span><span class="novel-book-go"><span data-i18n="novel.open">Open the book</span><svg class="icon" aria-hidden="true"><use href="#i-next"/></svg></span></button><button type="button" class="novel-book" data-novel="novels/novel_3.pdf" data-level="B1–B2" aria-pressed="false"><span class="novel-cover" aria-hidden="true"><span class="novel-level">B1–B2</span>D</span><span class="novel-book-author">Miguel de Cervantes</span><span class="novel-book-title" lang="en">Don Quixote</span><span class="novel-book-sub" data-i18n="novel.cardSub">Original English text · tap any word</span><span class="novel-book-meta" hidden><span class="novel-mark"></span><span class="novel-meter"><span></span></span></span><span class="novel-book-go"><span data-i18n="novel.open">Open the book</span><svg class="icon" aria-hidden="true"><use href="#i-next"/></svg></span></button></div>
       <div class="novel-lib-foot js-only">
         <label class="button small ghost" for="novel-file"><svg class="icon" aria-hidden="true"><use href="#i-upload"/></svg><span data-i18n="novel.choose">Başka PDF seç</span></label>
@@ -4654,7 +4667,8 @@ body.novel-focus .novel-pop:not(.is-inline) .novel-pop-actions { background: var
   </section>
 
   <!-- Ms. Emma, opened from Practice. -->
-  <section class="view" data-view="tutor" aria-label="Ms. Emma">
+  <section class="view" data-view="tutor" aria-labelledby="tutor-title">
+    <h1 id="tutor-title" class="visually-hidden" tabindex="-1" data-i18n="tutor.title">Hoca ile konuş</h1>
     <!-- Teacher: an AI English teacher (Gemini, through the speakenglish Cloudflare Worker) listens and answers. -->
     <div class="tutor js-only" id="tutor" hidden>
       <div class="tutor-top">
@@ -4774,7 +4788,7 @@ body.novel-focus .novel-pop:not(.is-inline) .novel-pop-actions { background: var
   <p>İş ve sınav kelimelerinin resimleri de Twemoji'dir; birçoğu kelimeyi temsilen seçildi.</p>
   <p>Örnek cümlelerin bir bölümü: <a href="https://tatoeba.org" target="_blank" rel="noopener">Tatoeba</a> (<a href="https://creativecommons.org/licenses/by/2.0/fr/" target="_blank" rel="noopener">CC BY 2.0 FR</a>), <a href="https://www.manythings.org/anki/" target="_blank" rel="noopener">manythings.org</a> derlemesinden; cümleler kelimelere ve türlere göre seçildi.</p>
   <p>Fotoğraflar: Wikimedia Commons (yazar ve lisans kartlarda). Simgeler: <a href="https://github.com/jdecked/twemoji" target="_blank" rel="noopener">Twemoji</a>, CC BY 4.0. PDF okuma: <a href="https://mozilla.github.io/pdf.js/" target="_blank" rel="noopener">pdf.js</a> (Mozilla, Apache-2.0). Yazı tipleri: Outfit ve Plus Jakarta Sans (SIL Open Font License).</p>
-  <p>English Study · v2.7.0</p>
+  <p>English Study · v2.7.1</p>
 </footer>
 
 <div id="toast" class="toast" role="status" aria-live="polite"></div>
@@ -4869,7 +4883,7 @@ body.novel-focus .novel-pop:not(.is-inline) .novel-pop-actions { background: var
 <script>
 (() => {
 'use strict';
-const APP_VERSION = '2.7.0';
+const APP_VERSION = '2.7.1';
 /* Small polyfill so the app also starts on browsers from before 2020. */
 if (!Element.prototype.replaceChildren) {
   Element.prototype.replaceChildren = function () {
@@ -5097,7 +5111,7 @@ const STRINGS = {
     'rank.onPodium': 'This week is on the podium!', 'rank.toPodium': '{n} XP to reach the podium', 'rank.you': 'You (this week)', 'rank.meNote': '{d} days studied · {w} words learned',
     'rank.streak': '{n} days', 'rank.few': 'Study a few more weeks and they will be ranked here.', 'rank.keepTitle': 'Stay on top!', 'rank.keepText': 'Keep going to make this your best week.',
     'rank.closeTitle': 'The podium is close!', 'rank.closeText': 'Only {n} XP to reach the top three.', 'rank.practice': 'Practice now',
-    'nav.profile': 'Profile and more', 'nav.profileTitle': 'Your profile', 'nav.profileSummary': '🔥 {s}-day streak · ⚡ {x} XP this week · {w} words learned', 'nav.novelRead': 'Read',
+    'nav.menu': 'Menu', 'nav.profile': 'Menu and profile', 'nav.profileTitle': 'Your profile', 'nav.profileSummary': '🔥 {s}-day streak · ⚡ {x} XP this week · {w} words learned', 'nav.novelRead': 'Read',
     'novel.title2': 'Read a novel', 'novel.sub': 'Novel & story reader', 'novel.tabShelf2': 'Graded library', 'novel.filter': 'Level & category', 'novel.allLevels': 'All levels',
     'novel.bookCount': '{n} novels', 'novel.cardSub': 'Original English text · tap any word', 'novel.open': 'Open the book', 'novel.continueChapter': 'Continue reading {c}',
     'novel.area': 'Interactive reading area', 'novel.tapWords': 'Tap the words', 'novel.pageOriginal': 'Page {n} · original text',
@@ -5320,7 +5334,7 @@ const STRINGS = {
     'rank.onPodium': 'Bu hafta kürsüde!', 'rank.toPodium': 'Kürsüye {n} XP kaldı', 'rank.you': 'Sen (bu hafta)', 'rank.meNote': '{d} gün çalışıldı · {w} kelime öğrenildi',
     'rank.streak': '{n} gün', 'rank.few': 'Birkaç hafta daha çalış; haftaların burada sıralanacak.', 'rank.keepTitle': 'Zirvede kal!', 'rank.keepText': 'Devam et ve bunu en iyi haftan yap.',
     'rank.closeTitle': 'Kürsü çok yakın!', 'rank.closeText': 'İlk üçe girmek için sadece {n} XP kaldı.', 'rank.practice': 'Hemen pratik yap',
-    'nav.profile': 'Profil ve diğer sayfalar', 'nav.profileTitle': 'Profilin', 'nav.profileSummary': '🔥 {s} günlük seri · ⚡ bu hafta {x} XP · {w} kelime öğrenildi', 'nav.novelRead': 'Roman Oku',
+    'nav.menu': 'Menü', 'nav.profile': 'Menü ve profil', 'nav.profileTitle': 'Profilin', 'nav.profileSummary': '🔥 {s} günlük seri · ⚡ bu hafta {x} XP · {w} kelime öğrenildi', 'nav.novelRead': 'Roman Oku',
     'novel.title2': 'Roman Oku', 'novel.sub': 'Roman & hikâye okuyucu', 'novel.tabShelf2': 'Seviyeli kütüphane', 'novel.filter': 'Seviye ve kategori filtrele', 'novel.allLevels': 'Tüm seviyeler',
     'novel.bookCount': '{n} roman', 'novel.cardSub': 'Orijinal İngilizce metin · kelimelere dokun', 'novel.open': 'Kitabı aç', 'novel.continueChapter': '{c} okumaya devam et',
     'novel.area': 'İnteraktif okuma alanı', 'novel.tapWords': 'Kelimelere dokun', 'novel.pageOriginal': 'Sayfa {n} · orijinal metin',
@@ -5764,6 +5778,22 @@ function confirmDialog({ title, message, confirmLabel }) {
   });
 }
 
+/* Keep Tab inside a sheet, including at the boundary where a browser may move
+   focus to its own toolbar. Native modal dialogs also make the page inert. */
+function containSheetFocus(event) {
+  if (event.key !== 'Tab') return;
+  const sheet = event.currentTarget;
+  const stops = $$('a[href], button, input, select, textarea, summary, [tabindex]', sheet)
+    .filter(node => !node.disabled && node.tabIndex >= 0 && node.getClientRects().length && getComputedStyle(node).visibility !== 'hidden');
+  const first = stops[0], last = stops[stops.length - 1];
+  if (!first) { event.preventDefault(); return; }
+  if (event.shiftKey && (document.activeElement === first || !sheet.contains(document.activeElement))) {
+    event.preventDefault(); last.focus();
+  } else if (!event.shiftKey && (document.activeElement === last || !sheet.contains(document.activeElement))) {
+    event.preventDefault(); first.focus();
+  }
+}
+
 /* ---------- 7f. Speech (Real Human Voice + Online Natural + Device Fallback) ---------- */
 const Speech = (() => {
   const hasTTS = 'speechSynthesis' in window && typeof window.SpeechSynthesisUtterance === 'function';
@@ -5946,7 +5976,9 @@ function listenButton(entry) {
 /* Update every rendered element for one word in place (no list re-render). */
 function syncWordControls(id) {
   const learned = learnedSet.has(id);
-  for (const holder of $$('[data-id="' + id + '"]')) {
+  const holders = new Set($$('[data-id="' + id + '"]'));
+  if (CARD_NODES.has(id)) holders.add(CARD_NODES.get(id));
+  for (const holder of holders) {
     holder.classList.toggle('is-learned', learned);
     for (const toggle of $$('[data-action="toggle-learned"]', holder)) toggle.setAttribute('aria-pressed', String(learned));
   }
@@ -5972,7 +6004,8 @@ function bindWordActions(container) {
 
 /* ---------- 7h. Word cards ----------
    Cards are written into the page at build time, so they are readable even when
-   a file viewer does not run JavaScript. Here they are only connected and labelled. */
+   a file viewer does not run JavaScript. With JavaScript, keep unused cards out
+   of the live document; the map retains every original card for search/review. */
 const CARD_NODES = new Map();
 function prepareCards() {
   for (const card of $$('#word-list .word-card')) {
@@ -5980,6 +6013,7 @@ function prepareCards() {
     const entry = BY_ID.get(card.dataset.id);
     const actions = card.querySelector('.card-actions');
     if (entry && actions && Speech.supported) actions.append(listenButton(entry));
+    card.remove();
   }
   syncAllCards();
 }
@@ -5994,17 +6028,19 @@ function syncAllCards() {
 /* Re-label the static card texts after a language change. */
 function relabelCards() {
   VisualScenes.relabel(lang);
-  for (const node of $$('#word-list [data-pos]')) node.textContent = t('pos.' + node.dataset.pos);
-  for (const node of $$('#word-list summary[data-types]')) {
+  const nodes = selector => [...CARD_NODES.values()].flatMap(card => $$(selector, card));
+  for (const card of CARD_NODES.values()) if (!card.isConnected) VisualScenes.relabel(lang, card);
+  for (const node of nodes('[data-pos]')) node.textContent = t('pos.' + node.dataset.pos);
+  for (const node of nodes('summary[data-types]')) {
     node.textContent = t('card.sentences', { types: node.dataset.types.split(',').map(p => t('pos.' + p).toLocaleLowerCase(lang)).join(', ') });
   }
-  for (const node of $$('#word-list [data-label]')) node.textContent = t(node.dataset.label);
-  for (const node of $$('#word-list .media-toggle')) {
+  for (const node of nodes('[data-label]')) node.textContent = t(node.dataset.label);
+  for (const node of nodes('.media-toggle')) {
     const card = node.closest('[data-id]');
     const entry = card && BY_ID.get(card.dataset.id);
     if (entry) node.setAttribute('aria-label', t('card.toggleLabel', { w: entry.word }));
   }
-  for (const node of $$('#word-list [data-action="speak"]')) {
+  for (const node of nodes('[data-action="speak"]')) {
     const entry = BY_ID.get(node.closest('[data-id]').dataset.id);
     node.setAttribute('aria-label', t('card.listenTo', { w: entry.word }));
     node.querySelector('span').textContent = t('card.listen');
@@ -6165,13 +6201,12 @@ const Words = {
     }
     this.results = list;
   },
-  /* Cards already exist in the page; rendering only hides, shows and re-orders them. */
+  /* Reuse original nodes; attach only the requested result batches. */
   render() {
     this.compute();
     this.shown = 0;
     this.lastGroup = null;
-    for (const heading of $$('#word-list .group-title')) heading.remove();
-    for (const card of CARD_NODES.values()) card.hidden = true;
+    $('#word-list').replaceChildren();
     this.appendPage();
     $('#word-empty').hidden = this.results.length > 0;
     this.dirty = false;
@@ -6555,6 +6590,7 @@ const Novel = {
   /* Calibre PDFs draw ligatures with these glyphs. */
   LIGATURES: { 'ɹ': 'fi', 'ʃ': 'ff', 'ɻ': 'fl', 'ɽ': 'ffi', 'ʀ': 'ffl', 'ﬁ': 'fi', 'ﬂ': 'fl', 'ﬀ': 'ff', 'ﬃ': 'ffi', 'ﬄ': 'ffl', '\u00a0': ' ' },
   init() {
+    $('#novel-choose').addEventListener('click', () => $('#novel-file').click());
     $('#novel-file').addEventListener('change', event => {
       const files = [...event.target.files];
       event.target.value = '';
@@ -8231,7 +8267,7 @@ const Settings = {
     $('#speech-settings-note').textContent = Speech.supported ? t('speech.ok') : t('speech.none');
     this.renderVoices();
     $('#storage-status').textContent = Store.usable ? t('storage.ok') : t(Store.simulated ? 'storage.simulated' : 'storage.off');
-    $('#about-text').textContent = t('settings.aboutText', { v: APP_VERSION, n: VOCAB.length, i: $$('#word-list .word-media img').length,
+    $('#about-text').textContent = t('settings.aboutText', { v: APP_VERSION, n: VOCAB.length, i: [...CARD_NODES.values()].filter(card => card.querySelector('.word-media img')).length,
       s: VOCAB.filter(e => sentencesFor(e).length).length, r: READINGS.length });
   },
   renderVoices() {
@@ -11070,7 +11106,7 @@ const Review = {
   /* A word card's picture and word type, from the vocabulary list. */
   wordDetails(id) {
     const entry = BY_ID.get(id.slice(2));
-    const image = $('.word-card[data-id="' + entry.id + '"] .word-media img');
+    const image = CARD_NODES.get(entry.id)?.querySelector('.word-media img');
     const types = sentencesFor(entry);
     return { level: entry.level, types: types.map(([pos]) => t('pos.' + pos)), image: image ? image.getAttribute('src') : WORK_PICS[entry.pic] || '' };
   },
@@ -11377,6 +11413,8 @@ const Nav = {
   init() {
     $('#nav-more').addEventListener('click', () => this.sheet(true));
     $('#more-sheet').addEventListener('click', event => { if (event.target.closest('[data-close], a')) this.sheet(false); });
+    $('#more-sheet').addEventListener('cancel', event => { event.preventDefault(); this.sheet(false); });
+    $('#more-sheet').addEventListener('keydown', containSheetFocus);
     document.addEventListener('keydown', event => { if (event.key === 'Escape' && !$('#more-sheet').hidden) this.sheet(false); });
     $('#side-toggle').addEventListener('click', () => this.collapse(!document.body.classList.contains('side-collapsed')));
     this.collapse(Store.read(this.KEY) === '1', true);
@@ -11390,10 +11428,14 @@ const Nav = {
     });
   },
   sheet(open) {
+    const sheet = $('#more-sheet');
+    if (open === sheet.open) return;
     if (open) $('#profile-summary').textContent = t('nav.profileSummary', { s: studyStreak(), x: XP.week(), w: [...learnedSet].filter(id => BY_ID.has(id)).length });
-    $('#more-sheet').hidden = !open;
+    if (open) { sheet.hidden = false; sheet.showModal(); }
+    else { sheet.close(); sheet.hidden = true; }
     $('#nav-more').setAttribute('aria-expanded', String(open));
-    if (open) $('#more-sheet a').focus(); else if (document.activeElement && $('#more-sheet').contains(document.activeElement)) $('#nav-more').focus();
+    if (open) sheet.querySelector('button[data-close]').focus();
+    else $('#nav-more').focus({ preventScroll: true });
   },
   collapse(on, quiet) {
     document.body.classList.toggle('side-collapsed', on);
@@ -11807,6 +11849,8 @@ const Pron = {
       this.open(button.dataset.pron);
     }, true);
     $('#pron-sheet').addEventListener('click', event => { if (event.target.closest('[data-close]')) this.close(); });
+    $('#pron-sheet').addEventListener('cancel', event => { event.preventDefault(); this.close(); });
+    $('#pron-sheet').addEventListener('keydown', containSheetFocus);
     document.addEventListener('keydown', event => { if (event.key === 'Escape' && !$('#pron-sheet').hidden) this.close(); });
   },
   get Recognition() { return window.SpeechRecognition || window.webkitSpeechRecognition; },
@@ -11822,6 +11866,7 @@ const Pron = {
     this.back = document.activeElement;
     $('#pron-body').replaceChildren(this.panel(text));
     $('#pron-sheet').hidden = false;
+    $('#pron-sheet').showModal();
     const mic = $('#pron-body .pron-mic');
     if (mic) mic.focus();
   },
@@ -11829,6 +11874,7 @@ const Pron = {
     this.stop();
     const sheet = $('#pron-sheet');
     if (sheet.hidden) return;
+    sheet.close();
     sheet.hidden = true;
     if (this.back && this.back.isConnected) this.back.focus();
   },
@@ -12437,7 +12483,7 @@ const MODULES = { home: Home, review: Review, practice: Games, rankings: Ranking
    The page asks for version.json, never from the cache, when it opens and
    whenever it comes back to the screen, and offers to load the new build. */
 const Updater = {
-  build: 'db53303346e2',
+  build: '47048f4ae1ff',
   checked: 0,
   init() {
     if (!/^https?:$/.test(location.protocol) || this.build.length !== 12) return;
@@ -12496,6 +12542,7 @@ try {
 } catch (error) {
   /* Fall back to the static word list that is already in the page. */
   console.error(error);
+  for (const card of CARD_NODES.values()) { card.hidden = false; $('#word-list').append(card); }
   document.documentElement.classList.remove('js');
   const box = $('#boot-error');
   box.hidden = false;

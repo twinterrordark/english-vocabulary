@@ -679,3 +679,38 @@ Automated checks ran in the Claude desktop app's built-in Chromium browser, with
 
 - **2.0.0 (2026-10-27)**: rebuilt as a single-file study app. Removed tap interception; new design system, dashboard, review, quiz modes, grammar, reading/listening, writing, settings and data portability; content extracted and validated.
 - **2.1.0 (2026-10-27)**: removed the Review, Grammar and Writing sections at the user's request. Replaced the runtime template sentences with 4,872 example sentences, grouped by word type, for every word. The quiz now defaults to learned words, and fill-in-the-blank uses the new sentences.
+
+## Usability audit — v2.7.1 (2026-11-09)
+
+The Turkish report, before/after screenshots and raw measurements are in
+[`audits/2026-11-09/report.html`](audits/2026-11-09/report.html).
+
+- Replaced the unlabelled mobile profile entry with a visible Menu action, fixed
+  320 px header overflow, and enlarged compact study/audio controls.
+- Made the menu and pronunciation sheets native modal dialogs with close,
+  Escape, keyboard focus containment, focus restoration and background scroll
+  locking. Made the top PDF picker keyboard operable.
+- Fixed heading/ARIA issues and light/dark contrast, and added a meta description.
+- Retained unused vocabulary cards outside the live DOM and attach result
+  batches as needed. Initial connected elements fell from 77,228 to 1,570;
+  all 2,199 original card bodies, embedded pictures and compared learning data
+  retain their original SHA-256 digests. This does not reduce download size.
+
+Validation: 13 routes at 320/390/768/1440 px, 13 light and 13 dark axe scans,
+23 usability regression checks, and the existing interactive-learning and
+novel-reader integration suites. Standalone `file://`, unavailable storage,
+saved progress, language changes and no-JavaScript vocabulary were checked.
+Tests used isolated Chromium profiles; no real-phone, screen-reader, live
+conversation or audio-quality test was performed.
+
+Comparable local Lighthouse results: mobile performance 38 → 38, desktop
+31 → 31, SEO 90 → 100. The roughly 20 MB standalone file remains the main
+network bottleneck; desktop CLS remains high. Best Practices could not be
+scored because Chromium failed to return the large document body.
+
+Clarity was not activated because no authorized account/project access was
+available. The report records pre-publication measurements; the current deployment
+state is recorded in the repository's GitHub Actions history.
+Audit tooling is optional and lives in `tools/audit_*.cjs`,
+`tools/audit_inventory.py`, `tools/test_usability.cjs` and
+`tools/build_audit_report.py`; its npm dependencies are ignored in `.audit-deps/`.

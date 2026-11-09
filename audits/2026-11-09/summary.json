@@ -1,0 +1,13 @@
+{
+  "before_nodes": 77228,
+  "after_nodes": 1570,
+  "content_unchanged": true,
+  "tested_route_width_combinations": 52,
+  "light_route_audits": 13,
+  "dark_route_audits": 13,
+  "automated_violations_before_light": 4,
+  "automated_violations_after_light": 0,
+  "regression_checks": 23,
+  "published_when_audited": false,
+  "clarity_active": false
+}

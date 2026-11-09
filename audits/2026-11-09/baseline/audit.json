@@ -1,0 +1,3566 @@
+{
+  "phase": "baseline",
+  "testedAt": "2026-11-09T20:15:39.795Z",
+  "browser": "156.0.8078.81",
+  "externalRequestsBlocked": true,
+  "bytes": 20277362,
+  "errors": [],
+  "routes": [
+    {
+      "width": 320,
+      "route": "home",
+      "overflow": 22,
+      "heading": "İyi akşamlar! 🌙",
+      "smallTargets": [
+        {
+          "tag": "SELECT",
+          "id": "today-goal",
+          "class": "",
+          "text": "Günde 10 kartGünde 20 kartGünde 30 kartGünde 50 kart",
+          "width": 125,
+          "height": 32
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "deck-list-link",
+          "text": "Listeyi gör",
+          "width": 92,
+          "height": 22
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "class": "audio-button",
+          "text": "“cohesive” kelimesini dinle",
+          "width": 40,
+          "height": 40
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "class": "audio-button",
+          "text": "“Achieve” kelimesini dinle",
+          "width": 40,
+          "height": 40
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "class": "audio-button",
+          "text": "“Afford” kelimesini dinle",
+          "width": 40,
+          "height": 40
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "class": "audio-button",
+          "text": "“Abandon” kelimesini dinle",
+          "width": 40,
+          "height": 40
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "class": "audio-button",
+          "text": "“Absence” kelimesini dinle",
+          "width": 40,
+          "height": 40
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "class": "audio-button",
+          "text": "“Advantageous” kelimesini dinle",
+          "width": 40,
+          "height": 40
+        },
+        {
+          "tag": "SUMMARY",
+          "id": "",
+          "class": "",
+          "text": "Çalışma yolu",
+          "width": 254,
+          "height": 24
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Tatoeba",
+          "width": 53,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "CC BY 2.0 FR",
+          "width": 285,
+          "height": 38
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "manythings.org",
+          "width": 101,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Twemoji",
+          "width": 53,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "pdf.js",
+          "width": 37,
+          "height": 17
+        }
+      ],
+      "outOfBounds": []
+    },
+    {
+      "width": 320,
+      "route": "words",
+      "overflow": 22,
+      "heading": "Kelimeler",
+      "smallTargets": [
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "William Warby from London, England",
+          "width": 198,
+          "height": 15
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Tatoeba",
+          "width": 53,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "CC BY 2.0 FR",
+          "width": 285,
+          "height": 38
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "manythings.org",
+          "width": 101,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Twemoji",
+          "width": 53,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "pdf.js",
+          "width": 37,
+          "height": 17
+        }
+      ],
+      "outOfBounds": []
+    },
+    {
+      "width": 320,
+      "route": "review",
+      "overflow": 0,
+      "heading": "Tekrar",
+      "smallTargets": [],
+      "outOfBounds": []
+    },
+    {
+      "width": 320,
+      "route": "practice",
+      "overflow": 22,
+      "heading": "Pratik",
+      "smallTargets": [
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Liginde 1. hafta →",
+          "width": 109,
+          "height": 20
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Tatoeba",
+          "width": 53,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "CC BY 2.0 FR",
+          "width": 285,
+          "height": 38
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "manythings.org",
+          "width": 101,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Twemoji",
+          "width": 53,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "pdf.js",
+          "width": 37,
+          "height": 17
+        }
+      ],
+      "outOfBounds": []
+    },
+    {
+      "width": 320,
+      "route": "rankings",
+      "overflow": 22,
+      "heading": "Sıralama",
+      "smallTargets": [
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Tatoeba",
+          "width": 53,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "CC BY 2.0 FR",
+          "width": 285,
+          "height": 38
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "manythings.org",
+          "width": 101,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Twemoji",
+          "width": 53,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "pdf.js",
+          "width": 37,
+          "height": 17
+        }
+      ],
+      "outOfBounds": []
+    },
+    {
+      "width": 320,
+      "route": "phrases",
+      "overflow": 22,
+      "heading": "İfadeler",
+      "smallTargets": [
+        {
+          "tag": "A",
+          "id": "",
+          "class": "phr-from",
+          "text": "🚌 Ulaşım",
+          "width": 60,
+          "height": 19
+        },
+        {
+          "tag": "SUMMARY",
+          "id": "",
+          "class": "",
+          "text": "Cevap örnekleri (2)",
+          "width": 264,
+          "height": 28
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "class": "audio-button",
+          "text": "Dinle",
+          "width": 30,
+          "height": 30
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "class": "audio-button",
+          "text": "Dinle",
+          "width": 30,
+          "height": 30
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "class": "audio-button",
+          "text": "Dinle",
+          "width": 34,
+          "height": 34
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "class": "pron-btn audio-button",
+          "text": "Okuyarak dene",
+          "width": 34,
+          "height": 34
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Tatoeba",
+          "width": 53,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "CC BY 2.0 FR",
+          "width": 285,
+          "height": 38
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "manythings.org",
+          "width": 101,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Twemoji",
+          "width": 53,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "pdf.js",
+          "width": 37,
+          "height": 17
+        }
+      ],
+      "outOfBounds": []
+    },
+    {
+      "width": 320,
+      "route": "grammar",
+      "overflow": 22,
+      "heading": "Gramer ve yazma",
+      "smallTargets": [
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Tatoeba",
+          "width": 53,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "CC BY 2.0 FR",
+          "width": 285,
+          "height": 38
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "manythings.org",
+          "width": 101,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Twemoji",
+          "width": 53,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "pdf.js",
+          "width": 37,
+          "height": 17
+        }
+      ],
+      "outOfBounds": []
+    },
+    {
+      "width": 320,
+      "route": "quiz",
+      "overflow": 22,
+      "heading": "Kelime testi",
+      "smallTargets": [
+        {
+          "tag": "INPUT",
+          "id": "",
+          "class": "",
+          "text": "",
+          "width": 22,
+          "height": 22
+        },
+        {
+          "tag": "INPUT",
+          "id": "",
+          "class": "",
+          "text": "",
+          "width": 22,
+          "height": 22
+        },
+        {
+          "tag": "INPUT",
+          "id": "",
+          "class": "",
+          "text": "",
+          "width": 22,
+          "height": 22
+        },
+        {
+          "tag": "INPUT",
+          "id": "",
+          "class": "",
+          "text": "",
+          "width": 22,
+          "height": 22
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Tatoeba",
+          "width": 53,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "CC BY 2.0 FR",
+          "width": 285,
+          "height": 38
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "manythings.org",
+          "width": 101,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Twemoji",
+          "width": 53,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "pdf.js",
+          "width": 37,
+          "height": 17
+        }
+      ],
+      "outOfBounds": []
+    },
+    {
+      "width": 320,
+      "route": "reading",
+      "overflow": 22,
+      "heading": "Okuma ve dinleme",
+      "smallTargets": [
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Tatoeba",
+          "width": 53,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "CC BY 2.0 FR",
+          "width": 285,
+          "height": 38
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "manythings.org",
+          "width": 101,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Twemoji",
+          "width": 53,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "pdf.js",
+          "width": 37,
+          "height": 17
+        }
+      ],
+      "outOfBounds": []
+    },
+    {
+      "width": 320,
+      "route": "novel",
+      "overflow": 0,
+      "heading": "Roman Oku",
+      "smallTargets": [
+        {
+          "tag": "BUTTON",
+          "id": "lib-continue",
+          "class": "screen-icon",
+          "text": "Okumaya devam et",
+          "width": 42,
+          "height": 42
+        },
+        {
+          "tag": "INPUT",
+          "id": "novel-file",
+          "class": "visually-hidden",
+          "text": "",
+          "width": 1,
+          "height": 1
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Tatoeba",
+          "width": 53,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "CC BY 2.0 FR",
+          "width": 285,
+          "height": 38
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "manythings.org",
+          "width": 101,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Twemoji",
+          "width": 53,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "pdf.js",
+          "width": 37,
+          "height": 17
+        }
+      ],
+      "outOfBounds": []
+    },
+    {
+      "width": 320,
+      "route": "speak",
+      "overflow": 22,
+      "heading": "Sohbet",
+      "smallTargets": [
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Tatoeba",
+          "width": 53,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "CC BY 2.0 FR",
+          "width": 285,
+          "height": 38
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "manythings.org",
+          "width": 101,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Twemoji",
+          "width": 53,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "pdf.js",
+          "width": 37,
+          "height": 17
+        }
+      ],
+      "outOfBounds": []
+    },
+    {
+      "width": 320,
+      "route": "tutor",
+      "overflow": 0,
+      "smallTargets": [
+        {
+          "tag": "SELECT",
+          "id": "tutor-topic",
+          "class": "",
+          "text": "Serbest sohbetTanışmaGünlük rutinYemek ve mutfakSeyahatHobilerFilm, dizi ve",
+          "width": 87,
+          "height": 42
+        },
+        {
+          "tag": "BUTTON",
+          "id": "tutor-speed",
+          "class": "tutor-speed",
+          "text": "Ses hızı",
+          "width": 64,
+          "height": 28
+        }
+      ],
+      "outOfBounds": []
+    },
+    {
+      "width": 320,
+      "route": "settings",
+      "overflow": 22,
+      "heading": "Ayarlar ve veriler",
+      "smallTargets": [
+        {
+          "tag": "INPUT",
+          "id": "",
+          "class": "",
+          "text": "",
+          "width": 22,
+          "height": 22
+        },
+        {
+          "tag": "INPUT",
+          "id": "",
+          "class": "",
+          "text": "",
+          "width": 22,
+          "height": 22
+        },
+        {
+          "tag": "INPUT",
+          "id": "",
+          "class": "",
+          "text": "",
+          "width": 22,
+          "height": 22
+        },
+        {
+          "tag": "INPUT",
+          "id": "show-turkish",
+          "class": "",
+          "text": "",
+          "width": 22,
+          "height": 22
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Tatoeba",
+          "width": 53,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "CC BY 2.0 FR",
+          "width": 285,
+          "height": 38
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "manythings.org",
+          "width": 101,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Twemoji",
+          "width": 53,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "pdf.js",
+          "width": 37,
+          "height": 17
+        }
+      ],
+      "outOfBounds": []
+    },
+    {
+      "width": 390,
+      "route": "home",
+      "overflow": 0,
+      "heading": "İyi akşamlar! 🌙",
+      "smallTargets": [
+        {
+          "tag": "SELECT",
+          "id": "today-goal",
+          "class": "",
+          "text": "Günde 10 kartGünde 20 kartGünde 30 kartGünde 50 kart",
+          "width": 125,
+          "height": 32
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "deck-list-link",
+          "text": "Listeyi gör",
+          "width": 92,
+          "height": 22
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "class": "audio-button",
+          "text": "“cohesive” kelimesini dinle",
+          "width": 40,
+          "height": 40
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "deck-list-link",
+          "text": "Listeyi gör",
+          "width": 92,
+          "height": 22
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "class": "audio-button",
+          "text": "“Achieve” kelimesini dinle",
+          "width": 40,
+          "height": 40
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "class": "audio-button",
+          "text": "“Afford” kelimesini dinle",
+          "width": 40,
+          "height": 40
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "class": "audio-button",
+          "text": "“Abandon” kelimesini dinle",
+          "width": 40,
+          "height": 40
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "class": "audio-button",
+          "text": "“Absence” kelimesini dinle",
+          "width": 40,
+          "height": 40
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "class": "audio-button",
+          "text": "“Advantageous” kelimesini dinle",
+          "width": 40,
+          "height": 40
+        },
+        {
+          "tag": "SUMMARY",
+          "id": "",
+          "class": "",
+          "text": "Çalışma yolu",
+          "width": 324,
+          "height": 24
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Tatoeba",
+          "width": 53,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "CC BY 2.0 FR",
+          "width": 84,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "manythings.org",
+          "width": 101,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Twemoji",
+          "width": 53,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "pdf.js",
+          "width": 37,
+          "height": 17
+        }
+      ],
+      "outOfBounds": [],
+      "accessibility": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "count": 7
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "route": "words",
+      "overflow": 0,
+      "heading": "Kelimeler",
+      "smallTargets": [
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "William Warby from London, England",
+          "width": 198,
+          "height": 15
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Tatoeba",
+          "width": 53,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "CC BY 2.0 FR",
+          "width": 84,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "manythings.org",
+          "width": 101,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Twemoji",
+          "width": 53,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "pdf.js",
+          "width": 37,
+          "height": 17
+        }
+      ],
+      "outOfBounds": [],
+      "accessibility": [],
+      "incomplete": []
+    },
+    {
+      "width": 390,
+      "route": "review",
+      "overflow": 0,
+      "heading": "Tekrar",
+      "smallTargets": [],
+      "outOfBounds": [],
+      "accessibility": [],
+      "incomplete": []
+    },
+    {
+      "width": 390,
+      "route": "practice",
+      "overflow": 0,
+      "heading": "Pratik",
+      "smallTargets": [
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Liginde 1. hafta →",
+          "width": 109,
+          "height": 20
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Tatoeba",
+          "width": 53,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "CC BY 2.0 FR",
+          "width": 84,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "manythings.org",
+          "width": 101,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Twemoji",
+          "width": 53,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "pdf.js",
+          "width": 37,
+          "height": 17
+        }
+      ],
+      "outOfBounds": [],
+      "accessibility": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "count": 5
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "route": "rankings",
+      "overflow": 0,
+      "heading": "Sıralama",
+      "smallTargets": [
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Tatoeba",
+          "width": 53,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "CC BY 2.0 FR",
+          "width": 84,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "manythings.org",
+          "width": 101,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Twemoji",
+          "width": 53,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "pdf.js",
+          "width": 37,
+          "height": 17
+        }
+      ],
+      "outOfBounds": [],
+      "accessibility": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=playwright",
+          "nodes": [
+            {
+              "target": [
+                ".rank-me-side > small"
+              ],
+              "html": "<small>🔥 0 gün</small>",
+              "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.19 (foreground color: #b45309, background color: #efe7ff, font size: 9.7pt (12.9167px), font weight: bold). Expected contrast ratio of 4.5:1"
+            }
+          ],
+          "count": 1
+        }
+      ],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "count": 5
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "route": "phrases",
+      "overflow": 0,
+      "heading": "İfadeler",
+      "smallTargets": [
+        {
+          "tag": "A",
+          "id": "",
+          "class": "phr-from",
+          "text": "🚌 Ulaşım",
+          "width": 60,
+          "height": 19
+        },
+        {
+          "tag": "SUMMARY",
+          "id": "",
+          "class": "",
+          "text": "Cevap örnekleri (2)",
+          "width": 334,
+          "height": 28
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "class": "audio-button",
+          "text": "Dinle",
+          "width": 30,
+          "height": 30
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "class": "audio-button",
+          "text": "Dinle",
+          "width": 30,
+          "height": 30
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "class": "audio-button",
+          "text": "Dinle",
+          "width": 34,
+          "height": 34
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "class": "pron-btn audio-button",
+          "text": "Okuyarak dene",
+          "width": 34,
+          "height": 34
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Tatoeba",
+          "width": 53,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "CC BY 2.0 FR",
+          "width": 84,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "manythings.org",
+          "width": 101,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Twemoji",
+          "width": 53,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "pdf.js",
+          "width": 37,
+          "height": 17
+        }
+      ],
+      "outOfBounds": [],
+      "accessibility": [],
+      "incomplete": []
+    },
+    {
+      "width": 390,
+      "route": "grammar",
+      "overflow": 0,
+      "heading": "Gramer ve yazma",
+      "smallTargets": [
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Tatoeba",
+          "width": 53,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "CC BY 2.0 FR",
+          "width": 84,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "manythings.org",
+          "width": 101,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Twemoji",
+          "width": 53,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "pdf.js",
+          "width": 37,
+          "height": 17
+        }
+      ],
+      "outOfBounds": [],
+      "accessibility": [],
+      "incomplete": []
+    },
+    {
+      "width": 390,
+      "route": "quiz",
+      "overflow": 0,
+      "heading": "Kelime testi",
+      "smallTargets": [
+        {
+          "tag": "INPUT",
+          "id": "",
+          "class": "",
+          "text": "",
+          "width": 22,
+          "height": 22
+        },
+        {
+          "tag": "INPUT",
+          "id": "",
+          "class": "",
+          "text": "",
+          "width": 22,
+          "height": 22
+        },
+        {
+          "tag": "INPUT",
+          "id": "",
+          "class": "",
+          "text": "",
+          "width": 22,
+          "height": 22
+        },
+        {
+          "tag": "INPUT",
+          "id": "",
+          "class": "",
+          "text": "",
+          "width": 22,
+          "height": 22
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Tatoeba",
+          "width": 53,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "CC BY 2.0 FR",
+          "width": 84,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "manythings.org",
+          "width": 101,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Twemoji",
+          "width": 53,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "pdf.js",
+          "width": 37,
+          "height": 17
+        }
+      ],
+      "outOfBounds": [],
+      "accessibility": [],
+      "incomplete": []
+    },
+    {
+      "width": 390,
+      "route": "reading",
+      "overflow": 0,
+      "heading": "Okuma ve dinleme",
+      "smallTargets": [
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Tatoeba",
+          "width": 53,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "CC BY 2.0 FR",
+          "width": 84,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "manythings.org",
+          "width": 101,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Twemoji",
+          "width": 53,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "pdf.js",
+          "width": 37,
+          "height": 17
+        }
+      ],
+      "outOfBounds": [],
+      "accessibility": [],
+      "incomplete": []
+    },
+    {
+      "width": 390,
+      "route": "novel",
+      "overflow": 0,
+      "heading": "Roman Oku",
+      "smallTargets": [
+        {
+          "tag": "BUTTON",
+          "id": "lib-continue",
+          "class": "screen-icon",
+          "text": "Okumaya devam et",
+          "width": 42,
+          "height": 42
+        },
+        {
+          "tag": "INPUT",
+          "id": "novel-file",
+          "class": "visually-hidden",
+          "text": "",
+          "width": 1,
+          "height": 1
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Tatoeba",
+          "width": 53,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "CC BY 2.0 FR",
+          "width": 84,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "manythings.org",
+          "width": 101,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Twemoji",
+          "width": 53,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "pdf.js",
+          "width": 37,
+          "height": 17
+        }
+      ],
+      "outOfBounds": [],
+      "accessibility": [
+        {
+          "id": "aria-prohibited-attr",
+          "impact": "serious",
+          "description": "Ensure ARIA attributes are not prohibited for an element's role",
+          "help": "Elements must only use permitted ARIA attributes",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/aria-prohibited-attr?application=playwright",
+          "nodes": [
+            {
+              "target": [
+                "label[aria-label=\"Başka PDF seç\"]"
+              ],
+              "html": "<label class=\"screen-icon\" for=\"novel-file\" aria-label=\"Başka PDF seç\" data-i18n-aria=\"novel.choose\"><svg class=\"icon\" aria-hidden=\"true\"><use href=\"#i-upload\"></use></svg></label>",
+              "summary": "Fix all of the following:\n  aria-label attribute cannot be used on \"label\" elements with no valid role attribute."
+            }
+          ],
+          "count": 1
+        },
+        {
+          "id": "heading-order",
+          "impact": "moderate",
+          "description": "Ensure the order of headings is semantically correct",
+          "help": "Heading levels should only increase by one",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/heading-order?application=playwright",
+          "nodes": [
+            {
+              "target": [
+                "h3[data-i18n=\"novel.filter\"]"
+              ],
+              "html": "<h3 data-i18n=\"novel.filter\">Seviye ve kategori filtrele</h3>",
+              "summary": "Fix any of the following:\n  Heading order invalid"
+            }
+          ],
+          "count": 1
+        }
+      ],
+      "incomplete": [
+        {
+          "id": "form-field-multiple-labels",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "route": "speak",
+      "overflow": 0,
+      "heading": "Sohbet",
+      "smallTargets": [
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Tatoeba",
+          "width": 53,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "CC BY 2.0 FR",
+          "width": 84,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "manythings.org",
+          "width": 101,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Twemoji",
+          "width": 53,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "pdf.js",
+          "width": 37,
+          "height": 17
+        }
+      ],
+      "outOfBounds": [],
+      "accessibility": [],
+      "incomplete": []
+    },
+    {
+      "width": 390,
+      "route": "tutor",
+      "overflow": 0,
+      "smallTargets": [
+        {
+          "tag": "SELECT",
+          "id": "tutor-topic",
+          "class": "",
+          "text": "Serbest sohbetTanışmaGünlük rutinYemek ve mutfakSeyahatHobilerFilm, dizi ve",
+          "width": 161,
+          "height": 42
+        },
+        {
+          "tag": "BUTTON",
+          "id": "tutor-speed",
+          "class": "tutor-speed",
+          "text": "Ses hızı",
+          "width": 64,
+          "height": 28
+        }
+      ],
+      "outOfBounds": [],
+      "accessibility": [
+        {
+          "id": "page-has-heading-one",
+          "impact": "moderate",
+          "description": "Ensure that the page, or at least one of its frames contains a level-one heading",
+          "help": "Page should contain a level-one heading",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/page-has-heading-one?application=playwright",
+          "nodes": [
+            {
+              "target": [
+                "html"
+              ],
+              "html": "<html lang=\"tr\" class=\" js\">",
+              "summary": "Fix all of the following:\n  Page must have a level-one heading"
+            }
+          ],
+          "count": 1
+        }
+      ],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "route": "settings",
+      "overflow": 0,
+      "heading": "Ayarlar ve veriler",
+      "smallTargets": [
+        {
+          "tag": "INPUT",
+          "id": "",
+          "class": "",
+          "text": "",
+          "width": 22,
+          "height": 22
+        },
+        {
+          "tag": "INPUT",
+          "id": "",
+          "class": "",
+          "text": "",
+          "width": 22,
+          "height": 22
+        },
+        {
+          "tag": "INPUT",
+          "id": "",
+          "class": "",
+          "text": "",
+          "width": 22,
+          "height": 22
+        },
+        {
+          "tag": "INPUT",
+          "id": "show-turkish",
+          "class": "",
+          "text": "",
+          "width": 22,
+          "height": 22
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Tatoeba",
+          "width": 53,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "CC BY 2.0 FR",
+          "width": 84,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "manythings.org",
+          "width": 101,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Twemoji",
+          "width": 53,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "pdf.js",
+          "width": 37,
+          "height": 17
+        }
+      ],
+      "outOfBounds": [],
+      "accessibility": [],
+      "incomplete": []
+    },
+    {
+      "width": 768,
+      "route": "home",
+      "overflow": 0,
+      "heading": "İyi akşamlar! 🌙",
+      "smallTargets": [
+        {
+          "tag": "SELECT",
+          "id": "today-goal",
+          "class": "",
+          "text": "Günde 10 kartGünde 20 kartGünde 30 kartGünde 50 kart",
+          "width": 125,
+          "height": 32
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "deck-list-link",
+          "text": "Listeyi gör",
+          "width": 92,
+          "height": 22
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "class": "audio-button",
+          "text": "“cohesive” kelimesini dinle",
+          "width": 40,
+          "height": 40
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "deck-list-link",
+          "text": "Listeyi gör",
+          "width": 92,
+          "height": 22
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "class": "audio-button",
+          "text": "“Achieve” kelimesini dinle",
+          "width": 40,
+          "height": 40
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "class": "audio-button",
+          "text": "“Afford” kelimesini dinle",
+          "width": 40,
+          "height": 40
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "class": "audio-button",
+          "text": "“Abandon” kelimesini dinle",
+          "width": 40,
+          "height": 40
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "class": "audio-button",
+          "text": "“Absence” kelimesini dinle",
+          "width": 40,
+          "height": 40
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "class": "audio-button",
+          "text": "“Advantageous” kelimesini dinle",
+          "width": 40,
+          "height": 40
+        },
+        {
+          "tag": "SUMMARY",
+          "id": "",
+          "class": "",
+          "text": "Çalışma yolu",
+          "width": 686,
+          "height": 24
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Tatoeba",
+          "width": 53,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "CC BY 2.0 FR",
+          "width": 84,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "manythings.org",
+          "width": 101,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Twemoji",
+          "width": 53,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "pdf.js",
+          "width": 37,
+          "height": 17
+        }
+      ],
+      "outOfBounds": []
+    },
+    {
+      "width": 768,
+      "route": "words",
+      "overflow": 0,
+      "heading": "Kelimeler",
+      "smallTargets": [
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "William Warby from London, England",
+          "width": 198,
+          "height": 15
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Tatoeba",
+          "width": 53,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "CC BY 2.0 FR",
+          "width": 84,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "manythings.org",
+          "width": 101,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Twemoji",
+          "width": 53,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "pdf.js",
+          "width": 37,
+          "height": 17
+        }
+      ],
+      "outOfBounds": []
+    },
+    {
+      "width": 768,
+      "route": "review",
+      "overflow": 0,
+      "heading": "Tekrar",
+      "smallTargets": [],
+      "outOfBounds": []
+    },
+    {
+      "width": 768,
+      "route": "practice",
+      "overflow": 0,
+      "heading": "Pratik",
+      "smallTargets": [
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Liginde 1. hafta →",
+          "width": 109,
+          "height": 20
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Tatoeba",
+          "width": 53,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "CC BY 2.0 FR",
+          "width": 84,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "manythings.org",
+          "width": 101,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Twemoji",
+          "width": 53,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "pdf.js",
+          "width": 37,
+          "height": 17
+        }
+      ],
+      "outOfBounds": []
+    },
+    {
+      "width": 768,
+      "route": "rankings",
+      "overflow": 0,
+      "heading": "Sıralama",
+      "smallTargets": [
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Tatoeba",
+          "width": 53,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "CC BY 2.0 FR",
+          "width": 84,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "manythings.org",
+          "width": 101,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Twemoji",
+          "width": 53,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "pdf.js",
+          "width": 37,
+          "height": 17
+        }
+      ],
+      "outOfBounds": []
+    },
+    {
+      "width": 768,
+      "route": "phrases",
+      "overflow": 0,
+      "heading": "İfadeler",
+      "smallTargets": [
+        {
+          "tag": "A",
+          "id": "",
+          "class": "phr-from",
+          "text": "🚌 Ulaşım",
+          "width": 60,
+          "height": 19
+        },
+        {
+          "tag": "SUMMARY",
+          "id": "",
+          "class": "",
+          "text": "Cevap örnekleri (2)",
+          "width": 712,
+          "height": 28
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "class": "audio-button",
+          "text": "Dinle",
+          "width": 30,
+          "height": 30
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "class": "audio-button",
+          "text": "Dinle",
+          "width": 30,
+          "height": 30
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "class": "audio-button",
+          "text": "Dinle",
+          "width": 34,
+          "height": 34
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "class": "pron-btn audio-button",
+          "text": "Okuyarak dene",
+          "width": 34,
+          "height": 34
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Tatoeba",
+          "width": 53,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "CC BY 2.0 FR",
+          "width": 84,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "manythings.org",
+          "width": 101,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Twemoji",
+          "width": 53,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "pdf.js",
+          "width": 37,
+          "height": 17
+        }
+      ],
+      "outOfBounds": []
+    },
+    {
+      "width": 768,
+      "route": "grammar",
+      "overflow": 0,
+      "heading": "Gramer ve yazma",
+      "smallTargets": [
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Tatoeba",
+          "width": 53,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "CC BY 2.0 FR",
+          "width": 84,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "manythings.org",
+          "width": 101,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Twemoji",
+          "width": 53,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "pdf.js",
+          "width": 37,
+          "height": 17
+        }
+      ],
+      "outOfBounds": []
+    },
+    {
+      "width": 768,
+      "route": "quiz",
+      "overflow": 0,
+      "heading": "Kelime testi",
+      "smallTargets": [
+        {
+          "tag": "INPUT",
+          "id": "",
+          "class": "",
+          "text": "",
+          "width": 22,
+          "height": 22
+        },
+        {
+          "tag": "INPUT",
+          "id": "",
+          "class": "",
+          "text": "",
+          "width": 22,
+          "height": 22
+        },
+        {
+          "tag": "INPUT",
+          "id": "",
+          "class": "",
+          "text": "",
+          "width": 22,
+          "height": 22
+        },
+        {
+          "tag": "INPUT",
+          "id": "",
+          "class": "",
+          "text": "",
+          "width": 22,
+          "height": 22
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Tatoeba",
+          "width": 53,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "CC BY 2.0 FR",
+          "width": 84,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "manythings.org",
+          "width": 101,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Twemoji",
+          "width": 53,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "pdf.js",
+          "width": 37,
+          "height": 17
+        }
+      ],
+      "outOfBounds": []
+    },
+    {
+      "width": 768,
+      "route": "reading",
+      "overflow": 0,
+      "heading": "Okuma ve dinleme",
+      "smallTargets": [
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Tatoeba",
+          "width": 53,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "CC BY 2.0 FR",
+          "width": 84,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "manythings.org",
+          "width": 101,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Twemoji",
+          "width": 53,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "pdf.js",
+          "width": 37,
+          "height": 17
+        }
+      ],
+      "outOfBounds": []
+    },
+    {
+      "width": 768,
+      "route": "novel",
+      "overflow": 0,
+      "heading": "Roman Oku",
+      "smallTargets": [
+        {
+          "tag": "BUTTON",
+          "id": "lib-continue",
+          "class": "screen-icon",
+          "text": "Okumaya devam et",
+          "width": 42,
+          "height": 42
+        },
+        {
+          "tag": "INPUT",
+          "id": "novel-file",
+          "class": "visually-hidden",
+          "text": "",
+          "width": 1,
+          "height": 1
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Tatoeba",
+          "width": 53,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "CC BY 2.0 FR",
+          "width": 84,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "manythings.org",
+          "width": 101,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Twemoji",
+          "width": 53,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "pdf.js",
+          "width": 37,
+          "height": 17
+        }
+      ],
+      "outOfBounds": []
+    },
+    {
+      "width": 768,
+      "route": "speak",
+      "overflow": 0,
+      "heading": "Sohbet",
+      "smallTargets": [
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Tatoeba",
+          "width": 53,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "CC BY 2.0 FR",
+          "width": 84,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "manythings.org",
+          "width": 101,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Twemoji",
+          "width": 53,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "pdf.js",
+          "width": 37,
+          "height": 17
+        }
+      ],
+      "outOfBounds": []
+    },
+    {
+      "width": 768,
+      "route": "tutor",
+      "overflow": 0,
+      "smallTargets": [
+        {
+          "tag": "SELECT",
+          "id": "tutor-topic",
+          "class": "",
+          "text": "Serbest sohbetTanışmaGünlük rutinYemek ve mutfakSeyahatHobilerFilm, dizi ve",
+          "width": 443,
+          "height": 42
+        },
+        {
+          "tag": "BUTTON",
+          "id": "tutor-speed",
+          "class": "tutor-speed",
+          "text": "Ses hızı",
+          "width": 64,
+          "height": 28
+        }
+      ],
+      "outOfBounds": []
+    },
+    {
+      "width": 768,
+      "route": "settings",
+      "overflow": 0,
+      "heading": "Ayarlar ve veriler",
+      "smallTargets": [
+        {
+          "tag": "INPUT",
+          "id": "",
+          "class": "",
+          "text": "",
+          "width": 22,
+          "height": 22
+        },
+        {
+          "tag": "INPUT",
+          "id": "",
+          "class": "",
+          "text": "",
+          "width": 22,
+          "height": 22
+        },
+        {
+          "tag": "INPUT",
+          "id": "",
+          "class": "",
+          "text": "",
+          "width": 22,
+          "height": 22
+        },
+        {
+          "tag": "INPUT",
+          "id": "show-turkish",
+          "class": "",
+          "text": "",
+          "width": 22,
+          "height": 22
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Tatoeba",
+          "width": 53,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "CC BY 2.0 FR",
+          "width": 84,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "manythings.org",
+          "width": 101,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Twemoji",
+          "width": 53,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "pdf.js",
+          "width": 37,
+          "height": 17
+        }
+      ],
+      "outOfBounds": []
+    },
+    {
+      "width": 1440,
+      "route": "home",
+      "overflow": 0,
+      "heading": "İyi akşamlar! 🌙",
+      "smallTargets": [
+        {
+          "tag": "BUTTON",
+          "id": "side-toggle",
+          "class": "side-toggle",
+          "text": "Menüyü daralt",
+          "width": 228,
+          "height": 40
+        },
+        {
+          "tag": "SELECT",
+          "id": "today-goal",
+          "class": "",
+          "text": "Günde 10 kartGünde 20 kartGünde 30 kartGünde 50 kart",
+          "width": 125,
+          "height": 32
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "deck-list-link",
+          "text": "Listeyi gör",
+          "width": 92,
+          "height": 22
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "class": "audio-button",
+          "text": "“cohesive” kelimesini dinle",
+          "width": 40,
+          "height": 40
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "deck-list-link",
+          "text": "Listeyi gör",
+          "width": 92,
+          "height": 22
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "class": "audio-button",
+          "text": "“Achieve” kelimesini dinle",
+          "width": 40,
+          "height": 40
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "class": "audio-button",
+          "text": "“Afford” kelimesini dinle",
+          "width": 40,
+          "height": 40
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "class": "audio-button",
+          "text": "“Abandon” kelimesini dinle",
+          "width": 40,
+          "height": 40
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "class": "audio-button",
+          "text": "“Absence” kelimesini dinle",
+          "width": 40,
+          "height": 40
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "class": "audio-button",
+          "text": "“Advantageous” kelimesini dinle",
+          "width": 40,
+          "height": 40
+        },
+        {
+          "tag": "SUMMARY",
+          "id": "",
+          "class": "",
+          "text": "Çalışma yolu",
+          "width": 686,
+          "height": 24
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Tatoeba",
+          "width": 53,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "CC BY 2.0 FR",
+          "width": 84,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "manythings.org",
+          "width": 101,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Twemoji",
+          "width": 53,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "pdf.js",
+          "width": 37,
+          "height": 17
+        }
+      ],
+      "outOfBounds": []
+    },
+    {
+      "width": 1440,
+      "route": "words",
+      "overflow": 0,
+      "heading": "Kelimeler",
+      "smallTargets": [
+        {
+          "tag": "BUTTON",
+          "id": "side-toggle",
+          "class": "side-toggle",
+          "text": "Menüyü daralt",
+          "width": 228,
+          "height": 40
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "William Warby from London, England",
+          "width": 198,
+          "height": 15
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Tatoeba",
+          "width": 53,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "CC BY 2.0 FR",
+          "width": 84,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "manythings.org",
+          "width": 101,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Twemoji",
+          "width": 53,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "pdf.js",
+          "width": 37,
+          "height": 17
+        }
+      ],
+      "outOfBounds": []
+    },
+    {
+      "width": 1440,
+      "route": "review",
+      "overflow": 0,
+      "heading": "Tekrar",
+      "smallTargets": [
+        {
+          "tag": "BUTTON",
+          "id": "side-toggle",
+          "class": "side-toggle",
+          "text": "Menüyü daralt",
+          "width": 228,
+          "height": 40
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Tatoeba",
+          "width": 53,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "CC BY 2.0 FR",
+          "width": 84,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "manythings.org",
+          "width": 101,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Twemoji",
+          "width": 53,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "pdf.js",
+          "width": 37,
+          "height": 17
+        }
+      ],
+      "outOfBounds": []
+    },
+    {
+      "width": 1440,
+      "route": "practice",
+      "overflow": 0,
+      "heading": "Pratik",
+      "smallTargets": [
+        {
+          "tag": "BUTTON",
+          "id": "side-toggle",
+          "class": "side-toggle",
+          "text": "Menüyü daralt",
+          "width": 228,
+          "height": 40
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Liginde 1. hafta →",
+          "width": 109,
+          "height": 20
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Tatoeba",
+          "width": 53,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "CC BY 2.0 FR",
+          "width": 84,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "manythings.org",
+          "width": 101,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Twemoji",
+          "width": 53,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "pdf.js",
+          "width": 37,
+          "height": 17
+        }
+      ],
+      "outOfBounds": []
+    },
+    {
+      "width": 1440,
+      "route": "rankings",
+      "overflow": 0,
+      "heading": "Sıralama",
+      "smallTargets": [
+        {
+          "tag": "BUTTON",
+          "id": "side-toggle",
+          "class": "side-toggle",
+          "text": "Menüyü daralt",
+          "width": 228,
+          "height": 40
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Tatoeba",
+          "width": 53,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "CC BY 2.0 FR",
+          "width": 84,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "manythings.org",
+          "width": 101,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Twemoji",
+          "width": 53,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "pdf.js",
+          "width": 37,
+          "height": 17
+        }
+      ],
+      "outOfBounds": []
+    },
+    {
+      "width": 1440,
+      "route": "phrases",
+      "overflow": 0,
+      "heading": "İfadeler",
+      "smallTargets": [
+        {
+          "tag": "BUTTON",
+          "id": "side-toggle",
+          "class": "side-toggle",
+          "text": "Menüyü daralt",
+          "width": 228,
+          "height": 40
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "phr-from",
+          "text": "🚌 Ulaşım",
+          "width": 60,
+          "height": 19
+        },
+        {
+          "tag": "SUMMARY",
+          "id": "",
+          "class": "",
+          "text": "Cevap örnekleri (2)",
+          "width": 1124,
+          "height": 28
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "class": "audio-button",
+          "text": "Dinle",
+          "width": 30,
+          "height": 30
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "class": "audio-button",
+          "text": "Dinle",
+          "width": 30,
+          "height": 30
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "class": "audio-button",
+          "text": "Dinle",
+          "width": 34,
+          "height": 34
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "class": "pron-btn audio-button",
+          "text": "Okuyarak dene",
+          "width": 34,
+          "height": 34
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Tatoeba",
+          "width": 53,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "CC BY 2.0 FR",
+          "width": 84,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "manythings.org",
+          "width": 101,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Twemoji",
+          "width": 53,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "pdf.js",
+          "width": 37,
+          "height": 17
+        }
+      ],
+      "outOfBounds": []
+    },
+    {
+      "width": 1440,
+      "route": "grammar",
+      "overflow": 0,
+      "heading": "Gramer ve yazma",
+      "smallTargets": [
+        {
+          "tag": "BUTTON",
+          "id": "side-toggle",
+          "class": "side-toggle",
+          "text": "Menüyü daralt",
+          "width": 228,
+          "height": 40
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Tatoeba",
+          "width": 53,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "CC BY 2.0 FR",
+          "width": 84,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "manythings.org",
+          "width": 101,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Twemoji",
+          "width": 53,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "pdf.js",
+          "width": 37,
+          "height": 17
+        }
+      ],
+      "outOfBounds": []
+    },
+    {
+      "width": 1440,
+      "route": "quiz",
+      "overflow": 0,
+      "heading": "Kelime testi",
+      "smallTargets": [
+        {
+          "tag": "BUTTON",
+          "id": "side-toggle",
+          "class": "side-toggle",
+          "text": "Menüyü daralt",
+          "width": 228,
+          "height": 40
+        },
+        {
+          "tag": "INPUT",
+          "id": "",
+          "class": "",
+          "text": "",
+          "width": 22,
+          "height": 22
+        },
+        {
+          "tag": "INPUT",
+          "id": "",
+          "class": "",
+          "text": "",
+          "width": 22,
+          "height": 22
+        },
+        {
+          "tag": "INPUT",
+          "id": "",
+          "class": "",
+          "text": "",
+          "width": 22,
+          "height": 22
+        },
+        {
+          "tag": "INPUT",
+          "id": "",
+          "class": "",
+          "text": "",
+          "width": 22,
+          "height": 22
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Tatoeba",
+          "width": 53,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "CC BY 2.0 FR",
+          "width": 84,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "manythings.org",
+          "width": 101,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Twemoji",
+          "width": 53,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "pdf.js",
+          "width": 37,
+          "height": 17
+        }
+      ],
+      "outOfBounds": []
+    },
+    {
+      "width": 1440,
+      "route": "reading",
+      "overflow": 0,
+      "heading": "Okuma ve dinleme",
+      "smallTargets": [
+        {
+          "tag": "BUTTON",
+          "id": "side-toggle",
+          "class": "side-toggle",
+          "text": "Menüyü daralt",
+          "width": 228,
+          "height": 40
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Tatoeba",
+          "width": 53,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "CC BY 2.0 FR",
+          "width": 84,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "manythings.org",
+          "width": 101,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Twemoji",
+          "width": 53,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "pdf.js",
+          "width": 37,
+          "height": 17
+        }
+      ],
+      "outOfBounds": []
+    },
+    {
+      "width": 1440,
+      "route": "novel",
+      "overflow": 0,
+      "heading": "Roman Oku",
+      "smallTargets": [
+        {
+          "tag": "BUTTON",
+          "id": "side-toggle",
+          "class": "side-toggle",
+          "text": "Menüyü daralt",
+          "width": 228,
+          "height": 40
+        },
+        {
+          "tag": "BUTTON",
+          "id": "lib-continue",
+          "class": "screen-icon",
+          "text": "Okumaya devam et",
+          "width": 42,
+          "height": 42
+        },
+        {
+          "tag": "INPUT",
+          "id": "novel-file",
+          "class": "visually-hidden",
+          "text": "",
+          "width": 1,
+          "height": 1
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Tatoeba",
+          "width": 53,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "CC BY 2.0 FR",
+          "width": 84,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "manythings.org",
+          "width": 101,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Twemoji",
+          "width": 53,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "pdf.js",
+          "width": 37,
+          "height": 17
+        }
+      ],
+      "outOfBounds": []
+    },
+    {
+      "width": 1440,
+      "route": "speak",
+      "overflow": 0,
+      "heading": "Sohbet",
+      "smallTargets": [
+        {
+          "tag": "BUTTON",
+          "id": "side-toggle",
+          "class": "side-toggle",
+          "text": "Menüyü daralt",
+          "width": 228,
+          "height": 40
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Tatoeba",
+          "width": 53,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "CC BY 2.0 FR",
+          "width": 84,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "manythings.org",
+          "width": 101,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Twemoji",
+          "width": 53,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "pdf.js",
+          "width": 37,
+          "height": 17
+        }
+      ],
+      "outOfBounds": []
+    },
+    {
+      "width": 1440,
+      "route": "tutor",
+      "overflow": 0,
+      "smallTargets": [
+        {
+          "tag": "BUTTON",
+          "id": "side-toggle",
+          "class": "side-toggle",
+          "text": "Menüyü daralt",
+          "width": 228,
+          "height": 40
+        },
+        {
+          "tag": "SELECT",
+          "id": "tutor-topic",
+          "class": "",
+          "text": "Serbest sohbetTanışmaGünlük rutinYemek ve mutfakSeyahatHobilerFilm, dizi ve",
+          "width": 443,
+          "height": 42
+        },
+        {
+          "tag": "BUTTON",
+          "id": "tutor-speed",
+          "class": "tutor-speed",
+          "text": "Ses hızı",
+          "width": 64,
+          "height": 28
+        }
+      ],
+      "outOfBounds": []
+    },
+    {
+      "width": 1440,
+      "route": "settings",
+      "overflow": 0,
+      "heading": "Ayarlar ve veriler",
+      "smallTargets": [
+        {
+          "tag": "BUTTON",
+          "id": "side-toggle",
+          "class": "side-toggle",
+          "text": "Menüyü daralt",
+          "width": 228,
+          "height": 40
+        },
+        {
+          "tag": "INPUT",
+          "id": "",
+          "class": "",
+          "text": "",
+          "width": 22,
+          "height": 22
+        },
+        {
+          "tag": "INPUT",
+          "id": "",
+          "class": "",
+          "text": "",
+          "width": 22,
+          "height": 22
+        },
+        {
+          "tag": "INPUT",
+          "id": "",
+          "class": "",
+          "text": "",
+          "width": 22,
+          "height": 22
+        },
+        {
+          "tag": "INPUT",
+          "id": "show-turkish",
+          "class": "",
+          "text": "",
+          "width": 22,
+          "height": 22
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Tatoeba",
+          "width": 53,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "CC BY 2.0 FR",
+          "width": 84,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "manythings.org",
+          "width": 101,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "Twemoji",
+          "width": 53,
+          "height": 17
+        },
+        {
+          "tag": "A",
+          "id": "",
+          "class": "",
+          "text": "pdf.js",
+          "width": 37,
+          "height": 17
+        }
+      ],
+      "outOfBounds": []
+    }
+  ],
+  "flows": {
+    "profileDialog": {
+      "closeButton": false,
+      "active": "<a href=\"#grammar\" data-route=\"grammar\"><svg class=\"icon\" aria-hidden=\"true\"><use href=\"#i-pen\"></use></svg><span data-i18n=\"nav.grammar\">Gramer</span></a>",
+      "scrollLocked": false,
+      "tabEscaped": true,
+      "escapeCloses": true,
+      "focusRestored": false
+    },
+    "search": {
+      "matches": 24,
+      "emptyState": false,
+      "reset": true
+    },
+    "settingsControls": [
+      {
+        "id": "ui-lang",
+        "options": [
+          {
+            "value": "en",
+            "text": "English"
+          },
+          {
+            "value": "tr",
+            "text": "Türkçe"
+          }
+        ]
+      },
+      {
+        "id": "voice-select",
+        "options": [
+          {
+            "value": "",
+            "text": "Cihaz varsayılanı (İngilizce)"
+          }
+        ]
+      }
+    ]
+  },
+  "initial": {
+    "title": "Ana sayfa · WordFlow",
+    "nodes": 77228,
+    "navigation": {
+      "name": "http://127.0.0.1:50177/",
+      "entryType": "navigation",
+      "startTime": 0,
+      "duration": 353.9000000022352,
+      "navigationId": 6101,
+      "initiatorType": "navigation",
+      "deliveryType": "",
+      "nextHopProtocol": "http/1.1",
+      "renderBlockingStatus": "non-blocking",
+      "contentType": "text/html",
+      "contentEncoding": "",
+      "workerStart": 0,
+      "workerRouterEvaluationStart": 0,
+      "workerCacheLookupStart": 0,
+      "workerMatchedSourceType": "",
+      "workerFinalSourceType": "",
+      "redirectStart": 0,
+      "redirectEnd": 0,
+      "fetchStart": 0.30000000074505806,
+      "domainLookupStart": 0.30000000074505806,
+      "domainLookupEnd": 0.30000000074505806,
+      "connectStart": 0.30000000074505806,
+      "secureConnectionStart": 0,
+      "connectEnd": 0.30000000074505806,
+      "requestStart": 3.100000001490116,
+      "responseStart": 11.600000001490116,
+      "firstInterimResponseStart": 0,
+      "finalResponseHeadersStart": 11.600000001490116,
+      "responseEnd": 188.90000000223517,
+      "transferSize": 20277662,
+      "encodedBodySize": 20277362,
+      "decodedBodySize": 20277362,
+      "responseStatus": 200,
+      "serverTiming": [],
+      "unloadEventStart": 0,
+      "unloadEventEnd": 0,
+      "domInteractive": 322.6000000014901,
+      "domContentLoadedEventStart": 322.6000000014901,
+      "domContentLoadedEventEnd": 322.70000000298023,
+      "domComplete": 349.6000000014901,
+      "loadEventStart": 353.80000000074506,
+      "loadEventEnd": 353.9000000022352,
+      "type": "navigate",
+      "redirectCount": 0,
+      "activationStart": 0,
+      "criticalCHRestart": 0,
+      "notRestoredReasons": null,
+      "confidence": {
+        "randomizedTriggerRate": 0.4994798,
+        "value": "low"
+      }
+    },
+    "perf": {
+      "longTasks": [
+        {
+          "start": 196.40000000223517,
+          "duration": 99
+        }
+      ],
+      "lcp": [
+        {
+          "start": 276,
+          "size": 2522
+        }
+      ],
+      "cls": []
+    },
+    "diagnostics": {
+      "version": "2.7.0",
+      "words": 2199,
+      "storageUsable": true
+    },
+    "description": null
+  }
+}

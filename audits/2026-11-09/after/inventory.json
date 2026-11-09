@@ -1,0 +1,99 @@
+{
+  "bytes": 20281192,
+  "sha256": "8cfe193298402df98f28d09163f8b026a5da319e12e6626abbae0eb2491cbc82",
+  "data_uri_encoded_chars": {
+    "font/woff2": 128236,
+    "image/svg+xml": 3230548,
+    "image/webp": 8104248
+  },
+  "data_uri_counts": {
+    "font/woff2": 4,
+    "image/svg+xml": 1685,
+    "image/webp": 815
+  },
+  "scripts": [
+    {
+      "attributes": "",
+      "bytes": 969
+    },
+    {
+      "attributes": "type=\"application/json\" id=\"vocab-data\"",
+      "bytes": 372704
+    },
+    {
+      "attributes": "type=\"application/json\" id=\"sentence-data\"",
+      "bytes": 1189765
+    },
+    {
+      "attributes": "type=\"application/json\" id=\"phrase-data\"",
+      "bytes": 213829
+    },
+    {
+      "attributes": "type=\"application/json\" id=\"work-data\"",
+      "bytes": 433294
+    },
+    {
+      "attributes": "type=\"application/json\" id=\"work-pics\"",
+      "bytes": 641296
+    },
+    {
+      "attributes": "type=\"application/json\" id=\"work-moved\"",
+      "bytes": 26504
+    },
+    {
+      "attributes": "type=\"application/json\" id=\"novel-dict\"",
+      "bytes": 284535
+    },
+    {
+      "attributes": "type=\"text/plain\" id=\"pdfjs-src\"",
+      "bytes": 377116
+    },
+    {
+      "attributes": "type=\"text/plain\" id=\"pdfjs-worker-src\"",
+      "bytes": 1133660
+    },
+    {
+      "attributes": "type=\"text/plain\" id=\"peerjs-src\"",
+      "bytes": 92865
+    },
+    {
+      "attributes": "type=\"application/json\" id=\"grammar-data\"",
+      "bytes": 417019
+    },
+    {
+      "attributes": "type=\"application/json\" id=\"speak-topics\"",
+      "bytes": 10956
+    },
+    {
+      "attributes": "",
+      "bytes": 486553
+    }
+  ],
+  "word_cards": 2199,
+  "word_card_markup_sha256": "350ca869383528f068a0e3c5c50a149cb81a4ab54bec514351ef69980b0fbce4",
+  "embedded_images_sha256": "963fc020b651b44fff5cb845a809b3c8bb1f698590415427e09475ecb36ec402",
+  "vocab-data": {
+    "entries": 2199,
+    "sha256": "af2cb4e47f67fd9cf21e2d6fa02c1d81b6e87499c2bc7ecc11701bf9d5ac7ce9"
+  },
+  "sentence-data": {
+    "entries": 5870,
+    "sha256": "695903b3f432457d4864676d51c5bd268fc24f3744e6544ca1233dbb9b1c6e7d"
+  },
+  "phrase-data": {
+    "entries": 1,
+    "sha256": "162e655c07af98d0014f499fd32b6d8cdb915d324c7cbe53ad9e8cbbad2a68ba"
+  },
+  "work-data": {
+    "entries": 3806,
+    "sha256": "c796ba6f6b3f16c3582d53822811c84d756495ea782ee276b7cd7024ceaca2bc"
+  },
+  "novel-dict": {
+    "entries": 5,
+    "sha256": "e6efaa7742139d88c8ee734b4e6f83566f290d4baccc56ce6b046d3ed4cdfed6"
+  },
+  "grammar-data": {
+    "entries": 1,
+    "sha256": "e955bb9b92fd39021c9c46d1600370b7d31abf94f3faff6f94d0c21d5ad4e6a1"
+  }
+}
