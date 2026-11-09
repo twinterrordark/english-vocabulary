@@ -31,5 +31,7 @@ def units(topic_id, topic):
                 "meaning": meaning,
                 "examples": [example[:2]] if example else lesson["examples"],
             }
+            if lesson.get("level"):
+                unit["level"] = lesson["level"]
             result.append(unit)
     return result

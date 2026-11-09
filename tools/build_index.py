@@ -27,7 +27,7 @@ SENTENCE_DIR = Path(__file__).resolve().parent / "sentences"
 HERE = Path(__file__).resolve().parent
 IMAGE_DIR = HERE / "images"
 OUTPUT = ROOT / "index.html"
-APP_VERSION = "2.5.2"
+APP_VERSION = "2.6.0"
 
 
 def plain_text(fragment: str) -> str:
@@ -525,12 +525,16 @@ def main() -> None:
     # Each topic is a learning path of units; units get their example sentences from the novels.
     sys.path.insert(0, str(HERE / "grammar"))
     from units import units
+    from core_course import core_topics
     book_examples = json.loads((HERE / "grammar" / "book_examples.json").read_text(encoding="utf-8"))
     book_examples.pop("_comment")
     topics = []
-    for topic_id, file_name, badge, novel in (("cj", "conjunctions", "&", False), ("vb", "verbs", "GET", False),
-                                              ("pv", "phrasal_verbs", "UP", False), ("rc", "relative_clauses", "WHO", True)):
-        topic = json.loads((HERE / "grammar" / f"{file_name}.json").read_text(encoding="utf-8"))
+    course = [(topic["id"], topic["id"], topic["badge"], False, topic) for topic in core_topics()]
+    course.extend((topic_id, file_name, badge, novel, None) for topic_id, file_name, badge, novel in (
+        ("cj", "conjunctions", "&", False), ("vb", "verbs", "GET", False),
+        ("pv", "phrasal_verbs", "UP", False), ("rc", "relative_clauses", "WHO", True)))
+    for topic_id, file_name, badge, novel, supplied in course:
+        topic = supplied if supplied is not None else json.loads((HERE / "grammar" / f"{file_name}.json").read_text(encoding="utf-8"))
         topic.update(id=topic_id, badge=badge, novel=novel, units=units(topic_id, topic))
         set_ids = {exercise_set["id"] for exercise_set in topic["sets"]}
         for exercise_set in topic["sets"]:
