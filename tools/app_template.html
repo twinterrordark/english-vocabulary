@@ -566,6 +566,22 @@ mark.vocab { background: var(--mark); color: inherit; padding: 0 2px; border-rad
 .gram-forms dd { margin: 0; overflow-wrap: anywhere; }
 .gram-tip { margin: 0; padding: 12px; border-left: 3px solid var(--primary); border-radius: 6px; background: var(--primary-soft); line-height: 1.5; }
 .gram-mistake { border-left-color: var(--secondary); background: var(--surface-2); }
+.gram-contents { padding: var(--space-3); border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
+.gram-contents p { margin: 0 0 8px; font-weight: 700; }
+.gram-contents div { display: flex; flex-wrap: wrap; gap: 8px; }
+.gram-contents button { padding: 7px 10px; min-height: 40px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface-2); color: var(--accent-text); font: inherit; font-size: .85rem; cursor: pointer; }
+.gram-explanation { scroll-margin-top: 96px; padding: var(--space-4); border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
+.gram-explanation h3 { margin: 0 0 12px; font-size: 1.08rem; line-height: 1.4; }
+.gram-explanation p { margin: 0 0 12px; line-height: 1.75; overflow-wrap: break-word; }
+.gram-explanation p:last-child { margin-bottom: 0; }
+.gram-analysis { display: block; margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--line); color: var(--text); font: .92rem/1.65 var(--font); }
+.gram-examples .icon-button { align-self: flex-start; }
+.gram-comparisons { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); gap: 12px; }
+.gram-comparison { padding: var(--space-3); border: 1px solid var(--line); border-radius: 12px; background: var(--surface-2); }
+.gram-comparison p { margin: 8px 0 0; line-height: 1.6; }
+.gram-glossary { padding: 12px; border: 1px solid var(--line); border-radius: 12px; }
+.gram-glossary summary { cursor: pointer; font-weight: 600; }
+.gram-glossary p { line-height: 1.65; }
 @media (max-width: 480px) { .gram-filters { grid-template-columns: minmax(0, 1fr); } .gram-forms div { grid-template-columns: 1fr; gap: 2px; } }
 .gram-topic { display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3) var(--space-4); border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); color: var(--text); text-decoration: none; box-shadow: var(--shadow); }
 .gram-topic:hover { border-color: var(--primary); }
@@ -2634,6 +2650,7 @@ const STRINGS = {
     'nav.grammar': 'Grammar', 'mode.grammar': 'Tenses, sentence structures, modals, conditionals, passive voice and more, with explained exercises.',
     'grammar.title': 'Grammar and writing', 'grammar.lead': 'Pick a topic: read the lesson, then test yourself with the exercises.',
     'grammar.search': 'Search topics and lessons', 'grammar.searchPh': 'e.g. Present Perfect, articles…', 'grammar.level': 'Study level', 'grammar.allLevels': 'All levels', 'grammar.matches': '{t} topics · {n} lessons', 'grammar.empty': 'No matching lesson. Try another search or level.', 'grammar.signals': 'Time and context', 'grammar.mistake': 'Common mistake', 'grammar.sources': 'Further grammar reference',
+    'grammar.contents': 'In this lesson', 'grammar.analysis': 'Why this structure?', 'grammar.comparison': 'Compare the meanings', 'grammar.glossary': 'Grammar terms and verb forms', 'grammar.glossaryText': 'The subject is who or what the sentence is about; the object receives an action. An auxiliary helps form questions, negatives or a tense. V1 is the base form (go), V2 the past form (went), V3 the past participle (gone), and V-ing the -ing form (going). Regular verbs usually have the same V2 and V3 (worked); irregular forms must be learned with the verb.',
     'grammar.back': 'All topics', 'grammar.count': '{l} lessons · {n} questions', 'grammar.setsDone': '{d}/{n} sets done',
     'story.lead': 'Write short stories in English and have their grammar checked.', 'story.count': '{n} stories',
     'grammar.section': 'Section', 'grammar.rc': 'Relative clauses', 'grammar.write': 'Write a story', 'grammar.lessons': 'Learning path', 'grammar.practice': 'Review', 'grammar.fromNovel': 'From your novel',
@@ -2856,6 +2873,7 @@ const STRINGS = {
     'nav.grammar': 'Gramer', 'mode.grammar': 'Zamanlar, cümle yapıları, modallar, koşul cümleleri, passive ve diğer konular; açıklamalı alıştırmalarla.',
     'grammar.title': 'Gramer ve yazma', 'grammar.lead': 'Bir konu seç: önce konu anlatımını oku, sonra alıştırmalarla kendini dene.',
     'grammar.search': 'Konu ve ders ara', 'grammar.searchPh': 'Örn. Present Perfect, articles, koşul…', 'grammar.level': 'Çalışma düzeyi', 'grammar.allLevels': 'Tüm düzeyler', 'grammar.matches': '{t} konu · {n} ders', 'grammar.empty': 'Eşleşen ders yok. Başka bir kelime veya düzey dene.', 'grammar.signals': 'Zaman ve bağlam', 'grammar.mistake': 'Sık yapılan hata', 'grammar.sources': 'Ek gramer kaynağı',
+    'grammar.contents': 'Bu derste', 'grammar.analysis': 'Neden bu yapı?', 'grammar.comparison': 'Anlamları karşılaştır', 'grammar.glossary': 'Terimler ve fiil biçimleri', 'grammar.glossaryText': 'Özne, cümlenin hakkında bilgi verdiği kişi/şeydir; nesne ise eylemin yöneldiği kişi/şey olabilir. Yardımcı fiil soru, olumsuzluk veya zaman yapısını kurmaya yardım eder. V1 yalın fiil (go), V2 geçmiş biçimi (went), V3 üçüncü biçim/past participle (gone), V-ing ise -ing biçimidir (going). Düzenli fiillerde V2 ve V3 genellikle aynıdır (worked); düzensizlerde fiille birlikte öğrenilir.',
     'grammar.back': 'Tüm konular', 'grammar.count': '{l} ders · {n} soru', 'grammar.setsDone': '{d}/{n} set tamam',
     'story.lead': 'İngilizce kısa hikâyeler yaz ve dilbilgisini denetlet.', 'story.count': '{n} hikâye',
     'grammar.section': 'Bölüm', 'grammar.rc': 'Relative clauses', 'grammar.write': 'Hikâye yaz', 'grammar.lessons': 'Ders yolu', 'grammar.practice': 'Genel tekrar', 'grammar.fromNovel': 'Romanından örnekler',
@@ -7045,7 +7063,10 @@ const Grammar = {
         stories ? h('small', { text: t('story.count', { n: stories }) }) : null))));
     $('#gram-topics').replaceChildren(...cards);
   },
-  topicText(topic, unit) { return unit.meaning + ' ' + (topic.lessons[unit.lesson].text || ''); },
+  topicText(topic, unit) {
+    const lesson = topic.lessons[unit.lesson];
+    return [unit.meaning, lesson.text || '', ...(lesson.sections || []).flatMap(section => [section.title, ...section.paragraphs])].join(' ');
+  },
   say(text) { if (Speech.hasTTS) Speech.speakNow(text); else Speech.speak(text); },
   tab(name) {
     this.tabName = name;
@@ -7075,12 +7096,13 @@ const Grammar = {
     return node;
   },
   spoken(text) { return text.replace(/[[\]]/g, '').replace(/\//g, ' or '); },
-  exampleList(examples) {
+  exampleList(examples, notes = {}) {
     return h('ul', { class: 'gram-examples' }, examples.map(([en, tr, label]) => h('li', {},
       h('div', { class: 'gram-ex' },
         label ? h('span', { class: 'gram-label', lang: 'tr', text: label }) : null,
         this.marked(en, en.includes('[')),
-        h('span', { class: 'gram-tr', lang: 'tr', text: tr })),
+        h('span', { class: 'gram-tr', lang: 'tr', text: tr }),
+        notes[en] ? h('span', { class: 'gram-analysis', lang: 'tr' }, h('strong', { text: t('grammar.analysis') + ' ' }), notes[en]) : null),
       h('button', { type: 'button', class: 'icon-button', 'data-say': this.spoken(en), 'aria-label': t('tutor.listen') }, icon('sound')))));
   },
   /* ---- Learning path: the topic's units in order; each opens once the one before is learned. */
@@ -7168,14 +7190,23 @@ const Grammar = {
     const firstOfLesson = this.topic.units.findIndex(u => u.lesson === unit.lesson) === this.unit;
     return h('div', { class: 'gram-step' },
       lesson.level ? h('span', { class: 'gram-level', text: lesson.level }) : null,
+      lesson.sections ? h('nav', { class: 'gram-contents', 'aria-label': t('grammar.contents') },
+        h('p', { text: t('grammar.contents') }),
+        h('div', {}, lesson.sections.map((section, index) => h('button', { type: 'button', 'data-section': 'gram-section-' + index, text: section.title })))) : null,
       items
         ? h('details', { class: 'gram-rule', open: firstOfLesson ? true : null }, h('summary', { text: t('grammar.rule', { title: lesson.title }) }), h('p', { lang: 'tr', text: lesson.text }))
         : h('p', { class: 'gram-rule-text', lang: 'tr', text: lesson.text }),
       lesson.forms ? h('dl', { class: 'gram-forms' }, lesson.forms.map(([label, pattern]) => h('div', {}, h('dt', { text: label }), h('dd', { lang: 'en', text: pattern })))) : null,
+      lesson.sections ? h('details', { class: 'gram-glossary' }, h('summary', { text: t('grammar.glossary') }), h('p', { text: t('grammar.glossaryText') })) : null,
+      ...(lesson.sections || []).map((section, index) => h('section', { class: 'gram-explanation', id: 'gram-section-' + index, lang: 'tr' },
+        h('h3', { tabindex: '-1', text: section.title }), ...section.paragraphs.map(text => h('p', { text })))),
       lesson.signals ? h('p', { class: 'gram-tip' }, h('strong', { text: t('grammar.signals') + ': ' }), lesson.signals) : null,
       lesson.mistake ? h('p', { class: 'gram-tip gram-mistake' }, h('strong', { text: t('grammar.mistake') + ': ' }), lesson.mistake) : null,
       h('h3', { text: t('grammar.examples') }),
-      this.exampleList(unit.examples),
+      this.exampleList(unit.examples, lesson.exampleNotes),
+      lesson.comparisons ? h('section', { class: 'gram-explanation' }, h('h3', { text: t('grammar.comparison') }),
+        h('div', { class: 'gram-comparisons' }, lesson.comparisons.map(([en, tr, why]) => h('article', { class: 'gram-comparison' },
+          this.marked(en, en.includes('[')), h('p', { class: 'gram-tr', lang: 'tr', text: tr }), h('p', { lang: 'tr', text: why }))))) : null,
       this.topic.reference ? h('a', { class: 'link-button', href: this.topic.source, target: '_blank', rel: 'noopener noreferrer', text: t('grammar.sources') + ' · British Council' }) : null,
       h('div', { class: 'gram-actions' }, h('button', { type: 'button', class: 'button primary', 'data-step': hasBook ? 2 : 3 },
         h('span', { text: t(hasBook ? 'grammar.toBook' : 'grammar.toTest') }), icon('next'))));
@@ -7201,6 +7232,11 @@ const Grammar = {
   unitClick(event) {
     const target = event.target.closest('button');
     if (!target) return;
+    if (target.dataset.section) {
+      const section = document.getElementById(target.dataset.section);
+      if (section) { section.scrollIntoView({ block: 'start' }); section.querySelector('h3').focus({ preventScroll: true }); }
+      return;
+    }
     if (target.dataset.step) { this.step(Number(target.dataset.step)); return; }
     const quote = target.closest('.gram-quote');
     if (quote) {

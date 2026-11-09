@@ -23,6 +23,10 @@ for (const topic of added) {
     assert.equal(lesson.forms.length, 3);
     assert(lesson.forms.every(row => row.length === 2 && row.every(Boolean)));
     assert(lesson.examples.length >= 2);
+    assert(lesson.sections.length >= 3);
+    assert.equal(lesson.comparisons.length, 2);
+    assert(lesson.sections.every(section => section.title && section.paragraphs.every(Boolean)));
+    assert(lesson.examples.every(([en]) => lesson.exampleNotes[en]));
     const set = topic.sets.find(set => set.id === lesson.quiz.set);
     assert(set && set.items.length === 4);
     for (const item of set.items) {
@@ -69,6 +73,13 @@ const server = http.createServer((req, res) => {
     await page.waitForFunction(() => Grammar.topic?.id === 'tn' && Grammar.unit === 6);
     assert(await page.locator('.gram-forms').isVisible());
     assert(await page.locator('.gram-mistake').isVisible());
+    assert.equal(await page.locator('#gram-unit .gram-analysis').count(), 2);
+    assert.equal(await page.locator('#gram-unit .gram-comparison').count(), 2);
+    const currentHash = await page.evaluate(() => location.hash);
+    await page.locator('#gram-unit .gram-contents button').last().click();
+    assert.equal(await page.evaluate(() => location.hash), currentHash);
+    assert.equal(await page.locator('#gram-section-3 h3').evaluate(heading => heading === document.activeElement), true);
+    assert(await page.locator('#gram-section-3').isVisible());
     assert.equal(await page.locator('#gram-filters').isVisible(), false);
     // A reference lesson opens directly before earlier lessons have been completed.
     await navigate('tn', 16);
@@ -105,6 +116,9 @@ const server = http.createServer((req, res) => {
         const unit = Grammar.topic.units[Grammar.unit];
         if (document.querySelectorAll('#gram-unit .gram-forms div').length !== 3) throw new Error('Missing form reference: ' + unit.id);
         if (document.querySelectorAll('#gram-unit .gram-examples li').length < 2) throw new Error('Missing examples: ' + unit.id);
+        if (document.querySelectorAll('#gram-unit .gram-analysis').length !== 2) throw new Error('Missing worked examples: ' + unit.id);
+        if (document.querySelectorAll('#gram-unit .gram-comparison').length !== 2) throw new Error('Missing comparisons: ' + unit.id);
+        if (document.querySelectorAll('#gram-unit .gram-explanation').length < 4) throw new Error('Missing detailed explanation: ' + unit.id);
         document.querySelector('#gram-unit [data-step="3"]').click();
         for (let i = 0; i < 3; i++) {
           const answer = Grammar.run.items[Grammar.run.at].answer;

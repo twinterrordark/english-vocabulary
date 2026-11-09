@@ -27,7 +27,7 @@ SENTENCE_DIR = Path(__file__).resolve().parent / "sentences"
 HERE = Path(__file__).resolve().parent
 IMAGE_DIR = HERE / "images"
 OUTPUT = ROOT / "index.html"
-APP_VERSION = "2.6.0"
+APP_VERSION = "2.6.1"
 
 
 def plain_text(fragment: str) -> str:
@@ -526,6 +526,7 @@ def main() -> None:
     sys.path.insert(0, str(HERE / "grammar"))
     from units import units
     from core_course import core_topics
+    from explanations import enrich_lessons
     book_examples = json.loads((HERE / "grammar" / "book_examples.json").read_text(encoding="utf-8"))
     book_examples.pop("_comment")
     topics = []
@@ -535,6 +536,7 @@ def main() -> None:
         ("pv", "phrasal_verbs", "UP", False), ("rc", "relative_clauses", "WHO", True)))
     for topic_id, file_name, badge, novel, supplied in course:
         topic = supplied if supplied is not None else json.loads((HERE / "grammar" / f"{file_name}.json").read_text(encoding="utf-8"))
+        enrich_lessons(topic_id, topic)
         topic.update(id=topic_id, badge=badge, novel=novel, units=units(topic_id, topic))
         set_ids = {exercise_set["id"] for exercise_set in topic["sets"]}
         for exercise_set in topic["sets"]:
