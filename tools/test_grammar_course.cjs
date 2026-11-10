@@ -162,6 +162,10 @@ const server = http.createServer((req, res) => {
     await page.locator('#gram-search').fill('zaman');
     assert.equal(await page.locator('#gram-topics .gram-topic').first().getAttribute('href'), '#grammar/tn');
     assert(await page.locator('#gram-search').isVisible());
+    const overflow = await page.evaluate(() => ({ width: innerWidth, scrollWidth: document.documentElement.scrollWidth,
+      elements: [...document.querySelectorAll('header *, main input, main select, main button')].filter(el => el.getClientRects().length && el.getBoundingClientRect().right > innerWidth + 1)
+        .map(el => ({ tag: el.tagName, id: el.id, className: typeof el.className === 'string' ? el.className : '', text: (el.textContent || '').slice(0, 60), right: Math.round(el.getBoundingClientRect().right) })).slice(0, 15) }));
+    if (overflow.scrollWidth > overflow.width) console.log('Mobile overflow diagnostics:', JSON.stringify(overflow));
     assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false);
     if (process.env.GRAMMAR_SCREENSHOT_DIR) await page.screenshot({ path: path.join(process.env.GRAMMAR_SCREENSHOT_DIR, 'grammar-search-mobile.png') });
     await navigate('tn', 6);

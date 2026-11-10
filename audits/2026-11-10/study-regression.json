@@ -1,0 +1,71 @@
+{
+  "results": [
+    {
+      "name": "Opening activities does not complete them; daily plan and library hierarchy"
+    },
+    {
+      "name": "Actual distinct card answers complete recall practice; duplicates do not count",
+      "detail": {
+        "target": 8
+      }
+    },
+    {
+      "name": "Passing the real grammar unit test completes the grammar step"
+    },
+    {
+      "name": "Assigned graded reading opens alone; comprehension requires correct answers",
+      "detail": {
+        "passage": "missed-bus"
+      }
+    },
+    {
+      "name": "Writing validation, local draft persistence and feedback handoff"
+    },
+    {
+      "name": "Typed recall: errors, persistent hints, intervening questions, first-attempt honesty and completion"
+    },
+    {
+      "name": "Progress export and validated import include the guided study record"
+    },
+    {
+      "name": "A new local day starts fresh while history and the current plan survive reload"
+    },
+    {
+      "name": "All four vocabulary paths and three daily durations can be selected"
+    },
+    {
+      "name": "Reading library presents nine compact, level-filtered texts"
+    },
+    {
+      "name": "Microphone denial falls back to writing; late permission and active recordings release tracks",
+      "detail": {
+        "simulatedMedia": true
+      }
+    },
+    {
+      "name": "Successful learner turns count as output; AI feedback has no invented accuracy percentage",
+      "detail": {
+        "simulatedAI": true
+      }
+    },
+    {
+      "name": "Collapsed desktop navigation retains accessible link names"
+    },
+    {
+      "name": "Both languages, both themes and four viewport widths",
+      "detail": {
+        "viewportChecks": 56,
+        "accessibilityScans": 14
+      }
+    },
+    {
+      "name": "Unavailable storage and standalone file:// guided study"
+    },
+    {
+      "name": "No uncaught JavaScript errors"
+    }
+  ],
+  "errors": [],
+  "simulatedMedia": true,
+  "simulatedAI": true
+}

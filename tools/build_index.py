@@ -27,7 +27,7 @@ SENTENCE_DIR = Path(__file__).resolve().parent / "sentences"
 HERE = Path(__file__).resolve().parent
 IMAGE_DIR = HERE / "images"
 OUTPUT = ROOT / "index.html"
-APP_VERSION = "2.7.1"
+APP_VERSION = "2.8.0"
 
 
 def plain_text(fragment: str) -> str:
@@ -559,7 +559,7 @@ def main() -> None:
     print(f"speaking room   {len(speak_topics)} topics, {sum(len(t['questions']) for t in speak_topics)} questions")
 
     interactive_js, interactive_css = {}, []
-    for name in ("grammar_try", "visual_scenes", "novel_quick_review"):
+    for name in ("grammar_try", "visual_scenes", "novel_quick_review", "study_plan"):
         js = (HERE / f"{name}.js").read_text(encoding="utf-8")
         css = (HERE / f"{name}.css").read_text(encoding="utf-8")
         if "</script" in js.lower() or "</style" in css.lower():
@@ -567,6 +567,17 @@ def main() -> None:
         interactive_js[name] = js
         interactive_css.append(css)
     template = turkish_static_text(TEMPLATE.read_text(encoding="utf-8"), counts)
+    study_readings = json.loads((HERE / "study_readings.json").read_text(encoding="utf-8"))
+    if len({passage["id"] for passage in study_readings}) != len(study_readings):
+        sys.exit("Study readings must have unique IDs")
+    for passage in study_readings:
+        if passage["level"] not in LEVEL_ORDER or not passage["paragraphs"] or not passage["questions"]:
+            sys.exit("Study reading has missing content")
+        if any(len(pair) != 2 or not all(isinstance(s, str) and s.strip() for s in pair) for pair in passage["paragraphs"]):
+            sys.exit("Study reading has invalid English/Turkish paragraphs")
+        for question in passage["questions"]:
+            if not isinstance(question["answer"], int) or not 0 <= question["answer"] < len(question["options"]) or len(set(question["options"])) != len(question["options"]):
+                sys.exit("Study reading has invalid answer options")
     output = (template
               .replace("<!--@VOCAB_DATA@-->", json_for_script(entries))
               .replace("<!--@WORK_DATA@-->", json_for_script(work_words))
@@ -584,6 +595,8 @@ def main() -> None:
               .replace("/*@GRAMMAR_TRY_JS@*/", interactive_js["grammar_try"])
               .replace("/*@VISUAL_SCENES_JS@*/", interactive_js["visual_scenes"])
               .replace("/*@NOVEL_QUICK_REVIEW_JS@*/", interactive_js["novel_quick_review"])
+              .replace("/*@STUDY_PLAN_JS@*/", interactive_js["study_plan"])
+              .replace("/*@STUDY_READINGS@*/", json_for_script(study_readings))
               .replace("/*@FONT_FACES@*/", font_faces())
               .replace("@APP_VERSION@", APP_VERSION)
               .replace("<!--@PDFJS_LIB@-->", pdfjs_lib)

@@ -714,3 +714,48 @@ state is recorded in the repository's GitHub Actions history.
 Audit tooling is optional and lives in `tools/audit_*.cjs`,
 `tools/audit_inventory.py`, `tools/test_usability.cjs` and
 `tools/build_audit_report.py`; its npm dependencies are ignored in `.audit-deps/`.
+
+## Guided general English — v2.8.0 (2026-11-10)
+
+- Home now presents one daily path: recall cards, test a grammar structure,
+  understand a reading/listening text, produce an explanation, then retrieve
+  vocabulary without answer options. The desktop summary uses a second column;
+  all existing decks and review settings remain in an expandable library.
+- The plan defaults to 30 minutes, with 15/45 minute options. Its vocabulary path
+  follows an explicit existing preference or starts at A2; this is a selectable
+  study path, not a measured CEFR level. Approximate time allocations are design
+  defaults, not a validated personal learning prescription.
+- Completion comes from distinct review answers, a passed grammar test, correct
+  comprehension answers, saved writing or speaking practice, and unassisted typed
+  retrieval. Visiting an activity does not complete it. The current plan stays
+  stable through reloads, and each local day gets a new record.
+- Added six original bilingual passages (estimated A2/B2/C1), bringing the
+  compact, level-filtered reading/listening library to nine texts and 27 questions.
+  Production prompts connect the reading to the learner's own life or opinion.
+- Typed retrieval distinguishes wrong, hinted and first unassisted answers.
+  Missed items return after intervening words, enter the review pool and can be
+  prioritised in a later check. This exercise does not silently mark words learned.
+- Writing drafts stay local and can be opened in the existing feedback editor.
+  Speaking uses a local MediaRecorder recording with playback; it never uploads
+  that audio. Leaving stops microphone tracks, and reset/import/plan changes
+  discard recordings. Duration is an activity measure, not a proficiency score.
+- Removed the AI teacher's invented accuracy percentage and native-speaker claim.
+  The UI shows the actual revision suggestion and ready/thinking/listening state.
+  The optional online teacher remains subject to its existing service availability.
+- Guided-study state is validated, included in progress export/import and cleared
+  with progress reset. Unavailable storage and standalone `file://` work.
+- Fixed the mobile header with populated XP totals and accessible names in the
+  collapsed desktop sidebar. Points/quests are secondary on the practice page.
+
+Implementation: `tools/study_plan.js`, `tools/study_plan.css` and
+`tools/study_readings.json`, bundled into the standalone `index.html` by the
+existing builder. No framework or runtime dependency was added. Original card
+markup, embedded images and pre-existing JSON learning data are preserved.
+
+Validation is recorded in `audits/2026-11-10/`: the new end-to-end study checks,
+both themes at four widths, axe scans, and existing grammar-course,
+interactive-learning and novel-reader suites. Media permission/lifecycle and AI
+reply tests use explicit test doubles; real microphone/audio quality and real
+screen-reader operation were not tested. See
+[`learning-review.html`](audits/2026-11-10/learning-review.html) for the design
+review, screenshots, rationale and limitations.

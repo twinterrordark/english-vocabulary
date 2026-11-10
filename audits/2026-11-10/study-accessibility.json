@@ -1,0 +1,72 @@
+[
+  {
+    "theme": "light",
+    "route": "home",
+    "violations": []
+  },
+  {
+    "theme": "light",
+    "route": "study/output",
+    "violations": []
+  },
+  {
+    "theme": "light",
+    "route": "study/speak",
+    "violations": []
+  },
+  {
+    "theme": "light",
+    "route": "study/recall",
+    "violations": []
+  },
+  {
+    "theme": "light",
+    "route": "reading",
+    "violations": []
+  },
+  {
+    "theme": "light",
+    "route": "reading/measuring-progress",
+    "violations": []
+  },
+  {
+    "theme": "light",
+    "route": "practice",
+    "violations": []
+  },
+  {
+    "theme": "dark",
+    "route": "home",
+    "violations": []
+  },
+  {
+    "theme": "dark",
+    "route": "study/output",
+    "violations": []
+  },
+  {
+    "theme": "dark",
+    "route": "study/speak",
+    "violations": []
+  },
+  {
+    "theme": "dark",
+    "route": "study/recall",
+    "violations": []
+  },
+  {
+    "theme": "dark",
+    "route": "reading",
+    "violations": []
+  },
+  {
+    "theme": "dark",
+    "route": "reading/measuring-progress",
+    "violations": []
+  },
+  {
+    "theme": "dark",
+    "route": "practice",
+    "violations": []
+  }
+]

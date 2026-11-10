@@ -3,7 +3,7 @@
 <head>
 <!-- ======================================================================
   1. DOCUMENT METADATA AND THEME
-  English Study · version 2.7.1
+  English Study · version 2.8.0
   Generated from b1-b2-kelimeler-responsive.html by tools/build_index.py.
   Runs directly from this one file: no server, build step or network needed.
 ====================================================================== -->
@@ -647,6 +647,81 @@ mark.vocab { background: var(--mark); color: inherit; padding: 0 2px; border-rad
 .nqr-feedback.is-correct { font-weight: 700; }
 .nqr-result { font-weight: 600; }
 @media (max-width: 480px) { .novel-quick-review { margin: 1rem 0; padding: .85rem; } .nqr-actions .nqr-button { flex: 1 1 130px; } }
+
+/* Guided study uses the existing theme and touch tokens. */
+body .view[data-view="home"] { max-width: none; }
+.home-layout { display: grid; gap: 24px; }
+.home-summary { display: grid; gap: 16px; align-content: start; }
+.home-summary .week-card { margin: 0; }
+.home-summary .stats { grid-template-columns: 1fr; margin: 0; }
+.home-summary .stat { padding: 12px 0; border: 0; border-radius: 0; box-shadow: none; background: transparent; }
+.home-summary .stat + .stat { border-top: 1px solid var(--line); }
+.home-summary .stat dd { font-size: 1.5rem; }
+.home-summary .section-title { margin-top: 0; }
+.home-summary .today-rows { margin: 0; }
+.home-layout > * { min-width: 0; }
+@media(min-width:1200px) { .home-layout { grid-template-columns: minmax(0,1.6fr) minmax(280px,1fr); } }
+.study-home { margin-bottom: var(--space-5); padding: var(--space-4); border: 1px solid var(--line); border-radius: var(--radius-l); background: var(--surface); box-shadow: var(--shadow); }
+.study-heading { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+.study-heading h2 { margin-bottom: 6px; }
+.study-heading .chip { flex: none; }
+.study-home .lead { margin-bottom: 16px; }
+.study-options { margin: 12px 0 16px; }
+.study-options summary { cursor: pointer; min-height: 44px; padding-block: 10px; font-weight: 700; }
+.study-fields { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px; padding-block: 8px; }
+.study-fields select { min-height: 44px; }
+.study-steps { list-style: none; display: grid; gap: 8px; padding: 0; margin: 16px 0; }
+.study-step { display: flex; align-items: center; gap: 12px; padding: 12px; border: 1px solid var(--line); border-radius: 14px; min-width: 0; }
+.study-step.is-next { border-color: var(--primary); background: var(--primary-soft); }
+.study-step.is-done { background: var(--surface-2); }
+.study-step-number { display: grid; place-items: center; flex: none; width: 32px; height: 32px; border-radius: 50%; background: var(--surface-3); color: var(--text); font-weight: 800; }
+.study-step.is-done .study-step-number { background: var(--primary); color: var(--on-primary); }
+.study-step-text { display: grid; gap: 3px; flex: 1; min-width: 0; }
+.study-step-text small { font-size: .83rem; color: var(--muted); }
+.study-step > a { display: grid; place-items: center; flex: none; min-width: 44px; min-height: 44px; padding: 8px; border-radius: 10px; color: var(--accent-text); text-decoration: none; }
+.study-step > a:hover { background: var(--surface); }
+.study-start { width: 100%; min-height: 52px; }
+.study-meter { display: flex; justify-content: space-between; gap: 12px; font-size: .85rem; margin-top: 16px; }
+.study-home progress, .home-summary .stat progress { appearance: none; display: block; width: 100%; height: 8px; overflow: hidden; border: 0; border-radius: 99px; background: var(--surface-3); accent-color: var(--primary); }
+.study-home progress::-webkit-progress-bar, .home-summary .stat progress::-webkit-progress-bar { background: var(--surface-3); border-radius: 99px; }
+.study-home progress::-webkit-progress-value, .home-summary .stat progress::-webkit-progress-value { background: var(--primary); border-radius: 99px; }
+.study-home progress::-moz-progress-bar, .home-summary .stat progress::-moz-progress-bar { background: var(--primary); border-radius: 99px; }
+.study-note { margin: 10px 0 0; color: var(--muted); font-size: .85rem; }
+.study-library { margin-block: var(--space-5); }
+.study-library > summary { min-height: 48px; cursor: pointer; padding: 12px; border: 1px solid var(--line); border-radius: 12px; font-weight: 700; background: var(--surface); }
+.study-library[open] > summary { margin-bottom: 16px; }
+.study-workspace { max-width: 760px; }
+.study-workspace .panel { margin-block: 16px; }
+.study-mode { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+.study-prompt { padding: 16px; border-radius: 14px; background: var(--secondary-soft); color: var(--text); margin-bottom: 16px; }
+.study-prompt p { margin-bottom: 8px; }
+.study-prompt ul { margin: 8px 0 0; padding-left: 20px; }
+.study-prompt li { margin-block: 6px; }
+.study-workspace textarea { min-height: 180px; }
+.study-workspace .choice-q { margin-block: 16px; }
+.study-recall-meaning { margin: 12px 0; font-size: 1.6rem; font-weight: 800; }
+.study-recall-feedback { margin-block: 16px; padding: 16px; border-radius: 12px; background: var(--surface-2); }
+.study-recall-feedback.is-correct { background: var(--success-soft); }
+.study-recall-feedback.is-wrong { background: var(--error-soft); }
+.study-recall-feedback h2 { font-size: 1.3rem; }
+.study-recall-form { display: grid; gap: 12px; }
+.study-feedback { min-height: 1.5em; margin-top: 12px; }
+.study-record { display: grid; gap: 12px; }
+.study-record audio { width: 100%; }
+.study-record-time { font: 800 2rem/1.2 var(--font-display); font-variant-numeric: tabular-nums; }
+.study-activity { padding: 12px; border-radius: 12px; background: var(--surface-2); margin-block: 16px; }
+.study-return { display: inline-flex; align-items: center; min-height: 44px; margin-bottom: 12px; }
+.practice-bonus { margin-top: 20px; }
+.practice-bonus > summary { min-height: 44px; padding: 12px; border-radius: 12px; background: var(--surface); color: var(--muted); cursor: pointer; font-weight: 700; }
+.practice-bonus[open] > summary { margin-bottom: 16px; }
+.study-practice-intro h2 { font-size: 1.3rem; }
+.study-reading-context { padding: 16px; border: 1px solid var(--line); border-radius: 14px; margin-bottom: 16px; }
+.reading-level-field { max-width: 360px; margin-bottom: 20px; }
+.reading-library { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit,minmax(min(100%,280px),1fr)); align-items: stretch; }
+.reading-tile { display: flex; flex-direction: column; align-items: flex-start; margin: 0; }
+.reading-tile h2 { margin-top: 12px; }
+.reading-tile .button { margin-top: auto; }
+@media(max-width:480px) { .study-fields { grid-template-columns: 1fr; } .study-step { gap: 8px; padding: 10px; } .study-heading { flex-wrap: wrap; } }
 
 .gram-filters { display: grid; grid-template-columns: minmax(0, 1fr) minmax(120px, 180px); gap: var(--space-3); max-width: 760px; margin-bottom: var(--space-3); }
 .gram-filters[hidden] { display: none; }
@@ -1441,7 +1516,8 @@ body.novel-focus .novel-pop-sentence i { color: var(--paper-text); }
 .pill.xp { background: var(--secondary-soft); color: var(--secondary-text); box-shadow: 0 0 12px rgba(138, 76, 252, .2); }
 .profile-button { display: inline-flex; align-items: center; justify-content: center; gap: 6px; flex: none; min-width: 44px; min-height: 44px; padding: 8px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); color: var(--text); font-weight: 700; font-size: .82rem; cursor: pointer; }
 .profile-button:hover, .profile-button[aria-expanded="true"] { background: var(--primary-soft); border-color: var(--primary); }
-@media (max-width: 374px) { .header-pills .pill.xp { display: none; } .header-inner { gap: 8px; } }
+@media (max-width: 600px) { .header-pills .pill.xp { display: none; } }
+@media (max-width: 374px) { .header-pills { display: none; } .header-inner { gap: 8px; } }
 .profile-face { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: linear-gradient(135deg, #ffddb8, #eaddff); font-size: 1.15rem; box-shadow: 0 0 0 2px var(--surface), 0 0 0 3.5px var(--primary-soft); }
 .profile-face.big { width: 56px; height: 56px; font-size: 1.8rem; }
 .profile-head { display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-4); }
@@ -1881,7 +1957,7 @@ select#today-goal, .tutor-scenario select { min-height: var(--tap); }
 
 <header class="app-header">
   <div class="header-inner">
-    <a class="brand" href="#home">
+    <a class="brand" href="#home" aria-label="WordFlow">
       <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M5 9l4.5 14L14 12l2 6 2-6 4.5 11L27 9" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
       <span><strong>WordFlow</strong><small data-i18n="brand.sub">A2–C1 kelime ve alıştırma</small></span>
     </a>
@@ -1891,6 +1967,7 @@ select#today-goal, .tutor-scenario select { min-height: var(--tap); }
   <nav class="tabs" aria-label="Ana menü" data-i18n-aria="nav.label">
     <span class="nav-group" data-i18n="nav.groupDaily">Günlük</span>
     <a href="#home" data-route="home"><svg class="icon" aria-hidden="true"><use href="#i-home"/></svg><span data-i18n="nav.home">Ana sayfa</span></a>
+    <a href="#study/output" data-route="study"><svg class="icon" aria-hidden="true"><use href="#i-pen"/></svg><span data-i18n="nav.study">Rehberli çalışma</span></a>
     <a href="#review" data-route="review"><svg class="icon" aria-hidden="true"><use href="#i-repeat"/></svg><span data-i18n="nav.review">Tekrar</span><b class="nav-badge" data-badge hidden></b></a>
     <a href="#practice" data-route="practice"><svg class="icon" aria-hidden="true"><use href="#i-bolt"/></svg><span data-i18n="nav.practice">Pratik</span></a>
     <a href="#rankings" data-route="rankings"><svg class="icon" aria-hidden="true"><use href="#i-chart"/></svg><span data-i18n="nav.rankings">Sıralama</span></a>
@@ -1931,11 +2008,12 @@ select#today-goal, .tutor-scenario select { min-height: var(--tap); }
   <div class="more-panel">
     <div class="profile-head">
       <span class="profile-face big" aria-hidden="true">🙂</span>
-      <div><h2 id="more-title" data-i18n="nav.profileTitle">Profilin</h2><p id="profile-summary"></p></div>
+      <div><h2 id="more-title" data-i18n="nav.profileTitle">Çalışma menüsü</h2><p id="profile-summary"></p></div>
       <button type="button" class="icon-button" id="theme-quick" aria-label="Koyu temaya geç" data-i18n-aria="theme.toDark"><svg class="icon"><use href="#i-moon"/></svg></button>
       <button type="button" class="icon-button" data-close aria-label="Kapat" data-i18n-aria="novel.close"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
     </div>
     <div class="more-grid">
+      <a href="#study/output" data-route="study"><svg class="icon" aria-hidden="true"><use href="#i-pen"/></svg><span data-i18n="nav.study">Rehberli çalışma</span></a>
       <a href="#grammar" data-route="grammar"><svg class="icon" aria-hidden="true"><use href="#i-pen"/></svg><span data-i18n="nav.grammar">Gramer</span></a>
       <a href="#review" data-route="review"><svg class="icon" aria-hidden="true"><use href="#i-repeat"/></svg><span data-i18n="nav.review">Tekrar</span><b class="nav-badge" data-badge hidden></b></a>
       <a href="#words" data-route="words"><svg class="icon" aria-hidden="true"><use href="#i-words"/></svg><span data-i18n="nav.words">Kelimeler</span></a>
@@ -1969,74 +2047,48 @@ select#today-goal, .tutor-scenario select { min-height: var(--tap); }
   <!-- ====================================================================
     4. LEARNING VIEWS
   ==================================================================== -->
-  <!-- Home / dashboard -->
+  <!-- Home: a guided daily path; the complete library remains available below. -->
   <section class="view" data-view="home" aria-labelledby="home-title">
     <div class="home-head">
-      <div>
-        <span class="eyebrow" data-i18n="home.eyebrow">Günlük hedef</span>
-        <h1 id="home-title" tabindex="-1"></h1>
-      </div>
+      <div><span class="eyebrow" data-i18n="home.eyebrow">Bugünün çalışması</span><h1 id="home-title" tabindex="-1"></h1></div>
       <span class="pill xp home-xp" id="home-xp"></span>
     </div>
-    <div class="goal-card js-only">
-      <div class="goal-ring" aria-hidden="true">
-        <svg viewBox="0 0 36 36"><circle class="goal-track" cx="18" cy="18" r="15.9"/><circle class="goal-fill" id="goal-fill" cx="18" cy="18" r="15.9" pathLength="100"/></svg>
-        <span><strong id="goal-done">0</strong><small id="goal-of">/ 20</small></span>
-      </div>
-      <div class="goal-text">
-        <span class="goal-chip" id="goal-chip"></span>
-        <h2 id="goal-title"></h2>
-        <p id="goal-note"></p>
-        <label class="goal-select"><span class="visually-hidden" data-i18n="today.goalLabel">Günlük hedef</span><select id="today-goal"></select></label>
-      </div>
+    <div class="home-layout js-only">
+      <div id="study-home" class="study-home"></div>
+      <aside class="home-summary" aria-label="İlerlemen" data-i18n-aria="home.progress">
+        <div class="week-card">
+          <div class="week-card-head"><span class="week-icon" aria-hidden="true"><svg class="icon"><use href="#i-trend"/></svg></span>
+            <div><span class="eyebrow" data-i18n="home.weekly">Haftalık performans</span><strong data-i18n="home.weekTitle">Son 7 gün</strong></div>
+            <span class="week-score"><strong id="week-recall">—</strong><small data-i18n="home.recall">hatırlama</small></span>
+          </div>
+          <ol class="today-week" id="today-week" aria-label="Son yedi günde tekrar edilen kartlar" data-i18n-aria="today.weekLabel"></ol>
+        </div>
+        <section class="panel"><h2 class="section-title" data-i18n="home.progress">İlerlemen</h2><dl class="stats" id="stats"></dl></section>
+        <section class="panel"><h2 data-i18n="today.continue">Kaldığın yerden devam et</h2><ul class="today-rows" id="today-continue"></ul></section>
+      </aside>
     </div>
-    <div class="review-hero js-only">
-      <div class="review-hero-top">
-        <span class="review-hero-tag"><svg class="icon" aria-hidden="true"><use href="#i-repeat"/></svg><span data-i18n="home.srs">Aralıklı tekrar</span></span>
-        <span class="review-hero-count" id="hero-count"></span>
+    <details class="study-library js-only">
+      <summary data-i18n="study.library">Tüm desteler ve tekrar ayarları</summary>
+      <div class="goal-card">
+        <div class="goal-ring" aria-hidden="true"><svg viewBox="0 0 36 36"><circle class="goal-track" cx="18" cy="18" r="15.9"/><circle class="goal-fill" id="goal-fill" cx="18" cy="18" r="15.9" pathLength="100"/></svg><span><strong id="goal-done">0</strong><small id="goal-of">/ 20</small></span></div>
+        <div class="goal-text"><span class="goal-chip" id="goal-chip"></span><h2 id="goal-title"></h2><p id="goal-note"></p><label class="goal-select"><span class="visually-hidden" data-i18n="today.goalLabel">Günlük hedef</span><select id="today-goal"></select></label></div>
       </div>
-      <h2 id="hero-title" data-i18n="home.heroTitle">Bugünün tekrarı</h2>
-      <p id="hero-text"></p>
-      <a class="button hero-button" id="hero-start" href="#review"><svg class="icon" aria-hidden="true"><use href="#i-play"/></svg><span id="hero-label"></span></a>
-    </div>
-    <a class="write-card js-only" href="#grammar/write">
-      <span class="write-icon" aria-hidden="true"><svg class="icon"><use href="#i-pen"/></svg></span>
-      <span class="write-text"><span class="eyebrow" data-i18n="home.writeTag">Yazma</span><strong data-i18n="home.writeTitle">Hikâye yaz</strong><span id="home-write-note"></span></span>
-      <span class="button violet write-go"><span data-i18n="home.writeGo">Yaz</span><svg class="icon" aria-hidden="true"><use href="#i-next"/></svg></span>
-    </a>
-    <div class="section-row">
-      <h2><svg class="icon" aria-hidden="true"><use href="#i-cards"/></svg><span data-i18n="home.decks">Kelime desteleri</span></h2>
-      <span class="section-note" id="deck-count"></span>
-    </div>
-    <div class="decks js-only" id="decks"></div>
-    <div class="week-card js-only">
-      <div class="week-card-head">
-        <span class="week-icon" aria-hidden="true"><svg class="icon"><use href="#i-trend"/></svg></span>
-        <div><span class="eyebrow" data-i18n="home.weekly">Haftalık performans</span><strong data-i18n="home.weekTitle">Son 7 gün</strong></div>
-        <span class="week-score"><strong id="week-recall">—</strong><small data-i18n="home.recall">hatırlama</small></span>
+      <div class="review-hero">
+        <div class="review-hero-top"><span class="review-hero-tag"><svg class="icon" aria-hidden="true"><use href="#i-repeat"/></svg><span data-i18n="home.srs">Aralıklı tekrar</span></span><span class="review-hero-count" id="hero-count"></span></div>
+        <h2 id="hero-title" data-i18n="home.heroTitle">Bugünün tekrarı</h2><p id="hero-text"></p>
+        <a class="button hero-button" id="hero-start" href="#review"><svg class="icon" aria-hidden="true"><use href="#i-play"/></svg><span id="hero-label"></span></a>
       </div>
-      <ol class="today-week" id="today-week" aria-label="Son yedi günde tekrar edilen kartlar" data-i18n-aria="today.weekLabel"></ol>
-    </div>
-    <div class="section-row"><h2 data-i18n="today.continue">Kaldığın yerden devam et</h2></div>
-    <ul class="today-rows js-only" id="today-continue"></ul>
-    <h2 class="section-title" data-i18n="home.progress">İlerlemen</h2>
-    <dl class="stats" id="stats"></dl>
-    <details class="panel home-path">
-      <summary data-i18n="home.path">Çalışma yolu</summary>
-      <div class="field">
-        <label for="path-select" data-i18n="home.path">Çalışma yolu</label>
-        <select id="path-select">
-          <option value="all" data-i18n="path.all">Tüm seviyeler (2199)</option>
-          <option value="A2" data-i18n="path.A2">A2 (215)</option>
-          <option value="B1" data-i18n="path.B1">B1 (693)</option>
-          <option value="B2" data-i18n="path.B2">B2 (809)</option>
-          <option value="C1" data-i18n="path.C1">C1 (115)</option>
-          <option value="C1+" data-i18n="path.C1+">C1+ ileri (367)</option>
-        </select>
-      </div>
-      <p class="hint" data-i18n="home.pathHint">Çalışma yolun, Testin hangi kelimeleri kullanacağını belirler. Seviyeler Oxford 3000 ve Oxford 5000 kelime listelerinden alınmıştır (A1 kelimeler A2 olarak gösterilir). C1+, kelimenin Oxford 5000 dışında kalan ileri düzey (çoğunlukla C2) bir kelime olduğunu gösterir.</p>
+      <a class="write-card" href="#grammar/write"><span class="write-icon" aria-hidden="true"><svg class="icon"><use href="#i-pen"/></svg></span><span class="write-text"><span class="eyebrow" data-i18n="home.writeTag">Yazma</span><strong data-i18n="home.writeTitle">Hikâye yaz</strong><span id="home-write-note"></span></span><span class="button violet write-go"><span data-i18n="home.writeGo">Yaz</span><svg class="icon" aria-hidden="true"><use href="#i-next"/></svg></span></a>
+      <div class="section-row"><h2><svg class="icon" aria-hidden="true"><use href="#i-cards"/></svg><span data-i18n="home.decks">Kelime desteleri</span></h2><span class="section-note" id="deck-count"></span></div>
+      <div class="decks" id="decks"></div>
+      <details class="panel home-path"><summary data-i18n="home.path">Çalışma yolu</summary><div class="field"><label for="path-select" data-i18n="home.path">Çalışma yolu</label><select id="path-select"><option value="all" data-i18n="path.all">Tüm seviyeler (2199)</option><option value="A2" data-i18n="path.A2">A2 (215)</option><option value="B1" data-i18n="path.B1">B1 (693)</option><option value="B2" data-i18n="path.B2">B2 (809)</option><option value="C1" data-i18n="path.C1">C1 (115)</option><option value="C1+" data-i18n="path.C1+">C1+ ileri (367)</option></select></div><p class="hint" data-i18n="home.pathHint">Çalışma yolun, Testin hangi kelimeleri kullanacağını belirler. Seviyeler Oxford 3000 ve Oxford 5000 kelime listelerinden alınmıştır (A1 kelimeler A2 olarak gösterilir). C1+, kelimenin Oxford 5000 dışında kalan ileri düzey (çoğunlukla C2) bir kelime olduğunu gösterir.</p></details>
     </details>
     <p class="hint" id="home-storage-note"></p>
+  </section>
+
+  <section class="view" data-view="study" aria-labelledby="study-title">
+    <div class="view-head"><a class="study-return" href="#home" data-i18n="study.back">← Günlük yoluma dön</a><h1 id="study-title" tabindex="-1" data-i18n="nav.study">Rehberli çalışma</h1></div>
+    <div id="study-app" class="study-workspace js-only"></div>
   </section>
 
   <!-- Review: spaced repetition cards from words, the novel and grammar. -->
@@ -4674,7 +4726,7 @@ select#today-goal, .tutor-scenario select { min-height: var(--tap); }
       <div class="tutor-top">
         <button type="button" class="novel-icon" id="tutor-back" aria-label="Geri" data-i18n-aria="tutor.back"><svg class="icon" aria-hidden="true"><use href="#i-prev"/></svg></button>
         <span class="tutor-bot" aria-hidden="true"><svg class="icon"><use href="#i-bot"/></svg></span>
-        <div class="tutor-top-title"><strong>AI Speaking Coach</strong><span id="tutor-status" data-i18n="tutor.live">Canlı &amp; dinliyor</span></div>
+        <div class="tutor-top-title"><strong>AI Speaking Coach</strong><span id="tutor-status" role="status" data-i18n="tutor.ready">Konuşmaya hazır</span></div>
         <button type="button" class="novel-icon" id="tutor-settings" aria-expanded="false" aria-controls="tutor-panel" aria-label="Ders ayarları" data-i18n-aria="tutor.settings"><svg class="icon" aria-hidden="true"><use href="#i-tune"/></svg></button>
         <button type="button" class="novel-icon" id="tutor-restart" aria-label="Yeni ders" data-i18n-aria="tutor.new"><svg class="icon" aria-hidden="true"><use href="#i-restart"/></svg></button>
       </div>
@@ -4684,7 +4736,7 @@ select#today-goal, .tutor-scenario select { min-height: var(--tap); }
       </div>
       <div class="tutor-persona">
         <span class="tutor-avatar" aria-hidden="true">E</span>
-        <div><strong>Emma <span class="tutor-origin">Oxford, UK</span></strong><small id="tutor-level-note"></small></div>
+        <div><strong>Emma <span class="tutor-origin">AI</span></strong><small id="tutor-level-note"></small></div>
         <button type="button" class="tutor-speed" id="tutor-speed" aria-label="Ses hızı" data-i18n-aria="tutor.speed"><svg class="icon" aria-hidden="true"><use href="#i-timer"/></svg><span id="tutor-speed-label">1.0x</span></button>
       </div>
       <div class="tutor-panel" id="tutor-panel" hidden>
@@ -4788,7 +4840,7 @@ select#today-goal, .tutor-scenario select { min-height: var(--tap); }
   <p>İş ve sınav kelimelerinin resimleri de Twemoji'dir; birçoğu kelimeyi temsilen seçildi.</p>
   <p>Örnek cümlelerin bir bölümü: <a href="https://tatoeba.org" target="_blank" rel="noopener">Tatoeba</a> (<a href="https://creativecommons.org/licenses/by/2.0/fr/" target="_blank" rel="noopener">CC BY 2.0 FR</a>), <a href="https://www.manythings.org/anki/" target="_blank" rel="noopener">manythings.org</a> derlemesinden; cümleler kelimelere ve türlere göre seçildi.</p>
   <p>Fotoğraflar: Wikimedia Commons (yazar ve lisans kartlarda). Simgeler: <a href="https://github.com/jdecked/twemoji" target="_blank" rel="noopener">Twemoji</a>, CC BY 4.0. PDF okuma: <a href="https://mozilla.github.io/pdf.js/" target="_blank" rel="noopener">pdf.js</a> (Mozilla, Apache-2.0). Yazı tipleri: Outfit ve Plus Jakarta Sans (SIL Open Font License).</p>
-  <p>English Study · v2.7.1</p>
+  <p>English Study · v2.8.0</p>
 </footer>
 
 <div id="toast" class="toast" role="status" aria-live="polite"></div>
@@ -4883,7 +4935,7 @@ select#today-goal, .tutor-scenario select { min-height: var(--tap); }
 <script>
 (() => {
 'use strict';
-const APP_VERSION = '2.7.1';
+const APP_VERSION = '2.8.0';
 /* Small polyfill so the app also starts on browsers from before 2020. */
 if (!Element.prototype.replaceChildren) {
   Element.prototype.replaceChildren = function () {
@@ -4945,6 +4997,8 @@ const READINGS = [
     ]
   }
 ];
+
+READINGS.push(...[{"id":"weekend-market","title":"A Small Change on Saturday","level":"A2","paragraphs":[["Mina usually buys food at a big shop after work. She is often tired, so she buys the same things every week. One Saturday, her neighbour asks her to visit the street market. Mina agrees, but she takes a list because she does not want to spend too much money.","Mina genellikle işten sonra büyük bir mağazadan yiyecek alır. Sıklıkla yorgun olduğu için her hafta aynı şeyleri alır. Bir cumartesi komşusu onu semt pazarına davet eder. Mina kabul eder ama çok para harcamamak için bir liste alır."],["At the market, they talk to a farmer and buy some fresh vegetables. Mina tries a fruit she does not know. It tastes sweet. They walk home with their bags and cook lunch together. Mina still uses the big shop on busy days, but now she enjoys going to the market when she has time.","Pazarda bir çiftçiyle konuşup taze sebzeler alırlar. Mina tanımadığı bir meyveyi dener. Tadı tatlıdır. Çantalarıyla eve yürüyüp birlikte öğle yemeği pişirirler. Mina yoğun günlerde hâlâ büyük mağazayı kullanır ama artık zamanı olduğunda pazara gitmekten keyif alır."]],"questions":[{"q":"Why does Mina take a list?","options":["To learn new words","To control her spending","To help the farmer"],"answer":1,"explain":"The first paragraph says she does not want to spend too much money."},{"q":"What do the neighbours do after the market?","options":["They make lunch together","They go to work","They visit another shop"],"answer":0,"explain":"They walk home and cook lunch together."},{"q":"Does Mina stop using the big shop?","options":["Yes, because it is expensive","Yes, because she moves away","No, she still uses it on busy days"],"answer":2,"explain":"The last sentence says she still uses the big shop on busy days."}],"task":{"en":"Describe where you buy food. What do you usually buy? What would you like to try next time?","tr":"Yiyecekleri nereden aldığını, genellikle ne aldığını ve bir sonraki sefer ne denemek istediğini anlat.","frames":["I usually buy…","Last time, I…","Next time, I would like to…"]}},{"id":"missed-bus","title":"The Bus That Did Not Come","level":"A2","paragraphs":[["On Monday, Arda has an appointment at ten. He leaves home early and waits for his usual bus. After fifteen minutes, the bus has not arrived. Arda checks the sign at the stop. The road is closed, and the bus is using a different street today.","Pazartesi günü Arda'nın saat onda bir randevusu vardır. Evden erken çıkıp her zamanki otobüsünü bekler. On beş dakika sonra otobüs hâlâ gelmemiştir. Arda duraktaki duyuruyu kontrol eder. Yol kapalıdır ve otobüs o gün farklı bir sokaktan gitmektedir."],["A woman shows him the way to another stop. It is only five minutes away. Arda thanks her and walks there. He catches the next bus and arrives just before ten. In the evening, he saves the bus company's website on his phone. Next time, he will check it before leaving home.","Bir kadın ona başka bir durağın yolunu gösterir. Durak yalnızca beş dakika uzaklıktadır. Arda teşekkür edip oraya yürür. Sonraki otobüse binip ona az kala varır. Akşam otobüs şirketinin sitesini telefonuna kaydeder. Bir sonraki sefer evden çıkmadan kontrol edecektir."]],"questions":[{"q":"Why does Arda's usual bus not arrive?","options":["He is at the wrong stop every day","The road is closed today","The appointment is cancelled"],"answer":1,"explain":"The bus is using a different street because the road is closed."},{"q":"How far away is the other stop?","options":["Fifteen minutes by bus","An hour on foot","Five minutes on foot"],"answer":2,"explain":"The woman shows him a stop only five minutes away, and he walks there."},{"q":"What will Arda do differently next time?","options":["Check the website before he leaves","Always take a taxi","Leave after ten"],"answer":0,"explain":"He saves the website so he can check it before leaving home."}],"task":{"en":"Describe a time when a journey did not go as planned. What happened, who helped, and what did you do next?","tr":"Planladığın gibi gitmeyen bir yolculuğu anlat. Ne oldu, kim yardım etti ve sonra ne yaptın?","frames":["I was going to…","The problem was…","Next time, I will…"]}},{"id":"repair-cafe","title":"Repairing More Than a Toaster","level":"B2","paragraphs":[["When a library opened a monthly repair café, its organisers expected visitors to bring broken lamps and kitchen equipment. They did not expect the project to become a place where neighbours exchanged skills. Volunteers showed visitors how to identify simple faults, while making it clear that some repairs needed a qualified professional. The aim was to help people understand their possessions, rather than promise that everything could be fixed.","Bir kütüphane aylık bir tamir buluşması başlattığında düzenleyenler insanların bozuk lambalar ve mutfak aletleri getirmesini bekliyordu. Projenin komşuların becerilerini paylaştığı bir yere dönüşmesini beklemiyorlardı. Gönüllüler, bazı tamirlerin yetkin bir uzman gerektirdiğini açıkça belirterek ziyaretçilere basit arızaları tanımayı gösterdi. Amaç her şeyin tamir edilebileceğini vaat etmek değil, insanların eşyalarını anlamasına yardımcı olmaktı."],["Not every object was repaired, but visitors often left with something useful: a clearer explanation of the problem or a new contact. The library also began recording which items appeared most frequently, hoping to organise more focused workshops. The organisers now judge success through several measures. The number of repaired objects matters, but so do the skills people gain and the connections they make. A project designed to reduce waste has gradually become a way to strengthen the local community.","Her eşya tamir edilmedi ama ziyaretçiler çoğunlukla sorunun daha açık bir açıklaması veya yeni bir tanışıklık gibi yararlı bir kazanımla ayrıldı. Kütüphane daha odaklı atölyeler düzenlemek amacıyla en çok hangi eşyaların getirildiğini de kaydetmeye başladı. Düzenleyenler artık başarıyı birkaç ölçütle değerlendiriyor. Tamir edilen eşya sayısı önemli ama kazanılan beceriler ve kurulan bağlantılar da öyle. İsrafı azaltmak için tasarlanan proje zamanla yerel toplumu güçlendiren bir yola dönüştü."]],"questions":[{"q":"What surprised the organisers?","options":["That nobody brought equipment","That neighbours began sharing skills","That every repair was successful"],"answer":1,"explain":"They expected repairs, but did not expect the project to become a place for exchanging skills."},{"q":"Why did the library record the most common items?","options":["To plan more focused workshops","To refuse all other items","To sell visitors new products"],"answer":0,"explain":"The record was intended to help the library organise focused workshops."},{"q":"Which statement best reflects the organisers' view of success?","options":["Only the number of repairs matters","Unrepaired objects make a visit worthless","Learning and social connections also matter"],"answer":2,"explain":"The final paragraph values repairs, new skills and community connections."}],"task":{"en":"Propose a small project for your neighbourhood. Explain its aim, one practical difficulty and two ways to judge its success.","tr":"Mahallen için küçük bir proje öner. Amacını, uygulamada karşılaşılabilecek bir güçlüğü ve başarısını değerlendirecek iki ölçütü açıkla.","frames":["The project would aim to…","One difficulty might be…","We could measure success by…"]}},{"id":"flexible-working","title":"When Flexibility Needs a Few Rules","level":"B2","paragraphs":[["A small design team allowed everyone to choose their working hours. At first, the change seemed entirely positive. People could avoid crowded trains and arrange their day around other responsibilities. However, a new problem appeared: simple questions sometimes remained unanswered for hours because colleagues were rarely available at the same time. Work that depended on several people became harder to coordinate, even though individuals were still completing their own tasks.","Küçük bir tasarım ekibi herkesin çalışma saatlerini seçmesine izin verdi. Başlangıçta değişiklik bütünüyle olumlu görünüyordu. İnsanlar kalabalık trenlerden kaçınabiliyor ve günlerini diğer sorumluluklarına göre düzenleyebiliyordu. Ancak yeni bir sorun çıktı: iş arkadaşları nadiren aynı anda müsait olduğu için basit sorular bazen saatlerce yanıtsız kalıyordu. Bireyler kendi görevlerini bitirmeye devam etse de birkaç kişiye bağlı işleri koordine etmek zorlaştı."],["Instead of returning to fixed hours, the team agreed on a short period each day when everyone would be available. They also decided which messages needed a quick reply and which could wait. After a month, they reviewed the arrangement and changed the shared period to suit more people. Their experience suggests that flexibility and structure need not be opposites. A few clear agreements can protect individual choice while making cooperation easier, provided the rules remain open to review.","Ekip sabit saatlere dönmek yerine her gün herkesin müsait olacağı kısa bir süre belirledi. Hangi mesajların hızlı yanıt gerektirdiğine, hangilerinin bekleyebileceğine de karar verdiler. Bir ay sonra düzenlemeyi gözden geçirip ortak süreyi daha fazla kişiye uyacak şekilde değiştirdiler. Deneyimleri, esneklik ile düzenin birbirinin karşıtı olmak zorunda olmadığını düşündürüyor. Gözden geçirilmeye açık birkaç net anlaşma, iş birliğini kolaylaştırırken bireysel tercihleri koruyabilir."]],"questions":[{"q":"What became difficult after flexible hours were introduced?","options":["Finishing any individual task","Finding space on trains","Coordinating work involving several people"],"answer":2,"explain":"Individual tasks were still completed; coordination between colleagues was the problem."},{"q":"How did the team respond?","options":["They introduced a shared availability period","They banned all written messages","They returned to identical full working days"],"answer":0,"explain":"They kept flexible hours but agreed on a short period when everyone would be available."},{"q":"What condition does the final sentence place on useful rules?","options":["They must never change","They should remain open to review","They should remove individual choice"],"answer":1,"explain":"The phrase 'provided the rules remain open to review' gives this condition."}],"task":{"en":"Explain whether flexible working or study hours would suit you. Give a benefit, a possible problem and a rule that could help.","tr":"Esnek çalışma veya ders saatlerinin sana uyup uymayacağını açıkla. Bir yarar, olası bir sorun ve yardımcı olabilecek bir kural belirt.","frames":["Flexibility would allow me to…","However, I might find it difficult to…","A useful agreement would be…"]}},{"id":"measuring-progress","title":"When the Measure Becomes the Goal","level":"C1","paragraphs":[["A language learner begins tracking the number of exercises completed each evening. The record is initially useful: it makes an irregular habit visible and encourages consistency. Gradually, however, the learner starts choosing familiar exercises because they can be finished quickly. The total rises, while the ability to explain an unfamiliar idea barely changes. The measure has not become meaningless; it still reveals effort. The difficulty is that effort and learning, although related, are not interchangeable.","Bir dil öğrencisi her akşam tamamladığı alıştırma sayısını izlemeye başlar. Kayıt başlangıçta yararlıdır: düzensiz bir alışkanlığı görünür kılar ve sürekliliği teşvik eder. Ancak öğrenci zamanla çabuk bitirebildiği için tanıdık alıştırmaları seçmeye başlar. Sayı artarken tanımadığı bir fikri açıklama becerisi pek değişmez. Ölçüt anlamsızlaşmış değildir; hâlâ çabayı gösterir. Sorun, çaba ile öğrenmenin ilişkili olmasına rağmen birbirinin yerine geçmemesidir."],["A more informative record might combine several kinds of evidence: delayed recall, comprehension of a new text and a short explanation recorded without preparation. None is a perfect measure on its own. A difficult topic may temporarily lower accuracy, and a confident recording may conceal repeated grammatical errors. Nevertheless, comparing such evidence over time can reveal changes that a simple activity total misses. The purpose of measurement should be to guide the next decision, rather than merely to produce an encouraging number. Useful feedback sometimes feels less satisfying precisely because it identifies what still needs attention.","Daha bilgilendirici bir kayıt; gecikmeli hatırlama, yeni bir metni anlama ve hazırlıksız kaydedilen kısa bir açıklama gibi farklı kanıtları birleştirebilir. Hiçbiri tek başına kusursuz değildir. Zor bir konu doğruluğu geçici olarak düşürebilir; kendinden emin bir kayıt tekrarlanan dilbilgisi hatalarını gizleyebilir. Yine de bu kanıtları zaman içinde karşılaştırmak, basit bir etkinlik toplamının kaçırdığı değişimleri gösterebilir. Ölçmenin amacı yalnızca motive edici bir sayı üretmek değil, sonraki kararı yönlendirmek olmalıdır. Yararlı geri bildirim, hâlâ ilgilenilmesi gerekenleri belirlediği için bazen daha az tatmin edici gelir."]],"questions":[{"q":"Why does the exercise total become a less informative measure?","options":["The learner starts selecting easy, familiar tasks","The record stops showing any effort","All completed exercises are forgotten immediately"],"answer":0,"explain":"The learner chooses familiar exercises to raise the total quickly, without a similar improvement in explaining unfamiliar ideas."},{"q":"What is the author's attitude towards the alternative measures?","options":["Any one of them gives a complete assessment","They are useless because they have limitations","They provide useful but imperfect evidence together"],"answer":2,"explain":"The text acknowledges limitations but argues that combining evidence over time is informative."},{"q":"What should measurement primarily support?","options":["A permanently high accuracy score","The next learning decision","Comparison with every other learner"],"answer":1,"explain":"The author explicitly prioritises guiding the next decision over producing an encouraging number."}],"task":{"en":"Evaluate a measure of progress you have used. Explain what it captures, what it misses, and how you would combine it with another source of evidence.","tr":"Kullandığın bir ilerleme ölçütünü değerlendir. Neyi gösterdiğini, neyi kaçırdığını ve hangi başka kanıtla birleştireceğini açıkla.","frames":["Although this measure captures…","It may fail to account for…","A more balanced assessment would…"]}},{"id":"changing-your-mind","title":"The Value of a Provisional View","level":"C1","paragraphs":[["During a discussion about a proposed pedestrian street, two residents discover that they disagree less than they initially assumed. One supports the proposal because it could make the area quieter; the other worries about deliveries to local shops. Neither concern automatically invalidates the other. Yet the early discussion treats support and opposition as fixed identities, leaving little room to examine the conditions under which the proposal might work. Once the residents begin asking which particular problems need solving, the conversation becomes more precise.","Önerilen bir yaya sokağı hakkındaki tartışmada iki mahalle sakini, başlangıçta sandıklarından daha az anlaşmazlık yaşadıklarını fark eder. Biri bölgeyi daha sessiz kılabileceği için öneriyi destekler; diğeri yerel dükkânlara yapılan teslimatlardan endişelidir. Kaygılardan hiçbiri diğerini kendiliğinden geçersiz kılmaz. Ancak ilk tartışma destek ve karşıtlığı sabit kimlikler gibi ele alıp önerinin hangi koşullarda işe yarayabileceğini incelemeye pek alan bırakmaz. Hangi somut sorunların çözülmesi gerektiğini sormaya başladıklarında konuşma daha kesin bir hâl alır."],["They consider a trial with limited delivery hours and agree to review its effects before making a permanent decision. This does not guarantee agreement, nor does it remove the need to weigh competing interests. It does, however, allow both residents to revise their views without pretending that their original concerns were foolish. Treating an opinion as provisional is not the same as having no principles. It can mean being clear about the evidence that would strengthen or weaken a position. In that sense, changing one's mind may demonstrate careful judgement rather than a lack of conviction.","Sınırlı teslimat saatleriyle bir deneme yapmayı düşünüp kalıcı karar vermeden etkilerini gözden geçirmeye karar verirler. Bu yaklaşım anlaşmayı garanti etmez; çatışan çıkarları tartma gereğini de ortadan kaldırmaz. Ancak her ikisinin de ilk kaygılarının aptalca olduğunu iddia etmeden görüşlerini değiştirmesine olanak verir. Bir fikri geçici kabul etmek ilkesiz olmakla aynı değildir. Bir görüşü güçlendirecek veya zayıflatacak kanıtları açıkça belirlemek anlamına gelebilir. Bu açıdan fikir değiştirmek, inanç eksikliğinden çok dikkatli muhakeme gösterebilir."]],"questions":[{"q":"What initially limits the discussion?","options":["Nobody has any practical concerns","Support and opposition are treated as fixed identities","Both residents demand identical delivery hours"],"answer":1,"explain":"Fixed identities leave little room to explore the conditions under which the proposal might work."},{"q":"Why might a trial be useful?","options":["It guarantees that both residents will agree","It proves that the original concerns were foolish","It allows the effects to be reviewed before a permanent decision"],"answer":2,"explain":"The residents agree to review the trial's effects before deciding permanently."},{"q":"What does the author suggest about provisional opinions?","options":["They can be compatible with clear principles","They show that evidence does not matter","They require avoiding difficult decisions"],"answer":0,"explain":"The final paragraph distinguishes a provisional opinion from a lack of principles."}],"task":{"en":"Describe a position you could revise if new evidence appeared. Present the opposing concern fairly and explain what evidence would influence your decision.","tr":"Yeni kanıtla değiştirebileceğin bir görüşünü anlat. Karşı görüşün kaygısını adil biçimde aktar ve hangi kanıtın kararını etkileyeceğini açıkla.","frames":["My current view is that…","A reasonable objection would be…","I would reconsider this position if…"]}}]);
 
 /* Labels for the related-meaning groups that come from the original page. */
 const GROUP_LABELS_EN = {
@@ -5078,17 +5132,17 @@ const STRINGS = {
     'deck.exam': 'YDS & YÖKDİL', 'deck.workEXAM': 'Exam words', 'deck.workEXAMNote': 'Words for YDS and YÖKDİL. Meanings are from the dictionary and machine translation, so a few may be off.',
     'deck.usage': 'How it is used',
     'review.wordChoice': 'Did you know this word?', 'review.learned': 'Learned',
-    'home.eyebrow': 'Daily goal', 'home.titleReview': 'Time to review! ✨', 'home.titleMorning': 'Good morning! ☀️', 'home.titleDay': 'Let’s learn! ✨', 'home.titleEvening': 'Good evening! 🌙',
+    'home.eyebrow': 'Your daily study', 'home.titleReview': 'Time to review! ✨', 'home.titleMorning': 'Good morning! ☀️', 'home.titleDay': 'Let’s learn! ✨', 'home.titleEvening': 'Good evening! 🌙',
     'home.goalChip': '{p}% done', 'home.goalStart': 'Let’s get started!', 'home.goalGoing': 'You’re doing great!', 'home.goalDone': 'Goal reached! 🎉',
     'home.goalLeft': 'Only {n} cards to your goal. Keep the rhythm!', 'home.goalDoneNote': 'Anything more today is a bonus.',
     'home.srs': 'Spaced repetition', 'home.heroTitle': 'Today’s review', 'home.heroCount': '{n} cards ready', 'home.heroNone': 'All caught up',
-    'home.heroText': 'A set of cards timed to the forgetting curve.', 'home.heroNew': 'No cards due. Learn new words from a deck.', 'home.heroStart': 'Start now ({n} cards)', 'home.heroLearn': 'Learn new words',
+    'home.heroText': 'Try to retrieve the answer before revealing it. Your answers guide the next interval.', 'home.heroNew': 'No cards due. Learn new words from a deck.', 'home.heroStart': 'Start now ({n} cards)', 'home.heroLearn': 'Learn new words',
     'home.decks': 'Word decks', 'home.deckCount': '{n} decks', 'home.weekly': 'Weekly performance', 'home.weekTitle': 'Last 7 days', 'home.recall': 'recall',
     'deck.level': '{l} level', 'deck.grammar': 'Grammar', 'deck.steps': '{n} steps', 'deck.stepsDone': '{d} / {n} steps', 'deck.words': '{d} / {n} words', 'deck.start': 'Start studying',
     'deck.A2': 'A2 Everyday Basics', 'deck.A2note': 'The words you need first, for daily life.', 'deck.B1': 'B1 Daily Communication', 'deck.B1note': 'Talk about work, travel, plans and feelings with ease.',
     'deck.B2': 'B2 Advanced Daily Vocab', 'deck.B2note': 'Strategic words for fluent work and social English.', 'deck.C1': 'C1 Academic Words', 'deck.C1note': 'Words for articles, essays and serious talk.',
     'deck.C1plus': 'C1+ Advanced Extras', 'deck.C1plusNote': 'Rare, precise words beyond the Oxford 5000.',
-    'review.learnTitle': 'New words · {l}', 'review.learnLead': 'Flip each card. “Learned” adds the word to your learned words and your review; “Again” brings it back soon.',
+    'review.learnTitle': 'New words · {l}', 'review.learnLead': 'Try to recall the meaning before flipping. “Learned” records your own judgement; “Again” schedules the word for tomorrow. Use the typed recall check to test retrieval.',
     'review.cardOf': '{d} / {n} cards', 'review.combo': '🔥 {n}x combo', 'review.tapHint': 'Tap to flip the card', 'review.recallLevel': 'How well did you know it?', 'review.instantXp': 'Instant XP',
     'review.easy': 'Easy', 'review.later': 'later', 'review.sessionDone': 'Session complete!', 'review.sessionText': '{n} cards done · +{xp} XP', 'review.moreWords': 'Learn 10 more',
     'nav.learn': 'Learn', 'nav.practice': 'Practice', 'nav.rankings': 'Rankings', 'practice.title': 'Practice', 'practice.lead': 'Quick games with the words you know, for points and records.',
@@ -5111,7 +5165,7 @@ const STRINGS = {
     'rank.onPodium': 'This week is on the podium!', 'rank.toPodium': '{n} XP to reach the podium', 'rank.you': 'You (this week)', 'rank.meNote': '{d} days studied · {w} words learned',
     'rank.streak': '{n} days', 'rank.few': 'Study a few more weeks and they will be ranked here.', 'rank.keepTitle': 'Stay on top!', 'rank.keepText': 'Keep going to make this your best week.',
     'rank.closeTitle': 'The podium is close!', 'rank.closeText': 'Only {n} XP to reach the top three.', 'rank.practice': 'Practice now',
-    'nav.menu': 'Menu', 'nav.profile': 'Menu and profile', 'nav.profileTitle': 'Your profile', 'nav.profileSummary': '🔥 {s}-day streak · ⚡ {x} XP this week · {w} words learned', 'nav.novelRead': 'Read',
+    'nav.menu': 'Menu', 'nav.profile': 'Menu and profile', 'nav.profileTitle': 'Study menu', 'nav.profileSummary': '🔥 {s}-day streak · ⚡ {x} XP this week · {w} words learned', 'nav.novelRead': 'Read',
     'novel.title2': 'Read a novel', 'novel.sub': 'Novel & story reader', 'novel.tabShelf2': 'Graded library', 'novel.filter': 'Level & category', 'novel.allLevels': 'All levels',
     'novel.bookCount': '{n} novels', 'novel.cardSub': 'Original English text · tap any word', 'novel.open': 'Open the book', 'novel.continueChapter': 'Continue reading {c}',
     'novel.area': 'Interactive reading area', 'novel.tapWords': 'Tap the words', 'novel.pageOriginal': 'Page {n} · original text',
@@ -5122,7 +5176,8 @@ const STRINGS = {
     'ai.noNovel': 'You have not added words from the novel yet.', 'ai.noLearned': 'There are no words here yet; try another source.',
     'xp.week': 'XP this week', 'nav.groupDaily': 'Daily', 'nav.groupLearn': 'Learn', 'nav.groupPractice': 'Practice', 'nav.more': 'More', 'nav.collapse': 'Collapse the menu', 'nav.expand': 'Expand the menu',
     'nav.collapseShort': 'Collapse', 'topbar.search': 'Search words', 'topbar.searchPh': 'Search a word (English or Turkish)', 'topbar.streak': '🔥 {n} days',
-    'nav.review': 'Review', 'review.title': 'Review', 'review.lead': 'Cards come back just before you would forget them. Say honestly whether you knew each one.',
+    'nav.study': 'Guided study', 'study.library': 'All decks and review settings', 'study.back': '← Back to my daily path',
+    'nav.review': 'Review', 'review.title': 'Review', 'review.lead': 'Cards return at intervals based on your answers. Try to recall the answer before revealing it.',
     'review.goal': 'Today: {d} / {n} cards', 'review.left': '{n} left', 'review.kindWord': 'Word', 'review.kindNovel': 'From the novel',
     'review.show': 'Show the answer', 'review.again': 'Again', 'review.hard': 'Hard', 'review.good': 'Good', 'review.soon': '<1 min', 'review.days': '{n} d',
     'review.allDone': 'All done for today!', 'review.allDoneText': 'Come back tomorrow; new cards will be waiting.', 'review.noCards': 'No cards yet',
@@ -5133,7 +5188,7 @@ const STRINGS = {
     'today.words': '{n} of {total} words learned', 'novel.save': 'Add to deck', 'novel.saved': 'In your deck ✓', 'novel.meaning': 'Turkish meaning', 'novel.context': 'Context:', 'novel.tabNow': 'Reading now', 'novel.tabShelf': 'Library', 'novel.goal': 'Today’s reading goal', 'novel.goalText': '{d}/{n} pages read · {m} min this week', 'novel.noBook': 'Pick a book from the library to start.', 'novel.classic': 'Novel', 'novel.savedWords': '{n} words saved to your deck', 'novel.progress2': 'Reading progress', 'novel.progressOf': '{p}% (page {n} / {total})', 'novel.continue': 'Continue reading',
     'update.text': 'A new version of the app is ready.', 'update.reload': 'Reload',
     'nav.speak': 'Speaking', 'mode.speak': 'Write or talk in English with people who are online now, with topic cards to guide you.',
-    'tutor.live': 'Live & listening', 'tutor.levelNote': 'Native speaker · {l} fluency level', 'tutor.role': 'Role: {r}', 'tutor.speed': 'Voice speed',
+    'tutor.live': 'AI speaking practice', 'tutor.levelNote': 'AI teacher · selected level {l}', 'tutor.role': 'Role: {r}', 'tutor.speed': 'Voice speed',
     'tutor.suggest': 'Suggested answers (tap to hear and say):', 'tutor.help': 'Help', 'tutor.minutes': '{n} min', 'tutor.ready': 'Ready to talk', 'tutor.listening': 'Listening…',
     'tutor.readyHint': 'Tap the microphone and say your answer in English.', 'tutor.byTyping': 'Typing', 'tutor.pron': 'Pronunciation', 'tutor.showTr': 'Show the Turkish',
     'tutor.accuracy': '{p}% accuracy', 'tutor.xpAdded': '+10 XP added to your vocabulary!', 'tutor.great': 'Great sentence!', 'tutor.kept': '“{w}” was added to your deck.', 'speak.showCards': 'Show topic questions', 'speak.hideCards': 'Hide topic questions', 'speak.chat': 'Messages', 'speak.chatHint': 'Write in English. Ms. Emma checks each of your sentences; only you see your corrections.',
@@ -5301,17 +5356,17 @@ const STRINGS = {
     'deck.exam': 'YDS ve YÖKDİL', 'deck.workEXAM': 'Sınav kelimeleri', 'deck.workEXAMNote': 'YDS ve YÖKDİL için kelimeler. Anlamlar sözlükten ve makine çevirisinden geldiği için bazıları hatalı olabilir.',
     'deck.usage': 'Nasıl kullanılır?',
     'review.wordChoice': 'Bu kelimeyi biliyor muydun?', 'review.learned': 'Öğrenildi',
-    'home.eyebrow': 'Günlük hedef', 'home.titleReview': 'Tekrar zamanı! ✨', 'home.titleMorning': 'Günaydın! ☀️', 'home.titleDay': 'Hadi öğrenelim! ✨', 'home.titleEvening': 'İyi akşamlar! 🌙',
+    'home.eyebrow': 'Bugünün çalışması', 'home.titleReview': 'Tekrar zamanı! ✨', 'home.titleMorning': 'Günaydın! ☀️', 'home.titleDay': 'Hadi öğrenelim! ✨', 'home.titleEvening': 'İyi akşamlar! 🌙',
     'home.goalChip': '%{p} tamamlandı', 'home.goalStart': 'Hadi başlayalım!', 'home.goalGoing': 'Harika gidiyorsun!', 'home.goalDone': 'Hedef tamam! 🎉',
     'home.goalLeft': 'Hedefe sadece {n} kart kaldı. Ritmini koru!', 'home.goalDoneNote': 'Bugün yapacağın her şey artık bonus.',
     'home.srs': 'Aralıklı tekrar', 'home.heroTitle': 'Bugünün tekrarı', 'home.heroCount': '{n} kart hazır', 'home.heroNone': 'Hepsi tamam',
-    'home.heroText': 'Unutma eğrisine göre zamanlanmış kart seti.', 'home.heroNew': 'Sırası gelen kart yok. Bir desteden yeni kelime öğren.', 'home.heroStart': 'Hemen başla ({n} kart)', 'home.heroLearn': 'Yeni kelime öğren',
+    'home.heroText': 'Cevabı açmadan kendin hatırlamaya çalış. Yanıtların bir sonraki tekrar aralığını belirler.', 'home.heroNew': 'Sırası gelen kart yok. Bir desteden yeni kelime öğren.', 'home.heroStart': 'Hemen başla ({n} kart)', 'home.heroLearn': 'Yeni kelime öğren',
     'home.decks': 'Kelime desteleri', 'home.deckCount': '{n} deste', 'home.weekly': 'Haftalık performans', 'home.weekTitle': 'Son 7 gün', 'home.recall': 'hatırlama',
     'deck.level': '{l} seviye', 'deck.grammar': 'Gramer', 'deck.steps': '{n} adım', 'deck.stepsDone': '{d} / {n} adım', 'deck.words': '{d} / {n} kelime', 'deck.start': 'Çalışmaya başla',
     'deck.A2': 'A2 Günlük Temel Kelimeler', 'deck.A2note': 'Günlük hayatta ilk gereken kelimeler.', 'deck.B1': 'B1 Günlük İletişim', 'deck.B1note': 'İş, seyahat, planlar ve duygular hakkında rahat konuş.',
     'deck.B2': 'B2 İleri Günlük Kelimeler', 'deck.B2note': 'İş ve sosyal hayatta akıcılık için stratejik kelimeler.', 'deck.C1': 'C1 Akademik Kelimeler', 'deck.C1note': 'Makale, kompozisyon ve ciddi konuşmalar için.',
     'deck.C1plus': 'C1+ İleri Seviye', 'deck.C1plusNote': 'Oxford 5000 dışındaki nadir ve kesin anlamlı kelimeler.',
-    'review.learnTitle': 'Yeni kelimeler · {l}', 'review.learnLead': 'Her kartı çevir. “Öğrenildi” dersen kelime öğrendiklerine ve tekrara eklenir; “Tekrar” dersen kısa süre sonra yine gelir.',
+    'review.learnTitle': 'Yeni kelimeler · {l}', 'review.learnLead': 'Kartı çevirmeden anlamını hatırlamaya çalış. “Öğrenildi” kendi değerlendirmeni kaydeder; “Tekrar” kelimeyi yarına planlar. Hatırlamayı sınamak için yazılı kontrolü kullan.',
     'review.cardOf': '{d} / {n} kart', 'review.combo': '🔥 {n}x seri', 'review.tapHint': 'Kartı çevirmek için dokun', 'review.recallLevel': 'Hatırlama düzeyi', 'review.instantXp': 'Anında XP',
     'review.easy': 'Kolay', 'review.later': 'sonra', 'review.sessionDone': 'Seans tamam!', 'review.sessionText': '{n} kart bitti · +{xp} XP', 'review.moreWords': '10 kelime daha',
     'nav.learn': 'Öğren', 'nav.practice': 'Pratik', 'nav.rankings': 'Sıralama', 'practice.title': 'Pratik', 'practice.lead': 'Bildiğin kelimelerle kısa oyunlar: puan topla, rekor kır.',
@@ -5334,7 +5389,7 @@ const STRINGS = {
     'rank.onPodium': 'Bu hafta kürsüde!', 'rank.toPodium': 'Kürsüye {n} XP kaldı', 'rank.you': 'Sen (bu hafta)', 'rank.meNote': '{d} gün çalışıldı · {w} kelime öğrenildi',
     'rank.streak': '{n} gün', 'rank.few': 'Birkaç hafta daha çalış; haftaların burada sıralanacak.', 'rank.keepTitle': 'Zirvede kal!', 'rank.keepText': 'Devam et ve bunu en iyi haftan yap.',
     'rank.closeTitle': 'Kürsü çok yakın!', 'rank.closeText': 'İlk üçe girmek için sadece {n} XP kaldı.', 'rank.practice': 'Hemen pratik yap',
-    'nav.menu': 'Menü', 'nav.profile': 'Menü ve profil', 'nav.profileTitle': 'Profilin', 'nav.profileSummary': '🔥 {s} günlük seri · ⚡ bu hafta {x} XP · {w} kelime öğrenildi', 'nav.novelRead': 'Roman Oku',
+    'nav.menu': 'Menü', 'nav.profile': 'Menü ve profil', 'nav.profileTitle': 'Çalışma menüsü', 'nav.profileSummary': '🔥 {s} günlük seri · ⚡ bu hafta {x} XP · {w} kelime öğrenildi', 'nav.novelRead': 'Roman Oku',
     'novel.title2': 'Roman Oku', 'novel.sub': 'Roman & hikâye okuyucu', 'novel.tabShelf2': 'Seviyeli kütüphane', 'novel.filter': 'Seviye ve kategori filtrele', 'novel.allLevels': 'Tüm seviyeler',
     'novel.bookCount': '{n} roman', 'novel.cardSub': 'Orijinal İngilizce metin · kelimelere dokun', 'novel.open': 'Kitabı aç', 'novel.continueChapter': '{c} okumaya devam et',
     'novel.area': 'İnteraktif okuma alanı', 'novel.tapWords': 'Kelimelere dokun', 'novel.pageOriginal': 'Sayfa {n} · orijinal metin',
@@ -5345,7 +5400,8 @@ const STRINGS = {
     'ai.noNovel': 'Henüz romandan kelime eklemedin.', 'ai.noLearned': 'Burada henüz kelime yok; başka bir kaynak dene.',
     'xp.week': 'Bu haftaki XP', 'nav.groupDaily': 'Günlük', 'nav.groupLearn': 'Öğren', 'nav.groupPractice': 'Pratik', 'nav.more': 'Daha fazla', 'nav.collapse': 'Menüyü daralt', 'nav.expand': 'Menüyü genişlet',
     'nav.collapseShort': 'Daralt', 'topbar.search': 'Kelime ara', 'topbar.searchPh': 'Kelime ara (İngilizce ya da Türkçe)', 'topbar.streak': '🔥 {n} gün',
-    'nav.review': 'Tekrar', 'review.title': 'Tekrar', 'review.lead': 'Kartlar tam unutmak üzereyken geri gelir. Her birini bilip bilmediğini dürüstçe söyle.',
+    'nav.study': 'Rehberli çalışma', 'study.library': 'Tüm desteler ve tekrar ayarları', 'study.back': '← Günlük yoluma dön',
+    'nav.review': 'Tekrar', 'review.title': 'Tekrar', 'review.lead': 'Kartlar yanıtlarına göre aralıklarla geri gelir. Cevabı açmadan önce kendin hatırlamaya çalış.',
     'review.goal': 'Bugün: {d} / {n} kart', 'review.left': '{n} kart kaldı', 'review.kindWord': 'Kelime', 'review.kindNovel': 'Romandan',
     'review.show': 'Cevabı göster', 'review.again': 'Tekrar', 'review.hard': 'Zor', 'review.good': 'İyi', 'review.soon': '<1 dk', 'review.days': '{n} gün',
     'review.allDone': 'Bugünlük bitti!', 'review.allDoneText': 'Yarın tekrar gel; yeni kartlar seni bekliyor olacak.', 'review.noCards': 'Henüz kart yok',
@@ -5356,7 +5412,7 @@ const STRINGS = {
     'today.words': '{total} kelimeden {n} tanesi öğrenildi', 'novel.save': 'Desteye ekle', 'novel.saved': 'Destede ✓', 'novel.meaning': 'Türkçe anlamı', 'novel.context': 'Bağlam:', 'novel.tabNow': 'Şu an okuyorum', 'novel.tabShelf': 'Kütüphane', 'novel.goal': 'Günün okuma hedefi', 'novel.goalText': '{d}/{n} sayfa okundu · bu hafta {m} dk', 'novel.noBook': 'Başlamak için kütüphaneden bir kitap seç.', 'novel.classic': 'Roman', 'novel.savedWords': 'Desteye {n} kelime ekledin', 'novel.progress2': 'Okuma ilerlemesi', 'novel.progressOf': '%{p} (sayfa {n} / {total})', 'novel.continue': 'Okumaya devam et',
     'update.text': 'Uygulamanın yeni sürümü hazır.', 'update.reload': 'Yenile',
     'nav.speak': 'Konuşma', 'mode.speak': 'Çevrimiçi kişilerle İngilizce yazış ya da sesli konuş; konu kartları sana yol göstersin.',
-    'tutor.live': 'Canlı & dinliyor', 'tutor.levelNote': 'Native Speaker · {l} akıcılık seviyesi', 'tutor.role': 'Rol: {r}', 'tutor.speed': 'Ses hızı',
+    'tutor.live': 'Yapay zekâ ile konuşma', 'tutor.levelNote': 'Yapay zekâ öğretmeni · seçilen seviye {l}', 'tutor.role': 'Rol: {r}', 'tutor.speed': 'Ses hızı',
     'tutor.suggest': 'Önerilen cevaplar (dokun ve dinle/söyle):', 'tutor.help': 'Yardım', 'tutor.minutes': '{n} dk', 'tutor.ready': 'Konuşmaya hazır', 'tutor.listening': 'Dinleniyor…',
     'tutor.readyHint': 'Mikrofon butonuna dokunup cevabını İngilizce seslendir.', 'tutor.byTyping': 'Yazarak', 'tutor.pron': 'Telaffuz', 'tutor.showTr': 'Türkçe anlamı göster',
     'tutor.accuracy': '%{p} doğruluk', 'tutor.xpAdded': 'Kelime haznene +10 XP eklendi!', 'tutor.great': 'Harika cümle kurulumu!', 'tutor.kept': '“{w}” desteye eklendi.', 'speak.showCards': 'Konu sorularını göster', 'speak.hideCards': 'Konu sorularını gizle', 'speak.chat': 'Mesajlar', 'speak.chatHint': 'İngilizce yaz. Ms. Emma her cümleni denetler; düzeltmelerini yalnızca sen görürsün.',
@@ -6048,7 +6104,7 @@ function relabelCards() {
 }
 
 /* ---------- 7i. Navigation ---------- */
-const ROUTES = ['home', 'review', 'practice', 'rankings', 'words', 'phrases', 'grammar', 'speak', 'tutor', 'novel', 'quiz', 'reading', 'settings'];
+const ROUTES = ['home', 'study', 'review', 'practice', 'rankings', 'words', 'phrases', 'grammar', 'speak', 'tutor', 'novel', 'quiz', 'reading', 'settings'];
 const Router = {
   current: null,
   /* Non-route hashes (e.g. the skip link's #main) keep the current view. */
@@ -6068,7 +6124,7 @@ const Router = {
       row.scrollLeft += tab.getBoundingClientRect().left - row.getBoundingClientRect().left - (row.clientWidth - tab.offsetWidth) / 2;
     }
     document.title = t('nav.' + name) + ' · WordFlow';
-    if (changed) { Speech.stop(); Tutor.pause(); Games.stop(); Pron.close(); Speak.away(); }
+    if (changed) { Speech.stop(); Tutor.pause(); Games.stop(); Pron.close(); Speak.away(); Study.away(); }
     Novel.focusMode();
     Tutor.focusMode();
     const module = MODULES[name];
@@ -8089,7 +8145,7 @@ const Quiz = {
 
 /* ---------- 7n. Shared multiple-choice question (grammar and reading) ---------- */
 let choiceCounter = 0;
-function createChoiceQuestion({ q, options, answer, explain }) {
+function createChoiceQuestion({ q, options, answer, explain }, onAnswer) {
   const id = 'choice-' + (++choiceCounter);
   const feedback = h('p', { class: 'feedback', 'aria-live': 'polite' });
   const retry = h('button', { type: 'button', class: 'button ghost small', hidden: true, text: t('common.tryAgain') });
@@ -8108,6 +8164,7 @@ function createChoiceQuestion({ q, options, answer, explain }) {
     wrap.dataset.answered = 'true';
     const chosen = Number(button.dataset.index);
     const ok = chosen === answer;
+    if (onAnswer) onAnswer(ok);
     $$('.option', group).forEach((b, i) => {
       b.disabled = true;
       if (i === answer) { b.classList.add('is-correct'); b.append(h('span', { class: 'verdict', text: t('quiz.verdictCorrect') })); }
@@ -8129,7 +8186,7 @@ function createChoiceQuestion({ q, options, answer, explain }) {
 const Reading = {
   rendered: null,
   vocabMap: null,
-  onShow() { if (this.rendered !== lang) this.render(); },
+  onShow() { const key = lang + ':' + (location.hash.split('/')[1] || ''); if (this.rendered !== key) this.render(); },
   lookup(token) {
     if (!this.vocabMap) {
       this.vocabMap = new Map();
@@ -8153,8 +8210,34 @@ const Reading = {
   render() {
     Speech.stop();
     $('#speech-note').textContent = Speech.supported ? t('speech.ok') : t('speech.none');
-    $('#reading-list').replaceChildren(...READINGS.map(passage => this.renderPassage(passage)));
-    this.rendered = lang;
+    const selected = READINGS.find(passage => passage.id === location.hash.split('/')[1]);
+    if (!selected) { this.renderLibrary(); this.rendered = lang + ':'; return; }
+    const passages = selected ? [selected] : READINGS;
+    $('#reading-list').replaceChildren(...(selected ? [h('div', { class: 'study-reading-context' },
+      h('p', { text: Study.copy('Önce metne bakmadan dinlemeyi dene. Sonra oku, soruları yanıtla ve kendi cümlelerinle anlat.', 'Try listening before reading. Then read, answer the questions and explain it in your own words.') }),
+      h('div', { class: 'row' }, h('a', { class: 'button small', href: '#home', text: Study.copy('Günlük yolum', 'My daily path') }), h('a', { class: 'button small', href: '#reading', text: Study.copy('Tüm metinler', 'All texts') }), h('a', { class: 'button small primary', href: '#study/output', text: Study.copy('Kendi cümlelerimle anlat', 'Express it myself') })))] : []), ...passages.map(passage => this.renderPassage(passage)));
+    this.rendered = lang + ':' + (location.hash.split('/')[1] || '');
+  },
+  renderLibrary() {
+    const select = h('select', { id: 'reading-level' }, h('option', { value: '', text: Study.copy('Tüm düzeyler', 'All levels') }),
+      ...Study.LEVELS.map(level => h('option', { value: level, text: level })));
+    select.value = this.level || '';
+    const tiles = h('div', { class: 'reading-library' });
+    const render = () => {
+      this.level = select.value;
+      tiles.replaceChildren(...READINGS.filter(passage => !this.level || passage.level.includes(this.level)).map(passage => {
+        const words = passage.paragraphs.reduce((count, [en]) => count + en.split(/\s+/).length, 0);
+        return h('article', { class: 'panel reading-tile', 'data-reading-id': passage.id },
+          h('div', { class: 'row' }, h('span', { class: 'chip level', text: t('reading.level', { l: passage.level }) }),
+            passage.id === Study.passage().id ? h('span', { class: 'chip', text: Study.copy('Bugünkü yolunda', 'On today’s path') }) : null),
+          h('h2', { lang: 'en', text: passage.title }),
+          h('p', { class: 'hint', text: t('reading.words', { n: words }) + ' · ' + Study.copy(`${passage.questions.length} anlama sorusu`, `${passage.questions.length} comprehension questions`) }),
+          h('a', { class: 'button primary', href: '#reading/' + passage.id, text: Study.copy('Metni aç ve dinle', 'Open text and listen') }));
+      }));
+    };
+    select.addEventListener('change', render);
+    $('#reading-list').replaceChildren(h('div', { class: 'field reading-level-field' }, h('label', { for: 'reading-level', text: Study.copy('Metinlerin tahmini düzeyi', 'Estimated text level') }), select), tiles);
+    render();
   },
   renderPassage(passage) {
     const found = new Map();
@@ -8195,7 +8278,7 @@ const Reading = {
       tools, listeningNote, text,
       h('details', { class: 'disclosure' }, h('summary', { text: t('reading.glossary', { n: found.size }) }), glossary),
       h('h3', { text: t('reading.questions') }),
-      ...passage.questions.map(createChoiceQuestion));
+      ...passage.questions.map((question, index) => createChoiceQuestion(question, correct => Study.noteReading(passage.id, index, correct))));
     return article;
   },
   /* Play / pause and stop controls that read one paragraph at a time with the device voice. */
@@ -8218,7 +8301,7 @@ const Reading = {
       index = i;
       status.textContent = t('reading.playing', { i: i + 1, n: passage.paragraphs.length });
       Speech.speak(passage.paragraphs[i][0], {
-        onEnd: () => speakFrom(i + 1, token),
+        onEnd: () => { if (token !== run) return; Study.noteListening(passage.id); speakFrom(i + 1, token); },
         onStop: () => { if (token === run) { run++; setState('idle'); status.textContent = ''; } }
       });
     };
@@ -8281,7 +8364,7 @@ const Settings = {
     try {
       const data = JSON.stringify({ app: 'english-study', exportedAt: new Date().toISOString(), ...progress, learned: [...learnedSet],
         review: Review.state, grammar: { best: Grammar.best, learned: Grammar.learned, last: Grammar.lastTopic }, xp: XP.state, phrases: Phrases.learned,
-        novelQuick: NovelQuickReview.snapshot() }, null, 2);
+        novelQuick: NovelQuickReview.snapshot(), study: Study.snapshot() }, null, 2);
       const url = URL.createObjectURL(new Blob([data], { type: 'application/json' }));
       const link = h('a', { href: url, download: 'english-study-progress-' + dateKey(new Date()) + '.json' });
       document.body.append(link);
@@ -8318,6 +8401,7 @@ const Settings = {
     });
     if (!ok) { status.textContent = t('import.cancelled'); return; }
     replaceProgress(imported);
+    if (parsed.study) Study.restore(parsed.study);
     if (review) { Review.state = review; Review.queue = []; Review.save(); }
     if (Array.isArray(parsed.novelQuick)) NovelQuickReview.restore(parsed.novelQuick);
     if (xp) { XP.state = xp; XP.save(); XP.pills(); }
@@ -8333,6 +8417,7 @@ const Settings = {
     if (!ok) return;
     replaceProgress(createEmptyProgress(progress.settings));
     Review.clear();
+    Study.clear();
     NovelQuickReview.clear();
     Toast.show(t('reset.done'));
   }
@@ -9221,6 +9306,9 @@ const Tutor = {
   },
   setBusy(busy) {
     this.busy = busy;
+    const status = $('#tutor-status');
+    status.dataset.i18n = busy ? 'tutor.thinking' : this.listening ? 'tutor.listening' : 'tutor.ready';
+    status.textContent = t(status.dataset.i18n);
     $('#tutor-mic').disabled = busy;
     $('#tutor-type button').disabled = busy;
   },
@@ -9247,20 +9335,18 @@ const Tutor = {
       if (text) this.history.push({ role: 'user', text });
       this.history.push({ role: 'model', text: data.reply });
       if (mine && (!data.correction || Writer.normal(data.correction) === Writer.normal(text))) {
-        mine.append(h('div', { class: 'tutor-fix is-good' }, h('div', { class: 'tutor-fix-head' }, h('strong', { text: '★ ' + t('tutor.great') }), h('span', { class: 'tutor-acc', text: t('tutor.accuracy', { p: 100 }) })),
-          data.tip ? h('span', { lang: 'tr', text: data.tip }) : null, h('span', { class: 'tutor-fix-xp', text: t('tutor.xpAdded') })));
+        mine.append(h('div', { class: 'tutor-fix is-good' }, h('div', { class: 'tutor-fix-head' }, h('strong', { text: Study.copy('Bu yanıtta değişiklik önerilmedi', 'No revision was suggested for this reply') })),
+          data.tip ? h('span', { lang: 'tr', text: data.tip }) : null));
       } else if (mine && data.correction) {
-        const [old, better] = Writer.diff(text, data.correction);
+        const [, better] = Writer.diff(text, data.correction);
         better.classList.add('tutor-fix-en');
-        const words = Math.max(1, text.split(/\s+/).length);
-        const accuracy = Math.max(0, Math.round(100 - (old.querySelectorAll('del').length + better.querySelectorAll('ins').length) / (2 * words) * 100));
-        mine.append(h('div', { class: 'tutor-fix' }, h('div', { class: 'tutor-fix-head' }, h('strong', { text: t('tutor.better') }), h('span', { class: 'tutor-acc', text: t('tutor.accuracy', { p: accuracy }) })),
+        mine.append(h('div', { class: 'tutor-fix' }, h('div', { class: 'tutor-fix-head' }, h('strong', { text: t('tutor.better') }), h('span', { class: 'tutor-acc', text: Study.copy('Düzeltme önerisi', 'Suggested revision') })),
           better, data.tip ? h('span', { lang: 'tr', text: data.tip }) : null));
         this.settings.review = [data.correction, ...this.settings.review.filter(line => line !== data.correction)].slice(0, 10);
         this.save();
       }
       this.addTeacher(data);
-      if (!hidden) { XP.add(10); this.lessonXp = (this.lessonXp || 0) + 10; this.tickLesson(); }
+      if (!hidden) { XP.add(10); this.lessonXp = (this.lessonXp || 0) + 10; this.tickLesson(); Study.noteTutor(text); }
       $('#tutor-suggest').hidden = false;
       this.say(data.reply);
     } catch (err) {
@@ -9359,6 +9445,9 @@ const Tutor = {
     try { rec.start(); } catch (_) { this.listening = null; this.micUi(false); interim.hidden = true; }
   },
   micUi(on) {
+    const status = $('#tutor-status');
+    status.dataset.i18n = on ? 'tutor.listening' : this.busy ? 'tutor.thinking' : 'tutor.ready';
+    status.textContent = t(status.dataset.i18n);
     $('#tutor-mic').classList.toggle('is-listening', on);
     $('#tutor-mic-label').textContent = t(on ? 'tutor.stop' : 'tutor.talk');
     $('#tutor-ready').textContent = t(on ? 'tutor.listening' : 'tutor.ready');
@@ -9995,6 +10084,7 @@ const Grammar = {
     if (mode !== this.mode || topic !== this.topic) this.open(mode, topic);
     if (mode === 'topic') this.showUnit(/^\d+$/.test(step) ? Number(step) : null);
     if (mode === 'home') this.renderTopics();
+    if (mode === 'write' && step && Writer.stories.some(story => story.id === step)) Writer.open(step);
     this.heading();
   },
   open(mode, topic) {
@@ -10337,6 +10427,7 @@ const Grammar = {
     const units = this.topic.units;
     const total = run.items.length;
     const passed = run.score >= Math.ceil(total * 2 / 3);
+    if (passed) Study.noteGrammar(run.unit.id);
     if (passed && !this.learned[run.unit.id]) { this.learned[run.unit.id] = 1; this.save(); Review.add('g:' + run.unit.id, 2); XP.add(50); }
     const next = this.unit + 1 < units.length ? this.unit + 1 : null;
     for (const item of $$('#gram-unit .gram-steps li')) { item.className = 'is-done'; item.removeAttribute('aria-current'); }
@@ -11088,6 +11179,7 @@ const Review = {
     persist();
     Nav.counts();
     this.shown = false;
+    Study.noteReview(id);
     this.render();
   },
   when(days) { return days === 0 ? t('review.soon') : t('review.days', { n: days }); },
@@ -11246,6 +11338,374 @@ const Review = {
   }
 };
 
+/* Guided study: real practice events, never navigation clicks or elapsed page time. */
+const Study = {
+  KEY: 'english-study-plan.v1',
+  LEVELS: ['A2', 'B1', 'B2', 'C1'],
+  TIMES: [15, 30, 45],
+  state: null,
+  run: null,
+  recording: null,
+  recToken: 0,
+  copy(tr, en) { return lang === 'tr' ? tr : en; },
+  button(text, action, attrs = {}) {
+    const node = h('button', { type: 'button', class: 'button', ...attrs, text });
+    node.addEventListener('click', action);
+    return node;
+  },
+  wordCount(text) { return (String(text).match(/[A-Za-z]+(?:['’-][A-Za-z]+)*/g) || []).length; },
+  sentenceCount(text) { return String(text).split(/[.!?]+(?:\s|$)|\n+/).filter(part => this.wordCount(part) >= 3).length; },
+  init() {
+    this.grammarIds = new Set(Grammar.topics.flatMap(topic => topic.units.map(unit => unit.id)));
+    this.readingKeys = new Set(READINGS.flatMap(passage => passage.questions.map((_, i) => passage.id + ':' + i)));
+    let raw;
+    try { raw = JSON.parse(Store.read(this.KEY) || 'null'); } catch (_) { /* fresh plan */ }
+    this.state = this.sanitize(raw) || { version: 1, prefs: { minutes: 30, level: this.LEVELS.includes(progress.settings.path) ? progress.settings.path : 'A2' }, days: {} };
+    this.day();
+    window.addEventListener('pagehide', () => { if (this.draftTimer) this.save(); });
+  },
+  sanitize(raw) {
+    if (!raw || typeof raw !== 'object' || Array.isArray(raw) || raw.version !== 1) return null;
+    const prefs = raw.prefs || {};
+    const out = { version: 1, prefs: { minutes: this.TIMES.includes(prefs.minutes) ? prefs.minutes : 30, level: this.LEVELS.includes(prefs.level) ? prefs.level : 'A2' }, days: {} };
+    const ids = (list, valid, max = 100) => Array.isArray(list) ? [...new Set(list.filter(id => typeof id === 'string' && valid(id)))].slice(0, max) : [];
+    const validWord = id => BY_ID.has(id);
+    for (const [date, saved] of Object.entries(raw.days || {}).filter(([date]) => /^\d{4}-\d{2}-\d{2}$/.test(date)).sort().slice(-60)) {
+      if (!saved || typeof saved !== 'object' || Array.isArray(saved)) continue;
+      const config = saved.config;
+      const validConfig = config && this.LEVELS.includes(config.level) && this.TIMES.includes(config.minutes)
+        && READINGS.some(passage => passage.id === config.passage)
+        && (!config.grammar || this.grammarIds.has(config.grammar))
+        && ['reviewTarget', 'recallTarget', 'writingTarget', 'speechTarget'].every(key => Number.isInteger(config[key]) && config[key] >= 0 && config[key] <= 200);
+      const day = { date, config: validConfig ? { level: config.level, minutes: config.minutes, passage: config.passage, grammar: config.grammar || null,
+        reviewTarget: config.reviewTarget, recallTarget: config.recallTarget, writingTarget: config.writingTarget, speechTarget: config.speechTarget } : null,
+        reviewed: ids(saved.reviewed, id => /^[wgn]:[^\x00-\x1f]{1,180}$/.test(id)),
+        grammar: ids(saved.grammar, id => this.grammarIds.has(id)), reading: {}, listened: ids(saved.listened, id => READINGS.some(p => p.id === id), 30),
+        writing: typeof saved.writing === 'string' ? saved.writing.slice(0, 6000) : '', written: saved.written === true,
+        spoken: Number.isFinite(saved.spoken) ? Math.min(600, Math.max(0, saved.spoken)) : 0,
+        tutor: ids(saved.tutor, line => line.length <= 1000 && this.wordCount(line) >= 5, 20), pool: ids(saved.pool, validWord, 10), hints: ids(saved.hints, validWord, 10), recall: {} };
+      for (const [key, value] of Object.entries(saved.reading || {})) if (this.readingKeys.has(key) && typeof value === 'boolean') day.reading[key] = value;
+      for (const [id, value] of Object.entries(saved.recall || {}).slice(0, 60)) {
+        if (validWord(id) && value && typeof value === 'object') day.recall[id] = { first: value.first === true, correct: value.correct === true, attempts: Math.min(100, Math.max(1, Number.isInteger(value.attempts) ? value.attempts : 1)) };
+      }
+      out.days[date] = day;
+    }
+    return out;
+  },
+  snapshot() { return JSON.parse(JSON.stringify(this.state)); },
+  restore(raw) {
+    const next = this.sanitize(raw);
+    if (!next) return false;
+    this.away(); this.discardRecording(); this.state = next; this.run = null; this.day(); this.save();
+    if (Router.current === 'home') this.renderHome();
+    if (Router.current === 'study') this.onShow();
+    return true;
+  },
+  clear() {
+    this.away(); this.discardRecording(); this.state.days = {}; this.run = null; this.day(); this.save();
+    if (Router.current === 'home') this.renderHome();
+  },
+  save() {
+    clearTimeout(this.draftTimer); this.draftTimer = null;
+    const keys = Object.keys(this.state.days).sort();
+    for (const key of keys.slice(0, -60)) delete this.state.days[key];
+    Store.write(this.KEY, JSON.stringify(this.state));
+  },
+  queueSave() { clearTimeout(this.draftTimer); this.draftTimer = setTimeout(() => this.save(), 350); },
+  grammarPick(level) {
+    const core = ['bs', 'tn', 'nn', 'aj', 'pp', 'md', 'ps', 'cn', 'rs', 'gi'];
+    const ceiling = { A1: 0, A2: 1, B1: 2, B2: 3, C1: 4 }[level];
+    const topics = Grammar.topics.filter(topic => core.includes(topic.id));
+    if (Grammar.lastTopic) topics.sort((a, b) => Number(b.id === Grammar.lastTopic) - Number(a.id === Grammar.lastTopic));
+    for (const topic of topics) {
+      const index = topic.units.findIndex((unit, i) => !Grammar.learned[unit.id] && (i === 0 || Grammar.learned[topic.units[i - 1].id])
+        && ({ A1: 0, A2: 1, B1: 2, B2: 3 }[topic.lessons[unit.lesson].level] ?? 0) <= ceiling);
+      if (index >= 0) return topic.units[index].id;
+    }
+    return null;
+  },
+  plan() {
+    const { minutes, level } = this.state.prefs;
+    let passages = READINGS.filter(p => p.level === level || (level === 'B2' && p.level === 'B1–B2'));
+    if (!passages.length) passages = READINGS;
+    const due = Review.due().length;
+    return { minutes, level, passage: passages[Review.today() % passages.length].id, grammar: this.grammarPick(level),
+      reviewTarget: Math.min(minutes === 15 ? 4 : minutes === 30 ? 8 : 12, due || Review.newWords(level).length),
+      recallTarget: minutes === 15 ? 3 : minutes === 30 ? 5 : 8,
+      writingTarget: Math.round(({ A2: 25, B1: 45, B2: 65, C1: 85 }[level]) * (minutes === 15 ? .7 : minutes === 45 ? 1.2 : 1)),
+      speechTarget: minutes === 15 ? 30 : minutes === 30 ? 60 : 90 };
+  },
+  day() {
+    const date = dateKey(new Date());
+    let day = this.state.days[date];
+    if (!day) day = this.state.days[date] = { date, config: null, reviewed: [], grammar: [], reading: {}, listened: [], writing: '', written: false, spoken: 0, tutor: [], pool: [], hints: [], recall: {} };
+    if (!day.config) { day.config = this.plan(); this.save(); }
+    return day;
+  },
+  passage() { return READINGS.find(passage => passage.id === this.day().config.passage) || READINGS[0]; },
+  grammarUnit(id) {
+    for (const topic of Grammar.topics) { const index = topic.units.findIndex(unit => unit.id === id); if (index >= 0) return { topic, unit: topic.units[index], index }; }
+    return null;
+  },
+  noteReview(id) { const day = this.day(); if (!day.reviewed.includes(id) && day.reviewed.length < 100) { day.reviewed.push(id); this.save(); } },
+  noteGrammar(id) { const day = this.day(); if (!day.grammar.includes(id) && day.grammar.length < 30) { day.grammar.push(id); this.save(); } },
+  noteReading(id, index, correct) { this.day().reading[id + ':' + index] = Boolean(correct); this.save(); },
+  noteListening(id) { const day = this.day(); if (!day.listened.includes(id)) { day.listened.push(id); this.save(); } },
+  noteTutor(text) { const day = this.day(); const clean = text.trim().slice(0, 1000); if (this.wordCount(clean) >= 5 && !day.tutor.includes(clean) && day.tutor.length < 20) { day.tutor.push(clean); this.save(); } },
+  steps() {
+    const day = this.day(), config = day.config, passage = this.passage();
+    const grammar = this.grammarUnit(config.grammar);
+    const read = passage.questions.filter((_, i) => day.reading[passage.id + ':' + i]).length;
+    const recalled = day.pool.filter(id => day.recall[id]?.correct).length;
+    const output = (day.written && this.wordCount(day.writing) >= config.writingTarget && this.sentenceCount(day.writing) >= 3) || day.spoken >= config.speechTarget || day.tutor.length >= 2;
+    const mins = config.minutes === 15 ? [3, 3, 4, 3, 2] : config.minutes === 30 ? [6, 6, 7, 7, 4] : [9, 9, 11, 11, 5];
+    return [
+      { id: 'review', title: this.copy('Önce hatırla', 'Recall first'), note: this.copy(`${Math.min(day.reviewed.length, config.reviewTarget)}/${config.reviewTarget} farklı kartı yanıtladın`, `${Math.min(day.reviewed.length, config.reviewTarget)}/${config.reviewTarget} different cards answered`),
+        done: day.reviewed.length >= config.reviewTarget, href: Review.due().length ? '#review' : '#review/learn/' + config.level },
+      { id: 'grammar', title: this.copy('Bir yapıyı öğren ve dene', 'Learn and test one structure'), note: grammar ? grammar.unit.title : this.copy('Temel derslerin tamamı çalışıldı', 'Core lessons already completed'),
+        done: !grammar || day.grammar.includes(config.grammar), href: grammar ? '#grammar/' + grammar.topic.id + '/' + grammar.index : '#grammar' },
+      { id: 'input', title: this.copy('Dinle, oku, anlamını kontrol et', 'Listen, read and check meaning'), note: passage.title + ` · ${read}/${passage.questions.length}`, done: read === passage.questions.length, href: '#reading/' + passage.id },
+      { id: 'output', title: this.copy('Kendi cümlelerinle anlat', 'Express it in your own words'), note: this.copy(`${config.writingTarget}+ kelime yaz veya ${config.speechTarget} sn sesli anlat`, `Write ${config.writingTarget}+ words or speak for ${config.speechTarget} seconds`), done: output, href: '#study/output' },
+      { id: 'recall', title: this.copy('Seçeneksiz hatırlama kontrolü', 'Recall without answer options'), note: this.copy(`${recalled}/${config.recallTarget} kelime yardımsız hatırlandı`, `${recalled}/${config.recallTarget} words recalled without hints`), done: recalled >= config.recallTarget, href: '#study/recall' }
+    ].map((step, i) => ({ ...step, minutes: mins[i] }));
+  },
+  renderHome() {
+    const root = $('#study-home');
+    if (!root || !this.state) return;
+    const day = this.day(), steps = this.steps(), done = steps.filter(step => step.done).length;
+    const next = steps.find(step => !step.done);
+    const minutes = h('select', { id: 'study-minutes' }, this.TIMES.map(n => h('option', { value: n, text: this.copy(`${n} dakika`, `${n} minutes`) })));
+    minutes.value = this.state.prefs.minutes;
+    const level = h('select', { id: 'study-level' }, this.LEVELS.map(value => h('option', { value, text: value })));
+    level.value = this.state.prefs.level;
+    const change = () => { this.discardRecording(); this.state.prefs = { minutes: Number(minutes.value), level: level.value }; day.config = this.plan(); day.pool = []; this.run = null; this.save(); this.renderHome(); };
+    minutes.addEventListener('change', change); level.addEventListener('change', change);
+    root.replaceChildren(
+      h('div', { class: 'study-heading' }, h('div', {}, h('span', { class: 'eyebrow', text: this.copy('GENEL İNGİLİZCE', 'GENERAL ENGLISH') }), h('h2', { text: this.copy('Bugün ne çalışacağım?', 'What should I study today?') })), h('span', { class: 'chip level', text: `${day.config.level} · ${day.config.minutes} ${this.copy('dk', 'min')}` })),
+      h('p', { class: 'lead', text: this.copy('Hatırla, anla ve kendi cümlelerini üret. Her adım seni gerçekten yaptığın çalışmaya göre yönlendirir.', 'Recall, understand and produce your own sentences. Each step follows the practice you actually do.') }),
+      h('a', { id: 'study-next', class: 'button primary study-start', href: next ? next.href : '#study/recall', text: next ? this.copy('Sıradaki: ', 'Next: ') + next.title : this.copy('Bugünkü tur tamam · kısa tekrar yap', 'Daily round complete · practise again') }),
+      h('div', { class: 'study-meter' }, h('span', { id: 'study-progress-text', text: this.copy(`${done}/5 adım tamamlandı`, `${done}/5 steps completed`) }), h('span', { text: this.copy('Süreler yaklaşık', 'Times are approximate') })),
+      h('progress', { value: done, max: 5, 'aria-label': this.copy('Günlük öğrenme adımları', 'Daily learning steps') }),
+      h('ol', { class: 'study-steps' }, steps.map((step, i) => h('li', { class: 'study-step' + (step.done ? ' is-done' : next?.id === step.id ? ' is-next' : ''), 'data-study-step': step.id },
+        h('span', { class: 'study-step-number', 'aria-hidden': 'true', text: step.done ? '✓' : i + 1 }),
+        h('span', { class: 'study-step-text' }, h('strong', { text: step.title }), h('small', { text: step.note }), h('small', { text: `${step.minutes} ${this.copy('dk', 'min')}` })),
+        h('a', { href: step.href, 'aria-label': step.title }, icon('next'))))),
+      h('details', { class: 'study-options' }, h('summary', { text: this.copy('Süreyi ve kelime yolunu ayarla', 'Choose your time and vocabulary path') }),
+        h('div', { class: 'study-fields' }, h('label', { class: 'field', for: 'study-minutes' }, this.copy('Günlük süre', 'Daily time'), minutes), h('label', { class: 'field', for: 'study-level' }, this.copy('Kelime yolu', 'Vocabulary path'), level)),
+        h('p', { class: 'study-note', text: this.copy('A2–C1 seçimi bir çalışma tercihidir, seviye sınavı değildir. Bugün yaptığın çalışmalar korunur.', 'A2–C1 is a study preference, not a placement test. Today’s practice is retained.') })),
+      h('p', { class: 'study-note', text: this.copy('Bir adımı açmak tamamlamak değildir. Sayaçlar verilen yanıtlar, ders testi ve kendi üretiminle ilerler.', 'Opening a step does not complete it. Answers, lesson tests and your own output move the counters.') }));
+    root.insertBefore(root.querySelector('.study-options'), $('#study-next'));
+  },
+  onShow() {
+    this.away();
+    const mode = location.hash.split('/')[1];
+    $('#study-title').textContent = mode === 'recall' ? this.copy('Cevabı kendin hatırla', 'Retrieve the answer yourself') : this.copy('Kendi cümlelerinle anlat', 'Express it in your own words');
+    if (mode === 'recall') this.renderRecall(); else this.renderOutput();
+  },
+  task() {
+    const passage = this.passage();
+    return passage.task || { en: 'Summarise the text in your own words. Connect it to your own life and explain one opinion with a reason.', tr: 'Metni kendi cümlelerinle özetle. Kendi hayatınla bağlantı kur ve bir görüşünü nedeniyle açıkla.', frames: ['The text is about…', 'In my experience…', 'I think… because…'] };
+  },
+  prompt() {
+    const task = this.task();
+    return h('div', { class: 'study-prompt' }, h('p', { class: 'eyebrow', text: this.passage().title }), h('p', { lang: 'en', text: task.en }),
+      lang === 'tr' ? h('p', { lang: 'tr', class: 'hint', text: task.tr }) : null,
+      h('ul', {}, task.frames.map(text => h('li', { lang: 'en', text }))));
+  },
+  renderOutput() {
+    const day = this.day();
+    const box = $('#study-app');
+    const speak = location.hash.split('/')[1] === 'speak';
+    const text = h('textarea', { id: 'study-writing', lang: 'en', rows: 7, maxlength: 6000, placeholder: this.copy('Örnek cümleleri kopyalamadan İngilizce anlat…', 'Write in English without copying the example sentences…') });
+    text.value = day.writing;
+    const count = h('p', { class: 'hint', id: 'study-writing-count' });
+    const update = () => { day.writing = text.value; day.written = false; count.textContent = this.copy(`${this.wordCount(text.value)}/${day.config.writingTarget} kelime · en az 3 cümle`, `${this.wordCount(text.value)}/${day.config.writingTarget} words · at least 3 sentences`); this.queueSave(); };
+    text.addEventListener('input', update);
+    count.textContent = this.copy(`${this.wordCount(text.value)}/${day.config.writingTarget} kelime · en az 3 cümle`, `${this.wordCount(text.value)}/${day.config.writingTarget} words · at least 3 sentences`);
+    const feedback = h('p', { class: 'study-feedback', id: 'study-writing-feedback', role: 'status' });
+    const save = this.button(this.copy('Yazma çalışmamı kaydet', 'Save my writing practice'), () => {
+      if (this.wordCount(text.value) < day.config.writingTarget || this.sentenceCount(text.value) < 3 || new Set((text.value.toLowerCase().match(/[a-z]+/g) || [])).size < 8) {
+        feedback.textContent = this.copy(`En az ${day.config.writingTarget} kelime ve 3 anlamlı cümle yaz. Bir fikir, örnek ve neden eklemeyi dene.`, `Write at least ${day.config.writingTarget} words and 3 sentences. Include an idea, an example and a reason.`); text.focus(); return;
+      }
+      day.writing = text.value; day.written = true; this.save();
+      feedback.textContent = this.copy('Yazma çalışman kaydedildi. Bu, dilbilgisi puanı değildir; geri bildirimle gözden geçirebilirsin.', 'Writing practice saved. This is not a grammar score; you can now review it with feedback.');
+    }, { class: 'button primary', id: 'study-writing-save' });
+    const grammar = this.button(this.copy('Yazımı geri bildirimle incele', 'Review my writing with feedback'), () => {
+      if (!text.value.trim()) { text.focus(); return; }
+      const id = 'study-' + day.date;
+      let story = Writer.stories.find(item => item.id === id);
+      if (!story) { story = { id }; Writer.stories.push(story); }
+      Object.assign(story, { title: this.passage().title, text: text.value, updated: Date.now() }); Writer.save();
+      location.hash = '#grammar/write/' + id;
+    }, { id: 'study-writing-review' });
+    box.replaceChildren(h('a', { class: 'study-return', href: '#reading/' + this.passage().id, text: this.copy('← Metne ve dinlemeye dön', '← Return to the text and listening') }),
+      h('nav', { class: 'study-mode', 'aria-label': this.copy('Anlatım biçimi', 'Output mode') },
+        h('a', { class: 'button' + (!speak ? ' primary' : ''), href: '#study/output', 'aria-current': !speak ? 'page' : null, text: this.copy('Yazılı anlatım', 'Writing') }),
+        h('a', { class: 'button' + (speak ? ' primary' : ''), href: '#study/speak', 'aria-current': speak ? 'page' : null, text: this.copy('Sesli anlatım', 'Speaking') })), this.prompt(),
+      h('section', { class: 'panel', hidden: speak }, h('h2', { text: this.copy('Yazılı anlatım', 'Writing practice') }), h('label', { for: 'study-writing', text: this.copy('Kendi İngilizce metnin', 'Your own English text') }), text, count, h('div', { class: 'row' }, save, grammar), feedback),
+      h('section', { class: 'panel', hidden: !speak }, h('h2', { text: this.copy('Sesli anlatım', 'Speaking practice') }),
+        h('p', { text: this.copy(`Aynı konuyu ${day.config.speechTarget} saniye kendi cümlelerinle anlat. Kaydını dinle; sonra aynı fikri daha rahat anlatmayı dene. Yazma ve sesli anlatımdan biri üretim adımını tamamlar.`, `Explain the same topic for ${day.config.speechTarget} seconds. Listen back, then try expressing it more smoothly. Either writing or speaking completes the output step.`) }),
+        h('div', { id: 'study-record', class: 'study-record' }),
+        h('p', { class: 'study-note', text: this.copy('Ses kaydı bu sekmede kalır ve gönderilmez. Konuşma süresi telaffuz ya da yeterlilik puanı değildir.', 'The recording stays in this tab and is not uploaded. Speaking time is not a pronunciation or proficiency score.') }),
+        h('a', { class: 'button', href: '#tutor', text: this.copy('İstersen yapay zekâ öğretmeniyle konuş (çevrim içi)', 'Or talk to the AI teacher (online)') })),
+      h('a', { class: 'button primary study-start', href: '#home', text: this.copy('Günlük yoluma dön', 'Return to my daily path') }));
+    this.renderRecorder();
+  },
+  renderRecorder(message = '') {
+    const root = $('#study-record');
+    if (!root) return;
+    const time = h('span', { class: 'study-record-time', id: 'study-record-time', role: 'timer', 'aria-label': this.copy('Konuşma süresi', 'Speaking time'), text: '0:00' });
+    const start = this.button(this.copy('Mikrofonla kaydet', 'Record with microphone'), () => this.startRecorder(), { id: 'study-record-start' });
+    const stop = this.button(this.copy('Kaydı durdur', 'Stop recording'), () => this.stopRecorder(), { id: 'study-record-stop', hidden: true });
+    const status = h('p', { id: 'study-record-status', role: 'status', text: message });
+    root.replaceChildren(time, h('div', { class: 'row' }, start, stop), status);
+    const recording = this.recording;
+    if (recording && recording.date === this.day().date && recording.url) {
+      const audio = h('audio', { controls: true, src: recording.url, 'aria-label': this.copy('Kendi ses kaydın', 'Your recording') });
+      const target = this.day().config.speechTarget;
+      const finish = this.button(this.copy('Kaydımı dinledim · çalışmayı kaydet', 'I listened back · save practice'), () => {
+        if (recording.seconds < target || !recording.heard) return;
+        this.day().spoken = Math.max(this.day().spoken, recording.seconds); this.save();
+        status.textContent = this.copy('Sesli anlatım çalışman kaydedildi. Aynı fikri daha akıcı anlatmak için yeniden deneyebilirsin.', 'Speaking practice saved. Try expressing the same idea more fluently in another recording.');
+      }, { id: 'study-record-save', disabled: !recording.heard || recording.seconds < target });
+      audio.addEventListener('timeupdate', () => { if (audio.currentTime >= Math.min(5, recording.seconds / 2)) { recording.heard = true; finish.disabled = recording.seconds < target; } });
+      time.textContent = this.formatTime(recording.seconds);
+      status.textContent = recording.seconds < target ? this.copy(`Bu kayıt ${recording.seconds} saniye. Hedef ${target} saniye; yeniden deneyebilirsin.`, `This recording is ${recording.seconds} seconds; the target is ${target}. Try again.`) : this.copy('Kaydının en az 5 saniyesini dinle, sonra çalışmanı kaydet.', 'Listen to at least 5 seconds, then save your practice.');
+      root.append(audio, finish);
+    }
+  },
+  formatTime(seconds) { return Math.floor(seconds / 60) + ':' + String(Math.floor(seconds % 60)).padStart(2, '0'); },
+  async startRecorder() {
+    if (!navigator.mediaDevices?.getUserMedia || !window.MediaRecorder) { this.renderRecorder(this.copy('Bu tarayıcıda ses kaydı kullanılamıyor. Yazma alıştırmasıyla devam edebilirsin.', 'Recording is unavailable in this browser. You can complete the writing activity instead.')); return; }
+    if (this.recorder && this.recorder.state !== 'inactive') return;
+    const token = ++this.recToken;
+    $('#study-record-start').disabled = true;
+    let stream;
+    try {
+      stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      if (token !== this.recToken || Router.current !== 'study') { stream.getTracks().forEach(track => track.stop()); return; }
+      this.discardRecording(); this.stream = stream;
+      const generation = this.recordGeneration;
+      const recorder = this.recorder = new MediaRecorder(stream);
+      const chunks = [], started = performance.now(), date = this.day().date;
+      recorder.ondataavailable = event => { if (event.data.size) chunks.push(event.data); };
+      recorder.onstop = () => {
+        clearInterval(this.recordTimer); stream.getTracks().forEach(track => track.stop());
+        if (generation !== this.recordGeneration) return;
+        const seconds = Math.floor((performance.now() - started) / 1000);
+        const blob = new Blob(chunks, { type: recorder.mimeType || 'audio/webm' });
+        this.recording = blob.size ? { date, seconds, url: URL.createObjectURL(blob), heard: false } : null;
+        if (Router.current === 'study' && location.hash.split('/')[1] !== 'recall') this.renderRecorder();
+      };
+      recorder.onerror = () => { this.stopRecorder(); this.renderRecorder(this.copy('Kayıt alınamadı. Yazma alıştırmasıyla devam edebilirsin.', 'Recording failed. You can continue with writing.')); };
+      recorder.start();
+      $('#study-record-stop').hidden = false;
+      $('#study-record-status').textContent = this.copy('Kaydediliyor…', 'Recording…');
+      this.recordTimer = setInterval(() => {
+        const seconds = Math.floor((performance.now() - started) / 1000);
+        const timer = $('#study-record-time'); if (timer) timer.textContent = this.formatTime(seconds);
+        if (seconds >= 180) this.stopRecorder();
+      }, 500);
+    } catch (_) {
+      if (stream) stream.getTracks().forEach(track => track.stop());
+      if (token === this.recToken && Router.current === 'study') this.renderRecorder(this.copy('Mikrofon açılamadı. Tarayıcı iznini kontrol edebilir veya yazmayla devam edebilirsin.', 'The microphone could not be opened. Check browser permission or continue with writing.'));
+    }
+  },
+  stopRecorder() {
+    clearInterval(this.recordTimer);
+    if (this.recorder && this.recorder.state !== 'inactive') this.recorder.stop();
+    if (this.stream) this.stream.getTracks().forEach(track => track.stop());
+  },
+  discardRecording() {
+    this.recordGeneration = (this.recordGeneration || 0) + 1;
+    if (this.recording?.url) URL.revokeObjectURL(this.recording.url);
+    this.recording = null;
+  },
+  away() {
+    if (this.draftTimer) this.save();
+    this.recToken++;
+    this.stopRecorder();
+    const audio = $('#study-record audio'); if (audio) audio.pause();
+  },
+  prepareRecall() {
+    const day = this.day();
+    if (!day.pool.length) {
+      const level = day.config.level;
+      const reviewed = day.reviewed.filter(id => id.startsWith('w:')).map(id => id.slice(2));
+      const mistakes = Object.entries(Review.state.cards).filter(([id, card]) => id.startsWith('w:') && card[4] > 0 && (card[3] < 3 || card[0] <= Review.today()))
+        .sort((a, b) => b[1][4] - a[1][4]).map(([id]) => id.slice(2));
+      const source = [...mistakes.slice(0, 2), ...reviewed, ...mistakes.slice(2), ...learnedSet, ...VOCAB.filter(entry => entry.level === level).map(entry => entry.id), ...VOCAB.map(entry => entry.id)];
+      const seen = new Set();
+      day.pool = [...new Set(source)].filter(id => {
+        const entry = BY_ID.get(id); if (!entry || !entry.meaning || seen.has(normalize(entry.word))) return false;
+        seen.add(normalize(entry.word)); return true;
+      }).slice(0, day.config.recallTarget);
+      day.config.recallTarget = day.pool.length;
+      this.save();
+    }
+    if (!this.run || this.run.date !== day.date) this.run = { date: day.date, queue: day.pool.filter(id => !day.recall[id]?.correct).sort((a, b) => (day.recall[a]?.attempts || 0) - (day.recall[b]?.attempts || 0)), hinted: false, locked: false };
+  },
+  renderRecall() {
+    this.prepareRecall();
+    const day = this.day(), run = this.run, root = $('#study-app');
+    const correct = day.pool.filter(id => day.recall[id]?.correct).length;
+    const first = day.pool.filter(id => day.recall[id]?.first).length;
+    if (!run.queue.length) {
+      root.replaceChildren(h('section', { class: 'panel' }, h('h2', { text: this.copy('Hatırlama turu tamamlandı', 'Recall round complete') }),
+        h('p', { text: this.copy(`${correct}/${day.pool.length} kelimeyi yardımsız yazdın. İlk denemede yardımsız doğru: ${first}/${day.pool.length}.`, `${correct}/${day.pool.length} words retrieved without hints. Correct on the first unassisted attempt: ${first}/${day.pool.length}.`) }),
+        h('p', { class: 'hint', text: this.copy('Bu sonuç bugünkü alıştırmaya aittir. Kalıcılık için sonraki günlerde yeniden hatırla.', 'This result describes today’s practice. Retrieve the words again on later days for longer-term retention.') }),
+        h('a', { class: 'button primary', href: '#home', text: this.copy('Günlük yoluma dön', 'Return to my daily path') }),
+        this.button(this.copy('Bir tur daha', 'Another round'), () => { this.run = { date: day.date, queue: [...day.pool], hinted: false, locked: false }; this.renderRecall(); })));
+      return;
+    }
+    const entry = BY_ID.get(run.queue[0]);
+    run.hinted = day.hints.includes(entry.id); run.locked = false;
+    const label = h('label', { for: 'study-answer', text: this.copy('Bu kartın İngilizce kelimesini veya ifadesini yaz', 'Type the English word or phrase practised on this card') });
+    const input = h('input', { id: 'study-answer', type: 'text', lang: 'en', autocomplete: 'off', autocapitalize: 'off', spellcheck: 'false', enterkeyhint: 'done' });
+    const feedback = h('div', { id: 'study-recall-feedback', role: 'status' });
+    const hint = h('p', { class: 'hint', id: 'study-recall-hint', hidden: !run.hinted, text: run.hinted ? entry.word[0] + '…' : '' });
+    const form = h('form', { class: 'study-recall-form' }, label, input,
+      h('div', { class: 'row' }, h('button', { type: 'submit', class: 'button primary', id: 'study-check', text: this.copy('Kontrol et', 'Check answer') }),
+        this.button(this.copy('İlk harf ipucu', 'First-letter hint'), () => { if (run.locked) return; run.hinted = true; if (!day.hints.includes(entry.id)) day.hints.push(entry.id); this.save(); hint.hidden = false; hint.textContent = entry.word[0] + '…'; input.focus(); }, { id: 'study-hint' })), hint);
+    form.addEventListener('submit', event => {
+      event.preventDefault();
+      if (run.locked) return;
+      if (!input.value.trim()) { feedback.textContent = this.copy('Önce bir cevap yaz.', 'Write an answer first.'); input.focus(); return; }
+      run.locked = true;
+      const clean = value => value.normalize('NFKC').toLowerCase().replace(/[’‘]/g, "'").replace(/[.!?,;:]+$/g, '').trim().replace(/\s+/g, ' ');
+      const matches = clean(input.value) === clean(entry.word), passed = matches && !run.hinted;
+      const old = day.recall[entry.id];
+      day.recall[entry.id] = { first: old ? old.first : passed, attempts: (old?.attempts || 0) + 1, correct: passed };
+      day.hints = day.hints.filter(id => id !== entry.id);
+      run.queue.shift();
+      if (!passed) {
+        for (const id of day.pool) { if (run.queue.length >= 2) break; if (id !== entry.id && !run.queue.includes(id)) run.queue.push(id); }
+        run.queue.push(entry.id);
+      }
+      if (!passed) {
+        Review.add('w:' + entry.id, 1);
+        if (!matches) Review.state.cards['w:' + entry.id][4] += 1;
+        Review.save();
+      }
+      this.save();
+      for (const button of $$('button', form)) button.disabled = true;
+      input.disabled = true;
+      const example = entry.example || sentencesFor(entry).flatMap(([, pairs]) => pairs)[0]?.[0];
+      feedback.className = 'study-recall-feedback ' + (passed ? 'is-correct' : 'is-wrong');
+      feedback.replaceChildren(h('h2', { text: passed ? this.copy('Yardımsız hatırladın', 'Recalled without hints') : matches ? this.copy('İpucuyla buldun; biraz sonra yeniden dene', 'Found with a hint; try again shortly') : this.copy('Modeli incele; biraz sonra yeniden hatırla', 'Study the model, then retrieve it again shortly') }),
+        h('p', { lang: 'en' }, h('strong', { text: entry.word }), ' — ', entry.meaning), example ? h('p', { lang: 'en', text: example }) : null,
+        this.button(this.copy('Sonraki kelime', 'Next word'), () => this.renderRecall(), { class: 'button primary', id: 'study-recall-next' }));
+      $('#study-recall-next').focus();
+    });
+    root.replaceChildren(h('p', { class: 'hint', text: this.copy(`${correct}/${day.pool.length} yardımsız hatırlama · yanlışlar birkaç kelime sonra yeniden gelir`, `${correct}/${day.pool.length} unassisted recalls · missed words return after other words`) }),
+      h('section', { class: 'panel' }, h('h2', { text: this.copy('Türkçe anlamından İngilizcesini hatırla', 'Retrieve the English from its Turkish meaning') }),
+        h('p', { class: 'study-recall-meaning', lang: 'tr', text: entry.meaning }), form, feedback),
+      h('a', { class: 'study-return', href: '#home', text: this.copy('Günlük yoluma dön', 'Return to my daily path') }));
+    input.focus({ preventScroll: true });
+  }
+};
+
+
 /* ---------- Today: the home page ---------- */
 const Today = {
   /* Word decks: the vocabulary by level, then the grammar topics. */
@@ -11296,6 +11756,7 @@ const Today = {
     this.decks();
     $('#today-continue').replaceChildren(...this.rows());
     this.week();
+    Study.renderHome();
   },
   decks() {
     const cards = [];
@@ -11408,7 +11869,7 @@ const Today = {
 
 /* ---------- Navigation extras: the "More" sheet, the sidebar toggle, the top bar ---------- */
 const Nav = {
-  MORE: ['grammar', 'review', 'words', 'phrases', 'quiz', 'reading', 'settings'],
+  MORE: ['study', 'grammar', 'review', 'words', 'phrases', 'quiz', 'reading', 'settings'],
   KEY: 'english-study-side.v1',
   init() {
     $('#nav-more').addEventListener('click', () => this.sheet(true));
@@ -11443,10 +11904,18 @@ const Nav = {
     button.setAttribute('aria-pressed', String(on));
     button.dataset.i18nAria = on ? 'nav.expand' : 'nav.collapse';
     button.setAttribute('aria-label', t(button.dataset.i18nAria));
+    this.labelSidebar();
     if (!quiet) Store.write(this.KEY, on ? '1' : '0');
+  },
+  labelSidebar() {
+    for (const link of $$('.tabs a')) {
+      if (document.body.classList.contains('side-collapsed')) link.setAttribute('aria-label', t('nav.' + link.dataset.route));
+      else link.removeAttribute('aria-label');
+    }
   },
   /* Called on every route change and after each review: current place, review count, today's goal. */
   update(name) {
+    this.labelSidebar();
     for (const link of $$('.bottom-nav a, .more-grid a')) {
       if (link.dataset.route === name) link.setAttribute('aria-current', 'page'); else link.removeAttribute('aria-current');
     }
@@ -11587,6 +12056,13 @@ const Games = {
         h('article', { class: 'game-card is-plain' },
           h('div', { class: 'game-card-head' }, h('span', { class: 'game-icon' }, icon('quiz')), h('div', {}, h('h3', { text: t('game.classic') }), h('p', { text: t('game.classicText') }))),
           h('a', { class: 'button game-wide', href: '#quiz' }, h('span', { text: t('game.open') }), icon('next')))));
+    const bonus = h('details', { class: 'practice-bonus' }, h('summary', { text: Study.copy('İsteğe bağlı puanlar ve günlük oyun görevi', 'Optional points and daily game quest') }));
+    bonus.append($('#practice-area .xp-card'), $('#practice-area .quest-card'));
+    $('#practice-area').append(bonus);
+    const next = Study.steps().find(step => !step.done);
+    $('#practice-area').prepend(h('section', { class: 'study-practice-intro panel' }, h('h2', { text: Study.copy('Öğrendiklerini pekiştir', 'Consolidate your learning') }),
+      h('p', { class: 'hint', text: Study.copy('Önce günlük yolundaki çalışmayı yap; sonra dinleme, üretim ve hatırlama oyunlarıyla pekiştir.', 'Follow your daily path first, then consolidate it through listening, production and recall practice.') }),
+      h('a', { class: 'button primary', href: next ? next.href : '#study/recall', text: next ? Study.copy('Günlük sıradaki adım: ', 'Next daily step: ') + next.title : Study.copy('Seçeneksiz hatırlama kontrolü', 'Recall without answer options') })));
   },
   /* ---- Playing */
   start(id) {
@@ -12472,7 +12948,7 @@ const AiStory = {
   }
 };
 
-const MODULES = { home: Home, review: Review, practice: Games, rankings: Rankings, words: Words, phrases: Phrases, grammar: Grammar, speak: Speak, tutor: Tutor, novel: Novel, quiz: Quiz, reading: Reading, settings: Settings };
+const MODULES = { home: Home, study: Study, review: Review, practice: Games, rankings: Rankings, words: Words, phrases: Phrases, grammar: Grammar, speak: Speak, tutor: Tutor, novel: Novel, quiz: Quiz, reading: Reading, settings: Settings };
 
 /* ======================================================================
    8. INITIALIZATION (single entry point)
@@ -12483,7 +12959,7 @@ const MODULES = { home: Home, review: Review, practice: Games, rankings: Ranking
    The page asks for version.json, never from the cache, when it opens and
    whenever it comes back to the screen, and offers to load the new build. */
 const Updater = {
-  build: '47048f4ae1ff',
+  build: '0183fddcac73',
   checked: 0,
   init() {
     if (!/^https?:$/.test(location.protocol) || this.build.length !== 12) return;
@@ -12514,7 +12990,7 @@ function init() {
   applyTurkishVisibility();
   prepareCards();
   MyDecks.load();
-  XP.init(); Home.init(); Words.init(); Phrases.init(); Grammar.init(); Review.init(); Today.init(); Nav.init(); Games.init(); Writer.init(); AiStory.init(); Pron.init(); Speak.init(); Tutor.init(); Novel.init(); Quiz.init(); Settings.init(); Updater.init();
+  XP.init(); Home.init(); Words.init(); Phrases.init(); Grammar.init(); Review.init(); Study.init(); Today.init(); Nav.init(); Games.init(); Writer.init(); AiStory.init(); Pron.init(); Speak.init(); Tutor.init(); Novel.init(); Quiz.init(); Settings.init(); Updater.init();
   NovelQuickReview.init({ article: $('#novel-text'), store: Store, language: () => lang, isSaved: id => Review.has(id), matchesPage: item => Novel.quickReviewMatches(item),
     onOpen: () => { Novel.closePop(); if (Novel.reading && !Novel.reading.paused) Novel.pauseReading(); } });
   if (!Store.usable) Banner.show(t(Store.simulated ? 'storage.simulated' : 'storage.off'));

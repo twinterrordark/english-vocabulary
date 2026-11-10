@@ -1,0 +1,74 @@
+/* Guided study uses the existing theme and touch tokens. */
+body .view[data-view="home"] { max-width: none; }
+.home-layout { display: grid; gap: 24px; }
+.home-summary { display: grid; gap: 16px; align-content: start; }
+.home-summary .week-card { margin: 0; }
+.home-summary .stats { grid-template-columns: 1fr; margin: 0; }
+.home-summary .stat { padding: 12px 0; border: 0; border-radius: 0; box-shadow: none; background: transparent; }
+.home-summary .stat + .stat { border-top: 1px solid var(--line); }
+.home-summary .stat dd { font-size: 1.5rem; }
+.home-summary .section-title { margin-top: 0; }
+.home-summary .today-rows { margin: 0; }
+.home-layout > * { min-width: 0; }
+@media(min-width:1200px) { .home-layout { grid-template-columns: minmax(0,1.6fr) minmax(280px,1fr); } }
+.study-home { margin-bottom: var(--space-5); padding: var(--space-4); border: 1px solid var(--line); border-radius: var(--radius-l); background: var(--surface); box-shadow: var(--shadow); }
+.study-heading { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+.study-heading h2 { margin-bottom: 6px; }
+.study-heading .chip { flex: none; }
+.study-home .lead { margin-bottom: 16px; }
+.study-options { margin: 12px 0 16px; }
+.study-options summary { cursor: pointer; min-height: 44px; padding-block: 10px; font-weight: 700; }
+.study-fields { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px; padding-block: 8px; }
+.study-fields select { min-height: 44px; }
+.study-steps { list-style: none; display: grid; gap: 8px; padding: 0; margin: 16px 0; }
+.study-step { display: flex; align-items: center; gap: 12px; padding: 12px; border: 1px solid var(--line); border-radius: 14px; min-width: 0; }
+.study-step.is-next { border-color: var(--primary); background: var(--primary-soft); }
+.study-step.is-done { background: var(--surface-2); }
+.study-step-number { display: grid; place-items: center; flex: none; width: 32px; height: 32px; border-radius: 50%; background: var(--surface-3); color: var(--text); font-weight: 800; }
+.study-step.is-done .study-step-number { background: var(--primary); color: var(--on-primary); }
+.study-step-text { display: grid; gap: 3px; flex: 1; min-width: 0; }
+.study-step-text small { font-size: .83rem; color: var(--muted); }
+.study-step > a { display: grid; place-items: center; flex: none; min-width: 44px; min-height: 44px; padding: 8px; border-radius: 10px; color: var(--accent-text); text-decoration: none; }
+.study-step > a:hover { background: var(--surface); }
+.study-start { width: 100%; min-height: 52px; }
+.study-meter { display: flex; justify-content: space-between; gap: 12px; font-size: .85rem; margin-top: 16px; }
+.study-home progress, .home-summary .stat progress { appearance: none; display: block; width: 100%; height: 8px; overflow: hidden; border: 0; border-radius: 99px; background: var(--surface-3); accent-color: var(--primary); }
+.study-home progress::-webkit-progress-bar, .home-summary .stat progress::-webkit-progress-bar { background: var(--surface-3); border-radius: 99px; }
+.study-home progress::-webkit-progress-value, .home-summary .stat progress::-webkit-progress-value { background: var(--primary); border-radius: 99px; }
+.study-home progress::-moz-progress-bar, .home-summary .stat progress::-moz-progress-bar { background: var(--primary); border-radius: 99px; }
+.study-note { margin: 10px 0 0; color: var(--muted); font-size: .85rem; }
+.study-library { margin-block: var(--space-5); }
+.study-library > summary { min-height: 48px; cursor: pointer; padding: 12px; border: 1px solid var(--line); border-radius: 12px; font-weight: 700; background: var(--surface); }
+.study-library[open] > summary { margin-bottom: 16px; }
+.study-workspace { max-width: 760px; }
+.study-workspace .panel { margin-block: 16px; }
+.study-mode { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+.study-prompt { padding: 16px; border-radius: 14px; background: var(--secondary-soft); color: var(--text); margin-bottom: 16px; }
+.study-prompt p { margin-bottom: 8px; }
+.study-prompt ul { margin: 8px 0 0; padding-left: 20px; }
+.study-prompt li { margin-block: 6px; }
+.study-workspace textarea { min-height: 180px; }
+.study-workspace .choice-q { margin-block: 16px; }
+.study-recall-meaning { margin: 12px 0; font-size: 1.6rem; font-weight: 800; }
+.study-recall-feedback { margin-block: 16px; padding: 16px; border-radius: 12px; background: var(--surface-2); }
+.study-recall-feedback.is-correct { background: var(--success-soft); }
+.study-recall-feedback.is-wrong { background: var(--error-soft); }
+.study-recall-feedback h2 { font-size: 1.3rem; }
+.study-recall-form { display: grid; gap: 12px; }
+.study-feedback { min-height: 1.5em; margin-top: 12px; }
+.study-record { display: grid; gap: 12px; }
+.study-record audio { width: 100%; }
+.study-record-time { font: 800 2rem/1.2 var(--font-display); font-variant-numeric: tabular-nums; }
+.study-activity { padding: 12px; border-radius: 12px; background: var(--surface-2); margin-block: 16px; }
+.study-return { display: inline-flex; align-items: center; min-height: 44px; margin-bottom: 12px; }
+.practice-bonus { margin-top: 20px; }
+.practice-bonus > summary { min-height: 44px; padding: 12px; border-radius: 12px; background: var(--surface); color: var(--muted); cursor: pointer; font-weight: 700; }
+.practice-bonus[open] > summary { margin-bottom: 16px; }
+.study-practice-intro h2 { font-size: 1.3rem; }
+.study-reading-context { padding: 16px; border: 1px solid var(--line); border-radius: 14px; margin-bottom: 16px; }
+.reading-level-field { max-width: 360px; margin-bottom: 20px; }
+.reading-library { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit,minmax(min(100%,280px),1fr)); align-items: stretch; }
+.reading-tile { display: flex; flex-direction: column; align-items: flex-start; margin: 0; }
+.reading-tile h2 { margin-top: 12px; }
+.reading-tile .button { margin-top: auto; }
+@media(max-width:480px) { .study-fields { grid-template-columns: 1fr; } .study-step { gap: 8px; padding: 10px; } .study-heading { flex-wrap: wrap; } }
