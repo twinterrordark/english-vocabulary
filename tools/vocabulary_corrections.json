@@ -1024,7 +1024,7 @@
         "exampleTr": "Grafikler için açık kaynaklı bir kütüphane kullanıyoruz."
       },
       "after": {
-        "meaning": "kütüphane; yazılım kütüphanesi (bilişim)",
+        "meaning": "kütüphane",
         "example": "I borrowed a book from the library.",
         "exampleTr": "Kütüphaneden bir kitap ödünç aldım."
       },
@@ -1035,12 +1035,12 @@
             "Kütüphaneden bir kitap ödünç aldım."
           ],
           [
-            "We use an open-source library for charts.",
-            "Grafikler için açık kaynaklı bir kütüphane kullanıyoruz."
+            "The library closes at six.",
+            "Kütüphane saat altıda kapanıyor."
           ]
         ]
       },
-      "reason": "Mesleki listeden genel kelime kartlarına taşınan tek anlamın önüne yaygın kullanımı ekler; özgün mesleki örneği ayrıca korur."
+      "reason": "Genel kelime kartında günlük anlamlar ve günlük örnekler gösterilir; programlama ve diğer mesleki ekler kaldırılır."
     },
     {
       "id": "wk-ai-48",
@@ -1051,7 +1051,7 @@
         "exampleTr": "Her sınıf tek bir işi iyi yapmalı."
       },
       "after": {
-        "meaning": "sınıf (öğrenci grubu), ders; sınıf (programlama)",
+        "meaning": "sınıf, ders",
         "example": "Our English class starts at nine.",
         "exampleTr": "İngilizce dersimiz saat dokuzda başlıyor."
       },
@@ -1062,12 +1062,12 @@
             "İngilizce dersimiz saat dokuzda başlıyor."
           ],
           [
-            "Each class should do one thing well.",
-            "Her sınıf tek bir işi iyi yapmalı."
+            "There are twenty students in my class.",
+            "Sınıfımda yirmi öğrenci var."
           ]
         ]
       },
-      "reason": "Mesleki listeden genel kelime kartlarına taşınan tek anlamın önüne yaygın kullanımı ekler; özgün mesleki örneği ayrıca korur."
+      "reason": "Genel kelime kartında günlük anlamlar ve günlük örnekler gösterilir; programlama ve diğer mesleki ekler kaldırılır."
     },
     {
       "id": "wk-ai-103",
@@ -1078,7 +1078,7 @@
         "exampleTr": "Lütfen bu sorun için bir kayıt aç."
       },
       "after": {
-        "meaning": "bilet; trafik cezası; destek kaydı (bilişim)",
+        "meaning": "bilet; trafik cezası",
         "example": "I bought a train ticket online.",
         "exampleTr": "İnternetten bir tren bileti aldım."
       },
@@ -1089,12 +1089,12 @@
             "İnternetten bir tren bileti aldım."
           ],
           [
-            "Please open a ticket for this problem.",
-            "Lütfen bu sorun için bir kayıt aç."
+            "Please keep your ticket until the end of the journey.",
+            "Lütfen yolculuğun sonuna kadar biletinizi saklayın."
           ]
         ]
       },
-      "reason": "Mesleki listeden genel kelime kartlarına taşınan tek anlamın önüne yaygın kullanımı ekler; özgün mesleki örneği ayrıca korur."
+      "reason": "Genel kelime kartında günlük anlamlar ve günlük örnekler gösterilir; programlama ve diğer mesleki ekler kaldırılır."
     },
     {
       "id": "wk-des-26",
@@ -1105,7 +1105,7 @@
         "exampleTr": "Mat yüzey kolayca çiziliyor."
       },
       "after": {
-        "meaning": "bitirmek, bitmek; bitiş; yüzey bitişi, son işlem (tasarım)",
+        "meaning": "bitirmek, bitmek; bitiş",
         "example": "I will finish my homework before dinner.",
         "exampleTr": "Akşam yemeğinden önce ödevimi bitireceğim."
       },
@@ -1114,16 +1114,14 @@
           [
             "I will finish my homework before dinner.",
             "Akşam yemeğinden önce ödevimi bitireceğim."
-          ]
-        ],
-        "n": [
+          ],
           [
-            "The matte finish scratches easily.",
-            "Mat yüzey kolayca çiziliyor."
+            "The race will finish in the town centre.",
+            "Yarış şehir merkezinde bitecek."
           ]
         ]
       },
-      "reason": "Mesleki listeden genel kelime kartlarına taşınan tek anlamın önüne yaygın kullanımı ekler; özgün mesleki örneği ayrıca korur."
+      "reason": "Genel kelime kartında günlük anlamlar ve günlük örnekler gösterilir; programlama ve diğer mesleki ekler kaldırılır."
     },
     {
       "id": "wk-ai-7",
@@ -1134,7 +1132,7 @@
         "exampleTr": "Açık bir istem genellikle daha iyi bir yanıt verir."
       },
       "after": {
-        "meaning": "çabuk, gecikmeden yapılan (sıfat); teşvik etmek, harekete geçirmek (fiil); istem, komut metni (yapay zekâ)",
+        "meaning": "çabuk, gecikmeden yapılan; teşvik etmek, harekete geçirmek",
         "example": "Thank you for your prompt reply.",
         "exampleTr": "Hızlı yanıtınız için teşekkür ederim."
       },
@@ -1145,14 +1143,14 @@
             "Hızlı yanıtınız için teşekkür ederim."
           ]
         ],
-        "n": [
+        "v": [
           [
-            "A clear prompt usually gives a better answer.",
-            "Açık bir istem genellikle daha iyi bir yanıt verir."
+            "The news prompted us to change our plans.",
+            "Haber, planlarımızı değiştirmemize yol açtı."
           ]
         ]
       },
-      "reason": "Mesleki listeden genel kelime kartlarına taşınan tek anlamın önüne yaygın kullanımı ekler; özgün mesleki örneği ayrıca korur."
+      "reason": "Genel kelime kartında günlük anlamlar ve günlük örnekler gösterilir; programlama ve diğer mesleki ekler kaldırılır."
     },
     {
       "id": "wk-ai-8",
@@ -1163,7 +1161,7 @@
         "exampleTr": "İstek dört bin jeton kullandı."
       },
       "after": {
-        "meaning": "jeton; işaret, gösterge; metin birimi (yapay zekâ)",
+        "meaning": "jeton; işaret, gösterge",
         "example": "You need a token to use this machine.",
         "exampleTr": "Bu makineyi kullanmak için bir jetona ihtiyacın var."
       },
@@ -1174,12 +1172,12 @@
             "Bu makineyi kullanmak için bir jetona ihtiyacın var."
           ],
           [
-            "The request used four thousand tokens.",
-            "İstek dört bin jeton kullandı."
+            "Please accept this gift as a token of thanks.",
+            "Lütfen bu hediyeyi bir teşekkür işareti olarak kabul edin."
           ]
         ]
       },
-      "reason": "Mesleki listeden genel kelime kartlarına taşınan tek anlamın önüne yaygın kullanımı ekler; özgün mesleki örneği ayrıca korur."
+      "reason": "Genel kelime kartında günlük anlamlar ve günlük örnekler gösterilir; programlama ve diğer mesleki ekler kaldırılır."
     },
     {
       "id": "wk-ai-26",
@@ -1190,7 +1188,7 @@
         "exampleTr": "Kod deposunu klonla ve testleri çalıştır."
       },
       "after": {
-        "meaning": "depo, saklama yeri; kod deposu (bilişim)",
+        "meaning": "depo, saklama yeri",
         "example": "The museum is a repository of local history.",
         "exampleTr": "Müze, yerel tarihin korunduğu bir yerdir."
       },
@@ -1201,12 +1199,12 @@
             "Müze, yerel tarihin korunduğu bir yerdir."
           ],
           [
-            "Clone the repository and run the tests.",
-            "Kod deposunu klonla ve testleri çalıştır."
+            "The archive is a repository of old letters.",
+            "Arşiv, eski mektupların saklandığı bir yerdir."
           ]
         ]
       },
-      "reason": "Mesleki listeden genel kelime kartlarına taşınan tek anlamın önüne yaygın kullanımı ekler; özgün mesleki örneği ayrıca korur."
+      "reason": "Genel kelime kartında günlük anlamlar ve günlük örnekler gösterilir; programlama ve diğer mesleki ekler kaldırılır."
     },
     {
       "id": "wk-ai-49",
@@ -1217,7 +1215,7 @@
         "exampleTr": "Küçük bir hata yüzünden döngü hiç bitmiyor."
       },
       "after": {
-        "meaning": "halka, ilmek; döngü (programlama)",
+        "meaning": "halka, ilmek; döngü",
         "example": "She tied the rope into a loop.",
         "exampleTr": "İpi halka şeklinde bağladı."
       },
@@ -1228,12 +1226,12 @@
             "İpi halka şeklinde bağladı."
           ],
           [
-            "The loop never ends because of a small mistake.",
-            "Küçük bir hata yüzünden döngü hiç bitmiyor."
+            "The bus route forms a loop around the town.",
+            "Otobüs güzergâhı kasabanın çevresinde bir halka oluşturuyor."
           ]
         ]
       },
-      "reason": "Mesleki listeden genel kelime kartlarına taşınan tek anlamın önüne yaygın kullanımı ekler; özgün mesleki örneği ayrıca korur."
+      "reason": "Genel kelime kartında günlük anlamlar ve günlük örnekler gösterilir; programlama ve diğer mesleki ekler kaldırılır."
     },
     {
       "id": "wk-ai-60",
@@ -1244,7 +1242,7 @@
         "exampleTr": "Hatayı kendi bilgisayarımda yeniden oluşturamıyorum."
       },
       "after": {
-        "meaning": "kopyasını yapmak, yeniden üretmek; üremek; yeniden oluşturmak (hatayı)",
+        "meaning": "kopyasını yapmak, yeniden üretmek; üremek",
         "example": "Some plants reproduce from seeds.",
         "exampleTr": "Bazı bitkiler tohumlarla ürer."
       },
@@ -1255,12 +1253,12 @@
             "Bazı bitkiler tohumlarla ürer."
           ],
           [
-            "I can't reproduce the bug on my computer.",
-            "Hatayı kendi bilgisayarımda yeniden oluşturamıyorum."
+            "The artist reproduced the drawing in pencil.",
+            "Sanatçı çizimin bir kopyasını kurşun kalemle yaptı."
           ]
         ]
       },
-      "reason": "Mesleki listeden genel kelime kartlarına taşınan tek anlamın önüne yaygın kullanımı ekler; özgün mesleki örneği ayrıca korur."
+      "reason": "Genel kelime kartında günlük anlamlar ve günlük örnekler gösterilir; programlama ve diğer mesleki ekler kaldırılır."
     },
     {
       "id": "wk-ai-75",
@@ -1271,7 +1269,7 @@
         "exampleTr": "Bu sorgu dizini olmadığı için yavaş."
       },
       "after": {
-        "meaning": "soru, sorgu; sorgulamak; veri sorgusu (bilişim)",
+        "meaning": "soru, sorgu; sorgulamak",
         "example": "Please contact us if you have a query.",
         "exampleTr": "Bir sorunuz varsa lütfen bizimle iletişime geçin."
       },
@@ -1280,14 +1278,16 @@
           [
             "Please contact us if you have a query.",
             "Bir sorunuz varsa lütfen bizimle iletişime geçin."
-          ],
+          ]
+        ],
+        "v": [
           [
-            "This query is slow because it has no index.",
-            "Bu sorgu dizini olmadığı için yavaş."
+            "She queried the total on the bill.",
+            "Hesaptaki toplam tutarı sorguladı."
           ]
         ]
       },
-      "reason": "Mesleki listeden genel kelime kartlarına taşınan tek anlamın önüne yaygın kullanımı ekler; özgün mesleki örneği ayrıca korur."
+      "reason": "Genel kelime kartında günlük anlamlar ve günlük örnekler gösterilir; programlama ve diğer mesleki ekler kaldırılır."
     },
     {
       "id": "wk-ai-93",
@@ -1309,12 +1309,12 @@
             "Ateşe bir kütük daha koydu."
           ],
           [
-            "Check the logs to see what happened.",
-            "Ne olduğunu görmek için kayıtlara bak."
+            "She kept a log of her daily walks.",
+            "Günlük yürüyüşlerinin kaydını tuttu."
           ]
         ]
       },
-      "reason": "Mesleki listeden genel kelime kartlarına taşınan tek anlamın önüne yaygın kullanımı ekler; özgün mesleki örneği ayrıca korur."
+      "reason": "Genel kelime kartında günlük anlamlar ve günlük örnekler gösterilir; programlama ve diğer mesleki ekler kaldırılır."
     },
     {
       "id": "wk-ai-98",
@@ -1325,7 +1325,7 @@
         "exampleTr": "Tarama ciddi bir güvenlik açığı buldu."
       },
       "after": {
-        "meaning": "savunmasızlık, kırılganlık; güvenlik açığı (bilişim)",
+        "meaning": "savunmasızlık, kırılganlık",
         "example": "The storm exposed the village's vulnerability.",
         "exampleTr": "Fırtına, köyün savunmasızlığını ortaya çıkardı."
       },
@@ -1336,12 +1336,12 @@
             "Fırtına, köyün savunmasızlığını ortaya çıkardı."
           ],
           [
-            "The scan found a serious vulnerability.",
-            "Tarama ciddi bir güvenlik açığı buldu."
+            "He spoke openly about his vulnerability.",
+            "Kırılganlığı hakkında açıkça konuştu."
           ]
         ]
       },
-      "reason": "Mesleki listeden genel kelime kartlarına taşınan tek anlamın önüne yaygın kullanımı ekler; özgün mesleki örneği ayrıca korur."
+      "reason": "Genel kelime kartında günlük anlamlar ve günlük örnekler gösterilir; programlama ve diğer mesleki ekler kaldırılır."
     },
     {
       "id": "wk-ai-100",
@@ -1352,7 +1352,7 @@
         "exampleTr": "Giriş bilgilerini asla kaynak koda koyma."
       },
       "after": {
-        "meaning": "nitelikler, yeterlilik belgeleri; kimlik belgeleri; giriş bilgileri (bilişim)",
+        "meaning": "nitelikler, yeterlilik belgeleri; kimlik belgeleri",
         "example": "Her teaching credentials impressed the school.",
         "exampleTr": "Öğretmenlik yeterlilikleri okulu etkiledi."
       },
@@ -1363,12 +1363,12 @@
             "Öğretmenlik yeterlilikleri okulu etkiledi."
           ],
           [
-            "Never put credentials in the source code.",
-            "Giriş bilgilerini asla kaynak koda koyma."
+            "The journalist showed her credentials at the entrance.",
+            "Gazeteci girişte kimlik belgelerini gösterdi."
           ]
         ]
       },
-      "reason": "Mesleki listeden genel kelime kartlarına taşınan tek anlamın önüne yaygın kullanımı ekler; özgün mesleki örneği ayrıca korur."
+      "reason": "Genel kelime kartında günlük anlamlar ve günlük örnekler gösterilir; programlama ve diğer mesleki ekler kaldırılır."
     },
     {
       "id": "wk-ai-101",
@@ -1379,7 +1379,7 @@
         "exampleTr": "Bu görev mevcut döneme sığmaz."
       },
       "after": {
-        "meaning": "kısa mesafede hızla koşma; kısa çalışma dönemi (yazılım)",
+        "meaning": "kısa mesafede hızla koşma, sürat koşusu",
         "example": "He won the 100-metre sprint.",
         "exampleTr": "100 metrelik kısa mesafe koşusunu kazandı."
       },
@@ -1390,12 +1390,12 @@
             "100 metrelik kısa mesafe koşusunu kazandı."
           ],
           [
-            "This task won't fit into the current sprint.",
-            "Bu görev mevcut döneme sığmaz."
+            "She broke the school record in the sprint.",
+            "Sürat koşusunda okul rekorunu kırdı."
           ]
         ]
       },
-      "reason": "Mesleki listeden genel kelime kartlarına taşınan tek anlamın önüne yaygın kullanımı ekler; özgün mesleki örneği ayrıca korur."
+      "reason": "Genel kelime kartında günlük anlamlar ve günlük örnekler gösterilir; programlama ve diğer mesleki ekler kaldırılır."
     },
     {
       "id": "wk-ai-85",
@@ -1406,7 +1406,7 @@
         "exampleTr": "Yayınlamadan önce hazırlık ortamında kontrol et."
       },
       "after": {
-        "meaning": "sahneleme; hazırlık ortamı (bilişim)",
+        "meaning": "sahneleme",
         "example": "The staging of the play took several weeks.",
         "exampleTr": "Oyunun sahnelenmesi birkaç hafta sürdü."
       },
@@ -1417,12 +1417,12 @@
             "Oyunun sahnelenmesi birkaç hafta sürdü."
           ],
           [
-            "Check it on staging before you release it.",
-            "Yayınlamadan önce hazırlık ortamında kontrol et."
+            "The staging of the musical impressed the audience.",
+            "Müzikalin sahnelenişi seyircileri etkiledi."
           ]
         ]
       },
-      "reason": "Mesleki listeden genel kelime kartlarına taşınan tek anlamın önüne yaygın kullanımı ekler; özgün mesleki örneği ayrıca korur."
+      "reason": "Genel kelime kartında günlük anlamlar ve günlük örnekler gösterilir; programlama ve diğer mesleki ekler kaldırılır."
     },
     {
       "id": "wk-des-52",
@@ -1487,7 +1487,7 @@
         "exampleTr": "Metal döküm yüzeyde izler bıraktı."
       },
       "after": {
-        "meaning": "oyuncu seçimi; döküm (üretim)",
+        "meaning": "oyuncu seçimi; döküm",
         "example": "Casting for the new film starts next week.",
         "exampleTr": "Yeni filmin oyuncu seçimi gelecek hafta başlıyor."
       },
@@ -1498,12 +1498,12 @@
             "Yeni filmin oyuncu seçimi gelecek hafta başlıyor."
           ],
           [
-            "Metal casting left marks on the surface.",
-            "Metal döküm yüzeyde izler bıraktı."
+            "She helped with the casting of the play.",
+            "Oyunun oyuncu seçimine yardım etti."
           ]
         ]
       },
-      "reason": "Mesleki listeden genel kelime kartlarına taşınan tek anlamın önüne yaygın kullanımı ekler; özgün mesleki örneği ayrıca korur."
+      "reason": "Genel kelime kartında günlük anlamlar ve günlük örnekler gösterilir; programlama ve diğer mesleki ekler kaldırılır."
     },
     {
       "id": "wk-des-59",
@@ -1514,7 +1514,7 @@
         "exampleTr": "Kasa su geçirmez olmalı."
       },
       "after": {
-        "meaning": "çevrili alan; ek (mektup); kasa, muhafaza (tasarım)",
+        "meaning": "çevrili alan; ek; kasa, muhafaza",
         "example": "The horses are in a large enclosure.",
         "exampleTr": "Atlar, etrafı çevrili geniş bir alanda."
       },
@@ -1525,12 +1525,12 @@
             "Atlar, etrafı çevrili geniş bir alanda."
           ],
           [
-            "The enclosure must be waterproof.",
-            "Kasa su geçirmez olmalı."
+            "The letter arrived with two enclosures.",
+            "Mektup iki ekle birlikte geldi."
           ]
         ]
       },
-      "reason": "Mesleki listeden genel kelime kartlarına taşınan tek anlamın önüne yaygın kullanımı ekler; özgün mesleki örneği ayrıca korur."
+      "reason": "Genel kelime kartında günlük anlamlar ve günlük örnekler gösterilir; programlama ve diğer mesleki ekler kaldırılır."
     },
     {
       "id": "wk-biz-46",
@@ -1541,7 +1541,7 @@
         "exampleTr": "Dün gece özgeçmişimi güncelledim."
       },
       "after": {
-        "meaning": "yeniden başlamak, sürdürmek (fiil); özgeçmiş (isim, résumé)",
+        "meaning": "yeniden başlamak, sürdürmek; özgeçmiş",
         "example": "The meeting will resume after lunch.",
         "exampleTr": "Toplantı öğle yemeğinden sonra devam edecek."
       },
@@ -1554,12 +1554,12 @@
         ],
         "n": [
           [
-            "I updated my resume last night.",
-            "Dün gece özgeçmişimi güncelledim."
+            "Please send your resume with the application.",
+            "Lütfen başvuruyla birlikte özgeçmişinizi gönderin."
           ]
         ]
       },
-      "reason": "Mesleki listeden genel kelime kartlarına taşınan tek anlamın önüne yaygın kullanımı ekler; özgün mesleki örneği ayrıca korur."
+      "reason": "Genel kelime kartında günlük anlamlar ve günlük örnekler gösterilir; programlama ve diğer mesleki ekler kaldırılır."
     },
     {
       "id": "wk-biz-12",
@@ -1581,12 +1581,12 @@
             "Memleketine güçlü bir bağlılık hissediyordu."
           ],
           [
-            "Please see the attachment for details.",
-            "Ayrıntılar için lütfen eke bakın."
+            "I have included the document as an attachment.",
+            "Belgeyi ek olarak ekledim."
           ]
         ]
       },
-      "reason": "Mesleki listeden genel kelime kartlarına taşınan tek anlamın önüne yaygın kullanımı ekler; özgün mesleki örneği ayrıca korur."
+      "reason": "Genel kelime kartında günlük anlamlar ve günlük örnekler gösterilir; programlama ve diğer mesleki ekler kaldırılır."
     },
     {
       "id": "wk-des-18",
@@ -1597,7 +1597,7 @@
         "exampleTr": "Biçim işlevi izlemelidir."
       },
       "after": {
-        "meaning": "biçim, şekil; form (belge); oluşturmak (fiil)",
+        "meaning": "biçim, şekil; form; oluşturmak",
         "example": "Please fill in this form with your name.",
         "exampleTr": "Lütfen bu forma adınızı yazın."
       },
@@ -1606,14 +1606,16 @@
           [
             "Please fill in this form with your name.",
             "Lütfen bu forma adınızı yazın."
-          ],
+          ]
+        ],
+        "v": [
           [
-            "Form should follow function.",
-            "Biçim işlevi izlemelidir."
+            "The students formed a circle.",
+            "Öğrenciler bir çember oluşturdu."
           ]
         ]
       },
-      "reason": "Mesleki listeden genel kelime kartlarına taşınan tek anlamın önüne yaygın kullanımı ekler; özgün mesleki örneği ayrıca korur."
+      "reason": "Genel kelime kartında günlük anlamlar ve günlük örnekler gösterilir; programlama ve diğer mesleki ekler kaldırılır."
     },
     {
       "id": "wk-biz-32",
@@ -1624,7 +1626,7 @@
         "exampleTr": "Teslimat maliyetini düşürmemiz gerekiyor."
       },
       "after": {
-        "meaning": "maliyet, fiyat; fiyatı olmak, mal olmak (fiil)",
+        "meaning": "maliyet, fiyat; fiyatı olmak, mal olmak",
         "example": "How much does this ticket cost?",
         "exampleTr": "Bu biletin fiyatı ne kadar?"
       },
@@ -1637,12 +1639,12 @@
         ],
         "n": [
           [
-            "We need to reduce the cost of delivery.",
-            "Teslimat maliyetini düşürmemiz gerekiyor."
+            "The cost of the trip includes breakfast.",
+            "Gezinin ücreti kahvaltıyı içeriyor."
           ]
         ]
       },
-      "reason": "Mesleki listeden genel kelime kartlarına taşınan tek anlamın önüne yaygın kullanımı ekler; özgün mesleki örneği ayrıca korur."
+      "reason": "Genel kelime kartında günlük anlamlar ve günlük örnekler gösterilir; programlama ve diğer mesleki ekler kaldırılır."
     },
     {
       "id": "wk-exam-add3e676ab",
@@ -2477,7 +2479,7 @@
       "entry": {
         "id": "extra-classroom",
         "word": "classroom",
-        "meaning": "derslik, sınıf (oda)",
+        "meaning": "derslik, sınıf",
         "pron": "/ˈklɑːsruːm/",
         "level": "A2",
         "example": "Our classroom has twenty desks.",

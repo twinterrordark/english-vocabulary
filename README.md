@@ -789,3 +789,12 @@ entry and static card, representative browser searches, quiz directions, review
 cards and narrow-screen layout. `--live` additionally compares the exact
 published HTML with the local build and repeats the browser card checks.
 Results and screenshots are under `audits/2026-11-10/vocabulary-*`.
+
+### Everyday vocabulary wording — v2.8.2
+
+`class` now reads simply "sınıf, ders", and `classroom` "derslik, sınıf".
+Removed the retained programming example from `class`. General word cards no
+longer append the professional meanings introduced in v2.8.1; their examples
+now use everyday contexts. Specific technical terms remain separate words.
+The correction catalogue and build checks prevent the removed class meaning
+or example from returning on a rebuild.

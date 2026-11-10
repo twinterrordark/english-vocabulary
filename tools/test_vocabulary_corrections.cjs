@@ -31,8 +31,11 @@ for (const fix of catalogue.corrections) {
 assert(!vocab.some(e => /ISO 639|ISO 3166|language code for/.test(e.definition || '')), 'Dictionary metadata must not be a learner definition');
 pass(`${catalogue.corrections.length} corrections agree across JSON, examples and static cards; no language-code definitions`);
 const classroom = byId.get('extra-classroom');
-assert.equal(classroom.word, 'classroom'); assert.equal(classroom.meaning, 'derslik, sınıf (oda)');
+assert.equal(classroom.word, 'classroom'); assert.equal(classroom.meaning, 'derslik, sınıf');
 assert(!/programlama/.test(classroom.meaning));
+assert.equal(byId.get('wk-ai-48').meaning, 'sınıf, ders');
+assert(!JSON.stringify(sentences.class).includes('Each class should do one thing well'));
+assert(!/programlama/.test(byId.get('wk-ai-48').meaning));
 assert.equal(vocab.filter(e => e.word.toLowerCase() === 'classroom').length, 1);
 pass('Class and classroom are distinct entries; all previous 6005 word IDs retained');
 let served = source;
