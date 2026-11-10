@@ -759,3 +759,33 @@ reply tests use explicit test doubles; real microphone/audio quality and real
 screen-reader operation were not tested. See
 [`learning-review.html`](audits/2026-11-10/learning-review.html) for the design
 review, screenshots, rationale and limitations.
+
+## Vocabulary content corrections — v2.8.1 (2026-11-10)
+
+Reviewed the main and exam word lists after a report that `class` taught only
+the programming sense. Corrected 153 entries: 79 main-list meanings/English
+definitions, 23 general words limited to professional senses, and 51 exam
+translations. Examples include `fire employee` (dismiss an employee), `train
+soldier` (teach a soldier), `fail class` (fail a course) and `arguably` (a
+defensible claim, not certainty). Removed language/country-code metadata from
+learner definitions and corrected conflicting examples and word-type groups.
+
+Everyday senses now precede explicitly labelled technical senses for words
+such as `class`, `library`, `ticket` and `finish`. Added the missing `classroom`
+as a separate room word in the app's lowest vocabulary deck, A2. The app now
+has 2,200 main cards and 3,806 exam cards. Existing word IDs are unchanged, so
+saved progress continues to identify the same words.
+
+The legacy HTML and imported word files remain intact. Explicit old/new values,
+reasons, reviewed examples and dictionary references are recorded in
+[`tools/vocabulary_corrections.json`](tools/vocabulary_corrections.json).
+`tools/vocabulary_corrections.py` applies those corrections before generating
+both JSON and static cards, and rejects stale IDs/words/original values.
+Future rebuilds retain the corrections. This is a targeted editorial correction
+pass, not a claim that every dictionary sense or example is error-free.
+
+Validation: `node tools/test_vocabulary_corrections.cjs` checks every corrected
+entry and static card, representative browser searches, quiz directions, review
+cards and narrow-screen layout. `--live` additionally compares the exact
+published HTML with the local build and repeats the browser card checks.
+Results and screenshots are under `audits/2026-11-10/vocabulary-*`.

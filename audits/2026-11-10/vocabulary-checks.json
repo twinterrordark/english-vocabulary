@@ -1,0 +1,16 @@
+{
+  "build": "a928f1f11f0c",
+  "live": false,
+  "corrections": 153,
+  "words": 2200,
+  "examWords": 3806,
+  "results": [
+    "153 corrections agree across JSON, examples and static cards; no language-code definitions",
+    "Class and classroom are distinct entries; all previous 6005 word IDs retained",
+    "Browser search cards show corrected class/library/ticket/finish and separate classroom",
+    "Corrected classroom card fits mobile and desktop widths",
+    "Both quiz directions and review use corrected word meanings",
+    "No uncaught browser errors"
+  ],
+  "errors": []
+}

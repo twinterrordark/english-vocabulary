@@ -1,0 +1,2502 @@
+{
+  "version": 1,
+  "note": "Reviewed content corrections, 2026-11-10. Original source files and existing IDs are retained. Definitions and replacement examples are written for this app; dictionary links support sense distinctions. A2 is the lowest deck in this app, not an A1 exclusion.",
+  "references": [
+    "https://dictionary.cambridge.org/dictionary/english-turkish/classroom",
+    "https://dictionary.cambridge.org/us/dictionary/english-turkish/class",
+    "https://dictionary.cambridge.org/dictionary/english-turkish/library",
+    "https://dictionary.cambridge.org/us/dictionary/english-turkish/finish",
+    "https://dictionary.cambridge.org/dictionary/english-turkish/stretch",
+    "https://dictionary.cambridge.org/dictionary/english/aim",
+    "https://dictionary.cambridge.org/us/dictionary/english/arguably?topic=possible-and-probable",
+    "https://dictionary.cambridge.org/dictionary/english/affectedly?topic=affected-and-insincere",
+    "https://dictionary.cambridge.org/dictionary/english-turkish/standing-order",
+    "https://dictionary.cambridge.org/dictionary/english-turkish/accustom"
+  ],
+  "corrections": [
+    {
+      "id": "w739",
+      "word": "IT",
+      "before": {
+        "definition": "ISO 3166-1 alpha-2 country code for Italy."
+      },
+      "after": {
+        "definition": "Information technology: the use of computers and electronic systems to store, process and share information."
+      },
+      "reason": "English definition matched a different sense, part of speech or dictionary metadata instead of the Turkish meaning taught on this card."
+    },
+    {
+      "id": "w752",
+      "word": "current",
+      "before": {
+        "definition": "The generally unidirectional movement of a gas or fluid."
+      },
+      "after": {
+        "definition": "Happening or existing now; present."
+      },
+      "reason": "English definition matched a different sense, part of speech or dictionary metadata instead of the Turkish meaning taught on this card."
+    },
+    {
+      "id": "w759",
+      "word": "application",
+      "before": {
+        "definition": "The act of physically applying or laying on."
+      },
+      "after": {
+        "definition": "A formal request for something, such as a job; a practical use of something or a computer program."
+      },
+      "reason": "English definition matched a different sense, part of speech or dictionary metadata instead of the Turkish meaning taught on this card."
+    },
+    {
+      "id": "w784",
+      "word": "planning",
+      "before": {
+        "definition": "present participle and gerund of plan"
+      },
+      "after": {
+        "definition": "The process of deciding what to do and how to do it."
+      },
+      "reason": "English definition matched a different sense, part of speech or dictionary metadata instead of the Turkish meaning taught on this card."
+    },
+    {
+      "id": "w801",
+      "word": "engineering",
+      "before": {
+        "definition": "present participle and gerund of engineer"
+      },
+      "after": {
+        "definition": "The work of designing and building machines, structures or technical systems."
+      },
+      "reason": "English definition matched a different sense, part of speech or dictionary metadata instead of the Turkish meaning taught on this card."
+    },
+    {
+      "id": "w810",
+      "word": "summary",
+      "before": {
+        "definition": "Concise, brief, or presented in a condensed form; presenting information in such a form."
+      },
+      "after": {
+        "definition": "A short account of the main points of a longer text, event or idea."
+      },
+      "reason": "English definition matched a different sense, part of speech or dictionary metadata instead of the Turkish meaning taught on this card."
+    },
+    {
+      "id": "w827",
+      "word": "located",
+      "before": {
+        "definition": "simple past and past participle of locate"
+      },
+      "after": {
+        "definition": "Situated in a particular place."
+      },
+      "reason": "English definition matched a different sense, part of speech or dictionary metadata instead of the Turkish meaning taught on this card."
+    },
+    {
+      "id": "w837",
+      "word": "involved",
+      "before": {
+        "definition": "Complicated."
+      },
+      "after": {
+        "definition": "Taking part in or connected with an activity or situation."
+      },
+      "reason": "English definition matched a different sense, part of speech or dictionary metadata instead of the Turkish meaning taught on this card."
+    },
+    {
+      "id": "w844",
+      "word": "leading",
+      "before": {
+        "definition": "present participle and gerund of lead"
+      },
+      "after": {
+        "definition": "Among the most important or successful in a particular field."
+      },
+      "reason": "English definition matched a different sense, part of speech or dictionary metadata instead of the Turkish meaning taught on this card. Incorrectly labelled or mistranslated fallback example sentences were also corrected; valid existing groups were retained.",
+      "sentenceGroups": {
+        "adj": [
+          [
+            "She's one of the leading experts on climate.",
+            "İklim konusunda önde gelen uzmanlardan biri."
+          ],
+          [
+            "The company is a leading supplier of solar panels.",
+            "Şirket güneş panellerinin başlıca tedarikçilerinden biri."
+          ]
+        ],
+        "v": [
+          [
+            "This is the path leading to the lake.",
+            "Bu, göle giden patika."
+          ],
+          [
+            "She is leading the team through a difficult week.",
+            "Zorlu bir hafta boyunca ekibe liderlik ediyor."
+          ]
+        ]
+      }
+    },
+    {
+      "id": "w848",
+      "word": "academic",
+      "before": {
+        "definition": "Belonging to the school or philosophy of Plato."
+      },
+      "after": {
+        "definition": "Related to education, study, schools or universities."
+      },
+      "reason": "English definition matched a different sense, part of speech or dictionary metadata instead of the Turkish meaning taught on this card."
+    },
+    {
+      "id": "w854",
+      "word": "goods",
+      "before": {
+        "definition": "plural of good"
+      },
+      "after": {
+        "definition": "Items that are made to be sold or used."
+      },
+      "reason": "English definition matched a different sense, part of speech or dictionary metadata instead of the Turkish meaning taught on this card."
+    },
+    {
+      "id": "w874",
+      "word": "economy",
+      "before": {
+        "definition": "Effective management of a community or system, or especially its resources. The regular operation of nature in the generation, nutrition and preservation of animals or plants."
+      },
+      "after": {
+        "definition": "The system by which a country or region produces, buys and sells goods and services."
+      },
+      "reason": "English definition matched a different sense, part of speech or dictionary metadata instead of the Turkish meaning taught on this card."
+    },
+    {
+      "id": "w875",
+      "word": "frame",
+      "before": {
+        "definition": "To fit, as for a specific end or purpose; make suitable or comfortable; adapt; adjust."
+      },
+      "after": {
+        "definition": "A border or structure that surrounds or supports something; to put something in a frame."
+      },
+      "reason": "English definition matched a different sense, part of speech or dictionary metadata instead of the Turkish meaning taught on this card."
+    },
+    {
+      "id": "w897",
+      "word": "nor",
+      "before": {
+        "definition": "ISO 639-2 &amp; ISO 639-3 language code for Norwegian."
+      },
+      "after": {
+        "definition": "Used after a negative statement to add another negative statement; often used with neither."
+      },
+      "reason": "English definition matched a different sense, part of speech or dictionary metadata instead of the Turkish meaning taught on this card."
+    },
+    {
+      "id": "w913",
+      "word": "smart",
+      "before": {
+        "definition": "To hurt or sting."
+      },
+      "after": {
+        "definition": "Intelligent and quick to understand or learn."
+      },
+      "reason": "English definition matched a different sense, part of speech or dictionary metadata instead of the Turkish meaning taught on this card."
+    },
+    {
+      "id": "w940",
+      "word": "whatever",
+      "before": {
+        "definition": "A thing or person whose actual name is unknown or forgotten."
+      },
+      "after": {
+        "definition": "Anything that; no matter what."
+      },
+      "reason": "English definition matched a different sense, part of speech or dictionary metadata instead of the Turkish meaning taught on this card."
+    },
+    {
+      "id": "w955",
+      "word": "aim",
+      "before": {
+        "definition": "ISO 639-3 language code for Aimol."
+      },
+      "after": {
+        "definition": "A goal or result that someone wants to achieve."
+      },
+      "reason": "English definition matched a different sense, part of speech or dictionary metadata instead of the Turkish meaning taught on this card."
+    },
+    {
+      "id": "w979",
+      "word": "pin",
+      "before": {
+        "definition": "ISO 639-3 language code for Piame."
+      },
+      "after": {
+        "definition": "A small, thin piece of metal with a sharp point, used to fasten things; to fasten with a pin."
+      },
+      "reason": "English definition matched a different sense, part of speech or dictionary metadata instead of the Turkish meaning taught on this card."
+    },
+    {
+      "id": "w990",
+      "word": "prince",
+      "before": {
+        "definition": "A (male) ruler, a sovereign; a king, monarch."
+      },
+      "after": {
+        "definition": "A male member of a royal family, especially the son of a king or queen."
+      },
+      "reason": "English definition matched a different sense, part of speech or dictionary metadata instead of the Turkish meaning taught on this card."
+    },
+    {
+      "id": "w1001",
+      "word": "pan",
+      "before": {
+        "definition": "ISO 639-2 &amp; ISO 639-3 language code for Punjabi."
+      },
+      "after": {
+        "definition": "A container used for cooking food, often with a handle."
+      },
+      "reason": "English definition matched a different sense, part of speech or dictionary metadata instead of the Turkish meaning taught on this card."
+    },
+    {
+      "id": "w1017",
+      "word": "fighting",
+      "before": {
+        "definition": "Engaged in war or other conflict."
+      },
+      "after": {
+        "definition": "Physical conflict between people or groups; the activity of attacking or defending."
+      },
+      "reason": "English definition matched a different sense, part of speech or dictionary metadata instead of the Turkish meaning taught on this card. Incorrectly labelled or mistranslated fallback example sentences were also corrected; valid existing groups were retained.",
+      "sentenceGroups": {
+        "n": [
+          [
+            "Fighting broke out between the two groups.",
+            "İki grup arasında çatışma çıktı."
+          ],
+          [
+            "The teacher stopped the fighting in the playground.",
+            "Öğretmen bahçedeki kavgayı durdurdu."
+          ]
+        ],
+        "adj": [
+          [
+            "The team showed real fighting spirit.",
+            "Takım gerçek bir mücadele ruhu gösterdi."
+          ],
+          [
+            "She's in good fighting condition for the match.",
+            "Maç için iyi bir mücadele formunda."
+          ]
+        ],
+        "v": [
+          [
+            "The soldiers are fighting near the border.",
+            "Askerler sınır yakınında savaşıyor."
+          ],
+          [
+            "They were fighting over a toy.",
+            "Bir oyuncak yüzünden kavga ediyorlardı."
+          ]
+        ]
+      }
+    },
+    {
+      "id": "w1018",
+      "word": "shift",
+      "before": {
+        "definition": "A movement to do something, a beginning."
+      },
+      "after": {
+        "definition": "A change in position or situation; a period during which a person or group works."
+      },
+      "reason": "English definition matched a different sense, part of speech or dictionary metadata instead of the Turkish meaning taught on this card."
+    },
+    {
+      "id": "w1021",
+      "word": "treat",
+      "before": {
+        "definition": "To negotiate, discuss terms, bargain (for or with)."
+      },
+      "after": {
+        "definition": "To behave towards someone in a particular way, or to give someone something enjoyable."
+      },
+      "reason": "English definition matched a different sense, part of speech or dictionary metadata instead of the Turkish meaning taught on this card."
+    },
+    {
+      "id": "w1045",
+      "word": "commit",
+      "before": {
+        "definition": "To give in trust; to put into charge or keeping; to entrust; to consign; used with to or formerly unto."
+      },
+      "after": {
+        "definition": "To promise to do something; to carry out an act, especially a crime."
+      },
+      "reason": "English definition matched a different sense, part of speech or dictionary metadata instead of the Turkish meaning taught on this card."
+    },
+    {
+      "id": "w1057",
+      "word": "mad",
+      "before": {
+        "definition": "ISO 639-2 &amp; ISO 639-3 language code for Madurese."
+      },
+      "after": {
+        "definition": "Angry or annoyed."
+      },
+      "reason": "English definition matched a different sense, part of speech or dictionary metadata instead of the Turkish meaning taught on this card."
+    },
+    {
+      "id": "w1065",
+      "word": "lay",
+      "before": {
+        "definition": "ISO 639-3 language code for Lama Bai."
+      },
+      "after": {
+        "definition": "To put or place something down, often in a flat position."
+      },
+      "reason": "English definition matched a different sense, part of speech or dictionary metadata instead of the Turkish meaning taught on this card. Incorrectly labelled or mistranslated fallback example sentences were also corrected; valid existing groups were retained.",
+      "sentenceGroups": {
+        "v": [
+          [
+            "Lay the baby gently on the bed.",
+            "Bebeği yavaşça yatağa yatır."
+          ],
+          [
+            "Can you lay the table for dinner?",
+            "Akşam yemeği için sofrayı kurabilir misin?"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "w1085",
+      "word": "receipt",
+      "before": {
+        "definition": "The act of receiving, or the fact of having been received."
+      },
+      "after": {
+        "definition": "A written or electronic record showing that money has been paid."
+      },
+      "reason": "English definition matched a different sense, part of speech or dictionary metadata instead of the Turkish meaning taught on this card."
+    },
+    {
+      "id": "w1109",
+      "word": "romantic",
+      "before": {
+        "definition": "Of a work of literature, a writer etc.: being like or having the characteristics of a romance, or poetic tale of a mythic or quasi-historical time; fantastic."
+      },
+      "after": {
+        "definition": "Related to love or expressing feelings of love."
+      },
+      "reason": "English definition matched a different sense, part of speech or dictionary metadata instead of the Turkish meaning taught on this card."
+    },
+    {
+      "id": "w1123",
+      "word": "engaged",
+      "before": {
+        "definition": "simple past and past participle of engage"
+      },
+      "after": {
+        "definition": "Busy with or taking part in an activity."
+      },
+      "reason": "English definition matched a different sense, part of speech or dictionary metadata instead of the Turkish meaning taught on this card."
+    },
+    {
+      "id": "w1127",
+      "word": "killing",
+      "before": {
+        "definition": "That literally deprives of life; lethal, deadly, fatal."
+      },
+      "after": {
+        "definition": "The act of causing a person or animal to die."
+      },
+      "reason": "English definition matched a different sense, part of speech or dictionary metadata instead of the Turkish meaning taught on this card."
+    },
+    {
+      "id": "w1129",
+      "word": "ban",
+      "before": {
+        "definition": "ISO 639-2 &amp; ISO 639-3 language code for Balinese."
+      },
+      "after": {
+        "definition": "An official rule that forbids something; to officially forbid something."
+      },
+      "reason": "English definition matched a different sense, part of speech or dictionary metadata instead of the Turkish meaning taught on this card."
+    },
+    {
+      "id": "w1139",
+      "word": "decade",
+      "before": {
+        "definition": "A group, set, or series of ten"
+      },
+      "after": {
+        "definition": "A period of ten years."
+      },
+      "reason": "English definition matched a different sense, part of speech or dictionary metadata instead of the Turkish meaning taught on this card."
+    },
+    {
+      "id": "w1142",
+      "word": "retired",
+      "before": {
+        "definition": "Secluded from society (of a lifestyle, activity etc.); private, quiet."
+      },
+      "after": {
+        "definition": "No longer working, usually because of age."
+      },
+      "reason": "English definition matched a different sense, part of speech or dictionary metadata instead of the Turkish meaning taught on this card."
+    },
+    {
+      "id": "w1176",
+      "word": "qualify",
+      "before": {
+        "definition": "To describe or characterize something by listing its qualities."
+      },
+      "after": {
+        "definition": "To have or gain the skills, qualifications or results needed for something."
+      },
+      "reason": "English definition matched a different sense, part of speech or dictionary metadata instead of the Turkish meaning taught on this card."
+    },
+    {
+      "id": "w1192",
+      "word": "fancy",
+      "before": {
+        "definition": "The imagination."
+      },
+      "after": {
+        "definition": "To want or like something; decorated or stylish rather than plain."
+      },
+      "reason": "English definition matched a different sense, part of speech or dictionary metadata instead of the Turkish meaning taught on this card. Incorrectly labelled or mistranslated fallback example sentences were also corrected; valid existing groups were retained.",
+      "sentenceGroups": {
+        "v": [
+          [
+            "Do you fancy going to the cinema tonight?",
+            "Bu akşam sinemaya gitmek ister misin?"
+          ],
+          [
+            "I don't fancy pizza again.",
+            "Yine pizza canım istemiyor."
+          ]
+        ],
+        "adj": [
+          [
+            "They had dinner at a fancy restaurant.",
+            "Lüks bir restoranda akşam yemeği yediler."
+          ],
+          [
+            "I don't need a fancy phone, just a simple one.",
+            "Gösterişli bir telefona ihtiyacım yok, basit bir tane yeter."
+          ]
+        ]
+      }
+    },
+    {
+      "id": "w1193",
+      "word": "relate",
+      "before": {
+        "definition": "To tell in a descriptive way."
+      },
+      "after": {
+        "definition": "To connect one thing with another, or to understand someone through shared experience."
+      },
+      "reason": "English definition matched a different sense, part of speech or dictionary metadata instead of the Turkish meaning taught on this card."
+    },
+    {
+      "id": "w1196",
+      "word": "bee",
+      "before": {
+        "definition": "ISO 639-3 language code for Byangsi."
+      },
+      "after": {
+        "definition": "A flying insect that collects nectar and pollen; many kinds make honey."
+      },
+      "reason": "English definition matched a different sense, part of speech or dictionary metadata instead of the Turkish meaning taught on this card."
+    },
+    {
+      "id": "w1200",
+      "word": "injured",
+      "before": {
+        "definition": "simple past and past participle of injure"
+      },
+      "after": {
+        "definition": "Physically hurt or harmed."
+      },
+      "reason": "English definition matched a different sense, part of speech or dictionary metadata instead of the Turkish meaning taught on this card. Incorrectly labelled or mistranslated fallback example sentences were also corrected; valid existing groups were retained.",
+      "sentenceGroups": {
+        "adj": [
+          [
+            "Two people were injured in the accident.",
+            "Kazada iki kişi yaralandı."
+          ],
+          [
+            "The injured player left the field.",
+            "Sakatlanan oyuncu sahadan çıktı."
+          ]
+        ],
+        "v": [
+          [
+            "He injured his shoulder while lifting a box.",
+            "Bir kutu kaldırırken omzunu incitti."
+          ],
+          [
+            "She injured her ankle during the match.",
+            "Maç sırasında ayak bileğini sakatladı."
+          ]
+        ]
+      }
+    },
+    {
+      "id": "w1210",
+      "word": "meanwhile",
+      "before": {
+        "definition": "The time between two events."
+      },
+      "after": {
+        "definition": "At the same time as something else, or during the period between two events."
+      },
+      "reason": "English definition matched a different sense, part of speech or dictionary metadata instead of the Turkish meaning taught on this card."
+    },
+    {
+      "id": "w1215",
+      "word": "lip",
+      "before": {
+        "definition": "ISO 639-3 language code for Sekpele."
+      },
+      "after": {
+        "definition": "One of the two soft edges of the mouth."
+      },
+      "reason": "English definition matched a different sense, part of speech or dictionary metadata instead of the Turkish meaning taught on this card."
+    },
+    {
+      "id": "w1219",
+      "word": "arrest",
+      "before": {
+        "definition": "A check; a stop; an act or instance of arresting something."
+      },
+      "after": {
+        "definition": "To take someone into police custody; the act of doing this."
+      },
+      "reason": "English definition matched a different sense, part of speech or dictionary metadata instead of the Turkish meaning taught on this card."
+    },
+    {
+      "id": "w1223",
+      "word": "ought",
+      "before": {
+        "definition": "simple past of owe"
+      },
+      "after": {
+        "definition": "Used with to before a verb to say what is advisable, expected or the right thing to do."
+      },
+      "reason": "English definition matched a different sense, part of speech or dictionary metadata instead of the Turkish meaning taught on this card."
+    },
+    {
+      "id": "w1236",
+      "word": "consist",
+      "before": {
+        "definition": "To be."
+      },
+      "after": {
+        "definition": "To be made up of particular parts; usually followed by of."
+      },
+      "reason": "English definition matched a different sense, part of speech or dictionary metadata instead of the Turkish meaning taught on this card."
+    },
+    {
+      "id": "w1239",
+      "word": "fur",
+      "before": {
+        "definition": "ISO 639-2 &amp; ISO 639-3 language code for Friulian."
+      },
+      "after": {
+        "definition": "The thick, soft hair covering the bodies of some animals."
+      },
+      "reason": "English definition matched a different sense, part of speech or dictionary metadata instead of the Turkish meaning taught on this card."
+    },
+    {
+      "id": "w1252",
+      "word": "horrible",
+      "before": {
+        "definition": "A thing that causes horror; a terrifying thing, particularly a prospective bad consequence asserted as likely to result from an act."
+      },
+      "after": {
+        "definition": "Very unpleasant, frightening or bad."
+      },
+      "reason": "English definition matched a different sense, part of speech or dictionary metadata instead of the Turkish meaning taught on this card."
+    },
+    {
+      "id": "w1253",
+      "word": "dressed",
+      "before": {
+        "definition": "simple past and past participle of dress"
+      },
+      "after": {
+        "definition": "Wearing clothes."
+      },
+      "reason": "English definition matched a different sense, part of speech or dictionary metadata instead of the Turkish meaning taught on this card."
+    },
+    {
+      "id": "w1256",
+      "word": "mud",
+      "before": {
+        "definition": "ISO 639-3 language code for Mednyj Aleut."
+      },
+      "after": {
+        "definition": "Wet, soft earth."
+      },
+      "reason": "English definition matched a different sense, part of speech or dictionary metadata instead of the Turkish meaning taught on this card."
+    },
+    {
+      "id": "w1267",
+      "word": "stranger",
+      "before": {
+        "definition": "comparative form of strange: more strange"
+      },
+      "after": {
+        "definition": "A person you do not know."
+      },
+      "reason": "English definition matched a different sense, part of speech or dictionary metadata instead of the Turkish meaning taught on this card."
+    },
+    {
+      "id": "w1292",
+      "word": "emotion",
+      "before": {
+        "definition": "Movement; agitation."
+      },
+      "after": {
+        "definition": "A feeling such as joy, fear, anger or sadness."
+      },
+      "reason": "English definition matched a different sense, part of speech or dictionary metadata instead of the Turkish meaning taught on this card."
+    },
+    {
+      "id": "w1298",
+      "word": "fry",
+      "before": {
+        "definition": "ISO 639-2 &amp; ISO 639-3 language code for West Frisian."
+      },
+      "after": {
+        "definition": "To cook food in hot oil or fat."
+      },
+      "reason": "English definition matched a different sense, part of speech or dictionary metadata instead of the Turkish meaning taught on this card."
+    },
+    {
+      "id": "w1313",
+      "word": "neighbourhood",
+      "before": {
+        "definition": "British standard spelling of neighborhood."
+      },
+      "after": {
+        "definition": "An area of a town or city and the people who live there."
+      },
+      "reason": "English definition matched a different sense, part of speech or dictionary metadata instead of the Turkish meaning taught on this card."
+    },
+    {
+      "id": "w1319",
+      "word": "backwards",
+      "before": {
+        "definition": "Synonym of backward; see usage notes there."
+      },
+      "after": {
+        "definition": "Towards the back or in the opposite direction to usual."
+      },
+      "reason": "English definition matched a different sense, part of speech or dictionary metadata instead of the Turkish meaning taught on this card."
+    },
+    {
+      "id": "w1342",
+      "word": "dislike",
+      "before": {
+        "definition": "An attitude or a feeling of distaste or aversion."
+      },
+      "after": {
+        "definition": "To not like someone or something."
+      },
+      "reason": "English definition matched a different sense, part of speech or dictionary metadata instead of the Turkish meaning taught on this card."
+    },
+    {
+      "id": "w1363",
+      "word": "row",
+      "before": {
+        "definition": "ISO 639-3 language code for Dela-Oenale."
+      },
+      "after": {
+        "definition": "A line of people or things placed next to each other."
+      },
+      "reason": "English definition matched a different sense, part of speech or dictionary metadata instead of the Turkish meaning taught on this card."
+    },
+    {
+      "id": "w1364",
+      "word": "set",
+      "before": {
+        "definition": "ISO 639-3 language code for Sentani."
+      },
+      "after": {
+        "definition": "To put or place something in a particular position."
+      },
+      "reason": "English definition matched a different sense, part of speech or dictionary metadata instead of the Turkish meaning taught on this card."
+    },
+    {
+      "id": "w1365",
+      "word": "stick",
+      "before": {
+        "definition": "An elongated piece of wood or similar material, typically put to some use, for example as a wand or baton."
+      },
+      "after": {
+        "definition": "To attach something to a surface or push it into something."
+      },
+      "reason": "English definition matched a different sense, part of speech or dictionary metadata instead of the Turkish meaning taught on this card."
+    },
+    {
+      "id": "w1368",
+      "word": "being",
+      "before": {
+        "definition": "present participle and gerund of be"
+      },
+      "after": {
+        "definition": "A living creature; the state of existing."
+      },
+      "reason": "English definition matched a different sense, part of speech or dictionary metadata instead of the Turkish meaning taught on this card."
+    },
+    {
+      "id": "w1374",
+      "word": "select",
+      "before": {
+        "definition": "Privileged, specially selected."
+      },
+      "after": {
+        "definition": "To choose someone or something from a group."
+      },
+      "reason": "English definition matched a different sense, part of speech or dictionary metadata instead of the Turkish meaning taught on this card."
+    },
+    {
+      "id": "w1379",
+      "word": "cell",
+      "before": {
+        "definition": "A single-room dwelling for a hermit."
+      },
+      "after": {
+        "definition": "The smallest living unit of an organism; a small room in a prison."
+      },
+      "reason": "English definition matched a different sense, part of speech or dictionary metadata instead of the Turkish meaning taught on this card."
+    },
+    {
+      "id": "w1431",
+      "word": "significant",
+      "before": {
+        "definition": "Signifying something; carrying meaning."
+      },
+      "after": {
+        "definition": "Important or large enough to be noticed or have an effect."
+      },
+      "reason": "English definition matched a different sense, part of speech or dictionary metadata instead of the Turkish meaning taught on this card."
+    },
+    {
+      "id": "w1475",
+      "word": "actual",
+      "before": {
+        "definition": "relating to a person's acts or deeds; active, practical"
+      },
+      "after": {
+        "definition": "Real or existing in fact."
+      },
+      "reason": "English definition matched a different sense, part of speech or dictionary metadata instead of the Turkish meaning taught on this card."
+    },
+    {
+      "id": "w1507",
+      "word": "opening",
+      "before": {
+        "definition": "present participle and gerund of open"
+      },
+      "after": {
+        "definition": "A beginning or first event; an available job or opportunity."
+      },
+      "reason": "English definition matched a different sense, part of speech or dictionary metadata instead of the Turkish meaning taught on this card."
+    },
+    {
+      "id": "w1551",
+      "word": "proof",
+      "before": {
+        "definition": "An effort, process, or operation designed to establish or discover a fact or truth; an act of testing; a test; a trial."
+      },
+      "after": {
+        "definition": "Information or evidence that shows something is true."
+      },
+      "reason": "English definition matched a different sense, part of speech or dictionary metadata instead of the Turkish meaning taught on this card."
+    },
+    {
+      "id": "w1623",
+      "word": "regard",
+      "before": {
+        "definition": "A steady look, a gaze."
+      },
+      "after": {
+        "definition": "To think of someone or something in a particular way; respect or admiration."
+      },
+      "reason": "English definition matched a different sense, part of speech or dictionary metadata instead of the Turkish meaning taught on this card."
+    },
+    {
+      "id": "w1742",
+      "word": "recover",
+      "before": {
+        "definition": "To get back, to regain (a physical thing; in astronomy and navigation, sight of a thing or a signal)."
+      },
+      "after": {
+        "definition": "To become healthy or return to a normal state after illness, injury or difficulty."
+      },
+      "reason": "English definition matched a different sense, part of speech or dictionary metadata instead of the Turkish meaning taught on this card."
+    },
+    {
+      "id": "w1764",
+      "word": "construct",
+      "before": {
+        "definition": "Something constructed from parts."
+      },
+      "after": {
+        "definition": "To build or make something by putting parts together."
+      },
+      "reason": "English definition matched a different sense, part of speech or dictionary metadata instead of the Turkish meaning taught on this card."
+    },
+    {
+      "id": "w1769",
+      "word": "arise",
+      "before": {
+        "definition": "To come up from a lower to a higher position."
+      },
+      "after": {
+        "definition": "To happen, appear or begin to exist."
+      },
+      "reason": "English definition matched a different sense, part of speech or dictionary metadata instead of the Turkish meaning taught on this card."
+    },
+    {
+      "id": "w1829",
+      "word": "hollow",
+      "before": {
+        "definition": "A small valley between mountains."
+      },
+      "after": {
+        "definition": "Having an empty space inside."
+      },
+      "reason": "English definition matched a different sense, part of speech or dictionary metadata instead of the Turkish meaning taught on this card."
+    },
+    {
+      "id": "w1835",
+      "word": "urge",
+      "before": {
+        "definition": "A strong desire to do something."
+      },
+      "after": {
+        "definition": "To strongly encourage or persuade someone to do something."
+      },
+      "reason": "English definition matched a different sense, part of speech or dictionary metadata instead of the Turkish meaning taught on this card."
+    },
+    {
+      "id": "w1861",
+      "word": "judgement",
+      "before": {
+        "definition": "Alternative spelling of judgment."
+      },
+      "after": {
+        "definition": "An opinion or decision formed after considering information."
+      },
+      "reason": "English definition matched a different sense, part of speech or dictionary metadata instead of the Turkish meaning taught on this card."
+    },
+    {
+      "id": "w1934",
+      "word": "testing",
+      "before": {
+        "definition": "Difficult; tough."
+      },
+      "after": {
+        "definition": "The process of checking how well something works or how much someone knows."
+      },
+      "reason": "English definition matched a different sense, part of speech or dictionary metadata instead of the Turkish meaning taught on this card. Incorrectly labelled or mistranslated fallback example sentences were also corrected; valid existing groups were retained.",
+      "sentenceGroups": {
+        "n": [
+          [
+            "The new car is still in testing.",
+            "Yeni araba hâlâ test aşamasında."
+          ],
+          [
+            "Testing of the software took a month.",
+            "Yazılımın denenmesi bir ay sürdü."
+          ]
+        ],
+        "v": [
+          [
+            "We are testing a new design today.",
+            "Bugün yeni bir tasarımı test ediyoruz."
+          ],
+          [
+            "The teacher is testing the students on vocabulary.",
+            "Öğretmen öğrencilerin kelime bilgisini ölçüyor."
+          ]
+        ]
+      }
+    },
+    {
+      "id": "w1965",
+      "word": "nursing",
+      "before": {
+        "definition": "In the state of suckling young, lactating."
+      },
+      "after": {
+        "definition": "The work of caring for people who are ill or injured."
+      },
+      "reason": "English definition matched a different sense, part of speech or dictionary metadata instead of the Turkish meaning taught on this card."
+    },
+    {
+      "id": "w1969",
+      "word": "counter",
+      "before": {
+        "definition": "One who counts."
+      },
+      "after": {
+        "definition": "A long, flat surface in a shop or kitchen; a device that counts things."
+      },
+      "reason": "English definition matched a different sense, part of speech or dictionary metadata instead of the Turkish meaning taught on this card."
+    },
+    {
+      "id": "w23",
+      "word": "Benefit",
+      "before": {
+        "meaning": "Fayda; faydalanmak"
+      },
+      "after": {
+        "meaning": "Fayda, yarar; fayda sağlamak, faydalanmak"
+      },
+      "reason": "Turkish meaning had an incorrect form, typo or omitted the sense used by the card example."
+    },
+    {
+      "id": "w653",
+      "word": "Disagree",
+      "before": {
+        "meaning": "katılmıyorum"
+      },
+      "after": {
+        "meaning": "Aynı fikirde olmamak, katılmamak"
+      },
+      "reason": "Turkish meaning had an incorrect form, typo or omitted the sense used by the card example."
+    },
+    {
+      "id": "w707",
+      "word": "Waste",
+      "before": {
+        "meaning": "atık"
+      },
+      "after": {
+        "meaning": "Atık; israf etmek, boşa harcamak"
+      },
+      "reason": "Turkish meaning had an incorrect form, typo or omitted the sense used by the card example."
+    },
+    {
+      "id": "w1016",
+      "word": "unable",
+      "before": {
+        "meaning": "gelemez,yapamayan"
+      },
+      "after": {
+        "meaning": "Yapamayan, gücü yetmeyen; -emeyen, -amayan"
+      },
+      "reason": "Turkish meaning had an incorrect form, typo or omitted the sense used by the card example."
+    },
+    {
+      "id": "w1144",
+      "word": "translate",
+      "before": {
+        "meaning": "çe çevirmek,tercüme etmek"
+      },
+      "after": {
+        "meaning": "Çevirmek, tercüme etmek"
+      },
+      "reason": "Turkish meaning had an incorrect form, typo or omitted the sense used by the card example."
+    },
+    {
+      "id": "w1708",
+      "word": "stretch",
+      "before": {
+        "meaning": "gerçekleştirmek/germek, esnemek, uzatmak, bölüm/süre"
+      },
+      "after": {
+        "meaning": "Germek, gerinmek, uzatmak, esnemek; bölüm, süre"
+      },
+      "reason": "Turkish meaning had an incorrect form, typo or omitted the sense used by the card example."
+    },
+    {
+      "id": "wk-ai-43",
+      "word": "library",
+      "before": {
+        "meaning": "yazılım kütüphanesi",
+        "example": "We use an open-source library for charts.",
+        "exampleTr": "Grafikler için açık kaynaklı bir kütüphane kullanıyoruz."
+      },
+      "after": {
+        "meaning": "kütüphane; yazılım kütüphanesi (bilişim)",
+        "example": "I borrowed a book from the library.",
+        "exampleTr": "Kütüphaneden bir kitap ödünç aldım."
+      },
+      "sentenceGroups": {
+        "n": [
+          [
+            "I borrowed a book from the library.",
+            "Kütüphaneden bir kitap ödünç aldım."
+          ],
+          [
+            "We use an open-source library for charts.",
+            "Grafikler için açık kaynaklı bir kütüphane kullanıyoruz."
+          ]
+        ]
+      },
+      "reason": "Mesleki listeden genel kelime kartlarına taşınan tek anlamın önüne yaygın kullanımı ekler; özgün mesleki örneği ayrıca korur."
+    },
+    {
+      "id": "wk-ai-48",
+      "word": "class",
+      "before": {
+        "meaning": "sınıf (programlama)",
+        "example": "Each class should do one thing well.",
+        "exampleTr": "Her sınıf tek bir işi iyi yapmalı."
+      },
+      "after": {
+        "meaning": "sınıf (öğrenci grubu), ders; sınıf (programlama)",
+        "example": "Our English class starts at nine.",
+        "exampleTr": "İngilizce dersimiz saat dokuzda başlıyor."
+      },
+      "sentenceGroups": {
+        "n": [
+          [
+            "Our English class starts at nine.",
+            "İngilizce dersimiz saat dokuzda başlıyor."
+          ],
+          [
+            "Each class should do one thing well.",
+            "Her sınıf tek bir işi iyi yapmalı."
+          ]
+        ]
+      },
+      "reason": "Mesleki listeden genel kelime kartlarına taşınan tek anlamın önüne yaygın kullanımı ekler; özgün mesleki örneği ayrıca korur."
+    },
+    {
+      "id": "wk-ai-103",
+      "word": "ticket",
+      "before": {
+        "meaning": "iş kaydı, destek kaydı",
+        "example": "Please open a ticket for this problem.",
+        "exampleTr": "Lütfen bu sorun için bir kayıt aç."
+      },
+      "after": {
+        "meaning": "bilet; trafik cezası; destek kaydı (bilişim)",
+        "example": "I bought a train ticket online.",
+        "exampleTr": "İnternetten bir tren bileti aldım."
+      },
+      "sentenceGroups": {
+        "n": [
+          [
+            "I bought a train ticket online.",
+            "İnternetten bir tren bileti aldım."
+          ],
+          [
+            "Please open a ticket for this problem.",
+            "Lütfen bu sorun için bir kayıt aç."
+          ]
+        ]
+      },
+      "reason": "Mesleki listeden genel kelime kartlarına taşınan tek anlamın önüne yaygın kullanımı ekler; özgün mesleki örneği ayrıca korur."
+    },
+    {
+      "id": "wk-des-26",
+      "word": "finish",
+      "before": {
+        "meaning": "yüzey bitişi, son işlem",
+        "example": "The matte finish scratches easily.",
+        "exampleTr": "Mat yüzey kolayca çiziliyor."
+      },
+      "after": {
+        "meaning": "bitirmek, bitmek; bitiş; yüzey bitişi, son işlem (tasarım)",
+        "example": "I will finish my homework before dinner.",
+        "exampleTr": "Akşam yemeğinden önce ödevimi bitireceğim."
+      },
+      "sentenceGroups": {
+        "v": [
+          [
+            "I will finish my homework before dinner.",
+            "Akşam yemeğinden önce ödevimi bitireceğim."
+          ]
+        ],
+        "n": [
+          [
+            "The matte finish scratches easily.",
+            "Mat yüzey kolayca çiziliyor."
+          ]
+        ]
+      },
+      "reason": "Mesleki listeden genel kelime kartlarına taşınan tek anlamın önüne yaygın kullanımı ekler; özgün mesleki örneği ayrıca korur."
+    },
+    {
+      "id": "wk-ai-7",
+      "word": "prompt",
+      "before": {
+        "meaning": "istem, komut metni",
+        "example": "A clear prompt usually gives a better answer.",
+        "exampleTr": "Açık bir istem genellikle daha iyi bir yanıt verir."
+      },
+      "after": {
+        "meaning": "çabuk, gecikmeden yapılan (sıfat); teşvik etmek, harekete geçirmek (fiil); istem, komut metni (yapay zekâ)",
+        "example": "Thank you for your prompt reply.",
+        "exampleTr": "Hızlı yanıtınız için teşekkür ederim."
+      },
+      "sentenceGroups": {
+        "adj": [
+          [
+            "Thank you for your prompt reply.",
+            "Hızlı yanıtınız için teşekkür ederim."
+          ]
+        ],
+        "n": [
+          [
+            "A clear prompt usually gives a better answer.",
+            "Açık bir istem genellikle daha iyi bir yanıt verir."
+          ]
+        ]
+      },
+      "reason": "Mesleki listeden genel kelime kartlarına taşınan tek anlamın önüne yaygın kullanımı ekler; özgün mesleki örneği ayrıca korur."
+    },
+    {
+      "id": "wk-ai-8",
+      "word": "token",
+      "before": {
+        "meaning": "jeton (modelin metin birimi)",
+        "example": "The request used four thousand tokens.",
+        "exampleTr": "İstek dört bin jeton kullandı."
+      },
+      "after": {
+        "meaning": "jeton; işaret, gösterge; metin birimi (yapay zekâ)",
+        "example": "You need a token to use this machine.",
+        "exampleTr": "Bu makineyi kullanmak için bir jetona ihtiyacın var."
+      },
+      "sentenceGroups": {
+        "n": [
+          [
+            "You need a token to use this machine.",
+            "Bu makineyi kullanmak için bir jetona ihtiyacın var."
+          ],
+          [
+            "The request used four thousand tokens.",
+            "İstek dört bin jeton kullandı."
+          ]
+        ]
+      },
+      "reason": "Mesleki listeden genel kelime kartlarına taşınan tek anlamın önüne yaygın kullanımı ekler; özgün mesleki örneği ayrıca korur."
+    },
+    {
+      "id": "wk-ai-26",
+      "word": "repository",
+      "before": {
+        "meaning": "kod deposu",
+        "example": "Clone the repository and run the tests.",
+        "exampleTr": "Kod deposunu klonla ve testleri çalıştır."
+      },
+      "after": {
+        "meaning": "depo, saklama yeri; kod deposu (bilişim)",
+        "example": "The museum is a repository of local history.",
+        "exampleTr": "Müze, yerel tarihin korunduğu bir yerdir."
+      },
+      "sentenceGroups": {
+        "n": [
+          [
+            "The museum is a repository of local history.",
+            "Müze, yerel tarihin korunduğu bir yerdir."
+          ],
+          [
+            "Clone the repository and run the tests.",
+            "Kod deposunu klonla ve testleri çalıştır."
+          ]
+        ]
+      },
+      "reason": "Mesleki listeden genel kelime kartlarına taşınan tek anlamın önüne yaygın kullanımı ekler; özgün mesleki örneği ayrıca korur."
+    },
+    {
+      "id": "wk-ai-49",
+      "word": "loop",
+      "before": {
+        "meaning": "döngü",
+        "example": "The loop never ends because of a small mistake.",
+        "exampleTr": "Küçük bir hata yüzünden döngü hiç bitmiyor."
+      },
+      "after": {
+        "meaning": "halka, ilmek; döngü (programlama)",
+        "example": "She tied the rope into a loop.",
+        "exampleTr": "İpi halka şeklinde bağladı."
+      },
+      "sentenceGroups": {
+        "n": [
+          [
+            "She tied the rope into a loop.",
+            "İpi halka şeklinde bağladı."
+          ],
+          [
+            "The loop never ends because of a small mistake.",
+            "Küçük bir hata yüzünden döngü hiç bitmiyor."
+          ]
+        ]
+      },
+      "reason": "Mesleki listeden genel kelime kartlarına taşınan tek anlamın önüne yaygın kullanımı ekler; özgün mesleki örneği ayrıca korur."
+    },
+    {
+      "id": "wk-ai-60",
+      "word": "reproduce",
+      "before": {
+        "meaning": "(hatayı) yeniden oluşturmak",
+        "example": "I can't reproduce the bug on my computer.",
+        "exampleTr": "Hatayı kendi bilgisayarımda yeniden oluşturamıyorum."
+      },
+      "after": {
+        "meaning": "kopyasını yapmak, yeniden üretmek; üremek; yeniden oluşturmak (hatayı)",
+        "example": "Some plants reproduce from seeds.",
+        "exampleTr": "Bazı bitkiler tohumlarla ürer."
+      },
+      "sentenceGroups": {
+        "v": [
+          [
+            "Some plants reproduce from seeds.",
+            "Bazı bitkiler tohumlarla ürer."
+          ],
+          [
+            "I can't reproduce the bug on my computer.",
+            "Hatayı kendi bilgisayarımda yeniden oluşturamıyorum."
+          ]
+        ]
+      },
+      "reason": "Mesleki listeden genel kelime kartlarına taşınan tek anlamın önüne yaygın kullanımı ekler; özgün mesleki örneği ayrıca korur."
+    },
+    {
+      "id": "wk-ai-75",
+      "word": "query",
+      "before": {
+        "meaning": "sorgu",
+        "example": "This query is slow because it has no index.",
+        "exampleTr": "Bu sorgu dizini olmadığı için yavaş."
+      },
+      "after": {
+        "meaning": "soru, sorgu; sorgulamak; veri sorgusu (bilişim)",
+        "example": "Please contact us if you have a query.",
+        "exampleTr": "Bir sorunuz varsa lütfen bizimle iletişime geçin."
+      },
+      "sentenceGroups": {
+        "n": [
+          [
+            "Please contact us if you have a query.",
+            "Bir sorunuz varsa lütfen bizimle iletişime geçin."
+          ],
+          [
+            "This query is slow because it has no index.",
+            "Bu sorgu dizini olmadığı için yavaş."
+          ]
+        ]
+      },
+      "reason": "Mesleki listeden genel kelime kartlarına taşınan tek anlamın önüne yaygın kullanımı ekler; özgün mesleki örneği ayrıca korur."
+    },
+    {
+      "id": "wk-ai-93",
+      "word": "log",
+      "before": {
+        "meaning": "kayıt, günlük",
+        "example": "Check the logs to see what happened.",
+        "exampleTr": "Ne olduğunu görmek için kayıtlara bak."
+      },
+      "after": {
+        "meaning": "kütük; kayıt, günlük; kaydetmek",
+        "example": "He put another log on the fire.",
+        "exampleTr": "Ateşe bir kütük daha koydu."
+      },
+      "sentenceGroups": {
+        "n": [
+          [
+            "He put another log on the fire.",
+            "Ateşe bir kütük daha koydu."
+          ],
+          [
+            "Check the logs to see what happened.",
+            "Ne olduğunu görmek için kayıtlara bak."
+          ]
+        ]
+      },
+      "reason": "Mesleki listeden genel kelime kartlarına taşınan tek anlamın önüne yaygın kullanımı ekler; özgün mesleki örneği ayrıca korur."
+    },
+    {
+      "id": "wk-ai-98",
+      "word": "vulnerability",
+      "before": {
+        "meaning": "güvenlik açığı",
+        "example": "The scan found a serious vulnerability.",
+        "exampleTr": "Tarama ciddi bir güvenlik açığı buldu."
+      },
+      "after": {
+        "meaning": "savunmasızlık, kırılganlık; güvenlik açığı (bilişim)",
+        "example": "The storm exposed the village's vulnerability.",
+        "exampleTr": "Fırtına, köyün savunmasızlığını ortaya çıkardı."
+      },
+      "sentenceGroups": {
+        "n": [
+          [
+            "The storm exposed the village's vulnerability.",
+            "Fırtına, köyün savunmasızlığını ortaya çıkardı."
+          ],
+          [
+            "The scan found a serious vulnerability.",
+            "Tarama ciddi bir güvenlik açığı buldu."
+          ]
+        ]
+      },
+      "reason": "Mesleki listeden genel kelime kartlarına taşınan tek anlamın önüne yaygın kullanımı ekler; özgün mesleki örneği ayrıca korur."
+    },
+    {
+      "id": "wk-ai-100",
+      "word": "credentials",
+      "before": {
+        "meaning": "giriş bilgileri",
+        "example": "Never put credentials in the source code.",
+        "exampleTr": "Giriş bilgilerini asla kaynak koda koyma."
+      },
+      "after": {
+        "meaning": "nitelikler, yeterlilik belgeleri; kimlik belgeleri; giriş bilgileri (bilişim)",
+        "example": "Her teaching credentials impressed the school.",
+        "exampleTr": "Öğretmenlik yeterlilikleri okulu etkiledi."
+      },
+      "sentenceGroups": {
+        "n": [
+          [
+            "Her teaching credentials impressed the school.",
+            "Öğretmenlik yeterlilikleri okulu etkiledi."
+          ],
+          [
+            "Never put credentials in the source code.",
+            "Giriş bilgilerini asla kaynak koda koyma."
+          ]
+        ]
+      },
+      "reason": "Mesleki listeden genel kelime kartlarına taşınan tek anlamın önüne yaygın kullanımı ekler; özgün mesleki örneği ayrıca korur."
+    },
+    {
+      "id": "wk-ai-101",
+      "word": "sprint",
+      "before": {
+        "meaning": "kısa çalışma dönemi",
+        "example": "This task won't fit into the current sprint.",
+        "exampleTr": "Bu görev mevcut döneme sığmaz."
+      },
+      "after": {
+        "meaning": "kısa mesafede hızla koşma; kısa çalışma dönemi (yazılım)",
+        "example": "He won the 100-metre sprint.",
+        "exampleTr": "100 metrelik kısa mesafe koşusunu kazandı."
+      },
+      "sentenceGroups": {
+        "n": [
+          [
+            "He won the 100-metre sprint.",
+            "100 metrelik kısa mesafe koşusunu kazandı."
+          ],
+          [
+            "This task won't fit into the current sprint.",
+            "Bu görev mevcut döneme sığmaz."
+          ]
+        ]
+      },
+      "reason": "Mesleki listeden genel kelime kartlarına taşınan tek anlamın önüne yaygın kullanımı ekler; özgün mesleki örneği ayrıca korur."
+    },
+    {
+      "id": "wk-ai-85",
+      "word": "staging",
+      "before": {
+        "meaning": "hazırlık ortamı",
+        "example": "Check it on staging before you release it.",
+        "exampleTr": "Yayınlamadan önce hazırlık ortamında kontrol et."
+      },
+      "after": {
+        "meaning": "sahneleme; hazırlık ortamı (bilişim)",
+        "example": "The staging of the play took several weeks.",
+        "exampleTr": "Oyunun sahnelenmesi birkaç hafta sürdü."
+      },
+      "sentenceGroups": {
+        "n": [
+          [
+            "The staging of the play took several weeks.",
+            "Oyunun sahnelenmesi birkaç hafta sürdü."
+          ],
+          [
+            "Check it on staging before you release it.",
+            "Yayınlamadan önce hazırlık ortamında kontrol et."
+          ]
+        ]
+      },
+      "reason": "Mesleki listeden genel kelime kartlarına taşınan tek anlamın önüne yaygın kullanımı ekler; özgün mesleki örneği ayrıca korur."
+    },
+    {
+      "id": "wk-des-52",
+      "word": "assembly",
+      "before": {
+        "meaning": "montaj",
+        "example": "The assembly takes less than a minute.",
+        "exampleTr": "Montaj bir dakikadan kısa sürüyor."
+      },
+      "after": {
+        "meaning": "toplantı, kurul; bir araya getirme, montaj",
+        "example": "The students met in the hall for assembly.",
+        "exampleTr": "Öğrenciler toplantı için salonda bir araya geldi."
+      },
+      "sentenceGroups": {
+        "n": [
+          [
+            "The students met in the hall for assembly.",
+            "Öğrenciler toplantı için salonda bir araya geldi."
+          ],
+          [
+            "The assembly takes less than a minute.",
+            "Montaj bir dakikadan kısa sürüyor."
+          ]
+        ]
+      },
+      "reason": "Mesleki listeden genel kelime kartlarına taşınan tek anlamın önüne yaygın kullanımı ekler; özgün mesleki örneği ayrıca korur."
+    },
+    {
+      "id": "wk-des-47",
+      "word": "mould",
+      "before": {
+        "meaning": "kalıp",
+        "example": "A new mould costs a lot of money.",
+        "exampleTr": "Yeni bir kalıp çok pahalıya mal olur."
+      },
+      "after": {
+        "meaning": "küf; kalıp; biçimlendirmek",
+        "example": "There is mould on the old bread.",
+        "exampleTr": "Bayat ekmeğin üzerinde küf var."
+      },
+      "sentenceGroups": {
+        "n": [
+          [
+            "There is mould on the old bread.",
+            "Bayat ekmeğin üzerinde küf var."
+          ],
+          [
+            "A new mould costs a lot of money.",
+            "Yeni bir kalıp çok pahalıya mal olur."
+          ]
+        ]
+      },
+      "reason": "Mesleki listeden genel kelime kartlarına taşınan tek anlamın önüne yaygın kullanımı ekler; özgün mesleki örneği ayrıca korur."
+    },
+    {
+      "id": "wk-des-50",
+      "word": "casting",
+      "before": {
+        "meaning": "döküm",
+        "example": "Metal casting left marks on the surface.",
+        "exampleTr": "Metal döküm yüzeyde izler bıraktı."
+      },
+      "after": {
+        "meaning": "oyuncu seçimi; döküm (üretim)",
+        "example": "Casting for the new film starts next week.",
+        "exampleTr": "Yeni filmin oyuncu seçimi gelecek hafta başlıyor."
+      },
+      "sentenceGroups": {
+        "n": [
+          [
+            "Casting for the new film starts next week.",
+            "Yeni filmin oyuncu seçimi gelecek hafta başlıyor."
+          ],
+          [
+            "Metal casting left marks on the surface.",
+            "Metal döküm yüzeyde izler bıraktı."
+          ]
+        ]
+      },
+      "reason": "Mesleki listeden genel kelime kartlarına taşınan tek anlamın önüne yaygın kullanımı ekler; özgün mesleki örneği ayrıca korur."
+    },
+    {
+      "id": "wk-des-59",
+      "word": "enclosure",
+      "before": {
+        "meaning": "kasa, muhafaza",
+        "example": "The enclosure must be waterproof.",
+        "exampleTr": "Kasa su geçirmez olmalı."
+      },
+      "after": {
+        "meaning": "çevrili alan; ek (mektup); kasa, muhafaza (tasarım)",
+        "example": "The horses are in a large enclosure.",
+        "exampleTr": "Atlar, etrafı çevrili geniş bir alanda."
+      },
+      "sentenceGroups": {
+        "n": [
+          [
+            "The horses are in a large enclosure.",
+            "Atlar, etrafı çevrili geniş bir alanda."
+          ],
+          [
+            "The enclosure must be waterproof.",
+            "Kasa su geçirmez olmalı."
+          ]
+        ]
+      },
+      "reason": "Mesleki listeden genel kelime kartlarına taşınan tek anlamın önüne yaygın kullanımı ekler; özgün mesleki örneği ayrıca korur."
+    },
+    {
+      "id": "wk-biz-46",
+      "word": "resume",
+      "before": {
+        "meaning": "özgeçmiş",
+        "example": "I updated my resume last night.",
+        "exampleTr": "Dün gece özgeçmişimi güncelledim."
+      },
+      "after": {
+        "meaning": "yeniden başlamak, sürdürmek (fiil); özgeçmiş (isim, résumé)",
+        "example": "The meeting will resume after lunch.",
+        "exampleTr": "Toplantı öğle yemeğinden sonra devam edecek."
+      },
+      "sentenceGroups": {
+        "v": [
+          [
+            "The meeting will resume after lunch.",
+            "Toplantı öğle yemeğinden sonra devam edecek."
+          ]
+        ],
+        "n": [
+          [
+            "I updated my resume last night.",
+            "Dün gece özgeçmişimi güncelledim."
+          ]
+        ]
+      },
+      "reason": "Mesleki listeden genel kelime kartlarına taşınan tek anlamın önüne yaygın kullanımı ekler; özgün mesleki örneği ayrıca korur."
+    },
+    {
+      "id": "wk-biz-12",
+      "word": "attachment",
+      "before": {
+        "meaning": "e-posta eki",
+        "example": "Please see the attachment for details.",
+        "exampleTr": "Ayrıntılar için lütfen eke bakın."
+      },
+      "after": {
+        "meaning": "ek, eklenti; bağlılık; e-posta eki",
+        "example": "She felt a strong attachment to her hometown.",
+        "exampleTr": "Memleketine güçlü bir bağlılık hissediyordu."
+      },
+      "sentenceGroups": {
+        "n": [
+          [
+            "She felt a strong attachment to her hometown.",
+            "Memleketine güçlü bir bağlılık hissediyordu."
+          ],
+          [
+            "Please see the attachment for details.",
+            "Ayrıntılar için lütfen eke bakın."
+          ]
+        ]
+      },
+      "reason": "Mesleki listeden genel kelime kartlarına taşınan tek anlamın önüne yaygın kullanımı ekler; özgün mesleki örneği ayrıca korur."
+    },
+    {
+      "id": "wk-des-18",
+      "word": "form",
+      "before": {
+        "meaning": "biçim, form",
+        "example": "Form should follow function.",
+        "exampleTr": "Biçim işlevi izlemelidir."
+      },
+      "after": {
+        "meaning": "biçim, şekil; form (belge); oluşturmak (fiil)",
+        "example": "Please fill in this form with your name.",
+        "exampleTr": "Lütfen bu forma adınızı yazın."
+      },
+      "sentenceGroups": {
+        "n": [
+          [
+            "Please fill in this form with your name.",
+            "Lütfen bu forma adınızı yazın."
+          ],
+          [
+            "Form should follow function.",
+            "Biçim işlevi izlemelidir."
+          ]
+        ]
+      },
+      "reason": "Mesleki listeden genel kelime kartlarına taşınan tek anlamın önüne yaygın kullanımı ekler; özgün mesleki örneği ayrıca korur."
+    },
+    {
+      "id": "wk-biz-32",
+      "word": "cost",
+      "before": {
+        "meaning": "maliyet",
+        "example": "We need to reduce the cost of delivery.",
+        "exampleTr": "Teslimat maliyetini düşürmemiz gerekiyor."
+      },
+      "after": {
+        "meaning": "maliyet, fiyat; fiyatı olmak, mal olmak (fiil)",
+        "example": "How much does this ticket cost?",
+        "exampleTr": "Bu biletin fiyatı ne kadar?"
+      },
+      "sentenceGroups": {
+        "v": [
+          [
+            "How much does this ticket cost?",
+            "Bu biletin fiyatı ne kadar?"
+          ]
+        ],
+        "n": [
+          [
+            "We need to reduce the cost of delivery.",
+            "Teslimat maliyetini düşürmemiz gerekiyor."
+          ]
+        ]
+      },
+      "reason": "Mesleki listeden genel kelime kartlarına taşınan tek anlamın önüne yaygın kullanımı ekler; özgün mesleki örneği ayrıca korur."
+    },
+    {
+      "id": "wk-exam-add3e676ab",
+      "word": "fire employee",
+      "before": {
+        "meaning": "itfaiye çalışanı"
+      },
+      "after": {
+        "meaning": "çalışanı işten çıkarmak"
+      },
+      "reason": "Fire burada ateş/itfaiye ismi değil işten çıkarmak fiilidir."
+    },
+    {
+      "id": "wk-exam-62fbf0723e",
+      "word": "train soldier",
+      "before": {
+        "meaning": "tren askeri"
+      },
+      "after": {
+        "meaning": "asker eğitmek"
+      },
+      "reason": "Train burada tren ismi değil eğitmek fiilidir."
+    },
+    {
+      "id": "wk-exam-22ad1709eb",
+      "word": "fail class",
+      "before": {
+        "meaning": "başarısız sınıf"
+      },
+      "after": {
+        "meaning": "dersten kalmak, derste başarısız olmak"
+      },
+      "reason": "Class burada ders; fail class isim tamlaması değildir.",
+      "sentenceGroups": {
+        "phr": [
+          [
+            "Have you ever failed a class?",
+            "Hiç bir dersten kaldın mı?"
+          ],
+          [
+            "Why did I fail your class?",
+            "Sizin dersinizden neden kaldım?"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "wk-exam-e0ea301494",
+      "word": "reach limit",
+      "before": {
+        "meaning": "erişim sınırı"
+      },
+      "after": {
+        "meaning": "sınıra ulaşmak"
+      },
+      "reason": "Reach burada erişim ismi değil ulaşmak fiilidir."
+    },
+    {
+      "id": "wk-exam-45e0be18cf",
+      "word": "cool colour",
+      "before": {
+        "meaning": "güzel renk"
+      },
+      "after": {
+        "meaning": "soğuk renk"
+      },
+      "reason": "Renk bağlamında cool sıcak renklerin karşıtıdır; güzel/havalı değildir."
+    },
+    {
+      "id": "wk-exam-848d196ab3",
+      "word": "extinct volcano",
+      "before": {
+        "meaning": "soyu tükenmiş yanardağ"
+      },
+      "after": {
+        "meaning": "sönmüş yanardağ"
+      },
+      "reason": "Yanardağlar için extinct soyu tükenmiş değil sönmüş anlamındadır."
+    },
+    {
+      "id": "wk-exam-ca6cfbebd9",
+      "word": "arguably",
+      "before": {
+        "meaning": "tartışmasız"
+      },
+      "after": {
+        "meaning": "denebilir ki; savunulabilir biçimde, muhtemelen"
+      },
+      "reason": "Arguably kesinlik bildirmez; tartışmasız karşılığı yanıltıcıdır.",
+      "sentenceGroups": {
+        "adv": [
+          [
+            "This is arguably the simplest way to solve the problem.",
+            "Sorunu çözmenin en basit yolunun bu olduğu söylenebilir."
+          ],
+          [
+            "This place is arguably the best restaurant in London.",
+            "Buranın Londra’daki en iyi restoran olduğu savunulabilir."
+          ]
+        ]
+      }
+    },
+    {
+      "id": "wk-exam-694995ce11",
+      "word": "affectedly",
+      "before": {
+        "meaning": "etkileyici bir şekilde"
+      },
+      "after": {
+        "meaning": "yapmacık biçimde, yapmacıkça"
+      },
+      "reason": "Affectedly etkileyicilik değil doğallıktan uzak davranış bildirir."
+    },
+    {
+      "id": "wk-exam-254987f374",
+      "word": "dissatisfy",
+      "before": {
+        "meaning": "memnun olmamak"
+      },
+      "after": {
+        "meaning": "memnun etmemek, tatmin etmemek"
+      },
+      "reason": "Geçişli fiil bir başkasında memnuniyetsizlik yaratmayı ifade eder.",
+      "sentenceGroups": {
+        "v": [
+          [
+            "Poor service can dissatisfy customers.",
+            "Kötü hizmet müşterileri memnun etmeyebilir."
+          ],
+          [
+            "The explanation may dissatisfy some readers.",
+            "Açıklama bazı okuyucuları tatmin etmeyebilir."
+          ]
+        ]
+      }
+    },
+    {
+      "id": "wk-exam-683c896911",
+      "word": "even though",
+      "before": {
+        "meaning": "yine de"
+      },
+      "after": {
+        "meaning": "-dığı hâlde, -mesine rağmen"
+      },
+      "reason": "Bağlaç although gibi yan cümle kurar; nevertheless/yine de değildir."
+    },
+    {
+      "id": "wk-exam-fe12b02f45",
+      "word": "so far as",
+      "before": {
+        "meaning": "şu ana kadar"
+      },
+      "after": {
+        "meaning": "-dığı kadarıyla; -e gelince"
+      },
+      "reason": "So far zaman ifadesi ile so far as yapısı karıştırılmış.",
+      "sentenceGroups": {
+        "phr": [
+          [
+            "So far as I know, the museum is closed on Mondays.",
+            "Bildiğim kadarıyla müze pazartesi günleri kapalıdır."
+          ],
+          [
+            "So far as I can see, the road is clear.",
+            "Görebildiğim kadarıyla yol açık."
+          ]
+        ]
+      }
+    },
+    {
+      "id": "wk-exam-ebb50a2c90",
+      "word": "standing order",
+      "before": {
+        "meaning": "sürekli düzen"
+      },
+      "after": {
+        "meaning": "düzenli ödeme talimatı; sürekli geçerli emir"
+      },
+      "reason": "Sözcüğü sözcüğüne sürekli düzen çevirisi banka/kurumsal anlamı karşılamaz."
+    },
+    {
+      "id": "wk-exam-db55288c09",
+      "word": "bureau de change",
+      "before": {
+        "meaning": "değişim bürosu"
+      },
+      "after": {
+        "meaning": "döviz bürosu"
+      },
+      "reason": "Change bu tamlamada döviz değişimi anlamındadır."
+    },
+    {
+      "id": "wk-exam-86bac50e25",
+      "word": "immune",
+      "before": {
+        "meaning": "bağışıklık"
+      },
+      "after": {
+        "meaning": "bağışık; etkilenmeyen"
+      },
+      "reason": "Sıfat olan immune, isim olan immunity/bağışıklık ile karıştırılmış.",
+      "sentenceGroups": {
+        "adj": [
+          [
+            "He seems immune to criticism.",
+            "Eleştirilerden etkilenmiyor gibi görünüyor."
+          ],
+          [
+            "No company is immune to economic change.",
+            "Hiçbir şirket ekonomik değişimin etkilerinden tamamen korunmuş değildir."
+          ]
+        ]
+      }
+    },
+    {
+      "id": "wk-exam-7e19105767",
+      "word": "signify",
+      "before": {
+        "meaning": "anlam"
+      },
+      "after": {
+        "meaning": "anlamına gelmek, belirtmek"
+      },
+      "reason": "Fiil olan signify isim anlam olarak verilmiş."
+    },
+    {
+      "id": "wk-exam-4a91931400",
+      "word": "miscarry",
+      "before": {
+        "meaning": "düşük"
+      },
+      "after": {
+        "meaning": "düşük yapmak; başarısızlığa uğramak"
+      },
+      "reason": "Fiil olan miscarry isim düşük ile çevrilmiş."
+    },
+    {
+      "id": "wk-exam-4bf00db51b",
+      "word": "take supplement",
+      "before": {
+        "meaning": "ek almak"
+      },
+      "after": {
+        "meaning": "takviye almak"
+      },
+      "reason": "Sağlık bağlamında supplement besin takviyesidir; ek almak yetersizdir."
+    },
+    {
+      "id": "wk-exam-735ae80f15",
+      "word": "formula feeding",
+      "before": {
+        "meaning": "formül besleme"
+      },
+      "after": {
+        "meaning": "bebek mamasıyla besleme"
+      },
+      "reason": "Formula burada matematik formülü değil bebek mamasıdır."
+    },
+    {
+      "id": "wk-exam-474446ad24",
+      "word": "tornado",
+      "before": {
+        "meaning": "kasırga"
+      },
+      "after": {
+        "meaning": "hortum"
+      },
+      "reason": "Tornado ile hurricane/kasırga ayrı hava olaylarıdır.",
+      "sentenceGroups": {
+        "n": [
+          [
+            "The tornado destroyed the whole village.",
+            "Hortum bütün köyü mahvetti."
+          ],
+          [
+            "Tom's cat was carried away by a tornado.",
+            "Tom’un kedisini bir hortum alıp götürdü."
+          ]
+        ]
+      }
+    },
+    {
+      "id": "wk-exam-bd16ae4895",
+      "word": "confide",
+      "before": {
+        "meaning": "güvenmek"
+      },
+      "after": {
+        "meaning": "sırrını açmak, içini dökmek; güvenerek anlatmak"
+      },
+      "reason": "Trust ile ilişkili olsa da confide bilgiyi güvenerek paylaşma eylemidir.",
+      "sentenceGroups": {
+        "v": [
+          [
+            "He confided in me about his love affair.",
+            "Aşk ilişkisiyle ilgili sırlarını bana anlattı."
+          ],
+          [
+            "I have no one to confide in.",
+            "İçimi dökebileceğim kimsem yok."
+          ]
+        ]
+      }
+    },
+    {
+      "id": "wk-exam-c8ec83f56a",
+      "word": "interconnect",
+      "before": {
+        "meaning": "ara bağlantı"
+      },
+      "after": {
+        "meaning": "birbirine bağlamak; birbirine bağlanmak"
+      },
+      "reason": "Fiil olan interconnect isim ara bağlantı olarak çevrilmiş."
+    },
+    {
+      "id": "wk-exam-e7059c041d",
+      "word": "accustom",
+      "before": {
+        "meaning": "alışmak"
+      },
+      "after": {
+        "meaning": "alıştırmak; kendini alıştırmak"
+      },
+      "reason": "Geçişli accustom fiilinin temel anlamı alıştırmaktır.",
+      "sentenceGroups": {
+        "v": [
+          [
+            "You can accustom yourself to the new routine gradually.",
+            "Kendini yeni düzene yavaş yavaş alıştırabilirsin."
+          ],
+          [
+            "We need to accustom the dog to its new home.",
+            "Köpeği yeni evine alıştırmamız gerekiyor."
+          ]
+        ]
+      }
+    },
+    {
+      "id": "wk-exam-f5bb4501f6",
+      "word": "owed",
+      "before": {
+        "meaning": "borçlu"
+      },
+      "after": {
+        "meaning": "borç olarak ödenmesi gereken; borçlu olunan"
+      },
+      "reason": "Owed borçlu kişi değil ödenmesi gereken tutar/yükümlülük bildirir."
+    },
+    {
+      "id": "wk-exam-b1033ae408",
+      "word": "executor",
+      "before": {
+        "meaning": "vasi"
+      },
+      "after": {
+        "meaning": "vasiyeti yerine getirmekle görevli kişi"
+      },
+      "reason": "Executor vasi/guardian değil vasiyeti uygulayan kişidir.",
+      "sentenceGroups": {
+        "n": [
+          [
+            "She is the executor of her father's will.",
+            "Babasının vasiyetini yerine getirmekle görevli kişi odur."
+          ],
+          [
+            "He named his sister as the executor of his will.",
+            "Vasiyetini yerine getirecek kişi olarak kız kardeşini belirledi."
+          ]
+        ]
+      }
+    },
+    {
+      "id": "wk-exam-177403a415",
+      "word": "balance need",
+      "before": {
+        "meaning": "denge ihtiyacı"
+      },
+      "after": {
+        "meaning": "ihtiyacı dengelemek"
+      },
+      "reason": "Balance burada denge ismi değil dengelemek fiilidir."
+    },
+    {
+      "id": "wk-exam-3d2b3d1ecb",
+      "word": "damage severely",
+      "before": {
+        "meaning": "ciddi hasar"
+      },
+      "after": {
+        "meaning": "ciddi biçimde zarar vermek"
+      },
+      "reason": "Fiil + zarf yapısı eylem yerine isim olarak çevrilmiş."
+    },
+    {
+      "id": "wk-exam-6dbb0433dc",
+      "word": "impair permanently",
+      "before": {
+        "meaning": "kalıcı olarak bozulmak"
+      },
+      "after": {
+        "meaning": "kalıcı olarak bozmak, kalıcı zarar vermek"
+      },
+      "reason": "Geçişli impair fiilinin nedensel yönü bozulmak çevirisinde kaybolmuş."
+    },
+    {
+      "id": "wk-exam-14bf09751b",
+      "word": "protect from infection",
+      "before": {
+        "meaning": "enfeksiyondan korunmak"
+      },
+      "after": {
+        "meaning": "enfeksiyondan korumak"
+      },
+      "reason": "Protect geçişli korumak fiilidir; kişinin kendisini koruması özel bağlam olmadan varsayılmamalı."
+    },
+    {
+      "id": "wk-exam-07a4db0335",
+      "word": "bring up a question",
+      "before": {
+        "meaning": "bir soru sor"
+      },
+      "after": {
+        "meaning": "bir soruyu gündeme getirmek"
+      },
+      "reason": "Bring up gündeme getirmektir; yalnızca soru sormak değildir."
+    },
+    {
+      "id": "wk-exam-05e9de59d9",
+      "word": "achiever",
+      "before": {
+        "meaning": "başarılı"
+      },
+      "after": {
+        "meaning": "başarılı kişi, hedeflerine ulaşan kişi"
+      },
+      "reason": "İsim olan achiever yalnızca sıfat başarılı ile verilmiş."
+    },
+    {
+      "id": "wk-exam-059b1d049b",
+      "word": "falsely",
+      "before": {
+        "meaning": "Yanlışlıkla"
+      },
+      "after": {
+        "meaning": "gerçeğe aykırı biçimde, asılsızca; hatalı olarak"
+      },
+      "reason": "Yanlışlıkla kazara anlamını öne çıkarır; falsely yanlış/aslı olmayan biçimde demektir.",
+      "sentenceGroups": {
+        "adv": [
+          [
+            "I was falsely accused.",
+            "Asılsız yere suçlandım."
+          ],
+          [
+            "She was falsely accused.",
+            "O, asılsız yere suçlandı."
+          ]
+        ]
+      }
+    },
+    {
+      "id": "wk-exam-067dead042",
+      "word": "drug abuse",
+      "before": {
+        "meaning": "uyuşturucu bağımlılığı"
+      },
+      "after": {
+        "meaning": "ilaç veya uyuşturucunun kötüye kullanılması"
+      },
+      "reason": "Abuse kötüye kullanımdır; addiction/bağımlılık ile aynı kavram değildir.",
+      "sentenceGroups": {
+        "phr": [
+          [
+            "The defendant has no history of drug abuse.",
+            "Sanığın ilaç veya uyuşturucu maddeleri kötüye kullanma öyküsü yoktur."
+          ],
+          [
+            "Tom has a history of drug abuse.",
+            "Tom’un ilaç veya uyuşturucu maddeleri kötüye kullanma öyküsü var."
+          ]
+        ]
+      }
+    },
+    {
+      "id": "wk-exam-543a94329e",
+      "word": "transplant",
+      "before": {
+        "meaning": "nakli"
+      },
+      "after": {
+        "meaning": "nakil; nakletmek"
+      },
+      "reason": "Nakli tek başına çekimli/eksik bir karşılık; isim ve fiil ayrımı eklenir."
+    },
+    {
+      "id": "wk-exam-3e1a359d0a",
+      "word": "diagnostic",
+      "before": {
+        "meaning": "teşhis"
+      },
+      "after": {
+        "meaning": "tanıya yönelik, teşhis amaçlı; tanı testi"
+      },
+      "reason": "Sıfat olan diagnostic yalnızca isim teşhis ile verilmiş."
+    },
+    {
+      "id": "wk-exam-8ef683d4a3",
+      "word": "common practice",
+      "before": {
+        "meaning": "ortak uygulama"
+      },
+      "after": {
+        "meaning": "yaygın uygulama, alışılmış yöntem"
+      },
+      "reason": "Common bu tamlamada ortak değil yaygın/alışılmış anlamındadır."
+    },
+    {
+      "id": "wk-exam-9d4f8b9ca0",
+      "word": "pay in",
+      "before": {
+        "meaning": "ödemek"
+      },
+      "after": {
+        "meaning": "hesaba para yatırmak"
+      },
+      "reason": "Pay in banka hesabına para yatırma fiilidir; genel ödemek anlamından ayrılır.",
+      "sentenceGroups": {
+        "phr": [
+          [
+            "I need to pay this money in at the bank.",
+            "Bu parayı bankada hesabıma yatırmam gerekiyor."
+          ],
+          [
+            "She paid in the cheque at her local branch.",
+            "Çeki kendi banka şubesinde hesabına yatırdı."
+          ]
+        ]
+      }
+    },
+    {
+      "id": "wk-exam-380e2a03b0",
+      "word": "cure for",
+      "before": {
+        "meaning": "tedavi etmek"
+      },
+      "after": {
+        "meaning": "-in tedavisi, -e çare"
+      },
+      "reason": "Cure for burada tedavi etmek fiili değil çare/tedavi isim öbeğidir."
+    },
+    {
+      "id": "wk-exam-25e4527ac2",
+      "word": "small bowel/intestine",
+      "before": {
+        "meaning": "ince bağırsak/bağırsak"
+      },
+      "after": {
+        "meaning": "ince bağırsak"
+      },
+      "reason": "Bowel ve intestine eşanlamlıdır; small her ikisini de niteler."
+    },
+    {
+      "id": "wk-exam-8f26cb9f0e",
+      "word": "large bowel/intestine",
+      "before": {
+        "meaning": "kalın bağırsak/bağırsak"
+      },
+      "after": {
+        "meaning": "kalın bağırsak"
+      },
+      "reason": "Bowel ve intestine eşanlamlıdır; large her ikisini de niteler."
+    },
+    {
+      "id": "wk-exam-9e2cd9684e",
+      "word": "cracked bone",
+      "before": {
+        "meaning": "kırık kemik"
+      },
+      "after": {
+        "meaning": "çatlamış kemik, kemik çatlağı"
+      },
+      "reason": "Cracked ile broken aynı biçimde çevrilmiş; hedef sözcük çatlamayı belirtir."
+    },
+    {
+      "id": "wk-exam-22bedc26bd",
+      "word": "offering",
+      "before": {
+        "meaning": "sunan"
+      },
+      "after": {
+        "meaning": "teklif, sunulan şey; bağış; sunma"
+      },
+      "reason": "Offering isim olarak teklif/sunulan şeydir; yalnızca sunan karşılığı yanıltır.",
+      "sentenceGroups": {
+        "n": [
+          [
+            "Their latest offering is a small electric car.",
+            "En son sundukları ürün küçük bir elektrikli araba."
+          ],
+          [
+            "They left an offering at the temple.",
+            "Tapınağa bir bağış bıraktılar."
+          ]
+        ],
+        "v": [
+          [
+            "They attract customers by offering high-quality goods.",
+            "Onlar yüksek kalitede ürünler sunarak müşteri çekerler."
+          ],
+          [
+            "Are you offering me my job back?",
+            "Bana işimi geri mi öneriyorsun?"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "wk-exam-8e61e30dfa",
+      "word": "trusting",
+      "before": {
+        "meaning": "güvenmek"
+      },
+      "after": {
+        "meaning": "kolay güvenen, güven duyan; güvenme"
+      },
+      "reason": "Sıfat olarak trusting kişi niteliği bildirir; yalın fiil değildir.",
+      "sentenceGroups": {
+        "adj": [
+          [
+            "She is friendly and trusting.",
+            "O, cana yakın ve insanlara kolay güvenen biridir."
+          ],
+          [
+            "He gave me a trusting smile.",
+            "Bana güven duyduğunu gösteren bir gülümsemeyle baktı."
+          ]
+        ],
+        "v": [
+          [
+            "You're running a big risk in trusting him.",
+            "Ona güvenerek büyük bir riske giriyorsun."
+          ],
+          [
+            "Trusting yourself is the key to success.",
+            "Kendine güvenmek başarının anahtarıdır."
+          ]
+        ]
+      }
+    },
+    {
+      "id": "wk-exam-57dcdd4b5e",
+      "word": "cool temperature",
+      "before": {
+        "meaning": "soğuk sıcaklık"
+      },
+      "after": {
+        "meaning": "serin hava sıcaklığı, düşük sıcaklık"
+      },
+      "reason": "Soğuk sıcaklık Türkçede doğal olmayan sözcüğü sözcüğüne çeviridir; cool serindir.",
+      "sentenceGroups": {
+        "phr": [
+          [
+            "Store the medicine at a cool temperature.",
+            "İlacı düşük sıcaklıkta, serin bir ortamda sakla."
+          ],
+          [
+            "These plants grow best at a cool temperature.",
+            "Bu bitkiler en iyi serin hava koşullarında yetişir."
+          ]
+        ]
+      }
+    },
+    {
+      "id": "wk-exam-f4e4ce691c",
+      "word": "cold temperature",
+      "before": {
+        "meaning": "soğuk sıcaklık"
+      },
+      "after": {
+        "meaning": "düşük sıcaklık, soğuk hava"
+      },
+      "reason": "Soğuk sıcaklık Türkçede doğal olmayan sözcüğü sözcüğüne çeviridir.",
+      "sentenceGroups": {
+        "phr": [
+          [
+            "The vaccine must be kept at a cold temperature.",
+            "Aşı düşük sıcaklıkta saklanmalıdır."
+          ],
+          [
+            "The equipment works even at a very cold temperature.",
+            "Ekipman çok düşük sıcaklıkta bile çalışır."
+          ]
+        ]
+      }
+    },
+    {
+      "id": "wk-exam-d849677ab8",
+      "word": "uncertain about",
+      "before": {
+        "meaning": "hakkında belirsiz"
+      },
+      "after": {
+        "meaning": "-den emin olmayan, konusunda kararsız"
+      },
+      "reason": "Kişinin bir konudan emin olmamasını gösterir; hakkında belirsiz doğal ve doğru karşılık değildir.",
+      "sentenceGroups": {
+        "phr": [
+          [
+            "He is uncertain about his future.",
+            "Geleceği konusunda kararsız."
+          ],
+          [
+            "Tom is still uncertain about whether to go to college or not.",
+            "Tom üniversiteye gidip gitmemesi konusunda hâlâ emin değil."
+          ]
+        ]
+      }
+    },
+    {
+      "id": "wk-exam-dfbc6454c3",
+      "word": "differ",
+      "before": {
+        "meaning": "farklı"
+      },
+      "after": {
+        "meaning": "farklı olmak; aynı fikirde olmamak"
+      },
+      "reason": "Fiil olan differ sıfat farklı ile eksik çevrilmiş.",
+      "sentenceGroups": {
+        "v": [
+          [
+            "People greatly differ in their views of life.",
+            "İnsanlar hayata bakış açısı yönünden çok farklı olurlar."
+          ],
+          [
+            "The two regions differ in religion and culture.",
+            "İki bölge din ve kültür bakımından farklıdır."
+          ]
+        ]
+      }
+    },
+    {
+      "id": "wk-exam-f71fc9d0d8",
+      "word": "declining health",
+      "before": {
+        "meaning": "azalan sağlık"
+      },
+      "after": {
+        "meaning": "kötüleşen sağlık durumu"
+      },
+      "reason": "Sağlığın azalması değil sağlık durumunun kötüleşmesi kastedilir."
+    },
+    {
+      "id": "wk-exam-e289ef7f72",
+      "word": "decline dramatically",
+      "before": {
+        "meaning": "dramatik bir şekilde düşüş"
+      },
+      "after": {
+        "meaning": "çarpıcı biçimde azalmak, keskin biçimde düşmek"
+      },
+      "reason": "Fiil öbeğinin isim düşüş olarak verilmesi yanlış tür öğretir."
+    },
+    {
+      "id": "wk-exam-e66cb6246c",
+      "word": "starved",
+      "before": {
+        "meaning": "açlıktan ölmek"
+      },
+      "after": {
+        "meaning": "aç kalmış, çok aç; (starve geçmişi) açlıktan öldü"
+      },
+      "reason": "Geçmiş ortaç/sıfat olan starved yalın fiil açlıktan ölmek olarak verilmiş.",
+      "sentenceGroups": {
+        "v": [
+          [
+            "A lot of people starved during that war.",
+            "Birçok insan o savaş sırasında açlıktan öldü."
+          ]
+        ],
+        "adj": [
+          [
+            "I don't know about you, but I'm starved.",
+            "Seni bilmem ama ben çok açım."
+          ],
+          [
+            "The shelter cared for the starved animals.",
+            "Barınak aç kalmış hayvanlarla ilgilendi."
+          ]
+        ]
+      }
+    },
+    {
+      "id": "wk-exam-04072f33a9",
+      "word": "starving",
+      "before": {
+        "meaning": "açlıktan ölmek"
+      },
+      "after": {
+        "meaning": "çok aç, açlıktan ölmek üzere"
+      },
+      "reason": "Starving sıfatı kişinin o andaki durumunu belirtir; yalın fiil ile karıştırılmış.",
+      "sentenceGroups": {
+        "adj": [
+          [
+            "I was starving when I got home.",
+            "Eve geldiğimde açlıktan ölüyordum."
+          ],
+          [
+            "The city was full of starving soldiers.",
+            "Şehir açlık çeken askerlerle doluydu."
+          ]
+        ]
+      }
+    },
+    {
+      "id": "wk-exam-16b0ca6592",
+      "word": "alert to",
+      "before": {
+        "meaning": "uyarmak"
+      },
+      "after": {
+        "meaning": "-e karşı uyanık, -e karşı tetikte"
+      },
+      "reason": "Mevcut iki örnek de be alert to sıfat yapısını kullanıyor; uyarmak fiili bu kartın öğrettiği anlamla uyuşmuyor."
+    }
+  ],
+  "additions": [
+    {
+      "entry": {
+        "id": "extra-classroom",
+        "word": "classroom",
+        "meaning": "derslik, sınıf (oda)",
+        "pron": "/ˈklɑːsruːm/",
+        "level": "A2",
+        "example": "Our classroom has twenty desks.",
+        "exampleTr": "Dersliğimizde yirmi sıra var."
+      },
+      "pictureFrom": "class",
+      "sentenceGroups": {
+        "n": [
+          [
+            "Our classroom has twenty desks.",
+            "Dersliğimizde yirmi sıra var."
+          ],
+          [
+            "The students are waiting outside the classroom.",
+            "Öğrenciler dersliğin dışında bekliyor."
+          ]
+        ]
+      },
+      "reason": "Add the missing everyday word for the room; keep it separate from class (lesson/group/programming)."
+    }
+  ]
+}

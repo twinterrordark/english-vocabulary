@@ -32,7 +32,7 @@ const server = http.createServer((req,res)=>{
   try{
     await page.goto(base);await page.waitForFunction(()=>window.__appReady===true);
     const initial=await page.evaluate(()=>({nodes:document.querySelectorAll('*').length,cards:document.querySelectorAll('#word-list .word-card').length,words:EnglishStudyDiagnostics.words}));
-    assert(initial.nodes<8000);assert.equal(initial.cards,0);assert.equal(initial.words,2199);record('Bounded live DOM; all vocabulary retained',initial);
+    assert(initial.nodes<8000);assert.equal(initial.cards,0);assert.equal(initial.words,2200);record('Bounded live DOM; all vocabulary retained',initial);
     for(const lang of ['tr','en']){
       await go('settings');await page.locator('#ui-lang').selectOption(lang);await go('home');
       assert(await page.locator('#nav-more').textContent().then(s=>s.includes(lang==='tr'?'Menü':'Menu')));
@@ -83,7 +83,7 @@ const server = http.createServer((req,res)=>{
     await page.goto('file:///'+path.join(root,'index.html').replace(/\\/g,'/'));await page.waitForFunction(()=>window.__appReady===true);await go('words');await search('borrow');record('Standalone file:// initialization and search');
     assert.deepEqual(errors,[]);record('No uncaught JavaScript errors');
     const noJS=await browser.newContext({javaScriptEnabled:false,viewport:{width:390,height:844}});const staticPage=await noJS.newPage();await staticPage.goto(base);
-    assert.equal(await staticPage.locator('#word-list .word-card').count(),2199);assert(await staticPage.locator('#words-title').isVisible());await noJS.close();record('No JavaScript: all 2,199 original cards remain readable');
+    assert.equal(await staticPage.locator('#word-list .word-card').count(),2200);assert(await staticPage.locator('#words-title').isVisible());await noJS.close();record('No JavaScript: all 2,200 vocabulary cards remain readable');
     fs.writeFileSync(path.join(out,'regression.json'),JSON.stringify({results,errors},null,2));
   }finally{await browser.close();server.close();}
 })().catch(e=>{console.error(e);server.close();process.exitCode=1;});

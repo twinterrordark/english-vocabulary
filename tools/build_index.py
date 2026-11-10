@@ -19,6 +19,7 @@ from pathlib import Path
 
 from PIL import Image
 from build_phrases_component import build_phrases, build_phrase_data
+from vocabulary_corrections import apply_corrections
 
 ROOT = Path(__file__).resolve().parent.parent
 SOURCE = ROOT / "b1-b2-kelimeler-responsive.html"
@@ -27,7 +28,7 @@ SENTENCE_DIR = Path(__file__).resolve().parent / "sentences"
 HERE = Path(__file__).resolve().parent
 IMAGE_DIR = HERE / "images"
 OUTPUT = ROOT / "index.html"
-APP_VERSION = "2.8.0"
+APP_VERSION = "2.8.1"
 
 
 def plain_text(fragment: str) -> str:
@@ -438,6 +439,8 @@ def main() -> None:
         sys.exit("Validation failed; index.html was not written.")
 
     moved_words = add_work_words(entries, emoji)
+    work_words = load_work_words(entries)
+    sentence_corrections = apply_corrections(entries, work_words, emoji)
     sentences = load_sentences({e["word"].strip().lower() for e in entries})
     # Tatoeba sentences (CC BY) for the types a word had no sentence for; see tools/work/extra_sentences.py.
     for word, groups in json.loads((HERE / "work" / "extra_sentences.json").read_text(encoding="utf-8")).items():
@@ -448,6 +451,8 @@ def main() -> None:
             if " | " in line and not line.startswith("#"):
                 word, kind, english, turkish = (part.strip() for part in line.split(" | "))
                 sentences.setdefault(word.lower(), {}).setdefault(kind, []).append([english, turkish])
+    # Reviewed examples win over automatic sentence imports, including POS groups.
+    sentences.update(sentence_corrections)
     covered = sum(e["word"].strip().lower() in sentences for e in entries)
     print(f"sentences       {covered} of {len(entries)} entries have example sentences by word type")
 
@@ -507,7 +512,6 @@ def main() -> None:
     phrase_data = build_phrase_data()
     print(f"phrases         {phrase_total} phrase cards in {phrase_topics} topics, {phrase_filled} completed, {phrase_links} video/resource links")
 
-    work_words = load_work_words(entries)
     work_pictures = load_work_pictures(work_words)
     print(f"work words      {len(work_words)} words, {len(work_pictures)} pictures")
     novel_dict = load_novel_dictionary()

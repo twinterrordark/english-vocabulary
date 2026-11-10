@@ -1,0 +1,23 @@
+{
+  "vocab-data": {
+    "before": 2199,
+    "after": 2200,
+    "all_original_ids_preserved": true,
+    "only_reviewed_fields_changed": true
+  },
+  "work-data": {
+    "before": 3806,
+    "after": 3806,
+    "all_original_ids_preserved": true,
+    "only_reviewed_fields_changed": true
+  },
+  "phrase-data": "unchanged",
+  "novel-dict": "unchanged",
+  "grammar-data": "unchanged",
+  "work-pics": "unchanged",
+  "work-moved": "unchanged",
+  "baseline_commit": "03b8dc566918efb1deafd40cac0ed6bc578cfe8e",
+  "original_card_images": "all unchanged",
+  "sentence-data": "only reviewed overrides and classroom added",
+  "reviewed_corrections": 153
+}
