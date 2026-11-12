@@ -798,3 +798,27 @@ longer append the professional meanings introduced in v2.8.1; their examples
 now use everyday contexts. Specific technical terms remain separate words.
 The correction catalogue and build checks prevent the removed class meaning
 or example from returning on a rebuild.
+
+## Simpler interface and parallel novel reading — v2.8.3 (2026-11-12)
+
+Restored the interface from before the guided daily plan, removing that plan's
+screen, menu links and bundled module. The app opens directly on Vocabulary;
+existing Home and other sections remain available. Vocabulary corrections and
+existing word IDs, books and bookmarks are retained. Obsolete plan state is
+left untouched on the device instead of deleting saved user data.
+
+The novel reader keeps its word/phrase lookup, contextual highlighting and
+optional page review. Its top bar again has a **TR** toggle. When enabled,
+each English sentence is immediately followed by its Turkish translation.
+Turning it off restores the original paragraphs. Speech still reads English
+only; translation preference and cache are local. New translations need the
+existing online translation services; cached sentences work offline. Failed
+requests leave the English visible and offer a retry. Old page responses
+cannot overwrite a new page, and explicitly continued PDF sentences keep
+their full context across the page boundary.
+
+Validation: `tools/test_novel_parallel.cjs`, existing novel-reader and
+vocabulary-correction checks, and the usability suite. New screenshots and
+results are in `audits/2026-11-12/`. Service and speech behavior in automated
+reader tests uses explicit test doubles; actual live-service results are
+reported separately when checked.

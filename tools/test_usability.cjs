@@ -5,7 +5,7 @@ const assert = require('node:assert/strict');
 const { chromium } = require('../.audit-deps/node_modules/playwright');
 const { default:AxeBuilder } = require('../.audit-deps/node_modules/@axe-core/playwright');
 const root = path.resolve(__dirname,'..');
-const out = path.join(root,'audits','2026-11-09','after');
+const out = process.env.USABILITY_OUTPUT ? path.resolve(process.env.USABILITY_OUTPUT) : path.join(root,'audits','2026-11-09','after');
 fs.mkdirSync(out,{recursive:true});
 const server = http.createServer((req,res)=>{
   if(req.url.startsWith('/favicon.ico')){res.writeHead(204);res.end();return;}
@@ -31,8 +31,12 @@ const server = http.createServer((req,res)=>{
   };
   try{
     await page.goto(base);await page.waitForFunction(()=>window.__appReady===true);
+    assert(await page.locator('[data-view="words"]').evaluate(el=>el.classList.contains('is-active')));
+    assert.equal(await page.locator('[data-route="study"], #study-home').count(),0);
+    record('Simple vocabulary opening; guided study interface removed');
+    await page.goto(base+'#home');await page.waitForFunction(()=>window.__appReady===true);
     const initial=await page.evaluate(()=>({nodes:document.querySelectorAll('*').length,cards:document.querySelectorAll('#word-list .word-card').length,words:EnglishStudyDiagnostics.words}));
-    assert(initial.nodes<8000);assert.equal(initial.cards,0);assert.equal(initial.words,2200);record('Bounded live DOM; all vocabulary retained',initial);
+    assert(initial.nodes<8000);assert(initial.cards<=48);assert.equal(initial.words,2200);record('Bounded live DOM; all vocabulary retained',initial);
     for(const lang of ['tr','en']){
       await go('settings');await page.locator('#ui-lang').selectOption(lang);await go('home');
       assert(await page.locator('#nav-more').textContent().then(s=>s.includes(lang==='tr'?'Menü':'Menu')));

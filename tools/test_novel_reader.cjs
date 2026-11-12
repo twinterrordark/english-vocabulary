@@ -9,7 +9,7 @@ const html = fs.readFileSync(path.join(__dirname, '../index.html'), 'utf8');
 for (const match of html.matchAll(/<script([^>]*)>([\s\S]*?)<\/script>/g)) {
   if (!/\btype=/.test(match[1])) new vm.Script(match[2]);
 }
-assert(!html.includes('id="novel-tr"'));
+assert(html.includes('id="novel-tr"'));
 const server = http.createServer((req, res) => {
   res.setHeader('Content-Type', req.url.startsWith('/version.json') ? 'application/json' : 'text/html; charset=utf-8');
   // Expose the otherwise private module only in this test server's response.
@@ -196,7 +196,8 @@ const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
     await page.waitForFunction(() => document.querySelector('#novel-pop-line mark')?.textContent === 'çıkardı');
     assert.deepEqual(await page.locator('#novel-pop-context mark').allTextContents(), ['took', 'off']);
     assert.deepEqual(await page.locator('#novel-pop-line mark').allTextContents(), ['çıkardı']);
-    assert.equal(await page.locator('#novel-tr').count(), 0);
+    assert(await page.locator('#novel-tr').isVisible());
+    assert.equal(await page.locator('#novel-tr').getAttribute('aria-pressed'), 'false');
     assert(await page.locator('#novel-aa').isVisible());
     const overflow = await page.evaluate(() => document.documentElement.scrollWidth > innerWidth);
     assert.equal(overflow, false);

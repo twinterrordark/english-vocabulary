@@ -873,6 +873,9 @@ body.novel-focus .site-footer { display: none; }
 .novel-tr.is-waiting { opacity: .55; }
 .novel-tr-note { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; margin: 0 0 1.2em; padding: .6em .8em; border-radius: 10px; background: var(--paper-tr-bg); color: var(--paper-tr); font: .8em/1.45 var(--font); }
 .novel-tr[hidden] { display: none; }
+.novel-pair { margin: 0 0 1.1em; }
+.novel-pair .novel-sent { margin: 0; text-indent: 0; }
+.novel-tr-note .button { margin-left: auto; }
 .novel-image { display: block; width: 100%; height: auto; margin: 0 auto; border-radius: 4px; background: #fff; }
 
 /* Bottom bar */
@@ -1800,7 +1803,6 @@ select#today-goal, .tutor-scenario select { min-height: var(--tap); }
   <nav class="tabs" aria-label="Main" data-i18n-aria="nav.label">
     <span class="nav-group" data-i18n="nav.groupDaily">Daily</span>
     <a href="#home" data-route="home"><svg class="icon" aria-hidden="true"><use href="#i-home"/></svg><span data-i18n="nav.home">Home</span></a>
-    <a href="#study/output" data-route="study"><svg class="icon" aria-hidden="true"><use href="#i-pen"/></svg><span data-i18n="nav.study">Guided study</span></a>
     <a href="#review" data-route="review"><svg class="icon" aria-hidden="true"><use href="#i-repeat"/></svg><span data-i18n="nav.review">Review</span><b class="nav-badge" data-badge hidden></b></a>
     <a href="#practice" data-route="practice"><svg class="icon" aria-hidden="true"><use href="#i-bolt"/></svg><span data-i18n="nav.practice">Practice</span></a>
     <a href="#rankings" data-route="rankings"><svg class="icon" aria-hidden="true"><use href="#i-chart"/></svg><span data-i18n="nav.rankings">Rankings</span></a>
@@ -1846,7 +1848,6 @@ select#today-goal, .tutor-scenario select { min-height: var(--tap); }
       <button type="button" class="icon-button" data-close aria-label="Close" data-i18n-aria="novel.close"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
     </div>
     <div class="more-grid">
-      <a href="#study/output" data-route="study"><svg class="icon" aria-hidden="true"><use href="#i-pen"/></svg><span data-i18n="nav.study">Guided study</span></a>
       <a href="#grammar" data-route="grammar"><svg class="icon" aria-hidden="true"><use href="#i-pen"/></svg><span data-i18n="nav.grammar">Grammar</span></a>
       <a href="#review" data-route="review"><svg class="icon" aria-hidden="true"><use href="#i-repeat"/></svg><span data-i18n="nav.review">Review</span><b class="nav-badge" data-badge hidden></b></a>
       <a href="#words" data-route="words"><svg class="icon" aria-hidden="true"><use href="#i-words"/></svg><span data-i18n="nav.words">Words</span></a>
@@ -1880,48 +1881,74 @@ select#today-goal, .tutor-scenario select { min-height: var(--tap); }
   <!-- ====================================================================
     4. LEARNING VIEWS
   ==================================================================== -->
-  <!-- Home: a guided daily path; the complete library remains available below. -->
+  <!-- Home / dashboard -->
   <section class="view" data-view="home" aria-labelledby="home-title">
     <div class="home-head">
-      <div><span class="eyebrow" data-i18n="home.eyebrow">Daily goal</span><h1 id="home-title" tabindex="-1"></h1></div>
+      <div>
+        <span class="eyebrow" data-i18n="home.eyebrow">Daily goal</span>
+        <h1 id="home-title" tabindex="-1"></h1>
+      </div>
       <span class="pill xp home-xp" id="home-xp"></span>
     </div>
-    <div class="home-layout js-only">
-      <div id="study-home" class="study-home"></div>
-      <aside class="home-summary" aria-label="Study summary" data-i18n-aria="home.progress">
-        <div class="week-card">
-          <div class="week-card-head"><span class="week-icon" aria-hidden="true"><svg class="icon"><use href="#i-trend"/></svg></span>
-            <div><span class="eyebrow" data-i18n="home.weekly">Weekly performance</span><strong data-i18n="home.weekTitle">Last 7 days</strong></div>
-            <span class="week-score"><strong id="week-recall">—</strong><small data-i18n="home.recall">recall</small></span>
-          </div>
-          <ol class="today-week" id="today-week" aria-label="Cards reviewed in the last seven days" data-i18n-aria="today.weekLabel"></ol>
-        </div>
-        <section class="panel"><h2 class="section-title" data-i18n="home.progress">Your progress</h2><dl class="stats" id="stats"></dl></section>
-        <section class="panel"><h2 data-i18n="today.continue">Pick up where you left off</h2><ul class="today-rows" id="today-continue"></ul></section>
-      </aside>
+    <div class="goal-card js-only">
+      <div class="goal-ring" aria-hidden="true">
+        <svg viewBox="0 0 36 36"><circle class="goal-track" cx="18" cy="18" r="15.9"/><circle class="goal-fill" id="goal-fill" cx="18" cy="18" r="15.9" pathLength="100"/></svg>
+        <span><strong id="goal-done">0</strong><small id="goal-of">/ 20</small></span>
+      </div>
+      <div class="goal-text">
+        <span class="goal-chip" id="goal-chip"></span>
+        <h2 id="goal-title"></h2>
+        <p id="goal-note"></p>
+        <label class="goal-select"><span class="visually-hidden" data-i18n="today.goalLabel">Daily goal</span><select id="today-goal"></select></label>
+      </div>
     </div>
-    <details class="study-library js-only">
-      <summary data-i18n="study.library">All decks and review settings</summary>
-      <div class="goal-card">
-        <div class="goal-ring" aria-hidden="true"><svg viewBox="0 0 36 36"><circle class="goal-track" cx="18" cy="18" r="15.9"/><circle class="goal-fill" id="goal-fill" cx="18" cy="18" r="15.9" pathLength="100"/></svg><span><strong id="goal-done">0</strong><small id="goal-of">/ 20</small></span></div>
-        <div class="goal-text"><span class="goal-chip" id="goal-chip"></span><h2 id="goal-title"></h2><p id="goal-note"></p><label class="goal-select"><span class="visually-hidden" data-i18n="today.goalLabel">Daily goal</span><select id="today-goal"></select></label></div>
+    <div class="review-hero js-only">
+      <div class="review-hero-top">
+        <span class="review-hero-tag"><svg class="icon" aria-hidden="true"><use href="#i-repeat"/></svg><span data-i18n="home.srs">Spaced repetition</span></span>
+        <span class="review-hero-count" id="hero-count"></span>
       </div>
-      <div class="review-hero">
-        <div class="review-hero-top"><span class="review-hero-tag"><svg class="icon" aria-hidden="true"><use href="#i-repeat"/></svg><span data-i18n="home.srs">Spaced repetition</span></span><span class="review-hero-count" id="hero-count"></span></div>
-        <h2 id="hero-title" data-i18n="home.heroTitle">Today’s review</h2><p id="hero-text"></p>
-        <a class="button hero-button" id="hero-start" href="#review"><svg class="icon" aria-hidden="true"><use href="#i-play"/></svg><span id="hero-label"></span></a>
+      <h2 id="hero-title" data-i18n="home.heroTitle">Today’s review</h2>
+      <p id="hero-text"></p>
+      <a class="button hero-button" id="hero-start" href="#review"><svg class="icon" aria-hidden="true"><use href="#i-play"/></svg><span id="hero-label"></span></a>
+    </div>
+    <a class="write-card js-only" href="#grammar/write">
+      <span class="write-icon" aria-hidden="true"><svg class="icon"><use href="#i-pen"/></svg></span>
+      <span class="write-text"><span class="eyebrow" data-i18n="home.writeTag">Writing</span><strong data-i18n="home.writeTitle">Write a story</strong><span id="home-write-note"></span></span>
+      <span class="button violet write-go"><span data-i18n="home.writeGo">Write</span><svg class="icon" aria-hidden="true"><use href="#i-next"/></svg></span>
+    </a>
+    <div class="section-row">
+      <h2><svg class="icon" aria-hidden="true"><use href="#i-cards"/></svg><span data-i18n="home.decks">Word decks</span></h2>
+      <span class="section-note" id="deck-count"></span>
+    </div>
+    <div class="decks js-only" id="decks"></div>
+    <div class="week-card js-only">
+      <div class="week-card-head">
+        <span class="week-icon" aria-hidden="true"><svg class="icon"><use href="#i-trend"/></svg></span>
+        <div><span class="eyebrow" data-i18n="home.weekly">Weekly performance</span><strong data-i18n="home.weekTitle">Last 7 days</strong></div>
+        <span class="week-score"><strong id="week-recall">—</strong><small data-i18n="home.recall">recall</small></span>
       </div>
-      <a class="write-card" href="#grammar/write"><span class="write-icon" aria-hidden="true"><svg class="icon"><use href="#i-pen"/></svg></span><span class="write-text"><span class="eyebrow" data-i18n="home.writeTag">Writing</span><strong data-i18n="home.writeTitle">Write a story</strong><span id="home-write-note"></span></span><span class="button violet write-go"><span data-i18n="home.writeGo">Write</span><svg class="icon" aria-hidden="true"><use href="#i-next"/></svg></span></a>
-      <div class="section-row"><h2><svg class="icon" aria-hidden="true"><use href="#i-cards"/></svg><span data-i18n="home.decks">Word decks</span></h2><span class="section-note" id="deck-count"></span></div>
-      <div class="decks" id="decks"></div>
-      <details class="panel home-path"><summary data-i18n="home.path">Study path</summary><div class="field"><label for="path-select" data-i18n="home.path">Study path</label><select id="path-select"><option value="all" data-i18n="path.all">All levels</option><option value="A2" data-i18n="path.A2">A2</option><option value="B1" data-i18n="path.B1">B1</option><option value="B2" data-i18n="path.B2">B2</option><option value="C1" data-i18n="path.C1">C1</option><option value="C1+" data-i18n="path.C1+">C1+</option></select></div><p class="hint" data-i18n="home.pathHint">Your path decides which words the Quiz uses.</p></details>
+      <ol class="today-week" id="today-week" aria-label="Cards reviewed in the last seven days" data-i18n-aria="today.weekLabel"></ol>
+    </div>
+    <div class="section-row"><h2 data-i18n="today.continue">Pick up where you left off</h2></div>
+    <ul class="today-rows js-only" id="today-continue"></ul>
+    <h2 class="section-title" data-i18n="home.progress">Your progress</h2>
+    <dl class="stats" id="stats"></dl>
+    <details class="panel home-path">
+      <summary data-i18n="home.path">Study path</summary>
+      <div class="field">
+        <label for="path-select" data-i18n="home.path">Study path</label>
+        <select id="path-select">
+          <option value="all" data-i18n="path.all">Tüm seviyeler</option>
+          <option value="A2" data-i18n="path.A2">A2</option>
+          <option value="B1" data-i18n="path.B1">B1</option>
+          <option value="B2" data-i18n="path.B2">B2</option>
+          <option value="C1" data-i18n="path.C1">C1</option>
+          <option value="C1+" data-i18n="path.C1+">C1+</option>
+        </select>
+      </div>
+      <p class="hint" data-i18n="home.pathHint">Your path decides which words the Quiz uses.</p>
     </details>
     <p class="hint" id="home-storage-note"></p>
-  </section>
-
-  <section class="view" data-view="study" aria-labelledby="study-title">
-    <div class="view-head"><a class="study-return" href="#home" data-i18n="study.back">Back to my daily path</a><h1 id="study-title" tabindex="-1" data-i18n="nav.study">Guided study</h1></div>
-    <div id="study-app" class="study-workspace js-only"></div>
   </section>
 
   <!-- Review: spaced repetition cards from words, the novel and grammar. -->
@@ -2122,6 +2149,7 @@ select#today-goal, .tutor-scenario select { min-height: var(--tap); }
       <div class="novel-top">
         <button type="button" class="novel-icon" id="novel-library" aria-label="Books" data-i18n-aria="novel.library"><svg class="icon" aria-hidden="true"><use href="#i-prev"/></svg></button>
         <div class="novel-top-title"><strong id="novel-book-title" lang="en"></strong><span id="novel-book-place"></span></div>
+        <button type="button" class="novel-chip" id="novel-tr" aria-pressed="false" aria-controls="novel-text" aria-label="Cümle cümle Türkçe" data-i18n-aria="novel.trPage">TR</button>
         <button type="button" class="novel-chip novel-aa" id="novel-aa" aria-expanded="false" aria-controls="novel-panel" aria-label="Reading settings" data-i18n-aria="novel.settings">Aa</button>
       </div>
       <div class="novel-panel" id="novel-panel" hidden>
@@ -2578,8 +2606,6 @@ const READINGS = [
   }
 ];
 
-READINGS.push(.../*@STUDY_READINGS@*/);
-
 /* Labels for the related-meaning groups that come from the original page. */
 const GROUP_LABELS_EN = {
   'Başarı ve yetenek': 'Achievement and ability', 'Bırakmak ve vazgeçmek': 'Leaving and giving up', 'Yardım ve destek': 'Help and support',
@@ -2725,8 +2751,7 @@ const STRINGS = {
     'ai.noNovel': 'You have not added words from the novel yet.', 'ai.noLearned': 'There are no words here yet; try another source.',
     'xp.week': 'XP this week', 'nav.groupDaily': 'Daily', 'nav.groupLearn': 'Learn', 'nav.groupPractice': 'Practice', 'nav.more': 'More', 'nav.collapse': 'Collapse the menu', 'nav.expand': 'Expand the menu',
     'nav.collapseShort': 'Collapse', 'topbar.search': 'Search words', 'topbar.searchPh': 'Search a word (English or Turkish)', 'topbar.streak': '🔥 {n} days',
-    'nav.study': 'Guided study', 'study.library': 'All decks and review settings', 'study.back': '← Back to my daily path',
-    'nav.review': 'Review', 'review.title': 'Review', 'review.lead': 'Cards return at intervals based on your answers. Try to recall the answer before revealing it.',
+        'nav.review': 'Review', 'review.title': 'Review', 'review.lead': 'Cards return at intervals based on your answers. Try to recall the answer before revealing it.',
     'review.goal': 'Today: {d} / {n} cards', 'review.left': '{n} left', 'review.kindWord': 'Word', 'review.kindNovel': 'From the novel',
     'review.show': 'Show the answer', 'review.again': 'Again', 'review.hard': 'Hard', 'review.good': 'Good', 'review.soon': '<1 min', 'review.days': '{n} d',
     'review.allDone': 'All done for today!', 'review.allDoneText': 'Come back tomorrow; new cards will be waiting.', 'review.noCards': 'No cards yet',
@@ -2949,8 +2974,7 @@ const STRINGS = {
     'ai.noNovel': 'Henüz romandan kelime eklemedin.', 'ai.noLearned': 'Burada henüz kelime yok; başka bir kaynak dene.',
     'xp.week': 'Bu haftaki XP', 'nav.groupDaily': 'Günlük', 'nav.groupLearn': 'Öğren', 'nav.groupPractice': 'Pratik', 'nav.more': 'Daha fazla', 'nav.collapse': 'Menüyü daralt', 'nav.expand': 'Menüyü genişlet',
     'nav.collapseShort': 'Daralt', 'topbar.search': 'Kelime ara', 'topbar.searchPh': 'Kelime ara (İngilizce ya da Türkçe)', 'topbar.streak': '🔥 {n} gün',
-    'nav.study': 'Rehberli çalışma', 'study.library': 'Tüm desteler ve tekrar ayarları', 'study.back': '← Günlük yoluma dön',
-    'nav.review': 'Tekrar', 'review.title': 'Tekrar', 'review.lead': 'Kartlar yanıtlarına göre aralıklarla geri gelir. Cevabı açmadan önce kendin hatırlamaya çalış.',
+        'nav.review': 'Tekrar', 'review.title': 'Tekrar', 'review.lead': 'Kartlar yanıtlarına göre aralıklarla geri gelir. Cevabı açmadan önce kendin hatırlamaya çalış.',
     'review.goal': 'Bugün: {d} / {n} kart', 'review.left': '{n} kart kaldı', 'review.kindWord': 'Kelime', 'review.kindNovel': 'Romandan',
     'review.show': 'Cevabı göster', 'review.again': 'Tekrar', 'review.hard': 'Zor', 'review.good': 'İyi', 'review.soon': '<1 dk', 'review.days': '{n} gün',
     'review.allDone': 'Bugünlük bitti!', 'review.allDoneText': 'Yarın tekrar gel; yeni kartlar seni bekliyor olacak.', 'review.noCards': 'Henüz kart yok',
@@ -3264,7 +3288,7 @@ const toCount = v => (Number.isInteger(v) && v >= 0 ? v : 0);
 function sanitizeProgress(raw) {
   if (!raw || typeof raw !== 'object' || Array.isArray(raw) || raw.schemaVersion !== SCHEMA_VERSION) throw new Error('schema');
   const out = createEmptyProgress();
-  if (Array.isArray(raw.learned)) out.learned = [...new Set(raw.learned.filter(id => typeof id === 'string' && ID_PATTERN.test(id)))];
+  if (Array.isArray(raw.learned)) out.learned = [...new Set(raw.learned.filter(id => typeof id === 'string' && (ID_PATTERN.test(id) || BY_ID.has(id))))];
   if (raw.quiz && typeof raw.quiz === 'object') {
     out.quiz.attempts = toCount(raw.quiz.attempts);
     out.quiz.correct = Math.min(toCount(raw.quiz.correct), out.quiz.attempts);
@@ -3653,11 +3677,11 @@ function relabelCards() {
 }
 
 /* ---------- 7i. Navigation ---------- */
-const ROUTES = ['home', 'study', 'review', 'practice', 'rankings', 'words', 'phrases', 'grammar', 'speak', 'tutor', 'novel', 'quiz', 'reading', 'settings'];
+const ROUTES = ['home', 'review', 'practice', 'rankings', 'words', 'phrases', 'grammar', 'speak', 'tutor', 'novel', 'quiz', 'reading', 'settings'];
 const Router = {
   current: null,
   /* Non-route hashes (e.g. the skip link's #main) keep the current view. */
-  route() { const name = location.hash.replace(/^#\/?/, '').split('/')[0]; return ROUTES.includes(name) ? name : (this.current || 'home'); },
+  route() { const name = location.hash.replace(/^#\/?/, '').split('/')[0]; return ROUTES.includes(name) ? name : (this.current || 'words'); },
   show(moveFocus) {
     const name = this.route();
     const changed = name !== this.current;
@@ -3673,7 +3697,7 @@ const Router = {
       row.scrollLeft += tab.getBoundingClientRect().left - row.getBoundingClientRect().left - (row.clientWidth - tab.offsetWidth) / 2;
     }
     document.title = t('nav.' + name) + ' · WordFlow';
-    if (changed) { Speech.stop(); Tutor.pause(); Games.stop(); Pron.close(); Speak.away(); Study.away(); }
+    if (changed) { Speech.stop(); Tutor.pause(); Games.stop(); Pron.close(); Speak.away(); }
     Novel.focusMode();
     Tutor.focusMode();
     const module = MODULES[name];
@@ -4232,6 +4256,13 @@ const Novel = {
       $('#novel-panel').hidden = !open;
       $('#novel-aa').setAttribute('aria-expanded', String(open));
     });
+    $('#novel-tr').addEventListener('click', () => {
+      this.trOn = !this.trOn;
+      this.stopReading();
+      this.closePop();
+      this.renderPage();
+      this.saveState();
+    });
     $('#novel-papers').addEventListener('click', event => {
       const button = event.target.closest('[data-paper]');
       if (button) { this.paper = button.dataset.paper; this.applyPaper(); this.saveState(); }
@@ -4280,6 +4311,8 @@ const Novel = {
     if (saved && saved.size) this.size = saved.size;
     if (saved && saved.auto === false) $('#novel-auto').checked = false;
     if (saved && saved.paper) this.paper = saved.paper;
+    this.trOn = Boolean(saved && saved.tr === true);
+    $('#novel-tr').setAttribute('aria-pressed', String(this.trOn));
     for (const card of $$('#novel-shelf [data-novel]')) this.colorCard(card);
     this.showMarks();
   },
@@ -4557,7 +4590,7 @@ const Novel = {
     const marks = Object.assign({}, saved && saved.marks, { [name]: this.page });
     const totals = Object.assign({}, saved && saved.totals, { [name]: this.book.pages.length });
     const titles = Object.assign({}, saved && saved.titles, this.book.title ? { [name]: this.book.title } : {});
-    Store.write(this.KEY, JSON.stringify({ v: 3, name, marks, totals, titles, size: this.size, auto: $('#novel-auto').checked, paper: this.paper }));
+    Store.write(this.KEY, JSON.stringify({ v: 3, name, marks, totals, titles, size: this.size, auto: $('#novel-auto').checked, paper: this.paper, tr: Boolean(this.trOn) }));
     this.showMarks();
   },
   /* The bookmark on each book card: "s. 42 / 181" and a progress bar. */
@@ -4853,20 +4886,98 @@ const Novel = {
     $('#novel-next').disabled = this.page === total - 1;
     $('#novel-progress-bar').style.width = ((this.page + 1) / total * 100) + '%';
     $('#novel-book-place').textContent = this.garbled ? t('novel.garbled') : this.textless ? t('novel.scanned') : this.chapters[this.page];
-    const paragraphs = this.book.pages[this.page];
-    const article = $('#novel-text');
-    if (paragraphs.length && !this.garbled) {
-      article.replaceChildren(...paragraphs.map(text => this.paragraph(text)));
-    }
-    else {
-      article.replaceChildren(h('p', { class: 'novel-empty', lang: lang, text: t('novel.loadingPage') }));
-      this.showPicture(this.page);
-    }
+    this.renderPage();
     this.closePop();
     this.saveState();
     XP.readPage(this.book.name, this.page);
     NovelQuickReview.onPage({ book: this.book.name, page: this.page });
     if (toTop) window.scrollTo(0, 0);
+  },
+  /* TR changes only the reader layout, never the source book or reading count. */
+  renderPage() {
+    if (!this.book) return;
+    const token = this.pageTrToken = {};
+    this.pictureToken = {};
+    const paragraphs = this.book.pages[this.page];
+    const article = $('#novel-text');
+    $('#novel-tr').setAttribute('aria-pressed', String(Boolean(this.trOn)));
+    $('#novel-tr').disabled = !paragraphs.length || this.garbled;
+    if (!paragraphs.length || this.garbled) {
+      article.replaceChildren(h('p', { class: 'novel-empty', lang, text: t('novel.loadingPage') }));
+      this.showPicture(this.page);
+      return;
+    }
+    if (!this.trOn) {
+      article.replaceChildren(...paragraphs.map((text, index) => {
+        const node = this.paragraph(text);
+        node.dataset.paragraph = index;
+        return node;
+      }));
+      return;
+    }
+    const lines = [];
+    const nodes = paragraphs.flatMap((raw, index) => {
+      if (raw.startsWith('\u2061')) {
+        const heading = this.paragraph(raw);
+        heading.dataset.paragraph = index;
+        return [heading];
+      }
+      const text = raw.replace(/^\u2060/, '');
+      return this.sentenceRanges(text).map(range => {
+        const english = this.paragraph(range.text);
+        english.className = 'novel-sent';
+        english.lang = 'en';
+        english.dataset.paragraph = index;
+        english.dataset.sentenceStart = range.start;
+        const turkish = h('div', { class: 'novel-tr is-waiting', lang: 'tr', text: t('novel.trLoading') });
+        lines.push({ english, turkish });
+        return h('div', { class: 'novel-pair' }, english, turkish);
+      });
+    });
+    const retry = h('button', { type: 'button', id: 'novel-tr-retry', class: 'button small ghost', hidden: '', text: t('common.tryAgain') });
+    retry.addEventListener('click', () => this.translatePage(token, lines));
+    const status = h('div', { id: 'novel-tr-status', class: 'novel-tr-note', role: 'status', lang },
+      h('span', { text: t('novel.trLoading') }), retry);
+    article.replaceChildren(status, ...nodes);
+    for (const line of lines) line.source = this.sentenceSpan(line.english.querySelector('.nw')).text || line.english.textContent;
+    this.translatePage(token, lines);
+  },
+  async translatePage(token, lines) {
+    if (this.pageTrToken !== token || this.pageTrLoading === token) return;
+    this.pageTrLoading = token;
+    const status = $('#novel-tr-status');
+    const retry = $('#novel-tr-retry');
+    const cache = this.trCacheMap();
+    const fillCached = () => {
+      for (const line of lines) if (cache.has(line.source)) {
+        line.turkish.textContent = cache.get(line.source);
+        line.turkish.classList.remove('is-waiting');
+      }
+    };
+    fillCached();
+    const missing = lines.filter(line => !cache.has(line.source));
+    status.hidden = !missing.length;
+    retry.hidden = true;
+    status.firstElementChild.textContent = t('novel.trLoading');
+    try {
+      if (missing.length) await this.translateLines(missing.map(line => line.source));
+      if (this.pageTrToken !== token) return;
+      fillCached();
+      status.hidden = true;
+    } catch (error) {
+      if (this.pageTrToken !== token) return;
+      fillCached();
+      const message = t(error.message === 'offline' ? 'novel.lookupOffline' : 'novel.trBusy');
+      for (const line of lines) if (!cache.has(line.source)) {
+        line.turkish.textContent = message;
+        line.turkish.classList.remove('is-waiting');
+      }
+      status.hidden = false;
+      status.firstElementChild.textContent = message;
+      retry.hidden = false;
+    } finally {
+      if (this.pageTrLoading === token) this.pageTrLoading = null;
+    }
   },
   /* A page without text (a picture, or a scanned book) is shown as the printed page. */
   async showPicture(index) {
@@ -5164,9 +5275,10 @@ const Novel = {
     let offset = 0;
     for (const child of node.parentNode.childNodes) { if (child === node) break; offset += child.textContent.length; }
     // PDF pages can interrupt a sentence. Only join explicitly continued paragraphs.
-    if (this.book && node.parentNode.parentNode === $('#novel-text')) {
+    if (this.book && node.closest('#novel-text')) {
       const pageParagraphs = this.book.pages[this.page];
-      const local = [...node.parentNode.parentNode.children].indexOf(node.parentNode);
+      const local = Number(node.parentNode.dataset.paragraph);
+      if (!Number.isInteger(local) || local < 0 || local >= pageParagraphs.length) return { text, start: 0, offset };
       const before = this.book.pages[this.page - 1] || [];
       const all = [...before, ...pageParagraphs, ...(this.book.pages[this.page + 1] || [])];
       const at = before.length + local;
@@ -5174,7 +5286,7 @@ const Novel = {
       while (from > 0 && all[from].startsWith('\u2060') && !all[from - 1].startsWith('\u2061')) from--;
       while (to + 1 < all.length && all[to + 1].startsWith('\u2060') && !all[to].startsWith('\u2061')) to++;
       const clean = part => part.replace(/^[\u2060\u2061]/, '');
-      prefix = all.slice(from, at).reduce((size, part) => size + clean(part).length + 1, 0);
+      prefix = all.slice(from, at).reduce((size, part) => size + clean(part).length + 1, 0) + (Number(node.parentNode.dataset.sentenceStart) || 0);
       text = all.slice(from, to + 1).map(clean).join(' ');
     }
     const selected = this.sentenceRanges(text).find(part => part.start <= prefix + offset && prefix + offset < part.start + part.text.length);
@@ -5694,7 +5806,7 @@ const Quiz = {
 
 /* ---------- 7n. Shared multiple-choice question (grammar and reading) ---------- */
 let choiceCounter = 0;
-function createChoiceQuestion({ q, options, answer, explain }, onAnswer) {
+function createChoiceQuestion({ q, options, answer, explain }) {
   const id = 'choice-' + (++choiceCounter);
   const feedback = h('p', { class: 'feedback', 'aria-live': 'polite' });
   const retry = h('button', { type: 'button', class: 'button ghost small', hidden: true, text: t('common.tryAgain') });
@@ -5713,7 +5825,6 @@ function createChoiceQuestion({ q, options, answer, explain }, onAnswer) {
     wrap.dataset.answered = 'true';
     const chosen = Number(button.dataset.index);
     const ok = chosen === answer;
-    if (onAnswer) onAnswer(ok);
     $$('.option', group).forEach((b, i) => {
       b.disabled = true;
       if (i === answer) { b.classList.add('is-correct'); b.append(h('span', { class: 'verdict', text: t('quiz.verdictCorrect') })); }
@@ -5735,7 +5846,7 @@ function createChoiceQuestion({ q, options, answer, explain }, onAnswer) {
 const Reading = {
   rendered: null,
   vocabMap: null,
-  onShow() { const key = lang + ':' + (location.hash.split('/')[1] || ''); if (this.rendered !== key) this.render(); },
+  onShow() { if (this.rendered !== lang) this.render(); },
   lookup(token) {
     if (!this.vocabMap) {
       this.vocabMap = new Map();
@@ -5759,34 +5870,8 @@ const Reading = {
   render() {
     Speech.stop();
     $('#speech-note').textContent = Speech.supported ? t('speech.ok') : t('speech.none');
-    const selected = READINGS.find(passage => passage.id === location.hash.split('/')[1]);
-    if (!selected) { this.renderLibrary(); this.rendered = lang + ':'; return; }
-    const passages = selected ? [selected] : READINGS;
-    $('#reading-list').replaceChildren(...(selected ? [h('div', { class: 'study-reading-context' },
-      h('p', { text: Study.copy('Önce metne bakmadan dinlemeyi dene. Sonra oku, soruları yanıtla ve kendi cümlelerinle anlat.', 'Try listening before reading. Then read, answer the questions and explain it in your own words.') }),
-      h('div', { class: 'row' }, h('a', { class: 'button small', href: '#home', text: Study.copy('Günlük yolum', 'My daily path') }), h('a', { class: 'button small', href: '#reading', text: Study.copy('Tüm metinler', 'All texts') }), h('a', { class: 'button small primary', href: '#study/output', text: Study.copy('Kendi cümlelerimle anlat', 'Express it myself') })))] : []), ...passages.map(passage => this.renderPassage(passage)));
-    this.rendered = lang + ':' + (location.hash.split('/')[1] || '');
-  },
-  renderLibrary() {
-    const select = h('select', { id: 'reading-level' }, h('option', { value: '', text: Study.copy('Tüm düzeyler', 'All levels') }),
-      ...Study.LEVELS.map(level => h('option', { value: level, text: level })));
-    select.value = this.level || '';
-    const tiles = h('div', { class: 'reading-library' });
-    const render = () => {
-      this.level = select.value;
-      tiles.replaceChildren(...READINGS.filter(passage => !this.level || passage.level.includes(this.level)).map(passage => {
-        const words = passage.paragraphs.reduce((count, [en]) => count + en.split(/\s+/).length, 0);
-        return h('article', { class: 'panel reading-tile', 'data-reading-id': passage.id },
-          h('div', { class: 'row' }, h('span', { class: 'chip level', text: t('reading.level', { l: passage.level }) }),
-            passage.id === Study.passage().id ? h('span', { class: 'chip', text: Study.copy('Bugünkü yolunda', 'On today’s path') }) : null),
-          h('h2', { lang: 'en', text: passage.title }),
-          h('p', { class: 'hint', text: t('reading.words', { n: words }) + ' · ' + Study.copy(`${passage.questions.length} anlama sorusu`, `${passage.questions.length} comprehension questions`) }),
-          h('a', { class: 'button primary', href: '#reading/' + passage.id, text: Study.copy('Metni aç ve dinle', 'Open text and listen') }));
-      }));
-    };
-    select.addEventListener('change', render);
-    $('#reading-list').replaceChildren(h('div', { class: 'field reading-level-field' }, h('label', { for: 'reading-level', text: Study.copy('Metinlerin tahmini düzeyi', 'Estimated text level') }), select), tiles);
-    render();
+    $('#reading-list').replaceChildren(...READINGS.map(passage => this.renderPassage(passage)));
+    this.rendered = lang;
   },
   renderPassage(passage) {
     const found = new Map();
@@ -5827,7 +5912,7 @@ const Reading = {
       tools, listeningNote, text,
       h('details', { class: 'disclosure' }, h('summary', { text: t('reading.glossary', { n: found.size }) }), glossary),
       h('h3', { text: t('reading.questions') }),
-      ...passage.questions.map((question, index) => createChoiceQuestion(question, correct => Study.noteReading(passage.id, index, correct))));
+      ...passage.questions.map(createChoiceQuestion));
     return article;
   },
   /* Play / pause and stop controls that read one paragraph at a time with the device voice. */
@@ -5850,7 +5935,7 @@ const Reading = {
       index = i;
       status.textContent = t('reading.playing', { i: i + 1, n: passage.paragraphs.length });
       Speech.speak(passage.paragraphs[i][0], {
-        onEnd: () => { if (token !== run) return; Study.noteListening(passage.id); speakFrom(i + 1, token); },
+        onEnd: () => speakFrom(i + 1, token),
         onStop: () => { if (token === run) { run++; setState('idle'); status.textContent = ''; } }
       });
     };
@@ -5913,7 +5998,7 @@ const Settings = {
     try {
       const data = JSON.stringify({ app: 'english-study', exportedAt: new Date().toISOString(), ...progress, learned: [...learnedSet],
         review: Review.state, grammar: { best: Grammar.best, learned: Grammar.learned, last: Grammar.lastTopic }, xp: XP.state, phrases: Phrases.learned,
-        novelQuick: NovelQuickReview.snapshot(), study: Study.snapshot() }, null, 2);
+        novelQuick: NovelQuickReview.snapshot() }, null, 2);
       const url = URL.createObjectURL(new Blob([data], { type: 'application/json' }));
       const link = h('a', { href: url, download: 'english-study-progress-' + dateKey(new Date()) + '.json' });
       document.body.append(link);
@@ -5950,7 +6035,6 @@ const Settings = {
     });
     if (!ok) { status.textContent = t('import.cancelled'); return; }
     replaceProgress(imported);
-    if (parsed.study) Study.restore(parsed.study);
     if (review) { Review.state = review; Review.queue = []; Review.save(); }
     if (Array.isArray(parsed.novelQuick)) NovelQuickReview.restore(parsed.novelQuick);
     if (xp) { XP.state = xp; XP.save(); XP.pills(); }
@@ -5966,7 +6050,6 @@ const Settings = {
     if (!ok) return;
     replaceProgress(createEmptyProgress(progress.settings));
     Review.clear();
-    Study.clear();
     NovelQuickReview.clear();
     Toast.show(t('reset.done'));
   }
@@ -6884,18 +6967,17 @@ const Tutor = {
       if (text) this.history.push({ role: 'user', text });
       this.history.push({ role: 'model', text: data.reply });
       if (mine && (!data.correction || Writer.normal(data.correction) === Writer.normal(text))) {
-        mine.append(h('div', { class: 'tutor-fix is-good' }, h('div', { class: 'tutor-fix-head' }, h('strong', { text: Study.copy('Bu yanıtta değişiklik önerilmedi', 'No revision was suggested for this reply') })),
+        mine.append(h('div', { class: 'tutor-fix is-good' }, h('div', { class: 'tutor-fix-head' }, h('strong', { text: (lang === 'tr' ? 'Bu yanıtta değişiklik önerilmedi' : 'No revision was suggested for this reply') })),
           data.tip ? h('span', { lang: 'tr', text: data.tip }) : null));
       } else if (mine && data.correction) {
         const [, better] = Writer.diff(text, data.correction);
         better.classList.add('tutor-fix-en');
-        mine.append(h('div', { class: 'tutor-fix' }, h('div', { class: 'tutor-fix-head' }, h('strong', { text: t('tutor.better') }), h('span', { class: 'tutor-acc', text: Study.copy('Düzeltme önerisi', 'Suggested revision') })),
+        mine.append(h('div', { class: 'tutor-fix' }, h('div', { class: 'tutor-fix-head' }, h('strong', { text: t('tutor.better') }), h('span', { class: 'tutor-acc', text: (lang === 'tr' ? 'Düzeltme önerisi' : 'Suggested revision') })),
           better, data.tip ? h('span', { lang: 'tr', text: data.tip }) : null));
         this.settings.review = [data.correction, ...this.settings.review.filter(line => line !== data.correction)].slice(0, 10);
         this.save();
       }
       this.addTeacher(data);
-      if (!hidden) { XP.add(10); this.lessonXp = (this.lessonXp || 0) + 10; this.tickLesson(); Study.noteTutor(text); }
       $('#tutor-suggest').hidden = false;
       this.say(data.reply);
     } catch (err) {
@@ -7097,7 +7179,6 @@ const Grammar = {
     if (mode !== this.mode || topic !== this.topic) this.open(mode, topic);
     if (mode === 'topic') this.showUnit(/^\d+$/.test(step) ? Number(step) : null);
     if (mode === 'home') this.renderTopics();
-    if (mode === 'write' && step && Writer.stories.some(story => story.id === step)) Writer.open(step);
     this.heading();
   },
   open(mode, topic) {
@@ -7440,7 +7521,6 @@ const Grammar = {
     const units = this.topic.units;
     const total = run.items.length;
     const passed = run.score >= Math.ceil(total * 2 / 3);
-    if (passed) Study.noteGrammar(run.unit.id);
     if (passed && !this.learned[run.unit.id]) { this.learned[run.unit.id] = 1; this.save(); Review.add('g:' + run.unit.id, 2); XP.add(50); }
     const next = this.unit + 1 < units.length ? this.unit + 1 : null;
     for (const item of $$('#gram-unit .gram-steps li')) { item.className = 'is-done'; item.removeAttribute('aria-current'); }
@@ -8192,7 +8272,6 @@ const Review = {
     persist();
     Nav.counts();
     this.shown = false;
-    Study.noteReview(id);
     this.render();
   },
   when(days) { return days === 0 ? t('review.soon') : t('review.days', { n: days }); },
@@ -8351,8 +8430,6 @@ const Review = {
   }
 };
 
-/*@STUDY_PLAN_JS@*/
-
 /* ---------- Today: the home page ---------- */
 const Today = {
   /* Word decks: the vocabulary by level, then the grammar topics. */
@@ -8403,7 +8480,6 @@ const Today = {
     this.decks();
     $('#today-continue').replaceChildren(...this.rows());
     this.week();
-    Study.renderHome();
   },
   decks() {
     const cards = [];
@@ -8516,7 +8592,7 @@ const Today = {
 
 /* ---------- Navigation extras: the "More" sheet, the sidebar toggle, the top bar ---------- */
 const Nav = {
-  MORE: ['study', 'grammar', 'review', 'words', 'phrases', 'quiz', 'reading', 'settings'],
+  MORE: ['grammar', 'review', 'words', 'phrases', 'quiz', 'reading', 'settings'],
   KEY: 'english-study-side.v1',
   init() {
     $('#nav-more').addEventListener('click', () => this.sheet(true));
@@ -8703,13 +8779,6 @@ const Games = {
         h('article', { class: 'game-card is-plain' },
           h('div', { class: 'game-card-head' }, h('span', { class: 'game-icon' }, icon('quiz')), h('div', {}, h('h3', { text: t('game.classic') }), h('p', { text: t('game.classicText') }))),
           h('a', { class: 'button game-wide', href: '#quiz' }, h('span', { text: t('game.open') }), icon('next')))));
-    const bonus = h('details', { class: 'practice-bonus' }, h('summary', { text: Study.copy('İsteğe bağlı puanlar ve günlük oyun görevi', 'Optional points and daily game quest') }));
-    bonus.append($('#practice-area .xp-card'), $('#practice-area .quest-card'));
-    $('#practice-area').append(bonus);
-    const next = Study.steps().find(step => !step.done);
-    $('#practice-area').prepend(h('section', { class: 'study-practice-intro panel' }, h('h2', { text: Study.copy('Öğrendiklerini pekiştir', 'Consolidate your learning') }),
-      h('p', { class: 'hint', text: Study.copy('Önce günlük yolundaki çalışmayı yap; sonra dinleme, üretim ve hatırlama oyunlarıyla pekiştir.', 'Follow your daily path first, then consolidate it through listening, production and recall practice.') }),
-      h('a', { class: 'button primary', href: next ? next.href : '#study/recall', text: next ? Study.copy('Günlük sıradaki adım: ', 'Next daily step: ') + next.title : Study.copy('Seçeneksiz hatırlama kontrolü', 'Recall without answer options') })));
   },
   /* ---- Playing */
   start(id) {
@@ -9595,7 +9664,7 @@ const AiStory = {
   }
 };
 
-const MODULES = { home: Home, study: Study, review: Review, practice: Games, rankings: Rankings, words: Words, phrases: Phrases, grammar: Grammar, speak: Speak, tutor: Tutor, novel: Novel, quiz: Quiz, reading: Reading, settings: Settings };
+const MODULES = { home: Home, review: Review, practice: Games, rankings: Rankings, words: Words, phrases: Phrases, grammar: Grammar, speak: Speak, tutor: Tutor, novel: Novel, quiz: Quiz, reading: Reading, settings: Settings };
 
 /* ======================================================================
    8. INITIALIZATION (single entry point)
@@ -9637,7 +9706,7 @@ function init() {
   applyTurkishVisibility();
   prepareCards();
   MyDecks.load();
-  XP.init(); Home.init(); Words.init(); Phrases.init(); Grammar.init(); Review.init(); Study.init(); Today.init(); Nav.init(); Games.init(); Writer.init(); AiStory.init(); Pron.init(); Speak.init(); Tutor.init(); Novel.init(); Quiz.init(); Settings.init(); Updater.init();
+  XP.init(); Home.init(); Words.init(); Phrases.init(); Grammar.init(); Review.init(); Today.init(); Nav.init(); Games.init(); Writer.init(); AiStory.init(); Pron.init(); Speak.init(); Tutor.init(); Novel.init(); Quiz.init(); Settings.init(); Updater.init();
   NovelQuickReview.init({ article: $('#novel-text'), store: Store, language: () => lang, isSaved: id => Review.has(id), matchesPage: item => Novel.quickReviewMatches(item),
     onOpen: () => { Novel.closePop(); if (Novel.reading && !Novel.reading.paused) Novel.pauseReading(); } });
   if (!Store.usable) Banner.show(t(Store.simulated ? 'storage.simulated' : 'storage.off'));
