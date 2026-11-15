@@ -1,4 +1,4 @@
-/* Verify reviewed content in data, static cards, search, quizzes and review.
+/* Verify reviewed content in data, static fallback, study cards, quizzes and review.
    --live checks the exact deployed build as well as the real browser UI. */
 const fs = require('node:fs');
 const http = require('node:http');
@@ -49,6 +49,7 @@ const server = http.createServer((req, res) => {
   const build = JSON.parse(fs.readFileSync(path.join(root, 'version.json'), 'utf8')).build;
   const base = live ? 'https://twinterrordark.github.io/english-vocabulary/?v=' + build : `http://127.0.0.1:${server.address().port}/`;
   const browser = await chromium.launch({ channel: 'chrome', headless: true });
+  const contexts = [];
   try {
     if (live) {
       const response = await fetch(base, { signal: AbortSignal.timeout(30000) }); assert.equal(response.status, 200);
@@ -56,32 +57,38 @@ const server = http.createServer((req, res) => {
       assert.equal(sha(Buffer.from(await response.arrayBuffer())), sha(Buffer.from(source)));
       pass('Published HTML exactly matches the tested local build');
     }
-    const context = await browser.newContext({ viewport: { width: 390, height: 844 }, reducedMotion: 'reduce' });
-    const page = await context.newPage(); const errors = [];
-    page.on('pageerror', error => errors.push(error.message));
-    await page.goto(base + '#words'); await page.waitForFunction(() => window.__appReady === true);
-    assert.equal(await page.evaluate(() => EnglishStudyDiagnostics.words), 2200);
+    const errors = [];
+    const out = process.env.VOCABULARY_OUTPUT ? path.resolve(process.env.VOCABULARY_OUTPUT) : path.join(root, 'audits/2026-11-15');
+    fs.mkdirSync(out, { recursive: true });
+    let page;
     for (const id of ['extra-classroom', 'wk-ai-48', 'wk-ai-43', 'wk-ai-103', 'wk-des-26']) {
       const entry = byId.get(id);
-      await page.locator('#word-search').fill(entry.word);
-      const card = page.locator('#word-list .word-card[data-id="' + id + '"]');
-      await card.waitFor({ state: 'visible' });
-      assert.equal(await card.locator('.meaning').innerText(), entry.meaning);
-      assert.equal(await card.locator('.example').innerText(), entry.example);
-      assert.equal(await card.locator('.tr-line').first().innerText(), entry.exampleTr);
+      const context = await browser.newContext({ viewport: { width: 390, height: 844 }, reducedMotion: 'reduce' });
+      contexts.push(context);
+      await context.addInitScript(learned => {
+        localStorage.setItem('english-study-app.v1', JSON.stringify({ schemaVersion: 1, learned, settings: { uiLang: 'tr', path: 'all', showTurkish: true }, quiz: { attempts: 0, correct: 0 }, activity: {} }));
+        localStorage.setItem('english-study-review.v1', JSON.stringify({ goal: 20, cards: {}, saved: {}, log: {}, recall: {}, seeded: true }));
+      }, vocab.filter(other => other.id !== id).map(other => other.id));
+      page = await context.newPage(); page.on('pageerror', error => errors.push(error.message));
+      await page.goto(base + '#words'); await page.waitForFunction(() => window.__appReady === true);
+      assert.equal(await page.evaluate(() => EnglishStudyDiagnostics.words), 2200);
+      assert.equal(await page.locator('#review-card .review-word').innerText(), entry.word);
+      assert.equal(await page.locator('#review-card .review-meaning').count(), 0);
+      await page.locator('#review-card .flash-card').click();
+      assert.equal(await page.locator('#review-card .review-meaning').innerText(), entry.meaning);
+      assert.equal(await page.locator('#review-card .review-example').innerText(), entry.example);
+      assert.equal(await page.locator('#review-card .review-example-tr').innerText(), entry.exampleTr);
+      if (id === 'extra-classroom') {
+        for (const width of [320, 390, 1440]) {
+          await page.setViewportSize({ width, height: 844 });
+          assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
+        }
+        await page.setViewportSize({ width: 390, height: 844 }); await page.evaluate(() => scrollTo(0, 0));
+        await page.screenshot({ path: path.join(out, live ? 'vocabulary-live-classroom-study.png' : 'vocabulary-classroom-study.png'), fullPage: false });
+      }
     }
-    pass('Browser search cards show corrected class/library/ticket/finish and separate classroom');
-    await page.locator('#word-search').fill('classroom');
-    await page.waitForFunction(() => [...document.querySelectorAll('#word-list .word-card')].every(e => e.textContent.toLowerCase().includes('classroom')));
-    for (const width of [320, 390, 1440]) {
-      await page.setViewportSize({ width, height: 844 });
-      assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
-    }
-    const out = path.join(root, 'audits/2026-11-10');
-    await page.setViewportSize({ width: 390, height: 844 });
-    await page.locator('#word-list .word-card[data-id="extra-classroom"]').scrollIntoViewIfNeeded();
-    await page.screenshot({ path: path.join(out, live ? 'vocabulary-live-classroom.png' : 'vocabulary-classroom.png'), fullPage: false });
-    pass('Corrected classroom card fits mobile and desktop widths');
+    pass('Actual study cards reveal corrected class/library/ticket/finish and distinct classroom meanings and examples');
+    pass('Corrected classroom study card fits mobile and desktop widths');
     if (!live) {
       const checks = await page.evaluate(ids => {
         const entries = JSON.parse(document.getElementById('vocab-data').textContent).concat(JSON.parse(document.getElementById('work-data').textContent));
@@ -103,6 +110,5 @@ const server = http.createServer((req, res) => {
     }
     assert.deepEqual(errors, []); pass('No uncaught browser errors');
     fs.writeFileSync(path.join(out, live ? 'vocabulary-live-checks.json' : 'vocabulary-checks.json'), JSON.stringify({ build, live, corrections: catalogue.corrections.length, words: vocab.length, examWords: work.length, results, errors }, null, 2) + '\n');
-    await context.close();
-  } finally { await browser.close(); server.close(); }
+  } finally { for (const context of contexts) await context.close(); await browser.close(); server.close(); }
 })().catch(error => { console.error(error); server.close(); process.exitCode = 1; });

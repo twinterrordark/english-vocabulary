@@ -1042,7 +1042,8 @@ input:focus-visible, select:focus-visible, textarea:focus-visible { outline: non
 .home-path summary { cursor: pointer; font-weight: 700; }
 .home-path .field { margin-top: var(--space-3); }
 /* ---------- Flashcards (WordFlow) ---------- */
-.view[data-view="review"] { max-width: 640px; }
+.view[data-view="review"], html.js .view[data-view="words"] { max-width: 640px; }
+html.js .word-static { display: none !important; }
 .review-progress { display: grid; gap: 8px; margin-bottom: var(--space-4); }
 .review-progress-top { display: flex; align-items: center; justify-content: space-between; gap: var(--space-2); }
 .review-progress-top strong { font: 800 1.15rem/1 var(--font-display); }
@@ -1069,7 +1070,7 @@ input:focus-visible, select:focus-visible, textarea:focus-visible { outline: non
 .review-rate { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-2); }
 .rate-tile { display: grid; justify-items: center; gap: 3px; min-width: 0; padding: 10px 4px; border: 0; border-radius: 16px; font: inherit; cursor: pointer; transition: transform .08s; }
 .rate-tile:active { transform: translateY(2px); }
-.rate-tile small { font: 800 .72rem/1.2 var(--font-display); text-transform: uppercase; letter-spacing: .04em; }
+.rate-tile small { font: 800 .72rem/1.2 var(--font-display); text-transform: uppercase; letter-spacing: .04em; opacity: 1; }
 .rate-tile strong { font: 600 1.15rem/1.2 var(--font-display); }
 .rate-points { padding: 2px 8px; border-radius: 999px; color: #fff; font: 800 .75rem/1.3 var(--font-display); }
 .rate-tile.is-again { background: #fde4e1; color: #b3261e; box-shadow: 0 3px 0 #f6b9b2; } .is-again .rate-points { background: #c0261b; }
@@ -1419,7 +1420,7 @@ body.novel-focus .novel-pop-sentence i { color: var(--paper-text); }
 .nw.is-hard::after { content: "•"; color: #b45309; margin-left: 1px; }
 .novel-pop.is-inline { position: static; transform: none; width: auto; box-shadow: 0 8px 20px rgba(19, 27, 46, .1); margin-top: var(--space-2); }
 
-.review-rate.is-waiting .rate-tile { opacity: .55; }
+.review-rate.is-waiting .rate-tile { opacity: 1; }
 @media (max-width: 1023px) {
   body.route-review .bottom-nav, body.route-review .site-footer { display: none; }
   body.route-review { padding-bottom: env(safe-area-inset-bottom); }
@@ -1953,6 +1954,7 @@ select#today-goal, .tutor-scenario select { min-height: var(--tap); }
 
   <!-- Review: spaced repetition cards from words, the novel and grammar. -->
   <section class="view" data-view="review" aria-labelledby="review-title">
+    <div id="review-home"><div id="review-workspace">
     <div class="screen-top">
       <a class="screen-back" href="#home" aria-label="Back" data-i18n-aria="tutor.back"><svg class="icon" aria-hidden="true"><use href="#i-arrow-left"/></svg></a>
       <span class="brand-mark small" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M5 9l4.5 14L14 12l2 6 2-6 4.5 11L27 9" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
@@ -1964,6 +1966,7 @@ select#today-goal, .tutor-scenario select { min-height: var(--tap); }
       <span class="gram-meter"><span id="review-goal-bar"></span></span>
     </div>
     <div class="review-card js-only" id="review-card" aria-live="polite"></div>
+    </div></div>
   </section>
 
   <!-- Practice: the daily quest and mini games. -->
@@ -1984,31 +1987,13 @@ select#today-goal, .tutor-scenario select { min-height: var(--tap); }
     <div class="rank-area js-only" id="rank-area"></div>
   </section>
 
-  <!-- Vocabulary -->
+  <!-- Vocabulary uses the existing deck study cards. Static cards remain a no-JS fallback. -->
   <section class="view" data-view="words" aria-labelledby="words-title">
-    <div class="view-head">
-      <h1 id="words-title" tabindex="-1" data-i18n="words.title">Vocabulary</h1>
-      <p class="lead" data-i18n="words.lead">x</p>
+    <div id="words-study" class="js-only"></div>
+    <div class="word-static">
+      <div class="view-head"><h1 id="words-title" tabindex="-1" data-i18n="words.title">Vocabulary</h1></div>
+      <div id="word-list" class="word-grid"><!--@WORD_CARDS@--></div>
     </div>
-    <p class="tap-hint js-only"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="words.tapHint">x</span></p>
-    <div class="panel toolbar js-only" role="search">
-      <div class="field search-field">
-        <label for="word-search" data-i18n="words.search">Search English or Turkish</label>
-        <input id="word-search" type="search" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="search" placeholder="e.g. achieve, başarmak" data-i18n-placeholder="words.searchPh">
-      </div>
-    </div>
-    <p id="word-sequence-note" class="hint js-only" aria-live="polite"></p>
-    <div class="row js-only">
-      <p id="word-count" class="result-count" aria-live="polite"></p>
-      <button type="button" class="button ghost small" id="reset-filters" data-i18n="words.reset">Reset filters</button>
-    </div>
-    <div id="word-list" class="word-grid"><!--@WORD_CARDS@--></div>
-    <div id="word-empty" class="panel empty" hidden>
-      <p><strong data-i18n="words.emptyTitle">No words match.</strong></p>
-      <p class="hint" data-i18n="words.emptyText">Try a shorter search, check the spelling, or reset the filters.</p>
-      <button type="button" class="button primary" id="empty-reset" data-i18n="words.reset">Reset filters</button>
-    </div>
-    <div class="more-row js-only"><button type="button" class="button" id="word-more" hidden></button></div>
   </section>
 
   <!-- Phrases / Daily Conversation -->
@@ -3690,7 +3675,7 @@ const Router = {
     Nav.update(name);
     if (moveFocus && changed) {
       window.scrollTo(0, 0);
-      const heading = $('.view[data-view="' + name + '"] h1');
+      const heading = $$('.view[data-view="' + name + '"] h1').find(node => node.getClientRects().length);
       if (heading) heading.focus({ preventScroll: true });
     }
   }
@@ -3726,139 +3711,65 @@ const Home = {
 };
 
 /* ---------- 7k. Vocabulary list ---------- */
-const PAGE_SIZE = 24;
 const LEVELS = ['A2', 'B1', 'B2', 'C1', 'C1+'];
 const Words = {
-  filters: { query: '' },
-  results: [], shown: 0, lastGroup: null, searchTimer: 0, dirty: true, exam: false,
-  init() {
-    const search = $('#word-search');
-    search.addEventListener('input', () => {
-      clearTimeout(this.searchTimer);
-      this.searchTimer = setTimeout(() => { this.filters.query = search.value; this.render(); }, 150);
-    });
-    search.addEventListener('keydown', event => { if (event.key === 'Enter') search.blur(); });
-    $('#reset-filters').addEventListener('click', () => this.reset());
-    $('#empty-reset').addEventListener('click', () => { this.reset(); search.focus(); });
-    $('#word-more').addEventListener('click', () => this.appendPage());
-    if ('IntersectionObserver' in window) new IntersectionObserver(items => {
-      if (items.some(item => item.isIntersecting) && Router.current === 'words' && !$('#word-more').hidden) this.appendPage();
-    }, { rootMargin: '400px 0px' }).observe($('#word-more'));
-    bindWordActions($('#word-list'));
+  filters: { query: '' }, dirty: true,
+  copy(tr, en) { return lang === 'tr' ? tr : en; },
+  init() {},
+  renderLevelOptions() {},
+  stage() {
+    const regular = VOCAB.filter(entry => !learnedSet.has(entry.id)).sort((a, b) => LEVELS.indexOf(a.level) - LEVELS.indexOf(b.level) || a.order - b.order);
+    if (regular.length) return { level: regular[0].level, unknown: regular.filter(entry => entry.level === regular[0].level), exam: false };
+    return { level: 'EXAM', unknown: WORK.filter(entry => !learnedSet.has(entry.id)), exam: true };
   },
-  // Kept as the language-change hook; there are no selectable status/order filters.
-  renderLevelOptions() { this.describe(); },
-  reset() {
-    this.filters.query = '';
-    $('#word-search').value = '';
-    this.render();
-  },
-  compute() {
-    // Search can never unlock the exam deck: completion is checked globally.
-    this.exam = !VOCAB.some(entry => !learnedSet.has(entry.id));
+  available(stage = this.stage()) {
     const query = normalize(this.filters.query.trim());
-    this.results = (this.exam ? WORK : VOCAB).filter(entry =>
-      !learnedSet.has(entry.id) && (!query || entry.searchText.includes(query)));
-    this.results.sort((a, b) => (this.exam ? 0 : LEVELS.indexOf(a.level) - LEVELS.indexOf(b.level)) || a.order - b.order);
+    return stage.unknown.filter(entry => Review.notPostponed('w:' + entry.id) && (!query || entry.searchText.includes(query)));
   },
-  describe() {
-    $('#word-sequence-note').textContent = this.exam
-      ? (lang === 'tr' ? 'Normal kelime listesi tamamlandı. Şimdi bilmediğin sınav kelimeleri gösteriliyor.' : 'The regular word list is complete. Your unknown exam words are now shown.')
-      : (lang === 'tr' ? 'Yalnızca bilmediğin kelimeler · A2 → B1 → B2 → C1 → C1+. Sınav kelimeleri bu liste bitince açılır.' : 'Unknown words only · A2 → B1 → B2 → C1 → C1+. Exam words unlock after this list is complete.');
+  search(query) {
+    this.filters.query = query;
+    if (Router.current === 'words') this.start(); else location.hash = '#words';
   },
-  render({ count = PAGE_SIZE } = {}) {
-    this.compute();
-    this.shown = 0;
-    this.lastGroup = null;
-    $('#word-list').replaceChildren();
-    this.appendPage(count);
-    $('#word-empty').hidden = this.results.length > 0;
-    const finished = this.exam && !WORK.some(entry => !learnedSet.has(entry.id));
-    if (finished) $('#word-count').textContent = lang === 'tr' ? 'Tüm kelimeler öğrenildi.' : 'Every word is learned.';
-    $('#word-empty strong').textContent = finished
-      ? (lang === 'tr' ? 'Tüm kelimeleri tamamladın.' : 'You have completed every word.') : t('words.emptyTitle');
-    $('#word-empty .hint').textContent = finished
-      ? (lang === 'tr' ? 'Normal kelimeler ve sınav kelimeleri öğrenildi olarak işaretli.' : 'All regular and exam words are marked as learned.') : t('words.emptyText');
-    $('#empty-reset').hidden = finished;
-    this.describe();
+  learned() { this.dirty = true; if (Router.current === 'words') this.start(); },
+  render() { this.start(); },
+  onShow() { this.start(); },
+  start() {
+    Review.mount('words');
+    const stage = this.stage();
+    Review.sequence = true;
+    Review.mode = 'learn'; Review.level = stage.level;
+    Review.queue = this.available(stage).slice(0, 10).map(entry => 'w:' + entry.id);
+    Review.total = Review.queue.length; Review.doneNow = 0; Review.combo = 0; Review.gained = 0;
+    Review.shown = false; Review.open = null;
+    $('.review-progress').hidden = false;
     this.dirty = false;
+    Review.render();
   },
-  // Keep the loaded batch and an existing screen anchor when one card disappears.
-  learned(entry) {
-    const card = CARD_NODES.get(entry.id);
-    const focused = card && card.contains(document.activeElement);
-    const anchor = $$('#word-list .word-card').find(node => node !== card && node.getBoundingClientRect().bottom > 80);
-    const top = anchor && anchor.getBoundingClientRect().top;
-    const shown = this.shown;
-    const wasExam = this.exam;
-    this.compute();
-    if (wasExam !== this.exam) {
-      this.filters.query = '';
-      $('#word-search').value = '';
+  empty() {
+    $('.review-progress').hidden = !Review.total;
+    const stage = this.stage(), available = this.available(stage);
+    const finished = stage.exam && !stage.unknown.length;
+    const waiting = stage.unknown.length && !available.length && !this.filters.query;
+    const searched = Boolean(this.filters.query.trim());
+    const title = finished ? this.copy('Tüm kelimeler öğrenildi.', 'Every word is learned.')
+      : searched && !available.length ? this.copy('Bu seviyede eşleşen kelime yok.', 'No matching word at this level.')
+      : waiting ? this.copy('Bu seviyede tekrar bekleyen kelimeler var.', 'Words at this level are waiting for review.')
+      : this.copy('Bu tur tamamlandı!', 'This round is complete!');
+    let note = finished ? this.copy('Normal kelimeler ve sınav kelimeleri öğrenildi olarak işaretli.', 'All regular and exam words are marked as learned.')
+      : waiting ? this.copy('Bilmediğin kelimeler sonraki tekrar gününde geri gelecek. Bu seviye bitmeden sonraki seviyeye geçilmez.', 'Your unknown words return on their next review day. Complete this level before moving on.')
+      : searched && !available.length ? this.copy('Arama yalnızca sıradaki seviyenin bilinmeyen kelimeleri içinde yapılır.', 'Search covers unknown words at your current level only.')
+      : this.copy('Sıradaki çalışma: ', 'Next study: ') + Today.deckName(stage.level);
+    if (waiting) {
+      const due = Math.min(...stage.unknown.map(entry => Review.state.cards['w:' + entry.id]?.[0] || Review.today()));
+      note += ' ' + this.copy('Yeniden çalışma: ', 'Next review: ') + Review.when(Math.max(0, due - Review.today()));
     }
-    this.render({ count: wasExam === this.exam ? Math.max(PAGE_SIZE, shown) : PAGE_SIZE });
-    if (wasExam === this.exam && anchor && anchor.isConnected) {
-      const shift = anchor.getBoundingClientRect().top - top;
-      if (shift) window.scrollBy(0, shift);
-      if (focused) anchor.querySelector('.media-toggle').focus({ preventScroll: true });
-    } else if (wasExam !== this.exam) window.scrollTo(0, 0);
-  },
-  // Exam entries have no static main-list card; create them lazily with safe text nodes.
-  card(entry) {
-    const existing = CARD_NODES.get(entry.id);
-    if (existing) return existing;
-    const groups = sentencesFor(entry);
-    const picture = WORK_PICS[entry.pic];
-    const media = h('div', { class: 'word-media' }, h('button', {
-      type: 'button', class: 'media-toggle', 'data-action': 'toggle-learned', 'aria-pressed': 'false',
-      'aria-label': t('card.toggleLabel', { w: entry.word })
-    }, picture ? h('span', { class: 'emoji-art' }, h('img', { src: picture, alt: '', loading: 'lazy', decoding: 'async', width: '120', height: '120' }))
-      : h('span', { class: 'word-art' }, h('strong', { lang: 'en', text: entry.word }))));
-    const body = h('div', { class: 'word-body' },
-      h('div', { class: 'word-title' }, h('h3', { lang: 'en', text: entry.word }),
-        h('span', { class: 'chip level', text: 'EXAM' }),
-        groups.map(([pos]) => h('span', { class: 'chip', 'data-pos': pos, text: t('pos.' + pos) }))),
-      h('p', { class: 'meaning', lang: 'tr', text: entry.meaning }));
-    if (entry.example) body.append(h('div', { class: 'example-block' },
-      h('p', { class: 'example', lang: 'en', text: entry.example }),
-      entry.exampleTr ? h('p', { class: 'tr-line tr-support', lang: 'tr', text: entry.exampleTr }) : null));
-    if (groups.length) body.append(h('details', { class: 'sentences' },
-      h('summary', { 'data-types': groups.map(([pos]) => pos).join(','), text: t('card.sentences', { types: groups.map(([pos]) => t('pos.' + pos).toLocaleLowerCase(lang)).join(', ') }) }),
-      groups.map(([pos, pairs]) => h('div', { class: 'pos-group' }, h('h4', { 'data-pos': pos, text: t('pos.' + pos) }),
-        pairs.map(([en, tr]) => h('div', { class: 'sentence' }, h('p', { lang: 'en', text: en }),
-          h('p', { class: 'tr-line tr-support', lang: 'tr', text: tr })))))));
-    body.append(h('div', { class: 'card-actions js-only' }, listenButton(entry)));
-    const card = h('article', { class: 'word-card', 'data-id': entry.id, 'data-level': 'EXAM' }, media, body);
-    CARD_NODES.set(entry.id, card);
-    return card;
-  },
-  appendPage(count = PAGE_SIZE) {
-    const end = Math.min(this.results.length, this.shown + count);
-    if (end <= this.shown && this.shown > 0) return;
-    const fragment = document.createDocumentFragment();
-    for (let i = this.shown; i < end; i++) {
-      const entry = this.results[i];
-      const label = this.exam ? (lang === 'tr' ? 'Sınav kelimeleri' : 'Exam words') : t('level.heading', { l: entry.level });
-      if (label !== this.lastGroup) { fragment.append(h('h2', { class: 'group-title', text: label })); this.lastGroup = label; }
-      const card = this.card(entry);
-      if (card.dataset.sceneReady !== '1') {
-        const scene = VisualScenes.forWord(entry.word, { lang });
-        if (scene) card.querySelector('.card-actions').before(scene);
-        card.dataset.sceneReady = '1';
-      }
-      card.hidden = false;
-      fragment.append(card);
-    }
-    $('#word-list').append(fragment);
-    this.shown = end;
-    const total = this.results.length;
-    $('#word-count').textContent = total === 0 ? t('words.countNone') : total === 1 ? t('words.countOne') : t('words.count', { n: total, s: this.shown });
-    $('#word-more').hidden = this.shown >= total;
-    $('#word-more').textContent = t('words.more', { n: Math.min(PAGE_SIZE, total - this.shown) });
-  },
-  onShow() { if (this.dirty) this.render(); }
+    const actions = [];
+    if (available.length) actions.push(h('button', { type: 'button', class: 'button primary', 'data-act': 'more', text: t('review.moreWords') }));
+    if (searched) actions.push(h('button', { type: 'button', class: 'button ghost', 'data-act': 'words-clear', text: t('words.reset') }));
+    actions.push(h('a', { class: 'button' + (actions.length ? '' : ' primary'), href: '#home', text: t('review.home') }));
+    $('#review-card').replaceChildren(h('div', { class: 'review-empty' }, h('p', { class: 'review-big', text: finished ? '🎉' : waiting ? '🗓️' : '✓' }), h('h2', { text: title }), h('p', { text: note }), h('div', { class: 'review-empty-actions' }, actions)));
+  }
 };
-
 
 /* ---------- 7l. Phrases (Everyday Conversation) ---------- */
 const Phrases = {
@@ -8053,7 +7964,7 @@ const Review = {
     this.seed();
     $('#review-card').addEventListener('click', event => this.click(event));
     document.addEventListener('keydown', event => {
-      if (Router.current !== 'review' || event.target.closest('input, select, textarea') || !this.queue.length) return;
+      if (!['review', 'words'].includes(Router.current) || document.querySelector('dialog[open]') || event.target.closest('input, select, textarea') || !this.queue.length) return;
       if ((event.key === ' ' || event.key === 'Enter') && !this.shown) { event.preventDefault(); this.flip(); }
       else if (this.shown && ['1', '2', '3', '4'].includes(event.key)) {
         const tile = $$('#review-card [data-rate]')[Number(event.key) - 1];
@@ -8153,7 +8064,15 @@ const Review = {
   /* "#review" goes through the cards due; "#review/learn/B1" teaches new words of a deck;
      "#review/novel" studies the words saved from the novel and the teacher, "#review/words" lists them. */
   saved() { return Object.keys(this.state.cards).filter(id => id.startsWith('n:') && this.content(id)); },
+  mount(route) {
+    const workspace = $('#review-workspace');
+    const target = route === 'words' ? $('#words-study') : $('#review-home');
+    if (workspace.parentNode !== target) target.append(workspace);
+    $('.view[data-view="words"]').setAttribute('aria-labelledby', route === 'words' ? 'review-title' : 'words-title');
+  },
   onShow() {
+    this.mount('review');
+    this.sequence = false;
     const [, mode, level] = location.hash.split('/');
     this.mode = mode === 'learn' ? 'learn' : 'review';
     this.level = decodeURIComponent(level || '');
@@ -8180,7 +8099,9 @@ const Review = {
     const button = event.target.closest('button');
     if (button && button.dataset.say) { event.stopPropagation(); Grammar.say(button.dataset.say); return; }
     if (button && button.dataset.rate) { if (this.shown) this.rate(button.dataset.rate); else this.flip(); return; }
-    if (button && button.dataset.act === 'more') { this.onShow(); return; }
+    if (button && button.dataset.act === 'more') { if (this.sequence) Words.start(); else this.onShow(); return; }
+    if (button && button.dataset.act === 'words-clear') { Words.filters.query = ''; Words.start(); return; }
+    if (button && button.dataset.act === 'show') { this.flip(); return; }
     if (button && button.dataset.removeDeck) {
       MyDecks.remove(button.dataset.removeDeck);
       this.renderMyDecks();
@@ -8193,7 +8114,7 @@ const Review = {
       if (!$('#review-card .saved-item')) this.renderWords();
       return;
     }
-    if (!this.shown && event.target.closest('.flash-card')) this.flip();
+    if (!button && !this.shown && event.target.closest('.flash-card')) this.flip();
   },
   flip() {
     this.shown = true;
@@ -8355,7 +8276,7 @@ const Review = {
   render() {
     const box = $('#review-card');
     const learn = this.mode === 'learn';
-    $('#review-title').textContent = learn ? t('review.learnTitle', { l: Today.deckName(this.level) }) : t(this.mode === 'mistakes' ? 'game.mistakes' : this.mode === 'novel' ? 'deck.novel' : 'review.title');
+    $('#review-title').textContent = this.sequence ? t('nav.words') + ' · ' + Today.deckName(this.level) : learn ? t('review.learnTitle', { l: Today.deckName(this.level) }) : t(this.mode === 'mistakes' ? 'game.mistakes' : this.mode === 'novel' ? 'deck.novel' : 'review.title');
     $('#review-lead').textContent = t(learn ? 'review.learnLead' : 'review.lead');
     const done = this.doneToday();
     const goal = this.state.goal;
@@ -8364,6 +8285,7 @@ const Review = {
     $('#review-combo').hidden = this.combo < 2;
     $('#review-combo').textContent = t('review.combo', { n: this.combo });
     if (!this.queue.length) {
+      if (this.sequence) { Words.empty(); return; }
       const waiting = Object.keys(this.state.cards).length;
       const finished = this.total > 0;
       const more = learn && this.newWords(this.level).length > 0;
@@ -8386,7 +8308,7 @@ const Review = {
     const intervals = learn ? { again: t('review.soon'), hard: t('review.later'), good: this.when(1), easy: this.when(4) }
       : Object.fromEntries(['again', 'hard', 'good', 'easy'].map(answer => [answer, this.when(this.next(card, answer))]));
     box.replaceChildren(...[
-      h('div', { class: 'flash-card' + (this.shown ? ' is-flipped' : ''), role: this.shown ? null : 'button', tabindex: this.shown ? null : '0', 'aria-label': this.shown ? null : t('review.show') },
+      h('div', { class: 'flash-card' + (this.shown ? ' is-flipped' : ''), role: 'group', 'aria-label': kinds[content.kind] },
         h('div', { class: 'flash-chips' },
           h('span', { class: 'flash-chip is-level', text: kinds[content.kind] }),
           ...(details ? details.types : []).map(type => h('span', { class: 'flash-chip', text: type }))),
@@ -8403,9 +8325,9 @@ const Review = {
             content.kind === 'word' && content.sentence ? h('p', { class: 'review-example', lang: 'en', text: content.sentence }) : null,
             content.sentenceTr ? h('p', { class: 'review-example-tr', lang: 'tr', text: content.sentenceTr }) : null,
             this.typeExamples(content))
-          : h('p', { class: 'flash-hint' }, icon('repeat'), t('review.tapHint'))),
+          : h('button', { type: 'button', class: 'button ghost flash-reveal', 'data-act': 'show', text: t('review.show') })),
       h('div', { class: 'rate-head' }, h('span', { text: t(content.kind === 'grammar' ? 'review.recallLevel' : 'review.wordChoice') }), h('span', { class: 'rate-xp', text: t('review.instantXp') })),
-      /* Always in sight as in the design; before the card is turned they are dimmed and turn it first. */
+      /* Before the answer is visible, rating buttons reveal it first. */
       /* Words have two answers: again, or learned. Grammar keeps the finer scale. */
       h('div', { class: 'review-rate' + (this.shown ? '' : ' is-waiting') + (content.kind === 'grammar' ? '' : ' is-two') }, (content.kind === 'grammar' ? [['again', 'review.again', 5], ['hard', 'review.hard', 10], ['good', 'review.good', 20], ['easy', 'review.easy', 30]] : [['again', 'review.again', 5], ['good', 'review.learned', 20]]).map(([answer, label, xp], index) =>
         h('button', { type: 'button', class: 'rate-tile is-' + answer, 'data-rate': answer, 'aria-keyshortcuts': String(index + 1) },
@@ -8589,9 +8511,7 @@ const Nav = {
     $('#topbar-search').addEventListener('submit', event => {
       event.preventDefault();
       const query = $('#topbar-q').value.trim();
-      $('#word-search').value = query;
-      Words.filters.query = query;
-      if (Router.current === 'words') Words.render(); else { Words.dirty = true; location.hash = '#words'; }
+      Words.search(query);
       $('#topbar-q').blur();
     });
   },

@@ -850,3 +850,26 @@ Checks and screenshots are in `audits/2026-11-15/`. The vocabulary sequence,
 mobile usability and backend ownership/rate-limit checks use real application
 code. Backend checks run against a real local Worker+D1 database. Cross-reader
 browser checks use two isolated browser contexts and that same local API.
+
+## Words uses the deck study cards — v2.8.5 (2026-11-15)
+
+The Words tab now opens the same single-card workspace used by Home's word
+decks. It shows one English word with its picture and audio, a real reveal
+button, then the existing Again / Learned answers. There is no scrolling
+word-card grid in the JavaScript interface. The workspace moves between the
+two routes without cloning controls or duplicating IDs. Static word cards
+remain available when JavaScript is disabled.
+
+Words studies the earliest unfinished level, starting at A2. Each round has
+up to ten unknown words in source order. Learned words leave the pool; Again
+keeps a word unknown and schedules it for tomorrow, as the Home decks do.
+Pending unknown words block advancing past that level or unlocking exams.
+When the round ends, Continue starts the next available round. Exam words
+unlock only after all regular words are learned. Existing Home deck behavior,
+saved progress, corrected meanings and shared novel notes are preserved.
+
+Validation: `tools/test_words_flashcards.cjs`, the adapted content and
+usability checks, plus the reader checks. Results and study screenshots are
+under `audits/2026-11-15/`. The reveal control and nested audio controls are
+separate accessible buttons, and rating text retains its contrast before
+revealing an answer.

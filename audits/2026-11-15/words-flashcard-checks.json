@@ -1,0 +1,13 @@
+{
+  "results": [
+    "Words opens the same single-card study workspace, at the first unknown A2 word; answer stays hidden until reveal",
+    "Keyboard reveal and Learned use real progress; the next word appears and learned words stay excluded after reload",
+    "Again keeps the word unknown and schedules it for tomorrow",
+    "Completing A2 starts the next unknown B1 card",
+    "A postponed unknown regular word cannot unlock exams; when due it remains studyable",
+    "The final regular Learned answer unlocks the separate exam deck in the same study-card interface",
+    "Completing both pools shows a truthful finished state",
+    "Home deck navigation still works; one workspace moves between routes without duplicate IDs or narrow-screen overflow"
+  ],
+  "errors": []
+}

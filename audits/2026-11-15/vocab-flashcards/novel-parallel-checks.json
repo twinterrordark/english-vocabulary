@@ -1,0 +1,15 @@
+{
+  "results": [
+    "Top TR button works by keyboard; each complete English sentence has its own Turkish directly below",
+    "Word and phrasal-verb lookup survives parallel layout; speech reads only English",
+    "TR off restores original paragraphs; toggling back reuses cached translations",
+    "Late translation from an old page cannot overwrite the current page",
+    "Word lookup keeps complete context across continued PDF pages while TR is on",
+    "Service failure preserves English with a working retry; fallback service also translates",
+    "Cached sentences work offline; uncached sentences recover after reconnecting",
+    "TR choice, original bookmarks, cache and learned vocabulary survive reload; 320px layout fits"
+  ],
+  "errors": [],
+  "requests": 11,
+  "mockedServices": true
+}

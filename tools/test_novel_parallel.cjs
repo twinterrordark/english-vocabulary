@@ -19,6 +19,13 @@ const server = http.createServer((req, res) => {
   await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
   const browser = await chromium.launch({ channel: 'chrome', headless: true });
   const context = await browser.newContext({ viewport: { width: 390, height: 844 }, reducedMotion: 'reduce' });
+  const vocab = JSON.parse(html.match(/id="vocab-data">([\s\S]*?)<\/script>/)[1]);
+  await context.addInitScript(learned => {
+    if (sessionStorage.getItem('__parallelProgressSeeded')) return;
+    localStorage.setItem('english-study-app.v1', JSON.stringify({ schemaVersion: 1, learned, settings: { uiLang: 'tr', path: 'all', showTurkish: true }, quiz: { attempts: 0, correct: 0 }, activity: {} }));
+    localStorage.setItem('english-study-review.v1', JSON.stringify({ goal: 20, cards: {}, saved: {}, log: {}, recall: {}, seeded: true }));
+    sessionStorage.setItem('__parallelProgressSeeded', '1');
+  }, vocab.filter(entry => entry.id !== 'extra-classroom').map(entry => entry.id));
   const page = await context.newPage(); page.setDefaultTimeout(10000);
   const errors = [], requests = [], results = [];
   page.on('pageerror', error => errors.push(error.message));
@@ -47,8 +54,9 @@ const server = http.createServer((req, res) => {
   try {
     await page.goto(`http://127.0.0.1:${server.address().port}/#words`);
     await page.waitForFunction(() => window.__appReady === true);
-    await page.locator('#word-search').fill('classroom');
-    const word = page.locator('#word-list [data-id="extra-classroom"] .media-toggle'); await word.waitFor(); await word.click();
+    assert.equal(await page.locator('#review-card .review-word').innerText(), 'classroom');
+    await page.locator('#review-card [data-act="show"]').click();
+    await page.locator('#review-card [data-rate="good"]').click();
     await page.evaluate(() => {
       localStorage.setItem('english-study-novel.v1', JSON.stringify({ v: 3, name: 'earlier.pdf', marks: { 'earlier.pdf': 42 }, totals: { 'earlier.pdf': 100 }, titles: {}, size: 1.12, auto: false, paper: 'sepia' }));
       location.hash = 'novel';
@@ -118,11 +126,11 @@ const server = http.createServer((req, res) => {
     await page.reload(); await page.waitForFunction(() => window.__appReady === true);
     await open([['Dr. Smith took his coat off.']]); await waitLines([tr['Dr. Smith took his coat off.']]);
     assert.equal(await page.locator('#novel-tr').getAttribute('aria-pressed'), 'true');
-    const saved = await page.evaluate(() => ({ novel: JSON.parse(localStorage.getItem('english-study-novel.v1')), learned: EnglishStudyDiagnostics.progressSummary().learned }));
-    assert.equal(saved.novel.tr, true); assert.equal(saved.novel.marks['earlier.pdf'], 42); assert(saved.learned >= 1);
+    const saved = await page.evaluate(() => ({ novel: JSON.parse(localStorage.getItem('english-study-novel.v1')), learned: JSON.parse(localStorage.getItem('english-study-app.v1')).learned }));
+    assert.equal(saved.novel.tr, true); assert.equal(saved.novel.marks['earlier.pdf'], 42); assert(saved.learned.includes('extra-classroom'));
     pass('TR choice, original bookmarks, cache and learned vocabulary survive reload; 320px layout fits');
     assert.deepEqual(errors, []);
-    const out = path.join(root, 'audits/2026-11-12'); fs.mkdirSync(out, { recursive: true });
+    const out = process.env.NOVEL_PARALLEL_OUTPUT ? path.resolve(process.env.NOVEL_PARALLEL_OUTPUT) : path.join(root, 'audits/2026-11-12'); fs.mkdirSync(out, { recursive: true });
     await page.screenshot({ path: path.join(out, 'novel-parallel-320.png') });
     fs.writeFileSync(path.join(out, 'novel-parallel-checks.json'), JSON.stringify({ results, errors, requests: requests.length, mockedServices: true }, null, 2) + '\n');
   } finally { if (releaseSlow) releaseSlow(); await context.close(); await browser.close(); server.close(); }

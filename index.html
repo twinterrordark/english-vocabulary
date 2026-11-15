@@ -3,7 +3,7 @@
 <head>
 <!-- ======================================================================
   1. DOCUMENT METADATA AND THEME
-  English Study · version 2.8.4
+  English Study · version 2.8.5
   Generated from b1-b2-kelimeler-responsive.html by tools/build_index.py.
   Runs directly from this one file: no server, build step or network needed.
 ====================================================================== -->
@@ -1150,7 +1150,8 @@ input:focus-visible, select:focus-visible, textarea:focus-visible { outline: non
 .home-path summary { cursor: pointer; font-weight: 700; }
 .home-path .field { margin-top: var(--space-3); }
 /* ---------- Flashcards (WordFlow) ---------- */
-.view[data-view="review"] { max-width: 640px; }
+.view[data-view="review"], html.js .view[data-view="words"] { max-width: 640px; }
+html.js .word-static { display: none !important; }
 .review-progress { display: grid; gap: 8px; margin-bottom: var(--space-4); }
 .review-progress-top { display: flex; align-items: center; justify-content: space-between; gap: var(--space-2); }
 .review-progress-top strong { font: 800 1.15rem/1 var(--font-display); }
@@ -1177,7 +1178,7 @@ input:focus-visible, select:focus-visible, textarea:focus-visible { outline: non
 .review-rate { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-2); }
 .rate-tile { display: grid; justify-items: center; gap: 3px; min-width: 0; padding: 10px 4px; border: 0; border-radius: 16px; font: inherit; cursor: pointer; transition: transform .08s; }
 .rate-tile:active { transform: translateY(2px); }
-.rate-tile small { font: 800 .72rem/1.2 var(--font-display); text-transform: uppercase; letter-spacing: .04em; }
+.rate-tile small { font: 800 .72rem/1.2 var(--font-display); text-transform: uppercase; letter-spacing: .04em; opacity: 1; }
 .rate-tile strong { font: 600 1.15rem/1.2 var(--font-display); }
 .rate-points { padding: 2px 8px; border-radius: 999px; color: #fff; font: 800 .75rem/1.3 var(--font-display); }
 .rate-tile.is-again { background: #fde4e1; color: #b3261e; box-shadow: 0 3px 0 #f6b9b2; } .is-again .rate-points { background: #c0261b; }
@@ -1527,7 +1528,7 @@ body.novel-focus .novel-pop-sentence i { color: var(--paper-text); }
 .nw.is-hard::after { content: "•"; color: #b45309; margin-left: 1px; }
 .novel-pop.is-inline { position: static; transform: none; width: auto; box-shadow: 0 8px 20px rgba(19, 27, 46, .1); margin-top: var(--space-2); }
 
-.review-rate.is-waiting .rate-tile { opacity: .55; }
+.review-rate.is-waiting .rate-tile { opacity: 1; }
 @media (max-width: 1023px) {
   body.route-review .bottom-nav, body.route-review .site-footer { display: none; }
   body.route-review { padding-bottom: env(safe-area-inset-bottom); }
@@ -2061,6 +2062,7 @@ select#today-goal, .tutor-scenario select { min-height: var(--tap); }
 
   <!-- Review: spaced repetition cards from words, the novel and grammar. -->
   <section class="view" data-view="review" aria-labelledby="review-title">
+    <div id="review-home"><div id="review-workspace">
     <div class="screen-top">
       <a class="screen-back" href="#home" aria-label="Geri" data-i18n-aria="tutor.back"><svg class="icon" aria-hidden="true"><use href="#i-arrow-left"/></svg></a>
       <span class="brand-mark small" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M5 9l4.5 14L14 12l2 6 2-6 4.5 11L27 9" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
@@ -2072,6 +2074,7 @@ select#today-goal, .tutor-scenario select { min-height: var(--tap); }
       <span class="gram-meter"><span id="review-goal-bar"></span></span>
     </div>
     <div class="review-card js-only" id="review-card" aria-live="polite"></div>
+    </div></div>
   </section>
 
   <!-- Practice: the daily quest and mini games. -->
@@ -2092,25 +2095,12 @@ select#today-goal, .tutor-scenario select { min-height: var(--tap); }
     <div class="rank-area js-only" id="rank-area"></div>
   </section>
 
-  <!-- Vocabulary -->
+  <!-- Vocabulary uses the existing deck study cards. Static cards remain a no-JS fallback. -->
   <section class="view" data-view="words" aria-labelledby="words-title">
-    <div class="view-head">
-      <h1 id="words-title" tabindex="-1" data-i18n="words.title">Kelimeler</h1>
-      <p class="lead" data-i18n="words.lead">A2’den C1+’ya kelimeler; Türkçe anlamları, okunuşları ve her kelime türü için örnek cümleleriyle.</p>
-    </div>
-    <p class="tap-hint js-only"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="words.tapHint">Bildiğin kelimenin kartına dokun; öğrenildi olarak işaretlenir ve bu listeden çıkar.</span></p>
-    <div class="panel toolbar js-only" role="search">
-      <div class="field search-field">
-        <label for="word-search" data-i18n="words.search">İngilizce ya da Türkçe ara</label>
-        <input id="word-search" type="search" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="search" placeholder="ör. achieve, başarmak" data-i18n-placeholder="words.searchPh">
-      </div>
-    </div>
-    <p id="word-sequence-note" class="hint js-only" aria-live="polite"></p>
-    <div class="row js-only">
-      <p id="word-count" class="result-count" aria-live="polite"></p>
-      <button type="button" class="button ghost small" id="reset-filters" data-i18n="words.reset">Aramayı temizle</button>
-    </div>
-    <div id="word-list" class="word-grid"><h2 class="group-title">A2 seviyesi</h2>
+    <div id="words-study" class="js-only"></div>
+    <div class="word-static">
+      <div class="view-head"><h1 id="words-title" tabindex="-1" data-i18n="words.title">Kelimeler</h1></div>
+      <div id="word-list" class="word-grid"><h2 class="group-title">A2 seviyesi</h2>
 <article class="word-card" data-id="w4" data-level="A2"><div class="word-media"><button type="button" class="media-toggle" data-action="toggle-learned" aria-pressed="false" aria-label="“Achieve” kelimesini öğrendim olarak işaretle"><span class="emoji-art"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzNiAzNiI+PHBhdGggZmlsbD0iI0ZGQUMzMyIgZD0iTTUuMTIzIDVoNkMxMi4yMjcgNSAxMyA0Ljg5NiAxMyA2VjRjMC0xLjEwNC0uNzczLTItMS44NzctMmgtOGMtMiAwLTMuNTgzIDIuMTI1LTMgNSAwIDAgMS43OTEgOS4zNzUgMS45MTcgOS45NThDMi4zNzMgMTguNSA0LjE2NCAyMCA2LjA4MSAyMGg2Ljk1OGMxLjEwNSAwLS4wMzktMS44OTYtLjAzOS0zdi0yYzAgMS4xMDQtLjc3MyAyLTEuODc3IDJoLTRjLTEuMTA0IDAtMS44MzMtMS4wNDItMi0yUzMuNTM5IDcuNjY3IDMuNTM5IDcuNjY3QzMuMjA2IDUuNzUgNC4wMTggNSA1LjEyMyA1em0yNS44MTIgMGgtNkMyMy44MzEgNSAyMiA0Ljg5NiAyMiA2VjRjMC0xLjEwNCAxLjgzMS0yIDIuOTM1LTJoOGMyIDAgMy41ODQgMi4xMjUgMyA1IDAgMC0xLjYzMyA5LjQxOS0xLjc3MSAxMC0uMzU0IDEuNS0yLjA0MiAzLTQgM2gtNy4xNDZDMjEuOTE0IDIwIDIyIDE4LjEwNCAyMiAxN3YtMmMwIDEuMTA0IDEuODMxIDIgMi45MzUgMmg0YzEuMTA0IDAgMS44MzQtMS4wNDIgMi0yczEuNTg0LTcuMzMzIDEuNTg0LTcuMzMzQzMyLjg1MSA1Ljc1IDMyLjA0IDUgMzAuOTM1IDV6TTIwLjgzMiAyMmMwLTYuOTU4LTIuNzA5IDAtMi43MDkgMHMtMy02Ljk1OC0zIDAtMy4yOTEgMTAtMy4yOTEgMTBoMTIuMjkyYy0uMDAxIDAtMy4yOTItMy4wNDItMy4yOTItMTB6Ii8+PHBhdGggZmlsbD0iI0ZGQ0M0RCIgZD0iTTI5LjEyMyA2LjU3N2MwIDYuNzc1LTYuNzcgMTguMTkyLTExIDE4LjE5Mi00LjIzMSAwLTExLTExLjQxNy0xMS0xOC4xOTIgMC01LjE5NSAxLTYuMzE5IDMtNi4zMTkgMS4zNzQgMCA2LjAyNS0uMDI3IDgtLjAyN2w3LS4wMDFjMi45MTctLjAwMSA0IC42ODQgNCA2LjM0N3oiLz48cGF0aCBmaWxsPSIjQzE2OTRGIiBkPSJNMjcgMzNjMCAxLjEwNC4yMjcgMi0uODc3IDJoLTE2QzkuMDE4IDM1IDkgMzQuMTA0IDkgMzN2LTFjMC0xLjEwNCAxLjE2NC0yIDIuMjA2LTJoMTMuOTE3YzEuMDQyIDAgMS44NzcuODk2IDEuODc3IDJ2MXoiLz48cGF0aCBmaWxsPSIjQzE2OTRGIiBkPSJNMjkgMzQuNjI1YzAgLjc2LjE2NSAxLjM3NS0xLjI1MiAxLjM3NUg4LjQ5OEM3LjIwNiAzNiA3IDM1LjM4NSA3IDM0LjYyNXYtLjI1QzcgMzMuNjE1IDcuNzM4IDMzIDguNDk4IDMzaDE5LjI1Yy43NTkgMCAxLjI1Mi42MTUgMS4yNTIgMS4zNzV2LjI1eiIvPjwvc3ZnPg==" alt="" loading="lazy" decoding="async" width="120" height="120"></span></button><span class="learned-badge" aria-hidden="true">✓ <span data-label="card.learnedBadge">Öğrenildi</span></span></div><div class="word-body"><div class="word-title"><h3 lang="en">Achieve</h3><span class="chip level">A2</span><span class="chip" data-pos="v">Fiil</span></div><p class="pron"><span class="label" data-label="card.respelling">Okunuş</span> <span lang="tr">ı-ÇİİV</span></p><p class="meaning" lang="tr">Başarmak, elde etmek</p><div class="example-block"><p class="example" lang="en">I want to achieve my goals.</p><p class="tr-line tr-support" lang="tr">Hedeflerime ulaşmak istiyorum.</p></div><details class="sentences"><summary data-types="v">Örnek cümleler (fiil)</summary><div class="pos-group"><h4 data-pos="v">Fiil</h4><div class="sentence"><p lang="en">It took her three years to achieve her dream of opening a bakery.</p><p class="tr-line tr-support" lang="tr">Fırın açma hayaline ulaşması üç yılını aldı.</p></div><div class="sentence"><p lang="en">We achieved more in one afternoon than in the whole week.</p><p class="tr-line tr-support" lang="tr">Bir öğleden sonrada bütün haftadakinden daha çok iş başardık.</p></div></div></details><div class="card-actions js-only"></div></div></article>
 <article class="word-card" data-id="w5" data-level="A2"><div class="word-media"><button type="button" class="media-toggle" data-action="toggle-learned" aria-pressed="false" aria-label="“Advantage” kelimesini öğrendim olarak işaretle"><span class="emoji-art"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzNiAzNiI+PHBhdGggZmlsbD0iIzU1QUNFRSIgZD0iTTE4IDhsLTctOEgwbDE0IDE3IDExLjUyMS00Ljc1eiIvPjxwYXRoIGZpbGw9IiMzQjg4QzMiIGQ9Ik0yNSAwbC03IDggNS4zOSA3LjMxMiAxLjIyNy0xLjQ4OUwzNiAweiIvPjxwYXRoIGZpbGw9IiNGRkFDMzMiIGQ9Ik0yMy4yMDUgMTYuMDI2Yy4wOC0uMjE3LjEzMS0uNDQ4LjEzMS0uNjkzIDAtMS4xMDQtLjg5Ni0yLTItMmgtNi42NjdjLTEuMTA1IDAtMiAuODk2LTIgMiAwIC4yNDUuMDUuNDc2LjEzMS42OTMtMy4yNTggMS44MjYtNS40NjQgNS4zMDctNS40NjQgOS4zMDdDNy4zMzUgMzEuMjI0IDEyLjExMSAzNiAxOC4wMDIgMzZzMTAuNjY3LTQuNzc2IDEwLjY2Ny0xMC42NjdjMC00LTIuMjA2LTcuNDgxLTUuNDY0LTkuMzA3eiIvPjxwYXRoIGZpbGw9IiM5RTUyMDAiIGQ9Ik0xOS40MDQgMTguNmgtMS43MjFsLTIuNzMgMi4xMzJjLS4wNTYuMDU2LS4xMTIuMjA2LS4xMTIuMjh2MS4xNzhjMCAuMTg2LjE1LjM1NC4zMzcuMzU0aDEuNzk1djguNDE0YzAgLjE4OC4xNS4zNTUuMzU1LjM1NWgyLjA3NmMuMTg2IDAgLjMzNi0uMTY4LjMzNi0uMzU1VjE4Ljk1NGMwLS4xODYtLjE0OS0uMzU0LS4zMzYtLjM1NHoiLz48L3N2Zz4=" alt="" loading="lazy" decoding="async" width="120" height="120"></span></button><span class="learned-badge" aria-hidden="true">✓ <span data-label="card.learnedBadge">Öğrenildi</span></span></div><div class="word-body"><div class="word-title"><h3 lang="en">Advantage</h3><span class="chip level">A2</span><span class="chip" data-pos="n">İsim</span></div><p class="pron"><span class="label" data-label="card.respelling">Okunuş</span> <span lang="tr">ıd-VAN-tıc</span></p><p class="meaning" lang="tr">Avantaj, üstünlük</p><div class="example-block"><p class="example" lang="en">Our company has an advantage.</p><p class="tr-line tr-support" lang="tr">Şirketimizin bir avantajı var.</p></div><details class="sentences"><summary data-types="n">Örnek cümleler (i̇sim)</summary><div class="pos-group"><h4 data-pos="n">İsim</h4><div class="sentence"><p lang="en">Living near the station is a big advantage when you work in the city.</p><p class="tr-line tr-support" lang="tr">Şehirde çalışıyorsan istasyona yakın oturmak büyük bir avantajdır.</p></div><div class="sentence"><p lang="en">He took advantage of the quiet morning to finish his report.</p><p class="tr-line tr-support" lang="tr">Sessiz sabahı fırsat bilip raporunu bitirdi.</p></div></div></details><div class="card-actions js-only"></div></div></article>
 <article class="word-card" data-id="w6" data-level="A2"><div class="word-media"><button type="button" class="media-toggle" data-action="toggle-learned" aria-pressed="false" aria-label="“Advertise” kelimesini öğrendim olarak işaretle"><img src="data:image/webp;base64,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" alt="" loading="lazy" decoding="async" width="320" height="240"></button><span class="learned-badge" aria-hidden="true">✓ <span data-label="card.learnedBadge">Öğrenildi</span></span></div><div class="word-body"><div class="word-title"><h3 lang="en">Advertise</h3><span class="chip level">A2</span><span class="chip" data-pos="v">Fiil</span></div><p class="pron"><span class="label" data-label="card.respelling">Okunuş</span> <span lang="tr">ED-vır-tayz</span></p><p class="meaning" lang="tr">Reklam yapmak</p><div class="example-block"><p class="example" lang="en">We advertise our products online.</p><p class="tr-line tr-support" lang="tr">Ürünlerimizin reklamını internette yapıyoruz.</p></div><details class="sentences"><summary data-types="v">Örnek cümleler (fiil)</summary><div class="pos-group"><h4 data-pos="v">Fiil</h4><div class="sentence"><p lang="en">The café advertises its daily specials on a board outside.</p><p class="tr-line tr-support" lang="tr">Kafe günün spesiyallerini dışarıdaki bir tahtada duyuruyor.</p></div><div class="sentence"><p lang="en">They advertised the flat online and found a tenant in two days.</p><p class="tr-line tr-support" lang="tr">Daireyi internette ilana verdiler ve iki günde kiracı buldular.</p></div></div></details><div class="card-actions js-only"></div></div></article>
@@ -4315,12 +4305,7 @@ select#today-goal, .tutor-scenario select { min-height: var(--tap); }
 <article class="word-card" data-id="wk-biz-33" data-level="C1+"><div class="word-media"><button type="button" class="media-toggle" data-action="toggle-learned" aria-pressed="false" aria-label="“invoice” kelimesini öğrendim olarak işaretle"><span class="emoji-art"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzNiAzNiI+PHBhdGggZmlsbD0iI0NDRDZERCIgZD0iTTMyIDM2bC0yLTItMiAyLTItMi0yIDItMi0yLTIgMi0yLTItMiAyLTItMi0yIDItMi0yLTIgMi0yLTItMiAyVjBsMiAyIDEuOTU4LTJMMTAgMmwyLjA0Mi0yTDE0IDJsMi4wNDItMkwxOCAybDIuMDgzLTJMMjIgMmwyLjEyNS0yTDI2IDJsMS45NTgtMkwzMCAybDItMnoiLz48cGF0aCBmaWxsPSIjOTlBQUI1IiBkPSJNMTkgMTdIOWMtLjU1IDAtMS0uNDUtMS0xcy40NS0xIDEtMWgxMGMuNTUgMCAxIC40NSAxIDFzLS40NSAxLTEgMXptOCAwaC00Yy0uNTUgMC0xLS40NS0xLTFzLjQ1LTEgMS0xaDRjLjU1IDAgMSAuNDUgMSAxcy0uNDUgMS0xIDF6bS04IDRIOWMtLjU1IDAtMS0uNDUtMS0xcy40NS0xIDEtMWgxMGMuNTUgMCAxIC40NSAxIDFzLS40NSAxLTEgMXptOCAwaC00Yy0uNTUgMC0xLS40NS0xLTFzLjQ1LTEgMS0xaDRjLjU1IDAgMSAuNDUgMSAxcy0uNDUgMS0xIDF6bTAgNkg5Yy0uNTUgMC0xLS40NS0xLTFzLjQ1LTEgMS0xaDE4Yy41NSAwIDEgLjQ1IDEgMXMtLjQ1IDEtMSAxem0wIDRoLTRjLS41NSAwLTEtLjQ1LTEtMXMuNDUtMSAxLTFoNGMuNTUgMCAxIC40NSAxIDFzLS40NSAxLTEgMXoiLz48Y2lyY2xlIGZpbGw9IiM5OUFBQjUiIGN4PSIxOCIgY3k9IjgiIHI9IjQiLz48L3N2Zz4=" alt="" loading="lazy" decoding="async" width="120" height="120"></span></button><span class="learned-badge" aria-hidden="true">✓ <span data-label="card.learnedBadge">Öğrenildi</span></span></div><div class="word-body"><div class="word-title"><h3 lang="en">invoice</h3><span class="chip level">C1+</span><span class="chip" data-pos="n">İsim</span></div><p class="meaning" lang="tr">fatura</p><div class="example-block"><p class="example" lang="en">I sent the invoice last week.</p><p class="tr-line tr-support" lang="tr">Faturayı geçen hafta gönderdim.</p></div><details class="sentences"><summary data-types="n">Örnek cümleler (i̇sim)</summary><div class="pos-group"><h4 data-pos="n">İsim</h4><div class="sentence"><p lang="en">I have the invoice.</p><p class="tr-line tr-support" lang="tr">Benim faturam var.</p></div><div class="sentence"><p lang="en">Tom admitted that he had made a mistake on the invoice.</p><p class="tr-line tr-support" lang="tr">Tom faturada bir hata yaptığını itiraf etti.</p></div></div></details><div class="card-actions js-only"></div></div></article>
 <article class="word-card" data-id="wk-biz-42" data-level="C1+"><div class="word-media"><button type="button" class="media-toggle" data-action="toggle-learned" aria-pressed="false" aria-label="“workload” kelimesini öğrendim olarak işaretle"><span class="emoji-art"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzNiAzNiI+PHBhdGggZmlsbD0iIzlBNEUxQyIgZD0iTTMyIDhoLTZWNGMwLTIuMjA5LTEuNzkxLTQtNC00aC04Yy0yLjIwOSAwLTQgMS43OTEtNCA0djRINGMtMi4yMDkgMC00IDEuNzkxLTQgNHYyMGMwIDIuMjA5IDEuNzkxIDQgNCA0aDI4YzIuMjA5IDAgNC0xLjc5MSA0LTRWMTJjMC0yLjIwOS0xLjc5MS00LTQtNHpNMTIgNmMwLTEuMTA0Ljg5Ni0yIDItMmg4YzEuMTA0IDAgMiAuODk2IDIgMnYySDEyVjZ6Ii8+PHBhdGggZmlsbD0iIzY2MjExMyIgZD0iTTM2IDIwYzAgMi4yMDktMS43OTEgNC00IDRINGMtMi4yMDkgMC00LTEuNzkxLTQtNHYtOGMwLTIuMjA5IDEuNzkxLTQgNC00aDI4YzIuMjA5IDAgNCAxLjc5MSA0IDR2OHoiLz48cGF0aCBmaWxsPSIjOUE0RTFDIiBkPSJNMzYgMThjMCAyLjIwOS0xLjc5MSA0LTQgNEg0Yy0yLjIwOSAwLTQtMS43OTEtNC00di02YzAtMi4yMDkgMS43OTEtNCA0LTRoMjhjMi4yMDkgMCA0IDEuNzkxIDQgNHY2eiIvPjxwYXRoIGZpbGw9IiNDQ0Q2REQiIGQ9Ik0yMiAxOGMwIDEuMTA0LS44OTYgMi0yIDJoLTRjLTEuMTA0IDAtMi0uODk2LTItMnMuODk2LTIgMi0yaDRjMS4xMDQgMCAyIC44OTYgMiAyIi8+PC9zdmc+" alt="" loading="lazy" decoding="async" width="120" height="120"></span></button><span class="learned-badge" aria-hidden="true">✓ <span data-label="card.learnedBadge">Öğrenildi</span></span></div><div class="word-body"><div class="word-title"><h3 lang="en">workload</h3><span class="chip level">C1+</span><span class="chip" data-pos="n">İsim</span></div><p class="meaning" lang="tr">iş yükü</p><div class="example-block"><p class="example" lang="en">My workload is very heavy this month.</p><p class="tr-line tr-support" lang="tr">Bu ay iş yüküm çok fazla.</p></div><details class="sentences"><summary data-types="n">Örnek cümleler (i̇sim)</summary><div class="pos-group"><h4 data-pos="n">İsim</h4><div class="sentence"><p lang="en">This heavy workload is too much for me.</p><p class="tr-line tr-support" lang="tr">Bu ağır iş yükü benim için çok fazla.</p></div><div class="sentence"><p lang="en">Tom is barely coping with his workload at the moment.</p><p class="tr-line tr-support" lang="tr">Tom şu anda zar zor iş yükü ile başa çıkmaya çalışıyor.</p></div></div></details><div class="card-actions js-only"></div></div></article>
 <article class="word-card" data-id="wk-biz-43" data-level="C1+"><div class="word-media"><button type="button" class="media-toggle" data-action="toggle-learned" aria-pressed="false" aria-label="“overtime” kelimesini öğrendim olarak işaretle"><span class="emoji-art"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzNiAzNiI+PHBhdGggZmlsbD0iIzlBNEUxQyIgZD0iTTMyIDhoLTZWNGMwLTIuMjA5LTEuNzkxLTQtNC00aC04Yy0yLjIwOSAwLTQgMS43OTEtNCA0djRINGMtMi4yMDkgMC00IDEuNzkxLTQgNHYyMGMwIDIuMjA5IDEuNzkxIDQgNCA0aDI4YzIuMjA5IDAgNC0xLjc5MSA0LTRWMTJjMC0yLjIwOS0xLjc5MS00LTQtNHpNMTIgNmMwLTEuMTA0Ljg5Ni0yIDItMmg4YzEuMTA0IDAgMiAuODk2IDIgMnYySDEyVjZ6Ii8+PHBhdGggZmlsbD0iIzY2MjExMyIgZD0iTTM2IDIwYzAgMi4yMDktMS43OTEgNC00IDRINGMtMi4yMDkgMC00LTEuNzkxLTQtNHYtOGMwLTIuMjA5IDEuNzkxLTQgNC00aDI4YzIuMjA5IDAgNCAxLjc5MSA0IDR2OHoiLz48cGF0aCBmaWxsPSIjOUE0RTFDIiBkPSJNMzYgMThjMCAyLjIwOS0xLjc5MSA0LTQgNEg0Yy0yLjIwOSAwLTQtMS43OTEtNC00di02YzAtMi4yMDkgMS43OTEtNCA0LTRoMjhjMi4yMDkgMCA0IDEuNzkxIDQgNHY2eiIvPjxwYXRoIGZpbGw9IiNDQ0Q2REQiIGQ9Ik0yMiAxOGMwIDEuMTA0LS44OTYgMi0yIDJoLTRjLTEuMTA0IDAtMi0uODk2LTItMnMuODk2LTIgMi0yaDRjMS4xMDQgMCAyIC44OTYgMiAyIi8+PC9zdmc+" alt="" loading="lazy" decoding="async" width="120" height="120"></span></button><span class="learned-badge" aria-hidden="true">✓ <span data-label="card.learnedBadge">Öğrenildi</span></span></div><div class="word-body"><div class="word-title"><h3 lang="en">overtime</h3><span class="chip level">C1+</span><span class="chip" data-pos="n">İsim</span><span class="chip" data-pos="adv">Zarf</span></div><p class="meaning" lang="tr">fazla mesai</p><div class="example-block"><p class="example" lang="en">We worked overtime to finish it.</p><p class="tr-line tr-support" lang="tr">Bitirmek için fazla mesai yaptık.</p></div><details class="sentences"><summary data-types="n,adv">Örnek cümleler (i̇sim, zarf)</summary><div class="pos-group"><h4 data-pos="n">İsim</h4><div class="sentence"><p lang="en">He put in ten hours of overtime this week.</p><p class="tr-line tr-support" lang="tr">O, bu hafta on saat fazla mesai yaptı.</p></div><div class="sentence"><p lang="en">I exempted her from working overtime.</p><p class="tr-line tr-support" lang="tr">Onu fazla mesai yapmaktan muaf tuttum.</p></div></div><div class="pos-group"><h4 data-pos="adv">Zarf</h4><div class="sentence"><p lang="en">I&#x27;m afraid you have to work overtime.</p><p class="tr-line tr-support" lang="tr">Korkarım ki fazla çalışmak zorundasın.</p></div><div class="sentence"><p lang="en">You won&#x27;t have to work overtime today.</p><p class="tr-line tr-support" lang="tr">Bugün fazla mesai yapmak zorunda olmayacaksın.</p></div></div></details><div class="card-actions js-only"></div></div></article></div>
-    <div id="word-empty" class="panel empty" hidden>
-      <p><strong data-i18n="words.emptyTitle">Eşleşen bilinmeyen kelime yok.</strong></p>
-      <p class="hint" data-i18n="words.emptyText">Daha kısa bir arama dene ya da aramayı temizle. Öğrenilen kelimeler gösterilmez.</p>
-      <button type="button" class="button primary" id="empty-reset" data-i18n="words.reset">Aramayı temizle</button>
     </div>
-    <div class="more-row js-only"><button type="button" class="button" id="word-more" hidden></button></div>
   </section>
 
   <!-- Phrases / Daily Conversation -->
@@ -4789,7 +4774,7 @@ select#today-goal, .tutor-scenario select { min-height: var(--tap); }
   <p>İş ve sınav kelimelerinin resimleri de Twemoji'dir; birçoğu kelimeyi temsilen seçildi.</p>
   <p>Örnek cümlelerin bir bölümü: <a href="https://tatoeba.org" target="_blank" rel="noopener">Tatoeba</a> (<a href="https://creativecommons.org/licenses/by/2.0/fr/" target="_blank" rel="noopener">CC BY 2.0 FR</a>), <a href="https://www.manythings.org/anki/" target="_blank" rel="noopener">manythings.org</a> derlemesinden; cümleler kelimelere ve türlere göre seçildi.</p>
   <p>Fotoğraflar: Wikimedia Commons (yazar ve lisans kartlarda). Simgeler: <a href="https://github.com/jdecked/twemoji" target="_blank" rel="noopener">Twemoji</a>, CC BY 4.0. PDF okuma: <a href="https://mozilla.github.io/pdf.js/" target="_blank" rel="noopener">pdf.js</a> (Mozilla, Apache-2.0). Yazı tipleri: Outfit ve Plus Jakarta Sans (SIL Open Font License).</p>
-  <p>English Study · v2.8.4</p>
+  <p>English Study · v2.8.5</p>
 </footer>
 
 <div id="toast" class="toast" role="status" aria-live="polite"></div>
@@ -4884,7 +4869,7 @@ select#today-goal, .tutor-scenario select { min-height: var(--tap); }
 <script>
 (() => {
 'use strict';
-const APP_VERSION = '2.8.4';
+const APP_VERSION = '2.8.5';
 /* Small polyfill so the app also starts on browsers from before 2020. */
 if (!Element.prototype.replaceChildren) {
   Element.prototype.replaceChildren = function () {
@@ -6083,7 +6068,7 @@ const Router = {
     Nav.update(name);
     if (moveFocus && changed) {
       window.scrollTo(0, 0);
-      const heading = $('.view[data-view="' + name + '"] h1');
+      const heading = $$('.view[data-view="' + name + '"] h1').find(node => node.getClientRects().length);
       if (heading) heading.focus({ preventScroll: true });
     }
   }
@@ -6119,139 +6104,65 @@ const Home = {
 };
 
 /* ---------- 7k. Vocabulary list ---------- */
-const PAGE_SIZE = 24;
 const LEVELS = ['A2', 'B1', 'B2', 'C1', 'C1+'];
 const Words = {
-  filters: { query: '' },
-  results: [], shown: 0, lastGroup: null, searchTimer: 0, dirty: true, exam: false,
-  init() {
-    const search = $('#word-search');
-    search.addEventListener('input', () => {
-      clearTimeout(this.searchTimer);
-      this.searchTimer = setTimeout(() => { this.filters.query = search.value; this.render(); }, 150);
-    });
-    search.addEventListener('keydown', event => { if (event.key === 'Enter') search.blur(); });
-    $('#reset-filters').addEventListener('click', () => this.reset());
-    $('#empty-reset').addEventListener('click', () => { this.reset(); search.focus(); });
-    $('#word-more').addEventListener('click', () => this.appendPage());
-    if ('IntersectionObserver' in window) new IntersectionObserver(items => {
-      if (items.some(item => item.isIntersecting) && Router.current === 'words' && !$('#word-more').hidden) this.appendPage();
-    }, { rootMargin: '400px 0px' }).observe($('#word-more'));
-    bindWordActions($('#word-list'));
+  filters: { query: '' }, dirty: true,
+  copy(tr, en) { return lang === 'tr' ? tr : en; },
+  init() {},
+  renderLevelOptions() {},
+  stage() {
+    const regular = VOCAB.filter(entry => !learnedSet.has(entry.id)).sort((a, b) => LEVELS.indexOf(a.level) - LEVELS.indexOf(b.level) || a.order - b.order);
+    if (regular.length) return { level: regular[0].level, unknown: regular.filter(entry => entry.level === regular[0].level), exam: false };
+    return { level: 'EXAM', unknown: WORK.filter(entry => !learnedSet.has(entry.id)), exam: true };
   },
-  // Kept as the language-change hook; there are no selectable status/order filters.
-  renderLevelOptions() { this.describe(); },
-  reset() {
-    this.filters.query = '';
-    $('#word-search').value = '';
-    this.render();
-  },
-  compute() {
-    // Search can never unlock the exam deck: completion is checked globally.
-    this.exam = !VOCAB.some(entry => !learnedSet.has(entry.id));
+  available(stage = this.stage()) {
     const query = normalize(this.filters.query.trim());
-    this.results = (this.exam ? WORK : VOCAB).filter(entry =>
-      !learnedSet.has(entry.id) && (!query || entry.searchText.includes(query)));
-    this.results.sort((a, b) => (this.exam ? 0 : LEVELS.indexOf(a.level) - LEVELS.indexOf(b.level)) || a.order - b.order);
+    return stage.unknown.filter(entry => Review.notPostponed('w:' + entry.id) && (!query || entry.searchText.includes(query)));
   },
-  describe() {
-    $('#word-sequence-note').textContent = this.exam
-      ? (lang === 'tr' ? 'Normal kelime listesi tamamlandı. Şimdi bilmediğin sınav kelimeleri gösteriliyor.' : 'The regular word list is complete. Your unknown exam words are now shown.')
-      : (lang === 'tr' ? 'Yalnızca bilmediğin kelimeler · A2 → B1 → B2 → C1 → C1+. Sınav kelimeleri bu liste bitince açılır.' : 'Unknown words only · A2 → B1 → B2 → C1 → C1+. Exam words unlock after this list is complete.');
+  search(query) {
+    this.filters.query = query;
+    if (Router.current === 'words') this.start(); else location.hash = '#words';
   },
-  render({ count = PAGE_SIZE } = {}) {
-    this.compute();
-    this.shown = 0;
-    this.lastGroup = null;
-    $('#word-list').replaceChildren();
-    this.appendPage(count);
-    $('#word-empty').hidden = this.results.length > 0;
-    const finished = this.exam && !WORK.some(entry => !learnedSet.has(entry.id));
-    if (finished) $('#word-count').textContent = lang === 'tr' ? 'Tüm kelimeler öğrenildi.' : 'Every word is learned.';
-    $('#word-empty strong').textContent = finished
-      ? (lang === 'tr' ? 'Tüm kelimeleri tamamladın.' : 'You have completed every word.') : t('words.emptyTitle');
-    $('#word-empty .hint').textContent = finished
-      ? (lang === 'tr' ? 'Normal kelimeler ve sınav kelimeleri öğrenildi olarak işaretli.' : 'All regular and exam words are marked as learned.') : t('words.emptyText');
-    $('#empty-reset').hidden = finished;
-    this.describe();
+  learned() { this.dirty = true; if (Router.current === 'words') this.start(); },
+  render() { this.start(); },
+  onShow() { this.start(); },
+  start() {
+    Review.mount('words');
+    const stage = this.stage();
+    Review.sequence = true;
+    Review.mode = 'learn'; Review.level = stage.level;
+    Review.queue = this.available(stage).slice(0, 10).map(entry => 'w:' + entry.id);
+    Review.total = Review.queue.length; Review.doneNow = 0; Review.combo = 0; Review.gained = 0;
+    Review.shown = false; Review.open = null;
+    $('.review-progress').hidden = false;
     this.dirty = false;
+    Review.render();
   },
-  // Keep the loaded batch and an existing screen anchor when one card disappears.
-  learned(entry) {
-    const card = CARD_NODES.get(entry.id);
-    const focused = card && card.contains(document.activeElement);
-    const anchor = $$('#word-list .word-card').find(node => node !== card && node.getBoundingClientRect().bottom > 80);
-    const top = anchor && anchor.getBoundingClientRect().top;
-    const shown = this.shown;
-    const wasExam = this.exam;
-    this.compute();
-    if (wasExam !== this.exam) {
-      this.filters.query = '';
-      $('#word-search').value = '';
+  empty() {
+    $('.review-progress').hidden = !Review.total;
+    const stage = this.stage(), available = this.available(stage);
+    const finished = stage.exam && !stage.unknown.length;
+    const waiting = stage.unknown.length && !available.length && !this.filters.query;
+    const searched = Boolean(this.filters.query.trim());
+    const title = finished ? this.copy('Tüm kelimeler öğrenildi.', 'Every word is learned.')
+      : searched && !available.length ? this.copy('Bu seviyede eşleşen kelime yok.', 'No matching word at this level.')
+      : waiting ? this.copy('Bu seviyede tekrar bekleyen kelimeler var.', 'Words at this level are waiting for review.')
+      : this.copy('Bu tur tamamlandı!', 'This round is complete!');
+    let note = finished ? this.copy('Normal kelimeler ve sınav kelimeleri öğrenildi olarak işaretli.', 'All regular and exam words are marked as learned.')
+      : waiting ? this.copy('Bilmediğin kelimeler sonraki tekrar gününde geri gelecek. Bu seviye bitmeden sonraki seviyeye geçilmez.', 'Your unknown words return on their next review day. Complete this level before moving on.')
+      : searched && !available.length ? this.copy('Arama yalnızca sıradaki seviyenin bilinmeyen kelimeleri içinde yapılır.', 'Search covers unknown words at your current level only.')
+      : this.copy('Sıradaki çalışma: ', 'Next study: ') + Today.deckName(stage.level);
+    if (waiting) {
+      const due = Math.min(...stage.unknown.map(entry => Review.state.cards['w:' + entry.id]?.[0] || Review.today()));
+      note += ' ' + this.copy('Yeniden çalışma: ', 'Next review: ') + Review.when(Math.max(0, due - Review.today()));
     }
-    this.render({ count: wasExam === this.exam ? Math.max(PAGE_SIZE, shown) : PAGE_SIZE });
-    if (wasExam === this.exam && anchor && anchor.isConnected) {
-      const shift = anchor.getBoundingClientRect().top - top;
-      if (shift) window.scrollBy(0, shift);
-      if (focused) anchor.querySelector('.media-toggle').focus({ preventScroll: true });
-    } else if (wasExam !== this.exam) window.scrollTo(0, 0);
-  },
-  // Exam entries have no static main-list card; create them lazily with safe text nodes.
-  card(entry) {
-    const existing = CARD_NODES.get(entry.id);
-    if (existing) return existing;
-    const groups = sentencesFor(entry);
-    const picture = WORK_PICS[entry.pic];
-    const media = h('div', { class: 'word-media' }, h('button', {
-      type: 'button', class: 'media-toggle', 'data-action': 'toggle-learned', 'aria-pressed': 'false',
-      'aria-label': t('card.toggleLabel', { w: entry.word })
-    }, picture ? h('span', { class: 'emoji-art' }, h('img', { src: picture, alt: '', loading: 'lazy', decoding: 'async', width: '120', height: '120' }))
-      : h('span', { class: 'word-art' }, h('strong', { lang: 'en', text: entry.word }))));
-    const body = h('div', { class: 'word-body' },
-      h('div', { class: 'word-title' }, h('h3', { lang: 'en', text: entry.word }),
-        h('span', { class: 'chip level', text: 'EXAM' }),
-        groups.map(([pos]) => h('span', { class: 'chip', 'data-pos': pos, text: t('pos.' + pos) }))),
-      h('p', { class: 'meaning', lang: 'tr', text: entry.meaning }));
-    if (entry.example) body.append(h('div', { class: 'example-block' },
-      h('p', { class: 'example', lang: 'en', text: entry.example }),
-      entry.exampleTr ? h('p', { class: 'tr-line tr-support', lang: 'tr', text: entry.exampleTr }) : null));
-    if (groups.length) body.append(h('details', { class: 'sentences' },
-      h('summary', { 'data-types': groups.map(([pos]) => pos).join(','), text: t('card.sentences', { types: groups.map(([pos]) => t('pos.' + pos).toLocaleLowerCase(lang)).join(', ') }) }),
-      groups.map(([pos, pairs]) => h('div', { class: 'pos-group' }, h('h4', { 'data-pos': pos, text: t('pos.' + pos) }),
-        pairs.map(([en, tr]) => h('div', { class: 'sentence' }, h('p', { lang: 'en', text: en }),
-          h('p', { class: 'tr-line tr-support', lang: 'tr', text: tr })))))));
-    body.append(h('div', { class: 'card-actions js-only' }, listenButton(entry)));
-    const card = h('article', { class: 'word-card', 'data-id': entry.id, 'data-level': 'EXAM' }, media, body);
-    CARD_NODES.set(entry.id, card);
-    return card;
-  },
-  appendPage(count = PAGE_SIZE) {
-    const end = Math.min(this.results.length, this.shown + count);
-    if (end <= this.shown && this.shown > 0) return;
-    const fragment = document.createDocumentFragment();
-    for (let i = this.shown; i < end; i++) {
-      const entry = this.results[i];
-      const label = this.exam ? (lang === 'tr' ? 'Sınav kelimeleri' : 'Exam words') : t('level.heading', { l: entry.level });
-      if (label !== this.lastGroup) { fragment.append(h('h2', { class: 'group-title', text: label })); this.lastGroup = label; }
-      const card = this.card(entry);
-      if (card.dataset.sceneReady !== '1') {
-        const scene = VisualScenes.forWord(entry.word, { lang });
-        if (scene) card.querySelector('.card-actions').before(scene);
-        card.dataset.sceneReady = '1';
-      }
-      card.hidden = false;
-      fragment.append(card);
-    }
-    $('#word-list').append(fragment);
-    this.shown = end;
-    const total = this.results.length;
-    $('#word-count').textContent = total === 0 ? t('words.countNone') : total === 1 ? t('words.countOne') : t('words.count', { n: total, s: this.shown });
-    $('#word-more').hidden = this.shown >= total;
-    $('#word-more').textContent = t('words.more', { n: Math.min(PAGE_SIZE, total - this.shown) });
-  },
-  onShow() { if (this.dirty) this.render(); }
+    const actions = [];
+    if (available.length) actions.push(h('button', { type: 'button', class: 'button primary', 'data-act': 'more', text: t('review.moreWords') }));
+    if (searched) actions.push(h('button', { type: 'button', class: 'button ghost', 'data-act': 'words-clear', text: t('words.reset') }));
+    actions.push(h('a', { class: 'button' + (actions.length ? '' : ' primary'), href: '#home', text: t('review.home') }));
+    $('#review-card').replaceChildren(h('div', { class: 'review-empty' }, h('p', { class: 'review-big', text: finished ? '🎉' : waiting ? '🗓️' : '✓' }), h('h2', { text: title }), h('p', { text: note }), h('div', { class: 'review-empty-actions' }, actions)));
+  }
 };
-
 
 /* ---------- 7l. Phrases (Everyday Conversation) ---------- */
 const Phrases = {
@@ -11203,7 +11114,7 @@ const Review = {
     this.seed();
     $('#review-card').addEventListener('click', event => this.click(event));
     document.addEventListener('keydown', event => {
-      if (Router.current !== 'review' || event.target.closest('input, select, textarea') || !this.queue.length) return;
+      if (!['review', 'words'].includes(Router.current) || document.querySelector('dialog[open]') || event.target.closest('input, select, textarea') || !this.queue.length) return;
       if ((event.key === ' ' || event.key === 'Enter') && !this.shown) { event.preventDefault(); this.flip(); }
       else if (this.shown && ['1', '2', '3', '4'].includes(event.key)) {
         const tile = $$('#review-card [data-rate]')[Number(event.key) - 1];
@@ -11303,7 +11214,15 @@ const Review = {
   /* "#review" goes through the cards due; "#review/learn/B1" teaches new words of a deck;
      "#review/novel" studies the words saved from the novel and the teacher, "#review/words" lists them. */
   saved() { return Object.keys(this.state.cards).filter(id => id.startsWith('n:') && this.content(id)); },
+  mount(route) {
+    const workspace = $('#review-workspace');
+    const target = route === 'words' ? $('#words-study') : $('#review-home');
+    if (workspace.parentNode !== target) target.append(workspace);
+    $('.view[data-view="words"]').setAttribute('aria-labelledby', route === 'words' ? 'review-title' : 'words-title');
+  },
   onShow() {
+    this.mount('review');
+    this.sequence = false;
     const [, mode, level] = location.hash.split('/');
     this.mode = mode === 'learn' ? 'learn' : 'review';
     this.level = decodeURIComponent(level || '');
@@ -11330,7 +11249,9 @@ const Review = {
     const button = event.target.closest('button');
     if (button && button.dataset.say) { event.stopPropagation(); Grammar.say(button.dataset.say); return; }
     if (button && button.dataset.rate) { if (this.shown) this.rate(button.dataset.rate); else this.flip(); return; }
-    if (button && button.dataset.act === 'more') { this.onShow(); return; }
+    if (button && button.dataset.act === 'more') { if (this.sequence) Words.start(); else this.onShow(); return; }
+    if (button && button.dataset.act === 'words-clear') { Words.filters.query = ''; Words.start(); return; }
+    if (button && button.dataset.act === 'show') { this.flip(); return; }
     if (button && button.dataset.removeDeck) {
       MyDecks.remove(button.dataset.removeDeck);
       this.renderMyDecks();
@@ -11343,7 +11264,7 @@ const Review = {
       if (!$('#review-card .saved-item')) this.renderWords();
       return;
     }
-    if (!this.shown && event.target.closest('.flash-card')) this.flip();
+    if (!button && !this.shown && event.target.closest('.flash-card')) this.flip();
   },
   flip() {
     this.shown = true;
@@ -11505,7 +11426,7 @@ const Review = {
   render() {
     const box = $('#review-card');
     const learn = this.mode === 'learn';
-    $('#review-title').textContent = learn ? t('review.learnTitle', { l: Today.deckName(this.level) }) : t(this.mode === 'mistakes' ? 'game.mistakes' : this.mode === 'novel' ? 'deck.novel' : 'review.title');
+    $('#review-title').textContent = this.sequence ? t('nav.words') + ' · ' + Today.deckName(this.level) : learn ? t('review.learnTitle', { l: Today.deckName(this.level) }) : t(this.mode === 'mistakes' ? 'game.mistakes' : this.mode === 'novel' ? 'deck.novel' : 'review.title');
     $('#review-lead').textContent = t(learn ? 'review.learnLead' : 'review.lead');
     const done = this.doneToday();
     const goal = this.state.goal;
@@ -11514,6 +11435,7 @@ const Review = {
     $('#review-combo').hidden = this.combo < 2;
     $('#review-combo').textContent = t('review.combo', { n: this.combo });
     if (!this.queue.length) {
+      if (this.sequence) { Words.empty(); return; }
       const waiting = Object.keys(this.state.cards).length;
       const finished = this.total > 0;
       const more = learn && this.newWords(this.level).length > 0;
@@ -11536,7 +11458,7 @@ const Review = {
     const intervals = learn ? { again: t('review.soon'), hard: t('review.later'), good: this.when(1), easy: this.when(4) }
       : Object.fromEntries(['again', 'hard', 'good', 'easy'].map(answer => [answer, this.when(this.next(card, answer))]));
     box.replaceChildren(...[
-      h('div', { class: 'flash-card' + (this.shown ? ' is-flipped' : ''), role: this.shown ? null : 'button', tabindex: this.shown ? null : '0', 'aria-label': this.shown ? null : t('review.show') },
+      h('div', { class: 'flash-card' + (this.shown ? ' is-flipped' : ''), role: 'group', 'aria-label': kinds[content.kind] },
         h('div', { class: 'flash-chips' },
           h('span', { class: 'flash-chip is-level', text: kinds[content.kind] }),
           ...(details ? details.types : []).map(type => h('span', { class: 'flash-chip', text: type }))),
@@ -11553,9 +11475,9 @@ const Review = {
             content.kind === 'word' && content.sentence ? h('p', { class: 'review-example', lang: 'en', text: content.sentence }) : null,
             content.sentenceTr ? h('p', { class: 'review-example-tr', lang: 'tr', text: content.sentenceTr }) : null,
             this.typeExamples(content))
-          : h('p', { class: 'flash-hint' }, icon('repeat'), t('review.tapHint'))),
+          : h('button', { type: 'button', class: 'button ghost flash-reveal', 'data-act': 'show', text: t('review.show') })),
       h('div', { class: 'rate-head' }, h('span', { text: t(content.kind === 'grammar' ? 'review.recallLevel' : 'review.wordChoice') }), h('span', { class: 'rate-xp', text: t('review.instantXp') })),
-      /* Always in sight as in the design; before the card is turned they are dimmed and turn it first. */
+      /* Before the answer is visible, rating buttons reveal it first. */
       /* Words have two answers: again, or learned. Grammar keeps the finer scale. */
       h('div', { class: 'review-rate' + (this.shown ? '' : ' is-waiting') + (content.kind === 'grammar' ? '' : ' is-two') }, (content.kind === 'grammar' ? [['again', 'review.again', 5], ['hard', 'review.hard', 10], ['good', 'review.good', 20], ['easy', 'review.easy', 30]] : [['again', 'review.again', 5], ['good', 'review.learned', 20]]).map(([answer, label, xp], index) =>
         h('button', { type: 'button', class: 'rate-tile is-' + answer, 'data-rate': answer, 'aria-keyshortcuts': String(index + 1) },
@@ -11739,9 +11661,7 @@ const Nav = {
     $('#topbar-search').addEventListener('submit', event => {
       event.preventDefault();
       const query = $('#topbar-q').value.trim();
-      $('#word-search').value = query;
-      Words.filters.query = query;
-      if (Router.current === 'words') Words.render(); else { Words.dirty = true; location.hash = '#words'; }
+      Words.search(query);
       $('#topbar-q').blur();
     });
   },
@@ -12809,7 +12729,7 @@ const MODULES = { home: Home, review: Review, practice: Games, rankings: Ranking
    The page asks for version.json, never from the cache, when it opens and
    whenever it comes back to the screen, and offers to load the new build. */
 const Updater = {
-  build: 'c1756f80bade',
+  build: '6a30dc16dadb',
   checked: 0,
   init() {
     if (!/^https?:$/.test(location.protocol) || this.build.length !== 12) return;

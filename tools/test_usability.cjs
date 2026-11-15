@@ -12,7 +12,7 @@ const server = http.createServer((req,res)=>{
   const file=req.url.startsWith('/version.json')?'version.json':'index.html';
   res.setHeader('Content-Type',file.endsWith('.json')?'application/json':'text/html; charset=utf-8');
   const content=fs.readFileSync(path.join(root,file),'utf8');
-  res.end(file==='index.html'?content.replace('const Pron = {','const Pron = window.__auditPron = {'):content);
+  res.end(file==='index.html'?content.replace('const Pron = {','const Pron = window.__auditPron = {').replace('const Review = {','const Review = window.__auditReview = {'):content);
 });
 (async()=>{
   await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
@@ -25,10 +25,7 @@ const server = http.createServer((req,res)=>{
   const results=[];
   const record=(name,detail)=>{results.push({name,detail});console.log('PASS',name,detail||'');};
   const go=async route=>{await page.evaluate(route=>{location.hash=route;},route);await page.waitForFunction(route=>document.querySelector(`.view[data-view="${route.split('/')[0]}"]`)?.classList.contains('is-active'),route);};
-  const search=async query=>{
-    await page.locator('#word-search').fill(query);
-    await page.waitForFunction(query=>{const cards=[...document.querySelectorAll('#word-list .word-card')];return query==='zzznomatchzzz'?!document.querySelector('#word-empty').hidden:cards.length>0&&cards.every(el=>el.textContent.toLowerCase().includes(query.toLowerCase()));},query);
-  };
+  const reveal=async()=>{await page.locator('#review-card .flash-card').click();await page.locator('#review-card .review-meaning').waitFor({state:'visible'});};
   try{
     await page.goto(base);await page.waitForFunction(()=>window.__appReady===true);
     assert(await page.locator('[data-view="words"]').evaluate(el=>el.classList.contains('is-active')));
@@ -54,22 +51,20 @@ const server = http.createServer((req,res)=>{
     assert(await page.locator('#pron-sheet').evaluate(el=>el.matches(':modal')));
     for(let i=0;i<12;i++){await page.keyboard.press('Tab');assert(await page.locator('#pron-sheet').evaluate(el=>el.contains(document.activeElement)));}
     await page.keyboard.press('Escape');assert(await page.locator('#pron-sheet').isHidden());assert(await page.locator('#nav-more').evaluate(el=>el===document.activeElement));record('Pronunciation sheet focus containment, Escape and focus return');
-    await go('words');await search('borrow');
-    const card=page.locator('#word-list .word-card').first();
-    const id=await card.getAttribute('data-id');
-    await card.locator('.media-toggle').click();
-    assert.equal(await page.locator('#word-list .word-card[data-id="'+id+'"]').count(),0);
-    await search('zzznomatchzzz');assert(await page.locator('#empty-reset').isVisible());
-    await page.locator('#empty-reset').click();await search('borrow');
-    assert.equal(await page.locator('#word-list .word-card[data-id="'+id+'"]').count(),0);
     await go('settings');await page.locator('#ui-lang').selectOption('tr');await go('words');
-    assert((await card.locator('.media-toggle').getAttribute('aria-label')).includes('kelimesini'));
-    assert((await card.locator('[data-action="speak"]').getAttribute('aria-label')).includes('dinle'));
-    await page.reload();await page.waitForFunction(()=>window.__appReady===true);await search('borrow');
-    assert.equal(await page.locator('#word-list .word-card[data-id="'+id+'"]').count(),0);
+    const id=await page.evaluate(()=>__auditReview.queue[0].slice(2));
+    assert.equal(await page.locator('#word-list .word-card:visible').count(),0);
+    assert.equal(await page.locator('#review-card .review-meaning').count(),0);
+    await page.locator('#review-card [data-act="show"]').focus();await page.keyboard.press('Space');
+    assert(await page.locator('#review-card .review-meaning').isVisible());
+    assert((await page.locator('#review-card [data-rate="good"] strong').innerText()).includes('Öğrenildi'));
+    await page.keyboard.press('2');
+    await page.waitForFunction(id=>JSON.parse(localStorage.getItem('english-study-app.v1')).learned.includes(id),id);
+    await page.reload();await page.waitForFunction(()=>window.__appReady===true);
+    assert(!(await page.evaluate(()=>__auditReview.queue)).includes('w:'+id));
     assert((await page.evaluate(()=>EnglishStudyDiagnostics.progressSummary().learned))>=1);
     assert.equal(await page.locator('[data-status],#level-filter,#sort-select').count(),0);
-    record('Search, empty state, reset, unknown-only filtering, translated controls and learned persistence');
+    record('Single study card, hidden answer, translated rating controls, keyboard operation and learned persistence');
     await go('novel');
     const chooserPromise=page.waitForEvent('filechooser');await page.locator('#novel-choose').focus();await page.keyboard.press('Enter');const chooser=await chooserPromise;await chooser.setFiles([]);
     record('Keyboard-operated PDF picker');
@@ -85,8 +80,11 @@ const server = http.createServer((req,res)=>{
     assert.deepEqual(darkViolations,[],'dark theme accessibility');
     await page.screenshot({path:path.join(out,'words-dark-320.png')});
     await page.goto(base+'?storage=off#words');await page.waitForFunction(()=>window.__appReady===true);
-    assert.equal(await page.evaluate(()=>EnglishStudyDiagnostics.storageUsable),false);await search('borrow');await card.locator('.media-toggle').click();record('Storage unavailable: search and learned controls work in memory');
-    await page.goto('file:///'+path.join(root,'index.html').replace(/\\/g,'/'));await page.waitForFunction(()=>window.__appReady===true);await go('words');await search('borrow');record('Standalone file:// initialization and search');
+    assert.equal(await page.evaluate(()=>EnglishStudyDiagnostics.storageUsable),false);
+    const memoryBefore=await page.evaluate(()=>EnglishStudyDiagnostics.progressSummary().learned);
+    await reveal();await page.locator('#review-card [data-rate="good"]').click();
+    assert.equal(await page.evaluate(()=>EnglishStudyDiagnostics.progressSummary().learned),memoryBefore+1);record('Storage unavailable: study and learned controls work in memory');
+    await page.goto('file:///'+path.join(root,'index.html').replace(/\\/g,'/'));await page.waitForFunction(()=>window.__appReady===true);await go('words');assert(await page.locator('#review-card .flash-card').isVisible());record('Standalone file:// initialization and study card');
     assert.deepEqual(errors,[]);record('No uncaught JavaScript errors');
     const noJS=await browser.newContext({javaScriptEnabled:false,viewport:{width:390,height:844}});const staticPage=await noJS.newPage();await staticPage.goto(base);
     assert.equal(await staticPage.locator('#word-list .word-card').count(),2200);assert(await staticPage.locator('#words-title').isVisible());await noJS.close();record('No JavaScript: all 2,200 vocabulary cards remain readable');
