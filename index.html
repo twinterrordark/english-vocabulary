@@ -3,7 +3,7 @@
 <head>
 <!-- ======================================================================
   1. DOCUMENT METADATA AND THEME
-  English Study · version 2.8.3
+  English Study · version 2.8.4
   Generated from b1-b2-kelimeler-responsive.html by tools/build_index.py.
   Runs directly from this one file: no server, build step or network needed.
 ====================================================================== -->
@@ -647,6 +647,22 @@ mark.vocab { background: var(--mark); color: inherit; padding: 0 2px; border-rad
 .nqr-feedback.is-correct { font-weight: 700; }
 .nqr-result { font-weight: 600; }
 @media (max-width: 480px) { .novel-quick-review { margin: 1rem 0; padding: .85rem; } .nqr-actions .nqr-button { flex: 1 1 130px; } }
+
+.novel-text .nw.has-public-note:not(.is-on):not(.is-word) { background: #fff0b3; color: #473200; border-bottom: 2px solid #b26d00; }
+body[data-paper="dark"] .novel-text .nw.has-public-note:not(.is-on):not(.is-word) { background: #5c481d; color: #fff0bb; border-color: #efc65d; }
+.novel-notes { border-top: 1px solid var(--line); margin-top: 8px; padding-top: 8px; font-family: var(--font); }
+.novel-notes > summary { cursor: pointer; min-height: 44px; display: list-item; padding: 10px 2px; font-weight: 700; font-size: .9rem; }
+.novel-notes-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.novel-notes-list > li { padding: 10px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); }
+.novel-notes-list p { margin: 6px 0; white-space: pre-wrap; overflow-wrap: anywhere; font: .9rem/1.5 var(--font); }
+.novel-note-meta { display: flex; justify-content: space-between; gap: 12px; font-size: .8rem; }
+.novel-note-meta time { color: var(--muted); }
+.novel-note-form { display: grid; gap: 6px; margin-top: 12px; }
+.novel-note-form label { font-size: .85rem; font-weight: 600; }
+.novel-note-form textarea, .novel-note-form input { width: 100%; min-width: 0; box-sizing: border-box; font-size: 16px; }
+.novel-note-form textarea { resize: vertical; }
+.novel-note-form .hint { margin: 2px 0; }
+.novel-pop:has(.novel-notes[open]) { max-height: min(72dvh, 650px); overflow-y: auto; overscroll-behavior: contain; }
 
 .gram-filters { display: grid; grid-template-columns: minmax(0, 1fr) minmax(120px, 180px); gap: var(--space-3); max-width: 760px; margin-bottom: var(--space-3); }
 .gram-filters[hidden] { display: none; }
@@ -2082,38 +2098,17 @@ select#today-goal, .tutor-scenario select { min-height: var(--tap); }
       <h1 id="words-title" tabindex="-1" data-i18n="words.title">Kelimeler</h1>
       <p class="lead" data-i18n="words.lead">A2’den C1+’ya kelimeler; Türkçe anlamları, okunuşları ve her kelime türü için örnek cümleleriyle.</p>
     </div>
-    <p class="tap-hint js-only"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="words.tapHint">Öğrendiğin kelimenin kartına dokun, kart yeşile döner. Geri almak için yeniden dokun.</span></p>
+    <p class="tap-hint js-only"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="words.tapHint">Bildiğin kelimenin kartına dokun; öğrenildi olarak işaretlenir ve bu listeden çıkar.</span></p>
     <div class="panel toolbar js-only" role="search">
       <div class="field search-field">
         <label for="word-search" data-i18n="words.search">İngilizce ya da Türkçe ara</label>
         <input id="word-search" type="search" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="search" placeholder="ör. achieve, başarmak" data-i18n-placeholder="words.searchPh">
       </div>
-      <div class="field status-field">
-        <span class="legend" id="status-label" data-i18n="words.status">Göster</span>
-        <div class="segmented" role="group" aria-labelledby="status-label">
-          <button type="button" class="button" data-status="all" aria-pressed="true" data-i18n="words.all">Tümü</button>
-          <button type="button" class="button" data-status="unlearned" aria-pressed="false" data-i18n="words.unlearned">Öğrenilmeyen</button>
-          <button type="button" class="button" data-status="learned" aria-pressed="false" data-i18n="words.learned">Öğrenilen</button>
-        </div>
-      </div>
-      <div class="field">
-        <label for="level-filter" data-i18n="words.level">Seviye etiketi</label>
-        <select id="level-filter">
-          <option value="all">Tüm seviyeler</option>
-        </select>
-      </div>
-      <div class="field">
-        <label for="sort-select" data-i18n="words.sort">Sıralama</label>
-        <select id="sort-select">
-          <option value="level" data-i18n="sort.level">Seviyeye göre (A2 → C1+)</option>
-          <option value="alpha" data-i18n="sort.alpha">Alfabetik (A–Z)</option>
-          <option value="related" data-i18n="sort.related">Anlamca yakın</option>
-        </select>
-      </div>
     </div>
+    <p id="word-sequence-note" class="hint js-only" aria-live="polite"></p>
     <div class="row js-only">
       <p id="word-count" class="result-count" aria-live="polite"></p>
-      <button type="button" class="button ghost small" id="reset-filters" data-i18n="words.reset">Filtreleri sıfırla</button>
+      <button type="button" class="button ghost small" id="reset-filters" data-i18n="words.reset">Aramayı temizle</button>
     </div>
     <div id="word-list" class="word-grid"><h2 class="group-title">A2 seviyesi</h2>
 <article class="word-card" data-id="w4" data-level="A2"><div class="word-media"><button type="button" class="media-toggle" data-action="toggle-learned" aria-pressed="false" aria-label="“Achieve” kelimesini öğrendim olarak işaretle"><span class="emoji-art"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzNiAzNiI+PHBhdGggZmlsbD0iI0ZGQUMzMyIgZD0iTTUuMTIzIDVoNkMxMi4yMjcgNSAxMyA0Ljg5NiAxMyA2VjRjMC0xLjEwNC0uNzczLTItMS44NzctMmgtOGMtMiAwLTMuNTgzIDIuMTI1LTMgNSAwIDAgMS43OTEgOS4zNzUgMS45MTcgOS45NThDMi4zNzMgMTguNSA0LjE2NCAyMCA2LjA4MSAyMGg2Ljk1OGMxLjEwNSAwLS4wMzktMS44OTYtLjAzOS0zdi0yYzAgMS4xMDQtLjc3MyAyLTEuODc3IDJoLTRjLTEuMTA0IDAtMS44MzMtMS4wNDItMi0yUzMuNTM5IDcuNjY3IDMuNTM5IDcuNjY3QzMuMjA2IDUuNzUgNC4wMTggNSA1LjEyMyA1em0yNS44MTIgMGgtNkMyMy44MzEgNSAyMiA0Ljg5NiAyMiA2VjRjMC0xLjEwNCAxLjgzMS0yIDIuOTM1LTJoOGMyIDAgMy41ODQgMi4xMjUgMyA1IDAgMC0xLjYzMyA5LjQxOS0xLjc3MSAxMC0uMzU0IDEuNS0yLjA0MiAzLTQgM2gtNy4xNDZDMjEuOTE0IDIwIDIyIDE4LjEwNCAyMiAxN3YtMmMwIDEuMTA0IDEuODMxIDIgMi45MzUgMmg0YzEuMTA0IDAgMS44MzQtMS4wNDIgMi0yczEuNTg0LTcuMzMzIDEuNTg0LTcuMzMzQzMyLjg1MSA1Ljc1IDMyLjA0IDUgMzAuOTM1IDV6TTIwLjgzMiAyMmMwLTYuOTU4LTIuNzA5IDAtMi43MDkgMHMtMy02Ljk1OC0zIDAtMy4yOTEgMTAtMy4yOTEgMTBoMTIuMjkyYy0uMDAxIDAtMy4yOTItMy4wNDItMy4yOTItMTB6Ii8+PHBhdGggZmlsbD0iI0ZGQ0M0RCIgZD0iTTI5LjEyMyA2LjU3N2MwIDYuNzc1LTYuNzcgMTguMTkyLTExIDE4LjE5Mi00LjIzMSAwLTExLTExLjQxNy0xMS0xOC4xOTIgMC01LjE5NSAxLTYuMzE5IDMtNi4zMTkgMS4zNzQgMCA2LjAyNS0uMDI3IDgtLjAyN2w3LS4wMDFjMi45MTctLjAwMSA0IC42ODQgNCA2LjM0N3oiLz48cGF0aCBmaWxsPSIjQzE2OTRGIiBkPSJNMjcgMzNjMCAxLjEwNC4yMjcgMi0uODc3IDJoLTE2QzkuMDE4IDM1IDkgMzQuMTA0IDkgMzN2LTFjMC0xLjEwNCAxLjE2NC0yIDIuMjA2LTJoMTMuOTE3YzEuMDQyIDAgMS44NzcuODk2IDEuODc3IDJ2MXoiLz48cGF0aCBmaWxsPSIjQzE2OTRGIiBkPSJNMjkgMzQuNjI1YzAgLjc2LjE2NSAxLjM3NS0xLjI1MiAxLjM3NUg4LjQ5OEM3LjIwNiAzNiA3IDM1LjM4NSA3IDM0LjYyNXYtLjI1QzcgMzMuNjE1IDcuNzM4IDMzIDguNDk4IDMzaDE5LjI1Yy43NTkgMCAxLjI1Mi42MTUgMS4yNTIgMS4zNzV2LjI1eiIvPjwvc3ZnPg==" alt="" loading="lazy" decoding="async" width="120" height="120"></span></button><span class="learned-badge" aria-hidden="true">✓ <span data-label="card.learnedBadge">Öğrenildi</span></span></div><div class="word-body"><div class="word-title"><h3 lang="en">Achieve</h3><span class="chip level">A2</span><span class="chip" data-pos="v">Fiil</span></div><p class="pron"><span class="label" data-label="card.respelling">Okunuş</span> <span lang="tr">ı-ÇİİV</span></p><p class="meaning" lang="tr">Başarmak, elde etmek</p><div class="example-block"><p class="example" lang="en">I want to achieve my goals.</p><p class="tr-line tr-support" lang="tr">Hedeflerime ulaşmak istiyorum.</p></div><details class="sentences"><summary data-types="v">Örnek cümleler (fiil)</summary><div class="pos-group"><h4 data-pos="v">Fiil</h4><div class="sentence"><p lang="en">It took her three years to achieve her dream of opening a bakery.</p><p class="tr-line tr-support" lang="tr">Fırın açma hayaline ulaşması üç yılını aldı.</p></div><div class="sentence"><p lang="en">We achieved more in one afternoon than in the whole week.</p><p class="tr-line tr-support" lang="tr">Bir öğleden sonrada bütün haftadakinden daha çok iş başardık.</p></div></div></details><div class="card-actions js-only"></div></div></article>
@@ -4321,9 +4316,9 @@ select#today-goal, .tutor-scenario select { min-height: var(--tap); }
 <article class="word-card" data-id="wk-biz-42" data-level="C1+"><div class="word-media"><button type="button" class="media-toggle" data-action="toggle-learned" aria-pressed="false" aria-label="“workload” kelimesini öğrendim olarak işaretle"><span class="emoji-art"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzNiAzNiI+PHBhdGggZmlsbD0iIzlBNEUxQyIgZD0iTTMyIDhoLTZWNGMwLTIuMjA5LTEuNzkxLTQtNC00aC04Yy0yLjIwOSAwLTQgMS43OTEtNCA0djRINGMtMi4yMDkgMC00IDEuNzkxLTQgNHYyMGMwIDIuMjA5IDEuNzkxIDQgNCA0aDI4YzIuMjA5IDAgNC0xLjc5MSA0LTRWMTJjMC0yLjIwOS0xLjc5MS00LTQtNHpNMTIgNmMwLTEuMTA0Ljg5Ni0yIDItMmg4YzEuMTA0IDAgMiAuODk2IDIgMnYySDEyVjZ6Ii8+PHBhdGggZmlsbD0iIzY2MjExMyIgZD0iTTM2IDIwYzAgMi4yMDktMS43OTEgNC00IDRINGMtMi4yMDkgMC00LTEuNzkxLTQtNHYtOGMwLTIuMjA5IDEuNzkxLTQgNC00aDI4YzIuMjA5IDAgNCAxLjc5MSA0IDR2OHoiLz48cGF0aCBmaWxsPSIjOUE0RTFDIiBkPSJNMzYgMThjMCAyLjIwOS0xLjc5MSA0LTQgNEg0Yy0yLjIwOSAwLTQtMS43OTEtNC00di02YzAtMi4yMDkgMS43OTEtNCA0LTRoMjhjMi4yMDkgMCA0IDEuNzkxIDQgNHY2eiIvPjxwYXRoIGZpbGw9IiNDQ0Q2REQiIGQ9Ik0yMiAxOGMwIDEuMTA0LS44OTYgMi0yIDJoLTRjLTEuMTA0IDAtMi0uODk2LTItMnMuODk2LTIgMi0yaDRjMS4xMDQgMCAyIC44OTYgMiAyIi8+PC9zdmc+" alt="" loading="lazy" decoding="async" width="120" height="120"></span></button><span class="learned-badge" aria-hidden="true">✓ <span data-label="card.learnedBadge">Öğrenildi</span></span></div><div class="word-body"><div class="word-title"><h3 lang="en">workload</h3><span class="chip level">C1+</span><span class="chip" data-pos="n">İsim</span></div><p class="meaning" lang="tr">iş yükü</p><div class="example-block"><p class="example" lang="en">My workload is very heavy this month.</p><p class="tr-line tr-support" lang="tr">Bu ay iş yüküm çok fazla.</p></div><details class="sentences"><summary data-types="n">Örnek cümleler (i̇sim)</summary><div class="pos-group"><h4 data-pos="n">İsim</h4><div class="sentence"><p lang="en">This heavy workload is too much for me.</p><p class="tr-line tr-support" lang="tr">Bu ağır iş yükü benim için çok fazla.</p></div><div class="sentence"><p lang="en">Tom is barely coping with his workload at the moment.</p><p class="tr-line tr-support" lang="tr">Tom şu anda zar zor iş yükü ile başa çıkmaya çalışıyor.</p></div></div></details><div class="card-actions js-only"></div></div></article>
 <article class="word-card" data-id="wk-biz-43" data-level="C1+"><div class="word-media"><button type="button" class="media-toggle" data-action="toggle-learned" aria-pressed="false" aria-label="“overtime” kelimesini öğrendim olarak işaretle"><span class="emoji-art"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzNiAzNiI+PHBhdGggZmlsbD0iIzlBNEUxQyIgZD0iTTMyIDhoLTZWNGMwLTIuMjA5LTEuNzkxLTQtNC00aC04Yy0yLjIwOSAwLTQgMS43OTEtNCA0djRINGMtMi4yMDkgMC00IDEuNzkxLTQgNHYyMGMwIDIuMjA5IDEuNzkxIDQgNCA0aDI4YzIuMjA5IDAgNC0xLjc5MSA0LTRWMTJjMC0yLjIwOS0xLjc5MS00LTQtNHpNMTIgNmMwLTEuMTA0Ljg5Ni0yIDItMmg4YzEuMTA0IDAgMiAuODk2IDIgMnYySDEyVjZ6Ii8+PHBhdGggZmlsbD0iIzY2MjExMyIgZD0iTTM2IDIwYzAgMi4yMDktMS43OTEgNC00IDRINGMtMi4yMDkgMC00LTEuNzkxLTQtNHYtOGMwLTIuMjA5IDEuNzkxLTQgNC00aDI4YzIuMjA5IDAgNCAxLjc5MSA0IDR2OHoiLz48cGF0aCBmaWxsPSIjOUE0RTFDIiBkPSJNMzYgMThjMCAyLjIwOS0xLjc5MSA0LTQgNEg0Yy0yLjIwOSAwLTQtMS43OTEtNC00di02YzAtMi4yMDkgMS43OTEtNCA0LTRoMjhjMi4yMDkgMCA0IDEuNzkxIDQgNHY2eiIvPjxwYXRoIGZpbGw9IiNDQ0Q2REQiIGQ9Ik0yMiAxOGMwIDEuMTA0LS44OTYgMi0yIDJoLTRjLTEuMTA0IDAtMi0uODk2LTItMnMuODk2LTIgMi0yaDRjMS4xMDQgMCAyIC44OTYgMiAyIi8+PC9zdmc+" alt="" loading="lazy" decoding="async" width="120" height="120"></span></button><span class="learned-badge" aria-hidden="true">✓ <span data-label="card.learnedBadge">Öğrenildi</span></span></div><div class="word-body"><div class="word-title"><h3 lang="en">overtime</h3><span class="chip level">C1+</span><span class="chip" data-pos="n">İsim</span><span class="chip" data-pos="adv">Zarf</span></div><p class="meaning" lang="tr">fazla mesai</p><div class="example-block"><p class="example" lang="en">We worked overtime to finish it.</p><p class="tr-line tr-support" lang="tr">Bitirmek için fazla mesai yaptık.</p></div><details class="sentences"><summary data-types="n,adv">Örnek cümleler (i̇sim, zarf)</summary><div class="pos-group"><h4 data-pos="n">İsim</h4><div class="sentence"><p lang="en">He put in ten hours of overtime this week.</p><p class="tr-line tr-support" lang="tr">O, bu hafta on saat fazla mesai yaptı.</p></div><div class="sentence"><p lang="en">I exempted her from working overtime.</p><p class="tr-line tr-support" lang="tr">Onu fazla mesai yapmaktan muaf tuttum.</p></div></div><div class="pos-group"><h4 data-pos="adv">Zarf</h4><div class="sentence"><p lang="en">I&#x27;m afraid you have to work overtime.</p><p class="tr-line tr-support" lang="tr">Korkarım ki fazla çalışmak zorundasın.</p></div><div class="sentence"><p lang="en">You won&#x27;t have to work overtime today.</p><p class="tr-line tr-support" lang="tr">Bugün fazla mesai yapmak zorunda olmayacaksın.</p></div></div></details><div class="card-actions js-only"></div></div></article></div>
     <div id="word-empty" class="panel empty" hidden>
-      <p><strong data-i18n="words.emptyTitle">Eşleşen kelime yok.</strong></p>
-      <p class="hint" data-i18n="words.emptyText">Daha kısa bir arama dene, yazımı kontrol et ya da filtreleri sıfırla.</p>
-      <button type="button" class="button primary" id="empty-reset" data-i18n="words.reset">Filtreleri sıfırla</button>
+      <p><strong data-i18n="words.emptyTitle">Eşleşen bilinmeyen kelime yok.</strong></p>
+      <p class="hint" data-i18n="words.emptyText">Daha kısa bir arama dene ya da aramayı temizle. Öğrenilen kelimeler gösterilmez.</p>
+      <button type="button" class="button primary" id="empty-reset" data-i18n="words.reset">Aramayı temizle</button>
     </div>
     <div class="more-row js-only"><button type="button" class="button" id="word-more" hidden></button></div>
   </section>
@@ -4794,7 +4789,7 @@ select#today-goal, .tutor-scenario select { min-height: var(--tap); }
   <p>İş ve sınav kelimelerinin resimleri de Twemoji'dir; birçoğu kelimeyi temsilen seçildi.</p>
   <p>Örnek cümlelerin bir bölümü: <a href="https://tatoeba.org" target="_blank" rel="noopener">Tatoeba</a> (<a href="https://creativecommons.org/licenses/by/2.0/fr/" target="_blank" rel="noopener">CC BY 2.0 FR</a>), <a href="https://www.manythings.org/anki/" target="_blank" rel="noopener">manythings.org</a> derlemesinden; cümleler kelimelere ve türlere göre seçildi.</p>
   <p>Fotoğraflar: Wikimedia Commons (yazar ve lisans kartlarda). Simgeler: <a href="https://github.com/jdecked/twemoji" target="_blank" rel="noopener">Twemoji</a>, CC BY 4.0. PDF okuma: <a href="https://mozilla.github.io/pdf.js/" target="_blank" rel="noopener">pdf.js</a> (Mozilla, Apache-2.0). Yazı tipleri: Outfit ve Plus Jakarta Sans (SIL Open Font License).</p>
-  <p>English Study · v2.8.3</p>
+  <p>English Study · v2.8.4</p>
 </footer>
 
 <div id="toast" class="toast" role="status" aria-live="polite"></div>
@@ -4889,7 +4884,7 @@ select#today-goal, .tutor-scenario select { min-height: var(--tap); }
 <script>
 (() => {
 'use strict';
-const APP_VERSION = '2.8.3';
+const APP_VERSION = '2.8.4';
 /* Small polyfill so the app also starts on browsers from before 2020. */
 if (!Element.prototype.replaceChildren) {
   Element.prototype.replaceChildren = function () {
@@ -5016,7 +5011,7 @@ const STRINGS = {
     'level.B2': 'B2 ({n})',
     'level.B1': 'B1 ({n})',
     'level.A2': 'A2 ({n})',
-    'words.tapHint': 'Tap a card when you have learned the word — it turns green. Tap it again to undo.',
+    'words.tapHint': 'Tap a word you know to mark it learned and remove it from this list.',
     'pos.num': 'Number',
     'pos.int': 'Interjection',
     'pos.phr': 'Phrase',
@@ -5207,8 +5202,8 @@ const STRINGS = {
     'words.search': 'Search English or Turkish', 'words.searchPh': 'e.g. achieve, başarmak', 'words.status': 'Show',
     'words.all': 'All', 'words.unlearned': 'Not learned', 'words.learned': 'Learned', 'words.level': 'Level label', 'words.anyLevel': 'All levels ({n})', 
     'words.sort': 'Order', 'sort.alpha': 'Alphabetical (A–Z)', 'sort.related': 'Related meanings',
-    'words.reset': 'Reset filters', 'words.count': '{n} words match · showing {s}', 'words.countOne': '1 word matches', 'words.countNone': 'No words match',
-    'words.more': 'Show {n} more', 'words.emptyTitle': 'No words match.', 'words.emptyText': 'Try a shorter search, check the spelling, or reset the filters.',
+    'words.reset': 'Clear search', 'words.count': '{n} unknown words · showing {s}', 'words.countOne': '1 unknown word', 'words.countNone': 'No words match',
+    'words.more': 'Show {n} more', 'words.emptyTitle': 'No unknown words match.', 'words.emptyText': 'Try a shorter search or clear it. Learned words are hidden.',
     'group.other': 'Other words — sorted by Turkish meaning',
     'card.pron': 'Pronunciation', 'card.ipa': 'IPA', 'card.respelling': 'Say it', 'card.definition': 'English definition', 'card.example': 'Example',
     'card.listen': 'Listen', 'card.listenTo': 'Listen to “{w}”', 
@@ -5421,7 +5416,7 @@ const STRINGS = {
     'level.B2': 'B2 ({n})',
     'level.B1': 'B1 ({n})',
     'level.A2': 'A2 ({n})',
-    'words.tapHint': 'Öğrendiğin kelimenin kartına dokun, kart yeşile döner. Geri almak için yeniden dokun.',
+    'words.tapHint': 'Bildiğin kelimenin kartına dokun; öğrenildi olarak işaretlenir ve bu listeden çıkar.',
     'pos.num': 'Sayı',
     'pos.int': 'Ünlem',
     'pos.phr': 'Kalıp ifade',
@@ -5461,8 +5456,8 @@ const STRINGS = {
     'words.search': 'İngilizce ya da Türkçe ara', 'words.searchPh': 'ör. achieve, başarmak', 'words.status': 'Göster',
     'words.all': 'Tümü', 'words.unlearned': 'Öğrenilmeyen', 'words.learned': 'Öğrenilen', 'words.level': 'Seviye etiketi', 'words.anyLevel': 'Tüm seviyeler ({n})', 
     'words.sort': 'Sıralama', 'sort.alpha': 'Alfabetik (A–Z)', 'sort.related': 'Anlamca yakın',
-    'words.reset': 'Filtreleri sıfırla', 'words.count': '{n} kelime eşleşti · {s} gösteriliyor', 'words.countOne': '1 kelime eşleşti', 'words.countNone': 'Eşleşen kelime yok',
-    'words.more': '{n} kelime daha göster', 'words.emptyTitle': 'Eşleşen kelime yok.', 'words.emptyText': 'Daha kısa bir arama dene, yazımı kontrol et ya da filtreleri sıfırla.',
+    'words.reset': 'Aramayı temizle', 'words.count': '{n} bilinmeyen kelime · {s} gösteriliyor', 'words.countOne': '1 bilinmeyen kelime', 'words.countNone': 'Eşleşen kelime yok',
+    'words.more': '{n} kelime daha göster', 'words.emptyTitle': 'Eşleşen bilinmeyen kelime yok.', 'words.emptyText': 'Daha kısa bir arama dene ya da aramayı temizle. Öğrenilen kelimeler gösterilmez.',
     'group.other': 'Diğer kelimeler — Türkçe anlamına göre',
     'card.pron': 'Okunuş', 'card.ipa': 'IPA', 'card.respelling': 'Okunuş', 'card.definition': 'İngilizce tanım', 'card.example': 'Örnek',
     'card.listen': 'Dinle', 'card.listenTo': '“{w}” kelimesini dinle', 
@@ -5639,6 +5634,12 @@ VOCAB.forEach((entry, index) => {
   entry.meaningKey = normalize(entry.meaning);
   entry.searchText = normalize([entry.word, entry.meaning, entry.example, entry.exampleTr, entry.definition].filter(Boolean).join(' '));
   BY_ID.set(entry.id, entry);
+});
+WORK.forEach((entry, index) => {
+  entry.order = index;
+  entry.key = normalize(entry.word);
+  entry.meaningKey = normalize(entry.meaning);
+  entry.searchText = normalize([entry.word, entry.meaning, entry.example, entry.exampleTr].filter(Boolean).join(' '));
 });
 /* Example sentences written for this app, keyed by lower-case word:
    { word: { pos: [[english, turkish], ...] } }. Kept apart from the original entries. */
@@ -5971,7 +5972,7 @@ function setLearned(entry, learned) {
   recordActivity();
   persist();
   syncWordControls(entry.id);
-  if (Router.current !== 'words') Words.dirty = true;
+  if (Router.current === 'words') Words.learned(entry); else Words.dirty = true;
   Toast.show(t(learned ? 'toast.learned' : 'toast.unlearned', { w: entry.word }));
 }
 function listenButton(entry) {
@@ -6121,13 +6122,8 @@ const Home = {
 const PAGE_SIZE = 24;
 const LEVELS = ['A2', 'B1', 'B2', 'C1', 'C1+'];
 const Words = {
-  filters: { query: '', status: 'all', level: 'all', sort: 'level' },
-  results: [],
-  shown: 0,
-  lastGroup: null,
-  searchTimer: 0,
-  relatedReady: false,
-  dirty: true,
+  filters: { query: '' },
+  results: [], shown: 0, lastGroup: null, searchTimer: 0, dirty: true, exam: false,
   init() {
     const search = $('#word-search');
     search.addEventListener('input', () => {
@@ -6135,105 +6131,109 @@ const Words = {
       this.searchTimer = setTimeout(() => { this.filters.query = search.value; this.render(); }, 150);
     });
     search.addEventListener('keydown', event => { if (event.key === 'Enter') search.blur(); });
-    for (const button of $$('[data-status]')) {
-      button.addEventListener('click', () => {
-        if (this.filters.status === button.dataset.status) return;
-        this.filters.status = button.dataset.status;
-        this.syncControls();
-        this.render();
-      });
-    }
-    $('#level-filter').addEventListener('change', e => { this.filters.level = e.target.value; this.render(); });
-    $('#sort-select').addEventListener('change', e => { this.filters.sort = e.target.value; this.render(); });
     $('#reset-filters').addEventListener('click', () => this.reset());
-    $('#empty-reset').addEventListener('click', () => { this.reset(); $('#word-search').focus(); });
+    $('#empty-reset').addEventListener('click', () => { this.reset(); search.focus(); });
     $('#word-more').addEventListener('click', () => this.appendPage());
-    if ('IntersectionObserver' in window) {
-      new IntersectionObserver(items => {
-        if (items.some(i => i.isIntersecting) && Router.current === 'words' && !$('#word-more').hidden) this.appendPage();
-      }, { rootMargin: '400px 0px' }).observe($('#word-more'));
-    }
+    if ('IntersectionObserver' in window) new IntersectionObserver(items => {
+      if (items.some(item => item.isIntersecting) && Router.current === 'words' && !$('#word-more').hidden) this.appendPage();
+    }, { rootMargin: '400px 0px' }).observe($('#word-more'));
     bindWordActions($('#word-list'));
-    this.renderLevelOptions();
   },
-  renderLevelOptions() {
-    const select = $('#level-filter');
-    select.replaceChildren(h('option', { value: 'all', text: t('words.anyLevel', { n: VOCAB.length }) }),
-      ...LEVELS.map(level => h('option', { value: level, text: t('level.' + level, { n: VOCAB.filter(e => e.level === level).length }) })));
-    select.value = this.filters.level;
-  },
+  // Kept as the language-change hook; there are no selectable status/order filters.
+  renderLevelOptions() { this.describe(); },
   reset() {
-    this.filters = { query: '', status: 'all', level: 'all', sort: this.filters.sort };
+    this.filters.query = '';
     $('#word-search').value = '';
-    this.syncControls();
     this.render();
   },
-  syncControls() {
-    for (const button of $$('[data-status]')) button.setAttribute('aria-pressed', String(button.dataset.status === this.filters.status));
-    $('#level-filter').value = this.filters.level;
-    $('#sort-select').value = this.filters.sort;
-  },
-  /* Original page's related-meaning ordering, computed once. */
-  prepareRelated() {
-    if (this.relatedReady) return;
-    const groupWords = MEANING_GROUPS.map(group => group.words.map(normalize));
-    const counts = new Map();
-    for (const entry of VOCAB) {
-      entry.group = groupWords.findIndex(words => words.indexOf(entry.key) >= 0);
-      if (entry.group >= 0) counts.set(entry.group, (counts.get(entry.group) || 0) + 1);
-    }
-    for (const entry of VOCAB) if (entry.group >= 0 && counts.get(entry.group) < 2) entry.group = -1;
-    const other = MEANING_GROUPS.length;
-    VOCAB.slice().sort((a, b) => {
-      const ag = a.group >= 0 ? a.group : other, bg = b.group >= 0 ? b.group : other;
-      if (ag !== bg) return ag - bg;
-      if (ag === other && a.meaningKey !== b.meaningKey) return a.meaningKey.localeCompare(b.meaningKey, 'tr');
-      return a.key.localeCompare(b.key, 'tr');
-    }).forEach((entry, rank) => { entry.relatedRank = rank; });
-    this.relatedReady = true;
-  },
   compute() {
-    const f = this.filters;
-    const query = normalize(f.query.trim());
-    let list = VOCAB.filter(e =>
-      (!query || e.searchText.indexOf(query) >= 0) &&
-      (f.status === 'all' || (f.status === 'learned') === learnedSet.has(e.id)) &&
-      (f.level === 'all' || e.level === f.level));
-    if (f.sort === 'alpha') list.sort((a, b) => a.word.localeCompare(b.word, 'en', { sensitivity: 'base' }) || a.order - b.order);
-    if (f.sort === 'related') { this.prepareRelated(); list.sort((a, b) => a.relatedRank - b.relatedRank); }
-    else if (query) {
-      const rank = e => (e.key === query ? 0 : e.key.indexOf(query) === 0 ? 1 : 2);
-      list = list.map((e, i) => [e, i]).sort((a, b) => rank(a[0]) - rank(b[0]) || a[1] - b[1]).map(pair => pair[0]);
-    }
-    this.results = list;
+    // Search can never unlock the exam deck: completion is checked globally.
+    this.exam = !VOCAB.some(entry => !learnedSet.has(entry.id));
+    const query = normalize(this.filters.query.trim());
+    this.results = (this.exam ? WORK : VOCAB).filter(entry =>
+      !learnedSet.has(entry.id) && (!query || entry.searchText.includes(query)));
+    this.results.sort((a, b) => (this.exam ? 0 : LEVELS.indexOf(a.level) - LEVELS.indexOf(b.level)) || a.order - b.order);
   },
-  /* Reuse original nodes; attach only the requested result batches. */
-  render() {
+  describe() {
+    $('#word-sequence-note').textContent = this.exam
+      ? (lang === 'tr' ? 'Normal kelime listesi tamamlandı. Şimdi bilmediğin sınav kelimeleri gösteriliyor.' : 'The regular word list is complete. Your unknown exam words are now shown.')
+      : (lang === 'tr' ? 'Yalnızca bilmediğin kelimeler · A2 → B1 → B2 → C1 → C1+. Sınav kelimeleri bu liste bitince açılır.' : 'Unknown words only · A2 → B1 → B2 → C1 → C1+. Exam words unlock after this list is complete.');
+  },
+  render({ count = PAGE_SIZE } = {}) {
     this.compute();
     this.shown = 0;
     this.lastGroup = null;
     $('#word-list').replaceChildren();
-    this.appendPage();
+    this.appendPage(count);
     $('#word-empty').hidden = this.results.length > 0;
+    const finished = this.exam && !WORK.some(entry => !learnedSet.has(entry.id));
+    if (finished) $('#word-count').textContent = lang === 'tr' ? 'Tüm kelimeler öğrenildi.' : 'Every word is learned.';
+    $('#word-empty strong').textContent = finished
+      ? (lang === 'tr' ? 'Tüm kelimeleri tamamladın.' : 'You have completed every word.') : t('words.emptyTitle');
+    $('#word-empty .hint').textContent = finished
+      ? (lang === 'tr' ? 'Normal kelimeler ve sınav kelimeleri öğrenildi olarak işaretli.' : 'All regular and exam words are marked as learned.') : t('words.emptyText');
+    $('#empty-reset').hidden = finished;
+    this.describe();
     this.dirty = false;
   },
-  groupLabel(entry) {
-    if (this.filters.sort === 'level') return t('level.heading', { l: entry.level });
-    if (this.filters.sort !== 'related') return null;
-    if (entry.group < 0) return t('group.other');
-    const label = MEANING_GROUPS[entry.group].label;
-    return lang === 'tr' ? label : (GROUP_LABELS_EN[label] || label);
+  // Keep the loaded batch and an existing screen anchor when one card disappears.
+  learned(entry) {
+    const card = CARD_NODES.get(entry.id);
+    const focused = card && card.contains(document.activeElement);
+    const anchor = $$('#word-list .word-card').find(node => node !== card && node.getBoundingClientRect().bottom > 80);
+    const top = anchor && anchor.getBoundingClientRect().top;
+    const shown = this.shown;
+    const wasExam = this.exam;
+    this.compute();
+    if (wasExam !== this.exam) {
+      this.filters.query = '';
+      $('#word-search').value = '';
+    }
+    this.render({ count: wasExam === this.exam ? Math.max(PAGE_SIZE, shown) : PAGE_SIZE });
+    if (wasExam === this.exam && anchor && anchor.isConnected) {
+      const shift = anchor.getBoundingClientRect().top - top;
+      if (shift) window.scrollBy(0, shift);
+      if (focused) anchor.querySelector('.media-toggle').focus({ preventScroll: true });
+    } else if (wasExam !== this.exam) window.scrollTo(0, 0);
   },
-  appendPage() {
-    const end = Math.min(this.results.length, this.shown + PAGE_SIZE);
+  // Exam entries have no static main-list card; create them lazily with safe text nodes.
+  card(entry) {
+    const existing = CARD_NODES.get(entry.id);
+    if (existing) return existing;
+    const groups = sentencesFor(entry);
+    const picture = WORK_PICS[entry.pic];
+    const media = h('div', { class: 'word-media' }, h('button', {
+      type: 'button', class: 'media-toggle', 'data-action': 'toggle-learned', 'aria-pressed': 'false',
+      'aria-label': t('card.toggleLabel', { w: entry.word })
+    }, picture ? h('span', { class: 'emoji-art' }, h('img', { src: picture, alt: '', loading: 'lazy', decoding: 'async', width: '120', height: '120' }))
+      : h('span', { class: 'word-art' }, h('strong', { lang: 'en', text: entry.word }))));
+    const body = h('div', { class: 'word-body' },
+      h('div', { class: 'word-title' }, h('h3', { lang: 'en', text: entry.word }),
+        h('span', { class: 'chip level', text: 'EXAM' }),
+        groups.map(([pos]) => h('span', { class: 'chip', 'data-pos': pos, text: t('pos.' + pos) }))),
+      h('p', { class: 'meaning', lang: 'tr', text: entry.meaning }));
+    if (entry.example) body.append(h('div', { class: 'example-block' },
+      h('p', { class: 'example', lang: 'en', text: entry.example }),
+      entry.exampleTr ? h('p', { class: 'tr-line tr-support', lang: 'tr', text: entry.exampleTr }) : null));
+    if (groups.length) body.append(h('details', { class: 'sentences' },
+      h('summary', { 'data-types': groups.map(([pos]) => pos).join(','), text: t('card.sentences', { types: groups.map(([pos]) => t('pos.' + pos).toLocaleLowerCase(lang)).join(', ') }) }),
+      groups.map(([pos, pairs]) => h('div', { class: 'pos-group' }, h('h4', { 'data-pos': pos, text: t('pos.' + pos) }),
+        pairs.map(([en, tr]) => h('div', { class: 'sentence' }, h('p', { lang: 'en', text: en }),
+          h('p', { class: 'tr-line tr-support', lang: 'tr', text: tr })))))));
+    body.append(h('div', { class: 'card-actions js-only' }, listenButton(entry)));
+    const card = h('article', { class: 'word-card', 'data-id': entry.id, 'data-level': 'EXAM' }, media, body);
+    CARD_NODES.set(entry.id, card);
+    return card;
+  },
+  appendPage(count = PAGE_SIZE) {
+    const end = Math.min(this.results.length, this.shown + count);
     if (end <= this.shown && this.shown > 0) return;
     const fragment = document.createDocumentFragment();
     for (let i = this.shown; i < end; i++) {
       const entry = this.results[i];
-      const label = this.groupLabel(entry);
-      if (label && label !== this.lastGroup) { fragment.append(h('h2', { class: 'group-title', text: label })); this.lastGroup = label; }
-      const card = CARD_NODES.get(entry.id);
-      if (!card) continue;
+      const label = this.exam ? (lang === 'tr' ? 'Sınav kelimeleri' : 'Exam words') : t('level.heading', { l: entry.level });
+      if (label !== this.lastGroup) { fragment.append(h('h2', { class: 'group-title', text: label })); this.lastGroup = label; }
+      const card = this.card(entry);
       if (card.dataset.sceneReady !== '1') {
         const scene = VisualScenes.forWord(entry.word, { lang });
         if (scene) card.querySelector('.card-actions').before(scene);
@@ -6246,9 +6246,8 @@ const Words = {
     this.shown = end;
     const total = this.results.length;
     $('#word-count').textContent = total === 0 ? t('words.countNone') : total === 1 ? t('words.countOne') : t('words.count', { n: total, s: this.shown });
-    const more = $('#word-more');
-    more.hidden = this.shown >= total;
-    more.textContent = t('words.more', { n: Math.min(PAGE_SIZE, total - this.shown) });
+    $('#word-more').hidden = this.shown >= total;
+    $('#word-more').textContent = t('words.more', { n: Math.min(PAGE_SIZE, total - this.shown) });
   },
   onShow() { if (this.dirty) this.render(); }
 };
@@ -10047,6 +10046,228 @@ const NovelQuickReview = {
   }
 };
 
+/* Public reader annotations. Only successful server writes are called shared.
+   Drafts and the anonymous author's ownership capability stay on this device. */
+const NovelNotes = {
+  // Persistent service deployed and health-checked before enabling public notes.
+  API: 'https://english-vocabulary-notes.twinterrordark.workers.dev',
+  KEY: 'english-study-public-notes.v1',
+  DRAFT_KEY: 'english-study-note-drafts.v1',
+  counts: new Map(),
+  book: null,
+  bookKey: null,
+  current: null,
+  wordRun: 0,
+  copy(tr, en) { return lang === 'tr' ? tr : en; },
+  normalize(word) { return String(word || '').normalize('NFKC').toLowerCase().replace(/[’‘]/g, "'").replace(/[‐‑‒–—]/g, '-').replace(/\s+/g, ' ').trim(); },
+  read(key, fallback) { try { return JSON.parse(Store.read(key) || 'null') || fallback; } catch (_) { return fallback; } },
+  init() {
+    if (!this.API) return;
+    this.identity = this.read(this.KEY, {});
+    if (!/^[a-f0-9]{64}$/.test(this.identity.token || '')) {
+      const bytes = crypto.getRandomValues(new Uint8Array(32));
+      this.identity = { token: [...bytes].map(b => b.toString(16).padStart(2, '0')).join(''), author: '', own: [] };
+    }
+    this.identity.own = Array.isArray(this.identity.own) ? this.identity.own.filter(id => typeof id === 'string').slice(-1000) : [];
+    this.drafts = this.read(this.DRAFT_KEY, {});
+    if (typeof this.drafts !== 'object' || Array.isArray(this.drafts)) this.drafts = {};
+    this.persistIdentity();
+    this.root = h('details', { class: 'novel-notes', id: 'novel-notes' });
+    $('#novel-pop').append(this.root);
+    // Keep the reader extension separate from its word lookup and translation.
+    const render = Novel.renderPage, show = Novel.showWord, close = Novel.closePop;
+    Novel.renderPage = function (...args) { const result = render.apply(this, args); NovelNotes.onPage(this.book); return result; };
+    Novel.showWord = function (...args) { const result = show.apply(this, args); NovelNotes.openCurrent(); return result; };
+    Novel.closePop = function (...args) { NovelNotes.closeCurrent(); return close.apply(this, args); };
+    this.timer = setInterval(() => { if (this.visible()) this.refresh(); }, 30000);
+    document.addEventListener('visibilitychange', () => { if (this.visible()) this.refresh(); });
+    window.addEventListener('online', () => { if (this.visible()) this.refresh(); });
+  },
+  persistIdentity() { Store.write(this.KEY, JSON.stringify(this.identity)); },
+  visible() { return !document.hidden && Router.current === 'novel' && Novel.book && !$('#novel-reader').hidden; },
+  async request(path, method = 'GET', body) {
+    if (navigator.onLine === false) throw new Error('offline');
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), 12000);
+    try {
+      const response = await fetch(this.API + path, { method, signal: controller.signal, headers: body ? { 'content-type': 'application/json' } : {}, body: body ? JSON.stringify(body) : undefined });
+      let result; try { result = await response.json(); } catch (_) { throw new Error('network'); }
+      if (!response.ok) throw new Error(response.status === 429 ? 'rate' : response.status === 403 ? 'owner' : 'network');
+      return result;
+    } catch (error) { throw error.message === 'rate' || error.message === 'owner' ? error : new Error(navigator.onLine === false ? 'offline' : 'network'); }
+    finally { clearTimeout(timer); }
+  },
+  async onPage(book) {
+    if (!book) return;
+    if (this.book === book) { this.paint(); return; }
+    this.closeCurrent();
+    this.book = book; this.bookKey = null; this.counts = new Map(); this.paint();
+    this.bookPromise = (async () => {
+      const text = book.pages.map(page => page.map(p => p.replace(/^[\u2060\u2061]/, '')).join(' ')).join(' ').normalize('NFKC').replace(/\s+/g, ' ').trim();
+      const hash = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(text));
+      return [...new Uint8Array(hash)].map(b => b.toString(16).padStart(2, '0')).join('');
+    })();
+    try {
+      const key = await this.bookPromise;
+      if (this.book !== book) return;
+      this.bookKey = key;
+      await this.refresh();
+    } catch (_) { /* A failed public index never blocks the book itself. */ }
+  },
+  async refresh() {
+    const key = this.bookKey;
+    if (!key || this.indexLoading === key) return;
+    this.indexLoading = key;
+    try {
+      const result = await this.request('/api/notes/index?book=' + key);
+      if (this.bookKey !== key) return;
+      this.counts = new Map((Array.isArray(result.words) ? result.words : []).filter(row => typeof row.word === 'string' && Number.isInteger(row.count) && row.count > 0).map(row => [row.word, row.count]));
+      this.paint();
+      if (this.current && !$('#novel-pop').hidden) this.loadNotes();
+    } catch (_) { /* Preserve last known highlights during a transient outage. */ }
+    finally { if (this.indexLoading === key) this.indexLoading = null; }
+  },
+  paint() {
+    if (!this.root) return;
+    const phraseNotes = [...this.counts.keys()].some(word => word.includes(' '));
+    for (const node of $$('#novel-text .nw')) {
+      const key = this.normalize(node.textContent);
+      const base = this.normalize(Novel.lookup(node.textContent)?.base || key);
+      let count = this.counts.get(base) || this.counts.get(key) || 0;
+      if (!count && phraseNotes) {
+        const context = Novel.sentenceSpan(node);
+        const tokens = Novel.phraseTokens(context.text);
+        const tapped = tokens.findIndex(token => context.start + token.at === context.offset);
+        const phrase = tapped >= 0 ? Novel.findPhrase(tokens, tapped) : null;
+        count = phrase ? this.counts.get(this.normalize(phrase.phrase)) || 0 : 0;
+      }
+      node.classList.toggle('has-public-note', count > 0);
+      if (count) node.title = this.copy(count + ' ortak not', count + ' shared notes');
+      else node.removeAttribute('title');
+    }
+  },
+  draftKey() { return this.current ? this.bookKey + ':' + this.current.word : ''; },
+  keepDraft() {
+    if (!this.current || !this.text || this.editing) return;
+    const key = this.draftKey();
+    if (this.text.value.trim()) this.drafts[key] = this.text.value.slice(0, 1000); else delete this.drafts[key];
+    const keys = Object.keys(this.drafts); for (const old of keys.slice(0, Math.max(0, keys.length - 30))) delete this.drafts[old];
+    Store.write(this.DRAFT_KEY, JSON.stringify(this.drafts));
+  },
+  closeCurrent() {
+    this.keepDraft(); this.wordRun++; this.current = null; this.editing = null;
+    this.root?.replaceChildren(); this.text = null;
+  },
+  async openCurrent() {
+    this.closeCurrent();
+    const selected = Novel.current;
+    if (!selected || !Novel.book) { this.root.hidden = true; return; }
+    this.root.hidden = false;
+    const word = this.normalize(selected.review?.w || selected.word);
+    if (!word || word.length > 100) return;
+    const run = this.wordRun;
+    this.current = { word, selected };
+    this.summary = h('summary', { text: this.copy('Okur notları', 'Reader notes') });
+    this.root.replaceChildren(this.summary, h('p', { class: 'hint', text: this.copy('Notlar yükleniyor…', 'Loading notes…') }));
+    const book = this.book;
+    let key;
+    try { key = this.bookKey || await this.bookPromise; } catch (_) { return; }
+    if (this.wordRun !== run || !this.current || this.book !== book) return;
+    this.bookKey = key;
+    this.root.open = (this.counts.get(word) || 0) > 0;
+    this.list = h('ul', { class: 'novel-notes-list' });
+    this.status = h('p', { class: 'hint', role: 'status', 'aria-live': 'polite' });
+    this.author = h('input', { id: 'novel-note-author', type: 'text', maxlength: '40', autocomplete: 'nickname', value: typeof this.identity.author === 'string' ? this.identity.author : '' });
+    this.text = h('textarea', { id: 'novel-note-body', maxlength: '1000', rows: '3', placeholder: this.copy('Bu kelime için bir açıklama veya örnek yaz…', 'Add an explanation or example for this word…') });
+    this.text.value = typeof this.drafts[this.draftKey()] === 'string' ? this.drafts[this.draftKey()] : '';
+    this.text.addEventListener('input', () => this.keepDraft());
+    this.send = h('button', { type: 'submit', class: 'button small primary', text: this.copy('Notu paylaş', 'Share note') });
+    this.cancel = h('button', { type: 'button', class: 'button small ghost', hidden: '', text: this.copy('Vazgeç', 'Cancel') });
+    this.cancel.addEventListener('click', () => { this.editing = null; this.text.value = this.drafts[this.draftKey()] || ''; this.cancel.hidden = true; this.send.textContent = this.copy('Notu paylaş', 'Share note'); });
+    const form = h('form', { class: 'novel-note-form' },
+      h('label', { for: 'novel-note-author', text: this.copy('Takma ad (isteğe bağlı)', 'Nickname (optional)') }), this.author,
+      h('label', { for: 'novel-note-body', text: this.copy('Notun', 'Your note') }), this.text,
+      h('p', { class: 'hint', text: this.copy('Paylaştığın notu bu kitabı okuyan herkes görebilir.', 'Everyone reading this book can see a shared note.') }),
+      h('div', { class: 'row' }, this.send, this.cancel));
+    form.addEventListener('submit', event => { event.preventDefault(); this.save(); });
+    this.root.replaceChildren(this.summary, this.list, this.status, form);
+    await this.loadNotes();
+  },
+  async loadNotes() {
+    if (!this.current || !this.bookKey || !this.list) return;
+    const run = this.wordRun, request = this.listRun = (this.listRun || 0) + 1, word = this.current.word;
+    try {
+      const result = await this.request('/api/notes?book=' + this.bookKey + '&word=' + encodeURIComponent(word));
+      if (this.wordRun !== run || this.listRun !== request) return;
+      this.notes = (Array.isArray(result.notes) ? result.notes : []).filter(note => typeof note.id === 'string' && typeof note.body === 'string' && typeof note.author === 'string');
+      this.counts.set(word, this.notes.length);
+      if (!this.notes.length) this.counts.delete(word);
+      this.summary.textContent = this.copy('Okur notları', 'Reader notes') + (this.notes.length ? ' (' + this.notes.length + ')' : ' · ' + this.copy('Not ekle', 'Add note'));
+      this.status.textContent = this.notes.length ? '' : this.copy('Bu kelime için henüz ortak not yok.', 'No shared notes for this word yet.');
+      this.list.replaceChildren(...this.notes.map(note => this.noteRow(note)));
+      if (this.notes.length) this.root.open = true;
+      this.paint();
+    } catch (error) {
+      if (this.wordRun === run && this.listRun === request) this.status.textContent = this.failure(error);
+    }
+  },
+  noteRow(note) {
+    const date = new Date(note.createdAt);
+    const meta = h('div', { class: 'novel-note-meta' }, h('strong', { text: note.author || this.copy('Okur', 'Reader') }),
+      Number.isNaN(date.getTime()) ? null : h('time', { dateTime: date.toISOString(), text: date.toLocaleDateString(lang === 'tr' ? 'tr-TR' : 'en-GB') }));
+    const row = h('li', { 'data-note-id': note.id }, meta, h('p', { text: note.body }));
+    if (this.identity.own.includes(note.id)) {
+      const edit = h('button', { type: 'button', class: 'link-button', text: this.copy('Düzenle', 'Edit') });
+      edit.addEventListener('click', () => { this.keepDraft(); this.editing = note.id; this.text.value = note.body; this.author.value = note.author; this.cancel.hidden = false; this.send.textContent = this.copy('Değişikliği kaydet', 'Save changes'); this.text.focus(); });
+      const remove = h('button', { type: 'button', class: 'link-button', text: this.copy('Sil', 'Delete') });
+      remove.addEventListener('click', () => this.remove(note.id));
+      row.append(h('div', { class: 'row' }, edit, remove));
+    }
+    return row;
+  },
+  failure(error) {
+    if (error.message === 'rate') return this.copy('Kısa sürede çok fazla not paylaşıldı. Biraz sonra tekrar dene.', 'Too many notes were shared. Please try again shortly.');
+    if (error.message === 'owner') return this.copy('Bu not bu cihazdan değiştirilemiyor.', 'This device cannot change that note.');
+    return this.copy('Ortak not servisine ulaşılamadı. Taslağın bu cihazda duruyor; henüz paylaşılmadı.', 'The shared notes service is unavailable. Your draft stays on this device and has not been shared.');
+  },
+  async save() {
+    if (!this.current || this.busy) return;
+    const body = this.text.value.trim();
+    if (!body || body.length > 1000) { this.status.textContent = this.copy('1–1000 karakter arasında bir not yaz.', 'Write a note of 1–1000 characters.'); this.text.focus(); return; }
+    const run = this.wordRun, word = this.current.word, book = this.bookKey, editing = this.editing;
+    const author = this.author.value.trim().slice(0, 40) || this.copy('Okur', 'Reader');
+    this.identity.author = author; this.persistIdentity(); this.keepDraft();
+    this.busy = true; this.send.disabled = true;
+    this.status.textContent = this.copy('Paylaşılıyor…', 'Sharing…');
+    // Reuse this key after uncertain network results, preventing duplicate notes.
+    this.pending = this.pending && this.pending.body === body && this.pending.word === word && this.pending.book === book ? this.pending : { book, word, body, id: crypto.randomUUID() };
+    try {
+      const result = await this.request(editing ? '/api/notes/' + encodeURIComponent(editing) : '/api/notes', editing ? 'PUT' : 'POST', { book, word, body, author, token: this.identity.token, requestId: this.pending.id });
+      if (!result.note || typeof result.note.id !== 'string') throw new Error('network');
+      this.identity.own = [...new Set([...this.identity.own, result.note.id])].slice(-1000); this.persistIdentity();
+      delete this.drafts[book + ':' + word]; Store.write(this.DRAFT_KEY, JSON.stringify(this.drafts)); this.pending = null;
+      if (this.wordRun === run) {
+        this.text.value = ''; this.editing = null; this.cancel.hidden = true; this.send.textContent = this.copy('Notu paylaş', 'Share note');
+        await this.loadNotes(); this.status.textContent = this.copy('Not paylaşıldı.', 'Note shared.');
+      }
+      await this.refresh();
+    } catch (error) { if (this.wordRun === run) this.status.textContent = this.failure(error); }
+    finally { this.busy = false; if (this.send && this.wordRun === run) this.send.disabled = false; }
+  },
+  async remove(id) {
+    if (!this.current || this.busy) return;
+    const confirmed = await confirmDialog({ title: this.copy('Not silinsin mi?', 'Delete this note?'), message: this.copy('Bu not diğer okurlardan da kaldırılacak.', 'This note will also disappear for other readers.'), confirmLabel: this.copy('Sil', 'Delete') });
+    if (!confirmed) return;
+    const run = this.wordRun;
+    try {
+      await this.request('/api/notes/' + encodeURIComponent(id), 'DELETE', { token: this.identity.token });
+      this.identity.own = this.identity.own.filter(own => own !== id); this.persistIdentity();
+      if (this.wordRun === run) await this.loadNotes();
+      await this.refresh();
+    } catch (error) { if (this.wordRun === run) this.status.textContent = this.failure(error); }
+  }
+};
+
 
 /* ---------- Grammar: relative clauses ---------- */
 const Grammar = {
@@ -12588,7 +12809,7 @@ const MODULES = { home: Home, review: Review, practice: Games, rankings: Ranking
    The page asks for version.json, never from the cache, when it opens and
    whenever it comes back to the screen, and offers to load the new build. */
 const Updater = {
-  build: '6717de2a34c9',
+  build: 'c1756f80bade',
   checked: 0,
   init() {
     if (!/^https?:$/.test(location.protocol) || this.build.length !== 12) return;
@@ -12619,7 +12840,7 @@ function init() {
   applyTurkishVisibility();
   prepareCards();
   MyDecks.load();
-  XP.init(); Home.init(); Words.init(); Phrases.init(); Grammar.init(); Review.init(); Today.init(); Nav.init(); Games.init(); Writer.init(); AiStory.init(); Pron.init(); Speak.init(); Tutor.init(); Novel.init(); Quiz.init(); Settings.init(); Updater.init();
+  XP.init(); Home.init(); Words.init(); Phrases.init(); Grammar.init(); Review.init(); Today.init(); Nav.init(); Games.init(); Writer.init(); AiStory.init(); Pron.init(); Speak.init(); Tutor.init(); Novel.init(); NovelNotes.init(); Quiz.init(); Settings.init(); Updater.init();
   NovelQuickReview.init({ article: $('#novel-text'), store: Store, language: () => lang, isSaved: id => Review.has(id), matchesPage: item => Novel.quickReviewMatches(item),
     onOpen: () => { Novel.closePop(); if (Novel.reading && !Novel.reading.paused) Novel.pauseReading(); } });
   if (!Store.usable) Banner.show(t(Store.simulated ? 'storage.simulated' : 'storage.off'));

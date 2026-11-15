@@ -1,0 +1,19 @@
+{
+  "$schema": "../../.audit-deps/node_modules/wrangler/config-schema.json",
+  "name": "english-vocabulary-notes",
+  "main": "worker.mjs",
+  "compatibility_date": "2026-11-15",
+  "workers_dev": true,
+  "d1_databases": [
+    {
+      "binding": "NOTES",
+      "database_name": "english-vocabulary-notes",
+      "database_id": "e894a414-6b0a-4cc4-97bf-3c58265bc336",
+      "migrations_dir": "migrations"
+    }
+  ],
+  "observability": {
+    "enabled": false
+  },
+  "account_id": "504c83cbcf3e515abccd9ddd5d241f62"
+}

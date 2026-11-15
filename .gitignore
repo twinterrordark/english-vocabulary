@@ -1,6 +1,8 @@
 
 __pycache__/
 .audit-deps/
+.wrangler/
+.dev.vars
 # Study PDFs under their owners' copyright: kept on this computer, not published.
 Language/
 Language.zip

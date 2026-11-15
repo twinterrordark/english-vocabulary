@@ -1,0 +1,15 @@
+.novel-text .nw.has-public-note:not(.is-on):not(.is-word) { background: #fff0b3; color: #473200; border-bottom: 2px solid #b26d00; }
+body[data-paper="dark"] .novel-text .nw.has-public-note:not(.is-on):not(.is-word) { background: #5c481d; color: #fff0bb; border-color: #efc65d; }
+.novel-notes { border-top: 1px solid var(--line); margin-top: 8px; padding-top: 8px; font-family: var(--font); }
+.novel-notes > summary { cursor: pointer; min-height: 44px; display: list-item; padding: 10px 2px; font-weight: 700; font-size: .9rem; }
+.novel-notes-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.novel-notes-list > li { padding: 10px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); }
+.novel-notes-list p { margin: 6px 0; white-space: pre-wrap; overflow-wrap: anywhere; font: .9rem/1.5 var(--font); }
+.novel-note-meta { display: flex; justify-content: space-between; gap: 12px; font-size: .8rem; }
+.novel-note-meta time { color: var(--muted); }
+.novel-note-form { display: grid; gap: 6px; margin-top: 12px; }
+.novel-note-form label { font-size: .85rem; font-weight: 600; }
+.novel-note-form textarea, .novel-note-form input { width: 100%; min-width: 0; box-sizing: border-box; font-size: 16px; }
+.novel-note-form textarea { resize: vertical; }
+.novel-note-form .hint { margin: 2px 0; }
+.novel-pop:has(.novel-notes[open]) { max-height: min(72dvh, 650px); overflow-y: auto; overscroll-behavior: contain; }

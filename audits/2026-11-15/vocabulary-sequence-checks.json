@@ -1,0 +1,13 @@
+{
+  "results": [
+    "Only unknown regular words appear, starting at A2 and maintaining CEFR order",
+    "Marking a word learned removes it immediately without jumping to the top; reload preserves it",
+    "An exam-only search cannot bypass the normal-word completion gate",
+    "When all A2 words are learned the next unknown level begins at B1",
+    "The final regular-word click unlocks real exam cards; learned exam cards remain hidden after reload",
+    "Completing both lists shows a truthful completed state"
+  ],
+  "errors": [],
+  "mainWords": 2200,
+  "examWords": 3806
+}

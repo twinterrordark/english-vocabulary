@@ -28,7 +28,7 @@ SENTENCE_DIR = Path(__file__).resolve().parent / "sentences"
 HERE = Path(__file__).resolve().parent
 IMAGE_DIR = HERE / "images"
 OUTPUT = ROOT / "index.html"
-APP_VERSION = "2.8.3"
+APP_VERSION = "2.8.4"
 
 
 def plain_text(fragment: str) -> str:
@@ -563,7 +563,7 @@ def main() -> None:
     print(f"speaking room   {len(speak_topics)} topics, {sum(len(t['questions']) for t in speak_topics)} questions")
 
     interactive_js, interactive_css = {}, []
-    for name in ("grammar_try", "visual_scenes", "novel_quick_review"):
+    for name in ("grammar_try", "visual_scenes", "novel_quick_review", "novel_notes"):
         js = (HERE / f"{name}.js").read_text(encoding="utf-8")
         css = (HERE / f"{name}.css").read_text(encoding="utf-8")
         if "</script" in js.lower() or "</style" in css.lower():
@@ -588,6 +588,7 @@ def main() -> None:
               .replace("/*@GRAMMAR_TRY_JS@*/", interactive_js["grammar_try"])
               .replace("/*@VISUAL_SCENES_JS@*/", interactive_js["visual_scenes"])
               .replace("/*@NOVEL_QUICK_REVIEW_JS@*/", interactive_js["novel_quick_review"])
+              .replace("/*@NOVEL_NOTES_JS@*/", interactive_js["novel_notes"])
               .replace("/*@FONT_FACES@*/", font_faces())
               .replace("@APP_VERSION@", APP_VERSION)
               .replace("<!--@PDFJS_LIB@-->", pdfjs_lib)

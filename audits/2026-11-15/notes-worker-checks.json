@@ -1,0 +1,11 @@
+{
+  "local": true,
+  "realWorkerRuntime": true,
+  "realD1": true,
+  "results": [
+    "Real D1 health, allowed CORS preflight, rejected foreign origin and invalid book",
+    "Public persistent note read and highlight index; normalized phrases; idempotent retry without token disclosure",
+    "Different owners can share notes, but only the original token can edit/delete; index clears after deletion",
+    "Body/ownership limits reject invalid payloads; atomic D1 rate counter blocks the eleventh minute write"
+  ]
+}

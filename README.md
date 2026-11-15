@@ -822,3 +822,31 @@ vocabulary-correction checks, and the usability suite. New screenshots and
 results are in `audits/2026-11-12/`. Service and speech behavior in automated
 reader tests uses explicit test doubles; actual live-service results are
 reported separately when checked.
+
+## Unknown-word sequence and shared reader notes — v2.8.4 (2026-11-15)
+
+Vocabulary now shows only unknown words, in A2 → B1 → B2 → C1 → C1+
+order. Search does not change that order or unlock exam words. Marking a card
+learned removes it immediately and preserves the loaded position. After all
+2,200 regular words are learned, the unknown words in the separate 3,806-word
+exam deck become available. Removed the status, level and ordering selectors.
+
+The shared-note feature is prepared separately in `tools/novel_notes.js`,
+`tools/novel_notes.css` and `tools/notes_worker/`. A book's text fingerprint
+associates notes across devices, including differently named copies of the
+same text. Notes have nicknames and plain-text bodies, and noted words are
+highlighted. Device-held ownership permits editing and deleting one's own
+notes; a nickname is not a verified account identity. Drafts stay local until
+the server confirms a successful share. Reader polling refreshes shared notes
+while reading. No administrative service token is embedded in the page.
+
+**Deployment status:** the public persistent notes service is deployed at
+`https://english-vocabulary-notes.twinterrordark.workers.dev` with its own D1
+database and server-held rate-limit salt. The existing teacher service is
+unchanged. The page calls the public notes API directly; no Cloudflare
+administrative credential is exposed to readers. The module is enabled only
+after a successful service health check.
+Checks and screenshots are in `audits/2026-11-15/`. The vocabulary sequence,
+mobile usability and backend ownership/rate-limit checks use real application
+code. Backend checks run against a real local Worker+D1 database. Cross-reader
+browser checks use two isolated browser contexts and that same local API.

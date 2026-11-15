@@ -1996,29 +1996,8 @@ select#today-goal, .tutor-scenario select { min-height: var(--tap); }
         <label for="word-search" data-i18n="words.search">Search English or Turkish</label>
         <input id="word-search" type="search" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="search" placeholder="e.g. achieve, başarmak" data-i18n-placeholder="words.searchPh">
       </div>
-      <div class="field status-field">
-        <span class="legend" id="status-label" data-i18n="words.status">Show</span>
-        <div class="segmented" role="group" aria-labelledby="status-label">
-          <button type="button" class="button" data-status="all" aria-pressed="true" data-i18n="words.all">All</button>
-          <button type="button" class="button" data-status="unlearned" aria-pressed="false" data-i18n="words.unlearned">Not learned</button>
-          <button type="button" class="button" data-status="learned" aria-pressed="false" data-i18n="words.learned">Learned</button>
-        </div>
-      </div>
-      <div class="field">
-        <label for="level-filter" data-i18n="words.level">Level label</label>
-        <select id="level-filter">
-          <option value="all">Tüm seviyeler</option>
-        </select>
-      </div>
-      <div class="field">
-        <label for="sort-select" data-i18n="words.sort">Order</label>
-        <select id="sort-select">
-          <option value="level" data-i18n="sort.level">By level</option>
-          <option value="alpha" data-i18n="sort.alpha">Alphabetical (A–Z)</option>
-          <option value="related" data-i18n="sort.related">Related meanings</option>
-        </select>
-      </div>
     </div>
+    <p id="word-sequence-note" class="hint js-only" aria-live="polite"></p>
     <div class="row js-only">
       <p id="word-count" class="result-count" aria-live="polite"></p>
       <button type="button" class="button ghost small" id="reset-filters" data-i18n="words.reset">Reset filters</button>
@@ -2639,7 +2618,7 @@ const STRINGS = {
     'level.B2': 'B2 ({n})',
     'level.B1': 'B1 ({n})',
     'level.A2': 'A2 ({n})',
-    'words.tapHint': 'Tap a card when you have learned the word — it turns green. Tap it again to undo.',
+    'words.tapHint': 'Tap a word you know to mark it learned and remove it from this list.',
     'pos.num': 'Number',
     'pos.int': 'Interjection',
     'pos.phr': 'Phrase',
@@ -2830,8 +2809,8 @@ const STRINGS = {
     'words.search': 'Search English or Turkish', 'words.searchPh': 'e.g. achieve, başarmak', 'words.status': 'Show',
     'words.all': 'All', 'words.unlearned': 'Not learned', 'words.learned': 'Learned', 'words.level': 'Level label', 'words.anyLevel': 'All levels ({n})', 
     'words.sort': 'Order', 'sort.alpha': 'Alphabetical (A–Z)', 'sort.related': 'Related meanings',
-    'words.reset': 'Reset filters', 'words.count': '{n} words match · showing {s}', 'words.countOne': '1 word matches', 'words.countNone': 'No words match',
-    'words.more': 'Show {n} more', 'words.emptyTitle': 'No words match.', 'words.emptyText': 'Try a shorter search, check the spelling, or reset the filters.',
+    'words.reset': 'Clear search', 'words.count': '{n} unknown words · showing {s}', 'words.countOne': '1 unknown word', 'words.countNone': 'No words match',
+    'words.more': 'Show {n} more', 'words.emptyTitle': 'No unknown words match.', 'words.emptyText': 'Try a shorter search or clear it. Learned words are hidden.',
     'group.other': 'Other words — sorted by Turkish meaning',
     'card.pron': 'Pronunciation', 'card.ipa': 'IPA', 'card.respelling': 'Say it', 'card.definition': 'English definition', 'card.example': 'Example',
     'card.listen': 'Listen', 'card.listenTo': 'Listen to “{w}”', 
@@ -3044,7 +3023,7 @@ const STRINGS = {
     'level.B2': 'B2 ({n})',
     'level.B1': 'B1 ({n})',
     'level.A2': 'A2 ({n})',
-    'words.tapHint': 'Öğrendiğin kelimenin kartına dokun, kart yeşile döner. Geri almak için yeniden dokun.',
+    'words.tapHint': 'Bildiğin kelimenin kartına dokun; öğrenildi olarak işaretlenir ve bu listeden çıkar.',
     'pos.num': 'Sayı',
     'pos.int': 'Ünlem',
     'pos.phr': 'Kalıp ifade',
@@ -3084,8 +3063,8 @@ const STRINGS = {
     'words.search': 'İngilizce ya da Türkçe ara', 'words.searchPh': 'ör. achieve, başarmak', 'words.status': 'Göster',
     'words.all': 'Tümü', 'words.unlearned': 'Öğrenilmeyen', 'words.learned': 'Öğrenilen', 'words.level': 'Seviye etiketi', 'words.anyLevel': 'Tüm seviyeler ({n})', 
     'words.sort': 'Sıralama', 'sort.alpha': 'Alfabetik (A–Z)', 'sort.related': 'Anlamca yakın',
-    'words.reset': 'Filtreleri sıfırla', 'words.count': '{n} kelime eşleşti · {s} gösteriliyor', 'words.countOne': '1 kelime eşleşti', 'words.countNone': 'Eşleşen kelime yok',
-    'words.more': '{n} kelime daha göster', 'words.emptyTitle': 'Eşleşen kelime yok.', 'words.emptyText': 'Daha kısa bir arama dene, yazımı kontrol et ya da filtreleri sıfırla.',
+    'words.reset': 'Aramayı temizle', 'words.count': '{n} bilinmeyen kelime · {s} gösteriliyor', 'words.countOne': '1 bilinmeyen kelime', 'words.countNone': 'Eşleşen kelime yok',
+    'words.more': '{n} kelime daha göster', 'words.emptyTitle': 'Eşleşen bilinmeyen kelime yok.', 'words.emptyText': 'Daha kısa bir arama dene ya da aramayı temizle. Öğrenilen kelimeler gösterilmez.',
     'group.other': 'Diğer kelimeler — Türkçe anlamına göre',
     'card.pron': 'Okunuş', 'card.ipa': 'IPA', 'card.respelling': 'Okunuş', 'card.definition': 'İngilizce tanım', 'card.example': 'Örnek',
     'card.listen': 'Dinle', 'card.listenTo': '“{w}” kelimesini dinle', 
@@ -3262,6 +3241,12 @@ VOCAB.forEach((entry, index) => {
   entry.meaningKey = normalize(entry.meaning);
   entry.searchText = normalize([entry.word, entry.meaning, entry.example, entry.exampleTr, entry.definition].filter(Boolean).join(' '));
   BY_ID.set(entry.id, entry);
+});
+WORK.forEach((entry, index) => {
+  entry.order = index;
+  entry.key = normalize(entry.word);
+  entry.meaningKey = normalize(entry.meaning);
+  entry.searchText = normalize([entry.word, entry.meaning, entry.example, entry.exampleTr].filter(Boolean).join(' '));
 });
 /* Example sentences written for this app, keyed by lower-case word:
    { word: { pos: [[english, turkish], ...] } }. Kept apart from the original entries. */
@@ -3594,7 +3579,7 @@ function setLearned(entry, learned) {
   recordActivity();
   persist();
   syncWordControls(entry.id);
-  if (Router.current !== 'words') Words.dirty = true;
+  if (Router.current === 'words') Words.learned(entry); else Words.dirty = true;
   Toast.show(t(learned ? 'toast.learned' : 'toast.unlearned', { w: entry.word }));
 }
 function listenButton(entry) {
@@ -3744,13 +3729,8 @@ const Home = {
 const PAGE_SIZE = 24;
 const LEVELS = ['A2', 'B1', 'B2', 'C1', 'C1+'];
 const Words = {
-  filters: { query: '', status: 'all', level: 'all', sort: 'level' },
-  results: [],
-  shown: 0,
-  lastGroup: null,
-  searchTimer: 0,
-  relatedReady: false,
-  dirty: true,
+  filters: { query: '' },
+  results: [], shown: 0, lastGroup: null, searchTimer: 0, dirty: true, exam: false,
   init() {
     const search = $('#word-search');
     search.addEventListener('input', () => {
@@ -3758,105 +3738,109 @@ const Words = {
       this.searchTimer = setTimeout(() => { this.filters.query = search.value; this.render(); }, 150);
     });
     search.addEventListener('keydown', event => { if (event.key === 'Enter') search.blur(); });
-    for (const button of $$('[data-status]')) {
-      button.addEventListener('click', () => {
-        if (this.filters.status === button.dataset.status) return;
-        this.filters.status = button.dataset.status;
-        this.syncControls();
-        this.render();
-      });
-    }
-    $('#level-filter').addEventListener('change', e => { this.filters.level = e.target.value; this.render(); });
-    $('#sort-select').addEventListener('change', e => { this.filters.sort = e.target.value; this.render(); });
     $('#reset-filters').addEventListener('click', () => this.reset());
-    $('#empty-reset').addEventListener('click', () => { this.reset(); $('#word-search').focus(); });
+    $('#empty-reset').addEventListener('click', () => { this.reset(); search.focus(); });
     $('#word-more').addEventListener('click', () => this.appendPage());
-    if ('IntersectionObserver' in window) {
-      new IntersectionObserver(items => {
-        if (items.some(i => i.isIntersecting) && Router.current === 'words' && !$('#word-more').hidden) this.appendPage();
-      }, { rootMargin: '400px 0px' }).observe($('#word-more'));
-    }
+    if ('IntersectionObserver' in window) new IntersectionObserver(items => {
+      if (items.some(item => item.isIntersecting) && Router.current === 'words' && !$('#word-more').hidden) this.appendPage();
+    }, { rootMargin: '400px 0px' }).observe($('#word-more'));
     bindWordActions($('#word-list'));
-    this.renderLevelOptions();
   },
-  renderLevelOptions() {
-    const select = $('#level-filter');
-    select.replaceChildren(h('option', { value: 'all', text: t('words.anyLevel', { n: VOCAB.length }) }),
-      ...LEVELS.map(level => h('option', { value: level, text: t('level.' + level, { n: VOCAB.filter(e => e.level === level).length }) })));
-    select.value = this.filters.level;
-  },
+  // Kept as the language-change hook; there are no selectable status/order filters.
+  renderLevelOptions() { this.describe(); },
   reset() {
-    this.filters = { query: '', status: 'all', level: 'all', sort: this.filters.sort };
+    this.filters.query = '';
     $('#word-search').value = '';
-    this.syncControls();
     this.render();
   },
-  syncControls() {
-    for (const button of $$('[data-status]')) button.setAttribute('aria-pressed', String(button.dataset.status === this.filters.status));
-    $('#level-filter').value = this.filters.level;
-    $('#sort-select').value = this.filters.sort;
-  },
-  /* Original page's related-meaning ordering, computed once. */
-  prepareRelated() {
-    if (this.relatedReady) return;
-    const groupWords = MEANING_GROUPS.map(group => group.words.map(normalize));
-    const counts = new Map();
-    for (const entry of VOCAB) {
-      entry.group = groupWords.findIndex(words => words.indexOf(entry.key) >= 0);
-      if (entry.group >= 0) counts.set(entry.group, (counts.get(entry.group) || 0) + 1);
-    }
-    for (const entry of VOCAB) if (entry.group >= 0 && counts.get(entry.group) < 2) entry.group = -1;
-    const other = MEANING_GROUPS.length;
-    VOCAB.slice().sort((a, b) => {
-      const ag = a.group >= 0 ? a.group : other, bg = b.group >= 0 ? b.group : other;
-      if (ag !== bg) return ag - bg;
-      if (ag === other && a.meaningKey !== b.meaningKey) return a.meaningKey.localeCompare(b.meaningKey, 'tr');
-      return a.key.localeCompare(b.key, 'tr');
-    }).forEach((entry, rank) => { entry.relatedRank = rank; });
-    this.relatedReady = true;
-  },
   compute() {
-    const f = this.filters;
-    const query = normalize(f.query.trim());
-    let list = VOCAB.filter(e =>
-      (!query || e.searchText.indexOf(query) >= 0) &&
-      (f.status === 'all' || (f.status === 'learned') === learnedSet.has(e.id)) &&
-      (f.level === 'all' || e.level === f.level));
-    if (f.sort === 'alpha') list.sort((a, b) => a.word.localeCompare(b.word, 'en', { sensitivity: 'base' }) || a.order - b.order);
-    if (f.sort === 'related') { this.prepareRelated(); list.sort((a, b) => a.relatedRank - b.relatedRank); }
-    else if (query) {
-      const rank = e => (e.key === query ? 0 : e.key.indexOf(query) === 0 ? 1 : 2);
-      list = list.map((e, i) => [e, i]).sort((a, b) => rank(a[0]) - rank(b[0]) || a[1] - b[1]).map(pair => pair[0]);
-    }
-    this.results = list;
+    // Search can never unlock the exam deck: completion is checked globally.
+    this.exam = !VOCAB.some(entry => !learnedSet.has(entry.id));
+    const query = normalize(this.filters.query.trim());
+    this.results = (this.exam ? WORK : VOCAB).filter(entry =>
+      !learnedSet.has(entry.id) && (!query || entry.searchText.includes(query)));
+    this.results.sort((a, b) => (this.exam ? 0 : LEVELS.indexOf(a.level) - LEVELS.indexOf(b.level)) || a.order - b.order);
   },
-  /* Reuse original nodes; attach only the requested result batches. */
-  render() {
+  describe() {
+    $('#word-sequence-note').textContent = this.exam
+      ? (lang === 'tr' ? 'Normal kelime listesi tamamlandı. Şimdi bilmediğin sınav kelimeleri gösteriliyor.' : 'The regular word list is complete. Your unknown exam words are now shown.')
+      : (lang === 'tr' ? 'Yalnızca bilmediğin kelimeler · A2 → B1 → B2 → C1 → C1+. Sınav kelimeleri bu liste bitince açılır.' : 'Unknown words only · A2 → B1 → B2 → C1 → C1+. Exam words unlock after this list is complete.');
+  },
+  render({ count = PAGE_SIZE } = {}) {
     this.compute();
     this.shown = 0;
     this.lastGroup = null;
     $('#word-list').replaceChildren();
-    this.appendPage();
+    this.appendPage(count);
     $('#word-empty').hidden = this.results.length > 0;
+    const finished = this.exam && !WORK.some(entry => !learnedSet.has(entry.id));
+    if (finished) $('#word-count').textContent = lang === 'tr' ? 'Tüm kelimeler öğrenildi.' : 'Every word is learned.';
+    $('#word-empty strong').textContent = finished
+      ? (lang === 'tr' ? 'Tüm kelimeleri tamamladın.' : 'You have completed every word.') : t('words.emptyTitle');
+    $('#word-empty .hint').textContent = finished
+      ? (lang === 'tr' ? 'Normal kelimeler ve sınav kelimeleri öğrenildi olarak işaretli.' : 'All regular and exam words are marked as learned.') : t('words.emptyText');
+    $('#empty-reset').hidden = finished;
+    this.describe();
     this.dirty = false;
   },
-  groupLabel(entry) {
-    if (this.filters.sort === 'level') return t('level.heading', { l: entry.level });
-    if (this.filters.sort !== 'related') return null;
-    if (entry.group < 0) return t('group.other');
-    const label = MEANING_GROUPS[entry.group].label;
-    return lang === 'tr' ? label : (GROUP_LABELS_EN[label] || label);
+  // Keep the loaded batch and an existing screen anchor when one card disappears.
+  learned(entry) {
+    const card = CARD_NODES.get(entry.id);
+    const focused = card && card.contains(document.activeElement);
+    const anchor = $$('#word-list .word-card').find(node => node !== card && node.getBoundingClientRect().bottom > 80);
+    const top = anchor && anchor.getBoundingClientRect().top;
+    const shown = this.shown;
+    const wasExam = this.exam;
+    this.compute();
+    if (wasExam !== this.exam) {
+      this.filters.query = '';
+      $('#word-search').value = '';
+    }
+    this.render({ count: wasExam === this.exam ? Math.max(PAGE_SIZE, shown) : PAGE_SIZE });
+    if (wasExam === this.exam && anchor && anchor.isConnected) {
+      const shift = anchor.getBoundingClientRect().top - top;
+      if (shift) window.scrollBy(0, shift);
+      if (focused) anchor.querySelector('.media-toggle').focus({ preventScroll: true });
+    } else if (wasExam !== this.exam) window.scrollTo(0, 0);
   },
-  appendPage() {
-    const end = Math.min(this.results.length, this.shown + PAGE_SIZE);
+  // Exam entries have no static main-list card; create them lazily with safe text nodes.
+  card(entry) {
+    const existing = CARD_NODES.get(entry.id);
+    if (existing) return existing;
+    const groups = sentencesFor(entry);
+    const picture = WORK_PICS[entry.pic];
+    const media = h('div', { class: 'word-media' }, h('button', {
+      type: 'button', class: 'media-toggle', 'data-action': 'toggle-learned', 'aria-pressed': 'false',
+      'aria-label': t('card.toggleLabel', { w: entry.word })
+    }, picture ? h('span', { class: 'emoji-art' }, h('img', { src: picture, alt: '', loading: 'lazy', decoding: 'async', width: '120', height: '120' }))
+      : h('span', { class: 'word-art' }, h('strong', { lang: 'en', text: entry.word }))));
+    const body = h('div', { class: 'word-body' },
+      h('div', { class: 'word-title' }, h('h3', { lang: 'en', text: entry.word }),
+        h('span', { class: 'chip level', text: 'EXAM' }),
+        groups.map(([pos]) => h('span', { class: 'chip', 'data-pos': pos, text: t('pos.' + pos) }))),
+      h('p', { class: 'meaning', lang: 'tr', text: entry.meaning }));
+    if (entry.example) body.append(h('div', { class: 'example-block' },
+      h('p', { class: 'example', lang: 'en', text: entry.example }),
+      entry.exampleTr ? h('p', { class: 'tr-line tr-support', lang: 'tr', text: entry.exampleTr }) : null));
+    if (groups.length) body.append(h('details', { class: 'sentences' },
+      h('summary', { 'data-types': groups.map(([pos]) => pos).join(','), text: t('card.sentences', { types: groups.map(([pos]) => t('pos.' + pos).toLocaleLowerCase(lang)).join(', ') }) }),
+      groups.map(([pos, pairs]) => h('div', { class: 'pos-group' }, h('h4', { 'data-pos': pos, text: t('pos.' + pos) }),
+        pairs.map(([en, tr]) => h('div', { class: 'sentence' }, h('p', { lang: 'en', text: en }),
+          h('p', { class: 'tr-line tr-support', lang: 'tr', text: tr })))))));
+    body.append(h('div', { class: 'card-actions js-only' }, listenButton(entry)));
+    const card = h('article', { class: 'word-card', 'data-id': entry.id, 'data-level': 'EXAM' }, media, body);
+    CARD_NODES.set(entry.id, card);
+    return card;
+  },
+  appendPage(count = PAGE_SIZE) {
+    const end = Math.min(this.results.length, this.shown + count);
     if (end <= this.shown && this.shown > 0) return;
     const fragment = document.createDocumentFragment();
     for (let i = this.shown; i < end; i++) {
       const entry = this.results[i];
-      const label = this.groupLabel(entry);
-      if (label && label !== this.lastGroup) { fragment.append(h('h2', { class: 'group-title', text: label })); this.lastGroup = label; }
-      const card = CARD_NODES.get(entry.id);
-      if (!card) continue;
+      const label = this.exam ? (lang === 'tr' ? 'Sınav kelimeleri' : 'Exam words') : t('level.heading', { l: entry.level });
+      if (label !== this.lastGroup) { fragment.append(h('h2', { class: 'group-title', text: label })); this.lastGroup = label; }
+      const card = this.card(entry);
       if (card.dataset.sceneReady !== '1') {
         const scene = VisualScenes.forWord(entry.word, { lang });
         if (scene) card.querySelector('.card-actions').before(scene);
@@ -3869,9 +3853,8 @@ const Words = {
     this.shown = end;
     const total = this.results.length;
     $('#word-count').textContent = total === 0 ? t('words.countNone') : total === 1 ? t('words.countOne') : t('words.count', { n: total, s: this.shown });
-    const more = $('#word-more');
-    more.hidden = this.shown >= total;
-    more.textContent = t('words.more', { n: Math.min(PAGE_SIZE, total - this.shown) });
+    $('#word-more').hidden = this.shown >= total;
+    $('#word-more').textContent = t('words.more', { n: Math.min(PAGE_SIZE, total - this.shown) });
   },
   onShow() { if (this.dirty) this.render(); }
 };
@@ -7134,6 +7117,7 @@ const Tutor = {
 /*@GRAMMAR_TRY_JS@*/
 /*@VISUAL_SCENES_JS@*/
 /*@NOVEL_QUICK_REVIEW_JS@*/
+/*@NOVEL_NOTES_JS@*/
 
 /* ---------- Grammar: relative clauses ---------- */
 const Grammar = {
@@ -9706,7 +9690,7 @@ function init() {
   applyTurkishVisibility();
   prepareCards();
   MyDecks.load();
-  XP.init(); Home.init(); Words.init(); Phrases.init(); Grammar.init(); Review.init(); Today.init(); Nav.init(); Games.init(); Writer.init(); AiStory.init(); Pron.init(); Speak.init(); Tutor.init(); Novel.init(); Quiz.init(); Settings.init(); Updater.init();
+  XP.init(); Home.init(); Words.init(); Phrases.init(); Grammar.init(); Review.init(); Today.init(); Nav.init(); Games.init(); Writer.init(); AiStory.init(); Pron.init(); Speak.init(); Tutor.init(); Novel.init(); NovelNotes.init(); Quiz.init(); Settings.init(); Updater.init();
   NovelQuickReview.init({ article: $('#novel-text'), store: Store, language: () => lang, isSaved: id => Review.has(id), matchesPage: item => Novel.quickReviewMatches(item),
     onOpen: () => { Novel.closePop(); if (Novel.reading && !Novel.reading.paused) Novel.pauseReading(); } });
   if (!Store.usable) Banner.show(t(Store.simulated ? 'storage.simulated' : 'storage.off'));

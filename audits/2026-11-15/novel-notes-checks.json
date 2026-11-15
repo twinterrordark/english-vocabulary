@@ -1,0 +1,17 @@
+{
+  "realLocalWorker": true,
+  "realD1": true,
+  "separateContexts": true,
+  "mockedTranslation": true,
+  "successfulWrites": 5,
+  "results": [
+    "Different devices with renamed copies share the same content index, phrase highlight and public note; ownership controls stay private",
+    "A second reader can add literal HTML text safely; each author can edit only their own note and changes reach other readers",
+    "TR layout preserves public phrase highlights; delayed notes for a previous word never replace the selected word",
+    "Deletion removes only the owned note; highlight remains while another note exists and clears after the final note is deleted",
+    "Offline submit is explicitly unshared; the local draft survives reload without fabricating notes or highlights",
+    "No uncaught JavaScript errors; notes fit 320px screens"
+  ],
+  "errors": [],
+  "apiRequests": 39
+}
