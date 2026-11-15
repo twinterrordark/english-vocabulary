@@ -1811,6 +1811,7 @@ select#today-goal, .tutor-scenario select { min-height: var(--tap); }
     <a href="#words" data-route="words"><svg class="icon" aria-hidden="true"><use href="#i-words"/></svg><span data-i18n="nav.words">Words</span></a>
     <a href="#phrases" data-route="phrases"><svg class="icon" aria-hidden="true"><use href="#i-chat"/></svg><span data-i18n="nav.phrases">Phrases</span></a>
     <a href="#grammar" data-route="grammar"><svg class="icon" aria-hidden="true"><use href="#i-pen"/></svg><span data-i18n="nav.grammar">Grammar</span></a>
+    <a href="#grammar/write" data-route="grammar" data-subroute="write"><svg class="icon" aria-hidden="true"><use href="#i-pen"/></svg><span data-i18n="nav.write">Write a story</span></a>
     <span class="nav-group" data-i18n="nav.groupPractice">Practice</span>
     <a href="#quiz" data-route="quiz"><svg class="icon" aria-hidden="true"><use href="#i-quiz"/></svg><span data-i18n="nav.quiz">Quiz</span></a>
     <a href="#reading" data-route="reading"><svg class="icon" aria-hidden="true"><use href="#i-reading"/></svg><span data-i18n="nav.reading">Reading</span></a>
@@ -1850,6 +1851,7 @@ select#today-goal, .tutor-scenario select { min-height: var(--tap); }
     </div>
     <div class="more-grid">
       <a href="#grammar" data-route="grammar"><svg class="icon" aria-hidden="true"><use href="#i-pen"/></svg><span data-i18n="nav.grammar">Grammar</span></a>
+      <a href="#grammar/write" data-route="grammar" data-subroute="write"><svg class="icon" aria-hidden="true"><use href="#i-pen"/></svg><span data-i18n="nav.write">Write a story</span></a>
       <a href="#review" data-route="review"><svg class="icon" aria-hidden="true"><use href="#i-repeat"/></svg><span data-i18n="nav.review">Review</span><b class="nav-badge" data-badge hidden></b></a>
       <a href="#words" data-route="words"><svg class="icon" aria-hidden="true"><use href="#i-words"/></svg><span data-i18n="nav.words">Words</span></a>
       <a href="#phrases" data-route="phrases"><svg class="icon" aria-hidden="true"><use href="#i-chat"/></svg><span data-i18n="nav.phrases">Phrases</span></a>
@@ -1912,11 +1914,6 @@ select#today-goal, .tutor-scenario select { min-height: var(--tap); }
       <p id="hero-text"></p>
       <a class="button hero-button" id="hero-start" href="#review"><svg class="icon" aria-hidden="true"><use href="#i-play"/></svg><span id="hero-label"></span></a>
     </div>
-    <a class="write-card js-only" href="#grammar/write">
-      <span class="write-icon" aria-hidden="true"><svg class="icon"><use href="#i-pen"/></svg></span>
-      <span class="write-text"><span class="eyebrow" data-i18n="home.writeTag">Writing</span><strong data-i18n="home.writeTitle">Write a story</strong><span id="home-write-note"></span></span>
-      <span class="button violet write-go"><span data-i18n="home.writeGo">Write</span><svg class="icon" aria-hidden="true"><use href="#i-next"/></svg></span>
-    </a>
     <div class="section-row">
       <h2><svg class="icon" aria-hidden="true"><use href="#i-cards"/></svg><span data-i18n="home.decks">Word decks</span></h2>
       <span class="section-note" id="deck-count"></span>
@@ -2631,7 +2628,7 @@ const STRINGS = {
     'tutor.micDenied': 'The microphone is blocked. Allow it for this site in the browser settings.', 'tutor.noRecognition': 'This browser cannot turn speech into text; type your answer instead (Chrome or Safari can).',
     'tutor.err.tooMany': 'Slow down a little 🙂 Too many messages in a minute; wait a moment.', 'tutor.err.limit': 'The free daily limit is used up. Try again a bit later.',
     'tutor.err.network': 'No connection to the lesson server. Check the internet.', 'tutor.err.server': 'The teacher could not answer. Try again.',
-    'nav.grammar': 'Grammar', 'mode.grammar': 'Tenses, sentence structures, modals, conditionals, passive voice and more, with explained exercises.',
+    'nav.write': 'Write a story', 'nav.grammar': 'Grammar', 'mode.grammar': 'Tenses, sentence structures, modals, conditionals, passive voice and more, with explained exercises.',
     'grammar.title': 'Grammar and writing', 'grammar.lead': 'Pick a topic: read the lesson, then test yourself with the exercises.',
     'grammar.search': 'Search topics and lessons', 'grammar.searchPh': 'e.g. Present Perfect, articles…', 'grammar.level': 'Study level', 'grammar.allLevels': 'All levels', 'grammar.matches': '{t} topics · {n} lessons', 'grammar.empty': 'No matching lesson. Try another search or level.', 'grammar.signals': 'Time and context', 'grammar.mistake': 'Common mistake', 'grammar.sources': 'Further grammar reference',
     'grammar.contents': 'In this lesson', 'grammar.analysis': 'Why this structure?', 'grammar.comparison': 'Compare the meanings', 'grammar.glossary': 'Grammar terms and verb forms', 'grammar.glossaryText': 'The subject is who or what the sentence is about; the object receives an action. An auxiliary helps form questions, negatives or a tense. V1 is the base form (go), V2 the past form (went), V3 the past participle (gone), and V-ing the -ing form (going). Regular verbs usually have the same V2 and V3 (worked); irregular forms must be learned with the verb.',
@@ -2854,7 +2851,7 @@ const STRINGS = {
     'tutor.micDenied': 'Mikrofon izni kapalı. Tarayıcı ayarlarından bu siteye mikrofon izni ver.', 'tutor.noRecognition': 'Bu tarayıcı konuşmayı yazıya çeviremiyor; cevabını yazarak ver (Chrome ya da Safari çevirebilir).',
     'tutor.err.tooMany': 'Biraz yavaşla 🙂 Bir dakikada çok mesaj gönderdin, biraz bekle.', 'tutor.err.limit': 'Günlük ücretsiz kullanım doldu. Biraz sonra tekrar dene.',
     'tutor.err.network': 'Ders sunucusuna ulaşılamadı. İnternet bağlantını kontrol et.', 'tutor.err.server': 'Hoca cevap veremedi. Tekrar dene.',
-    'nav.grammar': 'Gramer', 'mode.grammar': 'Zamanlar, cümle yapıları, modallar, koşul cümleleri, passive ve diğer konular; açıklamalı alıştırmalarla.',
+    'nav.write': 'Hikâye yaz', 'nav.grammar': 'Gramer', 'mode.grammar': 'Zamanlar, cümle yapıları, modallar, koşul cümleleri, passive ve diğer konular; açıklamalı alıştırmalarla.',
     'grammar.title': 'Gramer ve yazma', 'grammar.lead': 'Bir konu seç: önce konu anlatımını oku, sonra alıştırmalarla kendini dene.',
     'grammar.search': 'Konu ve ders ara', 'grammar.searchPh': 'Örn. Present Perfect, articles, koşul…', 'grammar.level': 'Çalışma düzeyi', 'grammar.allLevels': 'Tüm düzeyler', 'grammar.matches': '{t} konu · {n} ders', 'grammar.empty': 'Eşleşen ders yok. Başka bir kelime veya düzey dene.', 'grammar.signals': 'Zaman ve bağlam', 'grammar.mistake': 'Sık yapılan hata', 'grammar.sources': 'Ek gramer kaynağı',
     'grammar.contents': 'Bu derste', 'grammar.analysis': 'Neden bu yapı?', 'grammar.comparison': 'Anlamları karşılaştır', 'grammar.glossary': 'Terimler ve fiil biçimleri', 'grammar.glossaryText': 'Özne, cümlenin hakkında bilgi verdiği kişi/şeydir; nesne ise eylemin yöneldiği kişi/şey olabilir. Yardımcı fiil soru, olumsuzluk veya zaman yapısını kurmaya yardım eder. V1 yalın fiil (go), V2 geçmiş biçimi (went), V3 üçüncü biçim/past participle (gone), V-ing ise -ing biçimidir (going). Düzenli fiillerde V2 ve V3 genellikle aynıdır (worked); düzensizlerde fiille birlikte öğrenilir.',
@@ -3658,7 +3655,7 @@ const Router = {
     this.current = name;
     for (const view of $$('.view')) view.classList.toggle('is-active', view.dataset.view === name);
     for (const link of $$('.tabs a')) {
-      if (link.dataset.route === name) link.setAttribute('aria-current', 'page'); else link.removeAttribute('aria-current');
+      if (Nav.isCurrent(link, name)) link.setAttribute('aria-current', 'page'); else link.removeAttribute('aria-current');
     }
     /* On narrow phones the tab row scrolls; keep the current tab in sight. */
     const tab = $('.tabs a[aria-current]');
@@ -8381,8 +8378,6 @@ const Today = {
     $('#hero-text').textContent = t(due ? 'home.heroText' : 'home.heroNew');
     $('#hero-label').textContent = due ? t('home.heroStart', { n: due }) : t('home.heroLearn');
     $('#hero-start').href = due ? '#review' : '#review/learn/' + (firstDeck ? firstDeck.level : 'A2');
-    const stories = Writer.stories.length;
-    $('#home-write-note').textContent = stories ? t('home.writeNote', { n: stories }) : t('home.writeEmpty');
     this.decks();
     $('#today-continue').replaceChildren(...this.rows());
     this.week();
@@ -8534,9 +8529,14 @@ const Nav = {
     this.labelSidebar();
     if (!quiet) Store.write(this.KEY, on ? '1' : '0');
   },
+  isCurrent(link, name) {
+    if (link.dataset.route !== name) return false;
+    const subroute = location.hash.split('/')[1] || '';
+    return link.dataset.subroute ? subroute === link.dataset.subroute : !(name === 'grammar' && subroute === 'write');
+  },
   labelSidebar() {
     for (const link of $$('.tabs a')) {
-      if (document.body.classList.contains('side-collapsed')) link.setAttribute('aria-label', t('nav.' + link.dataset.route));
+      if (document.body.classList.contains('side-collapsed')) link.setAttribute('aria-label', t(link.querySelector('span[data-i18n]')?.dataset.i18n || 'nav.' + link.dataset.route));
       else link.removeAttribute('aria-label');
     }
   },
@@ -8544,7 +8544,7 @@ const Nav = {
   update(name) {
     this.labelSidebar();
     for (const link of $$('.bottom-nav a, .more-grid a')) {
-      if (link.dataset.route === name) link.setAttribute('aria-current', 'page'); else link.removeAttribute('aria-current');
+      if (Nav.isCurrent(link, name)) link.setAttribute('aria-current', 'page'); else link.removeAttribute('aria-current');
     }
     $('#nav-more').classList.toggle('is-current', this.MORE.includes(name));
     for (const route of ROUTES) document.body.classList.toggle('route-' + route, route === name);
